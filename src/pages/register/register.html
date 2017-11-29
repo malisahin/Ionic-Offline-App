@@ -1,18 +1,71 @@
-<!--
-  Generated template for the RegisterPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>register</ion-title>
+  <ion-navbar color="dark">
+    <ion-title>Register</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
-<ion-content padding>
-
+ 
+<ion-content class="login-content" padding>
+  <div class="login-box">
+    
+    <form (ngSubmit)="register()" #registerForm="ngForm">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            
+            <ion-item>
+              <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
+            </ion-item>
+            
+            <ion-item>
+              <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
+            </ion-item>
+            
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Register</button>
+        </ion-col>
+      </ion-row>
+      
+    </form>
+  </div>
 </ion-content>
