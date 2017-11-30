@@ -1,3 +1,4 @@
-var offline = offline || {};
 
-offline.domain = {};
+export class Offline{
+    
+}
