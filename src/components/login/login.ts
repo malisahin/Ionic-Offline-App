@@ -1,22 +1,24 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Loading } from 'ionic-angular';
+import { NavController } from 'ionic-angular/navigation/nav-controller';
+import { NavParams } from 'ionic-angular/navigation/nav-params';
 import { AuthService } from '../../providers/auth-service/auth-service';
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
+import { Loading } from 'ionic-angular/components/loading/loading';
+import { MenuPage } from '../../pages/menu/menu';
+import { HomeComponent } from '../home/home';
 
 /**
- * Generated class for the LoginPage page.
+ * Generated class for the LoginComponent component.
  *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
+ * See https://angular.io/api/core/Component for more info on Angular
+ * Components.
  */
-
-@IonicPage()
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
+  selector: 'login',
+  templateUrl: 'login.html'
 })
-export class LoginPage {
+export class LoginComponent {
   loading: Loading;
   registerCredentials = { email: '', password: '' }
 
@@ -29,19 +31,11 @@ export class LoginPage {
     private loadingCtrl: LoadingController) { }
 
   public crateAccount() {
-    this.nav.push('RegisterPage');
+    this.nav.push(HomeComponent);
   }
 
   public login() {
-    this.showLoading();
-    this.auth.login(this.registerCredentials).subscribe(allowed => {
-      if (allowed) {
-        this.nav.setRoot('HomePage');
-      } else {
-        this.showError('Access Denied');
-      }
-    });
-
+    this.nav.push(HomeComponent);
   }
 
   showLoading() {
@@ -62,5 +56,4 @@ export class LoginPage {
     });
     alert.present();
   }
-
 }

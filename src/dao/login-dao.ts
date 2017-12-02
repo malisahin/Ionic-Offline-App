@@ -1,7 +1,11 @@
-import {StatusBar, SQLite} from 'ionic-native';
 
+
+
+import { Injectable } from '@angular/core';
+
+@Injectable()
 export class LoginDao {
-    constructor() {
-    let db = new SQLite();
-}
+    /* constructor(private sqlite: SQLite) {
+        let db = new SQLite();
+    } */
 }
