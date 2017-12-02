@@ -7,6 +7,8 @@ import { LoadingController } from 'ionic-angular/components/loading/loading-cont
 import { Loading } from 'ionic-angular/components/loading/loading';
 import { MenuPage } from '../../pages/menu/menu';
 import { HomeComponent } from '../home/home';
+import { FormBuilder } from '@angular/forms/src/form_builder';
+import { Validators } from '@angular/forms/src/validators';
 
 /**
  * Generated class for the LoginComponent component.
@@ -23,12 +25,41 @@ export class LoginComponent {
   registerCredentials = { email: '', password: '' }
 
 
-  constructor(
-    public nav: NavController,
-    public navParams: NavParams,
-    private auth: AuthService,
-    private alertCtrl: AlertController,
-    private loadingCtrl: LoadingController) { }
+  backgrounds = [
+    'assets/img/background/background-1.jpg',
+    'assets/img/background/background-2.jpg',
+    'assets/img/background/background-3.jpg',
+    'assets/img/background/background-4.jpg'
+  ];
+  public loginForm: any;
+
+  constructor(public formBuilder: FormBuilder) {
+    this.loginForm = formBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.compose([Validators.minLength(6),
+        Validators.required])]
+    });
+  }
+
+  ionViewDidLoad() {
+    console.log('Hello LoginBackgroundSlider Page');
+  }
+
+  openResetPassword() {
+    console.log('Reset password clicked');
+  }
+
+  doLogin() {
+    if (!this.loginForm.valid) {
+      console.log('Invalid or empty data');
+    } else {
+      const userEmail = this.loginForm.value.email;
+      const userPassword = this.loginForm.value.password;
+
+      console.log('user data', userEmail, userPassword);
+    }
+  }
+
 
   public crateAccount() {
     this.nav.push(HomeComponent);
