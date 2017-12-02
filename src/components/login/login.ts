@@ -5,10 +5,8 @@ import { AuthService } from '../../providers/auth-service/auth-service';
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 import { Loading } from 'ionic-angular/components/loading/loading';
-import { MenuPage } from '../../pages/menu/menu';
 import { HomeComponent } from '../home/home';
-import { FormBuilder } from '@angular/forms/src/form_builder';
-import { Validators } from '@angular/forms/src/validators';
+import { FormBuilder, Validators } from '@angular/forms';
 
 /**
  * Generated class for the LoginComponent component.
@@ -26,14 +24,11 @@ export class LoginComponent {
 
 
   backgrounds = [
-    'assets/img/background/background-1.jpg',
-    'assets/img/background/background-2.jpg',
-    'assets/img/background/background-3.jpg',
-    'assets/img/background/background-4.jpg'
+    'assets/img/background/background-1.jpg'
   ];
   public loginForm: any;
 
-  constructor(public formBuilder: FormBuilder) {
+  constructor(public formBuilder: FormBuilder, private nav: NavController, private loadingCtrl: LoadingController) {
     this.loginForm = formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.compose([Validators.minLength(6),
@@ -80,11 +75,5 @@ export class LoginComponent {
   showError(text) {
     this.loading.dismiss();
 
-    let alert = this.alertCtrl.create({
-      title: 'Fail',
-      subTitle: text,
-      buttons: ['OK']
-    });
-    alert.present();
   }
 }
