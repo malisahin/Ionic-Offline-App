@@ -18,6 +18,10 @@ import { KampanyalarPage } from '../pages/kampanyalar/kampanyalar';
 import { KutuphanePage } from '../pages/kutuphane/kutuphane';
 import { CagriDetayPage } from '../pages/cagri-detay/cagri-detay';
 import { HeaderComponent } from '../components/header/header';
+import { HizmetBilgileriComponent } from '../components/cagri-detay-Components/hizmet-bilgileri/hizmet-bilgileri';
+import { MusteriBilgileriComponent } from '../components/cagri-detay-Components/musteri-bilgileri/musteri-bilgileri';
+import { ServisBilgileriComponent } from '../components/cagri-detay-components/servis-bilgileri/servis-bilgileri';
+import { UrunBilgileriComponent } from '../components/cagri-detay-Components/urun-bilgileri/urun-bilgileri';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { HeaderComponent } from '../components/header/header';
     KampanyalarPage,
     KutuphanePage,
     CagriDetayPage,
-    HeaderComponent
+    HeaderComponent,
+    HizmetBilgileriComponent,
+    MusteriBilgileriComponent,
+    ServisBilgileriComponent,
+    UrunBilgileriComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +62,11 @@ import { HeaderComponent } from '../components/header/header';
     KampanyalarPage,
     KutuphanePage,
     CagriDetayPage,
-    HeaderComponent
+    HeaderComponent,
+    HizmetBilgileriComponent,
+    MusteriBilgileriComponent,
+    ServisBilgileriComponent,
+    UrunBilgileriComponent
   ],
   providers: [
     StatusBar,
