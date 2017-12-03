@@ -22,7 +22,6 @@ export class GuncellemePage {
     public navParams: NavParams,
     private platform: Platform) {
     this.isAndroid = platform.is('android');
-    this.activePage = "guncelleme";
   }
 
 

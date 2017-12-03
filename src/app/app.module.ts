@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule, ErrorHandler, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
@@ -16,6 +16,8 @@ import { CagrilarPage } from '../pages/cagrilar/cagrilar';
 import { GuncellemePage } from '../pages/guncelleme/guncelleme';
 import { KampanyalarPage } from '../pages/kampanyalar/kampanyalar';
 import { KutuphanePage } from '../pages/kutuphane/kutuphane';
+import { CagriDetayPage } from '../pages/cagri-detay/cagri-detay';
+import { HeaderComponent } from '../components/header/header';
 
 @NgModule({
   declarations: [
@@ -28,11 +30,16 @@ import { KutuphanePage } from '../pages/kutuphane/kutuphane';
     CagrilarPage,
     GuncellemePage,
     KampanyalarPage,
-    KutuphanePage
+    KutuphanePage,
+    CagriDetayPage,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp)
+  ],
+  exports: [
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -45,15 +52,16 @@ import { KutuphanePage } from '../pages/kutuphane/kutuphane';
     CagrilarPage,
     GuncellemePage,
     KampanyalarPage,
-    KutuphanePage
-
-
+    KutuphanePage,
+    CagriDetayPage,
+    HeaderComponent
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthService
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

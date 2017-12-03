@@ -1,0 +1,247 @@
+<!--
+  Generated template for the CagriDetayPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button primary menuToggle>
+      <ion-icon name="list"></ion-icon>
+    </button>
+    <icon-header></icon-header>
+    <ion-title class="page-title">Çağrı Detay</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="activePage">
+      <ion-segment-button value="hizmet">
+        Hizmet Bilgileri
+      </ion-segment-button>
+
+      <ion-segment-button value="musteri">
+        Müşteri Bilgileri
+      </ion-segment-button>
+
+      <ion-segment-button value="urun">
+        Ürün Bilgileri
+      </ion-segment-button>
+
+      <ion-segment-button value="servis">
+        Servis Bilgileri
+      </ion-segment-button>
+
+      <ion-segment-button value="detay">
+        Detaylar
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div [ngSwitch]="activePage">
+    <div *ngSwitchCase="'hizmet'">
+
+      <ion-list inset>
+        <ion-item>
+          <ion-label color="primary" floating>Randevu Tarihi</ion-label>
+          <ion-input value="01.01.1900" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Çağrı Açılış Tarihi</ion-label>
+          <ion-input value="01.01.1900" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Hizmet Tipi</ion-label>
+          <ion-input value="Arıza" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Ürün Ana Grubu</ion-label>
+          <ion-input value="Klima" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Başvuru Nedeni</ion-label>
+          <ion-input value="İlk Çalıştırma" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Hizmet Formu No</ion-label>
+          <ion-input value="89087" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Durum</ion-label>
+          <ion-input value="KAPALI" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Çağrı No</ion-label>
+          <ion-input value="12345" readonly></ion-input>
+        </ion-item>
+
+      </ion-list>
+    </div>
+
+    <div *ngSwitchCase="'musteri'">
+      <ion-list inset>
+        <ion-item>
+          <ion-label color="primary" floating>Müşteri</ion-label>
+          <ion-input value="John Doe" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Ev Telefonu</ion-label>
+          <ion-input value="05311211111" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>İş Telefonu</ion-label>
+          <ion-input value="Arıza" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Cep Telefonu</ion-label>
+          <ion-input value="Klima" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>E-Posta</ion-label>
+          <ion-input value="İlk Çalıştırma" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Şehir</ion-label>
+          <ion-input value="89087" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>İlçe</ion-label>
+          <ion-input value="KAPALI" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Semt/Köy</ion-label>
+          <ion-input value="12345" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Mahalle</ion-label>
+          <ion-input value="Doğan Mahallesi" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Cadde</ion-label>
+          <ion-input value="Güneş Caddesi" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Sokak</ion-label>
+          <ion-input value="Deneme Sokak" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Apartman/Site</ion-label>
+          <ion-input value="Doğan Apt." readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Blok</ion-label>
+          <ion-input value="D" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Daire No</ion-label>
+          <ion-input value=" " readonly></ion-input>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div *ngSwitchCase="'urun'">
+      <div>
+        <button ion-button icon-start small round>
+          <ion-icon name="list"></ion-icon>
+          Ürün Seç
+        </button>
+        <button ion-button icon-start small round>
+          <ion-icon name="trash"></ion-icon>
+          Ürün Sil
+        </button>
+        <button ion-button icon-start small round>
+          <ion-icon name="refresh"></ion-icon>
+          Ürün Ana Grup Değiştir
+        </button>
+        <button ion-button icon-start small round>
+          <ion-icon name="help"></ion-icon>
+          Garanti Sorgula
+        </button>
+      </div>
+      <ion-list>
+
+        <ion-item>
+          <ion-label color="primary" floating>Ürün Ana Grubu</ion-label>
+          <ion-input value="Kombiler" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Ürün Kodu</ion-label>
+          <ion-input value="8006125620" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Ürün Adı</ion-label>
+          <ion-input value="Klima" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Seri No</ion-label>
+          <ion-input value="351315815315"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Fatura Tarihi</ion-label>
+          <ion-datetime displayFormat="MM/DD/YYYY"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" floating>Garanti</ion-label>
+            <ion-select>
+              <ion-option value="VAR">Var</ion-option>
+              <ion-option value="YOK">Yok</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+              <ion-label color="primary" floating>Meşguliyet</ion-label>
+              <ion-select>
+                <ion-option value="VAR">Var</ion-option>
+                <ion-option value="YOK">Yok</ion-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <ion-label color="primary" floating>Nöbet</ion-label>
+                <ion-select>
+                  <ion-option value="VAR">Var</ion-option>
+                  <ion-option value="YOK">Yok</ion-option>
+                </ion-select>
+              </ion-item>
+
+      </ion-list>
+    </div>
+
+    <div *ngSwitchCase="'servis'">
+
+    </div>
+
+    <div *ngSwitchCase="'detay'">
+
+    </div>
+  </div>
+</ion-content>

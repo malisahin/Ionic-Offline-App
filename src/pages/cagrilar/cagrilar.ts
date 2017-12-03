@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { CagriDetayPage } from '../cagri-detay/cagri-detay';
+import { ViewChild } from '@angular/core/src/metadata/di';
 
 /**
  * Generated class for the CagrilarPage page.
@@ -15,7 +17,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CagrilarPage {
 
-   cagrilar = ['Çagri1','Çagri2','Çagri3','Çagri4','Çagri5','Çagri6']
+  cagrilar = ['Çagri1', 'Çagri2', 'Çagri3', 'Çagri4', 'Çagri5', 'Çagri6']
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -27,6 +29,6 @@ export class CagrilarPage {
 
   public cagriDetayinaGit(event, cagri) {
     event.stopPropagation();
-    alert('Open ' + cagri);
+    this.navCtrl.push(CagriDetayPage);
   }
 }
