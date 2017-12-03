@@ -1,9 +1,3 @@
-<!--
-  Generated template for the CagriDetayPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -16,6 +10,7 @@
 
   <ion-toolbar no-border-top>
     <ion-segment [(ngModel)]="activePage">
+
       <ion-segment-button value="hizmet">
         Hizmet Bilgileri
       </ion-segment-button>
@@ -35,6 +30,7 @@
       <ion-segment-button value="detay">
         Detaylar
       </ion-segment-button>
+
     </ion-segment>
   </ion-toolbar>
 
@@ -43,6 +39,7 @@
 
 <ion-content padding>
   <div [ngSwitch]="activePage">
+
     <div *ngSwitchCase="'hizmet'">
       <hizmet-bilgileri></hizmet-bilgileri>
     </div>
@@ -60,7 +57,8 @@
     </div>
 
     <div *ngSwitchCase="'detay'">
-
+      <detay-bilgileri></detay-bilgileri>
     </div>
+
   </div>
 </ion-content>

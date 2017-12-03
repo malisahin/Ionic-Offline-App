@@ -22,6 +22,8 @@ import { HizmetBilgileriComponent } from '../components/cagri-detay-Components/h
 import { MusteriBilgileriComponent } from '../components/cagri-detay-Components/musteri-bilgileri/musteri-bilgileri';
 import { ServisBilgileriComponent } from '../components/cagri-detay-components/servis-bilgileri/servis-bilgileri';
 import { UrunBilgileriComponent } from '../components/cagri-detay-Components/urun-bilgileri/urun-bilgileri';
+import { DetayBilgileriComponent } from '../components/cagri-detay-components/detay-bilgileri/detay-bilgileri';
+import { CagrilarPageModule } from '../pages/cagrilar/cagrilar.module';
 
 @NgModule({
   declarations: [
@@ -40,14 +42,16 @@ import { UrunBilgileriComponent } from '../components/cagri-detay-Components/uru
     HizmetBilgileriComponent,
     MusteriBilgileriComponent,
     ServisBilgileriComponent,
-    UrunBilgileriComponent
+    UrunBilgileriComponent,
+    DetayBilgileriComponent
   ],
   imports: [
     BrowserModule,
+    CagrilarPageModule,
     IonicModule.forRoot(MyApp)
   ],
   exports: [
-    
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -66,7 +70,8 @@ import { UrunBilgileriComponent } from '../components/cagri-detay-Components/uru
     HizmetBilgileriComponent,
     MusteriBilgileriComponent,
     ServisBilgileriComponent,
-    UrunBilgileriComponent
+    UrunBilgileriComponent,
+    DetayBilgileriComponent
   ],
   providers: [
     StatusBar,

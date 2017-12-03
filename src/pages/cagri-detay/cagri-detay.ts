@@ -1,13 +1,13 @@
+/**
+ * @author malisahin
+ * @email mehmetalisahinogullari@gmail.com
+*/
+
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomeComponent } from '../../components/home/home';
 
-/**
- * Generated class for the CagriDetayPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -16,7 +16,7 @@ import { HomeComponent } from '../../components/home/home';
 })
 export class CagriDetayPage {
   activePage: string = "hizmet";
-  
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

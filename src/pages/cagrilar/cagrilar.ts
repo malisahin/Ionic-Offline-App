@@ -1,14 +1,11 @@
+/**
+ * @author malisahin
+ * @email mehmetalisahinogullari@gmail.com
+*/
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CagriDetayPage } from '../cagri-detay/cagri-detay';
 import { ViewChild } from '@angular/core/src/metadata/di';
-
-/**
- * Generated class for the CagrilarPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
