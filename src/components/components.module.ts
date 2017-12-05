@@ -12,6 +12,7 @@ import { HizmetBilgileriComponent } from './cagri-detay-components/hizmet-bilgil
 import { UrunBilgileriComponent } from './cagri-detay-components/urun-bilgileri/urun-bilgileri';
 import { ServisBilgileriComponent } from './cagri-detay-components/servis-bilgileri/servis-bilgileri';
 import { DetayBilgileriComponent } from './cagri-detay-components/detay-bilgileri/detay-bilgileri';
+
 @NgModule({
     declarations: [CagrilarComponent,
         LoginComponent,
@@ -31,6 +32,6 @@ import { DetayBilgileriComponent } from './cagri-detay-components/detay-bilgiler
         HizmetBilgileriComponent,
         UrunBilgileriComponent,
         ServisBilgileriComponent,
-        DetayBilgileriComponent]
+    DetayBilgileriComponent]
 })
 export class ComponentsModule { }

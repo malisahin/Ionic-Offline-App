@@ -1,4 +1,35 @@
-<!-- Generated template for the DetayBilgileriComponent component -->
-<div>
-  {{text}}
-</div>
+<ion-grid>
+    <ion-row>
+      <ion-buttons start>
+        <button ion-button round small icon-start >
+            <ion-icon name="add-circle"></ion-icon> 
+          Kaydet
+        </button>
+      </ion-buttons>
+  
+      <ion-buttons end>
+        <button ion-button  round small icon-start>
+            <ion-icon name="basket"></ion-icon>
+            Sipariş Oluştur
+        </button>
+      </ion-buttons>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-row>
+      <ion-col>
+          <ion-row>
+              <ion-col width-20>İşlem Tipi</ion-col>
+              <ion-col width-20>İşlem Kodu</ion-col>
+              <ion-col width-20>Miktar</ion-col>
+              <ion-col width-20>Tutar</ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col>(Model)IslemTipi</ion-col>
+              <ion-col>İşlem Kodu</ion-col>
+              <ion-col>Miktar</ion-col>
+              <ion-col>Tutar</ion-col>
+          </ion-row>
+      </ion-col>
+  </ion-row>
+

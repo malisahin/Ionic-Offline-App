@@ -47,7 +47,6 @@ import { CagrilarPageModule } from '../pages/cagrilar/cagrilar.module';
   ],
   imports: [
     BrowserModule,
-    CagrilarPageModule,
     IonicModule.forRoot(MyApp)
   ],
   exports: [
