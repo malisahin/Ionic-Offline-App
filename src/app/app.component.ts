@@ -13,6 +13,7 @@ import { GuncellemePage } from '../pages/guncelleme/guncelleme';
 import { KampanyalarPage } from '../pages/kampanyalar/kampanyalar';
 import { KutuphanePage } from '../pages/kutuphane/kutuphane';
 import { AyarlarPage } from '../pages/ayarlar/ayarlar';
+import { LoginPage } from '../pages/login/login';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class MyApp {
 
   // make HelloIonicPage the root (or first) page
   pages: Array<{ title: string, component: any, active: boolean, icon: string }>;
-  rootPage: any = HomeComponent;
+  rootPage: any = LoginPage;
   /*pages: Array<{ title: string, component: any }>; */
 
   constructor(

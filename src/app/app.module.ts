@@ -23,7 +23,8 @@ import { MusteriBilgileriComponent } from '../components/cagri-detay-Components/
 import { ServisBilgileriComponent } from '../components/cagri-detay-components/servis-bilgileri/servis-bilgileri';
 import { UrunBilgileriComponent } from '../components/cagri-detay-Components/urun-bilgileri/urun-bilgileri';
 import { DetayBilgileriComponent } from '../components/cagri-detay-components/detay-bilgileri/detay-bilgileri';
-import { CagrilarPageModule } from '../pages/cagrilar/cagrilar.module';
+import { LoginPage } from '../pages/login/login';
+import { LoginProvider } from '../providers/login/login';
 
 @NgModule({
   declarations: [
@@ -43,11 +44,11 @@ import { CagrilarPageModule } from '../pages/cagrilar/cagrilar.module';
     MusteriBilgileriComponent,
     ServisBilgileriComponent,
     UrunBilgileriComponent,
-    DetayBilgileriComponent
+    DetayBilgileriComponent,
+    LoginPage
   ],
   imports: [
     BrowserModule,
-    CagrilarPageModule,
     IonicModule.forRoot(MyApp)
   ],
   exports: [
@@ -71,13 +72,15 @@ import { CagrilarPageModule } from '../pages/cagrilar/cagrilar.module';
     MusteriBilgileriComponent,
     ServisBilgileriComponent,
     UrunBilgileriComponent,
-    DetayBilgileriComponent
+    DetayBilgileriComponent,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    AuthService
+    AuthService,
+    LoginProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
