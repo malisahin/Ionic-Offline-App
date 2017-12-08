@@ -1,4 +1,8 @@
+/**
+ * @author malisahin
+ * @email mehmetalisahinogullari@gmail.com
+*/
 
-export class Hizmet{
-    
+export class Hizmet {
+
 }

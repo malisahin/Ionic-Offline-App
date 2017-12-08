@@ -25,6 +25,7 @@ import { UrunBilgileriComponent } from '../components/cagri-detay-Components/uru
 import { DetayBilgileriComponent } from '../components/cagri-detay-components/detay-bilgileri/detay-bilgileri';
 import { LoginPage } from '../pages/login/login';
 import { LoginProvider } from '../providers/login/login';
+import { TokenProvider } from '../providers/token/token';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { LoginProvider } from '../providers/login/login';
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthService,
-    LoginProvider
+    LoginProvider,
+    TokenProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

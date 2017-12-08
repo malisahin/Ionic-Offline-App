@@ -1,3 +1,7 @@
+/**
+ * @author malisahin
+ * @email mehmetalisahinogullari@gmail.com
+*/
 export class User {
     userCode: string;
     userName: string;
@@ -7,12 +11,12 @@ export class User {
     ikKod: string;
     ikAd: string;
     durum: string;
-    userType: string; 
-adi: string;
-soyadi :string;
-orgKod: string;
-dilKod :string;
-pb: string;
-ikBrans: string;
-eLibsDokuman 
+    userType: string;
+    adi: string;
+    soyadi: string;
+    orgKod: string;
+    dilKod: string;
+    pb: string;
+    ikBrans: string;
+    eLibsDokuman
 }

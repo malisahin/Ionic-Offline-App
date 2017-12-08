@@ -1,3 +1,7 @@
+/**
+ * @author malisahin
+ * @email mehmetalisahinogullari@gmail.com
+*/
 export class Urun {
     mamAnagrp: string;
     mamKod: string;
