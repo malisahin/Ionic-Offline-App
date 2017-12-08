@@ -6,6 +6,7 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, Loading, IonicPage } from 'ionic-angular';
 import { HomeComponent } from '../../components/home/home';
+import { LoginProvider } from '../../providers/login/login';
 
 @IonicPage()
 @Component({
@@ -15,15 +16,19 @@ import { HomeComponent } from '../../components/home/home';
 export class LoginPage {
   loading: Loading;
   registerCredentials = { email: '', password: '' };
+  username: string;
+  password: string;
 
-  constructor(private nav: NavController, private alertCtrl: AlertController, private loadingCtrl: LoadingController) { }
+  constructor(private nav: NavController, private alertCtrl: AlertController, private loadingCtrl: LoadingController, private loginProvider: LoginProvider) { }
 
   public createAccount() {
     this.nav.push('RegisterPage');
   }
 
   public login() {
-    this.showLoading()
+    this.showLoading();
+    this.loginProvider.login(this.username, this.password);
+    console.log("Username: " + this.username + " Password: " + this.password);
     this.nav.push(HomeComponent);
   }
 

@@ -4,18 +4,18 @@
 */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Api } from '../../util/api-urls';
+import { ApiProvider } from '../api/api';
 
 @Injectable()
 export class TokenProvider {
 
-  constructor(public http: HttpClient, public api: Api) {
+  constructor(public http: HttpClient, public api: ApiProvider) {
     console.log('Hello TokenProvider Provider');
   }
 
-  getToken() {
+  getToken(username: string, password: string) {
     let promise = new Promise((resolve, reject) => {
-      let tokenUrl = this.api.tokenUrl;
+      let tokenUrl = this.api.getTokenUrl(username, password);
       this.http.get(tokenUrl)
         .toPromise()
         .then(res => {

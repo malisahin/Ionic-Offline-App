@@ -26,6 +26,9 @@ import { DetayBilgileriComponent } from '../components/cagri-detay-components/de
 import { LoginPage } from '../pages/login/login';
 import { LoginProvider } from '../providers/login/login';
 import { TokenProvider } from '../providers/token/token';
+import { HttpClientModule } from '@angular/common/http/';
+import { Api } from '../util/api-urls';
+import { ApiProvider } from '../providers/api/api';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,8 @@ import { TokenProvider } from '../providers/token/token';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   exports: [
 
@@ -82,7 +86,8 @@ import { TokenProvider } from '../providers/token/token';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthService,
     LoginProvider,
-    TokenProvider
+    TokenProvider, Api,
+    ApiProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
