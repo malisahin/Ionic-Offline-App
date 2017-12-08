@@ -27,7 +27,6 @@ import { LoginPage } from '../pages/login/login';
 import { LoginProvider } from '../providers/login/login';
 import { TokenProvider } from '../providers/token/token';
 import { HttpClientModule } from '@angular/common/http/';
-import { Api } from '../util/api-urls';
 import { ApiProvider } from '../providers/api/api';
 
 @NgModule({
