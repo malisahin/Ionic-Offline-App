@@ -28,6 +28,7 @@ import { LoginProvider } from '../providers/login/login';
 import { TokenProvider } from '../providers/token/token';
 import { HttpClientModule } from '@angular/common/http/';
 import { ApiProvider } from '../providers/api/api';
+import { DatabaseProvider } from '../providers/database/database';
 
 @NgModule({
   declarations: [
@@ -85,9 +86,12 @@ import { ApiProvider } from '../providers/api/api';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthService,
     LoginProvider,
-    TokenProvider, Api,
-    ApiProvider
+    TokenProvider,
+    TokenProvider,
+    ApiProvider,
+    DatabaseProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
+
