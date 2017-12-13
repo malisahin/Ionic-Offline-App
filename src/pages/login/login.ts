@@ -27,8 +27,10 @@ export class LoginPage {
 
   public login() {
     this.showLoading();
-    this.loginProvider.login(this.username, this.password);
+    // Yorumlar Kaldırılacak.
+    /*this.loginProvider.login(this.username, this.password);
     console.log("Username: " + this.username + " Password: " + this.password);
+    */
     this.nav.push(HomeComponent);
   }
 

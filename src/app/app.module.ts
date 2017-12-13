@@ -29,6 +29,7 @@ import { TokenProvider } from '../providers/token/token';
 import { HttpClientModule } from '@angular/common/http/';
 import { ApiProvider } from '../providers/api/api';
 import { DatabaseProvider } from '../providers/database/database';
+import { SQLite } from '@ionic-native/sqlite';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import { DatabaseProvider } from '../providers/database/database';
     TokenProvider,
     TokenProvider,
     ApiProvider,
-    DatabaseProvider
+    DatabaseProvider,
+    SQLite
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

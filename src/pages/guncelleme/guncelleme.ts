@@ -4,7 +4,6 @@
 */
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Platform } from 'ionic-angular/platform/platform';
 
 
 @IonicPage()
@@ -17,9 +16,7 @@ export class GuncellemePage {
   activePage: string = "guncelleme";
 
   constructor(public navCtrl: NavController,
-    public navParams: NavParams,
-    private platform: Platform) {
-    this.isAndroid = platform.is('android');
+    public navParams: NavParams) {
   }
 
 

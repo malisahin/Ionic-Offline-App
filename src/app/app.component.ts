@@ -6,7 +6,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginComponent } from '../components/login/login';
 import { HomeComponent } from '../components/home/home';
 import { CagrilarComponent } from '../components/cagrilar/cagrilar';
-import { NavController } from 'ionic-angular/navigation/nav-controller';
 import { CagrilarPage } from '../pages/cagrilar/cagrilar';
 import { BildirimlerPage } from '../pages/bildirimler/bildirimler';
 import { GuncellemePage } from '../pages/guncelleme/guncelleme';
@@ -14,6 +13,7 @@ import { KampanyalarPage } from '../pages/kampanyalar/kampanyalar';
 import { KutuphanePage } from '../pages/kutuphane/kutuphane';
 import { AyarlarPage } from '../pages/ayarlar/ayarlar';
 import { LoginPage } from '../pages/login/login';
+import { DatabaseProvider } from '../providers/database/database';
 
 
 @Component({
@@ -31,7 +31,8 @@ export class MyApp {
     public platform: Platform,
     public menu: MenuController,
     public statusBar: StatusBar,
-    public splashScreen: SplashScreen
+    public splashScreen: SplashScreen,
+    public db: DatabaseProvider
   ) {
     this.initializeApp();
 
@@ -45,6 +46,8 @@ export class MyApp {
       { title: 'E-Kütüphane', component: KutuphanePage, active: false, icon: 'bookmarks' },
       { title: 'Ayarlar', component: AyarlarPage, active: false, icon: 'book' }
     ];
+
+    this.db.createDatabase();
 
   }
 

@@ -18,5 +18,5 @@ export class AyarlarPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AyarlarPage');
   }
-
+  
 }
