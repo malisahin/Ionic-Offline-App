@@ -47,7 +47,7 @@ export class MyApp {
       { title: 'Ayarlar', component: AyarlarPage, active: false, icon: 'book' }
     ];
 
-    this.db.createDatabase();
+  //  this.db.createDatabase();
 
   }
 

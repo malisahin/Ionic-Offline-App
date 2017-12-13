@@ -1,0 +1,27 @@
+
+
+Data Setlerin büyüklüğü,
+
+Müşteri bazlı ekran çeşitliliği
+
+Pluginlerin stabil Çalışmaması
+
+SQLite'ın hard code yazılması. RDMS olması verilerin her birinin uygun tablolara yerleştirilmesi ve aynı şekilde geri çağrılması.Hizmet Formunun dallı yapısı ve bu yapıya uygun  senkron işlemlerin sağlanması.
+	--> NoSQL ile JSON objesi set edebilmek bütün objenin bize update edilmesini sağladı.
+	--> Avantajları :
+			7? tablonun tek bir tabloya eklenmesini sağladı.
+			Bu tablolara yazmak ve tablolardan okumak belli bir sıra gerektiği için işlemlerin tamamı asenkron olmak zorunda idi.
+			Tablo sayısı zaten 1'e indi. Bu da 7 tabloda olan işlemleri ortadan kaldırdı.
+			Işlemleri bize Promise olarak sunduğu için async-sync problemi ortadan kalkmış oldu.
+
+Asenkron işlemler kullanılan cihazın işlemci hızına göre değiştiği için farklı ortamlarda test edilmesi gerekti.
+		Development ortamında(Browser) ve test ortamlarında farklı sonuçlar alındı.
+
+
+Jquery Mobile(Jquery ve Javascript) ==> Ionic 3
+
+Multipage application oldu single-page application.
+	Avantajları:
+		CSS yüklenmesi sadece bir defa olacak.(Eskiden her sayfa geçişinde CSS'ler tekrar yükleniyordu.)
+		İlk yükleme de kaynaklar bir defa yüklenecek.Daha sonra uygulama hızlı çalışacak.
+		Verileri sayfalar arasında taşımaya gerek olmayacak.

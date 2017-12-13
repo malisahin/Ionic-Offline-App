@@ -8,22 +8,26 @@ import { ApiProvider } from '../api/api';
 
 @Injectable()
 export class TokenProvider {
-
+  results: string;
   constructor(public http: HttpClient, public api: ApiProvider) {
     console.log('Hello TokenProvider Provider');
+    this.results = "";
   }
 
-  getToken(username: string, password: string) {
-    let promise = new Promise((resolve, reject) => {
+  getToken(username: string, password: string): Promise<any> {
+    return new Promise((resolve, reject) => {
       let tokenUrl = this.api.getTokenUrl(username, password);
-      this.http.get(tokenUrl)
+      this.http.post(tokenUrl, {})
         .toPromise()
-        .then(res => {
-          console.log(res.toString());
-          resolve();
-        });
+        .then(this.extractData);
     });
-    return promise;
   }
+
+  private extractData(res: {}) {
+    console.log(res.access_token);
+    return res.access_token;
+  }
+
+
 
 }

@@ -1,0 +1,10 @@
+
+
+
+export enum EProfiles {
+    LOCAL_DEV = 'LOCAL_DEV',
+    LOCAL_TEST = 'LOCAL_TEST',
+    CUSTOMER1 = 'CUSTOMER1',
+    CUSTOMER2 = 'CUSTOMER2',
+    CUSTOMER3 = 'CUSTOMER3'
+}

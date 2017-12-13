@@ -3,37 +3,35 @@
  * @email mehmetalisahinogullari@gmail.com
 */
 import { Domain } from "./domain";
+import { EProfiles } from "./enums/eProfil";
 
 
 export class Profil {
 
-    public ACTIVE_PROFIL: Profiles.LOCAL_DEV;
-
-    public getActiveProfil() {
-        if (this.ACTIVE_PROFIL == Profiles.LOCAL_DEV) {
+    public getActiveProfil(ACTIVE_PROFIL) {
+        if (ACTIVE_PROFIL == EProfiles.LOCAL_DEV) {
             return this.getlocalDev();
         }
-        else if (this.ACTIVE_PROFIL == Profiles.LOCAL_TEST) {
+        else if (ACTIVE_PROFIL == EProfiles.LOCAL_TEST) {
             return this.getlocalTest();
         }
-        else if (this.ACTIVE_PROFIL == Profiles.CUSTOMER1) {
+        else if (ACTIVE_PROFIL == EProfiles.CUSTOMER1) {
             return this.getCustomer1();
         }
-        else if (this.ACTIVE_PROFIL == Profiles.LOCAL_DEV) {
+        else if (ACTIVE_PROFIL == EProfiles.LOCAL_DEV) {
             return this.getCustomer2();
         }
-        else if (this.ACTIVE_PROFIL == Profiles.LOCAL_DEV) {
+        else if (ACTIVE_PROFIL == EProfiles.LOCAL_DEV) {
             return this.getCustomer3();
         }
     }
-
     private getlocalDev() {
         let domain = new Domain();
         domain.orgKod = "SAHIN";
         domain.kod = 'SECRET';
         domain.name = 'Development';
-        domain.domainUrl = "";
-        domain.securityUrl = "";
+        domain.domainUrl = "http://sos.ecaservis.com.tr:7003";
+        domain.securityUrl = "http://sos.ecaservis.com.tr:7003";
         domain.activeTabCss = "'background', '#65c8f7','border-bottom','3px solid #65c8f7'";
         domain.passiveTabCss = "'background', '#244085','border-bottom','3px solid #244085'";
         domain.downloadedButtonCss = {
@@ -140,10 +138,4 @@ export class Profil {
 
 
 }
-enum Profiles {
-    LOCAL_DEV,
-    LOCAL_TEST,
-    CUSTOMER1,
-    CUSTOMER2,
-    CUSTOMER3
-}
+
