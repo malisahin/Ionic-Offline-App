@@ -9,7 +9,25 @@ export class UrunMalzeme {
     mlzKod: string;
     mlzAdi: string;
     durum: string;
-    fiyat: string;
-    gdFiyat: string;
+    kdvOran: string;
+
+
+    fillUrunMalzeme(item) {
+        var newItem: UrunMalzeme = new UrunMalzeme();
+        newItem.mamKod = item.mamKod;
+        newItem.durum = item.mamKod;
+        newItem.mlzAdi = item.mlzAdi;
+        newItem.mlzKod = item.mlzKod;
+        return newItem;
+    }
 
 }
+
+/**
+ * "mamKod": "102111079",
+"durum": "AKTIF",
+"mlzKod": "102136029",
+"mlzAdi": "VOLAN",
+"kdvOran": 18
+
+ */

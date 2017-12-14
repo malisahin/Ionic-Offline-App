@@ -30,6 +30,8 @@ import { HttpClientModule } from '@angular/common/http/';
 import { ApiProvider } from '../providers/api/api';
 import { DatabaseProvider } from '../providers/database/database';
 import { SQLite } from '@ionic-native/sqlite';
+import { UrunIscilikProvider } from '../providers/urun-iscilik/urun-iscilik';
+import { MalzemeIscilikProvider } from '../providers/malzeme-iscilik/malzeme-iscilik';
 
 @NgModule({
   declarations: [
@@ -91,7 +93,9 @@ import { SQLite } from '@ionic-native/sqlite';
     TokenProvider,
     ApiProvider,
     DatabaseProvider,
-    SQLite
+    SQLite,
+    UrunIscilikProvider,
+    MalzemeIscilikProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

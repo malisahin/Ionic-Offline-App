@@ -4,7 +4,26 @@
 */
 
 export class UrunAnaGrup {
-    mamAnaGrup: string;
-    Adi: string;
-    durum: string;
+    cozumListe: [{
+        kod: string;
+        ad: string;
+    }];
+    versiyon: string;
+    liste: [{
+        mamAnaGrup: string;
+        Adi: string;
+        durum: string;
+    }];
+    basvuruListe: [{
+        basvuruNeden: string,
+        mamAnagrp: string,
+        ad: string,
+        durum: string;
+    }];
+
+
 }
+
+/**
+ * 
+ */

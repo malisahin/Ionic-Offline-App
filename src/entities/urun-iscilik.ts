@@ -14,4 +14,31 @@ export class UrunIscilik {
     iscMikFlag: string;
     maxIscMiktar: string
 
+    fillUrunIscilik(obj) {
+        let item = new UrunIscilik();
+        item.mamKod = obj.mamKod;
+        item.iscAdi = obj.iscAdi;
+        item.iscKod = obj.iscKod;
+        item.durum = obj.durum;
+        item.iscMikFlag = obj.iscMikFlag;
+        item.maxIscMiktar = obj.maxIscMiktar;
+    }
 }
+
+/**
+ *  [
+  {
+"versiyon": "1",
+"kdvOran": 18,
+"liste": [
+  {
+"mamKod": "",
+"durum": "",
+"iscKod": "",
+"iscAdi": "",
+"iscMikFlag": "",
+"maxIscMiktar": ""
+}
+],
+ * 
+ */
