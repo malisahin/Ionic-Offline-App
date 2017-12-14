@@ -5,7 +5,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { LoginComponent } from '../../components/login/login';
 import { TokenProvider } from '../token/token';
 
 

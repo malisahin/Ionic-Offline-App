@@ -24,8 +24,8 @@ export class TokenProvider {
   }
 
   private extractData(res: {}) {
-    console.log(res.access_token);
-    return res.access_token;
+    console.log(res);
+
   }
 
 
