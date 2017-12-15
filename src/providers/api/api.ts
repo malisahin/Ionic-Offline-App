@@ -7,9 +7,8 @@ import { Profil } from '../../entities/profil';
 import { EProfiles } from '../../entities/enums/eProfil';
 import { Observable } from 'rxjs/Observable';
 import { RequestOptions } from '@angular/http/';
-import { HttpClient } from '@angular/common/http';
 import { Http } from '@angular/http';
-import { NumberValueAccessor } from '@angular/forms/src/directives/number_value_accessor';
+
 
 @Injectable()
 export class ApiProvider {

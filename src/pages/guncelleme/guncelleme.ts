@@ -4,6 +4,7 @@
 */
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { MalzemeIscilikProvider } from '../../providers/malzeme-iscilik/malzeme-iscilik';
 
 
 @IonicPage()
@@ -16,7 +17,12 @@ export class GuncellemePage {
   activePage: string = "guncelleme";
 
   constructor(public navCtrl: NavController,
-    public navParams: NavParams) {
+    public navParams: NavParams,
+    public mlzIscProvider: MalzemeIscilikProvider) {
+  }
+
+  downloadUrunIscilik() {
+    this.mlzIscProvider.urunIscilikGuncelle("-1", 0);
   }
 
 

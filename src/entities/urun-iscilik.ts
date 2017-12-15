@@ -22,6 +22,7 @@ export class UrunIscilik {
         item.durum = obj.durum;
         item.iscMikFlag = obj.iscMikFlag;
         item.maxIscMiktar = obj.maxIscMiktar;
+        return item;
     }
 }
 

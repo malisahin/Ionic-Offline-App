@@ -16,8 +16,10 @@ export class LoginProvider {
   }
 
   login(username, password) {
-    let tokenUrl = this.token.getToken(username, password);
-    return null;
+    let tokenUrl = this.token.getToken(username, password).then(res => {
+      alert(res);
+    });
+
   }
 
 }
