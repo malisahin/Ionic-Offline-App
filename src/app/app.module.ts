@@ -33,6 +33,12 @@ import { SQLite } from '@ionic-native/sqlite';
 import { MalzemeIscilikProvider } from '../providers/malzeme-iscilik/malzeme-iscilik';
 import { Http, HttpModule } from '@angular/http';
 import { UrunIscilik } from '../entities/urun-iscilik';
+import { UrunProvider } from '../providers/urun/urun';
+import { UrunAnaGrpProvider } from '../providers/urun-ana-grp/urun-ana-grp';
+import { UrunIscilikProvider } from '../providers/urun-iscilik/urun-iscilik';
+import { UrunMalzemeProvider } from '../providers/urun-malzeme/urun-malzeme';
+import { IslemArizaIscilikProvider } from '../providers/islem-ariza-iscilik/islem-ariza-iscilik';
+import { FiyatProvider } from '../providers/fiyat/fiyat';
 
 
 
@@ -98,7 +104,13 @@ import { UrunIscilik } from '../entities/urun-iscilik';
     ApiProvider,
     DatabaseProvider,
     SQLite,
-    MalzemeIscilikProvider
+    MalzemeIscilikProvider,
+    UrunProvider,
+    UrunAnaGrpProvider,
+    UrunIscilikProvider,
+    UrunMalzemeProvider,
+    IslemArizaIscilikProvider,
+    FiyatProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -6,8 +6,10 @@ import { Injectable, Version } from '@angular/core';
 import { Profil } from '../../entities/profil';
 import { EProfiles } from '../../entities/enums/eProfil';
 import { Observable } from 'rxjs/Observable';
-import { RequestOptions } from '@angular/http/';
+import { RequestOptions } from '@angular/http';
+import { RequestOptionsArgs } from '@angular/http';
 import { Http } from '@angular/http';
+import { Headers } from '@angular/http';
 
 
 @Injectable()
@@ -59,32 +61,32 @@ export class ApiProvider {
     return this.urlPrefixHizmet + this.orgKod + '/' + this.userName + '/' + this.dilKod + '/' + this.paraBirimi + '/' + siparisMi + '/' + '/CagriKaydet';
   }
 
-  urunGuncelleUrl(versiyon: string, first: number) {
+  downloadUrunUrl(versiyon: string, first: number) {
     // url: App.domainUrl + '/sos-api/endpointrest/offline/' + versiyon + '/' + first + '/' + pageSize + '/urunler',
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/urunler';
   }
 
-  urunAnaGrupGuncelleUrl(versiyon: string) {
+  urunAnagrupDownloadUrl(versiyon: string) {
     //url: App.domainUrl + '/sos-api/endpointrest/offline/' + versiyon + '/mamAnagrp',
     return this.urlPrefixOffline + versiyon + '/mamAnagrp';
   }
 
-  urunIscGuncelleUrl(versiyon: string, first: number) {
+  urunIscilikDownloadUrl(versiyon: string, first: number) {
     //url: App.domainUrl + '/sos-api/endpointrest/offline/' + versiyon + '/' + first + '/' + pageSize + '/mamIsc',
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/mamIsc';
   }
 
-  urunMlzGuncelleUrl(versiyon: string, first: number) {
+  urunMalzemeDownloadUrl(versiyon: string, first: number) {
     //url: App.domainUrl + '/sos-api/endpointrest/offline/' + versiyon + '/' + first + '/' + pageSize + '/mamMlz',
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/mamMlz';
   }
 
-  islemArizaIscGuncelleUrl(versiyon: string, first: number) {
+  islemArizaIscilikDownloadUrl(versiyon: string, first: number) {
     //url: App.domainUrl + '/sos-api/endpointrest/offline/' + versiyon + '/' + first + '/' + pageSize + '/islArzIsc',
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/islArzIsc';
   }
 
-  getFiyatlarUrl(versiyon: string, first: number, tip: string) {
+  fiyatlarDownloadUrl(versiyon: string, first: number, tip: string) {
     //url: App.domainUrl + '/sos-api/endpointrest/offline/' + versiyon + '/' + first + '/' + pageSize + '/' + tip,
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/' + tip;
   }
@@ -107,5 +109,12 @@ export class ApiProvider {
   updateMamAnaGrupUrl() {
     // url: App.domainUrl + '/sos-api/endpointrest/hizmet/' + userObj.orgKod + '/' + userObj.userName + '/' + userObj.dilKod + '/' + userObj.pB + '/UpdateMamAnaGrp',
     return this.urlPrefixHizmet + this.orgKod + '/' + this.userName + '/' + this.dilKod + '/' + this.paraBirimi + '/UpdateMamAnaGrp';
+  }
+
+  getHeader(): RequestOptions {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('accessToken', localStorage.getItem("accessToken"));
+    return new RequestOptions({ headers: headers });
   }
 }

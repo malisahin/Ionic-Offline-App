@@ -16,35 +16,17 @@ export class MalzemeIscilikProvider {
     console.log('Hello MalzemeIscilikProvider Provider');
   }
 
-
-  urunIscilikGuncelle(versiyon: string, first: number): Promise<any> {
-    let headers = new Headers();
+  urunIscilikGuncelle2(versiyon: string, first: number): Observable<any> {
     let url = this.api.urunIscGuncelleUrl(versiyon, first);
-    headers.append('Content-Type', 'application/json');
-    headers.append('accessToken', localStorage.getItem("accessToken"));
+    //let options = this.getHeader();
+    //return this.http.get(url, options);
 
-    let options = new RequestOptions({ headers: headers });
-
-    return new Promise((resolve, reject) => {
-      return this.http.get(url, options)
-        .toPromise()
-        .then(this.extractData)
-        .catch(this.extractData);
-    });
-
-
-    /* return this.http.get(url, options)
-       .map(res => {
-         return res.json().results.map(item => {
-           return this.urunMalzeme.fillUrunMalzeme(item);
-         });
-       }).toPromise().then().catch();
-       */
-
+    return null;
   }
 
   private extractData(res: {}) {
     console.log(res);
+
   }
 
   urunMalzemeGuncelle() {
