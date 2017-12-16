@@ -46,9 +46,9 @@ export class ApiProvider {
 
   loginUrl: string = "";
 
-  getKullaniciUrl(username: string): Observable<any> {
-
-    return null;
+  getKullaniciUrl(username: string) {
+    //url: App.domainUrl + "/sos-api/endpointrest/kullanici/" + localStorage.getItem("user")
+    return this.urlPrefixKullanici + this.userName;
   }
 
   getCagriListUrl() {

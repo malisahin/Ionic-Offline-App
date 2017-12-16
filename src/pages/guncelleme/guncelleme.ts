@@ -6,7 +6,6 @@
 
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { MalzemeIscilikProvider } from '../../providers/malzeme-iscilik/malzeme-iscilik';
 import { UrunProvider } from '../../providers/urun/urun';
 import { UrunAnaGrpProvider } from '../../providers/urun-ana-grp/urun-ana-grp';
 import { UrunIscilikProvider } from '../../providers/urun-iscilik/urun-iscilik';
@@ -26,7 +25,6 @@ export class GuncellemePage {
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    public mlzIscProvider: MalzemeIscilikProvider,
     private urunProvider: UrunProvider,
     private urunAnaGrpProvider: UrunAnaGrpProvider,
     private urunIscilikProvider: UrunIscilikProvider,
