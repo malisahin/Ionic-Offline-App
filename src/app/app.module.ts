@@ -30,7 +30,6 @@ import { HttpClientModule } from '@angular/common/http/';
 import { ApiProvider } from '../providers/api/api';
 import { DatabaseProvider } from '../providers/database/database';
 import { SQLite } from '@ionic-native/sqlite';
-import { MalzemeIscilikProvider } from '../providers/malzeme-iscilik/malzeme-iscilik';
 import { Http, HttpModule } from '@angular/http';
 import { UrunIscilik } from '../entities/urun-iscilik';
 import { UrunProvider } from '../providers/urun/urun';
@@ -104,7 +103,6 @@ import { FiyatProvider } from '../providers/fiyat/fiyat';
     ApiProvider,
     DatabaseProvider,
     SQLite,
-    MalzemeIscilikProvider,
     UrunProvider,
     UrunAnaGrpProvider,
     UrunIscilikProvider,

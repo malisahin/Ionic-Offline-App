@@ -11,7 +11,6 @@ export class DatabaseProvider {
     constructor(public http: HttpClient, private platform: Platform, private sqlite: SQLite) {
 
     }
-
     createDatabase() {
         this.platform.ready().then(() => {
             this.sqlite.create({
@@ -22,7 +21,6 @@ export class DatabaseProvider {
                     return this.createApplicationTables(db);
                 })
                 .catch(e => console.log(e));
-
         });
     }
 
@@ -54,7 +52,6 @@ export class DatabaseProvider {
             db.executeSql('CREATE TABLE IF NOT EXISTS OFF_HIZ_MST (seqNo PRIMARY KEY,randevuTarihi DATE,hizmetTipiAdi,mamAnaGrpAdi, basvuruNedeni,durum,' +
                 'adi,soyadi, firmaUnvani, evTel,isTel, gsmNo, data)', {});
 
-            // seqNo, adi, soyadi, firmaUnvanı, mamAnagrpAdi, hizmetTipiAdi, basvuruNedeni , gsmNo, evTel, isTel, randevuTarihi, durum,
         }).then(() => {
             this.addInitialValuesToApplicationTables(db);
         });
