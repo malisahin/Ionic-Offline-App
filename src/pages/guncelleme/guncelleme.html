@@ -25,15 +25,15 @@
 <ion-content padding>
   <div [ngSwitch]="activePage">
     <div *ngSwitchCase="'guncelleme'">
-      <button ion-button icon-end color="secondary" round full>Ürünler
+      <button ion-button urun icon-end color="secondary" (click)="downloadUrunler();" round full>Ürünler
         <ion-icon name='arrow-down'></ion-icon>
       </button>
-      <button ion-button color="secondary" round full>Ürün Ana Grupları</button>
+      <button ion-button urunAnaGrp color="secondary" (click)="downloadUrunAnaGrup();" round full>Ürün Ana Grupları</button>
       <button ion-button urunIsc color="secondary" (click)="downloadUrunIscilik();" round full>Ürün Işçilik</button>
-      <button ion-button color="secondary" round full>Ürün-Malzeme</button>
-      <button ion-button color="secondary" round full>Işlem-Arıza-Işçilik</button>
-      <button ion-button color="secondary" round full>Malzeme Fiyatları</button>
-      <button ion-button color="secondary" round full>Işçilik Fiyatları</button>
+      <button ion-button urunMlz color="secondary" (click)="downloadUrunMalzeme();" round full>Ürün-Malzeme</button>
+      <button ion-button islArzIsc color="secondary" (click)="downloadIslemArizaIscilik();" round full>Işlem-Arıza-Işçilik</button>
+      <button ion-button mlzFiyat color="secondary" (click)="downloadMalzemeFiyat();" round full>Malzeme Fiyatları</button>
+      <button ion-button iscFiyat color="secondary" (click)="downloadIscilikFiyat();" round full>Işçilik Fiyatları</button>
     </div>
 
     <div *ngSwitchCase="'versiyon'">
