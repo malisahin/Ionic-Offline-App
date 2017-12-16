@@ -5,9 +5,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CagriDetayPage } from '../cagri-detay/cagri-detay';
-import { ViewChild } from '@angular/core/src/metadata/di';
 import { ModalController } from 'ionic-angular/components/modal/modal-controller';
 import { CagriAramaModalPage } from './cagri-arama-modal/cagri-arama-modal';
+import { CagriProvider } from '../../providers/cagri/cagri';
 
 @IonicPage()
 @Component({
@@ -18,7 +18,10 @@ export class CagrilarPage {
 
   cagrilar = ['Çagri1', 'Çagri2', 'Çagri3', 'Çagri4', 'Çagri5', 'Çagri6']
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private modalController: ModalController) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    private modalController: ModalController,
+    private cagriProvider: CagriProvider) {
   }
 
   ionViewDidLoad() {
@@ -31,8 +34,14 @@ export class CagrilarPage {
     this.navCtrl.push(CagriDetayPage);
   }
 
-  public cagriAra() {
+  public cagriSorgula() {
     let aramaModal = this.modalController.create(CagriAramaModalPage);
     aramaModal.present();
+  }
+
+  public cagriGuncelle() {
+    this.cagriProvider.downloadCagriList().subscribe(res => {
+      console.log(res);
+    });
   }
 }

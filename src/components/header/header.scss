@@ -1,3 +1,11 @@
 header {
-
+  #header-div {
+    display: inline-block;
+  }
+  #header-left-buttons {
+    float: left;
+  }
+  #header-right-buttons {
+    float: right;
+  }
 }

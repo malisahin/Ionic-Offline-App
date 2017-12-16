@@ -7,14 +7,21 @@
 <ion-header>
 
   <ion-navbar>
-      <button ion-button primary menuToggle><ion-icon name="list"></ion-icon></button>
-      <icon-header></icon-header>
+    <button ion-button primary menuToggle>
+      <ion-icon name="list"></ion-icon>
+    </button>
+    <icon-header></icon-header>
     <ion-title class="page-title">Çağrılar</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding>
+
+  <div>
+    <button ion-button id="btnCagriSorgu" cgrArama (click)="cagriSorgula();" color="secondary">Sorgula</button>
+    <button ion-button id="btnCagriGuncelle" cgrGuncelle (click)="cagriGuncelle();" color="secondary">Güncelle</button>
+  </div>
   <ion-list>
     <ion-item *ngFor="let cagri of cagrilar" (click)="cagriDetayinaGit($event, cagri)">
       {{ cagri }}

@@ -22,7 +22,7 @@ export class LoginPage {
   constructor(private nav: NavController, private alertCtrl: AlertController, private loadingCtrl: LoadingController, private loginProvider: LoginProvider) { }
 
   public createAccount() {
-    this.nav.push('RegisterPage');
+
   }
 
   public login() {
