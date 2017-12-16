@@ -52,7 +52,6 @@ export class ApiProvider {
   }
 
   getCagriListUrl() {
-
     return this.urlPrefixHizmet + this.orgKod + '/' + this.serKod + '/' + this.ikKod + '/param/ikCagriListesi';
   }
 
