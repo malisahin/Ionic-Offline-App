@@ -3,11 +3,95 @@
  * @email mehmetalisahinogullari@gmail.com
 */
 
-export class Hizmet {
+import { CagriDetay } from "./cagri-detay";
+import { IslemList } from "./islemList";
+import { Anket } from "./anket";
+
+
+
+export class Cagri {
+    aciklama: string = "";
+    adi: string = "";
+    anket: Anket[];
+    apartman: string;
+    basvuruNedenAdi: string = "";
+    basvuruNedeni: string = "";
+    bayiKod: string = "";
+    blok: string = "";
+    cadde: string = "";
+    cagriTarihi: string = "";
+    cmNo: string = "";
+    cmTarihi: string = "";
+    cozumKodu: string = "";
+    daireNo: string = "";
+    detayList: CagriDetay[];
+    durum: string = "";
+    eposta: string = "";
+    evTel: string = "";
+    firmaUnvanı: string = "";
+    garanti: string = "";
+    gsmNo: string = "";
+    hizmetTipi: string = "";
+    hizmetTipiAdi: string = "";
+    ikKod: string = "";
+    ilceKod: string = "";
+    iletisimIstek: string = "";
+    isTel: string = "";
+    islemBitTarihi: string = "";
+    islemList: IslemList[];
+    islemTarihi: string = "";
+    kapatmaKodu: string = "";
+    mahalle: string = "";
+    mamAdi: string = "";
+    mamAnaGrp: string = "";
+    mamAnaGrpAdi: string = "";
+    mamKod: string = "";
+    mamSeriNo: string = "";
+    mamSeriNo2: string = "";
+    merkezNotu: string = "";
+    mesguliyet: string = "";
+    musId: string = "";
+    musKod: string = "";
+    musTip: string = "";
+    nobet: string = "";
+    odemeTipi: string = "";
+    randevuTarihi: string = "";
+    sattar: string = "";
+    sehir: string = "";
+    sehirKod: string = "";
+    semt: string = "";
+    seqNo: string = "";
+    serAd: string = "";
+    serKod: string = "";
+    servisNotu: string = "";
+    sokak: string = "";
+    soyadi: string = "";
 
 }
+/**
+ * 
+ *   var cagri = '<a href="#" onclick="hizmetYonlendir( \'' + btncagri + '\', ' + item.seqNo + ')">' +
+                '<h3>' + item.adi + ' ' + item.soyadi + item.firmaUnvani + '( ' + item.seqNo + ') </h3>' +
+                '<p><strong>' + "" + item.mamAnaGrpAdi + "  |  " + item.hizmetTipiAdi + "  |  " + item.basvuruNedenAdi + '</strong></p>' +
+                '<p>' + "" + item.gsmNo + " / " + item.evTel + " / " + item.isTel + '</p>' +
+                '<p>' + "" + item.toString() + '</p>' +
+                '<p class="ui-li-aside"><strong>(' + item.randevuTarihi.substring(0, 16) + ')</strong></p></a>';
+ */
 
-
+/**
+ * 
+ * seqNo
+ * adi soyadi
+ *  mamAnagrpAdi
+ * hizmetTipiAdi
+ * basvuruNedenAdi
+ * gsmNo
+ * evTel
+ * isTel
+ * randevuTarihi
+ * durum
+ * 
+ */
 /**
  * {
     "responseCode": "SUCCESS",

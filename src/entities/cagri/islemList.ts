@@ -4,7 +4,7 @@
 */
 
 
-export class HizmetDetay {
+export class IslemList {
     satirNo: string;
     seqNo: string;
     arizaKod: string;

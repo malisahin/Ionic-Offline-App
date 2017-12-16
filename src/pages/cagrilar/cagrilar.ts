@@ -8,6 +8,7 @@ import { CagriDetayPage } from '../cagri-detay/cagri-detay';
 import { ModalController } from 'ionic-angular/components/modal/modal-controller';
 import { CagriAramaModalPage } from './cagri-arama-modal/cagri-arama-modal';
 import { CagriProvider } from '../../providers/cagri/cagri';
+import { MockCagriList } from '../../entities/cagri/cagriList-mock';
 
 @IonicPage()
 @Component({
@@ -15,13 +16,14 @@ import { CagriProvider } from '../../providers/cagri/cagri';
   templateUrl: 'cagrilar.html',
 })
 export class CagrilarPage {
-
-  cagrilar = ['Çagri1', 'Çagri2', 'Çagri3', 'Çagri4', 'Çagri5', 'Çagri6']
+  mockData = new MockCagriList();
+  cagrilar: any;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private modalController: ModalController,
     private cagriProvider: CagriProvider) {
+    this.cagrilar = this.mockData.cagriList;
   }
 
   ionViewDidLoad() {
@@ -41,6 +43,7 @@ export class CagrilarPage {
 
   public cagriGuncelle() {
     this.cagriProvider.downloadCagriList().subscribe(res => {
+
       console.log(res);
     });
   }
