@@ -52,6 +52,7 @@ export class ApiProvider {
   }
 
   getCagriListUrl() {
+    this.ikKod = '5961'
     return this.urlPrefixHizmet + this.orgKod + '/' + this.serKod + '/' + this.ikKod + '/param/ikCagriListesi';
   }
 

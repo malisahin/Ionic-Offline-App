@@ -31,9 +31,11 @@ export class CagrilarPage {
   }
 
 
-  public cagriDetayinaGit(event, cagri) {
+  public cagriDetayinaGit(event, seqNo) {
     event.stopPropagation();
-    this.navCtrl.push(CagriDetayPage);
+    let params = { seqNo: seqNo };
+
+    this.navCtrl.push(CagriDetayPage, params);
   }
 
   public cagriSorgula() {
