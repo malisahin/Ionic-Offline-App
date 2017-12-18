@@ -40,6 +40,7 @@ import { IslemArizaIscilikProvider } from '../providers/islem-ariza-iscilik/isle
 import { FiyatProvider } from '../providers/fiyat/fiyat';
 import { CagriProvider } from '../providers/cagri/cagri';
 import { CagriAramaModalPage } from '../pages/cagrilar/cagri-arama-modal/cagri-arama-modal';
+import { HizmetProvider } from '../providers/hizmet/hizmet';
 
 
 
@@ -114,7 +115,8 @@ import { CagriAramaModalPage } from '../pages/cagrilar/cagri-arama-modal/cagri-a
     UrunMalzemeProvider,
     IslemArizaIscilikProvider,
     FiyatProvider,
-    CagriProvider
+    CagriProvider,
+    HizmetProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

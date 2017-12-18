@@ -16,10 +16,10 @@ import { Headers } from '@angular/http';
 export class ApiProvider {
   profil: Profil = new Profil();
   ACTIVE_PROFIL: EProfiles;
-  orgKod: string;
-  serKod: string;
+  orgKod: string = "ECAMERKEZ";
+  serKod: string = "ECA_TEST";
   dilKod: string;
-  ikKod: string;
+  ikKod: string = "5961";
   userName: string;
   paraBirimi: string;
   urlPrefixHizmet: string;
