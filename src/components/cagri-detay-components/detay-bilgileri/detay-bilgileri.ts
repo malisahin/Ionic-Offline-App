@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
   templateUrl: 'detay-bilgileri.html'
 })
 export class DetayBilgileriComponent {
-
+  showDetails: number = 1;
   text: string;
 
   constructor() {
@@ -19,4 +19,7 @@ export class DetayBilgileriComponent {
     this.text = 'Hello World';
   }
 
+  toggleDetails() {
+    this.showDetails = -1 * this.showDetails;
+  }
 }

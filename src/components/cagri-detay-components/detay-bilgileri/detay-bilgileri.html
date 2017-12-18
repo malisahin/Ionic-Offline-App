@@ -1,35 +1,85 @@
 <ion-grid>
-    <ion-row>
-      <ion-buttons start>
-        <button ion-button round small icon-start >
-            <ion-icon name="add-circle"></ion-icon> 
-          Kaydet
-        </button>
-      </ion-buttons>
-  
-      <ion-buttons end>
-        <button ion-button  round small icon-start>
-            <ion-icon name="basket"></ion-icon>
-            Sipariş Oluştur
-        </button>
-      </ion-buttons>
-    </ion-row>
-  </ion-grid>
-  
   <ion-row>
-      <ion-col>
-          <ion-row>
-              <ion-col width-20>İşlem Tipi</ion-col>
-              <ion-col width-20>İşlem Kodu</ion-col>
-              <ion-col width-20>Miktar</ion-col>
-              <ion-col width-20>Tutar</ion-col>
-          </ion-row>
-          <ion-row>
-              <ion-col>(Model)IslemTipi</ion-col>
-              <ion-col>İşlem Kodu</ion-col>
-              <ion-col>Miktar</ion-col>
-              <ion-col>Tutar</ion-col>
-          </ion-row>
-      </ion-col>
-  </ion-row>
+    <ion-buttons start>
+      <button ion-button round small icon-start>
+        <ion-icon name="add-circle"></ion-icon>
+        Kaydet
+      </button>
+    </ion-buttons>
 
+    <ion-buttons end>
+      <button ion-button round small icon-start>
+        <ion-icon name="basket"></ion-icon>
+        Sipariş Oluştur
+      </button>
+    </ion-buttons>
+  </ion-row>
+</ion-grid>
+
+<ion-row>
+  <ion-col>
+    <ion-row>
+      <ion-col width-20>İşlem Tipi</ion-col>
+      <ion-col width-20>İşlem Kodu</ion-col>
+      <ion-col width-20>Miktar</ion-col>
+      <ion-col width-20>Tutar</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>(Model)IslemTipi</ion-col>
+      <ion-col>İşlem Kodu</ion-col>
+      <ion-col>Miktar</ion-col>
+      <ion-col>Tutar</ion-col>
+    </ion-row>
+  </ion-col>
+</ion-row>
+
+<ion-list>
+  <button ion-button (click)="toggleDetails()" full color="light" round>
+    <ion-icon name='arrow-down'></ion-icon> Kapatma İşlemleri</button>
+  <div id="divKapatmaIslemleri" *ngIf="showDetails == -1">
+    <ion-buttons>
+      <button ion-button round color="secondary">Kapat</button>
+      <button ion-button round color="secondary">Iptal</button>
+      <button ion-button round color="secondary">Yazdır</button>
+      <button ion-button round color="secondary">Sil</button>
+    </ion-buttons>
+
+    <ion-list inset>
+
+      <ion-item>
+        <ion-label color="primary" floating>Açıklama</ion-label>
+        <ion-textarea></ion-textarea>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label color="primary" floating>Kapatma Şekli</ion-label>
+        <ion-select>
+          <ion-option value="NORMAL">Normal Kapatma</ion-option>
+          <ion-option value="MESGULIYET">Meşguliyet Kapatma</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary" floating>Ödeme Tipi</ion-label>
+        <ion-select>
+          <ion-option value="NAKIT">Nakit</ion-option>
+          <ion-option value="KREDIKARTI">Kredi Kartı</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary" floating>Çözüm Kodu</ion-label>
+        <ion-select>
+          <ion-option value="Kodu1">Çözüm Kodu1</ion-option>
+          <ion-option value="Kodu2">Çözüm Kodu2</ion-option>
+          <ion-option value="Kodu3">Çözüm Kodu3</ion-option>
+          <ion-option value="Kodu4">Çözüm Kodu4</ion-option>
+          <ion-option value="Kodu5">Çözüm Kodu5</ion-option>
+          <ion-option value="Kodu6">Çözüm Kodu6</ion-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-list>
+  </div>
+</ion-list>

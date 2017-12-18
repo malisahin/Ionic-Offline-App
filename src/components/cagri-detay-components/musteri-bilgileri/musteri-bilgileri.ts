@@ -1,11 +1,10 @@
+/**
+ * @author malisahin
+ * @email mehmetalisahinogullari@gmail.com
+*/
+
 import { Component } from '@angular/core';
 
-/**
- * Generated class for the MusteriBilgileriComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
   selector: 'musteri-bilgileri',
   templateUrl: 'musteri-bilgileri.html'

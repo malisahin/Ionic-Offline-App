@@ -38,6 +38,8 @@ import { UrunIscilikProvider } from '../providers/urun-iscilik/urun-iscilik';
 import { UrunMalzemeProvider } from '../providers/urun-malzeme/urun-malzeme';
 import { IslemArizaIscilikProvider } from '../providers/islem-ariza-iscilik/islem-ariza-iscilik';
 import { FiyatProvider } from '../providers/fiyat/fiyat';
+import { CagriProvider } from '../providers/cagri/cagri';
+import { CagriAramaModalPage } from '../pages/cagrilar/cagri-arama-modal/cagri-arama-modal';
 
 
 
@@ -60,7 +62,8 @@ import { FiyatProvider } from '../providers/fiyat/fiyat';
     ServisBilgileriComponent,
     UrunBilgileriComponent,
     DetayBilgileriComponent,
-    LoginPage
+    LoginPage,
+    CagriAramaModalPage
   ],
   imports: [
     BrowserModule,
@@ -90,7 +93,9 @@ import { FiyatProvider } from '../providers/fiyat/fiyat';
     ServisBilgileriComponent,
     UrunBilgileriComponent,
     DetayBilgileriComponent,
-    LoginPage
+    LoginPage,
+    CagriAramaModalPage
+
   ],
   providers: [
     StatusBar,
@@ -108,7 +113,8 @@ import { FiyatProvider } from '../providers/fiyat/fiyat';
     UrunIscilikProvider,
     UrunMalzemeProvider,
     IslemArizaIscilikProvider,
-    FiyatProvider
+    FiyatProvider,
+    CagriProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

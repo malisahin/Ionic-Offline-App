@@ -1,0 +1,56 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title class="page-title">Çağrı Arama Paneli</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label>Çağrı No</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Çağrı Durumu</ion-label>
+    <ion-select>
+      <ion-option value="ACIK">Açık</ion-option>
+      <ion-option value="KAPALI">Kapalı</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label fixed>Randevu Tarihi</ion-label>
+    <ion-datetime displayFormat="DD.MM.YYYY"></ion-datetime>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label fixed>Müşteri Adı</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label fixed>Müşteri Soyadı</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label fixed>Müşteri Ünvanı</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label fixed>Telefon No</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <button id="btnModalAra" ion-button round (click)="closeModal()">Ara</button>
+  <button id="btnModalIptal" ion-button round (click)="closeModal()">Iptal</button>
+
+</ion-content>

@@ -46,13 +46,13 @@ export class ApiProvider {
 
   loginUrl: string = "";
 
-  getKullaniciUrl(username: string): Observable<any> {
-
-    return null;
+  getKullaniciUrl(username: string) {
+    //url: App.domainUrl + "/sos-api/endpointrest/kullanici/" + localStorage.getItem("user")
+    return this.urlPrefixKullanici + this.userName;
   }
 
   getCagriListUrl() {
-
+    this.ikKod = '5961'
     return this.urlPrefixHizmet + this.orgKod + '/' + this.serKod + '/' + this.ikKod + '/param/ikCagriListesi';
   }
 
