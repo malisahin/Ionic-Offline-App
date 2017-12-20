@@ -41,8 +41,7 @@ import { FiyatProvider } from '../providers/fiyat/fiyat';
 import { CagriProvider } from '../providers/cagri/cagri';
 import { CagriAramaModalPage } from '../pages/cagrilar/cagri-arama-modal/cagri-arama-modal';
 import { HizmetProvider } from '../providers/hizmet/hizmet';
-
-
+import { HizmetDao } from '../dao/hizmet-dao';
 
 @NgModule({
   declarations: [
@@ -64,7 +63,7 @@ import { HizmetProvider } from '../providers/hizmet/hizmet';
     UrunBilgileriComponent,
     DetayBilgileriComponent,
     LoginPage,
-    CagriAramaModalPage
+    CagriAramaModalPage,
   ],
   imports: [
     BrowserModule,
@@ -116,7 +115,8 @@ import { HizmetProvider } from '../providers/hizmet/hizmet';
     IslemArizaIscilikProvider,
     FiyatProvider,
     CagriProvider,
-    HizmetProvider
+    HizmetProvider,
+    HizmetDao
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

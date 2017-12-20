@@ -32,6 +32,6 @@ import { DetayBilgileriComponent } from './cagri-detay-components/detay-bilgiler
         HizmetBilgileriComponent,
         UrunBilgileriComponent,
         ServisBilgileriComponent,
-    DetayBilgileriComponent]
+        DetayBilgileriComponent]
 })
 export class ComponentsModule { }

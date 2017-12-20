@@ -1,22 +1,32 @@
-import { Component } from '@angular/core';
-
 /**
- * Generated class for the HizmetBilgileriComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
+ * @author [malisahin]
+ * @email [mehmetalisahinogullari@gmail.com]
+*/
+
+import { Component } from '@angular/core';
+import { HizmetProvider } from '../../../providers/hizmet/hizmet';
+import { Cagri } from '../../../entities/cagri/cagri';
+
+
 @Component({
   selector: 'hizmet-bilgileri',
   templateUrl: 'hizmet-bilgileri.html'
 })
 export class HizmetBilgileriComponent {
 
+  hizmet: Cagri;
   text: string;
 
-  constructor() {
+  constructor(public service: HizmetProvider) {
     console.log('Hello HizmetBilgileriComponent Component');
     this.text = 'Hello World';
+    this.hizmet = new Cagri();
+    this.prepareData();
+  }
+
+  prepareData() {
+    this.hizmet = this.service.getHizmet();
+    console.log("Selam ");
   }
 
 }
