@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Cagri } from '../../../entities/cagri/cagri';
+import { TasiyiciProvider } from '../../../providers/tasiyici/tasiyici';
 
 /**
  * Generated class for the DetayBilgileriComponent component.
@@ -16,10 +17,11 @@ export class DetayBilgileriComponent {
   text: string;
   hizmet: Cagri;
 
-  constructor() {
+  constructor(private tasiyici: TasiyiciProvider) {
     console.log('Hello DetayBilgileriComponent Component');
     this.text = 'Hello World';
-    this.hizmet = new Cagri();
+    this.hizmet = this.tasiyici.getHizmet();
+
   }
 
   toggleDetails() {
