@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Cagri } from '../../../entities/cagri/cagri';
 
 /**
  * Generated class for the DetayBilgileriComponent component.
@@ -13,10 +14,12 @@ import { Component } from '@angular/core';
 export class DetayBilgileriComponent {
   showDetails: number = 1;
   text: string;
+  hizmet: Cagri;
 
   constructor() {
     console.log('Hello DetayBilgileriComponent Component');
     this.text = 'Hello World';
+    this.hizmet = new Cagri();
   }
 
   toggleDetails() {

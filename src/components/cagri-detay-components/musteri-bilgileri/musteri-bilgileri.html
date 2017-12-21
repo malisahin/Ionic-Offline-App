@@ -3,71 +3,76 @@
 <ion-list inset>
   <ion-item>
     <ion-label color="primary" floating>Müşteri</ion-label>
-    <ion-input value="cagri.adi" readonly></ion-input>
+    <ion-input [(ngModel)]="hizmet.firmaUnvani" readonly></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>Ev Telefonu</ion-label>
-    <ion-input value="cagri.evTel" readonly></ion-input>
+    <ion-input [(ngModel)]="hizmet.evTel" readonly></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>İş Telefonu</ion-label>
-    <ion-input value="Arıza" readonly></ion-input>
+    <ion-input [(ngModel)]="hizmet.isTel" readonly></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>Cep Telefonu</ion-label>
-    <ion-input value="Klima" readonly></ion-input>
+    <ion-input [(ngModel)]="hizmet.gsmNo" readonly></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>E-Posta</ion-label>
-    <ion-input value="İlk Çalıştırma" readonly></ion-input>
+    <ion-input [(ngModel)]="hizmet.eposta" readonly></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>Şehir</ion-label>
-    <ion-input value="89087" readonly></ion-input>
+    <ion-input [(ngModel)]="hizmet.sehir" readonly></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>İlçe</ion-label>
-    <ion-input value="KAPALI" readonly></ion-input>
+    <ion-input [(ngModel)]="hizmet.ilce" readonly></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>Semt/Köy</ion-label>
-    <ion-input value="12345" readonly></ion-input>
+    <ion-input [(ngModel)]="hizmet.semt" readonly></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>Mahalle</ion-label>
-    <ion-input value="Doğan Mahallesi" readonly></ion-input>
+    <ion-input [(ngModel)]="hizmet.mahalle" readonly></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>Cadde</ion-label>
-    <ion-input value="Güneş Caddesi" readonly></ion-input>
+    <ion-input [(ngModel)]="hizmet.cadde" readonly></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>Sokak</ion-label>
-    <ion-input value="Deneme Sokak" readonly></ion-input>
+    <ion-input [(ngModel)]="hizmet.sokak" readonly></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>Apartman/Site</ion-label>
-    <ion-input value="Doğan Apt." readonly></ion-input>
+    <ion-input [(ngModel)]="hizmet.apartman" readonly></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" floating>Apartman No</ion-label>
+    <ion-input [(ngModel)]="hizmet.apartmanNo" readonly></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>Blok</ion-label>
-    <ion-input value="D" readonly></ion-input>
+    <ion-input [(ngModel)]="hizmet.blok" readonly></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>Daire No</ion-label>
-    <ion-input value=" " readonly></ion-input>
+    <ion-input [(ngModel)]="hizmet.daireNo" readonly></ion-input>
   </ion-item>
 </ion-list>

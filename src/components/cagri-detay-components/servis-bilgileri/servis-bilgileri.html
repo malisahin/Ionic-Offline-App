@@ -1,4 +1,21 @@
-<!-- Generated template for the ServisBilgileriComponent component -->
-<div>
-  {{text}}
-</div>
+<ion-toolbar no-border-top>
+  <ion-segment [(ngModel)]="activePage">
+    <ion-segment-button value="servis">
+      Işlem Tarihleri
+    </ion-segment-button>
+
+    <ion-segment-button value="tarihce">
+      Tarihçe Bilgisi
+    </ion-segment-button>
+  </ion-segment>
+
+
+  <div [ngSwitch]="activePage">
+    <div *ngSwitchCase="'servis'">
+      <islem-tarih></islem-tarih>
+    </div>
+
+    <div *ngSwitchCase="'tarihce'">
+      <servis-islem-tarihce></servis-islem-tarihce>
+    </div>
+  </div>

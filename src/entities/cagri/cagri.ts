@@ -30,7 +30,7 @@ export class Cagri {
     durum: string = "";
     eposta: string = "";
     evTel: string = "";
-    firmaUnvanı: string = "";
+    firmaUnvani: string = "";
     garanti: string = "";
     gsmNo: string = "";
     hizmetTipi: string = "";
@@ -90,7 +90,7 @@ export class Cagri {
         item.durum = obj.durum;
         item.eposta = obj.eposta;
         item.evTel = obj.evTel;
-        item.firmaUnvanı = obj.firmaUnvanı;
+        item.firmaUnvani = obj.firmaUnvanı;
         item.garanti = obj.garanti;
         item.gsmNo = obj.gsmNo;
         item.hizmetTipi = obj.hizmetTipi;

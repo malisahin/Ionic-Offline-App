@@ -7,37 +7,37 @@
 
   <ion-item>
     <ion-label color="primary" floating>Çağrı Açılış Tarihi</ion-label>
-    <ion-input value="01.01.1900" readonly></ion-input>
+    <ion-input [(ngModel)]="hizmet.cagriTarihi" readonly></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>Hizmet Tipi</ion-label>
-    <ion-input value="Arıza" readonly></ion-input>
+    <ion-input [(ngModel)]="hizmet.hizmetTipiAdi" readonly></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>Ürün Ana Grubu</ion-label>
-    <ion-input value="Klima" readonly></ion-input>
+    <ion-input [(ngModel)]="hizmet.mamAnaGrpAdi" readonly></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>Başvuru Nedeni</ion-label>
-    <ion-input value="İlk Çalıştırma" readonly></ion-input>
+    <ion-input [(ngModel)]="hizmet.basvuruNedenAdi" readonly></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>Hizmet Formu No</ion-label>
-    <ion-input value="89087" readonly></ion-input>
+    <ion-input [(ngModel)]="hizmet.seqNo" readonly></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>Durum</ion-label>
-    <ion-input value="KAPALI" readonly></ion-input>
+    <ion-input [(ngModel)]="hizmet.durum" readonly></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>Çağrı No</ion-label>
-    <ion-input value="12345" readonly></ion-input>
+    <ion-input [(ngModel)]="hizmet.cmNo" readonly></ion-input>
   </ion-item>
 
 </ion-list>

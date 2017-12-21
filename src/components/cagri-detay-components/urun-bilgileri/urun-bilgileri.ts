@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Cagri } from '../../../entities/cagri/cagri';
 
 /**
  * Generated class for the UrunBilgileriComponent component.
@@ -13,10 +14,15 @@ import { Component } from '@angular/core';
 export class UrunBilgileriComponent {
 
   text: string;
+  hizmet: Cagri;
 
   constructor() {
     console.log('Hello UrunBilgileriComponent Component');
     this.text = 'Hello World';
+    this.hizmet = new Cagri();
+  }
+
+  deneme() {
   }
 
 }

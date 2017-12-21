@@ -12,6 +12,8 @@ import { HizmetBilgileriComponent } from './cagri-detay-components/hizmet-bilgil
 import { UrunBilgileriComponent } from './cagri-detay-components/urun-bilgileri/urun-bilgileri';
 import { ServisBilgileriComponent } from './cagri-detay-components/servis-bilgileri/servis-bilgileri';
 import { DetayBilgileriComponent } from './cagri-detay-components/detay-bilgileri/detay-bilgileri';
+import { ServisIslemTarihceComponent } from './servis-islem-tarihce/servis-islem-tarihce';
+import { IslemTarihComponent } from './cagri-detay-components/servis-bilgileri//islem-tarih/islem-tarih';
 
 @NgModule({
     declarations: [CagrilarComponent,
@@ -22,7 +24,9 @@ import { DetayBilgileriComponent } from './cagri-detay-components/detay-bilgiler
         HizmetBilgileriComponent,
         UrunBilgileriComponent,
         ServisBilgileriComponent,
-        DetayBilgileriComponent],
+        DetayBilgileriComponent,
+        ServisIslemTarihceComponent,
+        IslemTarihComponent],
     imports: [],
     exports: [CagrilarComponent,
         LoginComponent,
@@ -32,6 +36,8 @@ import { DetayBilgileriComponent } from './cagri-detay-components/detay-bilgiler
         HizmetBilgileriComponent,
         UrunBilgileriComponent,
         ServisBilgileriComponent,
-        DetayBilgileriComponent]
+        DetayBilgileriComponent,
+        ServisIslemTarihceComponent,
+        IslemTarihComponent]
 })
 export class ComponentsModule { }
