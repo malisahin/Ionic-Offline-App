@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Cagri } from '../../entities/cagri/cagri';
 import { MockCagriList } from '../../entities/cagri/cagriList-mock';
-import { TasiyiciProvider } from '../../providers/tasiyici/tasiyici';
 
 
 
@@ -23,8 +22,7 @@ export class CagriDetayPage {
   cagriList: MockCagriList = new MockCagriList();
 
   constructor(public navCtrl: NavController,
-    public navParams: NavParams,
-    private tasiyici: TasiyiciProvider) {
+    public navParams: NavParams) {
 
     this.seqNo = this.navParams.get('seqNo');
     alert("Çağrı Detay Seq No: " + this.seqNo);
@@ -32,7 +30,6 @@ export class CagriDetayPage {
       res.seqNo = this.seqNo;
     });
     this.cagri = this.cagri.fillCagri(foundCagri);
-    this.tasiyici.setHizmet(this.cagri);
     console.log(this.cagri);
   }
 

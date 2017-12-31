@@ -42,7 +42,6 @@ import { CagriProvider } from '../providers/cagri/cagri';
 import { CagriAramaModalPage } from '../pages/cagrilar/cagri-arama-modal/cagri-arama-modal';
 import { HizmetProvider } from '../providers/hizmet/hizmet';
 import { HizmetDao } from '../dao/hizmet-dao';
-import { TasiyiciProvider } from '../providers/tasiyici/tasiyici';
 
 @NgModule({
   declarations: [
@@ -117,9 +116,7 @@ import { TasiyiciProvider } from '../providers/tasiyici/tasiyici';
     FiyatProvider,
     CagriProvider,
     HizmetProvider,
-    HizmetDao,
-    TasiyiciProvider,
-    TasiyiciProvider
+    HizmetDao
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

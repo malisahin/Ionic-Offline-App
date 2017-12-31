@@ -17,11 +17,9 @@ export class HizmetBilgileriComponent {
   hizmet: Cagri;
   text: string;
 
-  constructor(public service: HizmetProvider,
-      private tasiyici: TasiyiciProvider) {
-  console.log('Hello HizmetBilgileriComponent Component');
+  constructor(public service: HizmetProvider) {
+    console.log('Hello HizmetBilgileriComponent Component');
     this.text = 'Hello World';
-    this.hizmet = this.tasiyici.getHizmet();
     this.prepareData();
   }
 
