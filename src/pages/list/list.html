@@ -1,0 +1,54 @@
+<!--
+  Generated template for the ListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>list</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <button ion-item *ngFor="let item of list" (click)=" itemSelected(item) ">
+      {{ item.name }} -- {{ item.code }}
+    </button>
+  </ion-list>
+  <ion-footer>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12 col-sm>
+
+          <ion-toolbar>
+            <button ion-button round>
+              <ion-icon name="skip-backward"></ion-icon>
+            </button>
+            <button ion-button round>
+              <ion-icon name="arrow-dropleft"></ion-icon>
+            </button>
+            <ion-item>
+              <ion-select [(ngModel)]="pageSize">
+                <ion-option value="10">10</ion-option>
+                <ion-option value="20">20</ion-option>
+                <ion-option value="50">50</ion-option>
+                <ion-option value="100">100</ion-option>
+              </ion-select>
+            </ion-item>
+            <button ion-button round>
+              <ion-icon name="arrow-dropright"></ion-icon>
+            </button>
+            <button ion-button round>
+              <ion-icon name="skip-forward"></ion-icon>
+            </button>
+          </ion-toolbar>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-footer>
+</ion-content>

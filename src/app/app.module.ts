@@ -42,6 +42,8 @@ import { CagriProvider } from '../providers/cagri/cagri';
 import { CagriAramaModalPage } from '../pages/cagrilar/cagri-arama-modal/cagri-arama-modal';
 import { HizmetProvider } from '../providers/hizmet/hizmet';
 import { HizmetDao } from '../dao/hizmet-dao';
+import { ListComponent } from '../components/list/list';
+import { ListPage } from '../pages/list/list';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,8 @@ import { HizmetDao } from '../dao/hizmet-dao';
     DetayBilgileriComponent,
     LoginPage,
     CagriAramaModalPage,
+    ListComponent,
+    ListPage
   ],
   imports: [
     BrowserModule,
@@ -94,7 +98,9 @@ import { HizmetDao } from '../dao/hizmet-dao';
     UrunBilgileriComponent,
     DetayBilgileriComponent,
     LoginPage,
-    CagriAramaModalPage
+    CagriAramaModalPage,
+    ListComponent,
+    ListPage
 
   ],
   providers: [

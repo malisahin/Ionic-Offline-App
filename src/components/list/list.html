@@ -1,0 +1,8 @@
+<!-- Generated template for the ListComponent component -->
+<div>
+  <ion-list>
+    <button ion-item *ngFor="let item of list" (click)=" itemSelected(item) ">
+      {{ item.name }} -- {{ item.code }}
+    </button>
+  </ion-list>
+</div>

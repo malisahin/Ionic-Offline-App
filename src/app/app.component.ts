@@ -47,7 +47,6 @@ export class MyApp {
       { title: 'Ayarlar', component: AyarlarPage, active: false, icon: 'book' }
     ];
 
-  //  this.db.createDatabase();
 
   }
 
@@ -57,6 +56,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.db.createDatabase();
     });
   }
 
