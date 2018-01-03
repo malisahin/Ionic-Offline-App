@@ -44,6 +44,7 @@ import { HizmetProvider } from '../providers/hizmet/hizmet';
 import { HizmetDao } from '../dao/hizmet-dao';
 import { ListComponent } from '../components/list/list';
 import { ListPage } from '../pages/list/list';
+import { UrunAnaGrpDaoProvider } from '../providers/urun-ana-grp-dao/urun-ana-grp-dao';
 
 @NgModule({
   declarations: [
@@ -122,7 +123,8 @@ import { ListPage } from '../pages/list/list';
     FiyatProvider,
     CagriProvider,
     HizmetProvider,
-    HizmetDao
+    HizmetDao,
+    UrunAnaGrpDaoProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

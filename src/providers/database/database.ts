@@ -7,7 +7,7 @@ import { Platform } from 'ionic-angular/platform/platform';
 export class DatabaseProvider {
 
 
-
+    db: SQLiteObject;
     constructor(public http: HttpClient, private platform: Platform, private sqlite: SQLite) {
 
     }
@@ -18,6 +18,7 @@ export class DatabaseProvider {
                 location: 'default'
             })
                 .then((db: SQLiteObject) => {
+                    this.db = db;
                     return this.createApplicationTables(db);
                 })
                 .catch(e => console.log(e));
