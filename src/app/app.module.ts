@@ -41,10 +41,10 @@ import { FiyatProvider } from '../providers/fiyat/fiyat';
 import { CagriProvider } from '../providers/cagri/cagri';
 import { CagriAramaModalPage } from '../pages/cagrilar/cagri-arama-modal/cagri-arama-modal';
 import { HizmetProvider } from '../providers/hizmet/hizmet';
-import { HizmetDao } from '../dao/hizmet-dao';
 import { ListComponent } from '../components/list/list';
 import { ListPage } from '../pages/list/list';
-import { UrunAnaGrpDaoProvider } from '../providers/urun-ana-grp-dao/urun-ana-grp-dao';
+import { UrunAnaGrpDao } from '../providers/urun-ana-grp-dao/urun-ana-grp-dao';
+import { HizmetDao } from '../providers/hizmet-dao/hizmet-dao';
 
 @NgModule({
   declarations: [
@@ -124,7 +124,8 @@ import { UrunAnaGrpDaoProvider } from '../providers/urun-ana-grp-dao/urun-ana-gr
     CagriProvider,
     HizmetProvider,
     HizmetDao,
-    UrunAnaGrpDaoProvider
+    UrunAnaGrpDao,
+    HizmetDao
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

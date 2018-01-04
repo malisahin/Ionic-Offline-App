@@ -69,67 +69,6 @@ export class Cagri {
     sokak: string = "";
     soyadi: string = "";
 
-
-    fillCagri(obj) {
-        let item = new Cagri();
-        item.aciklama = obj.aciklama
-        item.adi = obj.adi
-        //item.anket: Anket[];
-        item.apartman = obj.apartman;
-        item.basvuruNedenAdi = obj.basvuruNedenAdi;
-        item.basvuruNedeni = obj.basvuruNedeni;
-        item.bayiKod = obj.bayiKod;
-        item.blok = obj.blok;
-        item.cadde = obj.cadde;
-        item.cagriTarihi = obj.cagriTarihi;
-        item.cmNo = obj.cmNo;
-        item.cmTarihi = obj.cmTarihi;
-        item.cozumKodu = obj.cozumKodu;
-        item.daireNo = obj.daireNo
-        //item.detayList: CagriDetay[];
-        item.durum = obj.durum;
-        item.eposta = obj.eposta;
-        item.evTel = obj.evTel;
-        item.firmaUnvani = obj.firmaUnvanı;
-        item.garanti = obj.garanti;
-        item.gsmNo = obj.gsmNo;
-        item.hizmetTipi = obj.hizmetTipi;
-        item.hizmetTipiAdi = obj.hizmetTipiAdi;
-        item.ikKod = obj.ikKod;
-        item.ilceKod = obj.ilceKod;
-        item.iletisimIstek = obj.iletisimIstek;
-        item.isTel = obj.isTel;
-        item.islemBitTarihi = obj.islemBitTarihi;
-        //item.islemList: IslemList[];
-        item.islemTarihi = obj.islemTarihi;
-        item.kapatmaKodu = obj.kapatmaKodu;
-        item.mahalle = obj.mahalle;
-        item.mamAdi = obj.mamAdi;
-        item.mamAnaGrp = obj.mamAnaGrp;
-        item.mamAnaGrpAdi = obj.mamAnaGrpAdi;
-        item.mamKod = obj.mamKod;
-        item.mamSeriNo = obj.mamSeriNo;
-        item.mamSeriNo2 = obj.mamSeriNo2;
-        item.merkezNotu = obj.merkezNotu;
-        item.mesguliyet = obj.mesguliyet;
-        item.musId = obj.musId;
-        item.musKod = obj.musKod;
-        item.musTip = obj.musTip;
-        item.nobet = obj.nobet;
-        item.odemeTipi = obj.odemeTipi;
-        item.randevuTarihi = obj.randevuTarihi;
-        item.sattar = obj.sattar;
-        item.sehir = obj.sehir;
-        item.sehirKod = obj.sehirKod;
-        item.semt = obj.semt;
-        item.seqNo = obj.seqNo;
-        item.serAd = obj.serAd;
-        item.serKod = obj.serKod;
-        item.servisNotu = obj.servisNotu;
-        item.sokak = obj.sokak;
-        item.soyadi = obj.soyadi;
-        return item;
-    }
 }
 /**
  * 

@@ -44,8 +44,6 @@ export class CagrilarPage {
   }
 
   public cagriGuncelle() {
-    this.cagriProvider.downloadCagriList().subscribe(res => {
-      //console.log(res);
-    });
+    this.cagriProvider.downloadCagriList();
   }
 }

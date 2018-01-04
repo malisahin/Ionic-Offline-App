@@ -7,8 +7,8 @@ import { Platform } from 'ionic-angular/platform/platform';
 export class DatabaseProvider {
 
 
-    db: SQLiteObject;
-    constructor(public http: HttpClient, private platform: Platform, private sqlite: SQLite) {
+    public db: SQLiteObject;
+    constructor(private platform: Platform, private sqlite: SQLite) {
 
     }
     createDatabase() {
@@ -18,11 +18,24 @@ export class DatabaseProvider {
                 location: 'default'
             })
                 .then((db: SQLiteObject) => {
-                    this.db = db;
                     return this.createApplicationTables(db);
                 })
                 .catch(e => console.log(e));
         });
+    }
+
+    getDB(): SQLiteObject {
+        this.platform.ready().then(() => {
+            this.sqlite.create({
+                name: 'SOS',
+                location: 'default'
+            })
+                .then((db: SQLiteObject) => {
+                    this.db = db;
+                })
+                .catch(e => console.log(e));
+        });
+        return this.db;
     }
 
     createApplicationTables(db: SQLiteObject): Promise<any> {

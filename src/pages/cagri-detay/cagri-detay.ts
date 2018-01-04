@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Cagri } from '../../entities/cagri/cagri';
 import { MockCagriList } from '../../entities/cagri/cagriList-mock';
+import { CagriProvider } from '../../providers/cagri/cagri';
 
 
 
@@ -22,6 +23,7 @@ export class CagriDetayPage {
   cagriList: MockCagriList = new MockCagriList();
 
   constructor(public navCtrl: NavController,
+    private cagriProvider: CagriProvider,
     public navParams: NavParams) {
 
     this.seqNo = this.navParams.get('seqNo');
@@ -29,7 +31,7 @@ export class CagriDetayPage {
     let foundCagri = this.cagriList.cagriList.filter(res => {
       res.seqNo = this.seqNo;
     });
-    this.cagri = this.cagri.fillCagri(foundCagri);
+    this.cagri = this.cagriProvider.fillCagri(foundCagri);
     console.log(this.cagri);
   }
 
