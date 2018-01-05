@@ -33,9 +33,13 @@ export class HizmetDao {
     return this.baseDao.execute(this.INSERT_QUERY, params);
   }
 
-  find(item: Cagri): Promise<any> {
-    let query = this.prepareSelectQuery(item);
-    return this.baseDao.execute(query, []);
+  find(item: Cagri): Observable<any> {
+    // TODO: Promise metodlar Observable haline gelecek
+    return Observable.create(observer => {
+      let query = this.prepareSelectQuery(item);
+      return this.baseDao.execute(query, []);
+    });
+
   }
 
   prepareSelectQuery(item: Cagri): string {
