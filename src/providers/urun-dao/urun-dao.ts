@@ -56,14 +56,4 @@ export class UrunDao {
 
     return query;
   }
-
-
-  //'', 
-  // 
-
-  //          tx.executeSql('', 
-  //,
-
-
-
 }
