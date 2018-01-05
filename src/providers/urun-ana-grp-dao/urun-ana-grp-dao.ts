@@ -19,13 +19,25 @@ export class UrunAnaGrpDao {
     console.log('Hello UrunAnaGrpDaoProvider Provider');
   }
 
-  insertMamAnagrp(list: UrunAnaGrup[]): Observable<any> {
+  insertMamAnagrpList(list: UrunAnaGrup[]): Observable<any> {
 
-    let query = 'INSERT INTO OFF_MAM_ANAGRP_TNM (tip,mamAnaGrp,adi,durum,kod, neden) VALUES (?,?,?,?,?)';
-    this.SQL.db.executeSql(query, [this.item.tip, this.item.mamAnagrp, this.item.adi, this.item.durum, this.item.kod, this.item.neden]);
 
     return null;
   }
+
+  insertMamAnaGrp(item: UrunAnaGrup): Promise<any> {
+    let query = 'INSERT INTO OFF_MAM_ANAGRP_TNM (tip,mamAnaGrp,adi,durum,kod, neden) VALUES (?,?,?,?,?)';
+    let params = [item.tip, item.mamAnagrp, item.adi, item.durum, item.kod, item.neden];
+    return this.SQL.db.executeSql(query, params).then(res => {
+      return res.rows();
+    }).catch(err => {
+      console.log("Insert Urun Ana Grp Hata " + err);
+      return err;
+    });
+
+  }
+
+
 
   /** tip: 'cozum'
    *  kod: 

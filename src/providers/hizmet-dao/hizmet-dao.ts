@@ -40,6 +40,7 @@ export class HizmetDao {
       return res.rows();
     }).catch(err => {
       console.log('Hizmet Kaydetme de Hata' + err);
+      return err;
     });
   }
 

@@ -45,6 +45,9 @@ import { ListComponent } from '../components/list/list';
 import { ListPage } from '../pages/list/list';
 import { UrunAnaGrpDao } from '../providers/urun-ana-grp-dao/urun-ana-grp-dao';
 import { HizmetDao } from '../providers/hizmet-dao/hizmet-dao';
+import { BaseDaoProvider } from '../providers/base-dao/base-dao';
+import { FiyatDaoProvider } from '../providers/fiyat-dao/fiyat-dao';
+import { UrunDaoProvider } from '../providers/urun-dao/urun-dao';
 
 @NgModule({
   declarations: [
@@ -125,7 +128,10 @@ import { HizmetDao } from '../providers/hizmet-dao/hizmet-dao';
     HizmetProvider,
     HizmetDao,
     UrunAnaGrpDao,
-    HizmetDao
+    HizmetDao,
+    BaseDaoProvider,
+    FiyatDaoProvider,
+    UrunDaoProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
