@@ -23,7 +23,7 @@ export class CagriProvider {
     return this.http.get(url, header).subscribe(res => {
       let hizmetList: Cagri[];
       hizmetList = this.seperateCagri(res);
-      return this.hizmetDao.saveHizmetList(hizmetList);
+      return this.hizmetDao.insertList(hizmetList);
     });
   }
 
