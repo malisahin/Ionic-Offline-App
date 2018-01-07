@@ -38,7 +38,6 @@ import { UrunIscilikProvider } from '../providers/urun-iscilik/urun-iscilik';
 import { UrunMalzemeProvider } from '../providers/urun-malzeme/urun-malzeme';
 import { IslemArizaIscilikProvider } from '../providers/islem-ariza-iscilik/islem-ariza-iscilik';
 import { FiyatProvider } from '../providers/fiyat/fiyat';
-import { CagriProvider } from '../providers/cagri/cagri';
 import { CagriAramaModalPage } from '../pages/cagrilar/cagri-arama-modal/cagri-arama-modal';
 import { HizmetProvider } from '../providers/hizmet/hizmet';
 import { ListComponent } from '../components/list/list';
@@ -48,6 +47,7 @@ import { HizmetDao } from '../providers/hizmet-dao/hizmet-dao';
 import { BaseDao } from '../providers/base-dao/base-dao';
 import { FiyatDao } from '../providers/fiyat-dao/fiyat-dao';
 import { UrunDao } from '../providers/urun-dao/urun-dao';
+import { HizmetService } from '../providers/hizmet-service/hizmet-service';
 
 @NgModule({
   declarations: [
@@ -124,14 +124,14 @@ import { UrunDao } from '../providers/urun-dao/urun-dao';
     UrunMalzemeProvider,
     IslemArizaIscilikProvider,
     FiyatProvider,
-    CagriProvider,
     HizmetProvider,
     HizmetDao,
     UrunAnaGrpDao,
     HizmetDao,
     BaseDao,
     FiyatDao,
-    UrunDao
+    UrunDao,
+    HizmetService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -4,7 +4,7 @@
 */
 
 
-export class CagriDetay {
+export class HizmetDetay {
     satirNo: string;
     seqNo: string;
     arizaKod: string;

@@ -1,0 +1,72 @@
+/**
+ * @author malisahin
+ * @email mehmetalisahinogullari@gmail.com
+*/
+
+import { IslemList } from "./islemList";
+import { Anket } from "./anket";
+import { HizmetDetay } from "./hizmet-detay";
+
+
+
+export class Hizmet {
+    constructor() { }
+
+    aciklama: string = "";
+    adi: string = "";
+    anket: Anket[];
+    apartman: string;
+    basvuruNedenAdi: string = "";
+    basvuruNedeni: string = "";
+    bayiKod: string = "";
+    blok: string = "";
+    cadde: string = "";
+    cagriTarihi: string = "";
+    cmNo: string = "";
+    cmTarihi: string = "";
+    cozumKodu: string = "";
+    daireNo: string = "";
+    detayList: HizmetDetay[];
+    durum: string = "";
+    eposta: string = "";
+    evTel: string = "";
+    firmaUnvani: string = "";
+    garanti: string = "";
+    gsmNo: string = "";
+    hizmetTipi: string = "";
+    hizmetTipiAdi: string = "";
+    ikKod: string = "";
+    ilceKod: string = "";
+    iletisimIstek: string = "";
+    isTel: string = "";
+    islemBitTarihi: string = "";
+    islemList: IslemList[];
+    islemTarihi: string = "";
+    kapatmaKodu: string = "";
+    mahalle: string = "";
+    mamAdi: string = "";
+    mamAnaGrp: string = "";
+    mamAnaGrpAdi: string = "";
+    mamKod: string = "";
+    mamSeriNo: string = "";
+    mamSeriNo2: string = "";
+    merkezNotu: string = "";
+    mesguliyet: string = "";
+    musId: string = "";
+    musKod: string = "";
+    musTip: string = "";
+    nobet: string = "";
+    odemeTipi: string = "";
+    randevuTarihi: string = "";
+    sattar: string = "";
+    sehir: string = "";
+    sehirKod: string = "";
+    semt: string = "";
+    seqNo: string = "";
+    serAd: string = "";
+    serKod: string = "";
+    servisNotu: string = "";
+    sokak: string = "";
+    soyadi: string = "";
+
+}

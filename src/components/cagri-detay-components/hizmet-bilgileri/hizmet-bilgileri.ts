@@ -5,7 +5,8 @@
 
 import { Component } from '@angular/core';
 import { HizmetProvider } from '../../../providers/hizmet/hizmet';
-import { Cagri } from '../../../entities/cagri/cagri';
+import { Hizmet } from '../../../entities/hizmet/hizmet';
+import { HizmetService } from '../../../providers/hizmet-service/hizmet-service';
 
 
 @Component({
@@ -14,17 +15,18 @@ import { Cagri } from '../../../entities/cagri/cagri';
 })
 export class HizmetBilgileriComponent {
 
-  hizmet: Cagri;
+  hizmet: Hizmet;
   text: string;
 
-  constructor(public service: HizmetProvider) {
+  constructor(public hizmetService: HizmetService) {
     console.log('Hello HizmetBilgileriComponent Component');
     this.text = 'Hello World';
     this.prepareData();
+    this.hizmet = new Hizmet();
   }
 
   prepareData() {
-    this.hizmet = this.service.getHizmet();
+    this.hizmet = this.hizmetService.getHizmet();
     console.log("Selam ");
   }
 

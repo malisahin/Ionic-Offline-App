@@ -4,7 +4,8 @@
 */
 
 import { Component } from '@angular/core';
-import { Cagri } from '../../../entities/cagri/cagri';
+import { Hizmet } from '../../../entities/hizmet/hizmet';
+import { HizmetService } from '../../../providers/hizmet-service/hizmet-service';
 
 @Component({
   selector: 'musteri-bilgileri',
@@ -13,16 +14,13 @@ import { Cagri } from '../../../entities/cagri/cagri';
 export class MusteriBilgileriComponent {
 
   text: string;
-  hizmet: Cagri;
+  hizmet: Hizmet;
 
-  constructor() {
+  constructor(private HizmetService: HizmetService) {
     console.log('Hello MusteriBilgileriComponent Component');
     this.text = 'Hello World';
-    this.hizmet = new Cagri();
+    this.hizmet = new Hizmet();
   }
 
-  deneme() {
-
-  }
 
 }

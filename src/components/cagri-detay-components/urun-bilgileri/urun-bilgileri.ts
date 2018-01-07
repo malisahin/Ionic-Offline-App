@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Cagri } from '../../../entities/cagri/cagri';
 import { ModalController } from 'ionic-angular';
 import { ListPage } from '../../../pages/list/list';
 import { ListComponent } from '../../list/list';
 import { ListItem } from '../../../entities/ListItem';
+import { Hizmet } from '../../../entities/hizmet/hizmet';
 
 @Component({
   selector: 'urun-bilgileri',
@@ -11,14 +11,14 @@ import { ListItem } from '../../../entities/ListItem';
 })
 export class UrunBilgileriComponent {
   text: string;
-  hizmet: Cagri;
+  hizmet: Hizmet;
   list: ListItem[];
 
 
   constructor(private modalController: ModalController) {
     console.log('Hello UrunBilgileriComponent Component');
     this.text = 'Hello World';
-    this.hizmet = new Cagri();
+    this.hizmet = new Hizmet();
 
     this.list = [
       new ListItem('ItemName1', 'Code1'),

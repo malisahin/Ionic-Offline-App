@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
-import { Cagri } from '../../../entities/cagri/cagri';
-
 /**
- * Generated class for the ServisBilgileriComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
+ * @author malisahin
+ * @email mehmetalisahinogullari@gmail.com
+*/
+import { Component } from '@angular/core';
+import { Hizmet } from '../../../entities/hizmet/hizmet';
+
+
 @Component({
   selector: 'servis-bilgileri',
   templateUrl: 'servis-bilgileri.html'
@@ -15,12 +14,12 @@ export class ServisBilgileriComponent {
 
   activePage: string = "servis";
   text: string;
-  hizmet: Cagri;
+  hizmet: Hizmet;
 
   constructor() {
     console.log('Hello ServisBilgileriComponent Component');
     this.text = 'Hello World';
-    this.hizmet = new Cagri();
+    this.hizmet = new Hizmet();
   }
 
 }

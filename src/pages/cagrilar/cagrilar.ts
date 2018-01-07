@@ -7,8 +7,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CagriDetayPage } from '../cagri-detay/cagri-detay';
 import { ModalController } from 'ionic-angular/components/modal/modal-controller';
 import { CagriAramaModalPage } from './cagri-arama-modal/cagri-arama-modal';
-import { CagriProvider } from '../../providers/cagri/cagri';
-import { MockCagriList } from '../../entities/cagri/cagriList-mock';
+import { HizmetProvider } from '../../providers/hizmet/hizmet';
+import { MockCagriList } from '../../entities/hizmet/cagriList-mock';
 
 @IonicPage()
 @Component({
@@ -22,7 +22,7 @@ export class CagrilarPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private modalController: ModalController,
-    private cagriProvider: CagriProvider) {
+    private cagriProvider: HizmetProvider) {
     this.cagrilar = this.mockData.cagriList;
   }
 

@@ -5,9 +5,9 @@
 
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Cagri } from '../../entities/cagri/cagri';
-import { MockCagriList } from '../../entities/cagri/cagriList-mock';
-import { CagriProvider } from '../../providers/cagri/cagri';
+import { Hizmet } from '../../entities/hizmet/hizmet';
+import { MockCagriList } from '../../entities/hizmet/cagriList-mock';
+import { HizmetProvider } from '../../providers/hizmet/hizmet';
 
 
 
@@ -19,27 +19,21 @@ import { CagriProvider } from '../../providers/cagri/cagri';
 export class CagriDetayPage {
   activePage: string = "hizmet";
   seqNo: any;
-  cagri: Cagri = new Cagri();
-  cagriList: MockCagriList = new MockCagriList();
+  hizmet: Hizmet = new Hizmet();
+  hizmetList: MockCagriList = new MockCagriList();
 
   constructor(public navCtrl: NavController,
-    private cagriProvider: CagriProvider,
+    private hizmetProvider: HizmetProvider,
     public navParams: NavParams) {
 
     this.seqNo = this.navParams.get('seqNo');
-    alert("Çağrı Detay Seq No: " + this.seqNo);
-    let foundCagri = this.cagriList.cagriList.filter(res => {
+    console.log("Çağrı Detay Seq No: " + this.seqNo);
+    let foundCagri = this.hizmetList.cagriList.filter(res => {
       res.seqNo = this.seqNo;
     });
-    this.cagri = this.cagriProvider.fillCagri(foundCagri);
-    console.log(this.cagri);
+    this.hizmet = this.hizmetProvider.fillHizmet(foundCagri);
+    console.log(this.hizmet);
   }
-
-
-
-
-
-
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CagriDetayPage');

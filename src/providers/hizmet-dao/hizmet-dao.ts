@@ -4,11 +4,9 @@
 */
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Cagri } from '../../entities/cagri/cagri';
 import { DatabaseProvider } from '../database/database';
 import { BaseDao } from '../base-dao/base-dao';
-
-
+import { Hizmet } from '../../entities/hizmet/hizmet';
 
 @Injectable()
 export class HizmetDao {
@@ -20,20 +18,20 @@ export class HizmetDao {
   }
 
   // Listede her bir item kayit edilir ve liste tekrar cagrilir.Cagrilmadan once kayit edilen item listeden silinir.
-  insertList(list: Cagri[]): Promise<any> {
+  insertList(list: Hizmet[]): Promise<any> {
     for (let item of list) {
       this.insertOne(item);
     }
     return null;
   }
 
-  insertOne(hizmet: Cagri): Promise<any> {
+  insertOne(hizmet: Hizmet): Promise<any> {
     let params = [hizmet.seqNo, hizmet.randevuTarihi, hizmet.hizmetTipiAdi, hizmet.mamAnaGrpAdi, hizmet.basvuruNedeni,
     hizmet.durum, hizmet.firmaUnvani, hizmet.evTel, hizmet.isTel, hizmet.gsmNo, hizmet];
     return this.baseDao.execute(this.INSERT_QUERY, params);
   }
 
-  find(item: Cagri): Observable<any> {
+  find(item: Hizmet): Observable<any> {
     // TODO: Promise metodlar Observable haline gelecek
     return Observable.create(observer => {
       let query = this.prepareSelectQuery(item);
@@ -42,7 +40,7 @@ export class HizmetDao {
 
   }
 
-  prepareSelectQuery(item: Cagri): string {
+  prepareSelectQuery(item: Hizmet): string {
     let query = 'SELECT * FROM OFF_HIZ_MST WHERE 1=1 ';
 
     if (item.seqNo != null && item.seqNo != "")
