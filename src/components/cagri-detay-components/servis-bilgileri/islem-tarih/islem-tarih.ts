@@ -1,6 +1,11 @@
+/**
+ * @author malisahin
+ * @email mehmetalisahinogullari@gmail.com
+*/
+
 import { Component } from '@angular/core';
-
-
+import { HizmetService } from '../../../../providers/hizmet-service/hizmet-service';
+import { Hizmet } from '../../../../entities/hizmet/hizmet';
 
 
 @Component({
@@ -9,11 +14,13 @@ import { Component } from '@angular/core';
 })
 export class IslemTarihComponent {
 
+  hizmet: Hizmet
   text: string;
 
-  constructor() {
+  constructor(private hizmetService: HizmetService) {
     console.log('Hello IslemTarihComponent Component');
     this.text = 'Hello World';
+    this.hizmet = this.hizmetService.getHizmet();
   }
 
 }

@@ -21,13 +21,7 @@ export class HizmetBilgileriComponent {
   constructor(public hizmetService: HizmetService) {
     console.log('Hello HizmetBilgileriComponent Component');
     this.text = 'Hello World';
-    this.prepareData();
-    this.hizmet = new Hizmet();
-  }
-
-  prepareData() {
     this.hizmet = this.hizmetService.getHizmet();
-    console.log("Selam ");
   }
 
 }

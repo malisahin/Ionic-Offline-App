@@ -14,17 +14,21 @@ import { HizmetProvider } from '../hizmet/hizmet';
 @Injectable()
 export class HizmetService {
 
-  hizmet: Hizmet;
+  hizmet: Hizmet = new Hizmet();
 
   constructor(public http: Http, private hizmetDao: HizmetDao, private hizmetProvider: HizmetProvider) {
     console.log('Hello HizmetServiceProvider Provider');
   }
 
-  getHizmetFromDb(seqNo) {
-    this.hizmetDao.find(this.hizmet).subscribe(res => {
-      this.hizmet = this.hizmetProvider.fillHizmet(res);
+  fetchHizmet(seqNo) {
+    /*this.hizmetDao.find(this.hizmet).subscribe(res => {
+      this.setHizmet(this.hizmetProvider.fillHizmet(res));
     });
+    */
+  }
 
+  setHizmet(hizmet: Hizmet) {
+    this.hizmet = hizmet;
   }
 
   getHizmet(): Hizmet {

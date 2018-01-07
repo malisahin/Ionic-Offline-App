@@ -5,6 +5,7 @@
 
 import { Component } from '@angular/core';
 import { Hizmet } from '../../../entities/hizmet/hizmet';
+import { HizmetService } from '../../../providers/hizmet-service/hizmet-service';
 
 
 @Component({
@@ -16,10 +17,10 @@ export class DetayBilgileriComponent {
   text: string;
   hizmet: Hizmet;
 
-  constructor() {
+  constructor(private hizmetService: HizmetService) {
     console.log('Hello DetayBilgileriComponent Component');
     this.text = 'Hello World';
-    this.hizmet = new Hizmet();
+    this.hizmet = this.hizmetService.getHizmet();
   }
 
   toggleDetails() {

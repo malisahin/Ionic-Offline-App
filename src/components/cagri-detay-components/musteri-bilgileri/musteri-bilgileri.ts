@@ -16,10 +16,10 @@ export class MusteriBilgileriComponent {
   text: string;
   hizmet: Hizmet;
 
-  constructor(private HizmetService: HizmetService) {
+  constructor(private hizmetService: HizmetService) {
     console.log('Hello MusteriBilgileriComponent Component');
     this.text = 'Hello World';
-    this.hizmet = new Hizmet();
+    this.hizmet = this.hizmetService.getHizmet();
   }
 
 

@@ -31,7 +31,7 @@ export class HizmetDao {
     return this.baseDao.execute(this.INSERT_QUERY, params);
   }
 
-  find(item: Hizmet): Observable<any> {
+  find(item: Hizmet): Observable<Hizmet> {
     // TODO: Promise metodlar Observable haline gelecek
     return Observable.create(observer => {
       let query = this.prepareSelectQuery(item);
