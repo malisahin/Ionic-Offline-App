@@ -35,4 +35,8 @@ export class HizmetService {
     return this.hizmet;
   }
 
+  saveHizmet() {
+    this.hizmetDao.saveHizmet(this.hizmet);
+  }
+
 }
