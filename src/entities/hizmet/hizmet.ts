@@ -12,6 +12,11 @@ import { HizmetDetay } from "./hizmet-detay";
 export class Hizmet {
     constructor() { }
 
+    /**
+     * hizmet.seqNo, hizmet.randevuTarihi, hizmet.hizmetTipiAdi, hizmet.mamAnaGrpAdi, hizmet.basvuruNedeni,
+    hizmet.durum, hizmet.firmaUnvani, hizmet.evTel, hizmet.isTel, hizmet.gsmNo
+     */
+
     aciklama: string = "";
     adi: string = "";
     anket: Anket[];

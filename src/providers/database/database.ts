@@ -18,22 +18,23 @@ export class DatabaseProvider {
                 location: 'default'
             })
                 .then((db: SQLiteObject) => {
+                    this.db = db;
                     return this.createApplicationTables(db);
                 })
                 .catch(e => console.log(e));
         });
     }
 
-    getDB(): Promise<void> {
-        return this.platform.ready().then(() => {
+    getDB(): SQLiteObject {
+        /* return this.platform.ready().then(() => {
             this.sqlite.create({
                 name: 'SOS',
                 location: 'default'
             }).then((db: SQLiteObject) => {
-
+                return db;
             });
-        });
-
+        });  */
+        return this.db;
     }
 
     createApplicationTables(db: SQLiteObject): Promise<any> {

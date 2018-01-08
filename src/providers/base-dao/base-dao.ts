@@ -24,6 +24,7 @@ export class BaseDao {
 
   execute(query: string, params: any[]): Promise<any> {
     return this.SQL.db.executeSql(query, params).then(res => {
+      console.log(JSON.parse(res));
       return res.rows();
     }).catch(err => {
       console.log("Insert Urun Ana Grp Hata " + err);

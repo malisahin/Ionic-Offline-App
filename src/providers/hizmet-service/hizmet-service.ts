@@ -36,7 +36,7 @@ export class HizmetService {
   }
 
   saveHizmet() {
-    this.hizmetDao.saveHizmet(this.hizmet);
+    this.hizmetDao.insertOne(this.hizmet);
   }
 
 }

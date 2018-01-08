@@ -26,8 +26,9 @@ export class HizmetDao {
   }
 
   insertOne(hizmet: Hizmet): Promise<any> {
+    let hizmetObject: string = JSON.stringify(hizmet);
     let params = [hizmet.seqNo, hizmet.randevuTarihi, hizmet.hizmetTipiAdi, hizmet.mamAnaGrpAdi, hizmet.basvuruNedeni,
-    hizmet.durum, hizmet.firmaUnvani, hizmet.evTel, hizmet.isTel, hizmet.gsmNo, hizmet];
+    hizmet.durum, hizmet.firmaUnvani, hizmet.evTel, hizmet.isTel, hizmet.gsmNo, hizmetObject];
     return this.baseDao.execute(this.INSERT_QUERY, params);
   }
 
