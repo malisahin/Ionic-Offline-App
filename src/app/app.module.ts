@@ -48,6 +48,7 @@ import { BaseDao } from '../providers/base-dao/base-dao';
 import { FiyatDao } from '../providers/fiyat-dao/fiyat-dao';
 import { UrunDao } from '../providers/urun-dao/urun-dao';
 import { HizmetService } from '../providers/hizmet-service/hizmet-service';
+import { SQLitePorter } from '@ionic-native/sqlite-porter';
 
 @NgModule({
   declarations: [
@@ -118,6 +119,7 @@ import { HizmetService } from '../providers/hizmet-service/hizmet-service';
     ApiProvider,
     DatabaseProvider,
     SQLite,
+    SQLitePorter,
     UrunProvider,
     UrunAnaGrpProvider,
     UrunIscilikProvider,

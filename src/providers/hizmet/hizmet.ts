@@ -8,12 +8,14 @@ import { Injectable } from '@angular/core';
 import { ApiProvider } from '../api/api';
 import { HizmetDao } from '../hizmet-dao/hizmet-dao';
 import { Hizmet } from '../../entities/hizmet/hizmet';
+import { TokenProvider } from '../token/token';
 
 @Injectable()
 export class HizmetProvider {
 
-  constructor(public http: Http, private api: ApiProvider, private hizmetDao: HizmetDao) {
+  constructor(public http: Http, private api: ApiProvider, private hizmetDao: HizmetDao, private token: TokenProvider) {
     console.log('Hello CagriProvider Provider');
+    this.token.getToken('ECAMERKEZ', 'EMAR6565');
   }
 
   downloadCagriList() {
@@ -23,7 +25,7 @@ export class HizmetProvider {
       let hizmetList: Hizmet[];
       hizmetList = this.seperateCagri(res);
       return this.hizmetDao.insertList(hizmetList);
-    });
+    })
   }
 
 
@@ -44,7 +46,7 @@ export class HizmetProvider {
     item.aciklama = obj.aciklama
     item.adi = obj.adi
     //item.anket: Anket[];
-    item.apartman = obj.apartman;
+    item.apartman = obj.aparman;
     item.basvuruNedenAdi = obj.basvuruNedenAdi;
     item.basvuruNedeni = obj.basvuruNedeni;
     item.bayiKod = obj.bayiKod;
@@ -59,7 +61,7 @@ export class HizmetProvider {
     item.durum = obj.durum;
     item.eposta = obj.eposta;
     item.evTel = obj.evTel;
-    item.firmaUnvani = obj.firmaUnvanı;
+    item.firmaUnvani = obj.firmaUnvani;
     item.garanti = obj.garanti;
     item.gsmNo = obj.gsmNo;
     item.hizmetTipi = obj.hizmetTipi;
@@ -92,7 +94,7 @@ export class HizmetProvider {
     item.sehirKod = obj.sehirKod;
     item.semt = obj.semt;
     item.seqNo = obj.seqNo;
-    item.serAd = obj.serAd;
+    item.serAd = obj.serAdi;
     item.serKod = obj.serKod;
     item.servisNotu = obj.servisNotu;
     item.sokak = obj.sokak;

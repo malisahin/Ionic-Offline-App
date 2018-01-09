@@ -10,7 +10,9 @@ import { Hizmet } from '../../entities/hizmet/hizmet';
 
 @Injectable()
 export class HizmetDao {
-  INSERT_QUERY = 'INSERT INTO OFF_HIZ_MST(seqNo, randevuTarihi, hizmetTipiAdi, mamAnaGrpAdi, basvuruNedeni, durum, adi, soyadi, firmaUnvani, evTel, isTel, gsmNo, data)';
+  INSERT_QUERY = "INSERT INTO OFF_HIZ_MST(seqNo, randevuTarihi, hizmetTipiAdi, mamAnaGrpAdi, basvuruNedeni, durum, adi, soyadi, firmaUnvani, evTel, isTel, gsmNo, data) " +
+    " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?) ";
+
 
   insertedRow: number = 0;
   constructor(private baseDao: BaseDao) {
