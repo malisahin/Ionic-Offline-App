@@ -26,6 +26,7 @@ export class CagriDetayPage {
     this.hizmet = new Hizmet();
     this.hizmet.seqNo = this.navParams.get('seqNo');
     this.hizmetService.fetchHizmet(this.hizmet);
+    this.hizmetService.getHizmet();
     console.log("Çağrı Detay Seq No: " + this.seqNo);
 
   }

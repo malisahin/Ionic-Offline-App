@@ -18,20 +18,21 @@ export class HizmetService {
 
   constructor(public http: Http, private hizmetDao: HizmetDao, private hizmetProvider: HizmetProvider) {
     console.log('Hello HizmetServiceProvider Provider');
+
   }
 
-  fetchHizmet(seqNo) {
-    /*this.hizmetDao.find(this.hizmet).subscribe(res => {
+  fetchHizmet(hizmet: Hizmet) {
+    this.hizmetDao.find(hizmet).subscribe(res => {
       this.setHizmet(this.hizmetProvider.fillHizmet(res));
     });
-    */
+
   }
 
   setHizmet(hizmet: Hizmet) {
     this.hizmet = hizmet;
   }
 
-  getHizmet(): Hizmet {
+  getHizmet() {
     return this.hizmet;
   }
 
