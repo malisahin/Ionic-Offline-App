@@ -14,13 +14,13 @@ import { Hizmet } from '../../../../entities/hizmet/hizmet';
 })
 export class IslemTarihComponent {
 
-  hizmet: Hizmet
+  hizmet: Hizmet = new Hizmet();
   text: string;
 
   constructor(private hizmetService: HizmetService) {
     console.log('Hello IslemTarihComponent Component');
     this.text = 'Hello World';
-    this.hizmet = this.hizmetService.getHizmet();
+    //this.hizmet = this.hizmetService.getHizmet();
   }
 
 }

@@ -15,13 +15,22 @@ import { HizmetService } from '../../../providers/hizmet-service/hizmet-service'
 })
 export class HizmetBilgileriComponent {
 
-  hizmet: Hizmet;
+  hizmet: Hizmet = new Hizmet();
   text: string;
 
   constructor(public hizmetService: HizmetService) {
     console.log('Hello HizmetBilgileriComponent Component');
     this.text = 'Hello World';
-    this.hizmet = this.hizmetService.getHizmet();
+    this.fetchHizmet();
+
+  }
+
+  fetchHizmet() {
+    if (this.hizmet.seqNo == null || this.hizmet.seqNo == "") {
+      this.hizmetService.getHizmet().subscribe(res => {
+        this.hizmet = res;
+      })
+    }
   }
 
 }

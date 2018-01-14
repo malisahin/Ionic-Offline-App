@@ -15,12 +15,12 @@ export class ServisBilgileriComponent {
 
   activePage: string = "servis";
   text: string;
-  hizmet: Hizmet;
+  hizmet: Hizmet = new Hizmet();
 
   constructor(private hizmetService: HizmetService) {
     console.log('Hello ServisBilgileriComponent Component');
     this.text = 'Hello World';
-    this.hizmet = this.hizmetService.getHizmet();
+    //this.hizmet = this.hizmetService.getHizmet();
   }
 
 }

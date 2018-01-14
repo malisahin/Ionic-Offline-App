@@ -21,19 +21,21 @@ export class HizmetService {
 
   }
 
-  fetchHizmet(hizmet: Hizmet) {
-    this.hizmetDao.find(hizmet).subscribe(res => {
-      this.setHizmet(this.hizmetProvider.fillHizmet(res));
+  fetchHizmet(hizmet: Hizmet): Observable<Hizmet> {
+    return this.hizmetDao.find(hizmet);
+
+  }
+
+  setHizmet(hizmet: Hizmet): Observable<any> {
+    return Observable.create(observer => {
+      this.hizmet = hizmet;
     });
-
   }
 
-  setHizmet(hizmet: Hizmet) {
-    this.hizmet = hizmet;
-  }
-
-  getHizmet() {
-    return this.hizmet;
+  getHizmet(): Observable<Hizmet> {
+    return Observable.create(res => {
+      return this.hizmet;
+    });
   }
 
   saveHizmet() {

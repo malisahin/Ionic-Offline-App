@@ -23,11 +23,13 @@ export class CagriDetayPage {
   hizmet: Hizmet;
 
   constructor(public navCtrl: NavController, private hizmetProvider: HizmetProvider, public navParams: NavParams, private hizmetService: HizmetService) {
+    console.log("Hello Cagri Detay Page");
     this.hizmet = new Hizmet();
     this.hizmet.seqNo = this.navParams.get('seqNo');
-    this.hizmetService.fetchHizmet(this.hizmet);
-    this.hizmetService.getHizmet();
-    console.log("Çağrı Detay Seq No: " + this.seqNo);
+    this.hizmetService.fetchHizmet(this.hizmet).subscribe(res => {
+      this.hizmetService.setHizmet(res);
+      this.hizmet = res;
+    });
 
   }
 

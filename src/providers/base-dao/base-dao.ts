@@ -23,11 +23,12 @@ export class BaseDao {
   }
 
   execute(query: string, params: any[]): Promise<any> {
+    console.log('query' + query);
     return this.SQL.db.executeSql(query, params).then(res => {
-      console.log(JSON.parse(JSON.stringify(res)));
+      console.log(res);
       return res.rows;
     }).catch(err => {
-      console.log("Insert Urun Ana Grp Hata " + JSON.parse(JSON.stringify(err)));
+      console.log("Insert Urun Ana Grp Hata " + err);
       return err;
     });
   }

@@ -44,10 +44,10 @@ export class HizmetDao {
   }
 
   prepareSelectQuery(item: Hizmet): string {
-    let query = 'SELECT * FROM OFF_HIZ_MST WHERE 1=1 ';
+    let query = "SELECT * FROM OFF_HIZ_MST WHERE 1=1 ";
 
     if (item.seqNo != null && item.seqNo != "")
-      query += ' AND seqNo=' + item.seqNo;
+      query += " AND seqNo= '" + item.seqNo + "' ";
 
     // TODO: Randevu Tarihi between date yapilacak sekilde duzenlenmeli
     if (item.randevuTarihi != null && item.randevuTarihi != "")

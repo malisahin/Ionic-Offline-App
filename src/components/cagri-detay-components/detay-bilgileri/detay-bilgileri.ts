@@ -15,12 +15,12 @@ import { HizmetService } from '../../../providers/hizmet-service/hizmet-service'
 export class DetayBilgileriComponent {
   showDetails: number = 1;
   text: string;
-  hizmet: Hizmet;
+  hizmet: Hizmet = new Hizmet();
 
   constructor(private hizmetService: HizmetService) {
     console.log('Hello DetayBilgileriComponent Component');
     this.text = 'Hello World';
-    this.hizmet = this.hizmetService.getHizmet();
+    //this.hizmet = this.hizmetService.getHizmet();
   }
 
   toggleDetails() {

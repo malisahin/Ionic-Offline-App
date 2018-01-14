@@ -9,6 +9,7 @@ import { ModalController } from 'ionic-angular/components/modal/modal-controller
 import { CagriAramaModalPage } from './cagri-arama-modal/cagri-arama-modal';
 import { HizmetProvider } from '../../providers/hizmet/hizmet';
 import { MockCagriList } from '../../entities/hizmet/cagriList-mock';
+import { TokenProvider } from '../../providers/token/token';
 
 @IonicPage()
 @Component({
@@ -22,8 +23,10 @@ export class CagrilarPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private modalController: ModalController,
-    private cagriProvider: HizmetProvider) {
+    private cagriProvider: HizmetProvider,
+    private token: TokenProvider) {
     this.cagrilar = this.mockData.cagriList;
+    let tokenUrl = this.token.getToken("", "");
   }
 
   ionViewDidLoad() {
@@ -44,6 +47,7 @@ export class CagrilarPage {
   }
 
   public cagriGuncelle() {
+
     this.cagriProvider.downloadCagriList();
   }
 }
