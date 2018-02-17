@@ -49,67 +49,55 @@ export class ApiProvider {
   loginUrl: string = "";
 
   getKullaniciUrl(username: string) {
-    //url: App.domainUrl + "/sos-api/endpointrest/kullanici/" + localStorage.getItem("user")
     return this.urlPrefixKullanici + this.userName;
   }
 
   getCagriListUrl() {
-    this.ikKod = '5961'
+    this.ikKod = '5961';
     return this.urlPrefixHizmet + this.orgKod + '/' + this.serKod + '/' + this.ikKod + '/param/ikCagriListesi';
   }
 
   setCagriUrl(siparisMi: string) {
-    //url: App.domainUrl + '/sos-api/endpointrest/hizmet/' + userObj.orgKod + '/' + userObj.userName + '/' + userObj.dilKod + '/' + userObj.pB + '/' + App.siparisMi + '/CagriKaydet',
     return this.urlPrefixHizmet + this.orgKod + '/' + this.userName + '/' + this.dilKod + '/' + this.paraBirimi + '/' + siparisMi + '/' + '/CagriKaydet';
   }
 
   downloadUrunUrl(versiyon: string, first: number) {
-    // url: App.domainUrl + '/sos-api/endpointrest/offline/' + versiyon + '/' + first + '/' + pageSize + '/urunler',
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/urunler';
   }
 
   urunAnagrupDownloadUrl(versiyon: string) {
-    //url: App.domainUrl + '/sos-api/endpointrest/offline/' + versiyon + '/mamAnagrp',
     return this.urlPrefixOffline + versiyon + '/mamAnagrp';
   }
 
   urunIscilikDownloadUrl(versiyon: string, first: number) {
-    //url: App.domainUrl + '/sos-api/endpointrest/offline/' + versiyon + '/' + first + '/' + pageSize + '/mamIsc',
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/mamIsc';
   }
 
   urunMalzemeDownloadUrl(versiyon: string, first: number) {
-    //url: App.domainUrl + '/sos-api/endpointrest/offline/' + versiyon + '/' + first + '/' + pageSize + '/mamMlz',
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/mamMlz';
   }
 
   islemArizaIscilikDownloadUrl(versiyon: string, first: number) {
-    //url: App.domainUrl + '/sos-api/endpointrest/offline/' + versiyon + '/' + first + '/' + pageSize + '/islArzIsc',
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/islArzIsc';
   }
 
   fiyatlarDownloadUrl(versiyon: string, first: number, tip: string) {
-    //url: App.domainUrl + '/sos-api/endpointrest/offline/' + versiyon + '/' + first + '/' + pageSize + '/' + tip,
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/' + tip;
   }
 
   getVersiyonUrl() {
-    //url: App.domainUrl + '/sos-api/endpointrest/offline/versiyonKontrol',
     return this.urlPrefixOffline + 'versiyonKontrol';
   }
 
   garantiSorguUrl() {
-    //url: App.domainUrl + '/sos-api/endpointrest/offline/garantiKontrol',
     return this.urlPrefixOffline + 'garantiKontrol';
   }
 
   getMesajlarUrl() {
-    // url: App.domainUrl + '/sos-api/endpointrest/kullanici/' + userObj.userName + '/' + 'type' + '/' + 'NEW' + '/mesajlar',
     return this.urlPrefixKullanici + this.userName + '/type/NEW/mesajlar';
   }
 
   updateMamAnaGrupUrl() {
-    // url: App.domainUrl + '/sos-api/endpointrest/hizmet/' + userObj.orgKod + '/' + userObj.userName + '/' + userObj.dilKod + '/' + userObj.pB + '/UpdateMamAnaGrp',
     return this.urlPrefixHizmet + this.orgKod + '/' + this.userName + '/' + this.dilKod + '/' + this.paraBirimi + '/UpdateMamAnaGrp';
   }
 

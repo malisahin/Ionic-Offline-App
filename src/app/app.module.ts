@@ -26,12 +26,10 @@ import { DetayBilgileriComponent } from '../components/cagri-detay-components/de
 import { LoginPage } from '../pages/login/login';
 import { LoginProvider } from '../providers/login/login';
 import { TokenProvider } from '../providers/token/token';
-import { HttpClientModule } from '@angular/common/http/';
 import { ApiProvider } from '../providers/api/api';
 import { DatabaseProvider } from '../providers/database/database';
 import { SQLite } from '@ionic-native/sqlite';
 import { Http, HttpModule } from '@angular/http';
-import { UrunIscilik } from '../entities/urun-iscilik';
 import { UrunProvider } from '../providers/urun/urun';
 import { UrunAnaGrpProvider } from '../providers/urun-ana-grp/urun-ana-grp';
 import { UrunIscilikProvider } from '../providers/urun-iscilik/urun-iscilik';
@@ -49,6 +47,7 @@ import { FiyatDao } from '../providers/fiyat-dao/fiyat-dao';
 import { UrunDao } from '../providers/urun-dao/urun-dao';
 import { HizmetService } from '../providers/hizmet-service/hizmet-service';
 import { SQLitePorter } from '@ionic-native/sqlite-porter';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
