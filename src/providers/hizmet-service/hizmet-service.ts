@@ -23,7 +23,6 @@ export class HizmetService {
 
   fetchHizmet(hizmet: Hizmet): Observable<Hizmet> {
     return this.hizmetDao.find(hizmet);
-
   }
 
   setHizmet(hizmet: Hizmet): Observable<any> {

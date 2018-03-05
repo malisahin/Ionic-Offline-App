@@ -41,7 +41,7 @@ export class ApiProvider {
 
   getTokenUrl(username: string, password: string) {
     username = 'ECAMERKEZ';
-    password = 'EMAR6565';
+    password = 'EMAR6464';
     let tokenUrl = this.profil.getActiveProfil(this.ACTIVE_PROFIL).securityUrl + '/sos-security-service/oauth/token?grant_type=password&client_id=sos-api-enduser-mobile-client&client_secret=somesecret&';
     return tokenUrl + "username=" + username + "&password=" + password;
   }

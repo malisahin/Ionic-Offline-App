@@ -30,8 +30,8 @@ export class Profil {
         domain.orgKod = "SAHIN";
         domain.kod = 'SECRET';
         domain.name = 'Development';
-        domain.domainUrl = "";
-        domain.securityUrl = "";
+        domain.domainUrl = "http://sos.ecaservis.com.tr:7003/";
+        domain.securityUrl = "http://sos.ecaservis.com.tr:7003/";
         domain.activeTabCss = "'background', '#65c8f7','border-bottom','3px solid #65c8f7'";
         domain.passiveTabCss = "'background', '#244085','border-bottom','3px solid #244085'";
         domain.downloadedButtonCss = {
@@ -43,7 +43,7 @@ export class Profil {
             'color': '#004186',
             'border': '1px solid #004186',
             'border-bottom': '0px'
-        }
+        };
         return domain;
     }
 
@@ -65,7 +65,7 @@ export class Profil {
             'color': '#004186',
             'border': '1px solid #004186',
             'border-bottom': '0px'
-        }
+        };
         return domain;
     }
 
@@ -87,7 +87,7 @@ export class Profil {
             'color': '#004186',
             'border': '1px solid #004186',
             'border-bottom': '0px'
-        }
+        };
         return domain;
     }
 
@@ -109,7 +109,7 @@ export class Profil {
             'color': '#004186',
             'border': '1px solid #004186',
             'border-bottom': '0px'
-        }
+        };
         return domain;
     }
 
@@ -131,7 +131,7 @@ export class Profil {
             'color': '#004186',
             'border': '1px solid #004186',
             'border-bottom': '0px'
-        }
+        };
         return domain;
     }
 

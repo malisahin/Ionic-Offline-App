@@ -5,6 +5,7 @@
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { DatabaseProvider } from '../database/database';
+import { SQLiteObject } from "@ionic-native/sqlite";
 
 
 @Injectable()
@@ -24,13 +25,16 @@ export class BaseDao {
 
   execute(query: string, params: any[]): Promise<any> {
     console.log('query' + query);
-    return this.SQL.db.executeSql(query, params).then(res => {
-      console.log(res);
-      return res.rows;
-    }).catch(err => {
-      console.log("Insert Urun Ana Grp Hata " + err);
-      return err;
+    return this.SQL.transaction().then((db: SQLiteObject) => {
+      this.SQL.db.executeSql(query, params).then(res => {
+        console.log(res);
+        return res.rows;
+      }).catch(err => {
+        console.log("Insert Urun Ana Grp Hata " + err);
+        return err;
+      });
     });
+
   }
 
   insertOne(query: string, params: any[]): Promise<any> {

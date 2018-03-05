@@ -48,6 +48,7 @@ import { UrunDao } from '../providers/urun-dao/urun-dao';
 import { HizmetService } from '../providers/hizmet-service/hizmet-service';
 import { SQLitePorter } from '@ionic-native/sqlite-porter';
 import {HttpClientModule} from "@angular/common/http";
+import {SQLiteMock} from "../util/SQLiteMock";
 
 @NgModule({
   declarations: [
@@ -117,8 +118,8 @@ import {HttpClientModule} from "@angular/common/http";
     TokenProvider,
     ApiProvider,
     DatabaseProvider,
-    SQLite,
     SQLitePorter,
+    SQLite,
     UrunProvider,
     UrunAnaGrpProvider,
     UrunIscilikProvider,

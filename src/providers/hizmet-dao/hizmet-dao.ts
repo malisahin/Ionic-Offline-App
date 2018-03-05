@@ -5,6 +5,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { DatabaseProvider } from '../database/database';
+import 'rxjs/add/observable/fromPromise';
 import { BaseDao } from '../base-dao/base-dao';
 import { Hizmet } from '../../entities/hizmet/hizmet';
 
@@ -36,10 +37,12 @@ export class HizmetDao {
 
   find(item: Hizmet): Observable<Hizmet> {
     // TODO: Promise metodlar Observable haline gelecek
-    return Observable.create(observer => {
+    let query = this.prepareSelectQuery(item);
+    return Observable.fromPromise(this.baseDao.execute(query, []));
+    /*return Observable.create(observer => {
       let query = this.prepareSelectQuery(item);
       return this.baseDao.execute(query, []);
-    });
+    });*/
 
   }
 
