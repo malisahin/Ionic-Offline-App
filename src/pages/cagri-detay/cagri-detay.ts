@@ -26,26 +26,26 @@ export class CagriDetayPage {
     console.log("Hello Cagri Detay Page");
     this.hizmet = new Hizmet();
     this.hizmet.seqNo = this.navParams.get('seqNo');
-
-    this.fetchAllHizmet();
+    this.getHizmet();
   }
 
-  fetchAllHizmet() {
-    return this.hizmetService.fetchHizmet(this.hizmet).subscribe(res => {
-      this.hizmetService.setHizmet(res);
-      this.hizmet = res;
+  getHizmet() {
+    return this.hizmetService.fetchHizmet(this.hizmet).then(res => {
+      for(var i = 0; i < res.length; i++){
+        let data = JSON.parse(res.item(i).data);
+        this.hizmet = data;
+        this.hizmetService.setHizmet(this.hizmet);
+      }
     });
   }
 
   ionViewDidLoad() {
-
     console.log('ionViewDidLoad CagriDetayPage');
-    this.fetchAllHizmet();
   }
 
   ionViewWillEnter(){
     console.log('ionViewWillEnter CagriDetayPage');
-    this.fetchAllHizmet();
+    //this.getHizmet();
   }
 
 }

@@ -73,5 +73,6 @@ export class Hizmet {
     servisNotu: string = "";
     sokak: string = "";
     soyadi: string = "";
+  data: any;
 
 }

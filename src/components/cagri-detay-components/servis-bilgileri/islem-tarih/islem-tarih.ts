@@ -20,7 +20,7 @@ export class IslemTarihComponent {
   constructor(private hizmetService: HizmetService) {
     console.log('Hello IslemTarihComponent Component');
     this.text = 'Hello World';
-    //this.hizmet = this.hizmetService.getHizmet();
+    this.hizmet = this.hizmetService.getHizmet();
   }
 
 }

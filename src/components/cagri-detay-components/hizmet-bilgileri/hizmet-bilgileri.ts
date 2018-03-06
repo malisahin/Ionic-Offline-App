@@ -27,9 +27,7 @@ export class HizmetBilgileriComponent {
 
   fetchHizmet() {
     if (this.hizmet.seqNo == null || this.hizmet.seqNo == "") {
-      this.hizmetService.getHizmet().subscribe(res => {
-        this.hizmet = res;
-      })
+      this.hizmet =  this.hizmetService.getHizmet();
     }
   }
 

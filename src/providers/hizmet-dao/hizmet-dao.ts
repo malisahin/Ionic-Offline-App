@@ -1,21 +1,20 @@
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
-*/
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { DatabaseProvider } from '../database/database';
-import 'rxjs/add/observable/fromPromise';
-import { BaseDao } from '../base-dao/base-dao';
-import { Hizmet } from '../../entities/hizmet/hizmet';
+ */
+import {Injectable} from "@angular/core";
+import "rxjs/add/observable/fromPromise";
+import {BaseDao} from "../base-dao/base-dao";
+import {Hizmet} from "../../entities/hizmet/hizmet";
 
 @Injectable()
 export class HizmetDao {
   INSERT_QUERY = "INSERT INTO OFF_HIZ_MST(seqNo, randevuTarihi, hizmetTipiAdi, mamAnaGrpAdi, basvuruNedeni, durum, adi, soyadi, firmaUnvani, evTel, isTel, gsmNo, data) " +
     " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?) ";
-
+  DELETE_QUERY = "DELETE FROM OFF_HIZ_MST";
 
   insertedRow: number = 0;
+
   constructor(private baseDao: BaseDao) {
     console.log('Hello HizmetDaoProvider Provider');
   }
@@ -31,19 +30,13 @@ export class HizmetDao {
   insertOne(hizmet: Hizmet): Promise<any> {
     let hizmetObject: string = JSON.stringify(hizmet);
     let params = [hizmet.seqNo, hizmet.randevuTarihi, hizmet.hizmetTipiAdi, hizmet.mamAnaGrpAdi, hizmet.basvuruNedeni,
-    hizmet.durum, hizmet.firmaUnvani, hizmet.evTel, hizmet.isTel, hizmet.gsmNo, hizmetObject];
+      hizmet.durum, hizmet.adi, hizmet.soyadi, hizmet.firmaUnvani, hizmet.evTel, hizmet.isTel, hizmet.gsmNo, hizmetObject];
     return this.baseDao.execute(this.INSERT_QUERY, params);
   }
 
-  find(item: Hizmet): Observable<Hizmet> {
-    // TODO: Promise metodlar Observable haline gelecek
+  find(item: Hizmet): Promise<Hizmet[]> {
     let query = this.prepareSelectQuery(item);
-    return Observable.fromPromise(this.baseDao.execute(query, []));
-    /*return Observable.create(observer => {
-      let query = this.prepareSelectQuery(item);
-      return this.baseDao.execute(query, []);
-    });*/
-
+    return this.baseDao.execute(query, []);
   }
 
   prepareSelectQuery(item: Hizmet): string {
@@ -88,6 +81,10 @@ export class HizmetDao {
 
 
     return query;
+  }
+
+  deleteList(): Promise<any> {
+    return this.baseDao.execute(this.DELETE_QUERY, []);
   }
 
 }

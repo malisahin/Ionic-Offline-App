@@ -19,7 +19,7 @@ export class MusteriBilgileriComponent {
   constructor(private hizmetService: HizmetService) {
     console.log('Hello MusteriBilgileriComponent Component');
     this.text = 'Hello World';
-    //this.hizmet = this.hizmetService.getHizmet();
+    this.hizmet = this.hizmetService.getHizmet();
   }
 
 

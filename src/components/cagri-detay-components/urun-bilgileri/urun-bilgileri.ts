@@ -4,6 +4,7 @@ import { ListPage } from '../../../pages/list/list';
 import { ListComponent } from '../../list/list';
 import { ListItem } from '../../../entities/ListItem';
 import { Hizmet } from '../../../entities/hizmet/hizmet';
+import {HizmetService} from "../../../providers/hizmet-service/hizmet-service";
 
 @Component({
   selector: 'urun-bilgileri',
@@ -11,14 +12,14 @@ import { Hizmet } from '../../../entities/hizmet/hizmet';
 })
 export class UrunBilgileriComponent {
   text: string;
-  hizmet: Hizmet;
+  hizmet: Hizmet = new Hizmet();
   list: ListItem[];
 
 
-  constructor(private modalController: ModalController) {
+  constructor(private modalController: ModalController, private hizmetService: HizmetService) {
     console.log('Hello UrunBilgileriComponent Component');
     this.text = 'Hello World';
-    this.hizmet = new Hizmet();
+    this.hizmet = this.hizmetService.getHizmet();
 
     this.list = [
       new ListItem('ItemName1', 'Code1'),

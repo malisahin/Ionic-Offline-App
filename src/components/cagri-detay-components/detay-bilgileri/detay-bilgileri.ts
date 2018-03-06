@@ -20,7 +20,7 @@ export class DetayBilgileriComponent {
   constructor(private hizmetService: HizmetService) {
     console.log('Hello DetayBilgileriComponent Component');
     this.text = 'Hello World';
-    //this.hizmet = this.hizmetService.getHizmet();
+     this.hizmet = this.hizmetService.getHizmet();
   }
 
   toggleDetails() {

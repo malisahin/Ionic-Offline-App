@@ -20,7 +20,7 @@ import {Hizmet} from "../../entities/hizmet/hizmet";
 })
 export class CagrilarPage {
   mockData = new MockCagriList();
-  cagrilar: Hizmet[];
+  cagrilar: Hizmet[] = [];
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -29,7 +29,6 @@ export class CagrilarPage {
               private hizmetService: HizmetService,
               private token: TokenProvider) {
     let tokenUrl = this.token.getToken("", "");
-    this.getCagriList();
   }
 
   ionViewDidLoad() {
@@ -51,9 +50,16 @@ export class CagrilarPage {
   }
 
   public getCagriList() {
-   this.hizmetService.fetchHizmet(new Hizmet).subscribe(res => {
-     this.cagrilar.push(res);
-   });
+    this.hizmetService.fetchHizmet(new Hizmet).then(res => {
+      for(var i = 0; i < res.length; i++){
+        let data = JSON.parse(res.item(i).data);
+       this.cagrilar.push(data);
+      }
+    });
+  }
+
+  public deleteCagriList(): Promise<any> {
+    return this.hizmetService.deleteHizmetList();
   }
 
   public cagriGuncelle() {

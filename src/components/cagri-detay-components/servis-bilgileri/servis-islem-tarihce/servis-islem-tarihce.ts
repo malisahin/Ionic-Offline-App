@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from "@angular/core";
+import {HizmetService} from "../../../../providers/hizmet-service/hizmet-service";
+import {Hizmet} from "../../../../entities/hizmet/hizmet";
 
 /**
  * Generated class for the ServisIslemTarihceComponent component.
@@ -13,10 +15,12 @@ import { Component } from '@angular/core';
 export class ServisIslemTarihceComponent {
 
   text: string;
+  hizmet: Hizmet = new Hizmet();
 
-  constructor() {
+  constructor(private  hizmetService: HizmetService) {
     console.log('Hello ServisIslemTarihceComponent Component');
     this.text = 'Hello World';
+    this.hizmet = this.hizmetService.getHizmet();
   }
 
 }
