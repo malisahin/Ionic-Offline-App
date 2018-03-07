@@ -26,7 +26,7 @@ export class CagriDetayPage {
     console.log("Hello Cagri Detay Page");
     this.hizmet = new Hizmet();
     this.hizmet.seqNo = this.navParams.get('seqNo');
-    this.getHizmet();
+    this.setHizmet();
   }
 
   getHizmet() {
@@ -37,6 +37,10 @@ export class CagriDetayPage {
         this.hizmetService.setHizmet(this.hizmet);
       }
     });
+  }
+
+  setHizmet(){
+    this.hizmetService.setHizmet(this.hizmet);
   }
 
   ionViewDidLoad() {

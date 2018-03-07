@@ -1,11 +1,11 @@
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
-*/
+ */
 
-import { Component } from '@angular/core';
-import { Hizmet } from '../../../entities/hizmet/hizmet';
-import { HizmetService } from '../../../providers/hizmet-service/hizmet-service';
+import {Component} from "@angular/core";
+import {Hizmet} from "../../../entities/hizmet/hizmet";
+import {HizmetService} from "../../../providers/hizmet-service/hizmet-service";
 
 
 @Component({
@@ -20,7 +20,18 @@ export class DetayBilgileriComponent {
   constructor(private hizmetService: HizmetService) {
     console.log('Hello DetayBilgileriComponent Component');
     this.text = 'Hello World';
-     this.hizmet = this.hizmetService.getHizmet();
+    this.hizmet = this.hizmetService.getHizmet();
+
+  }
+
+  getHizmet() {
+    this.hizmetService.fetchHizmet(this.hizmet).then(res => {
+      for (var i = 0; i < res.length; i++) {
+        let data = JSON.parse(res.item(i).data);
+        this.hizmet = data;
+        this.hizmetService.setHizmet(this.hizmet);
+      }
+    });
   }
 
   toggleDetails() {
