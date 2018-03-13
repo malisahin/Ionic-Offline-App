@@ -19,15 +19,16 @@ export class UrunAnaGrup {
   constructor() {
   }
 
-  fillUrunAnaGrup(res) {
+  fillUrunAnaGrup(res: any): Promise<UrunAnaGrup[]> {
+    res = JSON.parse(res.data).message;
     let urunAnaGrpList = [];
     let cozumListe = new CozumListe();
     let basvuruListe = new BasvuruListe();
     let liste = new UrunAnaGrupListe();
-    urunAnaGrpList.push(cozumListe.fillCozumListe(res.cozumListe));
-    urunAnaGrpList.push(basvuruListe.fillBasvuruListe(res.basvuruListe));
-    urunAnaGrpList.push(liste.fillMamAnaGrpListe(res.liste));
-    return urunAnaGrpList;
+    urunAnaGrpList = (cozumListe.fillCozumListe(res.cozumListe, urunAnaGrpList));
+    urunAnaGrpList = (basvuruListe.fillBasvuruListe(res.basvuruListe, urunAnaGrpList));
+    urunAnaGrpList = (liste.fillMamAnaGrpListe(res.liste, urunAnaGrpList));
+    return new Promise(resolve => resolve(urunAnaGrpList))
   }
 
 
@@ -41,8 +42,7 @@ export class BasvuruListe {
   tip: string = "basvuruListe";
 
 
-  fillBasvuruListe(list: BasvuruListe[]) {
-    let urunAnaGrpList = [];
+  fillBasvuruListe(list: BasvuruListe[], mainList: UrunAnaGrup[]) {
     list.forEach(function (item) {
       let anaGrp = new UrunAnaGrup();
       anaGrp.basvuruNeden = item.basvuruNeden;
@@ -50,9 +50,9 @@ export class BasvuruListe {
       anaGrp.ad = item.ad;
       anaGrp.durum = item.durum;
       anaGrp.tip = "basvuruListe";
-      urunAnaGrpList.push(anaGrp);
+      mainList.push(anaGrp);
     });
-    return urunAnaGrpList;
+    return mainList;
   }
 }
 
@@ -61,16 +61,15 @@ export class CozumListe {
   ad: string;
   tip = "cozumListe";
 
-  fillCozumListe(list: CozumListe[]) {
-    let urunAnaGrpList = [];
+  fillCozumListe(list: CozumListe[], mainList: UrunAnaGrup[]) {
     list.forEach(function (item) {
       let anaGrp = new UrunAnaGrup();
       anaGrp.kod = item.kod;
       anaGrp.ad = item.ad;
       anaGrp.tip = "cozumListe";
-      urunAnaGrpList.push(anaGrp);
+      mainList.push(anaGrp);
     });
-    return urunAnaGrpList;
+    return mainList;
   }
 }
 
@@ -80,16 +79,15 @@ export class UrunAnaGrupListe {
   adi: string;
   tip: string = "liste";
 
-  fillMamAnaGrpListe(list: UrunAnaGrupListe[]) {
-    let urunAnaGrpList = [];
+  fillMamAnaGrpListe(list: UrunAnaGrupListe[], mainList: UrunAnaGrup[]) {
     list.forEach(function (item) {
       let anaGrp = new UrunAnaGrup();
       anaGrp.mamAnaGrp = item.mamAnaGrp;
       anaGrp.durum = item.durum;
       anaGrp.ad = item.adi;
       anaGrp.tip = "liste";
-      urunAnaGrpList.push(anaGrp);
+      mainList.push(anaGrp);
     });
-    return urunAnaGrpList;
+    return mainList;
   }
 }

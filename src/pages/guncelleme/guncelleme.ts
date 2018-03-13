@@ -1,17 +1,17 @@
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
-*/
+ */
 
 
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { UrunProvider } from '../../providers/urun/urun';
-import { UrunAnaGrpProvider } from '../../providers/urun-ana-grp/urun-ana-grp';
-import { UrunIscilikProvider } from '../../providers/urun-iscilik/urun-iscilik';
-import { UrunMalzemeProvider } from '../../providers/urun-malzeme/urun-malzeme';
-import { FiyatProvider } from '../../providers/fiyat/fiyat';
-import { IslemArizaIscilikProvider } from '../../providers/islem-ariza-iscilik/islem-ariza-iscilik';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {UrunProvider} from '../../providers/urun/urun';
+import {UrunAnaGrpProvider} from '../../providers/urun-ana-grp/urun-ana-grp';
+import {UrunIscilikProvider} from '../../providers/urun-iscilik/urun-iscilik';
+import {UrunMalzemeProvider} from '../../providers/urun-malzeme/urun-malzeme';
+import {FiyatProvider} from '../../providers/fiyat/fiyat';
+import {IslemArizaIscilikProvider} from '../../providers/islem-ariza-iscilik/islem-ariza-iscilik';
 
 
 @IonicPage()
@@ -24,13 +24,13 @@ export class GuncellemePage {
   activePage: string = "guncelleme";
 
   constructor(public navCtrl: NavController,
-    public navParams: NavParams,
-    private urunProvider: UrunProvider,
-    private urunAnaGrpProvider: UrunAnaGrpProvider,
-    private urunIscilikProvider: UrunIscilikProvider,
-    private urunMalzemeProvider: UrunMalzemeProvider,
-    private islemArizaIscilikProvider: IslemArizaIscilikProvider,
-    private fiyatProvider: FiyatProvider) {
+              public navParams: NavParams,
+              private urunProvider: UrunProvider,
+              private urunAnaGrpProvider: UrunAnaGrpProvider,
+              private urunIscilikProvider: UrunIscilikProvider,
+              private urunMalzemeProvider: UrunMalzemeProvider,
+              private islemArizaIscilikProvider: IslemArizaIscilikProvider,
+              private fiyatProvider: FiyatProvider) {
   }
 
   downloadUrunler() {
@@ -40,7 +40,7 @@ export class GuncellemePage {
   }
 
   downloadUrunAnaGrup() {
-    this.urunAnaGrpProvider.downloadUrunAnaGrup("-1").subscribe(res => {
+    this.urunAnaGrpProvider.downloadUrunAnaGrup("-1").then(res => {
       console.log(res);
     });
   }
@@ -48,6 +48,7 @@ export class GuncellemePage {
   downloadUrunIscilik() {
     this.urunIscilikProvider.downloadUrunIscilik("-1", 0).subscribe(res => {
       console.log(res);
+      this.downloadUrunIscilik();
     });
   }
 
@@ -61,6 +62,7 @@ export class GuncellemePage {
   downloadIslemArizaIscilik() {
     this.islemArizaIscilikProvider.downloadIslemArizaIscilik("-1", 0).subscribe(res => {
       console.log(res);
+      this.downloadIslemArizaIscilik();
     });
   }
 
@@ -75,10 +77,6 @@ export class GuncellemePage {
       console.log(res);
     });
   }
-
-
-
-
 
 
 }

@@ -3,7 +3,7 @@
  * @email mehmetalisahinogullari@gmail.com
  */
 
-import {Http} from "@angular/http";
+import {HTTP} from "@ionic-native/http";
 import {Injectable} from "@angular/core";
 import {ApiProvider} from "../api/api";
 import {Observable} from "rxjs/Observable";
@@ -14,17 +14,21 @@ import {UrunAnaGrup} from "../../entities/urunAnaGrup";
 @Injectable()
 export class UrunAnaGrpProvider {
 
-  constructor(public http: Http, private api: ApiProvider, private dao: UrunAnaGrpDao) {
+  constructor(public http: HTTP, private api: ApiProvider, private dao: UrunAnaGrpDao) {
     console.log('Hello UrunAnaGrpProvider Provider');
   }
 
-  downloadUrunAnaGrup(versiyon): Observable<any> {
+  downloadUrunAnaGrup(versiyon): Promise<any> {
     let url = this.api.urunAnagrupDownloadUrl(versiyon);
     let options = this.api.getHeader();
-    return this.http.get(url, options).map(
+    this.http.setHeader('Content-Type', 'application/json');
+    this.http.setHeader('accessToken', localStorage.getItem("accessToken"));
+    return this.http.get(url, {}, {}).then(
       item => {
         let anaGrp = new UrunAnaGrup();
-        anaGrp.fillUrunAnaGrup(JSON.parse(item._body).message);
+        return anaGrp.fillUrunAnaGrup(item).then(anaGrpList => {
+          return this.dao.insertMamAnagrpList(anaGrpList);
+        });
       }
     );
   }

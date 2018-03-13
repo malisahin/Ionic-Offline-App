@@ -21,6 +21,7 @@
     "@angular/platform-browser": "5.0.1",
     "@angular/platform-browser-dynamic": "5.0.1",
     "@ionic-native/core": "4.4.0",
+    "@ionic-native/http": "^4.5.3",
     "@ionic-native/splash-screen": "4.4.0",
     "@ionic-native/sqlite": "^4.5.3",
     "@ionic-native/sqlite-porter": "^4.5.2",
@@ -32,7 +33,9 @@
     "cordova-browser": "^5.0.3",
     "cordova-custom-config": "^5.0.2",
     "cordova-ios": "4.5.4",
+    "cordova-plugin-advanced-http": "^1.11.0",
     "cordova-plugin-device": "^1.1.7",
+    "cordova-plugin-file": "^6.0.1",
     "cordova-plugin-ionic-webview": "^1.1.16",
     "cordova-plugin-splashscreen": "^4.1.0",
     "cordova-plugin-sqlite-2": "^1.0.4",
@@ -60,7 +63,8 @@
       "cordova-plugin-ionic-webview": {},
       "uk.co.workingedge.cordova.plugin.sqliteporter": {},
       "cordova-plugin-sqlite-2": {},
-      "cordova-sqlite-storage": {}
+      "cordova-sqlite-storage": {},
+      "cordova-plugin-advanced-http": {}
     },
     "platforms": [
       "android",
