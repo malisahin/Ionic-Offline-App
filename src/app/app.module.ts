@@ -38,7 +38,6 @@ import { CagriAramaModalPage } from "../pages/cagrilar/cagri-arama-modal/cagri-a
 import { HizmetProvider } from "../providers/hizmet/hizmet";
 import { ListComponent } from "../components/list/list";
 import { ListPage } from "../pages/list/list";
-import { UrunAnaGrpDao } from "../providers/urun-ana-grp-dao/urun-ana-grp-dao";
 import { HizmetDao } from "../providers/hizmet-dao/hizmet-dao";
 import { BaseDao } from "../providers/base-dao/base-dao";
 import { FiyatDao } from "../providers/fiyat-dao/fiyat-dao";
@@ -124,8 +123,6 @@ import { HTTP } from "@ionic-native/http";
     IslemArizaIscilikProvider,
     FiyatProvider,
     HizmetProvider,
-    HizmetDao,
-    UrunAnaGrpDao,
     HizmetDao,
     BaseDao,
     FiyatDao,

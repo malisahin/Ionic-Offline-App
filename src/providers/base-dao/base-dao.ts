@@ -2,7 +2,7 @@
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-import {Http} from "@angular/http";
+import {HTTP} from "@ionic-native/http";
 import {Injectable} from "@angular/core";
 import {DatabaseProvider} from "../database/database";
 import {SQLiteObject} from "@ionic-native/sqlite";
@@ -11,7 +11,7 @@ import {SQLiteObject} from "@ionic-native/sqlite";
 @Injectable()
 export class BaseDao {
 
-  constructor(public http: Http, private SQL: DatabaseProvider) {
+  constructor(public http: HTTP, private SQL: DatabaseProvider) {
     console.log('Hello BaseDaoProvider Provider');
   }
 

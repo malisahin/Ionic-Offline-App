@@ -10,14 +10,20 @@ export class Urun {
     surec: string;
     durum: string;
 
-    fillUrun(obj) {
-        let item: Urun = new Urun();
-        item.mamAnagrp = obj.mamAnagrp;
-        item.mamKod = obj.urunKodu;
-        item.mamAdi = obj.urunAdi;
-        item.seriMetod = obj.seriMetod;
-        item.durum = obj.durum;
-        return item;
+    fillUrun(res: any): Promise<any> {
+      let parsedList = [];
+       let urunList= JSON.parse(res.data).message[0].liste;
+      urunList.forEach(function (item) {
+        let urun: Urun = new Urun();
+        urun.mamAnagrp = item.mamAnagrp;
+        urun.mamKod = item.urunKodu;
+        urun.mamAdi = item.urunAdi;
+        urun.seriMetod = item.seriMetod;
+        urun.durum = item.durum;
+        parsedList.push(urun);
+      });
+
+      return new Promise(resolve=> resolve(parsedList));
     }
 }
 /*

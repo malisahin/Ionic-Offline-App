@@ -34,8 +34,8 @@ export class GuncellemePage {
   }
 
   downloadUrunler() {
-    this.urunProvider.downloadUrunler("-1", 0).subscribe(res => {
-      console.log(res);
+    this.urunProvider.downloadUrunler("-1", 0).then(res => {
+      console.log("Urunler Kayit Edildi");
     });
   }
 
@@ -46,9 +46,9 @@ export class GuncellemePage {
   }
 
   downloadUrunIscilik() {
-    this.urunIscilikProvider.downloadUrunIscilik("-1", 0).subscribe(res => {
+    this.urunIscilikProvider.downloadUrunIscilik("-1", 0).then(res => {
       console.log(res);
-      this.downloadUrunIscilik();
+      //this.downloadUrunIscilik();
     });
   }
 
@@ -62,7 +62,7 @@ export class GuncellemePage {
   downloadIslemArizaIscilik() {
     this.islemArizaIscilikProvider.downloadIslemArizaIscilik("-1", 0).subscribe(res => {
       console.log(res);
-      this.downloadIslemArizaIscilik();
+    //  this.downloadIslemArizaIscilik();
     });
   }
 

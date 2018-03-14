@@ -25,7 +25,7 @@ export class ApiProvider {
   urlPrefixHizmet: string;
   urlPrefixOffline: string;
   urlPrefixKullanici: string;
-  pageSize = 10000;
+  pageSize = 10;
   first = 0;
   constructor(public http: Http) {
 
