@@ -13,6 +13,8 @@ export class Urun {
     fillUrun(res: any): Promise<any> {
       let parsedList = [];
        let urunList= JSON.parse(res.data).message[0].liste;
+       let urunVersiyon= JSON.parse(res.data).message[0].versiyon;
+      localStorage.setItem("urun-versiyon", urunVersiyon);
       urunList.forEach(function (item) {
         let urun: Urun = new Urun();
         urun.mamAnagrp = item.mamAnagrp;
