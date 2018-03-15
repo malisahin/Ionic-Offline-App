@@ -22,6 +22,8 @@ import {IslemArizaIscilikProvider} from '../../providers/islem-ariza-iscilik/isl
 export class GuncellemePage {
   isAndroid: boolean = false;
   activePage: string = "guncelleme";
+  pageSize = 10000;
+  firstForUrunIscilik = 0;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -31,6 +33,7 @@ export class GuncellemePage {
               private urunMalzemeProvider: UrunMalzemeProvider,
               private islemArizaIscilikProvider: IslemArizaIscilikProvider,
               private fiyatProvider: FiyatProvider) {
+
   }
 
   downloadUrunler() {
@@ -45,10 +48,12 @@ export class GuncellemePage {
     });
   }
 
+
   downloadUrunIscilik() {
-    this.urunIscilikProvider.downloadUrunIscilik("-1", 0).then(res => {
+    this.urunIscilikProvider.downloadUrunIscilik(this.firstForUrunIscilik).then(res => {
       console.log(res);
-      //this.downloadUrunIscilik();
+      this.firstForUrunIscilik += this.pageSize;
+      this.downloadUrunIscilik();
     });
   }
 
@@ -62,7 +67,7 @@ export class GuncellemePage {
   downloadIslemArizaIscilik() {
     this.islemArizaIscilikProvider.downloadIslemArizaIscilik("-1", 0).subscribe(res => {
       console.log(res);
-    //  this.downloadIslemArizaIscilik();
+      //  this.downloadIslemArizaIscilik();
     });
   }
 

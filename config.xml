@@ -89,4 +89,5 @@
     <plugin name="cordova-plugin-sqlite-2" spec="^1.0.4" />
     <plugin name="cordova-sqlite-storage" spec="^2.2.1" />
     <plugin name="cordova-plugin-advanced-http" spec="^1.11.0" />
+    <plugin name="cordova-plugin-nativestorage" spec="^2.3.1" />
 </widget>
