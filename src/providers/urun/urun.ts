@@ -18,19 +18,22 @@ export class UrunProvider {
   }
 
   downloadUrunler(versiyon: string, first: number): Promise<any> {
-    let url = this.api.downloadUrunUrl(versiyon, first);
     this.http.setHeader('Content-Type', 'application/json');
     this.http.setHeader('accessToken', localStorage.getItem("accessToken"));
-    return this.http.get(url, {}, {}).then(
-      item => {
-        let urun = new Urun();
-        return urun.fillUrun(item).then(item => {
-          this.insertList(item);
-        });
-      }
-    );
+
+    return this.api.downloadUrunUrl(versiyon, first).then(url=> {
+      return this.http.get(url, {}, {}).then(
+        item => {
+          let urun = new Urun();
+          return urun.fillUrun(item).then(item => {
+            this.insertList(item);
+          });
+        }
+      );
+    });
 
   }
+
 
   insertList(list: Urun[]): Promise<any> {
     for (var i = 0; i < list.length; i++) {

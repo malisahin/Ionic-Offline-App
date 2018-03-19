@@ -41,6 +41,7 @@
     "cordova-plugin-nativestorage": "^2.3.1",
     "cordova-plugin-splashscreen": "^4.1.0",
     "cordova-plugin-sqlite-2": "^1.0.4",
+    "cordova-plugin-statusbar": "^2.4.1",
     "cordova-plugin-whitelist": "^1.3.1",
     "cordova-sqlite-storage": "^2.2.1",
     "ionic-angular": "3.9.2",
@@ -67,7 +68,8 @@
       "cordova-plugin-sqlite-2": {},
       "cordova-sqlite-storage": {},
       "cordova-plugin-advanced-http": {},
-      "cordova-plugin-nativestorage": {}
+      "cordova-plugin-nativestorage": {},
+      "cordova-plugin-statusbar": {}
     },
     "platforms": [
       "android",

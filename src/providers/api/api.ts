@@ -1,15 +1,15 @@
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
-*/
-import { Injectable, Version } from '@angular/core';
-import { Profil } from '../../entities/profil';
-import { EProfiles } from '../../entities/enums/eProfil';
-import { Observable } from 'rxjs/Observable';
-import { RequestOptions } from '@angular/http';
-import { RequestOptionsArgs } from '@angular/http';
-import { Http } from '@angular/http';
-import { Headers } from '@angular/http';
+ */
+import { Injectable } from "@angular/core";
+import { Profil } from "../../entities/profil";
+import { EProfiles } from "../../entities/enums/eProfil";
+import { RequestOptions, Headers } from "@angular/http";
+import { Tablo } from "../../entities/Tablo";
+import { HTTP } from "@ionic-native/http";
+import { VersiyonProvider } from "../versiyon/versiyon";
+import { ETable } from "../../entities/enums/ETable";
 
 
 @Injectable()
@@ -27,7 +27,9 @@ export class ApiProvider {
   urlPrefixKullanici: string;
   pageSize = 10;
   first = 0;
-  constructor(public http: Http) {
+  table: Tablo = new Tablo;
+
+  constructor(public http: HTTP, private versiyonProvider: VersiyonProvider) {
 
 
     console.log('Hello ApiProvider Provider');
@@ -61,8 +63,11 @@ export class ApiProvider {
     return this.urlPrefixHizmet + this.orgKod + '/' + this.userName + '/' + this.dilKod + '/' + this.paraBirimi + '/' + siparisMi + '/' + '/CagriKaydet';
   }
 
-  downloadUrunUrl(versiyon: string, first: number) {
-    return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/urunler';
+  downloadUrunUrl(versiyon: string, first: number): Promise<string> {
+    this.table.name = String(ETable.SER_MAM_TNM);
+    return this.versiyonProvider.find(this.table.name).then(res => {
+      return this.urlPrefixOffline + res[0].versiyon + '/' + res[0].first + '/' + this.pageSize + '/urunler';
+    });
   }
 
   urunAnagrupDownloadUrl(versiyon: string) {

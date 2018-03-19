@@ -46,7 +46,8 @@ import { SQLitePorter } from "@ionic-native/sqlite-porter";
 import { HttpClientModule } from "@angular/common/http";
 import { SQLiteMock, SQLitePorterMock } from "../providers/sqlite-mock/sqlite-mock";
 import { HTTP } from "@ionic-native/http";
-import { VersiyonProvider } from '../providers/versiyon/versiyon';
+import { VersiyonProvider } from "../providers/versiyon/versiyon";
+import { NativeStorage } from "@ionic-native/native-storage";
 
 @NgModule({
   declarations: [
@@ -128,6 +129,8 @@ import { VersiyonProvider } from '../providers/versiyon/versiyon';
     FiyatDao,
     HizmetService,
     HTTP,
+    VersiyonProvider,
+    NativeStorage,
     VersiyonProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

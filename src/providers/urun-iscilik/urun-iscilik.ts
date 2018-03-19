@@ -35,8 +35,8 @@ export class UrunIscilikProvider {
   }
 
   getDataFromApi(first: number): Promise<any> {
-    let versiyon = this.versiyonProvider.findVersiyonByTable().SER_MAM_ISC_TNM;
-    let url = this.api.urunIscilikDownloadUrl(versiyon, first);
+    //let versiyon = this.versiyonProvider.findVersiyonByTable().SER_MAM_ISC_TNM;
+    let url = this.api.urunIscilikDownloadUrl('-1', first);
     this.http.setHeader('Content-Type', 'application/json');
     this.http.setHeader('accessToken', localStorage.getItem("accessToken"));
     return this.http.get(url, {}, {});
