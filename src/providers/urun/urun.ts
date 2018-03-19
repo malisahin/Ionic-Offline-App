@@ -3,11 +3,11 @@
  * @email [mehmetalisahinogullari@gmail.com]
  */
 
-import {HTTP} from "@ionic-native/http";
-import {Injectable} from "@angular/core";
-import {ApiProvider} from "../api/api";
-import {Urun} from "../../entities/urun";
-import {BaseDao} from "../base-dao/base-dao";
+import { HTTP } from "@ionic-native/http";
+import { Injectable } from "@angular/core";
+import { ApiProvider } from "../api/api";
+import { Urun } from "../../entities/urun";
+import { BaseDao } from "../base-dao/base-dao";
 
 
 @Injectable()
@@ -18,10 +18,9 @@ export class UrunProvider {
   }
 
   downloadUrunler(versiyon: string, first: number): Promise<any> {
-    this.http.setHeader('Content-Type', 'application/json');
-    this.http.setHeader('accessToken', localStorage.getItem("accessToken"));
+    this.http = this.api.getHeader(this.http);
 
-    return this.api.downloadUrunUrl(versiyon, first).then(url=> {
+    return this.api.downloadUrunUrl(versiyon, first).then(url => {
       return this.http.get(url, {}, {}).then(
         item => {
           let urun = new Urun();
@@ -39,7 +38,7 @@ export class UrunProvider {
     for (var i = 0; i < list.length; i++) {
       this.insertOne(list[i]);
     }
-    return new Promise(resolve=>resolve("success"));
+    return new Promise(resolve => resolve("success"));
   }
 
   insertOne(item: Urun): Promise<any> {

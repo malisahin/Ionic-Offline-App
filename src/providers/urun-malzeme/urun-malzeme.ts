@@ -1,23 +1,22 @@
 
 
 
-import { Http } from '@angular/http';
+import { HTTP } from '@ionic-native/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { ApiProvider } from '../api/api';
 
 
 @Injectable()
 export class UrunMalzemeProvider {
 
-  constructor(public http: Http, private api: ApiProvider) {
+  constructor(public http: HTTP, private api: ApiProvider) {
     console.log('Hello UrunMalzemeProvider Provider');
   }
 
-  downloadUrunMalzeme(versiyon, first): Observable<any> {
+  downloadUrunMalzeme(versiyon, first): Promise<any> {
     let url = this.api.urunMalzemeDownloadUrl(versiyon, first);
-    let header = this.api.getHeader();
-    return this.http.get(url, header);
+    this.http = this.api.getHeader(this.http);
+    return this.http.get(url, {}, {});
   }
 
 }

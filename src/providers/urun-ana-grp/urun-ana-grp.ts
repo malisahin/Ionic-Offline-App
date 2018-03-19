@@ -3,11 +3,11 @@
  * @email mehmetalisahinogullari@gmail.com
  */
 
-import {HTTP} from "@ionic-native/http";
-import {Injectable} from "@angular/core";
-import {ApiProvider} from "../api/api";
-import {UrunAnaGrup} from "../../entities/urunAnaGrup";
-import {DatabaseProvider} from "../database/database";
+import { HTTP } from "@ionic-native/http";
+import { Injectable } from "@angular/core";
+import { ApiProvider } from "../api/api";
+import { UrunAnaGrup } from "../../entities/urunAnaGrup";
+import { DatabaseProvider } from "../database/database";
 
 
 @Injectable()
@@ -19,9 +19,7 @@ export class UrunAnaGrpProvider {
 
   downloadUrunAnaGrup(versiyon): Promise<any> {
     let url = this.api.urunAnagrupDownloadUrl(versiyon);
-    let options = this.api.getHeader();
-    this.http.setHeader('Content-Type', 'application/json');
-    this.http.setHeader('accessToken', localStorage.getItem("accessToken"));
+    this.http = this.api.getHeader(this.http);
     return this.http.get(url, {}, {}).then(
       item => {
         let anaGrp = new UrunAnaGrup();

@@ -5,7 +5,6 @@
 import { Injectable } from "@angular/core";
 import { Profil } from "../../entities/profil";
 import { EProfiles } from "../../entities/enums/eProfil";
-import { RequestOptions, Headers } from "@angular/http";
 import { Tablo } from "../../entities/Tablo";
 import { HTTP } from "@ionic-native/http";
 import { VersiyonProvider } from "../versiyon/versiyon";
@@ -34,7 +33,6 @@ export class ApiProvider {
 
     console.log('Hello ApiProvider Provider');
     this.ACTIVE_PROFIL = EProfiles.LOCAL_DEV;
-    let options = new RequestOptions();
 
     this.urlPrefixHizmet = this.profil.getActiveProfil(this.ACTIVE_PROFIL).domainUrl + '/sos-api/endpointrest/hizmet/';
     this.urlPrefixOffline = this.profil.getActiveProfil(this.ACTIVE_PROFIL).domainUrl + '/sos-api/endpointrest/offline/';
@@ -106,10 +104,9 @@ export class ApiProvider {
     return this.urlPrefixHizmet + this.orgKod + '/' + this.userName + '/' + this.dilKod + '/' + this.paraBirimi + '/UpdateMamAnaGrp';
   }
 
-  getHeader(): RequestOptions {
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('accessToken', localStorage.getItem("accessToken"));
-    return new RequestOptions({ headers: headers });
+  getHeader(http: HTTP): HTTP {
+    http.setHeader('Content-Type', 'application/json');
+    http.setHeader('accessToken', localStorage.getItem("accessToken"));
+    return http;
   }
 }
