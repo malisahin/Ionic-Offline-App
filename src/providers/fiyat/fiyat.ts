@@ -5,29 +5,29 @@
 
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Http } from '@angular/http';
+import { HTTP } from '@ionic-native/HTTP';
 import { ApiProvider } from '../api/api';
 
 
 @Injectable()
 export class FiyatProvider {
 
-  constructor(public http: Http, private api: ApiProvider) {
+  constructor(public http: HTTP, private api: ApiProvider) {
     console.log('Hello FiyatProvider Provider');
   }
 
-  downloadMalzemeFiyat(versiyon, first): Observable<any> {
+  downloadMalzemeFiyat(versiyon, first): Promise<any> {
     let tip = "malzemeFiyatListesi"
     let url = this.api.fiyatlarDownloadUrl("-1", 0, tip);
-    let header = this.api.getHeader();
-    return this.http.get(url, header);
+    this.http = this.api.getHeader(this.http);
+    return this.http.get(url, {}, {});
   }
 
-  downloadIscilikFiyat(versiyon, first): Observable<any> {
+  downloadIscilikFiyat(versiyon, first): Promise<any> {
     let tip = "iscilikFiyatListesi"
     let url = this.api.fiyatlarDownloadUrl("-1", 0, tip);
-    let header = this.api.getHeader();
-    return this.http.get(url, header);
+    this.http = this.api.getHeader(this.http);
+    return this.http.get(url, {}, {});
   }
 
 

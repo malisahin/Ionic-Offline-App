@@ -3,7 +3,7 @@
  * @email mehmetalisahinogullari@gmail.com
 */
 
-import { Http } from '@angular/http';
+import { HTTP } from '@ionic-native/HTTP';
 import { Injectable } from '@angular/core';
 import { ApiProvider } from '../api/api';
 import { Observable } from 'rxjs/Observable';
@@ -12,14 +12,14 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class IslemArizaIscilikProvider {
 
-  constructor(public http: Http, private api: ApiProvider) {
+  constructor(public http: HTTP, private api: ApiProvider) {
     console.log('Hello IslemArizaIscilikProvider Provider');
   }
 
 
-  downloadIslemArizaIscilik(versiyon, first): Observable<any> {
+  downloadIslemArizaIscilik(versiyon, first): Promise<any> {
     let url = this.api.islemArizaIscilikDownloadUrl(versiyon, first);
-    let header = this.api.getHeader();
-    return this.http.get(url, header);
+    this.http = this.api.getHeader(this.http);
+    return this.http.get(url, {}, {});
   }
 }

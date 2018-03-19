@@ -27,7 +27,6 @@ import { TokenProvider } from "../providers/token/token";
 import { ApiProvider } from "../providers/api/api";
 import { DatabaseProvider } from "../providers/database/database";
 import { SQLite } from "@ionic-native/sqlite";
-import { HttpModule } from "@angular/http";
 import { UrunProvider } from "../providers/urun/urun";
 import { UrunAnaGrpProvider } from "../providers/urun-ana-grp/urun-ana-grp";
 import { UrunIscilikProvider } from "../providers/urun-iscilik/urun-iscilik";
@@ -43,7 +42,6 @@ import { BaseDao } from "../providers/base-dao/base-dao";
 import { FiyatDao } from "../providers/fiyat-dao/fiyat-dao";
 import { HizmetService } from "../providers/hizmet-service/hizmet-service";
 import { SQLitePorter } from "@ionic-native/sqlite-porter";
-import { HttpClientModule } from "@angular/common/http";
 import { SQLiteMock, SQLitePorterMock } from "../providers/sqlite-mock/sqlite-mock";
 import { HTTP } from "@ionic-native/http";
 import { VersiyonProvider } from "../providers/versiyon/versiyon";
@@ -71,13 +69,13 @@ import { NativeStorage } from "@ionic-native/native-storage";
     LoginPage,
     CagriAramaModalPage,
     ListComponent,
-    ListPage
+    ListPage,
+    HTTP
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
-    HttpClientModule,
-    HttpModule
+    HTTP,
+    IonicModule.forRoot(MyApp)
   ],
   exports: [],
   bootstrap: [IonicApp],
