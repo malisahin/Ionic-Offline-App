@@ -1,4 +1,4 @@
-import { HTTP } from '@ionic-native/HTTP';
+
 import { Injectable } from '@angular/core';
 import { Versiyon } from '../../entities/Versiyon';
 import { BaseDao } from '../base-dao/base-dao';
@@ -8,7 +8,7 @@ import { ETable } from '../../entities/enums/ETable';
 @Injectable()
 export class VersiyonProvider {
 
-  constructor(public http: HTTP, private baseDao: BaseDao) {
+  constructor(private baseDao: BaseDao) {
     console.log('Hello VersiyonProvider Provider');
   }
 

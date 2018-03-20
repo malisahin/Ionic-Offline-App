@@ -3,31 +3,31 @@
  * @email mehmetalisahinogullari@gmail.com
 */
 
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { HTTP } from '@ionic-native/HTTP';
 import { ApiProvider } from '../api/api';
+import { Observable } from 'rxjs/Observable';
 
 
 @Injectable()
 export class FiyatProvider {
 
-  constructor(public http: HTTP, private api: ApiProvider) {
+  constructor(public http: HttpClient, private api: ApiProvider) {
     console.log('Hello FiyatProvider Provider');
   }
 
-  downloadMalzemeFiyat(versiyon, first): Promise<any> {
+  downloadMalzemeFiyat(versiyon, first): Observable<any> {
     let tip = "malzemeFiyatListesi"
     let url = this.api.fiyatlarDownloadUrl("-1", 0, tip);
-    this.http = this.api.getHeader(this.http);
-    return this.http.get(url, {}, {});
+    let header = this.api.getHeader();
+    return this.http.get(url, { headers: header });
   }
 
-  downloadIscilikFiyat(versiyon, first): Promise<any> {
+  downloadIscilikFiyat(versiyon, first): Observable<any> {
     let tip = "iscilikFiyatListesi"
     let url = this.api.fiyatlarDownloadUrl("-1", 0, tip);
-    this.http = this.api.getHeader(this.http);
-    return this.http.get(url, {}, {});
+    let header = this.api.getHeader();
+    return this.http.get(url, { headers: header });
   }
 
 

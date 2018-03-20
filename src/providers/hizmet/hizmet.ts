@@ -3,25 +3,26 @@
  * @email mehmetalisahinogullari@gmail.com
 */
 
-import { HTTP } from '@ionic-native/http';
+
 import { Injectable } from '@angular/core';
 import { ApiProvider } from '../api/api';
 import { HizmetDao } from '../hizmet-dao/hizmet-dao';
 import { Hizmet } from '../../entities/hizmet/hizmet';
 import { TokenProvider } from '../token/token';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class HizmetProvider {
 
-  constructor(public http: HTTP, private api: ApiProvider, private hizmetDao: HizmetDao, private token: TokenProvider) {
+  constructor(public http: HttpClient, private api: ApiProvider, private hizmetDao: HizmetDao, private token: TokenProvider) {
     console.log('Hello CagriProvider Provider');
     this.token.getToken('ECAMERKEZ', 'EMAR6565');
   }
 
   downloadCagriList() {
     let url = this.api.getCagriListUrl();
-    this.http = this.api.getHeader(this.http);
-    return this.http.get(url, {}, {}).then(res => {
+    let header = this.api.getHeader();
+    return this.http.get(url, { headers: header }).subscribe(res => {
       let hizmetList: Hizmet[];
       hizmetList = this.seperateCagri(res);
       return this.hizmetDao.insertList(hizmetList);

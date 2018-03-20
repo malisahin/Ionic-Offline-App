@@ -6,9 +6,9 @@ import { Injectable } from "@angular/core";
 import { Profil } from "../../entities/profil";
 import { EProfiles } from "../../entities/enums/eProfil";
 import { Tablo } from "../../entities/Tablo";
-import { HTTP } from "@ionic-native/http";
 import { VersiyonProvider } from "../versiyon/versiyon";
 import { ETable } from "../../entities/enums/ETable";
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 
 @Injectable()
@@ -28,7 +28,7 @@ export class ApiProvider {
   first = 0;
   table: Tablo = new Tablo;
 
-  constructor(public http: HTTP, private versiyonProvider: VersiyonProvider) {
+  constructor(public http: HttpClient, private versiyonProvider: VersiyonProvider) {
 
 
     console.log('Hello ApiProvider Provider');
@@ -97,6 +97,7 @@ export class ApiProvider {
   }
 
   getMesajlarUrl() {
+    this.userName = 'ECAMERKEZ';
     return this.urlPrefixKullanici + this.userName + '/type/NEW/mesajlar';
   }
 
@@ -104,9 +105,11 @@ export class ApiProvider {
     return this.urlPrefixHizmet + this.orgKod + '/' + this.userName + '/' + this.dilKod + '/' + this.paraBirimi + '/UpdateMamAnaGrp';
   }
 
-  getHeader(http: HTTP): HTTP {
-    http.setHeader('Content-Type', 'application/json');
-    http.setHeader('accessToken', localStorage.getItem("accessToken"));
-    return http;
+  getHeader(): HttpHeaders {
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'accessToken': localStorage.getItem("accessToken")
+    });
+    return headers;
   }
 }

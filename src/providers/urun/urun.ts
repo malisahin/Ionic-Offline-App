@@ -3,7 +3,7 @@
  * @email [mehmetalisahinogullari@gmail.com]
  */
 
-import { HTTP } from "@ionic-native/http";
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 import { ApiProvider } from "../api/api";
 import { Urun } from "../../entities/urun";
@@ -13,15 +13,14 @@ import { BaseDao } from "../base-dao/base-dao";
 @Injectable()
 export class UrunProvider {
 
-  constructor(public http: HTTP, private api: ApiProvider, private baseDao: BaseDao) {
+  constructor(public http: HttpClient, private api: ApiProvider, private baseDao: BaseDao) {
     console.log('Hello UrunProvider Provider');
   }
 
   downloadUrunler(versiyon: string, first: number): Promise<any> {
-    this.http = this.api.getHeader(this.http);
-
+    let header = this.api.getHeader();
     return this.api.downloadUrunUrl(versiyon, first).then(url => {
-      return this.http.get(url, {}, {}).then(
+      return this.http.get(url, { headers: header }).map(
         item => {
           let urun = new Urun();
           return urun.fillUrun(item).then(item => {

@@ -4,6 +4,7 @@
 */
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { MesajlarProvider } from '../../providers/mesajlar/mesajlar';
 
 @IonicPage()
 @Component({
@@ -12,7 +13,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class BildirimlerPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private mesajProvider: MesajlarProvider) {
+    this.mesajProvider.downloadMesajlar().subscribe(res => {
+      console.dir(res);
+    });
   }
 
   ionViewDidLoad() {

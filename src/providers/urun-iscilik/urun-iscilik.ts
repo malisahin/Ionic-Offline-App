@@ -3,43 +3,42 @@
  * @email mehmetalisahinogullari@gmail.com
  */
 
-import {HTTP} from "@ionic-native/http";
-import {NativeStorage} from '@ionic-native/native-storage';
-import {Injectable} from "@angular/core";
-import {ApiProvider} from "../api/api";
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { NativeStorage } from '@ionic-native/native-storage';
+import { Injectable } from "@angular/core";
+import { ApiProvider } from "../api/api";
 import "rxjs/add/operator/map";
-import {UrunIscilik} from "../../entities/urun-iscilik";
-import {BaseDao} from "../base-dao/base-dao";
-import {VersiyonProvider} from "../versiyon/versiyon";
+import { UrunIscilik } from "../../entities/urun-iscilik";
+import { BaseDao } from "../base-dao/base-dao";
+import { VersiyonProvider } from "../versiyon/versiyon";
+import { Observable } from 'rxjs/Observable';
 
 
 @Injectable()
 export class UrunIscilikProvider {
-  constructor(public http: HTTP,
-              private api: ApiProvider,
-              private baseDao: BaseDao,
-              private versiyonProvider: VersiyonProvider) {
+  constructor(public http: HttpClient,
+    private api: ApiProvider,
+    private baseDao: BaseDao,
+    private versiyonProvider: VersiyonProvider) {
     console.log('Hello UrunIscilikProvider Provider');
   }
 
 
-  downloadUrunIscilik(first: number): Promise<any> {
-    return this.getDataFromApi(first).then(item => {
+  downloadUrunIscilik(first: number): Observable<any> {
+    return this.getDataFromApi(first).map(item => {
       let urunIscilik = new UrunIscilik();
       return urunIscilik.fillUrunIscilik(item).then(list => {
         return this.insertList(list).then(count => {
-          return new Promise(resolve => resolve("success"));
+          return new Observable();
         });
       });
     });
   }
 
-  getDataFromApi(first: number): Promise<any> {
-    //let versiyon = this.versiyonProvider.findVersiyonByTable().SER_MAM_ISC_TNM;
+  getDataFromApi(first: number): Observable<any> {
     let url = this.api.urunIscilikDownloadUrl('-1', first);
-    this.http.setHeader('Content-Type', 'application/json');
-    this.http.setHeader('accessToken', localStorage.getItem("accessToken"));
-    return this.http.get(url, {}, {});
+    let header = this.api.getHeader();
+    return this.http.get(url, { headers: header });
   }
 
   insertList(list: UrunIscilik[]): Promise<any> {

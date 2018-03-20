@@ -13,7 +13,6 @@ export class Token {
 
 
     fillToken(obj) {
-        obj = JSON.parse(obj._body);
         let item = new Token();
         item.access_token = obj.access_token != null ? obj.access_token : "";
         item.error = obj.error != null ? obj.error : "";

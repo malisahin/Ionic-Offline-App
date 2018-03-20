@@ -3,24 +3,25 @@
  * @email mehmetalisahinogullari@gmail.com
  */
 
-import { HTTP } from "@ionic-native/http";
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 import { ApiProvider } from "../api/api";
 import { UrunAnaGrup } from "../../entities/urunAnaGrup";
 import { DatabaseProvider } from "../database/database";
+import { Observable } from 'rxjs/Observable';
 
 
 @Injectable()
 export class UrunAnaGrpProvider {
 
-  constructor(public http: HTTP, private api: ApiProvider, private DB: DatabaseProvider) {
+  constructor(public http: HttpClient, private api: ApiProvider, private DB: DatabaseProvider) {
     console.log('Hello UrunAnaGrpProvider Provider');
   }
 
-  downloadUrunAnaGrup(versiyon): Promise<any> {
+  downloadUrunAnaGrup(versiyon): Observable<any> {
     let url = this.api.urunAnagrupDownloadUrl(versiyon);
-    this.http = this.api.getHeader(this.http);
-    return this.http.get(url, {}, {}).then(
+    let header = this.api.getHeader();
+    return this.http.get(url, { headers: header }).map(
       item => {
         let anaGrp = new UrunAnaGrup();
         return anaGrp.fillUrunAnaGrup(item).then(anaGrpList => {

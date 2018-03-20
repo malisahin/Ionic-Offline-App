@@ -43,14 +43,14 @@ export class GuncellemePage {
   }
 
   downloadUrunAnaGrup() {
-    this.urunAnaGrpProvider.downloadUrunAnaGrup("-1").then(res => {
+    this.urunAnaGrpProvider.downloadUrunAnaGrup("-1").subscribe(res => {
       console.log(res);
     });
   }
 
 
   downloadUrunIscilik() {
-    this.urunIscilikProvider.downloadUrunIscilik(this.firstForUrunIscilik).then(res => {
+    this.urunIscilikProvider.downloadUrunIscilik(this.firstForUrunIscilik).subscribe(res => {
       console.log(res);
       this.firstForUrunIscilik += this.pageSize;
       this.downloadUrunIscilik();
@@ -58,27 +58,27 @@ export class GuncellemePage {
   }
 
   downloadUrunMalzeme() {
-    this.urunMalzemeProvider.downloadUrunMalzeme("-1", 0).then(res => {
+    this.urunMalzemeProvider.downloadUrunMalzeme("-1", 0).subscribe(res => {
       console.log(res);
     });
 
   }
 
   downloadIslemArizaIscilik() {
-    this.islemArizaIscilikProvider.downloadIslemArizaIscilik("-1", 0).then(res => {
+    this.islemArizaIscilikProvider.downloadIslemArizaIscilik("-1", 0).subscribe(res => {
       console.log(res);
       //  this.downloadIslemArizaIscilik();
     });
   }
 
   downloadMalzemeFiyat() {
-    this.fiyatProvider.downloadMalzemeFiyat("-1", 0).then(res => {
+    this.fiyatProvider.downloadMalzemeFiyat("-1", 0).subscribe(res => {
       console.log(res);
     });
   }
 
   downloadIscilikFiyat() {
-    this.fiyatProvider.downloadIscilikFiyat("-1", 0).then(res => {
+    this.fiyatProvider.downloadIscilikFiyat("-1", 0).subscribe(res => {
       console.log(res);
     });
   }

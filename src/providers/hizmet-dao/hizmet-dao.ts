@@ -2,10 +2,9 @@
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-import {Injectable} from "@angular/core";
-import "rxjs/add/observable/fromPromise";
-import {BaseDao} from "../base-dao/base-dao";
-import {Hizmet} from "../../entities/hizmet/hizmet";
+import { Injectable } from "@angular/core";
+import { BaseDao } from "../base-dao/base-dao";
+import { Hizmet } from "../../entities/hizmet/hizmet";
 
 @Injectable()
 export class HizmetDao {
@@ -30,7 +29,7 @@ export class HizmetDao {
   insertOne(hizmet: Hizmet): Promise<any> {
     let hizmetObject: string = JSON.stringify(hizmet);
     let params = [hizmet.seqNo, hizmet.randevuTarihi, hizmet.hizmetTipiAdi, hizmet.mamAnaGrpAdi, hizmet.basvuruNedeni,
-      hizmet.durum, hizmet.adi, hizmet.soyadi, hizmet.firmaUnvani, hizmet.evTel, hizmet.isTel, hizmet.gsmNo, hizmetObject];
+    hizmet.durum, hizmet.adi, hizmet.soyadi, hizmet.firmaUnvani, hizmet.evTel, hizmet.isTel, hizmet.gsmNo, hizmetObject];
     return this.baseDao.execute(this.INSERT_QUERY, params);
   }
 

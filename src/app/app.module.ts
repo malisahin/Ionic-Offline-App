@@ -43,9 +43,12 @@ import { FiyatDao } from "../providers/fiyat-dao/fiyat-dao";
 import { HizmetService } from "../providers/hizmet-service/hizmet-service";
 import { SQLitePorter } from "@ionic-native/sqlite-porter";
 import { SQLiteMock, SQLitePorterMock } from "../providers/sqlite-mock/sqlite-mock";
-import { HTTP } from "@ionic-native/http";
 import { VersiyonProvider } from "../providers/versiyon/versiyon";
 import { NativeStorage } from "@ionic-native/native-storage";
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+import { MesajlarProvider } from '../providers/mesajlar/mesajlar';
+
 
 @NgModule({
   declarations: [
@@ -69,13 +72,12 @@ import { NativeStorage } from "@ionic-native/native-storage";
     LoginPage,
     CagriAramaModalPage,
     ListComponent,
-    ListPage,
-    HTTP
+    ListPage
   ],
   imports: [
     BrowserModule,
-    HTTP,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   exports: [],
   bootstrap: [IonicApp],
@@ -126,10 +128,10 @@ import { NativeStorage } from "@ionic-native/native-storage";
     BaseDao,
     FiyatDao,
     HizmetService,
-    HTTP,
     VersiyonProvider,
     NativeStorage,
-    VersiyonProvider
+    VersiyonProvider,
+    MesajlarProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
