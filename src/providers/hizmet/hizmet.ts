@@ -34,7 +34,7 @@ export class HizmetProvider {
   seperateCagri(obj) {
     let hizmetList: Hizmet[] = [];
     let list = [];
-    list = JSON.parse(obj._body).message.HizmetDtoList;
+    list = obj.message.hizmetDtoList;
     for (let item of list) {
       let cgr = this.fillHizmet(item);
       hizmetList.push(cgr);

@@ -16,7 +16,7 @@ export class LoginProvider {
 
   login(username, password) {
     let tokenUrl = this.token.getToken(username, password).subscribe(res => {
-      alert(res);
+      alert(JSON.parse(res));
     });
 
   }

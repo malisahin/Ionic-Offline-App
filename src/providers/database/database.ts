@@ -1,88 +1,85 @@
 import { Injectable } from "@angular/core";
-import { SQLite, SQLiteObject } from "@ionic-native/sqlite";
 import { Platform } from "ionic-angular/platform/platform";
+import { Observable } from "rxjs/Observable";
 //import { SqlitePlugin} from "cordova-plugin-sqlite-2";
-
+declare let window: any;
 
 @Injectable()
 export class DatabaseProvider {
 
-
-    public db: SQLiteObject = new SQLiteObject({
-        name: 'SOS.db',
-        location: 'default'
-    });
-
-    constructor(private platform: Platform, private sqlite: SQLite) {
-
+    constructor(private platform: Platform) {
+        this.createDatabase();
     }
 
     createDatabase() {
 
         this.platform.ready().then(() => {
             this.transaction()
-                .then((db: SQLiteObject) => {
-                    this.db = db;
-                    return this.createApplicationTables(db);
+                .then((tx) => {
+                    return this.createApplicationTables(tx);
                 })
                 .catch(e => console.log(e));
         });
     }
 
-    transaction(): Promise<SQLiteObject> {
-        return this.sqlite.create({
-            name: 'SOS.db',
-            location: 'default'
-        });
-    }
-
-
-    getDB(): SQLiteObject {
-        /* return this.platform.ready().then(() => {
-         this.sqlite.create({
-         name: 'SOS',
-         location: 'default'
-         }).then((db: SQLiteObject) => {
-         return db;
-         });
-         });  */
-        return this.db;
-    }
-
-    createApplicationTables(db: SQLiteObject): Promise<any> {
+    transaction(): Promise<any> {
         return new Promise((resolve, reject) => {
+            let tx = window.openDatabase("sos", "1", "SOS DB", 1000000);
+            resolve(tx);
+        });
 
-            db.executeSql('CREATE TABLE IF NOT EXISTS OFF_VERSIYON_TAKIP (tablo_adi PRIMARY KEY, versiyon NUM,online_versiyon NUM, first NUM)', {});
 
-            db.executeSql('CREATE TABLE IF NOT EXISTS OFF_MAM_ANAGRP_TNM (mamAnagrp TEXT PRIMARY KEY,Adi TEXT,durum TEXT)', {});
+    }
 
-            db.executeSql('CREATE TABLE IF NOT EXISTS OFF_MAM_TNM (mamAnaGrp,mamKod, mamAdi,seriMetod,surec,durum,PRIMARY KEY (mamAnaGrp, mamKod))', {});
 
-            db.executeSql("CREATE  INDEX IF NOT EXISTS 'mamkod_index' ON 'OFF_MAM_TNM' ('mamKod')", {});
+    // getDB() {
+    /* return this.platform.ready().then(() => {
+     this.sqlite.create({
+     name: 'SOS',
+     location: 'default'
+     }).then((db: SQLiteObject) => {
+     return db;
+     });
+     });  */
+    /*   return this.db;
+   } */
 
-            db.executeSql('CREATE TABLE IF NOT EXISTS OFF_MAM_ISC_TNM (mamKod,iscKod,iscAdi,durum,iscMikFlag,maxIscMiktar,fiyat,gdfiyat)', {});
+    createApplicationTables(db): Promise<any> {
+        return new Promise((resolve, reject) => {
+            db.transaction(function (tx) {
+                tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_VERSIYON_TAKIP (tablo_adi PRIMARY KEY, versiyon NUM,online_versiyon NUM, first NUM)', []);
 
-            db.executeSql('CREATE TABLE IF NOT EXISTS OFF_MAM_MLZ_TNM (mamKod,mlzKod,mlzAdi,durum,fiyat,gdfiyat, kdvOran NUM, PRIMARY KEY (mamKod,mlzKod))', {});
+                tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_MAM_ANAGRP_TNM (mamAnagrp TEXT PRIMARY KEY,Adi TEXT,durum TEXT)', []);
 
-            db.executeSql('CREATE TABLE IF NOT EXISTS OFF_ISC_ISLARZGRP_TNM (mamAnaGrp, islemGrp, islemGrpAdi, arizaGrp, arizaGrpAdi, iscKod, durum, PRIMARY KEY (mamAnaGrp,islemGrp,arizaGrp, iscKod))', {});
+                tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_MAM_TNM (mamAnaGrp,mamKod, mamAdi,seriMetod,surec,durum,PRIMARY KEY (mamAnaGrp, mamKod))', []);
 
-            db.executeSql('CREATE TABLE IF NOT EXISTS OFF_BASVURU_NEDEN_TNM (basvuruNeden, mamAnagrp, durum, ad)', {});
+                tx.executeSql("CREATE  INDEX IF NOT EXISTS 'mamkod_index' ON 'OFF_MAM_TNM' ('mamKod')", []);
 
-            db.executeSql('CREATE TABLE IF NOT EXISTS OFF_TESTO_VALUES(seqNo, name, unit, value, creDate)', {});
+                tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_MAM_ISC_TNM (mamKod,iscKod,iscAdi,durum,iscMikFlag,maxIscMiktar,fiyat,gdfiyat)', []);
 
-            db.executeSql('CREATE TABLE IF NOT EXISTS OFF_FIYAT (mamKod TEXT,iscMlz TEXT,iscMlzKod TEXT,fiyat NUM,gdfiyat NUM,versiyon TEXT)', {});
+                tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_MAM_MLZ_TNM (mamKod,mlzKod,mlzAdi,durum,fiyat,gdfiyat, kdvOran NUM, PRIMARY KEY (mamKod,mlzKod))', []);
 
-            db.executeSql('CREATE TABLE IF NOT EXISTS OFF_ALERT( bitisTarihi, aciklama, gonderen, id, basTarihi, status, subject, type, valid,  PRIMARY KEY (id))', {});
+                tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_ISC_ISLARZGRP_TNM (mamAnaGrp, islemGrp, islemGrpAdi, arizaGrp, arizaGrpAdi, iscKod, durum, PRIMARY KEY (mamAnaGrp,islemGrp,arizaGrp, iscKod))', []);
 
-            db.executeSql('CREATE TABLE IF NOT EXISTS OFF_HIZ_MST (seqNo PRIMARY KEY,randevuTarihi DATE,hizmetTipiAdi,mamAnaGrpAdi, basvuruNedeni,durum,' +
-                'adi,soyadi, firmaUnvani, evTel,isTel, gsmNo, data)', {});
+                tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_BASVURU_NEDEN_TNM (basvuruNeden, mamAnagrp, durum, ad)', []);
+
+                tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_TESTO_VALUES(seqNo, name, unit, value, creDate)', []);
+
+                tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_FIYAT (mamKod TEXT,iscMlz TEXT,iscMlzKod TEXT,fiyat NUM,gdfiyat NUM,versiyon TEXT)', []);
+
+                tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_ALERT( bitisTarihi, aciklama, gonderen, id, basTarihi, status, subject, type, valid,  PRIMARY KEY (id))', []);
+
+                tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_HIZ_MST (seqNo PRIMARY KEY,randevuTarihi DATE,hizmetTipiAdi,mamAnaGrpAdi, basvuruNedeni,durum,' +
+                    'adi,soyadi, firmaUnvani, evTel,isTel, gsmNo, data)', []);
+            });
+
 
         }).then(() => {
             this.addInitialValuesToApplicationTables(db);
         });
     };
 
-    addInitialValuesToApplicationTables(db: SQLiteObject): Promise<any> {
+    addInitialValuesToApplicationTables(db): Promise<any> {
         return new Promise((resolve, reject) => {
             db.executeSql("INSERT INTO OFF_VERSIYON_TAKIP (tablo_adi, versiyon, first ) VALUES (?, ?, ?)", ["SER_MAM_ANAGRP_TNM", -1, 0]);
             db.executeSql("INSERT INTO OFF_VERSIYON_TAKIP (tablo_adi, versiyon, first ) VALUES (?, ?, ?)", ["SER_MAM_TNM", -1, 0]);
@@ -101,7 +98,7 @@ export class DatabaseProvider {
 
 /**
 
- offline.database = {};
+ offline.database = [];
 
  offline.database.createTables = function (tx) {
 

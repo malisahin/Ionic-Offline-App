@@ -109,8 +109,8 @@ import { MesajlarProvider } from '../providers/mesajlar/mesajlar';
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    { provide: SQLite, useClass: SQLiteMock },
-    { provide: SQLitePorter, useClass: SQLitePorterMock },
+    //{ provide: SQLite, useClass: SQLiteMock },
+    //{ provide: SQLitePorter, useClass: SQLitePorterMock },
     AuthService,
     LoginProvider,
     TokenProvider,
@@ -131,7 +131,8 @@ import { MesajlarProvider } from '../providers/mesajlar/mesajlar';
     VersiyonProvider,
     NativeStorage,
     VersiyonProvider,
-    MesajlarProvider
+    MesajlarProvider, SQLite, SQLitePorter
+
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
