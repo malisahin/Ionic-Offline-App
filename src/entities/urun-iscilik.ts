@@ -5,19 +5,19 @@
 
 
 export class UrunIscilik {
-  mamKod: string;
-  iscKod: string;
-  iscAdi: string;
-  durum: string;
-  fiyat: string;
-  gdFiyat: string;
-  iscMikFlag: string;
-  maxIscMiktar: string;
+  mamKod: string = null;
+  iscKod: string = null;
+  iscAdi: string = null;
+  durum: string = null;
+  fiyat: string = null;
+  gdFiyat: string = null;
+  iscMikFlag: string = null;
+  maxIscMiktar: string = null;
 
   fillUrunIscilik(res: any): Promise<any> {
     let parsedList = [];
-    let urunIscilikList = JSON.parse(res.data).message[0].liste;
-    let urunIscilikVersiyon =  JSON.parse(res.data).message[0].versiyon;
+    let urunIscilikList = res.message[0].liste
+    let urunIscilikVersiyon = res.message[0].versiyon;
     localStorage.setItem("urun-iscilik-versiyon", urunIscilikVersiyon);
     urunIscilikList.forEach(function (item) {
       let urunIscilik = new UrunIscilik();
@@ -29,24 +29,6 @@ export class UrunIscilik {
       urunIscilik.maxIscMiktar = item.maxIscMiktar;
       parsedList.push(urunIscilik);
     });
-    return new Promise(resolve=> resolve(parsedList));
+    return new Promise(resolve => resolve(parsedList));
   }
 }
-
-/**
- *  [
- {
-"versiyon": "1",
-"kdvOran": 18,
-"liste": [
- {
-"mamKod": "",
-"durum": "",
-"iscKod": "",
-"iscAdi": "",
-"iscMikFlag": "",
-"maxIscMiktar": ""
-}
-],
-*
-*/

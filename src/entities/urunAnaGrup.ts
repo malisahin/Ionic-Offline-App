@@ -7,7 +7,7 @@ export class UrunAnaGrup {
 
   cozumListe: CozumListe[] = [];
   basvuruListe: BasvuruListe[] = [];
-  liste: UrunAnaGrupListe [] = [];
+  liste: UrunAnaGrupListe[] = [];
 
   basvuruNeden: string;
   mamAnaGrp: string;
@@ -20,7 +20,7 @@ export class UrunAnaGrup {
   }
 
   fillUrunAnaGrup(res: any): Promise<UrunAnaGrup[]> {
-    res = JSON.parse(res.data).message;
+    res = res.message;
     let urunAnaGrpList = [];
     let cozumListe = new CozumListe();
     let basvuruListe = new BasvuruListe();

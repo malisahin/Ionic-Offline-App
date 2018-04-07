@@ -49,7 +49,8 @@ export class DatabaseProvider {
             db.transaction(function (tx) {
                 tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_VERSIYON_TAKIP (tablo_adi PRIMARY KEY, versiyon NUM,online_versiyon NUM, first NUM)', []);
 
-                tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_MAM_ANAGRP_TNM (mamAnagrp TEXT PRIMARY KEY,Adi TEXT,durum TEXT)', []);
+                //tip,mamAnaGrp,adi,durum,kod, neden
+                tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_MAM_ANAGRP_TNM (tip,mamAnaGrp,adi,durum,kod, neden)', []);
 
                 tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_MAM_TNM (mamAnaGrp,mamKod, mamAdi,seriMetod,surec,durum,PRIMARY KEY (mamAnaGrp, mamKod))', []);
 
@@ -72,8 +73,6 @@ export class DatabaseProvider {
                 tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_HIZ_MST (seqNo PRIMARY KEY,randevuTarihi DATE,hizmetTipiAdi,mamAnaGrpAdi, basvuruNedeni,durum,' +
                     'adi,soyadi, firmaUnvani, evTel,isTel, gsmNo, data)', []);
             });
-
-
         }).then(() => {
             this.addInitialValuesToApplicationTables(db);
         });

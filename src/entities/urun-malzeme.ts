@@ -5,29 +5,25 @@
 
 
 export class UrunMalzeme {
-    mamKod: string;
-    mlzKod: string;
-    mlzAdi: string;
-    durum: string;
-    kdvOran: string;
+    mamKod: string = null;
+    mlzKod: string = null;
+    mlzAdi: string = null;
+    durum: string = null;
+    kdvOran: string = null;
 
 
-    fillUrunMalzeme(item) {
-        var newItem: UrunMalzeme = new UrunMalzeme();
-        newItem.mamKod = item.mamKod;
-        newItem.durum = item.mamKod;
-        newItem.mlzAdi = item.mlzAdi;
-        newItem.mlzKod = item.mlzKod;
-        return newItem;
+    fillUrunMalzeme(res) {
+        let parsedList = [];
+        let urunMalzemeList = res.message[0].liste;
+        urunMalzemeList.array.forEach(item => {
+            var newItem: UrunMalzeme = new UrunMalzeme();
+            newItem.mamKod = item.mamKod;
+            newItem.durum = item.mamKod;
+            newItem.mlzAdi = item.mlzAdi;
+            newItem.mlzKod = item.mlzKod;
+            parsedList.push(newItem);
+        });
+        return new Promise(resolve => resolve(parsedList));
     }
 
 }
-
-/**
- * "mamKod": "102111079",
-"durum": "AKTIF",
-"mlzKod": "102136029",
-"mlzAdi": "VOLAN",
-"kdvOran": 18
-
- */

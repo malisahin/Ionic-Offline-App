@@ -16,8 +16,8 @@ export class IslemArizaIscilikProvider {
   }
 
 
-  downloadIslemArizaIscilik(versiyon, first): Observable<any> {
-    let url = this.api.islemArizaIscilikDownloadUrl(versiyon, first);
+  downloadIslemArizaIscilik(first): Observable<any> {
+    let url = this.api.islemArizaIscilikDownloadUrl(first);
     let header = this.api.getHeader();
     return this.http.get(url, { headers: header });
   }

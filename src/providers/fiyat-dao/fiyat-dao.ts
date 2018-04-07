@@ -18,15 +18,17 @@ export class FiyatDao {
 
   insertOne(item: Fiyat): Promise<any> {
     let params = [item.mamKod, item.iscMlz, item.iscMlzKod, item.fiyat, item.gdFiyat, item.versiyon];
-    return this.baseDao.insertOne(this.INSERT_QUERY, params);
+    return this.baseDao.execute(this.INSERT_QUERY, params);
   }
 
-
   insertList(list: Fiyat[]): Promise<any> {
-    for (let item of list) {
-      this.insertOne(item);
-    }
-    return null;
+    let array: Promise<any>[] = new Array();
+    list.forEach(item => {
+      array.push(this.insertOne(item))
+    });
+    return Promise.all(array).then(res => {
+      console.log(res);
+    });
   }
 
   update(): Promise<any> {

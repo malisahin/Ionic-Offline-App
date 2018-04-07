@@ -26,9 +26,10 @@ export class ApiProvider {
   urlPrefixKullanici: string;
   pageSize = 10;
   first = 0;
-  table: Tablo = new Tablo;
+  tables: Tablo;
 
-  constructor(public http: HttpClient, private versiyonProvider: VersiyonProvider) {
+  constructor(public http: HttpClient,
+    private versiyonProvider: VersiyonProvider) {
 
 
     console.log('Hello ApiProvider Provider');
@@ -37,6 +38,7 @@ export class ApiProvider {
     this.urlPrefixHizmet = this.profil.getActiveProfil(this.ACTIVE_PROFIL).domainUrl + '/sos-api/endpointrest/hizmet/';
     this.urlPrefixOffline = this.profil.getActiveProfil(this.ACTIVE_PROFIL).domainUrl + '/sos-api/endpointrest/offline/';
     this.urlPrefixKullanici = this.profil.getActiveProfil(this.ACTIVE_PROFIL).domainUrl + '/sos-api/endpointrest/kullanici/';
+    this.tables = new Tablo();
   }
 
   getTokenUrl(username: string, password: string) {
@@ -61,30 +63,44 @@ export class ApiProvider {
     return this.urlPrefixHizmet + this.orgKod + '/' + this.userName + '/' + this.dilKod + '/' + this.paraBirimi + '/' + siparisMi + '/' + '/CagriKaydet';
   }
 
-  downloadUrunUrl(versiyon: string, first: number): Promise<string> {
-    this.table.name = String(ETable.SER_MAM_TNM);
-    return this.versiyonProvider.find(this.table.name).then(res => {
-      return this.urlPrefixOffline + res[0].versiyon + '/' + res[0].first + '/' + this.pageSize + '/urunler';
-    });
+  downloadUrunUrl(first: number) {
+    let versiyon = localStorage.getItem(this.tables.OFFLINE_ISC_FIYAT().client_version);
+    versiyon = versiyon == null ? "-1" : versiyon;
+    return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/urunler';
   }
 
-  urunAnagrupDownloadUrl(versiyon: string) {
+  urunAnagrupDownloadUrl() {
+    let versiyon = localStorage.getItem(this.tables.SER_MAM_ANAGRP_TNM().client_version);
+    versiyon = versiyon == null ? "-1" : versiyon;
     return this.urlPrefixOffline + versiyon + '/mamAnagrp';
   }
 
-  urunIscilikDownloadUrl(versiyon: string, first: number) {
+  urunIscilikDownloadUrl(first: number) {
+    let versiyon = localStorage.getItem(this.tables.SER_MAM_ISC_TNM().client_version);
+    versiyon = versiyon == null ? "-1" : versiyon;
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/mamIsc';
   }
 
-  urunMalzemeDownloadUrl(versiyon: string, first: number) {
+  urunMalzemeDownloadUrl(first: number) {
+    let versiyon = localStorage.getItem(this.tables.SER_MAM_MLZ_TNM().client_version);
+    versiyon = versiyon == null ? "-1" : versiyon;
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/mamMlz';
   }
 
-  islemArizaIscilikDownloadUrl(versiyon: string, first: number) {
+  islemArizaIscilikDownloadUrl(first: number) {
+    let versiyon = localStorage.getItem(this.tables.SER_ISC_ISLARZGRP_TNM().client_version);
+    versiyon = versiyon == null ? "-1" : versiyon;
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/islArzIsc';
   }
 
-  fiyatlarDownloadUrl(versiyon: string, first: number, tip: string) {
+  fiyatlarDownloadUrl(first: number, tip: string) {
+    let versiyon = "-1";
+    if (tip == "malzemeFiyatListesi") {
+      versiyon = localStorage.getItem(this.tables.OFFLINE_MLZ_FIYAT().client_version);
+    } else {
+      versiyon = localStorage.getItem(this.tables.OFFLINE_ISC_FIYAT().client_version);
+    }
+    versiyon = versiyon == null ? "-1" : versiyon;
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/' + tip;
   }
 

@@ -24,19 +24,22 @@ export class UrunIscilikProvider {
   }
 
 
-  downloadUrunIscilik(first: number): Observable<any> {
-    return this.getDataFromApi(first).map(item => {
-      let urunIscilik = new UrunIscilik();
-      return urunIscilik.fillUrunIscilik(item).then(list => {
-        return this.insertList(list).then(count => {
-          return new Observable();
+  downloadUrunIscilik(first: number): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.getDataFromApi(first).toPromise().then(item => {
+        let urunIscilik = new UrunIscilik();
+        urunIscilik.fillUrunIscilik(item).then(list => {
+          this.insertList(list).then(count => {
+            console.log(count);
+            resolve("success");
+          });
         });
       });
     });
   }
 
   getDataFromApi(first: number): Observable<any> {
-    let url = this.api.urunIscilikDownloadUrl('-1', first);
+    let url = this.api.urunIscilikDownloadUrl(first);
     let header = this.api.getHeader();
     return this.http.get(url, { headers: header });
   }
@@ -52,8 +55,8 @@ export class UrunIscilikProvider {
   }
 
   insertOne(item: UrunIscilik): Promise<any> {
-    let INSERT_QUERY = "INSERT INTO OFF_MAM_ISC_TNM (mamKod,iscKod,iscAdi,durum,iscMikFlag,maxIscMiktar,fiyat,gdfiyat) VALUES(?,?,?,?,?,?,?,?)";
-    let params = [item.mamKod, item.iscKod, item.iscAdi, item.iscMikFlag, item.maxIscMiktar, item.fiyat, item.gdFiyat];
-    return this.baseDao.execute(INSERT_QUERY, params).then();
+    let INSERT_QUERY = "INSERT OR REPLACE INTO OFF_MAM_ISC_TNM (mamKod,iscKod,iscAdi,durum,iscMikFlag,maxIscMiktar,fiyat,gdfiyat) VALUES(?,?,?,?,?,?,?,?)";
+    let params = [item.mamKod, item.iscKod, item.iscAdi, item.durum, item.iscMikFlag, item.maxIscMiktar, item.fiyat, item.gdFiyat];
+    return this.baseDao.execute(INSERT_QUERY, params);
   }
 }

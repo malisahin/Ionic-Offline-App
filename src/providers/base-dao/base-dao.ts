@@ -10,7 +10,7 @@ import { SQLiteObject } from "@ionic-native/sqlite";
 @Injectable()
 export class BaseDao {
 
-  constructor(private SQL: DatabaseProvider) {
+  constructor(private DB: DatabaseProvider) {
     console.log('Hello BaseDaoProvider Provider');
   }
 
@@ -24,30 +24,17 @@ export class BaseDao {
 
   execute(query: string, params: any[]): Promise<any[]> {
     console.log('query' + query);
-    //return this.SQL.transaction().then((db: SQLiteObject) => {
-    /*  return this.SQL.db.executeSql(query, params).then(res => {
-        console.log(res);
-        return res.rows;
-      }).catch(err => {
-        console.log("Insert Urun Ana Grp Hata " + err);
-        return err;
+    return new Promise((resolve, reject) => {
+      this.DB.transaction().then(db => {
+        db.transaction(function (tx) {
+          tx.executeSql(query, params, function (tx, res) {
+            resolve(res);
+          }, function (err, mes) {
+            console.error("Error" + mes.message + " Code: " + mes.code);
+            reject(err);
+          });
+        });
       });
-      */
-    //});
-    return new Promise((resolve, reject) => {
-
-    });
-  }
-
-  insertOne(query: string, params: any[]): Promise<any> {
-    /*return this.SQL.db.executeSql(query, params).then(res => {
-      return res.rows();
-    }).catch(err => {
-      console.log("Insert Urun Ana Grp Hata " + err);
-      return err;
-    });*/
-    return new Promise((resolve, reject) => {
-
     });
   }
 

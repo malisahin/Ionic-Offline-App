@@ -8,6 +8,7 @@ import { Injectable } from "@angular/core";
 import { ApiProvider } from "../api/api";
 import { Urun } from "../../entities/urun";
 import { BaseDao } from "../base-dao/base-dao";
+import { Observable } from 'rxjs/Observable';
 
 
 @Injectable()
@@ -17,9 +18,9 @@ export class UrunProvider {
     console.log('Hello UrunProvider Provider');
   }
 
-  downloadUrunler(versiyon: string, first: number): Promise<any> {
+  downloadUrunler(first: number): Promise<any> {
     let header = this.api.getHeader();
-    return this.api.downloadUrunUrl(versiyon, first).then(url => {
+    return this.getDataFromApi(first).toPromise().then(url => {
       return this.http.get(url, { headers: header }).map(
         item => {
           let urun = new Urun();
@@ -32,12 +33,22 @@ export class UrunProvider {
 
   }
 
+  getDataFromApi(first): Observable<any> {
+    let header = this.api.getHeader();
+    let url = this.api.downloadUrunUrl(first);
+    return this.http.get(url, { headers: header });
+
+  }
+
 
   insertList(list: Urun[]): Promise<any> {
-    for (var i = 0; i < list.length; i++) {
-      this.insertOne(list[i]);
-    }
-    return new Promise(resolve => resolve("success"));
+    let array: Promise<any>[] = new Array();
+    list.forEach(function (item) {
+      array.push(this.insertOne(item));
+    });
+    return Promise.all(array).then(res => {
+      console.log(res);
+    });
   }
 
   insertOne(item: Urun): Promise<any> {
