@@ -48,6 +48,7 @@ import { NativeStorage } from "@ionic-native/native-storage";
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { MesajlarProvider } from '../providers/mesajlar/mesajlar';
+import { BilgiSorguPage } from "../pages/bilgi-sorgu/bilgi-sorgu";
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import { MesajlarProvider } from '../providers/mesajlar/mesajlar';
     LoginPage,
     CagriAramaModalPage,
     ListComponent,
-    ListPage
+    ListPage,
+    BilgiSorguPage
   ],
   imports: [
     BrowserModule,
@@ -102,7 +104,8 @@ import { MesajlarProvider } from '../providers/mesajlar/mesajlar';
     LoginPage,
     CagriAramaModalPage,
     ListComponent,
-    ListPage
+    ListPage,
+    BilgiSorguPage
 
   ],
   providers: [

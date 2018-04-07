@@ -14,6 +14,7 @@ import { KutuphanePage } from '../pages/kutuphane/kutuphane';
 import { AyarlarPage } from '../pages/ayarlar/ayarlar';
 import { LoginPage } from '../pages/login/login';
 import { DatabaseProvider } from '../providers/database/database';
+import { BilgiSorguPage } from '../pages/bilgi-sorgu/bilgi-sorgu';
 
 
 @Component({
@@ -41,8 +42,7 @@ export class MyApp {
       { title: 'Duyurular', component: BildirimlerPage, active: false, icon: 'map' },
       { title: 'Uyarılar', component: BildirimlerPage, active: false, icon: 'ionic' },
       { title: 'Güncelleme', component: GuncellemePage, active: false, icon: 'ionic' },
-      { title: 'Kampanyalar', component: KampanyalarPage, active: false, icon: 'archive' },
-      { title: 'Bilgi Sorgu', component: KampanyalarPage, active: false, icon: 'body' },
+      { title: 'Bilgi Sorgu', component: BilgiSorguPage, active: false, icon: 'body' },
       { title: 'E-Kütüphane', component: KutuphanePage, active: false, icon: 'bookmarks' },
       { title: 'Ayarlar', component: AyarlarPage, active: false, icon: 'book' }
     ];
