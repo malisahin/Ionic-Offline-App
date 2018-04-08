@@ -49,4 +49,27 @@ export class BaseDao {
   delete() {
 
   }
+
+  prepareExactQuery(item: Object): string {
+    let query = "";
+    for (let key in item) {
+      let value = item[key];
+      if (typeof value != undefined && value != null && value != "" && typeof value != "function" && typeof value != "object") {
+        query += " AND " + key + "= '" + value + "'";
+      }
+    }
+    return query;
+  }
+
+  prepareLikeQuery(item: Object): string {
+    let query = "";
+    for (let key in item) {
+      let value = item[key];
+      if (typeof value != undefined && value != null && value != "" && typeof value != "function" && typeof value != "object") {
+        value = value.split('').join('%');
+        query += " OR " + key + "= '" + value + "'";
+      }
+    }
+    return query;
+  }
 }

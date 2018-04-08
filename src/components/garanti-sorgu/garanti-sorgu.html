@@ -1,10 +1,34 @@
+<!-- Generated template for the HizmetBilgileriComponent component -->
 <ion-list inset>
   <ion-item>
-    <ion-label>Gender</ion-label>
-    <ion-select [(ngModel)]="mamKod">
-      <ion-option value="f">Female</ion-option>
-      <ion-option value="m">Male</ion-option>
-    </ion-select>
+    <ion-label>Ürün Ana Grubu</ion-label>
+    <ion-input type="text" name="email" [(ngModel)]="username" (focus)="urunSorgula()"></ion-input>
+    <!--ion-label color="primary">Ürün Ana Grubu</ion-label>
+    <ion-select [(ngModel)]="urunAnaGrup" multiple="false" interface="popover">
+      <ion-option *ngFor="let o of urunAnaGrupList" [value]="o.kod">
+        {{o.mamAnaGrp}} - {{o.adi}}
+      </ion-option>
+    </ion-select-->
+    <!--select-searchable title="Ürün Ana Grubu" [(ngModel)]="urunAnaGrup" [items]="urunAnaGrupList" itemValueField="mamAnaGrp"
+      itemTextField="adi" [canSearch]="true" (onChange)="urunAnaGrupOnChange($event)">
+    </select-searchable-->
   </ion-item>
+
+  <ion-item>
+    <ion-label>Ürün Kodu</ion-label>
+    <ion-input type="text" [(ngModel)]="urun.mamKod" (focus)="urunSorgula()"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Barkod Numarası</ion-label>
+    <ion-input type="text" [(ngModel)]="barkodNo" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Fatura Tarihi</ion-label>
+    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="faturaTarihi"></ion-datetime>
+  </ion-item>
+
+
 
 </ion-list>

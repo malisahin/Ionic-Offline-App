@@ -4,23 +4,28 @@
     <button ion-button primary menuToggle>
       <ion-icon name="list"></ion-icon>
     </button>
+    <icon-header></icon-header>
     <ion-title class="page-title">Bilgi Sorgu</ion-title>
   </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="activePage">
+
+      <ion-segment-button value="garantiSorguSegment">
+        Garanti Sorgu
+      </ion-segment-button>
+
+      <ion-segment-button value="fiyatSorguSegment">
+        Fiyat Sorgu
+      </ion-segment-button>
+
+    </ion-segment>
+  </ion-toolbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <form [formGroup]="bilgiSorguForm">
-    <ion-segment color="primary">
-      <ion-segment-button value="garantiSorguSegment">
-        Garanti Sorgu
-      </ion-segment-button>
-      <ion-segment-button value="fiyatSorguSegment">
-        Fiyat Sorgu
-      </ion-segment-button>
-    </ion-segment>
-  </form>
   <div [ngSwitch]="activePage">
 
     <div *ngSwitchCase="'garantiSorguSegment'">

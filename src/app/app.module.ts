@@ -49,6 +49,10 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { MesajlarProvider } from '../providers/mesajlar/mesajlar';
 import { BilgiSorguPage } from "../pages/bilgi-sorgu/bilgi-sorgu";
+import { FiyatSorguComponent } from "../components/fiyat-sorgu/fiyat-sorgu";
+import { GarantiSorguComponent } from "../components/garanti-sorgu/garanti-sorgu";
+import { UrunAnaGrupDao } from '../providers/urun-ana-grup-dao/urun-ana-grup-dao';
+import { SelectSearchComponent } from "../components/select-search/select-search";
 
 
 @NgModule({
@@ -74,7 +78,10 @@ import { BilgiSorguPage } from "../pages/bilgi-sorgu/bilgi-sorgu";
     CagriAramaModalPage,
     ListComponent,
     ListPage,
-    BilgiSorguPage
+    BilgiSorguPage,
+    FiyatSorguComponent,
+    GarantiSorguComponent,
+    SelectSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -105,7 +112,10 @@ import { BilgiSorguPage } from "../pages/bilgi-sorgu/bilgi-sorgu";
     CagriAramaModalPage,
     ListComponent,
     ListPage,
-    BilgiSorguPage
+    BilgiSorguPage,
+    FiyatSorguComponent,
+    GarantiSorguComponent,
+    SelectSearchComponent
 
   ],
   providers: [
@@ -134,8 +144,8 @@ import { BilgiSorguPage } from "../pages/bilgi-sorgu/bilgi-sorgu";
     VersiyonProvider,
     NativeStorage,
     VersiyonProvider,
-    MesajlarProvider, SQLite, SQLitePorter
-
+    MesajlarProvider, SQLite, SQLitePorter,
+    UrunAnaGrupDao
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

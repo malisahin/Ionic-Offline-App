@@ -9,14 +9,15 @@ export class UrunAnaGrup {
   basvuruListe: BasvuruListe[] = [];
   liste: UrunAnaGrupListe[] = [];
 
-  basvuruNeden: string;
-  mamAnaGrp: string;
-  ad: string;
-  durum: string;
-  kod: string;
-  tip: string;
+  basvuruNeden: string = "";
+  mamAnaGrp: string = "";
+  ad: string = "";
+  durum: string = "";
+  kod: string = "";
+  tip: string = "";
 
-  constructor() {
+  constructor(tip: string) {
+    this.tip = tip;
   }
 
   fillUrunAnaGrup(res: any): Promise<UrunAnaGrup[]> {
@@ -44,12 +45,11 @@ export class BasvuruListe {
 
   fillBasvuruListe(list: BasvuruListe[], mainList: UrunAnaGrup[]) {
     list.forEach(function (item) {
-      let anaGrp = new UrunAnaGrup();
+      let anaGrp = new UrunAnaGrup("basvuruListe");
       anaGrp.basvuruNeden = item.basvuruNeden;
       anaGrp.mamAnaGrp = item.mamAnagrp;
       anaGrp.ad = item.ad;
       anaGrp.durum = item.durum;
-      anaGrp.tip = "basvuruListe";
       mainList.push(anaGrp);
     });
     return mainList;
@@ -63,10 +63,9 @@ export class CozumListe {
 
   fillCozumListe(list: CozumListe[], mainList: UrunAnaGrup[]) {
     list.forEach(function (item) {
-      let anaGrp = new UrunAnaGrup();
+      let anaGrp = new UrunAnaGrup("cozumListe");
       anaGrp.kod = item.kod;
       anaGrp.ad = item.ad;
-      anaGrp.tip = "cozumListe";
       mainList.push(anaGrp);
     });
     return mainList;
@@ -76,16 +75,15 @@ export class CozumListe {
 export class UrunAnaGrupListe {
   mamAnaGrp: string;
   durum: string;
-  adi: string;
+  Adi: string;
   tip: string = "liste";
 
   fillMamAnaGrpListe(list: UrunAnaGrupListe[], mainList: UrunAnaGrup[]) {
-    list.forEach(function (item) {
-      let anaGrp = new UrunAnaGrup();
+    list.forEach(item => {
+      let anaGrp = new UrunAnaGrup("liste");
       anaGrp.mamAnaGrp = item.mamAnaGrp;
       anaGrp.durum = item.durum;
-      anaGrp.ad = item.adi;
-      anaGrp.tip = "liste";
+      anaGrp.ad = item.Adi;
       mainList.push(anaGrp);
     });
     return mainList;
