@@ -2,16 +2,7 @@
 <ion-list inset>
   <ion-item>
     <ion-label>Ürün Ana Grubu</ion-label>
-    <ion-input type="text" name="email" [(ngModel)]="username" (focus)="urunSorgula()"></ion-input>
-    <!--ion-label color="primary">Ürün Ana Grubu</ion-label>
-    <ion-select [(ngModel)]="urunAnaGrup" multiple="false" interface="popover">
-      <ion-option *ngFor="let o of urunAnaGrupList" [value]="o.kod">
-        {{o.mamAnaGrp}} - {{o.adi}}
-      </ion-option>
-    </ion-select-->
-    <!--select-searchable title="Ürün Ana Grubu" [(ngModel)]="urunAnaGrup" [items]="urunAnaGrupList" itemValueField="mamAnaGrp"
-      itemTextField="adi" [canSearch]="true" (onChange)="urunAnaGrupOnChange($event)">
-    </select-searchable-->
+    <ion-input type="text" [(ngModel)]="urun.ad" (focus)="urunAnaGrupSorgula()"></ion-input>
   </ion-item>
 
   <ion-item>

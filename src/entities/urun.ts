@@ -1,3 +1,5 @@
+import { Constants } from "./Constants";
+
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
@@ -12,9 +14,9 @@ export class Urun {
 
   fillUrun(res: any): Promise<any> {
     let parsedList = [];
-    let urunList = JSON.parse(res.data).message[0].liste;
-    let urunVersiyon = JSON.parse(res.data).message[0].versiyon;
-    localStorage.setItem("urun-versiyon", urunVersiyon);
+    let urunList = res.message[0].liste;
+    let urunVersiyon = res.message[0].versiyon;
+    localStorage.setItem(new Constants().VERSIYON.SERVER.URUN, urunVersiyon);
     urunList.forEach(function (item) {
       let urun: Urun = new Urun();
       urun.mamAnagrp = item.mamAnagrp;
@@ -28,13 +30,3 @@ export class Urun {
     return new Promise(resolve => resolve(parsedList));
   }
 }
-/*
-{
-    "mamAnagrp": "UA005",
-    "durum": "AKTIF",
-    "seriMetod": "1",
-    "surec": "H",
-    "urunKodu": "102108457",
-    "urunAdi": "TEK GÖVDE LAV. MUSLUGU (DÖNERLI)"
-    }
-    */

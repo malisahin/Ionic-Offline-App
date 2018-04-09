@@ -53,6 +53,8 @@ import { FiyatSorguComponent } from "../components/fiyat-sorgu/fiyat-sorgu";
 import { GarantiSorguComponent } from "../components/garanti-sorgu/garanti-sorgu";
 import { UrunAnaGrupDao } from '../providers/urun-ana-grup-dao/urun-ana-grup-dao';
 import { SelectSearchComponent } from "../components/select-search/select-search";
+import { UrunDao } from "../providers/urun-dao/urun-dao";
+
 
 
 @NgModule({
@@ -145,7 +147,8 @@ import { SelectSearchComponent } from "../components/select-search/select-search
     NativeStorage,
     VersiyonProvider,
     MesajlarProvider, SQLite, SQLitePorter,
-    UrunAnaGrupDao
+    UrunAnaGrupDao,
+    UrunDao
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

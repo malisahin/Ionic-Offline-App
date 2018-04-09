@@ -9,10 +9,12 @@ import { Tablo } from "../../entities/Tablo";
 import { VersiyonProvider } from "../versiyon/versiyon";
 import { ETable } from "../../entities/enums/ETable";
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { Constants } from "../../entities/Constants";
 
 
 @Injectable()
 export class ApiProvider {
+  constants: Constants;
   profil: Profil = new Profil();
   ACTIVE_PROFIL: EProfiles;
   orgKod: string = "ECAMERKEZ";
@@ -24,14 +26,14 @@ export class ApiProvider {
   urlPrefixHizmet: string;
   urlPrefixOffline: string;
   urlPrefixKullanici: string;
-  pageSize = 10;
+  pageSize: number;;
   first = 0;
   tables: Tablo;
 
   constructor(public http: HttpClient,
     private versiyonProvider: VersiyonProvider) {
-
-
+    this.constants = new Constants();
+    this.pageSize = this.constants.API_PAGE_SIZE;
     console.log('Hello ApiProvider Provider');
     this.ACTIVE_PROFIL = EProfiles.LOCAL_DEV;
 

@@ -37,7 +37,8 @@ export class FiyatProvider {
         let fiyatlar = new Fiyat();
         fiyatlar.fillFiyat(res).then(list => {
           this.fiyatDao.insertList(list).then(item => {
-            resolve("SUCCESS");
+            console.dir(item);
+            resolve(item);
           });
         });
       });

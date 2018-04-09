@@ -28,6 +28,7 @@ export class FiyatDao {
     });
     return Promise.all(array).then(res => {
       console.log(res);
+      return res;
     });
   }
 
