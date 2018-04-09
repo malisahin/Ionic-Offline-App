@@ -17,7 +17,12 @@ export class Constants {
 
     public SEARCH_TYPE = { LIKE: "LIKE", EXACT: "EXACT" };
 
-    public DATA_TYPE = { URUN: "URUN", URUN_ANA_GRUP: "URUN_ANA_GRUP" };
+    public DATA_TYPE = {
+        URUN: "URUN",
+        URUN_ANA_GRUP: "URUN_ANA_GRUP",
+        URUN_ISCILIK: "URUN_ISCILIK",
+        URUN_MALZEME: "URUN_MALZEME"
+    };
 
 
     public VERSIYON = {

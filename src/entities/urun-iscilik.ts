@@ -1,3 +1,5 @@
+import { Constants } from "./Constants";
+
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
@@ -15,10 +17,12 @@ export class UrunIscilik {
   maxIscMiktar: string = null;
 
   fillUrunIscilik(res: any): Promise<any> {
+    let constant = new Constants();
     let parsedList = [];
     let urunIscilikList = res.message[0].liste
     let urunIscilikVersiyon = res.message[0].versiyon;
-    localStorage.setItem("urun-iscilik-versiyon", urunIscilikVersiyon);
+    localStorage.setItem(constant.DATA_TYPE.URUN_ISCILIK, urunIscilikList.length);
+    localStorage.setItem(constant.VERSIYON.SERVER.URUN_ISCILIK, urunIscilikVersiyon);
     urunIscilikList.forEach(function (item) {
       let urunIscilik = new UrunIscilik();
       urunIscilik.mamKod = item.mamKod;

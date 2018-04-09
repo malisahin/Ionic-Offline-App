@@ -12,13 +12,19 @@ import { UrunIscilik } from "../../entities/urun-iscilik";
 import { BaseDao } from "../base-dao/base-dao";
 import { VersiyonProvider } from "../versiyon/versiyon";
 import { Observable } from 'rxjs/Observable';
+import { TokenProvider } from '../token/token';
+import { DatabaseProvider } from '../database/database';
 
 
 @Injectable()
 export class UrunIscilikProvider {
+
+  INSERT_QUERY: string = "INSERT OR REPLACE INTO OFF_MAM_ISC_TNM (mamKod,iscKod,iscAdi,durum,iscMikFlag,maxIscMiktar,fiyat,gdfiyat) VALUES(?,?,?,?,?,?,?,?)";
   constructor(public http: HttpClient,
     private api: ApiProvider,
     private baseDao: BaseDao,
+    private DbProvider: DatabaseProvider,
+    private tokenProvider: TokenProvider,
     private versiyonProvider: VersiyonProvider) {
     console.log('Hello UrunIscilikProvider Provider');
   }
@@ -26,15 +32,17 @@ export class UrunIscilikProvider {
 
   downloadUrunIscilik(first: number): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.getDataFromApi(first).toPromise().then(item => {
-        let urunIscilik = new UrunIscilik();
-        urunIscilik.fillUrunIscilik(item).then(list => {
-          this.insertList(list).then(count => {
-            console.log(count);
-            resolve("success");
+      this.tokenProvider.getToken("", "").toPromise().then(res => {
+        this.getDataFromApi(first).toPromise().then(item => {
+          let urunIscilik = new UrunIscilik();
+          urunIscilik.fillUrunIscilik(item).then(list => {
+            this.insertList(list).then(count => {
+              console.log(count);
+              resolve("success");
+            });
           });
         });
-      });
+      })
     });
   }
 
@@ -44,7 +52,7 @@ export class UrunIscilikProvider {
     return this.http.get(url, { headers: header });
   }
 
-  insertList(list: UrunIscilik[]): Promise<any> {
+  /*insertList(list: UrunIscilik[]): Promise<any> {
     let array: Promise<any>[] = new Array();
     for (let i = 0; i < list.length; i++) {
       array.push(this.insertOne(list[i]));
@@ -53,10 +61,37 @@ export class UrunIscilikProvider {
       console.log(res);
     });
   }
+  */
 
   insertOne(item: UrunIscilik): Promise<any> {
     let INSERT_QUERY = "INSERT OR REPLACE INTO OFF_MAM_ISC_TNM (mamKod,iscKod,iscAdi,durum,iscMikFlag,maxIscMiktar,fiyat,gdfiyat) VALUES(?,?,?,?,?,?,?,?)";
     let params = [item.mamKod, item.iscKod, item.iscAdi, item.durum, item.iscMikFlag, item.maxIscMiktar, item.fiyat, item.gdFiyat];
     return this.baseDao.execute(INSERT_QUERY, params);
+  }
+
+
+  insertList(list: UrunIscilik[]): Promise<any> {
+    let response: any;
+    let insertedItems = 0;
+    return new Promise((resolve, reject) => {
+      this.DbProvider.transaction().then(db => {
+        db.transaction(function (tx) {
+          let INSERT_QUERY = "INSERT OR REPLACE INTO OFF_MAM_ISC_TNM (mamKod,iscKod,iscAdi,durum,iscMikFlag,maxIscMiktar,fiyat,gdfiyat) VALUES(?,?,?,?,?,?,?,?)";
+          for (let item of list) {
+            let params = [item.mamKod, item.iscKod, item.iscAdi, item.durum, item.iscMikFlag, item.maxIscMiktar, item.fiyat, item.gdFiyat];
+            tx.executeSql(INSERT_QUERY, params, function (tx, res) {
+              insertedItems += 1;
+              if (list.length == insertedItems) {
+                resolve(res);
+              }
+            }, function (err, mes) {
+              console.error("Error" + mes.message + " Code: " + mes.code);
+              reject(err);
+            });
+          }
+        });
+      });
+    });
+
   }
 }

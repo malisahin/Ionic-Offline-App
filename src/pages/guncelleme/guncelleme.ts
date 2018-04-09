@@ -88,7 +88,16 @@ export class GuncellemePage {
     this.urunIscilikProvider.downloadUrunIscilik(this.firstForUrunIscilik).then(res => {
       console.log(res);
       this.firstForUrunIscilik += this.pageSize;
-      this.downloadUrunIscilik();
+      console.log("Indirilen ürün İşçilik sayısı" + localStorage.getItem(this.constants.DATA_TYPE.URUN_ISCILIK));
+      if (Number(localStorage.getItem(this.constants.DATA_TYPE.URUN_ISCILIK)) < this.constants.API_PAGE_SIZE) {
+        // TODO: Ürün iscilik Indirildi.
+        localStorage.setItem(this.constants.VERSIYON.CLIENT.URUN_ISCILIK, localStorage.getItem(this.constants.VERSIYON.SERVER.URUN_ISCILIK));
+        alert("Ürün İşçilik Kayıt Edildi.");
+        this.colors.URUN_ISCILIK = "downloaded"
+        this.icons.URUN_ISCILIK = "done-all";
+      } else {
+        this.downloadUrunIscilik();
+      }
     });
   }
 

@@ -39,7 +39,27 @@ export class BaseDao {
     });
   }
 
-  insertList() {
+  insertList(list: any[], query: string, params: string) {
+    console.log('query' + query);
+    let response: any;
+    let insertedItems = 0;
+    return new Promise((resolve, reject) => {
+      this.DB.transaction().then(db => {
+        db.transaction(function (tx) {
+          for (let i = 0; i < list.length; i++) {
+            tx.executeSql(query, params, function (tx, res) {
+              insertedItems += 1;
+              if (list.length == insertedItems) {
+                resolve(res);
+              }
+            }, function (err, mes) {
+              console.error("Error" + mes.message + " Code: " + mes.code);
+              reject(err);
+            });
+          }
+        });
+      });
+    });
 
   }
 
