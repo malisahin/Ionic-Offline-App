@@ -14,11 +14,13 @@ import { VersiyonProvider } from "../versiyon/versiyon";
 import { Observable } from 'rxjs/Observable';
 import { TokenProvider } from '../token/token';
 import { DatabaseProvider } from '../database/database';
+import { Constants } from '../../entities/Constants';
 
 
 @Injectable()
 export class UrunIscilikProvider {
 
+  constants: Constants;
   INSERT_QUERY: string = "INSERT OR REPLACE INTO OFF_MAM_ISC_TNM (mamKod,iscKod,iscAdi,durum,iscMikFlag,maxIscMiktar,fiyat,gdfiyat) VALUES(?,?,?,?,?,?,?,?)";
   constructor(public http: HttpClient,
     private api: ApiProvider,
@@ -27,6 +29,7 @@ export class UrunIscilikProvider {
     private tokenProvider: TokenProvider,
     private versiyonProvider: VersiyonProvider) {
     console.log('Hello UrunIscilikProvider Provider');
+    this.constants = new Constants();
   }
 
 
@@ -38,7 +41,7 @@ export class UrunIscilikProvider {
           urunIscilik.fillUrunIscilik(item).then(list => {
             this.insertList(list).then(count => {
               console.log(count);
-              resolve("success");
+              resolve(this.constants.STATUS.SUCCESS);
             });
           });
         });
@@ -51,17 +54,6 @@ export class UrunIscilikProvider {
     let header = this.api.getHeader();
     return this.http.get(url, { headers: header });
   }
-
-  /*insertList(list: UrunIscilik[]): Promise<any> {
-    let array: Promise<any>[] = new Array();
-    for (let i = 0; i < list.length; i++) {
-      array.push(this.insertOne(list[i]));
-    }
-    return Promise.all(array).then(res => {
-      console.log(res);
-    });
-  }
-  */
 
   insertOne(item: UrunIscilik): Promise<any> {
     let INSERT_QUERY = "INSERT OR REPLACE INTO OFF_MAM_ISC_TNM (mamKod,iscKod,iscAdi,durum,iscMikFlag,maxIscMiktar,fiyat,gdfiyat) VALUES(?,?,?,?,?,?,?,?)";

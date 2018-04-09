@@ -29,9 +29,7 @@ export class UrunProvider {
     return this.getDataFromApi(first).toPromise().then(item => {
       let urun = new Urun();
       return urun.fillUrun(item).then(item => {
-        this.urunDao.insertList(item).then(item => {
-          //localStorage.setItem(this.constants.DATA_TYPE.URUN, localStorage.getItem(this.constants.DATA_TYPE.URUN) + 10000);
-        });
+        this.urunDao.insertList(item)
       });
     });
   }

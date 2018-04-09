@@ -21,8 +21,10 @@ export class UrunIscilik {
     let parsedList = [];
     let urunIscilikList = res.message[0].liste
     let urunIscilikVersiyon = res.message[0].versiyon;
-    localStorage.setItem(constant.DATA_TYPE.URUN_ISCILIK, urunIscilikList.length);
+
+    localStorage.setItem(constant.GELEN_VERI.GELEN_URUN_ISCILIK, urunIscilikList.length);
     localStorage.setItem(constant.VERSIYON.SERVER.URUN_ISCILIK, urunIscilikVersiyon);
+
     urunIscilikList.forEach(function (item) {
       let urunIscilik = new UrunIscilik();
       urunIscilik.mamKod = item.mamKod;

@@ -1,3 +1,5 @@
+import { Constants } from "./Constants";
+
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
@@ -13,18 +15,33 @@ export class Fiyat {
     versiyon: string = null;
 
     fillFiyat(res): Promise<any> {
+        let constant = new Constants();
         let parsedList = [];
         let fiyatList = res.message[0].liste;
+        let versiyon = res.message[0].versiyon;
+        let tip = "";
+
         fiyatList.forEach(item => {
             let fiyat = new Fiyat();
             fiyat.mamKod = item.mamKod;
             fiyat.iscMlz = item.iscMlz;
+            tip = item.iscMlz == 'MLZ' ? 'MLZ' : 'ISC';
             fiyat.iscMlzKod = item.iscMlzKod;
             fiyat.fiyat = item.fiyat;
             fiyat.gdFiyat = item.gdfiyat;
             fiyat.versiyon = item.versiyon;
             parsedList.push(fiyat);
         });
+
+        if (tip == "MLZ") {
+            localStorage.setItem(constant.GELEN_VERI.GELEN_MALZEME_FIYAT, fiyatList.length);
+            localStorage.setItem(constant.VERSIYON.SERVER.MALZEME_FIYAT, versiyon);
+
+        } else if (tip == 'ISC') {
+            localStorage.setItem(constant.GELEN_VERI.GELEN_ISCILIK_FIYAT, fiyatList.length);
+            localStorage.setItem(constant.VERSIYON.SERVER.ISCILIK_FIYAT, versiyon);
+        }
+
         return new Promise(res => res(parsedList));
     }
 }

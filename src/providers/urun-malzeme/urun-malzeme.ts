@@ -7,22 +7,35 @@ import { ApiProvider } from '../api/api';
 import { Observable } from 'rxjs/Observable';
 import { UrunMalzeme } from '../../entities/urun-malzeme';
 import { BaseDao } from '../base-dao/base-dao';
+import { DatabaseProvider } from '../database/database';
+import { UrunMalzemeDao } from '../urun-malzeme-dao/urun-malzeme-dao';
+import { Constants } from '../../entities/Constants';
+import { TokenProvider } from '../token/token';
 
 
 @Injectable()
 export class UrunMalzemeProvider {
 
+  constants: Constants;
   constructor(public http: HttpClient,
-    private baseDao: BaseDao,
+    private urunMalzemeDao: UrunMalzemeDao,
+    private tokenProvider: TokenProvider,
     private api: ApiProvider) {
     console.log('Hello UrunMalzemeProvider Provider');
+    this.constants = new Constants();
   }
 
   downloadUrunMalzeme(first): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.getDataFromApi(first).toPromise().then(res => {
-        let urunMalzeme = new UrunMalzeme();
-        urunMalzeme.fillUrunMalzeme(res).then();
+      this.tokenProvider.getToken("", "").toPromise().then(res => {
+        this.getDataFromApi(first).toPromise().then(data => {
+          let urunMalzeme = new UrunMalzeme();
+          urunMalzeme.fillUrunMalzeme(data).then(list => {
+            this.urunMalzemeDao.insertList(list).then(res => {
+              resolve(res);
+            });
+          });
+        });
       });
     });
   }
@@ -33,20 +46,10 @@ export class UrunMalzemeProvider {
     return this.http.get(url, { headers: header });
   }
 
-  insertList(list: UrunMalzeme[]): Promise<any> {
-    let array: Promise<any>[] = new Array();
-    for (let i = 0; i < list.length; i++) {
-      array.push(this.insertOne(list[i]));
-    }
-    return Promise.all(array).then(res => {
-      console.log(res);
-    });
-  }
 
-  insertOne(item: UrunMalzeme): Promise<any> {
-    let INSERT_QUERY = "INSERT INTO OFF_MAM_MLZ_TNM (mamKod,mlzKod,mlzAdi,durum, kdvOran) VALUES (?,?,?,?,?)";
-    let params = [item.mamKod, item.mlzKod, item.mlzAdi, item.durum, item.kdvOran];
-    return this.baseDao.execute(INSERT_QUERY, params);
-  }
+
+
+
+
 
 }

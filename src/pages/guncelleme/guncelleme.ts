@@ -59,7 +59,7 @@ export class GuncellemePage {
     this.urunProvider.downloadUrunler(this.firstForUrunler).then(res => {
       console.log("Urunler Kayit Edildi");
       this.firstForUrunler += this.pageSize;
-      if (Number(localStorage.getItem(this.constants.DATA_TYPE.URUN)) < this.constants.API_PAGE_SIZE) {
+      if (Number(localStorage.getItem(this.constants.GELEN_VERI.GELEN_URUN)) < this.constants.API_PAGE_SIZE) {
 
         // TODO: Ürünler Indirildi.
         localStorage.setItem(this.constants.VERSIYON.CLIENT.URUN, localStorage.getItem(this.constants.VERSIYON.SERVER.URUN));
@@ -89,7 +89,7 @@ export class GuncellemePage {
       console.log(res);
       this.firstForUrunIscilik += this.pageSize;
       console.log("Indirilen ürün İşçilik sayısı" + localStorage.getItem(this.constants.DATA_TYPE.URUN_ISCILIK));
-      if (Number(localStorage.getItem(this.constants.DATA_TYPE.URUN_ISCILIK)) < this.constants.API_PAGE_SIZE) {
+      if (Number(localStorage.getItem(this.constants.GELEN_VERI.GELEN_URUN_ISCILIK)) < this.constants.API_PAGE_SIZE) {
         // TODO: Ürün iscilik Indirildi.
         localStorage.setItem(this.constants.VERSIYON.CLIENT.URUN_ISCILIK, localStorage.getItem(this.constants.VERSIYON.SERVER.URUN_ISCILIK));
         alert("Ürün İşçilik Kayıt Edildi.");
@@ -104,33 +104,62 @@ export class GuncellemePage {
   downloadUrunMalzeme() {
     this.urunMalzemeProvider.downloadUrunMalzeme(this.firstForUrunMalzeme).then(res => {
       console.log(res);
-      this.firstForUrunMalzeme += this.pageSize;
-      this.downloadUrunMalzeme();
+      if (Number(localStorage.getItem(this.constants.GELEN_VERI.GELEN_URUN_MALZEME)) < this.constants.API_PAGE_SIZE) {
+        localStorage.setItem(this.constants.VERSIYON.CLIENT.URUN_MALZEME, localStorage.getItem(this.constants.VERSIYON.SERVER.URUN_MALZEME));
+        alert("Ürün İşçilik Kayıt Edildi.");
+        this.colors.URUN_MALZEME = "downloaded"
+        this.icons.URUN_MALZEME = "done-all";
+      } else {
+        this.firstForUrunMalzeme += this.pageSize;
+        this.downloadUrunMalzeme();
+      }
     });
 
   }
 
   downloadIslemArizaIscilik() {
-    this.islemArizaIscilikProvider.downloadIslemArizaIscilik(this.firstForIslemArizaIscilik).subscribe(res => {
+    this.islemArizaIscilikProvider.downloadIslemArizaIscilik(this.firstForIslemArizaIscilik).then(res => {
       console.log(res);
-      this.firstForIslemArizaIscilik += this.pageSize;
-      this.downloadIslemArizaIscilik();
+      if (Number(localStorage.getItem(this.constants.GELEN_VERI.GELEN_ISLEM_ARIZA_ISCILIK)) < this.constants.API_PAGE_SIZE) {
+        localStorage.setItem(this.constants.VERSIYON.CLIENT.ISLEM_ARIZA_ISCILIK, localStorage.getItem(this.constants.VERSIYON.SERVER.ISLEM_ARIZA_ISCILIK));
+        this.colors.ISLEM_ARIZA_ISCILIK = "downloaded"
+        this.icons.ISLEM_ARIZA_ISCILIK = "done-all";
+        alert("Islem Ariza Iscilik Kayıt Edildi.");
+      } else {
+        this.firstForIslemArizaIscilik += this.pageSize;
+        this.downloadIslemArizaIscilik();
+      }
+
     });
   }
 
   downloadMalzemeFiyat() {
     this.fiyatProvider.downloadMalzemeFiyat(this.firstForMalzemeFiyat).then(res => {
       console.log(res);
-      this.firstForMalzemeFiyat += this.pageSize;
-      this.downloadMalzemeFiyat();
+      if (Number(localStorage.getItem(this.constants.GELEN_VERI.GELEN_MALZEME_FIYAT)) < this.constants.API_PAGE_SIZE) {
+        localStorage.setItem(this.constants.VERSIYON.CLIENT.MALZEME_FIYAT, localStorage.getItem(this.constants.VERSIYON.SERVER.MALZEME_FIYAT));
+        this.colors.MALZEME_FIYAT = "downloaded"
+        this.icons.MALZEME_FIYAT = "done-all";
+        alert("Malzeme Fiyatı Kayıt Edildi.");
+      } else {
+        this.firstForMalzemeFiyat += this.pageSize;
+        this.downloadMalzemeFiyat();
+      }
+
     });
   }
 
   downloadIscilikFiyat() {
     this.fiyatProvider.downloadIscilikFiyat(this.firstForIscilikFiyat).then(res => {
-      console.log(res);
-      this.firstForIscilikFiyat = this.pageSize;
-      this.downloadIscilikFiyat();
+      if (Number(localStorage.getItem(this.constants.GELEN_VERI.GELEN_ISCILIK_FIYAT)) < this.constants.API_PAGE_SIZE) {
+        localStorage.setItem(this.constants.VERSIYON.CLIENT.ISCILIK_FIYAT, localStorage.getItem(this.constants.VERSIYON.SERVER.ISCILIK_FIYAT));
+        this.colors.ISCILIK_FIYAT = "downloaded"
+        this.icons.ISCILIK_FIYAT = "done-all";
+        alert("Iscilik Fiyatı Kayıt Edildi.");
+      } else {
+        this.firstForIscilikFiyat += this.pageSize;
+        this.downloadIscilikFiyat();
+      }
     });
   }
 

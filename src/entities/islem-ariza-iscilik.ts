@@ -1,3 +1,5 @@
+import { Constants } from "./Constants";
+
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
@@ -14,27 +16,30 @@ export class IslemArizaIscilik {
     durum: string;
 
 
-    fillIslemArizaIscilik(obj) {
-        let item = new IslemArizaIscilik();
-        item.mamAnaGrp = obj.mamAnaGrp;
-        item.islGrp = obj.islGrp;
-        item.islGrpAd = obj.islGrpAd;
-        item.arzGrp = obj.arzGrp;
-        item.arzGrpAd = obj.arzGrpAd;
-        item.iscKod = obj.iscKod;
-        item.durum = obj.durum;
-        return item;
+    fillIslemArizaIscilik(data): Promise<any> {
+        let constant = new Constants();
+        let parsedList = [];
+        let list = data.message[0].liste;
+        let versiyon = data.message[0].versiyon;
+
+
+        /**
+         *   Versiyon ve Ne kadar verinin geldiği burdan kontrol edilir
+         */
+        localStorage.setItem(constant.VERSIYON.SERVER.ISLEM_ARIZA_ISCILIK, versiyon);
+        localStorage.setItem(constant.GELEN_VERI.GELEN_ISLEM_ARIZA_ISCILIK, list.length);
+
+        list.forEach(obj => {
+            let item = new IslemArizaIscilik();
+            item.mamAnaGrp = obj.mamAnaGrp;
+            item.islGrp = obj.islGrp;
+            item.islGrpAd = obj.islGrpAd;
+            item.arzGrp = obj.arzGrp;
+            item.arzGrpAd = obj.arzGrpAd;
+            item.iscKod = obj.iscKod;
+            item.durum = obj.durum;
+            parsedList.push(item);
+        });
+        return new Promise(resolve => { resolve(parsedList) });
     }
 }
-
-
-/*
-
-"mamAnaGrp": "UA002",
-"islGrp": "00900",
-"islGrpAd": "DIGER",
-"arzGrp": "00017",
-"arzGrpAd": "KAYNAK",
-"iscKod": "090364",
-"durum": "AKTIF"
-*/

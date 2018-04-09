@@ -54,6 +54,8 @@ import { GarantiSorguComponent } from "../components/garanti-sorgu/garanti-sorgu
 import { UrunAnaGrupDao } from '../providers/urun-ana-grup-dao/urun-ana-grup-dao';
 import { SelectSearchComponent } from "../components/select-search/select-search";
 import { UrunDao } from "../providers/urun-dao/urun-dao";
+import { UrunMalzemeDao } from "../providers/urun-malzeme-dao/urun-malzeme-dao";
+import { IslemArizaIscilikDao } from '../providers/islem-ariza-iscilik-dao/islem-ariza-iscilik-dao';
 
 
 
@@ -148,7 +150,9 @@ import { UrunDao } from "../providers/urun-dao/urun-dao";
     VersiyonProvider,
     MesajlarProvider, SQLite, SQLitePorter,
     UrunAnaGrupDao,
-    UrunDao
+    UrunDao,
+    UrunMalzemeDao,
+    IslemArizaIscilikDao
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

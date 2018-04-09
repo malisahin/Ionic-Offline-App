@@ -3,28 +3,15 @@ import { Injectable } from '@angular/core';
 import { BaseDao } from '../base-dao/base-dao';
 import { Urun } from '../../entities/urun';
 import { Constants } from '../../entities/Constants';
+import { DatabaseProvider } from '../database/database';
 
 @Injectable()
 export class UrunDao {
 
   constant: Constants;
-  constructor(private baseDao: BaseDao) {
+  constructor(private baseDao: BaseDao, private dbProvider: DatabaseProvider) {
     console.log('Hello UrunDaoProvider Provider');
     this.constant = new Constants();
-  }
-
-
-  insertList(list: Urun[]): Promise<any> {
-    let array: Promise<any>[] = new Array();
-    localStorage.setItem(this.constant.DATA_TYPE.URUN, list.length.toString());
-    for (let i = 0; i < list.length; i++) {
-      array.push(this.insertOne(list[i]));
-    }
-    return Promise.all(array).then(res => {
-      console.log(res);
-
-      return res;
-    });
   }
 
   insertOne(item: Urun): Promise<any> {
@@ -32,6 +19,34 @@ export class UrunDao {
     let params = [item.mamAnagrp, item.mamKod, item.mamAdi, item.seriMetod, item.surec, item.durum];
     return this.baseDao.execute(INSERT_QUERY, params);
   }
+
+
+  insertList(list: Urun[]) {
+    let response: any;
+    let insertedItems = 0;
+    return new Promise((resolve, reject) => {
+      this.dbProvider.transaction().then(db => {
+        db.transaction(function (tx) {
+          let query = "INSERT OR REPLACE INTO OFF_MAM_TNM (mamAnagrp,mamKod, mamAdi,seriMetod,surec,durum) VALUES (?,?,?,?,?,?)";
+          for (let item of list) {
+            let params = [item.mamAnagrp, item.mamKod, item.mamAdi, item.seriMetod, item.surec, item.durum];
+            tx.executeSql(query, params, function (tx, res) {
+              insertedItems += 1;
+              if (list.length == insertedItems) {
+                resolve(res);
+              }
+            }, function (err, mes) {
+              console.error("Error" + mes.message + " Code: " + mes.code);
+              reject(err);
+            });
+          }
+        });
+      });
+    });
+  }
+
+
+
 
   update(item: Urun): Promise<any> {
     let UPDATE_QUERY = "UPDATE OFF_MAM_TNM SET mamAdi = ?,seriMetod =?,surec=?,durum=? WHERE mamKod=?";

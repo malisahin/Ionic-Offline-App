@@ -9,6 +9,11 @@ export class Constants {
     }
     public API_PAGE_SIZE = 10000;
 
+    public STATUS = {
+        SUCCESS: "SUCCESS",
+        ERROR: "ERROR"
+    }
+
     public URUN_ANA_GRUP_TYPE = {
         ANA_GRUP_LISTE: "ANA_GRUP_LISTE",
         BASVURU_LISTE: "BASVURU_LISTE",
@@ -24,6 +29,15 @@ export class Constants {
         URUN_MALZEME: "URUN_MALZEME"
     };
 
+    public GELEN_VERI = {
+        GELEN_URUN: "GELEN_URUN",
+        GELEN_URUN_ANA_GRUP: "GELEN_URUN_ANA_GRUP",
+        GELEN_URUN_ISCILIK: "GELEN_URUN_ISCILIK",
+        GELEN_URUN_MALZEME: "GELEN_URUN_MALZEME",
+        GELEN_ISLEM_ARIZA_ISCILIK: "GELEN_ISLEM_ARIZA_ISCILIK",
+        GELEN_MALZEME_FIYAT: "GELEN_MALZEME_FIYAT",
+        GELEN_ISCILIK_FIYAT: "GELEN_ISCILIK_FIYAT"
+    };
 
     public VERSIYON = {
 

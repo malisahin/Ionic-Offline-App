@@ -13,10 +13,18 @@ export class Urun {
   durum: string = "";
 
   fillUrun(res: any): Promise<any> {
+    let constant = new Constants();
     let parsedList = [];
     let urunList = res.message[0].liste;
     let urunVersiyon = res.message[0].versiyon;
-    localStorage.setItem(new Constants().VERSIYON.SERVER.URUN, urunVersiyon);
+
+
+    /**
+     *   Versiyon ve Ne kadar verinin geldiği burdan kontrol edilir
+     */
+    localStorage.setItem(constant.VERSIYON.SERVER.URUN, urunVersiyon);
+    localStorage.setItem(constant.GELEN_VERI.GELEN_URUN, urunList.length);
+
     urunList.forEach(function (item) {
       let urun: Urun = new Urun();
       urun.mamAnagrp = item.mamAnagrp;

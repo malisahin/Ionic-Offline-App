@@ -9,12 +9,15 @@ import { ApiProvider } from '../api/api';
 import { Observable } from 'rxjs/Observable';
 import { Fiyat } from '../../entities/fiyat';
 import { FiyatDao } from '../fiyat-dao/fiyat-dao';
+import { TokenProvider } from '../token/token';
 
 
 @Injectable()
 export class FiyatProvider {
 
-  constructor(public http: HttpClient, private api: ApiProvider, private fiyatDao: FiyatDao) {
+  constructor(public http: HttpClient,
+    private tokenProvider: TokenProvider,
+    private api: ApiProvider, private fiyatDao: FiyatDao) {
     console.log('Hello FiyatProvider Provider');
   }
 
@@ -29,16 +32,18 @@ export class FiyatProvider {
   }
 
   getDataFromApi(first: number, tip: string): Promise<any> {
-    let url = this.api.fiyatlarDownloadUrl(0, tip);
+    let url = this.api.fiyatlarDownloadUrl(first, tip);
     let header = this.api.getHeader();
 
     return new Promise((resolve, reject) => {
-      this.http.get(url, { headers: header }).toPromise().then(res => {
-        let fiyatlar = new Fiyat();
-        fiyatlar.fillFiyat(res).then(list => {
-          this.fiyatDao.insertList(list).then(item => {
-            console.dir(item);
-            resolve(item);
+      this.tokenProvider.getToken("", "").toPromise().then(() => {
+        this.http.get(url, { headers: header }).toPromise().then(res => {
+          let fiyatlar = new Fiyat();
+          fiyatlar.fillFiyat(res).then(list => {
+            this.fiyatDao.insertList(list).then(item => {
+              console.dir(item);
+              resolve(item);
+            });
           });
         });
       });
