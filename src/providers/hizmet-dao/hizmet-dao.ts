@@ -20,10 +20,14 @@ export class HizmetDao {
 
   // Listede her bir item kayit edilir ve liste tekrar cagrilir.Cagrilmadan once kayit edilen item listeden silinir.
   insertList(list: Hizmet[]): Promise<any> {
+    let array: Promise<any>[] = new Array();
     for (let item of list) {
-      this.insertOne(item);
+      array.push(this.insertOne(item));
     }
-    return null;
+    return Promise.all(array).then(res => {
+      console.log("Çağrı Listesi Kayıt Edildi");
+      return res;
+    });
   }
 
   insertOne(hizmet: Hizmet): Promise<any> {

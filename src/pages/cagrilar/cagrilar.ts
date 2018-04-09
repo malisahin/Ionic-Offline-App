@@ -2,16 +2,16 @@
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-import {Component} from "@angular/core";
-import {IonicPage, NavController, NavParams} from "ionic-angular";
-import {CagriDetayPage} from "../cagri-detay/cagri-detay";
-import {ModalController} from "ionic-angular/components/modal/modal-controller";
-import {CagriAramaModalPage} from "./cagri-arama-modal/cagri-arama-modal";
-import {HizmetProvider} from "../../providers/hizmet/hizmet";
-import {MockCagriList} from "../../entities/hizmet/cagriList-mock";
-import {TokenProvider} from "../../providers/token/token";
-import {HizmetService} from "../../providers/hizmet-service/hizmet-service";
-import {Hizmet} from "../../entities/hizmet/hizmet";
+import { Component } from "@angular/core";
+import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { CagriDetayPage } from "../cagri-detay/cagri-detay";
+import { ModalController } from "ionic-angular/components/modal/modal-controller";
+import { CagriAramaModalPage } from "./cagri-arama-modal/cagri-arama-modal";
+import { HizmetProvider } from "../../providers/hizmet/hizmet";
+import { MockCagriList } from "../../entities/hizmet/cagriList-mock";
+import { TokenProvider } from "../../providers/token/token";
+import { HizmetService } from "../../providers/hizmet-service/hizmet-service";
+import { Hizmet } from "../../entities/hizmet/hizmet";
 
 @IonicPage()
 @Component({
@@ -23,11 +23,11 @@ export class CagrilarPage {
   cagrilar: Hizmet[] = [];
 
   constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              private modalController: ModalController,
-              private cagriProvider: HizmetProvider,
-              private hizmetService: HizmetService,
-              private token: TokenProvider) {
+    public navParams: NavParams,
+    private modalController: ModalController,
+    private cagriProvider: HizmetProvider,
+    private hizmetService: HizmetService,
+    private token: TokenProvider) {
     let tokenUrl = this.token.getToken("", "");
   }
 
@@ -39,7 +39,7 @@ export class CagrilarPage {
 
   public cagriDetayinaGit(event, seqNo) {
     event.stopPropagation();
-    let params = {seqNo: seqNo};
+    let params = { seqNo: seqNo };
 
     this.navCtrl.push(CagriDetayPage, params);
   }
@@ -51,9 +51,9 @@ export class CagrilarPage {
 
   public getCagriList() {
     this.hizmetService.fetchHizmet(new Hizmet).then(res => {
-      for(var i = 0; i < res.length; i++){
-        let data = JSON.parse(res.item(i).data);
-       this.cagrilar.push(data);
+      for (var i = 0; i < res.rows.length; i++) {
+        let data = JSON.parse(res.rows.item(i).data);
+        this.cagrilar.push(data);
       }
     });
   }
@@ -63,7 +63,8 @@ export class CagrilarPage {
   }
 
   public cagriGuncelle() {
-
-    this.cagriProvider.downloadCagriList();
+    this.cagriProvider.downloadCagriList().then(res => {
+      this.getCagriList();
+    });
   }
 }

@@ -5,28 +5,46 @@
 
 
 import { Injectable } from '@angular/core';
-import { ApiProvider } from '../api/api';
 import { HizmetDao } from '../hizmet-dao/hizmet-dao';
 import { Hizmet } from '../../entities/hizmet/hizmet';
 import { TokenProvider } from '../token/token';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { ApiProvider } from '../api/api';
 
 @Injectable()
 export class HizmetProvider {
 
+  getToken: Promise<any>;
   constructor(public http: HttpClient, private api: ApiProvider, private hizmetDao: HizmetDao, private token: TokenProvider) {
     console.log('Hello CagriProvider Provider');
-    this.token.getToken('ECAMERKEZ', 'EMAR6565');
+
   }
 
-  downloadCagriList() {
+  downloadCagriList(): Promise<any> {
+
+    return new Promise((resolve, reject) => {
+      this.token.getToken("", "").toPromise()
+        .then(res => this.fetchDataFromApi())
+        .then(res => this.insertComingData(res))
+        .then(res => resolve("SUCCESS"));
+    });
+
+  }
+
+  fetchDataFromApi(): Promise<any> {
     let url = this.api.getCagriListUrl();
     let header = this.api.getHeader();
-    return this.http.get(url, { headers: header }).subscribe(res => {
-      let hizmetList: Hizmet[];
-      hizmetList = this.seperateCagri(res);
-      return this.hizmetDao.insertList(hizmetList);
-    })
+    return new Promise((resolve, reject) => {
+      this.http.get(url, { headers: header }).toPromise().then(res => {
+        resolve(res);
+      });
+    });
+  }
+
+  insertComingData(res: any): Promise<any> {
+    let hizmetList: Hizmet[];
+    hizmetList = this.seperateCagri(res);
+    return this.hizmetDao.insertList(hizmetList);
   }
 
 
