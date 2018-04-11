@@ -84,6 +84,6 @@ export class UrunDao {
   }
 
   getList(item: Urun, type: string, first: number, pageSize: number): Promise<any> {
-    return this.baseDao.getList("OFF_MAM_TNM", "mamKod", item, type, first, pageSize);
+    return this.baseDao.getList("OFF_MAM_TNM", "mamKod", item, type, first, pageSize, false);
   }
 }

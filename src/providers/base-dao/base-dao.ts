@@ -96,19 +96,23 @@ export class BaseDao {
     return query;
   }
 
-  getList(tableName: string, orderBy: string, item: any, type: string, first: number, pageSize: number): Promise<any> {
+  getList(tableNameOrQuery: string, orderBy: string, item: any, type: string, first: number, pageSize: number, isQueryReady: boolean): Promise<any> {
     let data: any = { res: {}, length: 0 };
-    let query = "Select * FROM " + tableName + " WHERE  (1=1";
-    if (type == "EXACT")
-      query += this.prepareExactQuery(item);
-    else
-      query += this.prepareLikeQuery(item);
+    let query = "";
 
-    query += ") ";
+    if (!isQueryReady) {
+      query = "Select * FROM " + tableNameOrQuery;
+      if (type == "EXACT")
+        query += this.prepareExactQuery(item);
+      else
+        query += this.prepareLikeQuery(item);
+    } else {
+      query = tableNameOrQuery;
+    }
 
     let listLengthQuery = query;
-    query += "ORDER BY " + orderBy + " LIMIT " + first + ", " + pageSize;
-    query = query.replace("1=1OR", "");
+    query += " ORDER BY " + orderBy + " LIMIT " + first + ", " + pageSize;
+
     return new Promise((resolve, reject) => {
       this.execute(query, []).then(res => {
         data.res = res;

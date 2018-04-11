@@ -3,27 +3,18 @@ import { DatabaseProvider } from '../database/database';
 import { BaseDao } from '../base-dao/base-dao';
 import { UrunAnaGrup } from '../../entities/urunAnaGrup';
 import { resolveRendererType2 } from '@angular/core/src/view/util';
+import { Constants } from '../../entities/Constants';
+import { UtilProvider } from '../util/util';
 
 @Injectable()
 export class UrunAnaGrupDao {
 
+  constant: Constants;
   constructor(
-    private dbProvider: DatabaseProvider,
+    private dbProvider: DatabaseProvider, private util: UtilProvider,
     private baseDao: BaseDao) {
     console.log('Hello UrunAnaGrupDaoProvider Provider');
-  }
-
-  insertMamAnagrpList(list: UrunAnaGrup[]): Promise<any> {
-    let size = list.length;
-    let insertedListSize = 0;
-    let array: Promise<any>[] = new Array();
-    list.forEach(item => {
-      array.push(this.insertOne(item));
-    });
-
-    return Promise.all(array).then(res => {
-      console.log("Insert Mam Ana Grup List" + res);
-    });
+    this.constant = new Constants();
   }
 
   insertOne(item: UrunAnaGrup): Promise<any> {
@@ -32,8 +23,9 @@ export class UrunAnaGrupDao {
     return this.baseDao.execute(query, params);
   }
 
-  getList(item: UrunAnaGrup, type: string, first: number, pageSize: number): Promise<any> {
-    return this.baseDao.getList("OFF_MAM_ANAGRP_TNM", "mamAnaGrp", item, type, first, pageSize);
+  getList(item: UrunAnaGrup, searchType: string, first: number, pageSize: number): Promise<any> {
+    let query = this.prepareQuery(item, searchType);
+    return this.baseDao.getList(query, "mamAnaGrp", item, searchType, first, pageSize, true);
   }
 
   insertList(list: UrunAnaGrup[]) {
@@ -58,6 +50,37 @@ export class UrunAnaGrupDao {
         });
       });
     });
+  }
+
+  prepareQuery(item: UrunAnaGrup, searchType: string): string {
+    let query = "SELECT * from OFF_MAM_ANAGRP_TNM WHERE tip = '" + item.tip + "'";
+    let AndOr = searchType == this.constant.SEARCH_TYPE.EXACT ? ' AND ' : ' OR ';
+
+    let searchQuery = [];
+    if (this.util.isEmpty(item.ad)) {
+      searchQuery.push(this.util.prepareQuery(searchType, 'ad', item.ad));
+    }
+    if (this.util.isEmpty(item.basvuruNeden)) {
+      searchQuery.push(this.util.prepareQuery(searchType, 'basvuruNeden', item.basvuruNeden));
+    }
+    if (this.util.isEmpty(item.mamAnaGrp)) {
+      searchQuery.push(this.util.prepareQuery(searchType, 'mamAnaGrp', item.mamAnaGrp));
+    }
+    if (this.util.isEmpty(item.kod)) {
+      searchQuery.push(this.util.prepareQuery(searchType, 'kod', item.kod));
+    }
+    if (this.util.isEmpty(item.durum)) {
+      searchQuery.push(this.util.prepareQuery(searchType, 'durum', item.durum));
+    }
+
+    //return key + " LIKE '%" + value.split('').join('%') + "%'";
+    if (searchQuery.length > 0) {
+      query += " AND (";
+      query += searchQuery.join(AndOr);
+      query += ")"
+    }
+    console.warn("Ürün Ana Grup Sorgu " + query);
+    return query;
   }
 
 }

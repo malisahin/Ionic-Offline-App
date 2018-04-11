@@ -56,6 +56,7 @@ import { SelectSearchComponent } from "../components/select-search/select-search
 import { UrunDao } from "../providers/urun-dao/urun-dao";
 import { UrunMalzemeDao } from "../providers/urun-malzeme-dao/urun-malzeme-dao";
 import { IslemArizaIscilikDao } from '../providers/islem-ariza-iscilik-dao/islem-ariza-iscilik-dao';
+import { UtilProvider } from '../providers/util/util';
 
 
 
@@ -152,7 +153,8 @@ import { IslemArizaIscilikDao } from '../providers/islem-ariza-iscilik-dao/islem
     UrunAnaGrupDao,
     UrunDao,
     UrunMalzemeDao,
-    IslemArizaIscilikDao
+    IslemArizaIscilikDao,
+    UtilProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -41,7 +41,7 @@ export class GarantiSorguComponent {
     this.data.type = this.constants.DATA_TYPE.URUN_ANA_GRUP;
     let aramaModal = this.modalController.create(SelectSearchComponent, { data: this.data });
     aramaModal.onDidDismiss(data => {
-      this.urun = data;
+      this.urunAnaGrup = data;
     });
     aramaModal.present();
   }
@@ -51,7 +51,7 @@ export class GarantiSorguComponent {
     this.data.type = this.constants.DATA_TYPE.URUN;
     let aramaModal = this.modalController.create(SelectSearchComponent, { data: this.data });
     aramaModal.onDidDismiss(data => {
-      this.urunAnaGrup = data;
+      this.urun = data;
     });
     aramaModal.present();
   }

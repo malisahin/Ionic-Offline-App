@@ -5,6 +5,7 @@ import { UrunAnaGrup } from '../../entities/urunAnaGrup';
 import { Constants } from '../../entities/Constants';
 import { Pageable } from '../../entities/Pageable';
 import { Urun } from '../../entities/urun';
+import { UrunDao } from '../../providers/urun-dao/urun-dao';
 
 
 @Component({
@@ -25,13 +26,14 @@ export class SelectSearchComponent {
   urunAnaGrup: UrunAnaGrup;
   urun: Urun;
   constructor(public viewCtrl: ViewController, params: NavParams,
+    private urunDao: UrunDao,
     private urunAnaGrupDao: UrunAnaGrupDao) {
     console.log('Hello SelectSearchComponent Component');
     this.pageable = new Pageable();
     this.text = 'Hello World';
     this.data = params.get('data');
     this.ionViewDidLoad();
-
+    this.urunAnaGrup = new UrunAnaGrup(this.constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
   }
 
   closeModal() {
@@ -40,7 +42,6 @@ export class SelectSearchComponent {
 
   ionViewDidLoad() {
     if (this.data.tip == this.constants.DATA_TYPE.URUN_ANA_GRUP) {
-      this.urunAnaGrup = new UrunAnaGrup(this.constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
     }
 
     if (this.data.tip == this.constants.DATA_TYPE.URUN) {
@@ -64,18 +65,35 @@ export class SelectSearchComponent {
     urunAnaGrupForSearch.ad = this.searchText;
     urunAnaGrupForSearch.mamAnaGrp = this.searchText;
     this.urunAnaGrupDao.getList(urunAnaGrupForSearch, this.constants.SEARCH_TYPE.LIKE, this.pageable.first, this.pageable.pageSize).then(data => {
-      let res = data.res.rows;
-      this.pageable.listLength = this.pageable.listLength == -1 ? data.listLength : this.pageable.listLength;
-      for (let i = 0; i < res.length; i++) {
-        let item = res.item(i)
-        this.list.push({ key: item.mamAnaGrp, value: item.ad });
-      }
-      console.dir(res);
+      this.fillList(data);
     });
   }
 
   fetchUrunList() {
     let urunSearch = new Urun();
+    urunSearch.mamAdi = this.searchText;
+    urunSearch.mamKod = this.searchText;
+    this.urunDao.getList(urunSearch, this.constants.SEARCH_TYPE.LIKE, this.pageable.first, this.pageable.pageSize).then(data => {
+      this.fillList(data);
+    });;
+  }
+
+  fillList(data: any) {
+    let res = data.res.rows;
+    this.pageable.listLength = this.pageable.listLength == -1 ? data.listLength : this.pageable.listLength;
+    for (let i = 0; i < res.length; i++) {
+      this.fillItemByType(res.item(i));
+    }
+    console.dir(res);
+  }
+
+  fillItemByType(item: any) {
+    if (this.data.tip == this.constants.DATA_TYPE.URUN_ANA_GRUP) {
+      this.list.push({ key: item.mamAnaGrp, value: item.ad });
+    }
+    else if (this.data.tip == this.constants.DATA_TYPE.URUN) {
+      this.list.push({ key: item.mamAdi, value: item.mamKod });
+    }
   }
 
   public ionChange(item: any) {
