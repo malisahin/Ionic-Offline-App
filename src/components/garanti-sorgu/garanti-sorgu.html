@@ -2,7 +2,7 @@
 <ion-list inset>
   <ion-item>
     <ion-label>Ürün Ana Grubu</ion-label>
-    <ion-input type="text" [(ngModel)]="urun.ad" (focus)="urunAnaGrupSorgula()"></ion-input>
+    <ion-input type="text" [(ngModel)]="urunAnaGrup.ad" (focus)="urunAnaGrupSorgula()"></ion-input>
   </ion-item>
 
   <ion-item>
@@ -17,7 +17,16 @@
 
   <ion-item>
     <ion-label>Fatura Tarihi</ion-label>
-    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="faturaTarihi"></ion-datetime>
+    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="faturaTarihi" required></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <button ion-button icon-end [color]="primary" (click)="garantiSorgula();" round full>
+      Garanti Sorgula
+      <span item-right>
+        <ion-icon name="help"></ion-icon>
+      </span>
+    </button>
   </ion-item>
 
 

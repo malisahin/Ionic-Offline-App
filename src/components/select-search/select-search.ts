@@ -34,6 +34,7 @@ export class SelectSearchComponent {
     this.data = params.get('data');
     this.ionViewDidLoad();
     this.urunAnaGrup = new UrunAnaGrup(this.constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
+    this.urun = new Urun();
   }
 
   closeModal() {
@@ -57,6 +58,9 @@ export class SelectSearchComponent {
     this.list = [];
     if (this.data.type == this.constants.DATA_TYPE.URUN_ANA_GRUP) {
       this.fetchUrunAnaGrupList();
+    }
+    if (this.data.type == this.constants.DATA_TYPE.URUN) {
+      this.fetchUrunList();
     }
   }
 
@@ -88,10 +92,10 @@ export class SelectSearchComponent {
   }
 
   fillItemByType(item: any) {
-    if (this.data.tip == this.constants.DATA_TYPE.URUN_ANA_GRUP) {
+    if (this.data.type == this.constants.DATA_TYPE.URUN_ANA_GRUP) {
       this.list.push({ key: item.mamAnaGrp, value: item.ad });
     }
-    else if (this.data.tip == this.constants.DATA_TYPE.URUN) {
+    else if (this.data.type == this.constants.DATA_TYPE.URUN) {
       this.list.push({ key: item.mamAdi, value: item.mamKod });
     }
   }
@@ -101,7 +105,7 @@ export class SelectSearchComponent {
       this.prepareUrunAnaGrupReturnValue(item);
 
     if (this.data.type == this.constants.DATA_TYPE.URUN)
-      this.prepareUrunAnaGrupReturnValue(item);
+      this.prepareUrunReturnValue(item);
 
     this.closeModal();
   }
@@ -112,8 +116,10 @@ export class SelectSearchComponent {
     this.returnObject = this.urunAnaGrup;
   }
 
-  prepareUrunReturnValue() {
-
+  prepareUrunReturnValue(item) {
+    this.urun.mamAdi = item.key;
+    this.urun.mamKod = item.value;
+    this.returnObject = this.urun;
   }
 
 }

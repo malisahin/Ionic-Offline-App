@@ -57,19 +57,19 @@ export class UrunAnaGrupDao {
     let AndOr = searchType == this.constant.SEARCH_TYPE.EXACT ? ' AND ' : ' OR ';
 
     let searchQuery = [];
-    if (this.util.isEmpty(item.ad)) {
+    if (this.util.isNotEmpty(item.ad)) {
       searchQuery.push(this.util.prepareQuery(searchType, 'ad', item.ad));
     }
-    if (this.util.isEmpty(item.basvuruNeden)) {
+    if (this.util.isNotEmpty(item.basvuruNeden)) {
       searchQuery.push(this.util.prepareQuery(searchType, 'basvuruNeden', item.basvuruNeden));
     }
-    if (this.util.isEmpty(item.mamAnaGrp)) {
+    if (this.util.isNotEmpty(item.mamAnaGrp)) {
       searchQuery.push(this.util.prepareQuery(searchType, 'mamAnaGrp', item.mamAnaGrp));
     }
-    if (this.util.isEmpty(item.kod)) {
+    if (this.util.isNotEmpty(item.kod)) {
       searchQuery.push(this.util.prepareQuery(searchType, 'kod', item.kod));
     }
-    if (this.util.isEmpty(item.durum)) {
+    if (this.util.isNotEmpty(item.durum)) {
       searchQuery.push(this.util.prepareQuery(searchType, 'durum', item.durum));
     }
 

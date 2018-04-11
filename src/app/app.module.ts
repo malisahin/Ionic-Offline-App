@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, ErrorHandler, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import { IonicApp, IonicModule, IonicErrorHandler } from "ionic-angular";
+import { IonicApp, IonicModule, IonicErrorHandler, ToastController } from "ionic-angular";
 import { MyApp } from "./app.component";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
@@ -57,6 +57,7 @@ import { UrunDao } from "../providers/urun-dao/urun-dao";
 import { UrunMalzemeDao } from "../providers/urun-malzeme-dao/urun-malzeme-dao";
 import { IslemArizaIscilikDao } from '../providers/islem-ariza-iscilik-dao/islem-ariza-iscilik-dao';
 import { UtilProvider } from '../providers/util/util';
+import { Toast } from "@ionic-native/toast";
 
 
 
@@ -154,7 +155,9 @@ import { UtilProvider } from '../providers/util/util';
     UrunDao,
     UrunMalzemeDao,
     IslemArizaIscilikDao,
-    UtilProvider
+    UtilProvider,
+    Toast,
+    ToastController
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

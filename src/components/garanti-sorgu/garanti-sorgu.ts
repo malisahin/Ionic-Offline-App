@@ -5,6 +5,7 @@ import { Urun } from '../../entities/urun';
 import { SelectSearchComponent } from '../select-search/select-search';
 import { ModalController, ViewController } from 'ionic-angular';
 import { Constants } from '../../entities/Constants';
+import { UtilProvider } from '../../providers/util/util';
 
 
 
@@ -21,7 +22,10 @@ export class GarantiSorguComponent {
   faturaTarihi: Date;
   data = { type: "" };
   constants: Constants;
-  constructor(private urunAnaGrupDao: UrunAnaGrupDao, private modalController: ModalController) {
+  constructor(private urunAnaGrupDao: UrunAnaGrupDao,
+    private modalController: ModalController,
+    private util: UtilProvider
+  ) {
     console.log('Hello GarantiSorguComponent Component');
     this.constants = new Constants();
     this.urunAnaGrup = new UrunAnaGrup(this.constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
@@ -56,7 +60,17 @@ export class GarantiSorguComponent {
     aramaModal.present();
   }
 
-
+  garantiSorgula() {
+    if (this.util.isEmpty(this.faturaTarihi)) {
+      this.util.message("Fatura tarihi boş bırakılamaz");
+      return false;
+    }
+    if (this.util.isEmpty(this.barkodNo)) {
+      this.util.message("Barkod No Boş bırakılamaz");
+      return false;
+    }
+    this.util.message("Garanti Sorgulandı");
+  }
 
 
 

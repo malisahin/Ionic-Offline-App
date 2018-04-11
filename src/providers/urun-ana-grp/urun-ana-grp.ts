@@ -27,7 +27,7 @@ export class UrunAnaGrpProvider {
       this.getDataFromApi().toPromise().then(item => {
         let anaGrp = new UrunAnaGrup("");
         anaGrp.fillUrunAnaGrup(item).then(anaGrpList => {
-          this.urunAnaGrupDao.insertMamAnagrpList(anaGrpList).then(res => {
+          this.urunAnaGrupDao.insertList(anaGrpList).then(res => {
             resolve("success");
           });
         });

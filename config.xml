@@ -91,4 +91,5 @@
     <plugin name="cordova-plugin-advanced-http" spec="^1.11.0" />
     <plugin name="cordova-plugin-nativestorage" spec="^2.3.1" />
     <plugin name="cordova-plugin-statusbar" spec="^2.4.1" />
+    <plugin name="cordova-plugin-x-toast" spec="^2.6.2" />
 </widget>
