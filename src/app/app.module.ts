@@ -58,6 +58,7 @@ import { UrunMalzemeDao } from "../providers/urun-malzeme-dao/urun-malzeme-dao";
 import { IslemArizaIscilikDao } from '../providers/islem-ariza-iscilik-dao/islem-ariza-iscilik-dao';
 import { UtilProvider } from '../providers/util/util';
 import { Toast } from "@ionic-native/toast";
+import { UrunIscilikDao } from '../providers/urun-iscilik-dao/urun-iscilik-dao';
 
 
 
@@ -157,7 +158,8 @@ import { Toast } from "@ionic-native/toast";
     IslemArizaIscilikDao,
     UtilProvider,
     Toast,
-    ToastController
+    ToastController,
+    UrunIscilikDao
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

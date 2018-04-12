@@ -15,6 +15,7 @@ import { Observable } from 'rxjs/Observable';
 import { TokenProvider } from '../token/token';
 import { DatabaseProvider } from '../database/database';
 import { Constants } from '../../entities/Constants';
+import { UrunIscilikDao } from '../urun-iscilik-dao/urun-iscilik-dao';
 
 
 @Injectable()
@@ -24,9 +25,7 @@ export class UrunIscilikProvider {
   INSERT_QUERY: string = "INSERT OR REPLACE INTO OFF_MAM_ISC_TNM (mamKod,iscKod,iscAdi,durum,iscMikFlag,maxIscMiktar,fiyat,gdfiyat) VALUES(?,?,?,?,?,?,?,?)";
   constructor(public http: HttpClient,
     private api: ApiProvider,
-    private baseDao: BaseDao,
-    private DbProvider: DatabaseProvider,
-    private tokenProvider: TokenProvider,
+    private tokenProvider: TokenProvider, private urunIscilikDao: UrunIscilikDao,
     private versiyonProvider: VersiyonProvider) {
     console.log('Hello UrunIscilikProvider Provider');
     this.constants = new Constants();
@@ -39,7 +38,7 @@ export class UrunIscilikProvider {
         this.getDataFromApi(first).toPromise().then(item => {
           let urunIscilik = new UrunIscilik();
           urunIscilik.fillUrunIscilik(item).then(list => {
-            this.insertList(list).then(count => {
+            this.urunIscilikDao.insertList(list).then(count => {
               console.log(count);
               resolve(this.constants.STATUS.SUCCESS);
             });
@@ -55,35 +54,4 @@ export class UrunIscilikProvider {
     return this.http.get(url, { headers: header });
   }
 
-  insertOne(item: UrunIscilik): Promise<any> {
-    let INSERT_QUERY = "INSERT OR REPLACE INTO OFF_MAM_ISC_TNM (mamKod,iscKod,iscAdi,durum,iscMikFlag,maxIscMiktar,fiyat,gdfiyat) VALUES(?,?,?,?,?,?,?,?)";
-    let params = [item.mamKod, item.iscKod, item.iscAdi, item.durum, item.iscMikFlag, item.maxIscMiktar, item.fiyat, item.gdFiyat];
-    return this.baseDao.execute(INSERT_QUERY, params);
-  }
-
-
-  insertList(list: UrunIscilik[]): Promise<any> {
-    let response: any;
-    let insertedItems = 0;
-    return new Promise((resolve, reject) => {
-      this.DbProvider.transaction().then(db => {
-        db.transaction(function (tx) {
-          let INSERT_QUERY = "INSERT OR REPLACE INTO OFF_MAM_ISC_TNM (mamKod,iscKod,iscAdi,durum,iscMikFlag,maxIscMiktar,fiyat,gdfiyat) VALUES(?,?,?,?,?,?,?,?)";
-          for (let item of list) {
-            let params = [item.mamKod, item.iscKod, item.iscAdi, item.durum, item.iscMikFlag, item.maxIscMiktar, item.fiyat, item.gdFiyat];
-            tx.executeSql(INSERT_QUERY, params, function (tx, res) {
-              insertedItems += 1;
-              if (list.length == insertedItems) {
-                resolve(res);
-              }
-            }, function (err, mes) {
-              console.error("Error" + mes.message + " Code: " + mes.code);
-              reject(err);
-            });
-          }
-        });
-      });
-    });
-
-  }
 }

@@ -72,25 +72,25 @@ export class BaseDao {
 
   }
 
-  prepareExactQuery(item: Object): string {
-    let query = "";
+  prepareExactQuery(item: Object): any[] {
+    let query = [];
     for (let key in item) {
       let value = item[key];
       if (typeof value != undefined && value != null && value != "" && typeof value != "function" && typeof value != "object") {
-        query += " AND " + key + "= '" + value + "'";
+        query.push(key + "= '" + value + "'");
       }
     }
     return query;
   }
 
-  prepareLikeQuery(item: Object): string {
-    let query = "";
+  prepareLikeQuery(item: Object): any[] {
+    let query = [];
     for (let key in item) {
       let value = item[key];
       if (typeof value != undefined && value != null && value != "" && typeof value != "function" && typeof value != "object" && key != "tip") {
         value = value.split('').join('%');
         value = "%" + value + "%";
-        query += "OR " + key + " LIKE '" + value + "'";
+        query.push(key + " LIKE '" + value + "'");
       }
     }
     return query;
@@ -99,15 +99,23 @@ export class BaseDao {
   getList(tableNameOrQuery: string, orderBy: string, item: any, type: string, first: number, pageSize: number, isQueryReady: boolean): Promise<any> {
     let data: any = { res: {}, length: 0 };
     let query = "";
-
+    let searchQuery = [];
+    let AndOr = type == "EXACT" ? " AND " : " OR ";
     if (!isQueryReady) {
       query = "Select * FROM " + tableNameOrQuery;
       if (type == "EXACT")
-        query += this.prepareExactQuery(item);
+        searchQuery = this.prepareExactQuery(item);
+
       else
-        query += this.prepareLikeQuery(item);
+        searchQuery = this.prepareLikeQuery(item);
     } else {
       query = tableNameOrQuery;
+    }
+
+    if (searchQuery.length > 0) {
+      query += " WHERE (";
+      query += searchQuery.join(AndOr);
+      query += ")"
     }
 
     let listLengthQuery = query;

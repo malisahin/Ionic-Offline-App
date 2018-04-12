@@ -7,14 +7,14 @@ import { Constants } from "./Constants";
 
 
 export class UrunIscilik {
-  mamKod: string = null;
-  iscKod: string = null;
-  iscAdi: string = null;
-  durum: string = null;
-  fiyat: string = null;
-  gdFiyat: string = null;
-  iscMikFlag: string = null;
-  maxIscMiktar: string = null;
+  mamKod: string = '';
+  iscKod: string = '';
+  iscAdi: string = '';
+  durum: string = '';
+  fiyat: string = '';
+  gdFiyat: string = '';
+  iscMikFlag: string = '';
+  maxIscMiktar: string = '';
 
   fillUrunIscilik(res: any): Promise<any> {
     let constant = new Constants();

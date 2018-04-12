@@ -10,6 +10,7 @@ import { VersiyonProvider } from "../versiyon/versiyon";
 import { ETable } from "../../entities/enums/ETable";
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Constants } from "../../entities/Constants";
+import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
 
 
 @Injectable()
@@ -66,31 +67,31 @@ export class ApiProvider {
   }
 
   downloadUrunUrl(first: number) {
-    let versiyon = localStorage.getItem(this.tables.OFFLINE_ISC_FIYAT().client_version);
+    let versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.ISCILIK_FIYAT);
     versiyon = versiyon == null ? "-1" : versiyon;
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/urunler';
   }
 
   urunAnagrupDownloadUrl() {
-    let versiyon = localStorage.getItem(this.tables.SER_MAM_ANAGRP_TNM().client_version);
+    let versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.URUN_ANA_GRUP);
     versiyon = versiyon == null ? "-1" : versiyon;
     return this.urlPrefixOffline + versiyon + '/mamAnagrp';
   }
 
   urunIscilikDownloadUrl(first: number) {
-    let versiyon = localStorage.getItem(this.tables.SER_MAM_ISC_TNM().client_version);
+    let versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.URUN_ISCILIK);
     versiyon = versiyon == null ? "-1" : versiyon;
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/mamIsc';
   }
 
   urunMalzemeDownloadUrl(first: number) {
-    let versiyon = localStorage.getItem(this.tables.SER_MAM_MLZ_TNM().client_version);
+    let versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.URUN_MALZEME);
     versiyon = versiyon == null ? "-1" : versiyon;
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/mamMlz';
   }
 
   islemArizaIscilikDownloadUrl(first: number) {
-    let versiyon = localStorage.getItem(this.tables.SER_ISC_ISLARZGRP_TNM().client_version);
+    let versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.ISLEM_ARIZA_ISCILIK);
     versiyon = versiyon == null ? "-1" : versiyon;
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/islArzIsc';
   }
@@ -98,9 +99,9 @@ export class ApiProvider {
   fiyatlarDownloadUrl(first: number, tip: string) {
     let versiyon = "-1";
     if (tip == "malzemeFiyatListesi") {
-      versiyon = localStorage.getItem(this.tables.OFFLINE_MLZ_FIYAT().client_version);
+      let versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.MALZEME_FIYAT);
     } else {
-      versiyon = localStorage.getItem(this.tables.OFFLINE_ISC_FIYAT().client_version);
+      let versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.ISCILIK_FIYAT);
     }
     versiyon = versiyon == null ? "-1" : versiyon;
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/' + tip;
