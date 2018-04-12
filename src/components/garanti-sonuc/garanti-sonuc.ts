@@ -86,11 +86,9 @@ export class GarantiSonucComponent {
     this.data.garantiBitis = this.data.garantiBitis;
 
     if (this.util.isNotEmpty(this.mamKod)) {
-      // this.urunDao.find();
-      //TODO: 
+      // this.urunDao.find();      //TODO: 
+
+      //TODO:  Ürün Ve Ürün Ana Grubu beraber
     }
   }
-
-
-
 }
