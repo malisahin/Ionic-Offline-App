@@ -18,5 +18,51 @@ export class User {
     dilKod: string;
     pb: string;
     ikBrans: string;
-    eLibsDokuman
+    eLibsDokuman: {};
+
+    constructor() {
+
+    }
+
+    saveUserData(user: User) {
+        localStorage.setItem("userCode", user.userCode);
+        localStorage.setItem("userName", user.userName);
+        localStorage.setItem("password", user.password);
+        localStorage.setItem("servis", user.servis);
+        localStorage.setItem("servisUnvani", user.servisUnvani);
+        localStorage.setItem("ikKod", user.ikKod);
+        localStorage.setItem("ikAd", user.ikAd);
+        localStorage.setItem("durum", user.durum);
+        localStorage.setItem("userType", user.userType);
+        localStorage.setItem("adi", user.adi);
+        localStorage.setItem("soyadi", user.soyadi);
+        localStorage.setItem("orgKod", user.orgKod);
+        localStorage.setItem("dilKod", user.dilKod);
+        localStorage.setItem("pb", user.pb);
+        localStorage.setItem("ikBrans", user.ikBrans);
+    }
+
+    getUserCode(): string {
+        return localStorage.getItem("userCode");
+    }
+
+    getUserName(): string {
+        return localStorage.getItem("userName");
+    }
+
+    getPb(): string {
+        return localStorage.getItem("pb");
+    }
+
+    getOrgKod(): string {
+        return localStorage.getItem("orgKod");
+    }
+
+    getSerKod(): string {
+        return localStorage.getItem("servis");
+    }
+
+    getDilKod(): string {
+        return localStorage.getItem("dilKod");
+    }
 }

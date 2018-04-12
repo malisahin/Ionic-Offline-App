@@ -52,7 +52,6 @@ import { BilgiSorguPage } from "../pages/bilgi-sorgu/bilgi-sorgu";
 import { FiyatSorguComponent } from "../components/fiyat-sorgu/fiyat-sorgu";
 import { GarantiSorguComponent } from "../components/garanti-sorgu/garanti-sorgu";
 import { UrunAnaGrupDao } from '../providers/urun-ana-grup-dao/urun-ana-grup-dao';
-import { SelectSearchComponent } from "../components/select-search/select-search";
 import { UrunDao } from "../providers/urun-dao/urun-dao";
 import { UrunMalzemeDao } from "../providers/urun-malzeme-dao/urun-malzeme-dao";
 import { IslemArizaIscilikDao } from '../providers/islem-ariza-iscilik-dao/islem-ariza-iscilik-dao';
@@ -60,6 +59,11 @@ import { UtilProvider } from '../providers/util/util';
 import { Toast } from "@ionic-native/toast";
 import { UrunIscilikDao } from '../providers/urun-iscilik-dao/urun-iscilik-dao';
 import { MesajlarDao } from '../providers/mesajlar-dao/mesajlar-dao';
+import { UrunAnaGrupSearchComponent } from "../components/urun-ana-grup-search/urun-ana-grup-search";
+import { UrunSearchComponent } from "../components/urun-search/urun-search";
+import { UrunIscilikSearchComponent } from "../components/urun-iscilik-search/urun-iscilik-search";
+import { GarantiSorguProvider } from '../providers/garanti-sorgu/garanti-sorgu';
+import { GarantiSonucComponent } from "../components/garanti-sonuc/garanti-sonuc";
 
 
 
@@ -88,8 +92,11 @@ import { MesajlarDao } from '../providers/mesajlar-dao/mesajlar-dao';
     ListPage,
     BilgiSorguPage,
     FiyatSorguComponent,
+    UrunAnaGrupSearchComponent,
+    UrunSearchComponent,
+    UrunIscilikSearchComponent,
     GarantiSorguComponent,
-    SelectSearchComponent
+    GarantiSonucComponent
   ],
   imports: [
     BrowserModule,
@@ -123,7 +130,12 @@ import { MesajlarDao } from '../providers/mesajlar-dao/mesajlar-dao';
     BilgiSorguPage,
     FiyatSorguComponent,
     GarantiSorguComponent,
-    SelectSearchComponent
+    UrunAnaGrupSearchComponent,
+    UrunSearchComponent,
+    UrunIscilikSearchComponent,
+    GarantiSorguComponent,
+    GarantiSonucComponent
+
 
   ],
   providers: [
@@ -161,7 +173,9 @@ import { MesajlarDao } from '../providers/mesajlar-dao/mesajlar-dao';
     Toast,
     ToastController,
     UrunIscilikDao,
-    MesajlarDao
+    MesajlarDao,
+    GarantiSorguProvider,
+    GarantiSonucComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

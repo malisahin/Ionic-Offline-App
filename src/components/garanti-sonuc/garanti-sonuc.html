@@ -1,0 +1,82 @@
+<ion-header>
+  <button ion-button round (click)="closeModal()">Kapat</button>
+  <ion-navbar no-border-bottom>
+    <ion-title>Garanti Sonucu</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Ürün Ana Grubu</ion-label>
+      <ion-label></ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Ürün Kodu ve Adı</ion-label>
+      <ion-label></ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Garanti Başlangıç Tarihi</ion-label>
+      <ion-label>{{garantiBasTar}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Garanti Süresi</ion-label>
+      <ion-label>{{garantiSuresi}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Standart Garanti Bitiş Tarihi</ion-label>
+      <ion-label>{{stdGarantiBitisTar}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Garanti Tipi</ion-label>
+      <ion-label>{{garantiTipi}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Ek Garanti</ion-label>
+      <ion-label>{{ekGaranti}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Ek Garanti Süresi</ion-label>
+      <ion-label>{{ekGarantiSuresi}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Ek Garanti Başlangıç Tarihi</ion-label>
+      <ion-label>{{ekGarantiBasTar}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Garanti Bitiş Tarihi</ion-label>
+      <ion-label>{{ekGarantiBitisTar}}</ion-label>
+    </ion-item>
+
+    <ion-card>
+      <ion-card-content>
+        {{aciklama}}
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content>
+        {{sonuc}}
+      </ion-card-content>
+    </ion-card>
+
+  </ion-list>
+
+</ion-content>
+
+
+<ion-footer>
+
+
+</ion-footer>

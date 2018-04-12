@@ -17,7 +17,10 @@ import { IslemTarihComponent } from './cagri-detay-components/servis-bilgileri/i
 import { ListComponent } from './list/list';
 import { GarantiSorguComponent } from './garanti-sorgu/garanti-sorgu';
 import { FiyatSorguComponent } from './fiyat-sorgu/fiyat-sorgu';
-import { SelectSearchComponent } from './select-search/select-search';
+import { UrunAnaGrupSearchComponent } from './urun-ana-grup-search/urun-ana-grup-search';
+import { UrunSearchComponent } from './urun-search/urun-search';
+import { UrunIscilikSearchComponent } from './urun-iscilik-search/urun-iscilik-search';
+import { GarantiSonucComponent } from './garanti-sonuc/garanti-sonuc';
 
 @NgModule({
     declarations: [CagrilarComponent,
@@ -31,10 +34,13 @@ import { SelectSearchComponent } from './select-search/select-search';
         DetayBilgileriComponent,
         ServisIslemTarihceComponent,
         IslemTarihComponent,
-    ListComponent,
-    GarantiSorguComponent,
-    FiyatSorguComponent,
-    SelectSearchComponent],
+        ListComponent,
+        GarantiSorguComponent,
+        FiyatSorguComponent,
+        UrunAnaGrupSearchComponent,
+        UrunSearchComponent,
+        UrunIscilikSearchComponent,
+    GarantiSonucComponent],
     imports: [],
     exports: [CagrilarComponent,
         LoginComponent,
@@ -47,9 +53,12 @@ import { SelectSearchComponent } from './select-search/select-search';
         DetayBilgileriComponent,
         ServisIslemTarihceComponent,
         IslemTarihComponent,
-    ListComponent,
-    GarantiSorguComponent,
-    FiyatSorguComponent,
-    SelectSearchComponent]
+        ListComponent,
+        GarantiSorguComponent,
+        FiyatSorguComponent,
+        UrunAnaGrupSearchComponent,
+        UrunSearchComponent,
+        UrunIscilikSearchComponent,
+    GarantiSonucComponent]
 })
 export class ComponentsModule { }
