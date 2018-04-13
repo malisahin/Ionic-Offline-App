@@ -20,44 +20,38 @@
 <ion-list>
 
   <ion-item>
-    <ion-label color="primary" floating>Ürün Ana Grubu</ion-label>
+    <ion-label color="primary">Ürün Ana Grubu</ion-label>
     <ion-input [(ngModel)]="hizmet.mamAnaGrp" readonly></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label color="primary" floating>Ürün Kodu</ion-label>
+    <ion-label color="primary">Ürün Kodu</ion-label>
     <ion-input [(ngModel)]="hizmet.mamKod" readonly></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label color="primary" floating>Ürün Adı</ion-label>
+    <ion-label color="primary">Ürün Adı</ion-label>
     <ion-input [(ngModel)]="hizmet.mamAdi" readonly></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label color="primary" floating>Seri No</ion-label>
+    <ion-label color="primary">Seri No</ion-label>
     <ion-input [(ngModel)]="hizmet.mamSeriNo"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label color="primary" floating>Fatura Tarihi</ion-label>
+    <ion-label color="primary">Fatura Tarihi</ion-label>
     <ion-datetime [(ngModel)]="hizmet.sattar" displayFormat="MM/DD/YYYY"></ion-datetime>
   </ion-item>
 
   <ion-item>
-    <ion-label color="primary" floating>Garanti</ion-label>
-    <ion-select>
-      <ion-option value="VAR">Var</ion-option>
-      <ion-option value="YOK">Yok</ion-option>
-    </ion-select>
+    <ion-label color="primary">Garanti</ion-label>
+    <ion-toggle [(ngModel)]="hizmet.garanti" color="secondary"></ion-toggle>
   </ion-item>
 
   <ion-item>
-    <ion-label color="primary" floating>Meşguliyet</ion-label>
-    <ion-select>
-      <ion-option value="VAR">Var</ion-option>
-      <ion-option value="YOK">Yok</ion-option>
-    </ion-select>
+    <ion-label color="primary">Meşguliyet</ion-label>
+    <ion-toggle [(ngModel)]="hizmet.mesguliyet" color="secondary"></ion-toggle>
   </ion-item>
 
 </ion-list>

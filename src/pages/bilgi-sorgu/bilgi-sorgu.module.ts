@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { BilgiSorguPage } from './bilgi-sorgu';
+import { SharedModule } from '../shared-module/shared-module.module';
 
 @NgModule({
   declarations: [
@@ -8,6 +9,7 @@ import { BilgiSorguPage } from './bilgi-sorgu';
   ],
   imports: [
     IonicPageModule.forChild(BilgiSorguPage),
+    SharedModule
   ],
 })
-export class BilgiSorguPageModule {}
+export class BilgiSorguPageModule { }

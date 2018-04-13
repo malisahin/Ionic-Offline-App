@@ -32,8 +32,7 @@ export class GarantiSonucComponent {
   constructor(private viewCtrl: ViewController,
     private params: NavParams,
     private util: UtilProvider,
-    private urunDao: UrunDao,
-    private urunAnaGrupDao: UrunAnaGrupDao) {
+    private urunDao: UrunDao) {
     console.log('Hello GarantiSonucComponent Component');
     this.garanti = new GarantiSorgu();
     this.data = params.get('data');
@@ -80,15 +79,19 @@ export class GarantiSonucComponent {
     if (this.util.isNotEmpty(this.data.sonuc)) {
       this.sonuc = this.data.sonuc;
     }
-    this.data.mlzList = this.data.mlzList;
-    this.data.sonuc = this.data.sonuc;
-    this.data.mamKod = this.data.mamKod;
+    //this.mlzList = this.data.mlzList;
+    this.sonuc = this.data.sonuc;
+    this.mamKod = this.data.mamKod;
     this.data.garantiBitis = this.data.garantiBitis;
 
     if (this.util.isNotEmpty(this.mamKod)) {
-      // this.urunDao.find();      //TODO: 
-
-      //TODO:  Ürün Ve Ürün Ana Grubu beraber
+      this.urunDao.getUrunAndUrunAnaGrup(this.mamKod).then(res => {
+        if (res.rows.length > 0) {
+          this.mamAdi = res.rows.item(0).mamAdi;
+          this.mamKod = res.rows.item(0).mamKod;
+          this.mamanaGrp = res.rows.item(0).anaGrupAdi;
+        }
+      });
     }
   }
 }

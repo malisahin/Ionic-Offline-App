@@ -15,12 +15,6 @@ import { GuncellemePage } from "../pages/guncelleme/guncelleme";
 import { KampanyalarPage } from "../pages/kampanyalar/kampanyalar";
 import { KutuphanePage } from "../pages/kutuphane/kutuphane";
 import { CagriDetayPage } from "../pages/cagri-detay/cagri-detay";
-import { HeaderComponent } from "../components/header/header";
-import { HizmetBilgileriComponent } from "../components/cagri-detay-Components/hizmet-bilgileri/hizmet-bilgileri";
-import { MusteriBilgileriComponent } from "../components/cagri-detay-Components/musteri-bilgileri/musteri-bilgileri";
-import { ServisBilgileriComponent } from "../components/cagri-detay-components/servis-bilgileri/servis-bilgileri";
-import { UrunBilgileriComponent } from "../components/cagri-detay-Components/urun-bilgileri/urun-bilgileri";
-import { DetayBilgileriComponent } from "../components/cagri-detay-components/detay-bilgileri/detay-bilgileri";
 import { LoginPage } from "../pages/login/login";
 import { LoginProvider } from "../providers/login/login";
 import { TokenProvider } from "../providers/token/token";
@@ -49,8 +43,6 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { MesajlarProvider } from '../providers/mesajlar/mesajlar';
 import { BilgiSorguPage } from "../pages/bilgi-sorgu/bilgi-sorgu";
-import { FiyatSorguComponent } from "../components/fiyat-sorgu/fiyat-sorgu";
-import { GarantiSorguComponent } from "../components/garanti-sorgu/garanti-sorgu";
 import { UrunAnaGrupDao } from '../providers/urun-ana-grup-dao/urun-ana-grup-dao';
 import { UrunDao } from "../providers/urun-dao/urun-dao";
 import { UrunMalzemeDao } from "../providers/urun-malzeme-dao/urun-malzeme-dao";
@@ -63,7 +55,14 @@ import { UrunAnaGrupSearchComponent } from "../components/urun-ana-grup-search/u
 import { UrunSearchComponent } from "../components/urun-search/urun-search";
 import { UrunIscilikSearchComponent } from "../components/urun-iscilik-search/urun-iscilik-search";
 import { GarantiSorguProvider } from '../providers/garanti-sorgu/garanti-sorgu';
-import { GarantiSonucComponent } from "../components/garanti-sonuc/garanti-sonuc";
+import { SharedModule } from "../pages/shared-module/shared-module.module";
+import { CagrilarPageModule } from "../pages/cagrilar/cagrilar.module";
+import { GuncellemePageModule } from "../pages/guncelleme/guncelleme.module";
+import { KampanyalarPageModule } from "../pages/kampanyalar/kampanyalar.module";
+import { KutuphanePageModule } from "../pages/kutuphane/kutuphane.module";
+import { CagriDetayPageModule } from "../pages/cagri-detay/cagri-detay.module";
+import { BilgiSorguPageModule } from "../pages/bilgi-sorgu/bilgi-sorgu.module";
+import { BildirimlerPageModule } from "../pages/bildirimler/bildirimler.module";
 
 
 
@@ -74,34 +73,22 @@ import { GarantiSonucComponent } from "../components/garanti-sonuc/garanti-sonuc
     HomeComponent,
     CagrilarComponent,
     AyarlarPage,
-    BildirimlerPage,
-    CagrilarPage,
-    GuncellemePage,
-    KampanyalarPage,
-    KutuphanePage,
-    CagriDetayPage,
-    HeaderComponent,
-    HizmetBilgileriComponent,
-    MusteriBilgileriComponent,
-    ServisBilgileriComponent,
-    UrunBilgileriComponent,
-    DetayBilgileriComponent,
     LoginPage,
     CagriAramaModalPage,
     ListComponent,
     ListPage,
-    BilgiSorguPage,
-    FiyatSorguComponent,
-    UrunAnaGrupSearchComponent,
-    UrunSearchComponent,
-    UrunIscilikSearchComponent,
-    GarantiSorguComponent,
-    GarantiSonucComponent
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule, SharedModule,
+    CagrilarPageModule,
+    GuncellemePageModule,
+    KampanyalarPageModule,
+    KutuphanePageModule,
+    CagriDetayPageModule,
+    BilgiSorguPageModule,
+    BildirimlerPageModule
   ],
   exports: [],
   bootstrap: [IonicApp],
@@ -117,25 +104,11 @@ import { GarantiSonucComponent } from "../components/garanti-sonuc/garanti-sonuc
     KampanyalarPage,
     KutuphanePage,
     CagriDetayPage,
-    HeaderComponent,
-    HizmetBilgileriComponent,
-    MusteriBilgileriComponent,
-    ServisBilgileriComponent,
-    UrunBilgileriComponent,
-    DetayBilgileriComponent,
     LoginPage,
     CagriAramaModalPage,
     ListComponent,
     ListPage,
-    BilgiSorguPage,
-    FiyatSorguComponent,
-    GarantiSorguComponent,
-    UrunAnaGrupSearchComponent,
-    UrunSearchComponent,
-    UrunIscilikSearchComponent,
-    GarantiSorguComponent,
-    GarantiSonucComponent
-
+    BilgiSorguPage
 
   ],
   providers: [
@@ -174,8 +147,7 @@ import { GarantiSonucComponent } from "../components/garanti-sonuc/garanti-sonuc
     ToastController,
     UrunIscilikDao,
     MesajlarDao,
-    GarantiSorguProvider,
-    GarantiSonucComponent
+    GarantiSorguProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

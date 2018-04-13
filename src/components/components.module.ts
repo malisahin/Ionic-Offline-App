@@ -40,9 +40,11 @@ import { GarantiSonucComponent } from './garanti-sonuc/garanti-sonuc';
         UrunAnaGrupSearchComponent,
         UrunSearchComponent,
         UrunIscilikSearchComponent,
-    GarantiSonucComponent],
+        GarantiSonucComponent
+    ],
     imports: [],
-    exports: [CagrilarComponent,
+    exports: [
+        CagrilarComponent,
         LoginComponent,
         HomeComponent,
         HeaderComponent,
@@ -59,6 +61,7 @@ import { GarantiSonucComponent } from './garanti-sonuc/garanti-sonuc';
         UrunAnaGrupSearchComponent,
         UrunSearchComponent,
         UrunIscilikSearchComponent,
-    GarantiSonucComponent]
+        GarantiSonucComponent
+    ]
 })
 export class ComponentsModule { }

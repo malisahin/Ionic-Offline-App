@@ -20,6 +20,13 @@ export class UrunDao {
     return this.baseDao.execute(INSERT_QUERY, params);
   }
 
+  getUrunAndUrunAnaGrup(urunKodu: string): Promise<any> {
+    let query = 'Select mam.*,  anaGrp.ad as anaGrupAdi from OFF_MAM_ANAGRP_TNM anaGrp, OFF_MAM_TNM mam WHERE anaGrp.mamAnaGrp = mam.mamAnaGrp and anaGrp.tip=? and mam.mamKod =? ';
+    let params = [this.constant.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE, urunKodu];
+    return this.baseDao.execute(query, params);
+  }
+
+
 
   insertList(list: Urun[]) {
     let response: any;

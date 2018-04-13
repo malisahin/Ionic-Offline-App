@@ -1,54 +1,41 @@
-<!-- Generated template for the HeaderComponent component -->
-
 <ion-grid>
-  <div id="header-div">
-    <div id="header-left-buttons">
-      <ion-row>
-        <ion-buttons start>
-          <button ion-button icon-only (click)="sayfayaGit('')">
-            <ion-icon name="list-box"></ion-icon>
-            12
-          </button>
-        </ion-buttons>
+  <ion-row>
 
-        <ion-buttons start>
-          <button ion-button icon-only (click)="sayfayaGit('CagrilarPage')">
-            <ion-icon name="volume-up"></ion-icon>
-            3
-          </button>
-        </ion-buttons>
+    <div float-left>
+      <ion-buttons>
+        <button ion-button item-left icon-only (click)="sayfayaGit('')">
+          <ion-icon name="list-box"></ion-icon>
+          12
+        </button>
 
-        <ion-buttons start>
-          <button ion-button icon-only (click)="sayfayaGit('')">
-            <ion-icon name="notifications"></ion-icon>
-            5
-          </button>
-        </ion-buttons>
+        <button ion-button icon-only (click)="sayfayaGit('CagrilarPage')">
+          <ion-icon name="volume-up"></ion-icon>
+          3
+        </button>
 
-        <ion-buttons start>
-          <button ion-button icon-only (click)="sayfayaGit('')">
-            <ion-icon name="refresh"></ion-icon>
-            5
-          </button>
+        <button ion-button icon-only (click)="sayfayaGit('BildirimlerPage')">
+          <ion-icon name="notifications"></ion-icon>
+          5
+        </button>
 
-        </ion-buttons>
-      </ion-row>
+        <button ion-button icon-only (click)="sayfayaGit('GuncellemePage')">
+          <ion-icon name="refresh"></ion-icon>
+          5
+        </button>
+      </ion-buttons>
     </div>
-    <div id="header-right-buttons">
 
-      <ion-row>
-        <ion-buttons end>
-          <button ion-button icon-only>
-            <ion-icon name="exit"></ion-icon>
-          </button>
-        </ion-buttons>
+    <div float-right>
+      <ion-buttons>
+        <button ion-button icon-only>
+          <ion-icon name="home"></ion-icon>
+        </button>
 
-        <ion-buttons end>
-          <button ion-button icon-only>
-            <ion-icon name="home"></ion-icon>
-          </button>
-        </ion-buttons>
-      </ion-row>
+        <button ion-button icon-only (click)="closeApplicationConfirm()">
+          <ion-icon name="exit"></ion-icon>
+        </button>
+      </ion-buttons>
     </div>
-  </div>
+
+  </ion-row>
 </ion-grid>
