@@ -124,6 +124,27 @@ export class ApiProvider {
     return this.urlPrefixHizmet + this.orgKod + '/' + this.userName + '/' + this.dilKod + '/' + this.paraBirimi + '/UpdateMamAnaGrp';
   }
 
+  getMahalleTnmUrl(first: number) {
+    let versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.MAHALLE_TNM);
+    versiyon = versiyon == null ? "-1" : versiyon;
+    return this.urlPrefixOffline + versiyon + '/' + first + this.pageSize + '/mahalleler';
+  }
+
+  getSehirIlceUrl(tip: string) {
+    let versiyon = "-1";
+    if (tip == this.constants.DATA_TYPE.SEHIR_TNM) {
+      let versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.SEHIR_TNM);
+      tip = 'sehirler';
+    } else if (tip == this.constants.DATA_TYPE.ILCE_TNM) {
+      let versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.ISCILIK_FIYAT);
+      tip = 'ilceler';
+    }
+    versiyon = versiyon == null ? "-1" : versiyon;
+    return this.urlPrefixOffline + versiyon + '/' + tip;
+  }
+
+
+
   getHeader(): HttpHeaders {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',

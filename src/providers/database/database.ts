@@ -2,16 +2,18 @@ import { Injectable } from "@angular/core";
 import { Platform } from "ionic-angular/platform/platform";
 import { Observable } from "rxjs/Observable";
 import { Constants } from "../../entities/Constants";
+import { UtilProvider } from "../util/util";
 //import { SqlitePlugin} from "cordova-plugin-sqlite-2";
 declare let window: any;
 
 @Injectable()
 export class DatabaseProvider {
     constants: Constants;
-    constructor(private platform: Platform) {
+    constructor(private platform: Platform, private util: UtilProvider) {
         this.createDatabase();
         this.constants = new Constants();
         this.setDefaultVersions();
+
     }
 
     createDatabase() {
@@ -63,6 +65,13 @@ export class DatabaseProvider {
 
                 tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_HIZ_MST (seqNo PRIMARY KEY,randevuTarihi DATE,hizmetTipiAdi,mamAnaGrpAdi, basvuruNedeni,durum,' +
                     'adi,soyadi, firmaUnvani, evTel,isTel, gsmNo, data)', []);
+
+                tx.executeSql('CREATE TABLE IF NOT EXISTS  SEHIR_TNM(sehirKodu,sehirAdi, PRIMARY KEY(sehirKodu))');
+
+                tx.executeSql('CREATE TABLE IF NOT EXISTS  ILCE_TNM(sehirKodu, ilceKodu, ilceAdi, PRIMARY KEY(sehirKodu, ilceKodu))');
+
+                tx.executeSql('CREATE TABLE IF NOT EXISTS  MAHALLE_TNM(sehirKodu, ilceKodu, mahalleAdi, mahalleKodu, PRIMARY KEY(sehirKodu, ilceKodu, mahalleKodu))');
+
             });
         }).then(() => {
             this.addInitialValuesToApplicationTables(db);
@@ -83,33 +92,39 @@ export class DatabaseProvider {
     }
 
     setDefaultVersions() {
-        let URUN_ANA_GRUP_SERVER_VERSION = localStorage.getItem(this.constants.VERSIYON.SERVER.URUN_ANA_GRUP);
-        if (typeof URUN_ANA_GRUP_SERVER_VERSION == undefined || URUN_ANA_GRUP_SERVER_VERSION == null)
+
+        if (this.util.isEmpty(localStorage.getItem(this.constants.VERSIYON.SERVER.URUN_ANA_GRUP)))
             localStorage.setItem(this.constants.VERSIYON.CLIENT.URUN_ANA_GRUP, "-1");
 
-        let URUN_SERVER_VERSION = localStorage.getItem(this.constants.VERSIYON.SERVER.URUN);
-        if (typeof URUN_SERVER_VERSION == undefined || URUN_SERVER_VERSION == null)
+        if (this.util.isEmpty(localStorage.getItem(this.constants.VERSIYON.SERVER.URUN)))
             localStorage.setItem(this.constants.VERSIYON.CLIENT.URUN, "-1");
 
-        let URUN_ISCILIK_VERSION = localStorage.getItem(this.constants.VERSIYON.SERVER.URUN_ISCILIK);
-        if (typeof URUN_ISCILIK_VERSION == undefined || URUN_ISCILIK_VERSION == null)
+        if (this.util.isEmpty(localStorage.getItem(this.constants.VERSIYON.SERVER.URUN_ISCILIK)))
             localStorage.setItem(this.constants.VERSIYON.CLIENT.URUN_ISCILIK, "-1");
 
-        let URUN_MALZEME_VERSION = localStorage.getItem(this.constants.VERSIYON.SERVER.URUN_MALZEME);
-        if (typeof URUN_MALZEME_VERSION == undefined || URUN_MALZEME_VERSION == null)
+        if (this.util.isEmpty(localStorage.getItem(this.constants.VERSIYON.SERVER.URUN_MALZEME)))
             localStorage.setItem(this.constants.VERSIYON.CLIENT.URUN_MALZEME, "-1");
 
-        let ISLEM_ARIZA_ISCILIK_VERSION = localStorage.getItem(this.constants.VERSIYON.SERVER.ISLEM_ARIZA_ISCILIK);
-        if (typeof ISLEM_ARIZA_ISCILIK_VERSION == undefined || ISLEM_ARIZA_ISCILIK_VERSION == null)
+        if (this.util.isEmpty(localStorage.getItem(this.constants.VERSIYON.SERVER.ISLEM_ARIZA_ISCILIK)))
             localStorage.setItem(this.constants.VERSIYON.CLIENT.ISLEM_ARIZA_ISCILIK, "-1");
 
-        let MALZEME_FIYAT_VERSION = localStorage.getItem(this.constants.VERSIYON.SERVER.MALZEME_FIYAT);
-        if (typeof MALZEME_FIYAT_VERSION == undefined || MALZEME_FIYAT_VERSION == null)
+        if (this.util.isEmpty(localStorage.getItem(this.constants.VERSIYON.SERVER.MALZEME_FIYAT)))
             localStorage.setItem(this.constants.VERSIYON.CLIENT.MALZEME_FIYAT, "-1");
 
-        let ISCILIK_FIYAT_VERSION = localStorage.getItem(this.constants.VERSIYON.SERVER.ISCILIK_FIYAT);
-        if (typeof ISCILIK_FIYAT_VERSION == undefined || ISCILIK_FIYAT_VERSION == null)
+        if (this.util.isEmpty(localStorage.getItem(this.constants.VERSIYON.SERVER.ISCILIK_FIYAT)))
             localStorage.setItem(this.constants.VERSIYON.CLIENT.ISCILIK_FIYAT, "-1");
+
+        if (this.util.isEmpty(localStorage.getItem(this.constants.VERSIYON.SERVER.SEHIR_TNM))) {
+            localStorage.setItem(this.constants.VERSIYON.CLIENT.SEHIR_TNM, "-1");
+        }
+
+        if (this.util.isEmpty(localStorage.getItem(this.constants.VERSIYON.SERVER.ILCE_TNM))) {
+            localStorage.setItem(this.constants.VERSIYON.CLIENT.ILCE_TNM, "-1");
+        }
+
+        if (this.util.isEmpty(localStorage.getItem(this.constants.VERSIYON.SERVER.MAHALLE_TNM))) {
+            localStorage.setItem(this.constants.VERSIYON.CLIENT.MAHALLE_TNM, "-1");
+        }
     }
 
 

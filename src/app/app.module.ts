@@ -63,6 +63,9 @@ import { KutuphanePageModule } from "../pages/kutuphane/kutuphane.module";
 import { CagriDetayPageModule } from "../pages/cagri-detay/cagri-detay.module";
 import { BilgiSorguPageModule } from "../pages/bilgi-sorgu/bilgi-sorgu.module";
 import { BildirimlerPageModule } from "../pages/bildirimler/bildirimler.module";
+import { AdresProvider } from '../providers/adres/adres';
+import { AdresDao } from '../providers/adres-dao/adres-dao';
+import { LoggerProvider } from '../providers/logger/logger';
 
 
 
@@ -147,7 +150,10 @@ import { BildirimlerPageModule } from "../pages/bildirimler/bildirimler.module";
     ToastController,
     UrunIscilikDao,
     MesajlarDao,
-    GarantiSorguProvider
+    GarantiSorguProvider,
+    AdresProvider,
+    AdresDao,
+    LoggerProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

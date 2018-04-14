@@ -13,6 +13,9 @@ import { UrunMalzemeProvider } from '../../providers/urun-malzeme/urun-malzeme';
 import { FiyatProvider } from '../../providers/fiyat/fiyat';
 import { IslemArizaIscilikProvider } from '../../providers/islem-ariza-iscilik/islem-ariza-iscilik';
 import { Constants } from '../../entities/Constants';
+import { AdresProvider } from '../../providers/adres/adres';
+import { LoggerProvider } from '../../providers/logger/logger';
+import { UtilProvider } from '../../providers/util/util';
 
 
 @IonicPage()
@@ -31,6 +34,7 @@ export class GuncellemePage {
   firstForIslemArizaIscilik: number;
   firstForIscilikFiyat: number;
   firstForMalzemeFiyat: number;
+  firstForMahalleTnm: number;
   colors: any;
   icons: any;
   constructor(public navCtrl: NavController,
@@ -40,7 +44,11 @@ export class GuncellemePage {
     private urunIscilikProvider: UrunIscilikProvider,
     private urunMalzemeProvider: UrunMalzemeProvider,
     private islemArizaIscilikProvider: IslemArizaIscilikProvider,
-    private fiyatProvider: FiyatProvider) {
+    private fiyatProvider: FiyatProvider,
+    private adresProvider: AdresProvider,
+    private logger: LoggerProvider,
+    private util: UtilProvider
+  ) {
     this.constants = new Constants();
     this.colors = this.constants.COLORS;
     this.icons = this.constants.ICONS;
@@ -63,7 +71,7 @@ export class GuncellemePage {
 
         // TODO: Ürünler Indirildi.
         localStorage.setItem(this.constants.VERSIYON.CLIENT.URUN, localStorage.getItem(this.constants.VERSIYON.SERVER.URUN));
-        alert("Ürünler Kayıt Edildi.");
+        this.util.message("Ürünler Kayıt Edildi.");
         this.colors.URUN = "downloaded"
         this.icons.URUN = "done-all";
       }
@@ -77,7 +85,7 @@ export class GuncellemePage {
     this.urunAnaGrpProvider.downloadUrunAnaGrup().then(res => {
       console.log("Ürün Ana Grubu Güncellendi" + res);
       localStorage.setItem(this.constants.VERSIYON.CLIENT.URUN_ANA_GRUP, localStorage.getItem(this.constants.VERSIYON.SERVER.URUN_ANA_GRUP));
-      alert("Ürün Ana grup Kayıt Edildi.");
+      this.util.message("Ürün Ana grup Kayıt Edildi.");
       this.colors.URUN_ANA_GRUP = "downloaded"
       this.icons.URUN_ANA_GRUP = "done-all";
     });
@@ -90,9 +98,8 @@ export class GuncellemePage {
       this.firstForUrunIscilik += this.pageSize;
       console.log("Indirilen ürün İşçilik sayısı" + localStorage.getItem(this.constants.DATA_TYPE.URUN_ISCILIK));
       if (Number(localStorage.getItem(this.constants.GELEN_VERI.GELEN_URUN_ISCILIK)) < this.constants.API_PAGE_SIZE) {
-        // TODO: Ürün iscilik Indirildi.
         localStorage.setItem(this.constants.VERSIYON.CLIENT.URUN_ISCILIK, localStorage.getItem(this.constants.VERSIYON.SERVER.URUN_ISCILIK));
-        alert("Ürün İşçilik Kayıt Edildi.");
+        this.util.message("Ürün İşçilik Kayıt Edildi.");
         this.colors.URUN_ISCILIK = "downloaded"
         this.icons.URUN_ISCILIK = "done-all";
       } else {
@@ -106,7 +113,7 @@ export class GuncellemePage {
       console.log(res);
       if (Number(localStorage.getItem(this.constants.GELEN_VERI.GELEN_URUN_MALZEME)) < this.constants.API_PAGE_SIZE) {
         localStorage.setItem(this.constants.VERSIYON.CLIENT.URUN_MALZEME, localStorage.getItem(this.constants.VERSIYON.SERVER.URUN_MALZEME));
-        alert("Ürün İşçilik Kayıt Edildi.");
+        this.util.message("Ürün İşçilik Kayıt Edildi.");
         this.colors.URUN_MALZEME = "downloaded"
         this.icons.URUN_MALZEME = "done-all";
       } else {
@@ -124,7 +131,7 @@ export class GuncellemePage {
         localStorage.setItem(this.constants.VERSIYON.CLIENT.ISLEM_ARIZA_ISCILIK, localStorage.getItem(this.constants.VERSIYON.SERVER.ISLEM_ARIZA_ISCILIK));
         this.colors.ISLEM_ARIZA_ISCILIK = "downloaded"
         this.icons.ISLEM_ARIZA_ISCILIK = "done-all";
-        alert("Islem Ariza Iscilik Kayıt Edildi.");
+        this.util.message("Islem Ariza Iscilik Kayıt Edildi.");
       } else {
         this.firstForIslemArizaIscilik += this.pageSize;
         this.downloadIslemArizaIscilik();
@@ -140,7 +147,7 @@ export class GuncellemePage {
         localStorage.setItem(this.constants.VERSIYON.CLIENT.MALZEME_FIYAT, localStorage.getItem(this.constants.VERSIYON.SERVER.MALZEME_FIYAT));
         this.colors.MALZEME_FIYAT = "downloaded"
         this.icons.MALZEME_FIYAT = "done-all";
-        alert("Malzeme Fiyatı Kayıt Edildi.");
+        this.util.message("Malzeme Fiyatı Kayıt Edildi.");
       } else {
         this.firstForMalzemeFiyat += this.pageSize;
         this.downloadMalzemeFiyat();
@@ -155,7 +162,7 @@ export class GuncellemePage {
         localStorage.setItem(this.constants.VERSIYON.CLIENT.ISCILIK_FIYAT, localStorage.getItem(this.constants.VERSIYON.SERVER.ISCILIK_FIYAT));
         this.colors.ISCILIK_FIYAT = "downloaded"
         this.icons.ISCILIK_FIYAT = "done-all";
-        alert("Iscilik Fiyatı Kayıt Edildi.");
+        this.util.message("Iscilik Fiyatı Kayıt Edildi.");
       } else {
         this.firstForIscilikFiyat += this.pageSize;
         this.downloadIscilikFiyat();
@@ -163,67 +170,48 @@ export class GuncellemePage {
     });
   }
 
-  ionViewDidLoad() {
-    this.setButtonsColor();
+  downloadSehirList() {
+    this.adresProvider.downloadSehirData().map(res => {
+      this.logger.dir(res);
+    });
   }
 
-  setButtonsColor() {
-    if (localStorage.getItem(this.constants.VERSIYON.CLIENT.URUN) == localStorage.getItem(this.constants.VERSIYON.SERVER.URUN)) {
-      this.constants.COLORS.URUN = "downloaded";
-      this.constants.ICONS.URUN = "done-all";
-    } else {
-      this.constants.COLORS.URUN = "notDownloaded";
-      this.constants.ICONS.URUN = "download"
-    }
+  downloadIlceList() {
+    this.adresProvider.downloadIlceData();
+  }
 
-    if (localStorage.getItem(this.constants.VERSIYON.CLIENT.URUN_ANA_GRUP) == localStorage.getItem(this.constants.VERSIYON.SERVER.URUN_ANA_GRUP)) {
-      this.constants.COLORS.URUN_ANA_GRUP = "downloaded";
-      this.constants.ICONS.URUN_ANA_GRUP = "done-all";
-    } else {
-      this.constants.COLORS.URUN_ANA_GRUP = "notDownloaded";
-      this.constants.ICONS.URUN_ANA_GRUP = "download";
-    }
+  downloadMahalleList() {
+    this.adresProvider.downloadMahalleData(-1);
+  }
 
-    if (localStorage.getItem(this.constants.VERSIYON.CLIENT.URUN_ISCILIK) == localStorage.getItem(this.constants.VERSIYON.SERVER.URUN_ISCILIK)) {
-      this.constants.COLORS.URUN_ISCILIK = "downloaded";
-      this.constants.ICONS.URUN_ISCILIK = "done-all";
-    } else {
-      this.constants.COLORS.URUN_ISCILIK = "notDownloaded";
-      this.constants.ICONS.URUN_ISCILIK = "download";
-    }
+  ionViewDidLoad() {
+    this.setButtonsStyle();
+  }
 
-    if (localStorage.getItem(this.constants.VERSIYON.CLIENT.URUN_MALZEME) == localStorage.getItem(this.constants.VERSIYON.SERVER.URUN_MALZEME)) {
-      this.constants.COLORS.URUN_MALZEME = "downloaded";
-      this.constants.ICONS.URUN_MALZEME = "done-all";
-    } else {
-      this.constants.COLORS.URUN_MALZEME = "notDownloaded";
-      this.constants.ICONS.URUN_MALZEME = "download";
-    }
+  setButtonsStyle() {
+    this.setButtonStyle(this.constants.DATA_TYPE.URUN)
+    this.setButtonStyle(this.constants.DATA_TYPE.URUN_ANA_GRUP)
+    this.setButtonStyle(this.constants.DATA_TYPE.URUN_ISCILIK)
+    this.setButtonStyle(this.constants.DATA_TYPE.URUN_MALZEME)
+    this.setButtonStyle(this.constants.DATA_TYPE.ISLEM_ARIZA_ISCILIK)
+    this.setButtonStyle(this.constants.DATA_TYPE.MALZEME_FIYAT)
+    this.setButtonStyle(this.constants.DATA_TYPE.ISCILIK_FIYAT)
+    this.setButtonStyle(this.constants.DATA_TYPE.SEHIR_TNM);
+    this.setButtonStyle(this.constants.DATA_TYPE.ILCE_TNM);
+    this.setButtonStyle(this.constants.DATA_TYPE.MAHALLE_TNM);
 
-    if (localStorage.getItem(this.constants.VERSIYON.CLIENT.ISLEM_ARIZA_ISCILIK) == localStorage.getItem(this.constants.VERSIYON.SERVER.ISLEM_ARIZA_ISCILIK)) {
-      this.constants.COLORS.ISLEM_ARIZA_ISCILIK = "downloaded";
-      this.constants.ICONS.ISLEM_ARIZA_ISCILIK = "done-all";
-    } else {
-      this.constants.COLORS.ISLEM_ARIZA_ISCILIK = "notDownloaded";
-      this.constants.ICONS.ISLEM_ARIZA_ISCILIK = "download";
-    }
+  }
 
-    if (localStorage.getItem(this.constants.VERSIYON.CLIENT.MALZEME_FIYAT) == localStorage.getItem(this.constants.VERSIYON.SERVER.MALZEME_FIYAT)) {
-      this.constants.COLORS.MALZEME_FIYAT = "downloaded";
-      this.constants.ICONS.MALZEME_FIYAT = "done-all";
+  setButtonStyle(type: string) {
+    let clientVersiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT[type]);
+    let serverVersiyon = localStorage.getItem(this.constants.VERSIYON.SERVER[type]);
+    if (serverVersiyon == '-1' || clientVersiyon != serverVersiyon) {
+      this.constants.COLORS[type] = "notDownloaded";
+      this.constants.ICONS[type] = "download";
     } else {
-      this.constants.COLORS.MALZEME_FIYAT = "notDownloaded";
-      this.constants.ICONS.MALZEME_FIYAT = "download";
+      this.constants.COLORS[type] = "downloaded"
+      this.constants.ICONS[type] = "done-all";
     }
-
-    if (localStorage.getItem(this.constants.VERSIYON.CLIENT.ISCILIK_FIYAT) == localStorage.getItem(this.constants.VERSIYON.SERVER.ISCILIK_FIYAT)) {
-      this.constants.COLORS.ISCILIK_FIYAT = "downloaded";
-      this.constants.ICONS.ISCILIK_FIYAT = "done-all";
-    } else {
-      this.constants.COLORS.ISCILIK_FIYAT = "notDownloaded";
-      this.constants.ICONS.ISCILIK_FIYAT = "download";
-    }
-
   }
 
 
