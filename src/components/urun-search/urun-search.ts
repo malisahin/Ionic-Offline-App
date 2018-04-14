@@ -22,6 +22,7 @@ export class UrunSearchComponent {
   pageable: Pageable;
   searchText: string = "";
   urun: Urun;
+  searchType: string;
   constructor(public viewCtrl: ViewController, params: NavParams,
     private urunDao: UrunDao,
     private util: UtilProvider) {
@@ -31,6 +32,7 @@ export class UrunSearchComponent {
     this.data = params.get('data');
     this.ionViewDidLoad();
     this.urun = new Urun();
+    this.searchType = this.constants.SEARCH_TYPE.LIKE;
   }
 
   closeModal() {
@@ -45,19 +47,25 @@ export class UrunSearchComponent {
     this.pageable.tip = type;
     this.pageable = this.pageable.compute();
     this.list = [];
-    if (this.data.type == this.constants.DATA_TYPE.URUN) {
-      this.fetchUrunList();
-    }
+    this.fetchUrunList();
+
 
   }
 
   fetchUrunList() {
-    let urunSearch = new Urun();
-    urunSearch.mamAdi = this.searchText;
-    urunSearch.mamKod = this.searchText;
+    let urunSearch = this.prepareSearchUrun();
     this.urunDao.getList(urunSearch, this.constants.SEARCH_TYPE.LIKE, this.pageable.first, this.pageable.pageSize).then(data => {
       this.fillList(data);
     });;
+  }
+
+  prepareSearchUrun(): Urun {
+    let filter = new Urun();
+    filter.mamAdi = this.searchText;
+    filter.mamKod = this.searchText;
+    if (this.util.isNotEmpty(this.data.mamAnagrp))
+      filter.mamAnagrp = this.data.mamAnagrp;
+    return filter;
   }
 
   fillList(data: any) {
@@ -70,14 +78,13 @@ export class UrunSearchComponent {
   }
 
   fillItemByType(item: any) {
-    if (this.data.type == this.constants.DATA_TYPE.URUN) {
-      this.list.push({ key: item.mamAdi, value: item.mamKod });
-    }
+
+    this.list.push({ key: item.mamAdi, value: item.mamKod });
+
   }
 
   public ionChange(item: any) {
-    if (this.data.type == this.constants.DATA_TYPE.URUN)
-      this.prepareUrunReturnValue(item);
+    this.prepareUrunReturnValue(item);
 
     this.viewCtrl.dismiss(this.returnObject);
   }

@@ -111,7 +111,9 @@ import { LoggerProvider } from '../providers/logger/logger';
     CagriAramaModalPage,
     ListComponent,
     ListPage,
-    BilgiSorguPage
+    BilgiSorguPage,
+    UrunSearchComponent,
+    UrunAnaGrupSearchComponent
 
   ],
   providers: [

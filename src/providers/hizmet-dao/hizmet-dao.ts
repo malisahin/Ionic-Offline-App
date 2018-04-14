@@ -50,37 +50,37 @@ export class HizmetDao {
 
     // TODO: Randevu Tarihi between date yapilacak sekilde duzenlenmeli
     if (item.randevuTarihi != null && item.randevuTarihi != "")
-      query += ' AND randevuTarihi=' + item.randevuTarihi;
+      query += " AND randevuTarihi='" + item.randevuTarihi + "'";
 
     if (item.hizmetTipiAdi != null && item.hizmetTipiAdi != "")
-      query += ' AND hizmetTipiAdi=' + item.hizmetTipiAdi;
+      query += " AND hizmetTipiAdi='" + item.hizmetTipiAdi + "'";
 
     if (item.mamAnaGrpAdi != null && item.mamAnaGrpAdi != "")
-      query += ' AND mamAnaGrpAdi=' + item.mamAnaGrpAdi;
+      query += " AND mamAnaGrpAdi='" + item.mamAnaGrpAdi + "'";
 
     if (item.basvuruNedeni != null && item.basvuruNedeni != "")
-      query += ' AND basvuruNedeni=' + item.basvuruNedeni;
+      query += " AND basvuruNedeni='" + item.basvuruNedeni + "'";
 
     if (item.durum != null && item.durum != "")
-      query += ' AND durum=' + item.durum;
+      query += " AND durum='" + item.durum + "'";
 
     if (item.adi != null && item.adi != "")
-      query += ' AND adi=' + item.adi;
+      query += " AND adi='" + item.adi + "'";
 
     if (item.soyadi != null && item.soyadi != "")
-      query += ' AND soyadi=' + item.soyadi;
+      query += " AND soyadi='" + item.soyadi + "'";
 
     if (item.firmaUnvani != null && item.firmaUnvani != "")
-      query += ' AND firmaUnvani=' + item.firmaUnvani;
+      query += " AND firmaUnvani='" + item.firmaUnvani + "'";
 
     if (item.evTel != null && item.evTel != "")
-      query += ' AND evTel=' + item.evTel;
+      query += " AND evTel='" + item.evTel + "'";
 
     if (item.isTel != null && item.isTel != "")
-      query += ' AND isTel=' + item.isTel;
+      query += " AND isTel='" + item.isTel + "'";
 
     if (item.gsmNo != null && item.gsmNo != "")
-      query += ' AND gsmNo=' + item.gsmNo;
+      query += "' AND gsmNo='" + item.gsmNo + "'";
 
 
     return query;
