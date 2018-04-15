@@ -5,7 +5,8 @@
 
 import { IslemList } from "./islemList";
 import { Anket } from "./anket";
-import { HizmetDetay } from "./hizmet-detay";
+import {DetayKayit} from "./DetayKayit";
+
 
 
 
@@ -31,7 +32,7 @@ export class Hizmet {
     cmTarihi: string = "";
     cozumKodu: string = "";
     daireNo: string = "";
-    detayList: HizmetDetay[];
+    detayList: DetayKayit[][];
     durum: string = "";
     eposta: string = "";
     evTel: string = "";
@@ -45,7 +46,7 @@ export class Hizmet {
     iletisimIstek: string = "";
     isTel: string = "";
     islemBitTarihi: string = "";
-    islemList: IslemList[];
+    islemList: IslemList[][];
     islemTarihi: string = "";
     kapatmaKodu: string = "";
     mahalle: string = "";

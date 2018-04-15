@@ -5,15 +5,16 @@ import { UrunAnaGrup } from '../../entities/urunAnaGrup';
 import { resolveRendererType2 } from '@angular/core/src/view/util';
 import { Constants } from '../../entities/Constants';
 import { UtilProvider } from '../util/util';
+import { LoggerProvider } from "../logger/logger";
 
 @Injectable()
 export class UrunAnaGrupDao {
 
   constant: Constants;
-  constructor(
-    private dbProvider: DatabaseProvider, private util: UtilProvider,
+
+  constructor(private dbProvider: DatabaseProvider, private util: UtilProvider,
+    private logger: LoggerProvider,
     private baseDao: BaseDao) {
-    console.log('Hello UrunAnaGrupDaoProvider Provider');
     this.constant = new Constants();
   }
 
@@ -23,9 +24,14 @@ export class UrunAnaGrupDao {
     return this.baseDao.execute(query, params);
   }
 
-  getList(item: UrunAnaGrup, searchType: string, first: number, pageSize: number): Promise<any> {
+  getPage(item: UrunAnaGrup, searchType: string, first: number, pageSize: number): Promise<any> {
     let query = this.prepareQuery(item, searchType);
     return this.baseDao.getList(query, "mamAnaGrp", item, searchType, first, pageSize, true);
+  }
+
+  getList(item: UrunAnaGrup, searchType: string): Promise<any> {
+    let query = this.prepareQuery(item, searchType);
+    return this.baseDao.execute(query, []);
   }
 
   insertList(list: UrunAnaGrup[]) {
@@ -58,19 +64,19 @@ export class UrunAnaGrupDao {
 
     let searchQuery = [];
     if (this.util.isNotEmpty(item.ad)) {
-      searchQuery.push(this.util.prepareQuery(searchType, 'ad', item.ad));
+      searchQuery.push(this.util.prepareWhereQuery(searchType, 'ad', item.ad));
     }
     if (this.util.isNotEmpty(item.basvuruNeden)) {
-      searchQuery.push(this.util.prepareQuery(searchType, 'basvuruNeden', item.basvuruNeden));
+      searchQuery.push(this.util.prepareWhereQuery(searchType, 'basvuruNeden', item.basvuruNeden));
     }
     if (this.util.isNotEmpty(item.mamAnaGrp)) {
-      searchQuery.push(this.util.prepareQuery(searchType, 'mamAnaGrp', item.mamAnaGrp));
+      searchQuery.push(this.util.prepareWhereQuery(searchType, 'mamAnaGrp', item.mamAnaGrp));
     }
     if (this.util.isNotEmpty(item.kod)) {
-      searchQuery.push(this.util.prepareQuery(searchType, 'kod', item.kod));
+      searchQuery.push(this.util.prepareWhereQuery(searchType, 'kod', item.kod));
     }
     if (this.util.isNotEmpty(item.durum)) {
-      searchQuery.push(this.util.prepareQuery(searchType, 'durum', item.durum));
+      searchQuery.push(this.util.prepareWhereQuery(searchType, 'durum', item.durum));
     }
 
     //return key + " LIKE '%" + value.split('').join('%') + "%'";

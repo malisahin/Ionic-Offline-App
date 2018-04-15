@@ -66,6 +66,8 @@ import { BildirimlerPageModule } from "../pages/bildirimler/bildirimler.module";
 import { AdresProvider } from '../providers/adres/adres';
 import { AdresDao } from '../providers/adres-dao/adres-dao';
 import { LoggerProvider } from '../providers/logger/logger';
+import {GarantiSonucComponent} from "../components/garanti-sonuc/garanti-sonuc";
+import {GarantiSorguComponent} from "../components/garanti-sorgu/garanti-sorgu";
 
 
 
@@ -113,7 +115,9 @@ import { LoggerProvider } from '../providers/logger/logger';
     ListPage,
     BilgiSorguPage,
     UrunSearchComponent,
-    UrunAnaGrupSearchComponent
+    UrunAnaGrupSearchComponent,
+    GarantiSonucComponent,
+    GarantiSorguComponent
 
   ],
   providers: [

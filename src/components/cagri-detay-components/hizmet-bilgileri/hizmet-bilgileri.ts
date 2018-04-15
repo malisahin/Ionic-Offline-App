@@ -33,10 +33,9 @@ export class HizmetBilgileriComponent {
 
   getHizmet() {
     this.hizmetService.fetchHizmet(this.hizmet).then(res => {
-      for (var i = 0; i < res.length; i++) {
-        let data = JSON.parse(res.item(i).data);
-        this.hizmet = data;
-        this.hizmetService.setHizmet(this.hizmet);
+      if(res.rows.length > 0) {
+        this.hizmet = JSON.parse(res.rows.item(0).data);
+        this.hizmetService.setHizmet(this.hizmet)
       }
     });
   }

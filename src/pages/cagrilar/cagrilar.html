@@ -10,10 +10,16 @@
 
 <ion-content padding>
 
-  <div>
-    <button ion-button id="btnCagriSorgu" cgrArama (click)="cagriSorgula();" color="secondary">Sorgula</button>
-    <button ion-button id="btnCagriGuncelle" cgrGuncelle (click)="cagriGuncelle();" color="secondary">Güncelle</button>
-  </div>
+
+  <ion-row>
+    <ion-col col-12 col-sm>
+      <button ion-button id="btnCagriSorgu" round full cgrArama (click)="cagriSorgula();" color="secondary">Sorgula</button>
+    </ion-col>
+    <ion-col col-12 col-sm>
+      <button ion-button id="btnCagriGuncelle" round full cgrGuncelle (click)="cagriGuncelle();" color="secondary">Güncelle
+      </button>
+    </ion-col>
+  </ion-row>
 
   <ion-card *ngFor="let cagri of cagrilar" (click)="cagriDetayinaGit($event, cagri.seqNo)">
     <h3> {{cagri.adi }} {{cagri.soyadi}}</h3>

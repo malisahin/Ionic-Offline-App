@@ -96,6 +96,17 @@ export class BaseDao {
     return query;
   }
 
+  /**
+   *
+   * @param tableNameOrQuery = Sqlite tablolarının tam adı yada sorgu
+   * @param orderBy  = hangi sıraya göre geleceği
+   * @param item  = Sorgu hazır değilse verilen item'a göre sorgu hazırlar
+   * @param type = EXACT yada LIKE araması
+   * @param first = Pagination.FIRST
+   * @param pageSize = PAGINATION.PAGESIZE
+   * @param isQueryReady = tableNameOrQuery bir sorgu  ise burası true olmalı değilse false
+   * @returns {Promise<T>}
+   */
   getList(tableNameOrQuery: string, orderBy: string, item: any, type: string, first: number, pageSize: number, isQueryReady: boolean): Promise<any> {
     let data: any = { res: {}, length: 0 };
     let query = "";

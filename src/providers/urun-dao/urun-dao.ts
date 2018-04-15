@@ -1,15 +1,19 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { BaseDao } from '../base-dao/base-dao';
-import { Urun } from '../../entities/urun';
-import { Constants } from '../../entities/Constants';
-import { DatabaseProvider } from '../database/database';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {BaseDao} from '../base-dao/base-dao';
+import {Urun} from '../../entities/urun';
+import {Constants} from '../../entities/Constants';
+import {DatabaseProvider} from '../database/database';
+import {UtilProvider} from "../util/util";
 
 @Injectable()
 export class UrunDao {
 
   constant: Constants;
-  constructor(private baseDao: BaseDao, private dbProvider: DatabaseProvider) {
+
+  constructor(private baseDao: BaseDao,
+              private dbProvider: DatabaseProvider,
+              private  util: UtilProvider) {
     console.log('Hello UrunDaoProvider Provider');
     this.constant = new Constants();
   }
@@ -25,7 +29,6 @@ export class UrunDao {
     let params = [this.constant.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE, urunKodu];
     return this.baseDao.execute(query, params);
   }
-
 
 
   insertList(list: Urun[]) {
@@ -53,8 +56,6 @@ export class UrunDao {
   }
 
 
-
-
   update(item: Urun): Promise<any> {
     let UPDATE_QUERY = "UPDATE OFF_MAM_TNM SET mamAdi = ?,seriMetod =?,surec=?,durum=? WHERE mamKod=?";
     let params = [item.mamAnagrp, item.mamKod, item.mamAdi, item.seriMetod, item.surec, item.durum];
@@ -62,35 +63,40 @@ export class UrunDao {
   }
 
   find(item: Urun) {
-    let query = this.prepareSelectQuery(item);
-    return this.baseDao.execute(query, []);
+    //let query = this.prepareSelectQuery(item);
+    //return this.baseDao.execute(query, []);
   }
 
-  prepareSelectQuery(item: Urun): string {
+  prepareSelectQuery(item: Urun, searchType: string): string {
     let query = 'SELECT * FROM OFF_MAM_TNM WHERE 1=1';
+    let AndOr = searchType == this.constant.SEARCH_TYPE.EXACT ? ' AND ' : ' OR ';
+    let searchQuery = [];
 
-    if (item.mamAnagrp != null && item.mamAnagrp != "")
-      query += ' AND mamAnagrp= ' + item.mamAnagrp;
+    if (this.util.isNotEmpty(item.mamAnagrp))
+      searchQuery.push(this.util.prepareWhereQuery(this.constant.SEARCH_TYPE.EXACT, 'mamAnagrp', item.mamAnagrp));
 
-    if (item.mamKod != null && item.mamKod != "")
-      query += ' AND mamKod=' + item.mamKod;
+    if (this.util.isNotEmpty(item.mamKod))
+      searchQuery.push(this.util.prepareWhereQuery(searchType, 'mamKod', item.mamKod));
 
-    if (item.mamAdi != null && item.mamAdi != "")
-      query += ' AND mamAdi=' + item.mamAdi;
+    if (this.util.isNotEmpty(item.mamAdi))
+      searchQuery.push(this.util.prepareWhereQuery(searchType, 'mamAdi', item.mamAdi));
 
-    if (item.seriMetod != null && item.seriMetod != "")
-      query += ' AND seriMetod=' + item.seriMetod;
+    if (this.util.isNotEmpty(item.seriMetod))
+      searchQuery.push(this.util.prepareWhereQuery(searchType, 'seriMetod', item.seriMetod));
 
-    if (item.surec != null && item.surec != "")
-      query += ' AND surec=' + item.surec;
+    if (this.util.isNotEmpty(item.surec))
+      searchQuery.push(this.util.prepareWhereQuery(searchType, 'surec', item.surec));
 
-    if (item.durum != null && item.durum != "")
-      query += ' AND durum=' + item.durum;
+    if (this.util.isNotEmpty(item.durum))
+      searchQuery.push(this.util.prepareWhereQuery(searchType, 'durum', item.durum));
 
-    return query;
+    return this.util.prepareQuery(query, searchQuery, searchType);
   }
 
   getList(item: Urun, type: string, first: number, pageSize: number): Promise<any> {
-    return this.baseDao.getList("OFF_MAM_TNM", "mamKod", item, type, first, pageSize, false);
+    let query = this.prepareSelectQuery(item, type);
+    return this.baseDao.getList(query, "mamKod", item, type, first, pageSize, true);
   }
+
+
 }

@@ -1,4 +1,54 @@
-<!-- Generated template for the IslemTarihComponent component -->
-<div>
-  {{text}}
-</div>
+<!-- Generated template for the HizmetBilgileriComponent component -->
+<ion-list inset>
+
+
+  <!--ion-item *ngIf="islemTipi != '' && islemTipi=='ISC'">
+    <ion-label>Ürün ana Grubu</ion-label>
+    <ion-input type="text" [(ngModel)]="urunAnaGrup.ad" (focus)="urunAnaGrupSorgula()"></ion-input>
+  </ion-item-->
+
+  <!--ion-item *ngIf="islemTipi == 'ISC' || islemTipi == 'MLZ'">
+    <ion-label>Ürün Kodu</ion-label>
+    <ion-input type="text" [(ngModel)]="urun.mamKod" (focus)="urunSorgula()"></ion-input>
+  </ion-item>
+
+  <ion-item-- *ngIf="islemTipi != '' && islemTipi=='ISC'">
+    <ion-label>Ürün İşçilik</ion-label>
+    <ion-input type="text" [(ngModel)]="urunIscilik.iscAdi" (focus)="urunIscilikSorgula()"></ion-input>
+  </ion-item-->
+
+  <ion-item>
+    <ion-label>İşlem Başlangıç Tarihi</ion-label>
+    <ion-label>{{hizmet.islemTarihi}}</ion-label>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label>İşlem Bitiş Tarihi</ion-label>
+    <ion-label>{{hizmet.islemBitTarihi}}</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Bekleme Nedeni</ion-label>
+    <ion-select [(ngModel)]="beklemeNedeni" interface="popover">
+      <ion-option value="SERVIS" selected="true">Servis</ion-option>
+      <ion-option value="MUSTERI">Müşteri</ion-option>
+      <ion-option value="BAYI">Bayi</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Bekleme Kaynağı</ion-label>
+    <ion-select [(ngModel)]="beklemeKaynagi" interface="popover">
+      <ion-option value="SERVIS" selected="true">Servis</ion-option>
+      <ion-option value="MUSTERI">Müşteri</ion-option>
+      <ion-option value="BAYI">Bayi</ion-option>
+    </ion-select>
+  </ion-item>
+
+
+  <ion-item>
+    <button ion-button primary round full>İşlem Başlat</button>
+  </ion-item>
+
+</ion-list>

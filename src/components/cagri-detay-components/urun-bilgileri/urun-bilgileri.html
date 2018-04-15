@@ -1,27 +1,56 @@
 <!-- Generated template for the UrunBilgileriComponent component -->
-<div>
+<ion-grid>
+  <ion-row>
+    <ion-col col-sm-12 col-md-6 col-lg-3 col-xl-3>
+      <button ion-button icon-start full round (click)="urunListesiniGetir()">
+        <ion-icon name="list"></ion-icon>
+        Ürün Seç
+      </button>
+    </ion-col>
+    <ion-col col-sm-12 col-md-6 col-lg-3 col-xl-3>
+      <button ion-button icon-start full round (click)="urunSil()">
+        <ion-icon name="trash"></ion-icon>
+        Ürün Sil
+      </button>
+    </ion-col>
+    <ion-col col-sm-12 col-md-6 col-lg-3 col-xl-3>
+      <button ion-button icon-start full round (click)="urunAnaGrupDegistir()">
+        <ion-icon name="refresh"></ion-icon>
+        Ürün Ana Grup Değiştir
+      </button>
+    </ion-col>
+    <ion-col col-sm-12  col-md-6 col-lg-3 col-xl-3>
+      <button ion-button icon-start full round (click)="garantiSorgula()">
+        <ion-icon style="width: 5%" name="help"></ion-icon>
+        Garanti Sorgula
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<!--div>
   <button ion-button icon-start small round (click)="urunListesiniGetir()">
     <ion-icon name="list"></ion-icon>
     Ürün Seç
   </button>
-  <button ion-button icon-start small round>
+  <button ion-button icon-start small round (click)="urunSil()">
     <ion-icon name="trash"></ion-icon>
     Ürün Sil
   </button>
-  <button ion-button icon-start small round>
+  <button ion-button icon-start small round (click)="urunAnaGrupDegistir()">
     <ion-icon name="refresh"></ion-icon>
     Ürün Ana Grup Değiştir
   </button>
-  <button ion-button icon-start small round>
-    <ion-icon name="help"></ion-icon>
+  <button ion-button icon-start small round (click)="garantiSorgula()">
+    <ion-icon style="width: 5%" name="help"></ion-icon>
     Garanti Sorgula
   </button>
-</div>
+</div -->
 <ion-list>
 
   <ion-item>
     <ion-label color="primary">Ürün Ana Grubu</ion-label>
-    <ion-input [(ngModel)]="hizmet.mamAnaGrp" readonly></ion-input>
+    <ion-input [(ngModel)]="mamAnaGrpValue" readonly></ion-input>
   </ion-item>
 
   <ion-item>

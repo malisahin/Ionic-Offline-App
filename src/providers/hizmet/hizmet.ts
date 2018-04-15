@@ -1,20 +1,23 @@
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
-*/
+ */
 
 
-import { Injectable } from '@angular/core';
-import { HizmetDao } from '../hizmet-dao/hizmet-dao';
-import { Hizmet } from '../../entities/hizmet/hizmet';
-import { TokenProvider } from '../token/token';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { ApiProvider } from '../api/api';
+import {Injectable} from '@angular/core';
+import {HizmetDao} from '../hizmet-dao/hizmet-dao';
+import {Hizmet} from '../../entities/hizmet/hizmet';
+import {TokenProvider} from '../token/token';
+import {HttpHeaders, HttpClient} from '@angular/common/http';
+import {ApiProvider} from '../api/api';
+import {Anket} from "../../entities/hizmet/anket";
+import {IslemList} from "../../entities/hizmet/islemList";
 
 @Injectable()
 export class HizmetProvider {
 
   getToken: Promise<any>;
+
   constructor(public http: HttpClient, private api: ApiProvider, private hizmetDao: HizmetDao, private token: TokenProvider) {
     console.log('Hello CagriProvider Provider');
 
@@ -35,7 +38,7 @@ export class HizmetProvider {
     let url = this.api.getCagriListUrl();
     let header = this.api.getHeader();
     return new Promise((resolve, reject) => {
-      this.http.get(url, { headers: header }).toPromise().then(res => {
+      this.http.get(url, {headers: header}).toPromise().then(res => {
         resolve(res);
       });
     });
@@ -46,7 +49,6 @@ export class HizmetProvider {
     hizmetList = this.seperateCagri(res);
     return this.hizmetDao.insertList(hizmetList);
   }
-
 
 
   seperateCagri(obj) {
@@ -62,9 +64,9 @@ export class HizmetProvider {
 
   fillHizmet(obj) {
     let item = new Hizmet();
-    item.aciklama = obj.aciklama
-    item.adi = obj.adi
-    //item.anket: Anket[];
+    item.aciklama = obj.aciklama;
+    item.adi = obj.adi;
+    //item.anket = Anket[];
     item.apartman = obj.aparman;
     item.basvuruNedenAdi = obj.basvuruNedenAdi;
     item.basvuruNedeni = obj.basvuruNedeni;
@@ -75,8 +77,8 @@ export class HizmetProvider {
     item.cmNo = obj.cmNo;
     item.cmTarihi = obj.cmTarihi;
     item.cozumKodu = obj.cozumKodu;
-    item.daireNo = obj.daireNo
-    //item.detayList: CagriDetay[];
+    item.daireNo = obj.daireNo;
+    item.detayList =obj.detayDtoList;
     item.durum = obj.durum;
     item.eposta = obj.eposta;
     item.evTel = obj.evTel;
@@ -90,7 +92,7 @@ export class HizmetProvider {
     item.iletisimIstek = obj.iletisimIstek;
     item.isTel = obj.isTel;
     item.islemBitTarihi = obj.islemBitTarihi;
-    //item.islemList: IslemList[];
+    item.islemList = obj.islemList;
     item.islemTarihi = obj.islemTarihi;
     item.kapatmaKodu = obj.kapatmaKodu;
     item.mahalle = obj.mahalle;
@@ -120,5 +122,6 @@ export class HizmetProvider {
     item.soyadi = obj.soyadi;
     return item;
   }
+
 
 }

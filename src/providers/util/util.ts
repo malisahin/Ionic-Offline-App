@@ -1,19 +1,19 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Constants } from '../../entities/Constants';
-import { ToastController } from 'ionic-angular';
-
-
-
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Constants} from '../../entities/Constants';
+import {ToastController} from 'ionic-angular';
+import moment from 'moment';
 
 
 @Injectable()
 export class UtilProvider {
 
   constants: Constants;
+
   constructor(private toast: ToastController) {
     console.log('Hello UtilProvider Provider');
     this.constants = new Constants();
+    moment.locale('tr');
   }
 
   isEmpty(item: any): boolean {
@@ -40,8 +40,18 @@ export class UtilProvider {
     return key + "='" + value + "'";
   }
 
-  prepareQuery(type: string, key: string, value: string): string {
+  prepareWhereQuery(type: string, key: string, value: string): string {
     return type == this.constants.SEARCH_TYPE.EXACT ? this.prepareForEqual(key, value) : this.prepareForLike(key, value);
+  }
+
+  prepareQuery(query: string, searchQueries: string[], searchType: string): string {
+    let AndOr = searchType == this.constants.SEARCH_TYPE.EXACT ? ' AND ' : ' OR ';
+    if (searchQueries.length > 0) {
+      query += " AND (";
+      query += searchQueries.join(AndOr);
+      query += ")";
+    }
+    return query;
   }
 
   message(message: string) {
@@ -51,6 +61,10 @@ export class UtilProvider {
       position: 'top'
     });
     toast.present();
+  }
+
+  dateFormat(dateString: Date, format: string): string {
+    return moment(dateString).format(format);
   }
 
 }

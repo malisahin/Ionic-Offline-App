@@ -5,17 +5,11 @@
 
 
 export class IslemList {
-    satirNo: string;
-    seqNo: string;
-    arizaKod: string;
-    islemKod: string;
-    mlzIsc: string;
-    mlzIscKod: string;
-    aciklama: string;
-    miktar: string;
-    birimFiyat: string;
-    tutar: string;
-    olcuBrm: string;
-    satirHata: string;
-    kdvOran: string;
+   basTar: Date;
+   bekleKaynak: string;
+   beklemeNeden: string;
+   bitTar: Date;
+   durum: string;
+   islSira: String;
+   seqNo;
 }

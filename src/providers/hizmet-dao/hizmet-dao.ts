@@ -80,7 +80,7 @@ export class HizmetDao {
       query += " AND isTel='" + item.isTel + "'";
 
     if (item.gsmNo != null && item.gsmNo != "")
-      query += "' AND gsmNo='" + item.gsmNo + "'";
+      query += " AND gsmNo='" + item.gsmNo + "'";
 
 
     return query;

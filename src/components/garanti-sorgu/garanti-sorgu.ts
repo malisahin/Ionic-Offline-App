@@ -43,7 +43,7 @@ export class GarantiSorguComponent {
 
   ionViewDidLoad() {
     this.constants = new Constants();
-    this.urunAnaGrupDao.getList(this.urunAnaGrup, this.constants.SEARCH_TYPE.EXACT, 0, 10).then(list => {
+    this.urunAnaGrupDao.getPage(this.urunAnaGrup, this.constants.SEARCH_TYPE.EXACT, 0, 10).then(list => {
       this.urunAnaGrupList = list.rows;
     });
   }

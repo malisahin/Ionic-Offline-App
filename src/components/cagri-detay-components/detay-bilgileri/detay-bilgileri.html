@@ -1,48 +1,88 @@
 <ion-grid>
   <ion-row>
-    <ion-buttons start>
-      <button ion-button round small icon-start>
-        <ion-icon name="add-circle"></ion-icon>
-        Kaydet
+    <ion-col col-12 col-sm>
+      <button ion-button primary round full>
+        <ion-icon style="width: 20%" name="add-circle"></ion-icon>
+        <ion-label style="width: 80%">Yeni</ion-label>
       </button>
-    </ion-buttons>
+    </ion-col>
 
-    <ion-buttons end>
-      <button ion-button round small icon-start>
-        <ion-icon name="basket"></ion-icon>
-        Sipariş Oluştur
+    <ion-col col-12 col-sm>
+      <button ion-button primary round full>
+        <ion-icon style="width: 20%" name="basket"></ion-icon>
+        <ion-label style="width: 80%">Sipariş Oluştur</ion-label>
       </button>
-    </ion-buttons>
+    </ion-col>
   </ion-row>
 </ion-grid>
 
-<ion-row>
-  <ion-col>
-    <ion-row>
-      <ion-col width-20>İşlem Tipi</ion-col>
-      <ion-col width-20>İşlem Kodu</ion-col>
-      <ion-col width-20>Miktar</ion-col>
-      <ion-col width-20>Tutar</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>(Model)IslemTipi</ion-col>
-      <ion-col>İşlem Kodu</ion-col>
-      <ion-col>Miktar</ion-col>
-      <ion-col>Tutar</ion-col>
-    </ion-row>
-  </ion-col>
-</ion-row>
+<ion-grid>
+  <ion-row>
+    <ion-col col-12 col-sm>
+      <ion-label>İşlem Tipi</ion-label>
+    </ion-col>
+    <ion-col col-12 col-sm>
+      <ion-label>İşlem Kodu</ion-label>
+    </ion-col>
+    <ion-col col-12 col-sm>
+      <ion-label>Miktar</ion-label>
+    </ion-col>
+    <ion-col col-12 col-sm>
+      <ion-label>Tutar</ion-label>
+    </ion-col>
+    <ion-col col-12 col-sm>
+
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngFor="let detay of detayList">
+    <ion-col col-12 col-sm>
+      <ion-label>{{detay.mlzIsc}}</ion-label>
+    </ion-col>
+    <ion-col col-12 col-sm>
+      <ion-label>{{detay.mlzIscKod}} - {{detay.aciklama}}</ion-label>
+    </ion-col>
+    <ion-col col-12 col-sm>
+      <ion-label>{{detay.miktar}}</ion-label>
+    </ion-col>
+    <ion-col col-12 col-sm>
+      <ion-label>{{detay.tutar}}</ion-label>
+    </ion-col>
+    <ion-col col-12 col-sm>
+      <button ion-button icon-only>
+        <ion-icon name="create" small></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="close-circle" small></ion-icon>
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
 
 <ion-list>
   <button ion-button (click)="toggleDetails()" full color="light" round>
-    <ion-icon name='arrow-down'></ion-icon> Kapatma İşlemleri</button>
+    <ion-icon name='arrow-down'></ion-icon>
+    Kapatma İşlemleri
+  </button>
   <div id="divKapatmaIslemleri" *ngIf="showDetails == -1">
-    <ion-buttons>
-      <button ion-button round color="secondary">Kapat</button>
-      <button ion-button round color="secondary">Iptal</button>
-      <button ion-button round color="secondary">Yazdır</button>
-      <button ion-button round color="secondary">Sil</button>
-    </ion-buttons>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12 col-md-6 col-sm>
+          <button ion-button round color="secondary" full>Kapat</button>
+        </ion-col>
+        <ion-col col-12 col-md-6 col-sm>
+          <button ion-button round color="secondary" full>Iptal</button>
+        </ion-col>
+        <ion-col col-12 col-md-6 col-sm>
+          <button ion-button round color="secondary" full>Yazdır</button>
+        </ion-col>
+        <ion-col col-12 col-md-6 col-sm>
+          <button ion-button round color="secondary" full>Sil</button>
+        </ion-col>
+      </ion-row>
+
+
+    </ion-grid>
 
     <ion-list inset>
 
@@ -62,7 +102,7 @@
 
       <ion-item>
         <ion-label color="primary">Ödeme Tipi</ion-label>
-        <ion-select>
+        <ion-select po>
           <ion-option value="NAKIT">Nakit</ion-option>
           <ion-option value="KREDIKARTI">Kredi Kartı</ion-option>
         </ion-select>
@@ -70,13 +110,9 @@
 
       <ion-item>
         <ion-label color="primary">Çözüm Kodu</ion-label>
-        <ion-select>
-          <ion-option value="Kodu1">Çözüm Kodu1</ion-option>
-          <ion-option value="Kodu2">Çözüm Kodu2</ion-option>
-          <ion-option value="Kodu3">Çözüm Kodu3</ion-option>
-          <ion-option value="Kodu4">Çözüm Kodu4</ion-option>
-          <ion-option value="Kodu5">Çözüm Kodu5</ion-option>
-          <ion-option value="Kodu6">Çözüm Kodu6</ion-option>
+
+        <ion-select [(ngModel)]="hizmet.cozumKodu">
+          <ion-option *ngFor="let cozum of cozumKoduList" [value]="cozum.kod">{{cozum.ad}}</ion-option>
         </ion-select>
       </ion-item>
 

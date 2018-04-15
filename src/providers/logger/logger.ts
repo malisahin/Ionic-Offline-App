@@ -22,4 +22,12 @@ export class LoggerProvider {
     console.dir(res);
   }
 
+  error(res){
+    console.error(res);
+  }
+
+  warn(res) {
+    console.warn(res);
+  }
+
 }
