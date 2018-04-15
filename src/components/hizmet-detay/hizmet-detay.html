@@ -22,17 +22,17 @@
 
     <ion-item>
       <ion-label>Işlem Kodu</ion-label>
-      <ion-input type="text" [(ngModel)]="hizmetDetay.islemKod" (focus)="islemKoduBul()"></ion-input>
+      <ion-input type="text" [(ngModel)]="hizmetDetay.islemKod" (focus)="IslemArizaIscilikBul('ISLEM')"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>Arıza Kodu</ion-label>
-      <ion-input type="text" [(ngModel)]="hizmetDetay.arizaKod" (focus)="arizaKoduBul()"></ion-input>
+      <ion-input type="text" [(ngModel)]="hizmetDetay.arizaKod" (focus)="IslemArizaIscilikBul('ARIZA')"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>P/I/Y Kodu</ion-label>
-      <ion-input type="text" [(ngModel)]="hizmetDetay.mlzIscKod" (focus)="parcaIscilikYolKoduBul()"></ion-input>
+      <ion-input type="text" [(ngModel)]="hizmetDetay.mlzIscKod" (focus)="IslemArizaIscilikBul('PIY')"></ion-input>
     </ion-item>
 
     <ion-item>
@@ -49,16 +49,16 @@
         <button ion-button [color]="primary" (click)="closeModal()" round full>
           Iptal
           <span item-right>
-        <ion-icon name="ion-plus-round"></ion-icon>
-      </span>
+            <ion-icon name="ion-plus-round"></ion-icon>
+          </span>
         </button>
       </ion-col>
       <ion-col col-12 col-sm>
         <button ion-button icon-end [color]="primary" (click)="detayKaydet()" round full>
           Kaydet
           <span item-right>
-        <ion-icon name="ion-plus-round"></ion-icon>
-      </span>
+            <ion-icon name="ion-plus-round"></ion-icon>
+          </span>
         </button>
       </ion-col>
     </ion-row>

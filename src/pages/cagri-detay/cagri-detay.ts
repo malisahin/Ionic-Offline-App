@@ -22,8 +22,10 @@ export class CagriDetayPage {
   seqNo: any;
   hizmet: Hizmet;
 
-  constructor(public navCtrl: NavController, private hizmetProvider: HizmetProvider,
-    public navParams: NavParams, private hizmetService: HizmetService) {
+  constructor(public navCtrl: NavController,
+    private hizmetProvider: HizmetProvider,
+    public navParams: NavParams,
+    private hizmetService: HizmetService) {
     console.log("Hello Cagri Detay Page");
     this.hizmet = new Hizmet();
     this.hizmet.seqNo = this.navParams.get('seqNo');

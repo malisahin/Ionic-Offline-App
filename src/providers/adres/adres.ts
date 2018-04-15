@@ -30,7 +30,8 @@ export class AdresProvider {
   downloadSehirData(): Observable<any> {
     let url = this.api.getSehirIlceUrl(this.constants.DATA_TYPE.SEHIR_TNM);
     let header = this.api.getHeader();
-    return this.http.get(url, { headers: header });
+    //return this.http.get(url, { headers: header });
+    return this.http.get(url, { headers: header })
 
   }
 

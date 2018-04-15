@@ -2,12 +2,24 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { DatabaseProvider } from '../database/database';
 import { IslemArizaIscilik } from '../../entities/islem-ariza-iscilik';
+import { UtilProvider } from '../util/util';
+import { LoggerProvider } from '../logger/logger';
+import { Pageable } from '../../entities/Pageable';
+import { Page } from 'ionic-angular/navigation/nav-util';
+import { BaseDao } from '../base-dao/base-dao';
+import { Constants } from '../../entities/Constants';
 
 
 @Injectable()
 export class IslemArizaIscilikDao {
 
-  constructor(public dbProvider: DatabaseProvider) {
+  constants: Constants;
+  constructor(public dbProvider: DatabaseProvider,
+    private util: UtilProvider,
+    private logger: LoggerProvider,
+    private baseDao: BaseDao
+  ) {
+    this.constants = new Constants();
     console.log('Hello IslemArizaIscilikDaoProvider Provider');
   }
 
@@ -36,6 +48,49 @@ export class IslemArizaIscilikDao {
         });
       });
     });
+  }
+
+  getPage(item: IslemArizaIscilik, searchType: string, pageAble: Pageable): Promise<any> {
+    let query = this.prepareQuery(item, searchType);
+    return this.baseDao.getList(query, "islemGrp, arizaGrp, iscKod", item, searchType, pageAble.first, pageAble.pageSize, true);
+  }
+
+
+  prepareQuery(item: IslemArizaIscilik, searchType: string): string {
+    let query = "SELECT * FROM OFF_ISC_ISLARZGRP_TNM WHERE 1=1";
+    let whereQuery = [];
+
+    if (this.util.isNotEmpty(item.arzGrp)) {
+      whereQuery.push(this.util.prepareWhereQuery(searchType, 'arzGrp', item.arzGrp));
+    }
+
+    if (this.util.isNotEmpty(item.arzGrpAd)) {
+      whereQuery.push(this.util.prepareWhereQuery(searchType, 'arzGrpAd', item.arzGrpAd));
+    }
+
+    if (this.util.isNotEmpty(item.durum)) {
+      whereQuery.push(this.util.prepareWhereQuery(searchType, 'durum', item.durum));
+    }
+
+    if (this.util.isNotEmpty(item.iscKod)) {
+      whereQuery.push(this.util.prepareWhereQuery(searchType, 'iscKod', item.iscKod));
+    }
+
+    if (this.util.isNotEmpty(item.islGrp)) {
+      whereQuery.push(this.util.prepareWhereQuery(searchType, 'islGrp', item.islGrp));
+    }
+
+    if (this.util.isNotEmpty(item.islGrpAd)) {
+      whereQuery.push(this.util.prepareWhereQuery(searchType, 'islGrpAd', item.islGrpAd));
+    }
+
+    if (this.util.isNotEmpty(item.mamAnaGrp)) {
+      whereQuery.push(this.util.prepareWhereQuery(this.constants.SEARCH_TYPE.EXACT, 'mamAnaGrp', item.mamAnaGrp));
+    }
+
+    return this.util.prepareQuery(query, whereQuery, searchType);
+
+
   }
 
 }

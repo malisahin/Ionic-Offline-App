@@ -171,9 +171,7 @@ export class GuncellemePage {
   }
 
   downloadSehirList() {
-    this.adresProvider.downloadSehirData().map(res => {
-      this.logger.dir(res);
-    });
+    this.adresProvider.downloadSehirData();
   }
 
   downloadIlceList() {

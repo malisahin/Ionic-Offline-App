@@ -66,9 +66,10 @@ import { BildirimlerPageModule } from "../pages/bildirimler/bildirimler.module";
 import { AdresProvider } from '../providers/adres/adres';
 import { AdresDao } from '../providers/adres-dao/adres-dao';
 import { LoggerProvider } from '../providers/logger/logger';
-import {GarantiSonucComponent} from "../components/garanti-sonuc/garanti-sonuc";
-import {GarantiSorguComponent} from "../components/garanti-sorgu/garanti-sorgu";
-import {HizmetDetayComponent} from "../components/hizmet-detay/hizmet-detay";
+import { GarantiSonucComponent } from "../components/garanti-sonuc/garanti-sonuc";
+import { GarantiSorguComponent } from "../components/garanti-sorgu/garanti-sorgu";
+import { HizmetDetayComponent } from "../components/hizmet-detay/hizmet-detay";
+import { DetayPiySearchComponent } from "../components/detay-piy-search/detay-piy-search";
 
 
 
@@ -119,7 +120,8 @@ import {HizmetDetayComponent} from "../components/hizmet-detay/hizmet-detay";
     UrunAnaGrupSearchComponent,
     GarantiSonucComponent,
     GarantiSorguComponent,
-    HizmetDetayComponent
+    HizmetDetayComponent,
+    DetayPiySearchComponent
 
   ],
   providers: [

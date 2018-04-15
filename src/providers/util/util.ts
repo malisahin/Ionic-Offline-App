@@ -1,7 +1,7 @@
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {Constants} from '../../entities/Constants';
-import {ToastController} from 'ionic-angular';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Constants } from '../../entities/Constants';
+import { ToastController } from 'ionic-angular';
 import moment from 'moment';
 
 
@@ -44,11 +44,11 @@ export class UtilProvider {
     return type == this.constants.SEARCH_TYPE.EXACT ? this.prepareForEqual(key, value) : this.prepareForLike(key, value);
   }
 
-  prepareQuery(query: string, searchQueries: string[], searchType: string): string {
+  prepareQuery(query: string, whereQueries: string[], searchType: string): string {
     let AndOr = searchType == this.constants.SEARCH_TYPE.EXACT ? ' AND ' : ' OR ';
-    if (searchQueries.length > 0) {
+    if (whereQueries.length > 0) {
       query += " AND (";
-      query += searchQueries.join(AndOr);
+      query += whereQueries.join(AndOr);
       query += ")";
     }
     return query;

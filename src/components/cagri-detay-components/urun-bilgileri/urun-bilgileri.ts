@@ -1,17 +1,17 @@
-import {Component} from '@angular/core';
-import {ModalController} from 'ionic-angular';
-import {Hizmet} from '../../../entities/hizmet/hizmet';
-import {HizmetService} from "../../../providers/hizmet-service/hizmet-service";
-import {UrunSearchComponent} from '../../urun-search/urun-search';
-import {UtilProvider} from "../../../providers/util/util";
-import {Constants} from "../../../entities/Constants";
-import {LoggerProvider} from "../../../providers/logger/logger";
-import {UrunAnaGrupSearchComponent} from "../../urun-ana-grup-search/urun-ana-grup-search";
-import {UrunDao} from "../../../providers/urun-dao/urun-dao";
-import {UrunAnaGrupDao} from "../../../providers/urun-ana-grup-dao/urun-ana-grup-dao";
-import {UrunAnaGrup} from "../../../entities/urunAnaGrup";
-import {GarantiSorguProvider} from "../../../providers/garanti-sorgu/garanti-sorgu";
-import {GarantiSorgu} from "../../../entities/GarantiSorgu";
+import { Component } from '@angular/core';
+import { ModalController } from 'ionic-angular';
+import { Hizmet } from '../../../entities/hizmet/hizmet';
+import { HizmetService } from "../../../providers/hizmet-service/hizmet-service";
+import { UrunSearchComponent } from '../../urun-search/urun-search';
+import { UtilProvider } from "../../../providers/util/util";
+import { Constants } from "../../../entities/Constants";
+import { LoggerProvider } from "../../../providers/logger/logger";
+import { UrunAnaGrupSearchComponent } from "../../urun-ana-grup-search/urun-ana-grup-search";
+import { UrunDao } from "../../../providers/urun-dao/urun-dao";
+import { UrunAnaGrupDao } from "../../../providers/urun-ana-grup-dao/urun-ana-grup-dao";
+import { UrunAnaGrup } from "../../../entities/urunAnaGrup";
+import { GarantiSorguProvider } from "../../../providers/garanti-sorgu/garanti-sorgu";
+import { GarantiSorgu } from "../../../entities/GarantiSorgu";
 
 @Component({
   selector: 'urun-bilgileri',
@@ -25,12 +25,12 @@ export class UrunBilgileriComponent {
   mamAnaGrpValue: string;
 
   constructor(private modalController: ModalController,
-              private hizmetService: HizmetService,
-              private urunDao: UrunDao,
-              private logger: LoggerProvider,
-              private urunAnaGrpDao: UrunAnaGrupDao,
-              private garantiSorguProvider: GarantiSorguProvider,
-              private util: UtilProvider) {
+    private hizmetService: HizmetService,
+    private urunDao: UrunDao,
+    private logger: LoggerProvider,
+    private urunAnaGrpDao: UrunAnaGrupDao,
+    private garantiSorguProvider: GarantiSorguProvider,
+    private util: UtilProvider) {
     console.log('Hello UrunBilgileriComponent Component');
     this.text = 'Hello World';
     this.constants = new Constants();
