@@ -68,6 +68,7 @@ import { AdresDao } from '../providers/adres-dao/adres-dao';
 import { LoggerProvider } from '../providers/logger/logger';
 import {GarantiSonucComponent} from "../components/garanti-sonuc/garanti-sonuc";
 import {GarantiSorguComponent} from "../components/garanti-sorgu/garanti-sorgu";
+import {HizmetDetayComponent} from "../components/hizmet-detay/hizmet-detay";
 
 
 
@@ -117,7 +118,8 @@ import {GarantiSorguComponent} from "../components/garanti-sorgu/garanti-sorgu";
     UrunSearchComponent,
     UrunAnaGrupSearchComponent,
     GarantiSonucComponent,
-    GarantiSorguComponent
+    GarantiSorguComponent,
+    HizmetDetayComponent
 
   ],
   providers: [

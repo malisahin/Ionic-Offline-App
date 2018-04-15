@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <ion-title class="page-title">Hizmet Detay</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<!-- Generated template for the HizmetBilgileriComponent component -->
+<ion-content>
+  <ion-list inset>
+
+    <ion-item>
+      <ion-label>Işlem Tipi</ion-label>
+      <ion-select [(ngModel)]="islemTipi" interface="popover">
+        <ion-option value="" selected="true"></ion-option>
+        <ion-option value="ISC">İşçilik</ion-option>
+        <ion-option value="MLZ">Malzeme</ion-option>
+        <ion-option value="KM">Yol</ion-option>
+        <ion-option value="DGR">Diğer</ion-option>
+      </ion-select>
+
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Işlem Kodu</ion-label>
+      <ion-input type="text" [(ngModel)]="hizmetDetay.islemKod" (focus)="islemKoduBul()"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Arıza Kodu</ion-label>
+      <ion-input type="text" [(ngModel)]="hizmetDetay.arizaKod" (focus)="arizaKoduBul()"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>P/I/Y Kodu</ion-label>
+      <ion-input type="text" [(ngModel)]="hizmetDetay.mlzIscKod" (focus)="parcaIscilikYolKoduBul()"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>P/I/Y Açıklama</ion-label>
+      <ion-input type="text" [(ngModel)]="hizmetDetay.aciklama"></ion-input>
+    </ion-item>
+
+
+  </ion-list>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-sm>
+        <button ion-button [color]="primary" (click)="closeModal()" round full>
+          Iptal
+          <span item-right>
+        <ion-icon name="ion-plus-round"></ion-icon>
+      </span>
+        </button>
+      </ion-col>
+      <ion-col col-12 col-sm>
+        <button ion-button icon-end [color]="primary" (click)="detayKaydet()" round full>
+          Kaydet
+          <span item-right>
+        <ion-icon name="ion-plus-round"></ion-icon>
+      </span>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+
+
+</ion-footer>

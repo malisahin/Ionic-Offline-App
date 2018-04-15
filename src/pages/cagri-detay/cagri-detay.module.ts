@@ -9,6 +9,7 @@ import { DetayBilgileriComponent } from '../../components/cagri-detay-components
 import { IslemTarihComponent } from '../../components/cagri-detay-components/servis-bilgileri/islem-tarih/islem-tarih';
 import { ServisIslemTarihceComponent } from '../../components/cagri-detay-components/servis-bilgileri/servis-islem-tarihce/servis-islem-tarihce';
 import { SharedModule } from '../shared-module/shared-module.module';
+import {HizmetDetayComponent} from "../../components/hizmet-detay/hizmet-detay";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SharedModule } from '../shared-module/shared-module.module';
     UrunBilgileriComponent,
     DetayBilgileriComponent,
     IslemTarihComponent,
-    ServisIslemTarihceComponent
+    ServisIslemTarihceComponent,
+    HizmetDetayComponent
   ],
   imports: [
     IonicPageModule.forChild(CagriDetayPage), SharedModule

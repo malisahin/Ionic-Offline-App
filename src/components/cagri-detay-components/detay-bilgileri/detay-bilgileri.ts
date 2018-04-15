@@ -12,6 +12,8 @@ import {LoggerProvider} from "../../../providers/logger/logger";
 import {UrunAnaGrup} from "../../../entities/urunAnaGrup";
 import {UrunAnaGrupDao} from "../../../providers/urun-ana-grup-dao/urun-ana-grup-dao";
 import {Constants} from "../../../entities/Constants";
+import {ModalController} from "ionic-angular";
+import {HizmetDetayComponent} from "../../hizmet-detay/hizmet-detay";
 
 
 @Component({
@@ -28,6 +30,7 @@ export class DetayBilgileriComponent {
 
   constructor(private hizmetService: HizmetService,
               private  urunAnaGrupDao: UrunAnaGrupDao,
+              private  modalCtrl: ModalController,
               private  util: UtilProvider,
               private  logger: LoggerProvider) {
     this.constants = new Constants();
@@ -62,5 +65,17 @@ export class DetayBilgileriComponent {
         }
       }
     })
+  }
+
+  hizmetDetayaGit() {
+    let detayModal = this.modalCtrl.create(HizmetDetayComponent, {
+      data: {
+        detay: ""
+      }
+    });
+    detayModal.onDidDismiss(res => {
+
+    });
+    detayModal.present();
   }
 }
