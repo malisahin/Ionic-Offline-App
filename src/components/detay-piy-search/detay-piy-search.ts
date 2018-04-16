@@ -17,8 +17,8 @@ export class DetayPiySearchComponent {
 
   text: string;
   data: any;
-  list: { key: "", value: "" }[] = [];
-  selectedItem: { key: "", value: "" } = { key: "", value: "" };
+  list: { key: "", value: "", data: {} }[] = [];
+  selectedItem: { key: "", value: "", data: {} } = { key: "", value: "", data: {} };
   constants: Constants = new Constants();
   returnObject: any;
   pageable: Pageable;
@@ -54,12 +54,20 @@ export class DetayPiySearchComponent {
     this.list = [];
 
     let filter = this.prepareSearchItem();
-    this.islemArizaIscilikDao.getPage(filter, this.searchType, this.pageable).then(data => {
-      this.pageable.listLength = data.listLength;
-      this.fillList(data);
-    })
 
+    if (this.dataType == "ISLEM" || this.dataType == "ARIZA") {
+      this.islemArizaIscilikDao.getPage(filter, this.searchType, this.pageable).then(data => {
+        this.pageable.listLength = data.listLength;
+        this.fillList(data);
+      })
+    }
 
+    if (this.dataType == "PIY") {
+      this.islemArizaIscilikDao.getPIYKoduPage(filter, this.hizmet.mamKod, this.pageable).then(data => {
+        this.pageable.listLength = data.listLength;
+        this.fillList(data);
+      });
+    }
   }
 
   prepareSearchItem(): IslemArizaIscilik {
@@ -78,8 +86,16 @@ export class DetayPiySearchComponent {
   }
 
   fillItemByType(item: any) {
+    if (this.dataType == "ISLEM")
+      this.list.push({ key: item.islemGrp, value: item.islemGrpAdi, data: item });
 
-    this.list.push({ key: item.mamAnaGrp, value: item.ad });
+
+    if (this.dataType == "ARIZA")
+      this.list.push({ key: item.arizaGrp, value: item.arizaGrpAdi, data: item });
+
+
+    if (this.dataType == "PIY")
+      this.list.push({ key: item.arizaGrp, value: item.arizaGrpAdi, data: item });
 
   }
 

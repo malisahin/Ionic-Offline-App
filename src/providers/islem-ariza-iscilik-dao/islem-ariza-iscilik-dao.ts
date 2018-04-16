@@ -55,6 +55,20 @@ export class IslemArizaIscilikDao {
     return this.baseDao.getList(query, "islemGrp, arizaGrp, iscKod", item, searchType, pageAble.first, pageAble.pageSize, true);
   }
 
+  getPIYKoduPage(item: IslemArizaIscilik, urunKodu: string, pageAble: Pageable): Promise<any> {
+    let query = "SELECT t.*,i.iscAdi FROM OFF_ISC_ISLARZGRP_TNM t, OFF_MAM_TNM mam, OFF_MAM_ISC_TNM i WHERE t.mamAnaGrp = mam.mamAnaGrp" +
+      " and mam.mamKod = i.mamKod and t.iscKod = i.iscKod and mam.mamKod =  '" + urunKodu + "'";
+
+    if (this.util.isNotEmpty(item.islGrp))
+      query += ' and islemGrp = "' + item.islGrp + '" ';
+
+    if (this.util.isNotEmpty(item.arzGrp))
+      query += ' and arizaGrp = "' + item.arzGrp + '" '
+
+    return this.baseDao.getList(query, "islemGrp, arizaGrp, iscKod", item, this.constants.SEARCH_TYPE.LIKE, pageAble.first, pageAble.pageSize, true);
+
+  }
+
 
   prepareQuery(item: IslemArizaIscilik, searchType: string): string {
     let query = "SELECT * FROM OFF_ISC_ISLARZGRP_TNM WHERE 1=1";
