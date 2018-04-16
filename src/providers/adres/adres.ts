@@ -27,25 +27,24 @@ export class AdresProvider {
     console.log('Hello AdresProvider Provider');
   }
 
-  downloadSehirData(): Observable<any> {
+  downloadSehirData(): Promise<any> {
     let url = this.api.getSehirIlceUrl(this.constants.DATA_TYPE.SEHIR_TNM);
     let header = this.api.getHeader();
+
     //return this.http.get(url, { headers: header });
-    return this.http.get(url, { headers: header })
+    return this.http.get(url, { headers: header }).toPromise();
 
   }
 
-  downloadIlceData(): Observable<any> {
+  downloadIlceData(): Promise<any> {
     let url = this.api.getSehirIlceUrl(this.constants.DATA_TYPE.ILCE_TNM);
     let header = this.api.getHeader();
-    return this.http.get(url, { headers: header });
+    return this.http.get(url, { headers: header }).toPromise();
   }
 
-  downloadMahalleData(first: number): Observable<any> {
+  downloadMahalleData(first: number): Promise<any> {
     let url = this.api.getMahalleTnmUrl(first);
     let header = this.api.getHeader();
-    return this.http.get(url, { headers: header }).map(res => {
-
-    });
+    return this.http.get(url, { headers: header }).toPromise();
   }
 }

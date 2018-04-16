@@ -70,6 +70,7 @@ import { GarantiSonucComponent } from "../components/garanti-sonuc/garanti-sonuc
 import { GarantiSorguComponent } from "../components/garanti-sorgu/garanti-sorgu";
 import { HizmetDetayComponent } from "../components/hizmet-detay/hizmet-detay";
 import { DetayPiySearchComponent } from "../components/detay-piy-search/detay-piy-search";
+import { Network } from "@ionic-native/network";
 
 
 
@@ -125,6 +126,7 @@ import { DetayPiySearchComponent } from "../components/detay-piy-search/detay-pi
 
   ],
   providers: [
+    Network,
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },

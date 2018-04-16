@@ -55,17 +55,35 @@ export class IslemArizaIscilikDao {
     return this.baseDao.getList(query, "islemGrp, arizaGrp, iscKod", item, searchType, pageAble.first, pageAble.pageSize, true);
   }
 
-  getPIYKoduPage(item: IslemArizaIscilik, urunKodu: string, pageAble: Pageable): Promise<any> {
+  getIslemGrupPage(item: IslemArizaIscilik, searchText: string): Promise<any> {
+    let query = "SELECT islemGrp,islemGrpAdi FROM OFF_ISC_ISLARZGRP_TNM WHERE mamAnaGrp = '" + item.mamAnaGrp + "' and durum='AKTIF' AND (";
+    query += " islemGrp like '%" + searchText + "%'";
+    query += " OR islemGrpAdi like '%" + searchText + "%'";
+    query += ') GROUP BY islemGrp,islemGrpAdi';
+    return this.baseDao.execute(query, []);
+    //return this.baseDao.getList(query, "islemGrp", item, searchType, pageAble.first, pageAble.pageSize, true);
+  }
+
+  getArizaGrupPage(item: IslemArizaIscilik, searchText: string): Promise<any> {
+    let query = "SELECT arizaGrp,arizaGrpAdi FROM OFF_ISC_ISLARZGRP_TNM " +
+      "WHERE mamAnaGrp = '" + item.mamAnaGrp + "' and islemGrp = '" + item.islGrp + "' and durum='AKTIF' AND ( "
+    query += " arizaGrp like '%" + searchText + "%'"
+    query += " OR arizaGrpAdi like '%" + searchText + "%'"
+    query += ') GROUP BY arizaGrp,arizaGrpAdi';
+    return this.baseDao.execute(query, []);
+    // return this.baseDao.getList(query, "arizaGrp", item, searchType, pageAble.first, pageAble.pageSize, true);
+  }
+
+  getPIYKoduPage(item: IslemArizaIscilik, urunKodu: string, searchText: string): Promise<any> {
     let query = "SELECT t.*,i.iscAdi FROM OFF_ISC_ISLARZGRP_TNM t, OFF_MAM_TNM mam, OFF_MAM_ISC_TNM i WHERE t.mamAnaGrp = mam.mamAnaGrp" +
       " and mam.mamKod = i.mamKod and t.iscKod = i.iscKod and mam.mamKod =  '" + urunKodu + "'";
+    query += ' and islemGrp = "' + item.islGrp + '" ';
 
-    if (this.util.isNotEmpty(item.islGrp))
-      query += ' and islemGrp = "' + item.islGrp + '" ';
+    query += ' and arizaGrp = "' + item.arzGrp + '" '
 
-    if (this.util.isNotEmpty(item.arzGrp))
-      query += ' and arizaGrp = "' + item.arzGrp + '" '
+    query += " AND ( t.iscKod like '%" + searchText + "%' OR i.iscAdi like '%" + searchText + "%')"
 
-    return this.baseDao.getList(query, "islemGrp, arizaGrp, iscKod", item, this.constants.SEARCH_TYPE.LIKE, pageAble.first, pageAble.pageSize, true);
+    return this.baseDao.execute(query, []);
 
   }
 

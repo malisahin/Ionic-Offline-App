@@ -17,7 +17,8 @@ export class HizmetDetayComponent {
   private hizmetDetay: DetayKayit;
   data: any;
   constants: Constants;
-
+  islemAdi: string = "";
+  arizaAdi: string = "";
   constructor(private viewCtrl: ViewController,
     private params: NavParams,
     private modalController: ModalController,
@@ -43,11 +44,26 @@ export class HizmetDetayComponent {
 
     let piyModal = this.modalController.create(DetayPiySearchComponent, {
       data: {
-        dataType: tip
+        dataType: tip,
+        filter: this.hizmetDetay
       }
     });
-    piyModal.onDidDismiss(data => {
+    piyModal.onDidDismiss(res => {
+      this.logger.dir(res);
 
+      if (tip == "ISLEM") {
+        this.hizmetDetay.islemKod = res.data.key;
+        this.islemAdi = res.data.key + " - " + res.data.value;
+      }
+
+      if (tip == "ARIZA") {
+        this.hizmetDetay.arizaKod = res.data.key;
+        this.arizaAdi = res.data.key + " - " + res.data.value;
+      }
+
+      if (tip == "PIY") {
+        this.hizmetDetay.islemKod;
+      }
     });
     piyModal.present();
   }

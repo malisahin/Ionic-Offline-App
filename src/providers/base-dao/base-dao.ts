@@ -135,7 +135,7 @@ export class BaseDao {
     return new Promise((resolve, reject) => {
       this.execute(query, []).then(res => {
         data.res = res;
-        this.execute(listLengthQuery.replace("*", "count(*)"), []).then(res2 => {
+        this.execute("SELECT count(*) FROM " + listLengthQuery.split(' FROM ')[1], []).then(res2 => {
           data.listLength = res2.rows.item(0)["count(*)"];
           resolve(data);
         });

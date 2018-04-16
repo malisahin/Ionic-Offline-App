@@ -26,6 +26,7 @@ export class DetayPiySearchComponent {
   searchType: string;
   hizmet: Hizmet;
   dataType: string;
+  filter: IslemArizaIscilik;
   constructor(
     public viewCtrl: ViewController,
     private params: NavParams,
@@ -38,6 +39,7 @@ export class DetayPiySearchComponent {
     this.data = params.get('data');
     this.dataType = this.data.dataType;
     this.hizmet = this.hizmetService.getHizmet();
+    this.filter = this.data.filter;
   }
 
   closeModal() {
@@ -53,31 +55,40 @@ export class DetayPiySearchComponent {
     this.pageable = this.pageable.compute();
     this.list = [];
 
-    let filter = this.prepareSearchItem();
+    this.prepareSearchItem();
 
-    if (this.dataType == "ISLEM" || this.dataType == "ARIZA") {
-      this.islemArizaIscilikDao.getPage(filter, this.searchType, this.pageable).then(data => {
+    if (this.dataType == "ISLEM") {
+      this.islemArizaIscilikDao.getIslemGrupPage(this.filter, this.searchText).then(data => {
+        this.pageable.listLength = data.listLength;
+        this.fillList(data);
+      })
+    }
+
+    if (this.dataType == "ARIZA") {
+      this.islemArizaIscilikDao.getArizaGrupPage(this.filter, this.searchText).then(data => {
         this.pageable.listLength = data.listLength;
         this.fillList(data);
       })
     }
 
     if (this.dataType == "PIY") {
-      this.islemArizaIscilikDao.getPIYKoduPage(filter, this.hizmet.mamKod, this.pageable).then(data => {
+      this.islemArizaIscilikDao.getPIYKoduPage(this.filter, this.hizmet.mamKod, this.searchText).then(data => {
         this.pageable.listLength = data.listLength;
         this.fillList(data);
       });
     }
   }
 
-  prepareSearchItem(): IslemArizaIscilik {
-    let filter = new IslemArizaIscilik();
-    filter.mamAnaGrp = this.hizmet.mamAnaGrp;
-    return filter;
+  prepareSearchItem() {
+    this.filter.mamAnaGrp = this.hizmet.mamAnaGrp;
+    this.filter.islGrp = this.util.isNotEmpty(this.data.filter.islemKod) ? this.data.filter.islemKod : "";
+    this.filter.arzGrp = this.util.isNotEmpty(this.data.filter.arizaKod) ? this.data.filter.arizaKod : "";
+    this.searchText = "";
+
   }
 
   fillList(data: any) {
-    let res = data.res.rows;
+    let res = data.rows;
     this.pageable.listLength = this.pageable.listLength == -1 ? data.listLength : this.pageable.listLength;
     for (let i = 0; i < res.length; i++) {
       this.fillItemByType(res.item(i));
@@ -86,29 +97,32 @@ export class DetayPiySearchComponent {
   }
 
   fillItemByType(item: any) {
-    if (this.dataType == "ISLEM")
+    if (this.dataType == "ISLEM") {
       this.list.push({ key: item.islemGrp, value: item.islemGrpAdi, data: item });
-
-
+    }
     if (this.dataType == "ARIZA")
       this.list.push({ key: item.arizaGrp, value: item.arizaGrpAdi, data: item });
-
 
     if (this.dataType == "PIY")
       this.list.push({ key: item.arizaGrp, value: item.arizaGrpAdi, data: item });
 
   }
 
+  isUnique(item: any): boolean {
+    let isUnique = true;
+    this.list.filter(res => {
+      if (res.key == item.key && res.value == item.value) {
+        isUnique = false;
+      }
+    })
+    return isUnique;
+  }
+
   public ionChange(item: any) {
-    this.prepareReturnValue(item);
 
-    this.viewCtrl.dismiss();
+    this.viewCtrl.dismiss({ data: item });
   }
 
-  prepareReturnValue(item) {
-    /* this.urunAnaGrup.mamAnaGrp = this.util.isEmpty(item.key) ? '' : item.key;
-     this.urunAnaGrup.ad = this.util.isEmpty(item.value) ? '' : item.value;
-     this.returnObject = this.urunAnaGrup;  */
-  }
+
 
 }

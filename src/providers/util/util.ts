@@ -67,4 +67,47 @@ export class UtilProvider {
     return moment(dateString).format(format);
   }
 
+  dateFormatRegex(x, y): string {
+    x = new Date(x);
+    var z = {
+      M: x.getMonth() + 1,
+      d: x.getDate(),
+      h: x.getHours(),
+      m: x.getMinutes(),
+      s: x.getSeconds()
+    };
+    y = y.replace(/(M+|d+|h+|m+|s+)/g, function (v) {
+      return ((v.length > 1 ? "0" : "") + eval('z.' + v.slice(-1))).slice(-2)
+    });
+
+    return y.replace(/(y+)/g, function (v) {
+      return x.getFullYear().toString().slice(-v.length)
+    });
+  }
+
+
+  /**
+   * 
+   * @param item  (let key in item)
+   * @param list 
+   */
+  isNotUnique(item: any, list: any[]): boolean {
+    for (let o in list) {
+      for (let key in item) {
+
+      }
+    }
+    return false;
+  }
+  /*
+   for (let key in item) {
+      let value = item[key];
+      if (typeof value != undefined && value != null && value != "" && typeof value != "function" && typeof value != "object" && key != "tip") {
+        value = value.split('').join('%');
+        value = "%" + value + "%";
+        query.push(key + " LIKE '" + value + "'");
+      }
+    }
+  */
+
 }
