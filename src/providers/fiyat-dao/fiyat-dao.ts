@@ -7,14 +7,21 @@ import { BaseDao } from '../base-dao/base-dao';
 import { Observable } from 'rxjs/Observable';
 import { Fiyat } from '../../entities/fiyat';
 import { DatabaseProvider } from '../database/database';
+import { UtilProvider } from '../util/util';
+import { Constants } from '../../entities/Constants';
 
 @Injectable()
 export class FiyatDao {
   INSERT_QUERY = "INSERT OR REPLACE INTO OFF_FIYAT (mamKod,iscMlz,iscMlzKod,fiyat,gdfiyat,versiyon) VALUES (?,?,?,?,?,?)";
   UPDATE_QUERY = "UPDATE OFF_FIYAT SET fiyat = ?,gdfiyat=?, versiyon=? WHERE mamKod=? AND iscMlz = ? and iscMlzKod = ?";
   SELECT_QUERY = "SELECT * FROM OFF_FIYAT WHERE mamKod = ? and iscMlzKod = ?";
-  constructor(private baseDao: BaseDao, private dbProvider: DatabaseProvider) {
-    console.log('Hello FiyatDaoProvider Provider');
+  constants: Constants;
+  constructor(private baseDao: BaseDao,
+    private dbProvider: DatabaseProvider,
+    private util: UtilProvider) {
+
+    this.constants = new Constants();
+
   }
 
   insertOne(item: Fiyat): Promise<any> {
@@ -46,9 +53,52 @@ export class FiyatDao {
     });
   }
 
+  async findfiyat(item: Fiyat) {
+    let query = this.prepareSearchQuery(item, this.constants.SEARCH_TYPE.EXACT);
+    return this.baseDao.execute(query, []);
+  }
+
+  prepareSearchQuery(item: Fiyat, searchType: string): string {
+    let query = "SELECT * FROM OFF_FIYAT WHERE 1=1 ";
+    let whereQuery = [];
+
+    if (this.util.isNotEmpty(item.fiyat))
+      whereQuery.push(this.util.prepareWhereQuery(searchType, "fiyat", item.fiyat.toString()));
+
+    if (this.util.isNotEmpty(item.gdFiyat))
+      whereQuery.push(this.util.prepareWhereQuery(searchType, "gdFiyat", item.gdFiyat.toString()));
+
+    if (this.util.isNotEmpty(item.iscMlz))
+      whereQuery.push(this.util.prepareWhereQuery(searchType, "iscMlz", item.iscMlz));
+
+    if (this.util.isNotEmpty(item.iscMlzKod))
+      whereQuery.push(this.util.prepareWhereQuery(searchType, "iscMlzKod", item.iscMlzKod));
+
+    if (this.util.isNotEmpty(item.mamKod))
+      whereQuery.push(this.util.prepareWhereQuery(searchType, "mamKod", item.mamKod));
+
+    return this.util.prepareQuery(query, whereQuery, searchType);
+  }
+
   update(): Promise<any> {
     return null;
 
   }
+  /**
+   * prepareQuery(item: IslemArizaIscilik, searchType: string): string {
+    let query = "SELECT * FROM OFF_ISC_ISLARZGRP_TNM WHERE 1=1";
+    let whereQuery = [];
+
+    if (this.util.isNotEmpty(item.arzGrp)) {
+      whereQuery.push(this.util.prepareWhereQuery(searchType, 'arzGrp', item.arzGrp));
+    }
+
+
+    return this.util.prepareQuery(query, whereQuery, searchType);
+
+
+  }
+
+   */
 
 }

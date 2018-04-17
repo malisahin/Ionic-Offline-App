@@ -14,14 +14,14 @@ export class DetayKayit {
   garTutar: string;
   islemKod: string;
   kdvOran: string;
-  miktar: string;
+  miktar: number = 1;
   mlzIsc: string;
   mlzIscKod: string;
   olcuBrm: string;
   satirHata: string;
   satirNo: string;
   seqNo: string;
-  tutar: string;
+  tutar: number;
 
   constructor() {
 

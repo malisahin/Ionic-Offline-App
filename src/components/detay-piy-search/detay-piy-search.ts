@@ -104,7 +104,7 @@ export class DetayPiySearchComponent {
       this.list.push({ key: item.arizaGrp, value: item.arizaGrpAdi, data: item });
 
     if (this.dataType == "PIY")
-      this.list.push({ key: item.arizaGrp, value: item.arizaGrpAdi, data: item });
+      this.list.push({ key: item.iscKod, value: item.iscAdi, data: item });
 
   }
 

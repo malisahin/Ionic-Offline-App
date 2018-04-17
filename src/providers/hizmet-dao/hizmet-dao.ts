@@ -10,6 +10,8 @@ import { Hizmet } from "../../entities/hizmet/hizmet";
 export class HizmetDao {
   INSERT_QUERY = "INSERT INTO OFF_HIZ_MST(seqNo, randevuTarihi, hizmetTipiAdi, mamAnaGrpAdi, basvuruNedeni, durum, adi, soyadi, firmaUnvani, evTel, isTel, gsmNo, data) " +
     " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?) ";
+  UPDATE_QUERY = "UPDATE OFF_HIZ_MST SET seqNo =?, randevuTarihi=?, hizmetTipiAdi=?, mamAnaGrpAdi=?, basvuruNedeni=?, durum=?, adi=?, soyadi=?, firmaUnvani=?" +
+    ", evTel =?, isTel=?, gsmNo=?, data=? WHERE seqNo=?  ";
   DELETE_QUERY = "DELETE FROM OFF_HIZ_MST";
 
   insertedRow: number = 0;
@@ -35,6 +37,13 @@ export class HizmetDao {
     let params = [hizmet.seqNo, hizmet.randevuTarihi, hizmet.hizmetTipiAdi, hizmet.mamAnaGrpAdi, hizmet.basvuruNedeni,
     hizmet.durum, hizmet.adi, hizmet.soyadi, hizmet.firmaUnvani, hizmet.evTel, hizmet.isTel, hizmet.gsmNo, hizmetObject];
     return this.baseDao.execute(this.INSERT_QUERY, params);
+  }
+
+  updateHizmet(hizmet: Hizmet) {
+    let hizmetObject: string = JSON.stringify(hizmet);
+    let params = [hizmet.seqNo, hizmet.randevuTarihi, hizmet.hizmetTipiAdi, hizmet.mamAnaGrpAdi, hizmet.basvuruNedeni,
+    hizmet.durum, hizmet.adi, hizmet.soyadi, hizmet.firmaUnvani, hizmet.evTel, hizmet.isTel, hizmet.gsmNo, hizmetObject, hizmet.seqNo];
+    return this.baseDao.execute(this.UPDATE_QUERY, params);
   }
 
   find(item: Hizmet): Promise<Hizmet[]> {

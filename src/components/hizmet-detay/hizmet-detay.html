@@ -10,7 +10,7 @@
 
     <ion-item>
       <ion-label>Işlem Tipi</ion-label>
-      <ion-select [(ngModel)]="islemTipi" interface="popover">
+      <ion-select [(ngModel)]="hizmetDetay.mlzIsc" interface="popover">
         <ion-option value="" selected="true"></ion-option>
         <ion-option value="ISC">İşçilik</ion-option>
         <ion-option value="MLZ">Malzeme</ion-option>
@@ -32,7 +32,8 @@
 
     <ion-item>
       <ion-label>P/I/Y Kodu</ion-label>
-      <ion-input type="text" [(ngModel)]="hizmetDetay.mlzIscKod" (ionFocus)="IslemArizaIscilikBul('PIY')"></ion-input>
+      <ion-input type="text" [(ngModel)]="mlzIscAdi" (ionFocus)="IslemArizaIscilikBul('PIY')"></ion-input>
+
     </ion-item>
 
     <ion-item>
@@ -40,6 +41,15 @@
       <ion-input type="text" [(ngModel)]="hizmetDetay.aciklama"></ion-input>
     </ion-item>
 
+    <ion-item *ngIf="hizmetDetay.mlzIsc == 'DGR' || hizmetDetay.mlzIsc == 'KM' || hizmetDetay.mlzIsc =='MLZ'">
+      <ion-label>Miktar</ion-label>
+      <ion-input type="number" [(ngModel)]="hizmetDetay.miktar"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="hizmetDetay.mlzIsc == 'DGR'">
+      <ion-label>Birim Fiyat</ion-label>
+      <ion-input type="number" [(ngModel)]="birimfiyat"></ion-input>
+    </ion-item>
 
   </ion-list>
 

@@ -37,8 +37,8 @@ export class HizmetService {
     return this.hizmet;
   }
 
-  saveHizmet() {
-    this.hizmetDao.insertOne(this.hizmet);
+  saveHizmet(): Promise<any> {
+    return this.hizmetDao.updateHizmet(this.hizmet);
   }
 
 }
