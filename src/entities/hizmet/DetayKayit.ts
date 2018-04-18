@@ -19,7 +19,7 @@ export class DetayKayit {
   mlzIscKod: string;
   olcuBrm: string;
   satirHata: string;
-  satirNo: string;
+  satirNo: number;
   seqNo: string;
   tutar: number;
 

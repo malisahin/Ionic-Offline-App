@@ -41,35 +41,49 @@ export class HizmetDetayComponent {
     this.hizmetDetay = new DetayKayit();
     this.data = params.get('data');
     this.detayTutari = new Fiyat();
+    this.init();
+  }
+
+  init() {
+    if (this.util.isNotEmpty(this.data.hizmetDetay)) {
+      this.hizmetDetay = this.data.hizmetDetay;
+    }
   }
 
   async detayKaydet() {
 
-    if (this.hizmetDetay.mlzIsc != "DGR") {
-      let fiyatItem = await this.fiyatBul();
-      this.hizmetDetay.tutar = this.hizmetDetay.miktar * fiyatItem.fiyat;
+    if (this.util.isEmpty(this.hizmetDetay.satirNo)) {
+      this.hizmet.detayList[0].push(this.hizmetDetay);
+      this.satirNoBelirle();
     }
-    else
-      this.hizmetDetay.tutar = this.hizmetDetay.miktar * this.birimfiyat;
-    this.logger.dir(this.hizmetDetay);
-
-    this.hizmet.detayList[0].push(this.hizmetDetay);
+    else {
+      this.hizmet.detayList[0].filter(det => {
+        if (det.satirNo) {
+          det = this.hizmetDetay;
+        }
+      });
+    }
     let result = await this.hizmetService.saveHizmet();
     this.logger.dir(result);
 
     this.closeModal()
   }
 
-  async fiyatBul() {
-    this.detayTutari.mamKod = this.hizmet.mamKod;
-    this.detayTutari.iscMlzKod = this.hizmetDetay.mlzIscKod;
-    let fiyatRes = await this.fiyatDao.findfiyat(this.detayTutari);
-    this.logger.dir(fiyatRes);
-    if (fiyatRes.rows.length > 0)
-      return fiyatRes.rows.item(0);
-    else {
-      return this.constants.STATUS.ERROR
+  satirNoBelirle() {
+    for (let i = 0; i < this.hizmet.detayList[0].length; i++) {
+      this.hizmet.detayList[0][i].satirNo = i + 1;
     }
+  }
+
+  async fiyatBul() {
+    if (this.hizmetDetay.mlzIsc != "DGR") {
+      this.detayTutari.mamKod = this.hizmet.mamKod;
+      this.detayTutari.iscMlzKod = this.hizmetDetay.mlzIscKod;
+      let fiyatRes = await this.fiyatDao.findfiyat(this.detayTutari);
+      this.hizmetDetay.tutar = this.hizmetDetay.miktar * fiyatRes.fiyat;
+    }
+    else
+      this.hizmetDetay.tutar = this.hizmetDetay.miktar * this.birimfiyat;
   }
 
 

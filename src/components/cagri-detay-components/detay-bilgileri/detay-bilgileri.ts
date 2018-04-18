@@ -78,4 +78,16 @@ export class DetayBilgileriComponent {
     });
     detayModal.present();
   }
+
+  update(item: any) {
+    let detayModal = this.modalCtrl.create(HizmetDetayComponent, {
+      data: {
+        hizmetDetay: item
+      }
+    });
+    detayModal.onDidDismiss(res => {
+      this.logger.dir(res);
+    });
+    detayModal.present();
+  }
 }
