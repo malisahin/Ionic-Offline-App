@@ -46,7 +46,7 @@ export class MesajlarProvider {
       observer.next(this.setAlertFirst);
       observer.next(this.getDataFromApi);
       observer.next(this.setAlertLast);
-
+      observer.error();
     });
   };
 
@@ -65,7 +65,6 @@ export class MesajlarProvider {
   setAlertLast() {
     this.util.message("Notifications is Ok");
   }
-
 
   getDataFromApi(): Observable<any> {
     let url = this.api.getMesajlarUrl();

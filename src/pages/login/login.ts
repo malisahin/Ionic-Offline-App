@@ -14,6 +14,10 @@ import { LoginProvider } from '../../providers/login/login';
   templateUrl: 'login.html',
 })
 export class LoginPage {
+
+
+  passwordType: string = 'password';
+  passwordIcon: string = 'eye-off';
   loading: Loading;
   registerCredentials = { email: '', password: '' };
   username: string;
@@ -49,5 +53,11 @@ export class LoginPage {
       subTitle: text,
       buttons: ['OK']
     });
+  }
+
+
+  hideShowPassword() {
+    this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
+    this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
   }
 }
