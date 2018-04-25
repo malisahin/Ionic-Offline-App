@@ -3,7 +3,6 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, MenuController, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { LoginComponent } from '../components/login/login';
 import { HomeComponent } from '../components/home/home';
 import { CagrilarComponent } from '../components/cagrilar/cagrilar';
 import { CagrilarPage } from '../pages/cagrilar/cagrilar';

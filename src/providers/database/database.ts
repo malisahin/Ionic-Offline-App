@@ -72,6 +72,9 @@ export class DatabaseProvider {
 
                 tx.executeSql('CREATE TABLE IF NOT EXISTS  MAHALLE_TNM(sehirKodu, ilceKodu, mahalleAdi, mahalleKodu, PRIMARY KEY(sehirKodu, ilceKodu, mahalleKodu))');
 
+                tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_USER_DEF (user TEXT, pass TEXT,servis TEXT ,hatirla TEXT, ikKod TEXT, ikAd ,durum TEXT,userType TEXT,userName TEXT,orgKod Text,dilKod TEXT, pB TEXT, dilObjeDetaylari , PRIMARY KEY(user))');
+
+
             });
         }).then(() => {
             this.addInitialValuesToApplicationTables(db);

@@ -25,9 +25,9 @@ export class LoginPage {
 
   }
 
-  public login() {
+  async  login() {
     this.showLoading();
-    this.loginProvider.login(this.username, this.password);
+    let token = await this.loginProvider.login(this.username, this.password);
     console.log("Username: " + this.username + " Password: " + this.password);
 
     this.nav.push(HomeComponent);

@@ -5,7 +5,6 @@ import { MyApp } from "./app.component";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { AuthService } from "../providers/auth-service/auth-service";
-import { LoginComponent } from "../components/login/login";
 import { HomeComponent } from "../components/home/home";
 import { CagrilarComponent } from "../components/cagrilar/cagrilar";
 import { AyarlarPage } from "../pages/ayarlar/ayarlar";
@@ -71,13 +70,14 @@ import { GarantiSorguComponent } from "../components/garanti-sorgu/garanti-sorgu
 import { HizmetDetayComponent } from "../components/hizmet-detay/hizmet-detay";
 import { DetayPiySearchComponent } from "../components/detay-piy-search/detay-piy-search";
 import { Network } from "@ionic-native/network";
+import { UserProvider } from '../providers/user/user';
+import { UserDao } from '../providers/user-dao/user-dao';
 
 
 
 @NgModule({
   declarations: [
     MyApp,
-    LoginComponent,
     HomeComponent,
     CagrilarComponent,
     AyarlarPage,
@@ -102,7 +102,6 @@ import { Network } from "@ionic-native/network";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LoginComponent,
     HomeComponent,
     CagrilarComponent,
     AyarlarPage,
@@ -165,7 +164,9 @@ import { Network } from "@ionic-native/network";
     GarantiSorguProvider,
     AdresProvider,
     AdresDao,
-    LoggerProvider
+    LoggerProvider,
+    UserProvider,
+    UserDao
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

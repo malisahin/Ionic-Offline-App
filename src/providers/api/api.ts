@@ -53,7 +53,7 @@ export class ApiProvider {
 
   loginUrl: string = "";
 
-  getKullaniciUrl(username: string) {
+  getKullaniciUrl() {
     return this.urlPrefixKullanici + this.userName;
   }
 
