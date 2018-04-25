@@ -69,6 +69,8 @@ import { GarantiSonucComponent } from "../components/garanti-sonuc/garanti-sonuc
 import { GarantiSorguComponent } from "../components/garanti-sorgu/garanti-sorgu";
 import { HizmetDetayComponent } from "../components/hizmet-detay/hizmet-detay";
 import { DetayPiySearchComponent } from "../components/detay-piy-search/detay-piy-search";
+import { UserProvider } from '../providers/user/user';
+import { UserDao } from '../providers/user-dao/user-dao';
 import { Network } from "@ionic-native/network";
 import { UserProvider } from '../providers/user/user';
 import { UserDao } from '../providers/user-dao/user-dao';

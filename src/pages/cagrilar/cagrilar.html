@@ -22,14 +22,21 @@
   </ion-row>
 
   <ion-card *ngFor="let cagri of cagrilar" (click)="cagriDetayinaGit($event, cagri.seqNo)">
-    <h3> {{cagri.adi }} {{cagri.soyadi}}</h3>
+    <label>
+      <i class="fas fa-user"></i>
+      {{cagri.adi }} {{cagri.soyadi}}
+    </label>
+
     <p>
-      <strong>{{cagri.mamAnaGrpAdi}} | {{cagri.hizmetTipiAdi}} | {{cagri.basvuruNedenAdi}} </strong>
+
+      <strong>
+        <i class="fas fa-cog"></i>{{cagri.mamAnaGrpAdi}} | {{cagri.hizmetTipiAdi}} | {{cagri.basvuruNedenAdi}} </strong>
     </p>
     <p>
-      {{cagri.gsmNo}} | {{cagri.evTel}} | {{cagri.evTel}}
+      <i class="fas fa-phone"></i>{{cagri.gsmNo}} | {{cagri.evTel}} | {{cagri.evTel}}
     </p>
-    <p> {{cagri.randevuTarihi}} </p>
+    <p>
+      <i class="far fa-clock"></i> {{cagri.randevuTarihi}} </p>
     <p>{{cagri.Adres}}</p>
   </ion-card>
   <!--ion-list>

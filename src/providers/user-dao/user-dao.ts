@@ -43,6 +43,7 @@ export class UserDao {
       searchQuery.push(this.util.prepareWhereQuery(this.constant.SEARCH_TYPE.EXACT, 'pass', user.password));
 
     return this.util.prepareQuery(query, searchQuery, this.constant.SEARCH_TYPE.EXACT);
+
   }
 
 }
