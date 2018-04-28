@@ -85,6 +85,11 @@ export class UtilProvider {
     });
   }
 
+  // FIXME: Pluginden alınan bilgiye göre cevap dönecek
+  isOnline(): boolean {
+    return false;
+  }
+
 
   /**
    * 

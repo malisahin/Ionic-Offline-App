@@ -72,8 +72,6 @@ import { DetayPiySearchComponent } from "../components/detay-piy-search/detay-pi
 import { UserProvider } from '../providers/user/user';
 import { UserDao } from '../providers/user-dao/user-dao';
 import { Network } from "@ionic-native/network";
-import { UserProvider } from '../providers/user/user';
-import { UserDao } from '../providers/user-dao/user-dao';
 
 
 

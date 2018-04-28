@@ -6,23 +6,27 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { TokenProvider } from '../token/token';
 import { UserProvider } from '../user/user';
+import { User } from '../../entities/user';
 
 
 @Injectable()
 export class LoginProvider {
 
+  user: User;
+
   constructor(public token: TokenProvider,
     private userProvider: UserProvider) {
-    console.log('Hello LoginProvider Provider');
+    this.user = new User();
   }
 
-  login(username, password): Promise<any> {
-    return this.token.getToken(username, password).toPromise().then(res => {
+  login(userCode, password): Promise<any> {
+    this.user.userCode = userCode;
+    this.user.password = password;
+    return this.token.getToken(userCode, password).then(res => {
       console.log(res);
     });
-
-
   }
+
 
 
 

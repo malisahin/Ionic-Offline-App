@@ -20,8 +20,29 @@ export class User {
     ikBrans: string = "";
     eLibsDokuman: {};
     hatirla: string = "";
+    labels: {};
     constructor() {
 
+    }
+
+    fillUser(item: any): User {
+        item = item.message;
+        let user = new User();
+        user.dilKod = item.dilKod;
+        user.durum = item.durum;
+        user.ikAd = item.ikAdSoyad;
+        user.ikKod = item.ikKod;
+        user.orgKod = item.orgKod;
+        user.servis = item.service;
+        user.servisUnvani = item.serviceUnvani
+        user.userCode = item.userCode;
+        user.userName = item.userName;
+        user.userType = item.userType;
+        user.eLibsDokuman = item.eLibsDokuman;
+        user.ikBrans = item.ikBrans;
+        user.labels = item.obj;
+        this.saveUserData(user);
+        return user;
     }
 
     saveUserData(user: User) {
@@ -40,6 +61,9 @@ export class User {
         localStorage.setItem("dilKod", user.dilKod);
         localStorage.setItem("pb", user.pb);
         localStorage.setItem("ikBrans", user.ikBrans);
+        localStorage.setItem("eLibsDokuman", JSON.stringify(user.eLibsDokuman));
+        localStorage.setItem("ikBrans", JSON.stringify(user.ikBrans));
+        localStorage.setItem("labels", JSON.stringify(user.labels));
     }
 
     getUserCode(): string {

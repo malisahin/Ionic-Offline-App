@@ -10,6 +10,7 @@ import { Observable } from 'rxjs/Observable';
 import { Network } from '@ionic-native/network';
 import { LoggerProvider } from '../logger/logger';
 import { Platform } from 'ionic-angular';
+import { UtilProvider } from '../util/util';
 
 @Injectable()
 export class TokenProvider {
@@ -18,18 +19,29 @@ export class TokenProvider {
     public api: ApiProvider,
     private network: Network,
     private platform: Platform,
-    private logger: LoggerProvider) {
+    private logger: LoggerProvider,
+    private util: UtilProvider) {
     console.log('Hello TokenProvider Provider');
     this.results = "";
   }
 
-  getToken(username: string, password: string): Observable<any> {
-    let tokenUrl = this.api.getTokenUrl(username, password);
+  async getToken(userCode: string, password: string): Promise<any> {
+    let tokenUrl = this.api.getTokenUrl(userCode, password);
+    try {
+      let token = await this.http.post(tokenUrl, {}, {}).toPromise();
+      this.logger.dir(token);
+      return this.extractData(token);
+    } catch (e) {
 
-    return this.http.post(tokenUrl, {}, {}).map(res => {
-      this.logger.dir(res);
-      return this.extractData(res);
-    });
+      this.logger.error(e);
+      if (e.error.error = "invalid_grant") {
+        this.util.message("Giriş bilgileriniz yanlış lütfen kontrol ediniz.");
+      } else {
+        this.util.message("Bağlantı hatası.");
+      }
+      return false;
+    }
+
   }
 
   checkConnection(): Promise<any> {

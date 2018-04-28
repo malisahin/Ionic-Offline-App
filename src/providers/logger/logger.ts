@@ -22,7 +22,7 @@ export class LoggerProvider {
     console.dir(res);
   }
 
-  error(res){
+  error(res) {
     console.error(res);
   }
 

@@ -21,8 +21,8 @@ export class UserDao {
   }
 
   insertOne(item: User): Promise<any> {
-    let INSERT_QUERY = "INSERT INTO OFF_USER_DEF (user, pass,servis,hatirla,ikKod, ikAd,durum,userType,userName,orgKod,dilKod,pB) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
-    let params = [item.userName, item.password, item.servis, item.hatirla, item.ikKod, item.ikAd, item.durum, item.userType, item.adi, item.orgKod, item.dilKod, item.pb];
+    let INSERT_QUERY = "INSERT OR REPLACE INTO OFF_USER_DEF (user, userCode, pass,servis,hatirla,ikKod, ikAd,durum,userType,userName,orgKod,dilKod,pB) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    let params = [item.userName, item.userCode, item.password, item.servis, item.hatirla, item.ikKod, item.ikAd, item.durum, item.userType, item.adi, item.orgKod, item.dilKod, item.pb];
     return this.baseDao.execute(INSERT_QUERY, params);
   }
 
@@ -38,6 +38,9 @@ export class UserDao {
 
     if (this.util.isNotEmpty(user.userName))
       searchQuery.push(this.util.prepareWhereQuery(this.constant.SEARCH_TYPE.EXACT, 'user', user.userName));
+
+    if (this.util.isNotEmpty(user.userCode))
+      searchQuery.push(this.util.prepareWhereQuery(this.constant.SEARCH_TYPE.EXACT, 'userCode', user.userCode));
 
     if (this.util.isNotEmpty(user.password))
       searchQuery.push(this.util.prepareWhereQuery(this.constant.SEARCH_TYPE.EXACT, 'pass', user.password));

@@ -22,7 +22,7 @@ export class ApiProvider {
   serKod: string = "ECA_TEST";
   dilKod: string;
   ikKod: string = "5961";
-  userName: string;
+  userName: string = "ECAMERKEZ";
   paraBirimi: string;
   urlPrefixHizmet: string;
   urlPrefixOffline: string;
@@ -44,11 +44,9 @@ export class ApiProvider {
     this.tables = new Tablo();
   }
 
-  getTokenUrl(username: string, password: string) {
-    username = 'ECAMERKEZ';
-    password = 'EMAR6464';
+  getTokenUrl(userCode: string, password: string) {
     let tokenUrl = this.profil.getActiveProfil(this.ACTIVE_PROFIL).securityUrl + '/sos-security-service/oauth/token?grant_type=password&client_id=sos-api-enduser-mobile-client&client_secret=somesecret&';
-    return tokenUrl + "username=" + username + "&password=" + password;
+    return tokenUrl + "username=" + userCode + "&password=" + password;
   }
 
   loginUrl: string = "";

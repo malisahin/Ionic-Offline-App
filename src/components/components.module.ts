@@ -4,7 +4,6 @@
 */
 import { NgModule } from '@angular/core';
 import { CagrilarComponent } from './cagrilar/cagrilar';
-import { LoginComponent } from './login/login';
 import { HomeComponent } from './home/home';
 import { HeaderComponent } from './header/header';
 import { MusteriBilgileriComponent } from './cagri-detay-components/musteri-bilgileri/musteri-bilgileri';
@@ -26,7 +25,6 @@ import { DetayPiySearchComponent } from './detay-piy-search/detay-piy-search';
 
 @NgModule({
     declarations: [CagrilarComponent,
-        LoginComponent,
         HomeComponent,
         HeaderComponent,
         MusteriBilgileriComponent,
@@ -49,7 +47,6 @@ import { DetayPiySearchComponent } from './detay-piy-search/detay-piy-search';
     imports: [],
     exports: [
         CagrilarComponent,
-        LoginComponent,
         HomeComponent,
         HeaderComponent,
         MusteriBilgileriComponent,
