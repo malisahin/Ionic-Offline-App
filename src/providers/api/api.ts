@@ -27,7 +27,7 @@ export class ApiProvider {
   urlPrefixHizmet: string;
   urlPrefixOffline: string;
   urlPrefixKullanici: string;
-  pageSize: number;;
+  pageSize: number;
   first = 0;
   tables: Tablo;
 

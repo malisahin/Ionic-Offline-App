@@ -50,7 +50,7 @@ export class MesajlarProvider {
     });
   };
 
-  getToken(): Observable<any> {
+  getToken(): Promise<any> {
     let url = this.api.getMesajlarUrl();
     let header = this.api.getHeader();
 
@@ -66,7 +66,7 @@ export class MesajlarProvider {
     this.util.message("Notifications is Ok");
   }
 
-  getDataFromApi(): Observable<any> {
+  getDataFromApi(): Promise<any> {
     let url = this.api.getMesajlarUrl();
     let header = this.api.getHeader();
     return this.tokenProvider.getToken("", "");
@@ -77,7 +77,7 @@ export class MesajlarProvider {
     let header = this.api.getHeader();
 
     return new Promise((resolve, reject) => {
-      this.tokenProvider.getToken("", "").toPromise().then(() => {
+      this.tokenProvider.getToken("", "").then(() => {
         this.http.get(url, { headers: header }).toPromise().then(res => {
           let mesaj = new Mesaj();
           mesaj.fillMesajlar(res).then(list => {

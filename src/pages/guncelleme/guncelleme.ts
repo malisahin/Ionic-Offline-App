@@ -177,11 +177,15 @@ export class GuncellemePage {
   }
 
   downloadIlceList() {
-    this.adresProvider.downloadIlceData();
+    this.adresProvider.downloadIlceData().then(res => {
+
+    });
   }
 
   downloadMahalleList() {
-    this.adresProvider.downloadMahalleData(-1);
+    this.adresProvider.downloadMahalleData(-1).then(res => {
+
+    });
   }
 
   ionViewDidLoad() {

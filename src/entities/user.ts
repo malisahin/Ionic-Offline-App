@@ -20,7 +20,25 @@ export class User {
     ikBrans: string = "";
     eLibsDokuman: {};
     hatirla: string = "";
-    labels: {};
+    labels= {};
+    keys =  {
+      userCode:"userCode",
+      userName:"userName",
+      password:"password",
+      servis:"servis",
+      servisUnvani:"servisUnvani",
+      ikKod:"ikKod",
+      ikAd:"ikAd",
+      durum:"durum",
+      userType:"userType",
+      adi:"adi",
+      soyadi:"soyadi",
+      orgKod:"orgKod",
+      dilKod:"dilKod",
+      pb:"pb",
+      ikBrans:"ikBrans",
+      labels:"labels"
+    };
     constructor() {
 
     }
@@ -34,7 +52,7 @@ export class User {
         user.ikKod = item.ikKod;
         user.orgKod = item.orgKod;
         user.servis = item.service;
-        user.servisUnvani = item.serviceUnvani
+        user.servisUnvani = item.serviceUnvani;
         user.userCode = item.userCode;
         user.userName = item.userName;
         user.userType = item.userType;
@@ -46,24 +64,23 @@ export class User {
     }
 
     saveUserData(user: User) {
-        localStorage.setItem("userCode", user.userCode);
-        localStorage.setItem("userName", user.userName);
-        localStorage.setItem("password", user.password);
-        localStorage.setItem("servis", user.servis);
-        localStorage.setItem("servisUnvani", user.servisUnvani);
-        localStorage.setItem("ikKod", user.ikKod);
-        localStorage.setItem("ikAd", user.ikAd);
-        localStorage.setItem("durum", user.durum);
-        localStorage.setItem("userType", user.userType);
-        localStorage.setItem("adi", user.adi);
-        localStorage.setItem("soyadi", user.soyadi);
-        localStorage.setItem("orgKod", user.orgKod);
-        localStorage.setItem("dilKod", user.dilKod);
-        localStorage.setItem("pb", user.pb);
-        localStorage.setItem("ikBrans", user.ikBrans);
-        localStorage.setItem("eLibsDokuman", JSON.stringify(user.eLibsDokuman));
-        localStorage.setItem("ikBrans", JSON.stringify(user.ikBrans));
-        localStorage.setItem("labels", JSON.stringify(user.labels));
+      let pattern = new User();
+        localStorage.setItem(pattern.keys.userCode, user.userCode);
+        localStorage.setItem(pattern.keys.userName, user.userName);
+        localStorage.setItem(pattern.keys.password, user.password);
+        localStorage.setItem(pattern.keys.servis, user.servis);
+        localStorage.setItem(pattern.keys.servisUnvani, user.servisUnvani);
+        localStorage.setItem(pattern.keys.ikKod, user.ikKod);
+        localStorage.setItem(pattern.keys.ikAd, user.ikAd);
+        localStorage.setItem(pattern.keys.durum, user.durum);
+        localStorage.setItem(pattern.keys.userType, user.userType);
+        localStorage.setItem(pattern.keys.adi, user.adi);
+        localStorage.setItem(pattern.keys.soyadi, user.soyadi);
+        localStorage.setItem(pattern.keys.orgKod, user.orgKod);
+        localStorage.setItem(pattern.keys.dilKod, user.dilKod);
+        localStorage.setItem(pattern.keys.pb, user.pb);
+        localStorage.setItem(pattern.keys.ikBrans, JSON.stringify(user.ikBrans));
+        localStorage.setItem(pattern.keys.labels, JSON.stringify(user.labels));
     }
 
     getUserCode(): string {

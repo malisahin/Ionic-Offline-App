@@ -11,6 +11,7 @@ import { Network } from '@ionic-native/network';
 import { LoggerProvider } from '../logger/logger';
 import { Platform } from 'ionic-angular';
 import { UtilProvider } from '../util/util';
+import {User} from "../../entities/user";
 
 @Injectable()
 export class TokenProvider {
@@ -41,7 +42,13 @@ export class TokenProvider {
       }
       return false;
     }
+  }
 
+  getTokenInside() : Promise<any> {
+    let user  = new User();
+    let userCode = localStorage.getItem(user.keys.userCode);
+    let password = localStorage.getItem(user.keys.password);
+    return this.getToken(userCode, password);
   }
 
   checkConnection(): Promise<any> {

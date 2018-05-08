@@ -23,7 +23,7 @@ export class IslemArizaIscilikProvider {
   downloadIslemArizaIscilik(first: number): Promise<any> {
     let header = this.api.getHeader();
     return new Promise((resolve, reject) => {
-      this.tokenProvider.getToken("", "").toPromise().then(res => {
+      this.tokenProvider.getTokenInside().then(res => {
         this.getDataFromApi(first).toPromise().then(data => {
           let islemArizaIscilik = new IslemArizaIscilik();
           islemArizaIscilik.fillIslemArizaIscilik(data).then(item => {

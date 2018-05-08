@@ -26,11 +26,11 @@
       <i class="fas fa-user"></i>
       {{cagri.adi }} {{cagri.soyadi}}
     </label>
-
     <p>
-
       <strong>
-        <i class="fas fa-cog"></i>{{cagri.mamAnaGrpAdi}} | {{cagri.hizmetTipiAdi}} | {{cagri.basvuruNedenAdi}} </strong>
+        <i class="fas fa-cog"></i>
+        {{cagri.mamAnaGrpAdi}} | {{cagri.hizmetTipiAdi}} | {{cagri.basvuruNedenAdi}}
+      </strong>
     </p>
     <p>
       <i class="fas fa-phone"></i>{{cagri.gsmNo}} | {{cagri.evTel}} | {{cagri.evTel}}
@@ -39,11 +39,4 @@
       <i class="far fa-clock"></i> {{cagri.randevuTarihi}} </p>
     <p>{{cagri.Adres}}</p>
   </ion-card>
-  <!--ion-list>
-    <ion-item *ngFor="let cagri of cagrilar" (click)="cagriDetayinaGit($event, cagri)">
-      {{ cagri.adi }}
-      <ion-icon item-right name="arrow-forward"></ion-icon>
-    </ion-item>
-  </ion-list-->
-
 </ion-content>

@@ -87,14 +87,14 @@ export class UtilProvider {
 
   // FIXME: Pluginden alınan bilgiye göre cevap dönecek
   isOnline(): boolean {
-    return false;
+    return true;
   }
 
 
   /**
-   * 
+   *
    * @param item  (let key in item)
-   * @param list 
+   * @param list
    */
   isNotUnique(item: any, list: any[]): boolean {
     for (let o in list) {

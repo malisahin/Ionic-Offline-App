@@ -46,8 +46,6 @@ export class UserProvider {
     }
   }
 
-  fetch
-
   async getDataFromDB() {
     let result = await this.userDao.getList(this.user);
     this.logger.dir(result);
