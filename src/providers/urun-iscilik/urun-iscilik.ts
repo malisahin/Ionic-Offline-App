@@ -34,7 +34,7 @@ export class UrunIscilikProvider {
 
   downloadUrunIscilik(first: number): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.tokenProvider.getToken("", "").toPromise().then(res => {
+      this.tokenProvider.getTokenInside().then(res => {
         this.getDataFromApi(first).toPromise().then(item => {
           let urunIscilik = new UrunIscilik();
           urunIscilik.fillUrunIscilik(item).then(list => {

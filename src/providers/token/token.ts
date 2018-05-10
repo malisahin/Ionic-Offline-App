@@ -1,29 +1,38 @@
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
-*/
-import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { ApiProvider } from '../api/api';
-import { Token } from '../../entities/token'
-import { Observable } from 'rxjs/Observable';
-import { Network } from '@ionic-native/network';
-import { LoggerProvider } from '../logger/logger';
-import { Platform } from 'ionic-angular';
-import { UtilProvider } from '../util/util';
+ */
+import {HttpHeaders, HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {ApiProvider} from '../api/api';
+import {Token} from '../../entities/token'
+import {Observable} from 'rxjs/Observable';
+import {Network} from '@ionic-native/network';
+import {LoggerProvider} from '../logger/logger';
+import {Platform} from 'ionic-angular';
+import {UtilProvider} from '../util/util';
 import {User} from "../../entities/user";
 
 @Injectable()
 export class TokenProvider {
   results: string;
+  user: User;
+
+  userCode: String;
+  password: String;
+
   constructor(public http: HttpClient,
-    public api: ApiProvider,
-    private network: Network,
-    private platform: Platform,
-    private logger: LoggerProvider,
-    private util: UtilProvider) {
+              public api: ApiProvider,
+              private network: Network,
+              private platform: Platform,
+              private logger: LoggerProvider,
+              private util: UtilProvider) {
     console.log('Hello TokenProvider Provider');
     this.results = "";
+    this.user = new User();
+
+    this.userCode = localStorage.getItem(this.user.keys.userCode);
+    this.password = localStorage.getItem(this.user.keys.password);
   }
 
   async getToken(userCode: string, password: string): Promise<any> {
@@ -44,18 +53,16 @@ export class TokenProvider {
     }
   }
 
-  getTokenInside() : Promise<any> {
-    let user  = new User();
-    let userCode = localStorage.getItem(user.keys.userCode);
-    let password = localStorage.getItem(user.keys.password);
-    return this.getToken(userCode, password);
+  getTokenInside(): Promise<any> {
+
+    return this.getToken(this.userCode, this.password);
   }
 
   checkConnection(): Promise<any> {
     // TODO: Token Almadan önce Online olup olmadığı sorulacak.
     return this.network.onConnect().toPromise().then(() => {
       this.logger.log("Check connection ");
-      let tokenUrl = this.api.getTokenUrl("", "");
+      let tokenUrl = this.api.getTokenUrl(this.userCode, this.password);
       this.http.post(tokenUrl, {}, {}).map(res => {
         return this.extractData(res);
       })
@@ -67,7 +74,6 @@ export class TokenProvider {
     let token = new Token();
     return token.fillToken(res);
   }
-
 
 
 }

@@ -22,12 +22,12 @@ export class FiyatProvider {
   }
 
   downloadMalzemeFiyat(first): Promise<any> {
-    let tip = "malzemeFiyatListesi"
+    let tip = "malzemeFiyatListesi";
     return this.getDataFromApi(first, tip);
   }
 
   downloadIscilikFiyat(first): Promise<any> {
-    let tip = "iscilikFiyatListesi"
+    let tip = "iscilikFiyatListesi";
     return this.getDataFromApi(first, tip);
   }
 
@@ -36,7 +36,7 @@ export class FiyatProvider {
     let header = this.api.getHeader();
 
     return new Promise((resolve, reject) => {
-      this.tokenProvider.getToken("", "").toPromise().then(() => {
+      this.tokenProvider.getTokenInside().then(() => {
         this.http.get(url, { headers: header }).toPromise().then(res => {
           let fiyatlar = new Fiyat();
           fiyatlar.fillFiyat(res).then(list => {

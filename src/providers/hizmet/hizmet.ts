@@ -26,7 +26,7 @@ export class HizmetProvider {
   downloadCagriList(): Promise<any> {
 
     return new Promise((resolve, reject) => {
-      this.token.getToken("", "").toPromise()
+      this.token.getTokenInside()
         .then(res => this.fetchDataFromApi())
         .then(res => this.insertComingData(res))
         .then(res => resolve("SUCCESS"));
@@ -78,7 +78,7 @@ export class HizmetProvider {
     item.cmTarihi = obj.cmTarihi;
     item.cozumKodu = obj.cozumKodu;
     item.daireNo = obj.daireNo;
-    item.detayList =obj.detayDtoList;
+    item.detayList = obj.detayDtoList;
     item.durum = obj.durum;
     item.eposta = obj.eposta;
     item.evTel = obj.evTel;

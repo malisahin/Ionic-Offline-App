@@ -54,7 +54,7 @@ export class MesajlarProvider {
     let url = this.api.getMesajlarUrl();
     let header = this.api.getHeader();
 
-    return this.tokenProvider.getToken("", "");
+    return this.tokenProvider.getTokenInside();
   }
 
 
@@ -69,7 +69,7 @@ export class MesajlarProvider {
   getDataFromApi(): Promise<any> {
     let url = this.api.getMesajlarUrl();
     let header = this.api.getHeader();
-    return this.tokenProvider.getToken("", "");
+    return this.tokenProvider.getTokenInside();
   }
 
   getDataFromApi2(): Promise<any> {
@@ -77,7 +77,7 @@ export class MesajlarProvider {
     let header = this.api.getHeader();
 
     return new Promise((resolve, reject) => {
-      this.tokenProvider.getToken("", "").then(() => {
+      this.tokenProvider.getTokenInside().then(() => {
         this.http.get(url, { headers: header }).toPromise().then(res => {
           let mesaj = new Mesaj();
           mesaj.fillMesajlar(res).then(list => {

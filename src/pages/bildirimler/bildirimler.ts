@@ -14,7 +14,7 @@ import { MesajlarProvider } from '../../providers/mesajlar/mesajlar';
 export class BildirimlerPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private mesajProvider: MesajlarProvider) {
-    this.mesajProvider.getDataFromApi().subscribe(res => {
+    this.mesajProvider.getDataFromApi().then(res => {
       console.dir(res);
     });
 

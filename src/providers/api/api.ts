@@ -44,7 +44,7 @@ export class ApiProvider {
     this.tables = new Tablo();
   }
 
-  getTokenUrl(userCode: string, password: string) {
+  getTokenUrl(userCode: String, password: String) {
     let tokenUrl = this.profil.getActiveProfil(this.ACTIVE_PROFIL).securityUrl + '/sos-security-service/oauth/token?grant_type=password&client_id=sos-api-enduser-mobile-client&client_secret=somesecret&';
     return tokenUrl + "username=" + userCode + "&password=" + password;
   }
