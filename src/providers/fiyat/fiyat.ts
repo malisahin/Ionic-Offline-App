@@ -1,23 +1,20 @@
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
-*/
+ */
 
-import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { ApiProvider } from '../api/api';
-import { Observable } from 'rxjs/Observable';
-import { Fiyat } from '../../entities/fiyat';
-import { FiyatDao } from '../fiyat-dao/fiyat-dao';
-import { TokenProvider } from '../token/token';
+import { HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {ApiProvider} from '../api/api';
+import {Fiyat} from '../../entities/fiyat';
+import {FiyatDao} from '../fiyat-dao/fiyat-dao';
 
 
 @Injectable()
 export class FiyatProvider {
 
   constructor(public http: HttpClient,
-    private tokenProvider: TokenProvider,
-    private api: ApiProvider, private fiyatDao: FiyatDao) {
+              private api: ApiProvider, private fiyatDao: FiyatDao) {
     console.log('Hello FiyatProvider Provider');
   }
 
@@ -31,19 +28,17 @@ export class FiyatProvider {
     return this.getDataFromApi(first, tip);
   }
 
-  getDataFromApi(first: number, tip: string): Promise<any> {
+  async getDataFromApi(first: number, tip: string): Promise<any> {
     let url = this.api.fiyatlarDownloadUrl(first, tip);
-    let header = this.api.getHeader();
+    let header = await this.api.getHeader();
 
     return new Promise((resolve, reject) => {
-      this.tokenProvider.getTokenInside().then(() => {
-        this.http.get(url, { headers: header }).toPromise().then(res => {
-          let fiyatlar = new Fiyat();
-          fiyatlar.fillFiyat(res).then(list => {
-            this.fiyatDao.insertList(list).then(item => {
-              console.dir(item);
-              resolve(item);
-            });
+      this.http.get(url, {headers: header}).toPromise().then(res => {
+        let fiyatlar = new Fiyat();
+        fiyatlar.fillFiyat(res).then(list => {
+          this.fiyatDao.insertList(list).then(item => {
+            console.dir(item);
+            resolve(item);
           });
         });
       });

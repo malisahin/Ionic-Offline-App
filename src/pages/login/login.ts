@@ -1,15 +1,16 @@
 /**
  * @author malisahin
  * @since 2018-02-12
-*/
+ */
 
-import { Component } from '@angular/core';
-import { NavController, AlertController, LoadingController, Loading, IonicPage } from 'ionic-angular';
-import { HomeComponent } from '../../components/home/home';
-import { LoginProvider } from '../../providers/login/login';
-import { UserProvider } from '../../providers/user/user';
-import { UtilProvider } from '../../providers/util/util';
-import { LoggerProvider } from '../../providers/logger/logger';
+import {Component} from '@angular/core';
+import {NavController, AlertController, LoadingController, Loading, IonicPage} from 'ionic-angular';
+import {HomeComponent} from '../../components/home/home';
+import {LoginProvider} from '../../providers/login/login';
+import {UserProvider} from '../../providers/user/user';
+import {UtilProvider} from '../../providers/util/util';
+import {LoggerProvider} from '../../providers/logger/logger';
+import {User} from "../../entities/user";
 
 @IonicPage()
 @Component({
@@ -22,19 +23,21 @@ export class LoginPage {
   passwordType: string = 'password';
   passwordIcon: string = 'eye-off';
   loading: Loading;
-  registerCredentials = { email: '', password: '' };
+  registerCredentials = {email: '', password: ''};
   userCode: string = "";
   password: string = "";
-
+  user: User;
   hasLoginPermission = false;
 
   constructor(private nav: NavController,
-    private util: UtilProvider,
-    private alertCtrl: AlertController,
-    private userProvider: UserProvider,
-    private loadingCtrl: LoadingController,
-    private logger: LoggerProvider,
-    private loginProvider: LoginProvider) { }
+              private util: UtilProvider,
+              private alertCtrl: AlertController,
+              private userProvider: UserProvider,
+              private loadingCtrl: LoadingController,
+              private logger: LoggerProvider,
+              private loginProvider: LoginProvider) {
+    this.user = new User();
+  }
 
   async  login() {
     this.showLoading();
@@ -42,9 +45,9 @@ export class LoginPage {
     let token = await this.loginProvider.login(this.userCode, this.password);
     this.logger.log("Username: " + this.userCode + " Password: " + this.password);
 
-    let user = await this.userProvider.getUser(this.userCode, this.password);
-    this.hasLoginPermission = user != null ? true : false
-    this.logger.dir(user);
+    this.user = await this.userProvider.getUser(this.userCode, this.password);
+    this.hasLoginPermission = this.user != null;
+    this.logger.dir(this.user);
     this.route();
   }
 

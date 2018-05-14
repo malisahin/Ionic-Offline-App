@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { DatabaseProvider } from '../database/database';
 import { BaseDao } from '../base-dao/base-dao';
 import { UrunAnaGrup } from '../../entities/urunAnaGrup';
-import { resolveRendererType2 } from '@angular/core/src/view/util';
 import { Constants } from '../../entities/Constants';
 import { UtilProvider } from '../util/util';
 import { LoggerProvider } from "../logger/logger";

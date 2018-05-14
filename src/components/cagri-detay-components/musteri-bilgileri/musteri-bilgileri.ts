@@ -7,7 +7,7 @@ import {Component} from '@angular/core';
 import {Hizmet} from '../../../entities/hizmet/hizmet';
 import {HizmetService} from '../../../providers/hizmet-service/hizmet-service';
 import {Sehir} from "../../../entities/Sehir";
-import {Ilce} from "../../../entities/ilce";
+import {Ilce} from "../../../entities/Ilce";
 import {Mahalle} from "../../../entities/mahalle";
 
 @Component({

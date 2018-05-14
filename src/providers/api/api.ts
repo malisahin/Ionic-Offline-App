@@ -6,11 +6,9 @@ import { Injectable } from "@angular/core";
 import { Profil } from "../../entities/profil";
 import { EProfiles } from "../../entities/enums/eProfil";
 import { Tablo } from "../../entities/Tablo";
-import { VersiyonProvider } from "../versiyon/versiyon";
-import { ETable } from "../../entities/enums/ETable";
-import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Constants } from "../../entities/Constants";
-import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
+import { TokenProvider } from "../token/token";
 
 
 @Injectable()
@@ -31,8 +29,8 @@ export class ApiProvider {
   first = 0;
   tables: Tablo;
 
-  constructor(public http: HttpClient,
-    private versiyonProvider: VersiyonProvider) {
+  constructor(private http: HttpClient,
+    private token: TokenProvider) {
     this.constants = new Constants();
     this.pageSize = this.constants.API_PAGE_SIZE;
     console.log('Hello ApiProvider Provider');
@@ -97,9 +95,9 @@ export class ApiProvider {
   fiyatlarDownloadUrl(first: number, tip: string) {
     let versiyon = "-1";
     if (tip == "malzemeFiyatListesi") {
-      let versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.MALZEME_FIYAT);
+      versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.MALZEME_FIYAT);
     } else {
-      let versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.ISCILIK_FIYAT);
+      versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.ISCILIK_FIYAT);
     }
     versiyon = versiyon == null ? "-1" : versiyon;
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/' + tip;
@@ -125,16 +123,16 @@ export class ApiProvider {
   getMahalleTnmUrl(first: number) {
     let versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.MAHALLE_TNM);
     versiyon = versiyon == null ? "-1" : versiyon;
-    return this.urlPrefixOffline + versiyon + '/' + first + this.pageSize + '/mahalleler';
+    return this.urlPrefixOffline + versiyon + '/' + first + "/" + this.pageSize + '/mahalleler';
   }
 
   getSehirIlceUrl(tip: string) {
     let versiyon = "-1";
     if (tip == this.constants.DATA_TYPE.SEHIR_TNM) {
-      let versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.SEHIR_TNM);
+      versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.SEHIR_TNM);
       tip = 'sehirler';
     } else if (tip == this.constants.DATA_TYPE.ILCE_TNM) {
-      let versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.ISCILIK_FIYAT);
+      versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.ISCILIK_FIYAT);
       tip = 'ilceler';
     }
     versiyon = versiyon == null ? "-1" : versiyon;
@@ -142,12 +140,11 @@ export class ApiProvider {
   }
 
 
-
-  getHeader(): HttpHeaders {
-    let headers = new HttpHeaders({
+  async getHeader() {
+    await this.token.getTokenInside();
+    return new HttpHeaders({
       'Content-Type': 'application/json',
       'accessToken': localStorage.getItem("accessToken")
     });
-    return headers;
   }
 }

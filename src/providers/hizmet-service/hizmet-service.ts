@@ -3,11 +3,9 @@
  * @email mehmetalisahinogullari@gmail.com
  */
 
-import { Injectable } from "@angular/core";
-import { Hizmet } from "../../entities/hizmet/hizmet";
-import { HizmetDao } from "../hizmet-dao/hizmet-dao";
-import { Observable } from "rxjs/Observable";
-import { HizmetProvider } from "../hizmet/hizmet";
+import {Injectable} from "@angular/core";
+import {Hizmet} from "../../entities/hizmet/hizmet";
+import {HizmetDao} from "../hizmet-dao/hizmet-dao";
 
 
 @Injectable()
@@ -15,7 +13,7 @@ export class HizmetService {
 
   hizmet: Hizmet;
 
-  constructor(private hizmetDao: HizmetDao, private hizmetProvider: HizmetProvider) {
+  constructor(private hizmetDao: HizmetDao) {
     console.log('Hello HizmetServiceProvider Provider');
 
   }

@@ -1,11 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
 import { DatabaseProvider } from '../database/database';
 import { IslemArizaIscilik } from '../../entities/islem-ariza-iscilik';
 import { UtilProvider } from '../util/util';
 import { LoggerProvider } from '../logger/logger';
 import { Pageable } from '../../entities/Pageable';
-import { Page } from 'ionic-angular/navigation/nav-util';
 import { BaseDao } from '../base-dao/base-dao';
 import { Constants } from '../../entities/Constants';
 

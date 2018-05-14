@@ -20,13 +20,13 @@ export class AdresDao {
     this.constants = new Constants();
   }
 
-  insertSehirList(list: Sehir[]) {
+  insertSehirList(list: Sehir[]): Promise<any> {
     let response: any;
     let insertedItems = 0;
     return new Promise((resolve, reject) => {
       this.dbProvider.transaction().then(db => {
         db.transaction(function (tx) {
-          let query = "INSERT OR REPLACE INTO SEHIR_TNM(sehirKodu, sehirAdi)";
+          let query = "INSERT OR REPLACE INTO SEHIR_TNM(sehirKodu, sehirAdi) VALUES (?,?)";
           for (let item of list) {
             let params = [item.sehirKodu, item.sehirAdi];
             tx.executeSql(query, params, function (tx, res) {
@@ -44,13 +44,13 @@ export class AdresDao {
     });
   }
 
-  InsertIlceList(list: Ilce[]) {
+  insertIlceList(list: Ilce[]): Promise<any> {
     let response: any;
     let insertedItems = 0;
     return new Promise((resolve, reject) => {
       this.dbProvider.transaction().then(db => {
         db.transaction(function (tx) {
-          let query = "INSERT OR REPLACE INTO ILCE_TNM(sehirKodu, ilceKodu, ilceAdi)";
+          let query = "INSERT OR REPLACE INTO ILCE_TNM(sehirKodu, ilceKodu, ilceAdi) VALUES(?,?,?)";
           for (let item of list) {
             let params = [item.sehirKodu, item.ilceKodu, item.ilceAdi];
             tx.executeSql(query, params, function (tx, res) {
@@ -74,7 +74,7 @@ export class AdresDao {
     return new Promise((resolve, reject) => {
       this.dbProvider.transaction().then(db => {
         db.transaction(function (tx) {
-          let query = "INSERT OR REPLACE INTO MAHALLE_TNM(sehirKodu, ilceKodu, mahalleAdi, mahalleKodu)";
+          let query = "INSERT OR REPLACE INTO MAHALLE_TNM(sehirKodu, ilceKodu, mahalleAdi, mahalleKodu) VALUES(?,?,?,?)";
           for (let item of list) {
             let params = [item.sehirKodu, item.ilceKodu, item.mahalleAdi, item.mahalleKodu];
             tx.executeSql(query, params, function (tx, res) {

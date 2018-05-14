@@ -4,7 +4,6 @@
  */
 import { Injectable } from "@angular/core";
 import { DatabaseProvider } from "../database/database";
-import { SQLiteObject } from "@ionic-native/sqlite";
 
 
 @Injectable()

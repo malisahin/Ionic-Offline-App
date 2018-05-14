@@ -3,33 +3,31 @@
  * @since 2018/04/25
  */
 
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { ApiProvider } from '../api/api';
-import { Observable } from 'rxjs/Observable';
-import { UserDao } from '../user-dao/user-dao';
-import { LoggerProvider } from '../logger/logger';
-import { UtilProvider } from '../util/util';
-import { User } from '../../entities/user';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {ApiProvider} from '../api/api';
+import {UserDao} from '../user-dao/user-dao';
+import {LoggerProvider} from '../logger/logger';
+import {UtilProvider} from '../util/util';
+import {User} from '../../entities/user';
 
 @Injectable()
 export class UserProvider {
 
   user: User;
+
   constructor(public http: HttpClient,
-    private logger: LoggerProvider,
-    private util: UtilProvider,
-    private api: ApiProvider,
-    private userDao: UserDao) {
+              private logger: LoggerProvider,
+              private util: UtilProvider,
+              private api: ApiProvider,
+              private userDao: UserDao) {
     this.user = new User();
   }
 
-  getDataFromApi(): Promise<any> {
+  async getDataFromApi(): Promise<any> {
     let url = this.api.getKullaniciUrl();
-    let header = this.api.getHeader();
-    return this.http.get(url, { headers: header }).toPromise().then(
-
-    );
+    let header = await this.api.getHeader();
+    return this.http.get(url, {headers: header}).toPromise();
   }
 
   async getUser(userCode: string, password: string): Promise<User> {
@@ -38,6 +36,7 @@ export class UserProvider {
     this.user.userCode = userCode;
     if (this.util.isOnline()) {
       let userApi = await this.getDataFromApi();
+      userApi.message.password = password;
       this.user = this.user.fillUser(userApi);
       await this.userDao.insertOne(this.user);
       return await this.getDataFromDB();

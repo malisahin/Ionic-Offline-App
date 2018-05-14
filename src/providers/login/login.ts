@@ -3,7 +3,6 @@
  * @since 2018/04/25
 */
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { TokenProvider } from '../token/token';
 import { UserProvider } from '../user/user';
 import { User } from '../../entities/user';

@@ -2,7 +2,6 @@
 import { Injectable } from '@angular/core';
 import { Versiyon } from '../../entities/Versiyon';
 import { BaseDao } from '../base-dao/base-dao';
-import { ETable } from '../../entities/enums/ETable';
 
 
 @Injectable()

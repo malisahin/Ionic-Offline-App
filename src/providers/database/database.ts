@@ -1,9 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Platform } from "ionic-angular/platform/platform";
-import { Observable } from "rxjs/Observable";
 import { Constants } from "../../entities/Constants";
 import { UtilProvider } from "../util/util";
-//import { SqlitePlugin} from "cordova-plugin-sqlite-2";
 declare let window: any;
 
 @Injectable()

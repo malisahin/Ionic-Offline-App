@@ -21,9 +21,9 @@ export class GarantiSorguProvider {
   }
 
 
-  fetchDataFromApi(data: GarantiSorgu) {
+  async  fetchDataFromApi(data: GarantiSorgu) {
     let url = this.api.garantiSorguUrl();
-    let header = this.api.getHeader();
+    let header = await this.api.getHeader();
     return this.http.post(url, data, { headers: header }).subscribe(res => {
 
       console.log(res);

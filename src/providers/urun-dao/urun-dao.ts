@@ -1,4 +1,3 @@
-import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {BaseDao} from '../base-dao/base-dao';
 import {Urun} from '../../entities/urun';

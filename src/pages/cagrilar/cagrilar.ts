@@ -28,7 +28,6 @@ export class CagrilarPage {
     private cagriProvider: HizmetProvider,
     private hizmetService: HizmetService,
     private token: TokenProvider) {
-    let tokenUrl = this.token.getTokenInside();
   }
 
   ionViewDidLoad() {

@@ -4,7 +4,6 @@
 */
 import { Injectable } from '@angular/core';
 import { BaseDao } from '../base-dao/base-dao';
-import { Observable } from 'rxjs/Observable';
 import { Fiyat } from '../../entities/fiyat';
 import { DatabaseProvider } from '../database/database';
 import { UtilProvider } from '../util/util';

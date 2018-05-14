@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UrunIscilik } from '../../entities/urun-iscilik';
 import { DatabaseProvider } from '../database/database';

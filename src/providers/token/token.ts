@@ -2,11 +2,10 @@
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-import {HttpHeaders, HttpClient} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {ApiProvider} from '../api/api';
 import {Token} from '../../entities/token'
-import {Observable} from 'rxjs/Observable';
 import {Network} from '@ionic-native/network';
 import {LoggerProvider} from '../logger/logger';
 import {Platform} from 'ionic-angular';
@@ -18,8 +17,8 @@ export class TokenProvider {
   results: string;
   user: User;
 
-  userCode: String;
-  password: String;
+  userCode: string;
+  password: string;
 
   constructor(public http: HttpClient,
               public api: ApiProvider,
@@ -54,7 +53,6 @@ export class TokenProvider {
   }
 
   getTokenInside(): Promise<any> {
-
     return this.getToken(this.userCode, this.password);
   }
 
