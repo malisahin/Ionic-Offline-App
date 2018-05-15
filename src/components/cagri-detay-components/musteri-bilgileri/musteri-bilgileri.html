@@ -26,15 +26,19 @@
 
   <ion-item>
     <ion-label color="primary" floating>Şehir</ion-label>
-    <ion-select [(ngModel)]="hizmet.sehir" >
-      <ion-option *ngFor="let sehir of sehirler" [value]="sehir.sehirKod">{{sehir.sehirKodu}} - {{sehir.sehirAdi}}</ion-option>
+    <ion-select [(ngModel)]="hizmet.sehirKod" (ionChange)="getIlceList(sehir)">
+      <ion-option *ngFor="let sehir of sehirler" [value]="sehir.sehirKodu">
+        {{sehir.sehirKodu}} - {{sehir.sehirAdi}}
+      </ion-option>
     </ion-select>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>İlçe</ion-label>
-    <ion-select [(ngModel)]="hizmet.ilceKod" >
-      <ion-option *ngFor="let ilce of ilceler" [value]="ilce.ilceKod">{{ilce.ilceKodu}} - {{ilce.ilceAdi}}</ion-option>
+    <ion-select [(ngModel)]="hizmet.ilceKod" (ionChange)="getMahalleList(ilce)">
+      <ion-option *ngFor="let ilce of ilceler" [value]="ilce.ilceKodu">
+        {{ilce.ilceKodu}} - {{ilce.ilceAdi}}
+      </ion-option>
     </ion-select>
   </ion-item>
 
@@ -45,8 +49,10 @@
 
   <ion-item>
     <ion-label color="primary" floating>Mahalle</ion-label>
-    <ion-select [(ngModel)]="hizmet.mahalle" >
-      <ion-option *ngFor="let mahalle of mahalleler" [value]="mahalle.mahalleKodu">{{mahalle.mahalleKodu}} - {{mahalle.mahalleAdi}}</ion-option>
+    <ion-select [(ngModel)]="hizmet.mahalle">
+      <ion-option *ngFor="let mahalle of mahalleler" [value]="mahalle.mahalleKodu">{{mahalle.mahalleKodu}} -
+        {{mahalle.mahalleAdi}}
+      </ion-option>
     </ion-select>
   </ion-item>
 

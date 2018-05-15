@@ -32,6 +32,7 @@ export class TokenProvider {
 
     this.userCode = localStorage.getItem(this.user.keys.userCode);
     this.password = localStorage.getItem(this.user.keys.password);
+    this.getTokenInside();
   }
 
   async getToken(userCode: string, password: string): Promise<any> {
@@ -52,7 +53,7 @@ export class TokenProvider {
     }
   }
 
-  getTokenInside(): Promise<any> {
+   getTokenInside(): Promise<any> {
     return this.getToken(this.userCode, this.password);
   }
 

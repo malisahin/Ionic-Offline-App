@@ -2,13 +2,12 @@
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-import { Injectable } from "@angular/core";
-import { Profil } from "../../entities/profil";
-import { EProfiles } from "../../entities/enums/eProfil";
-import { Tablo } from "../../entities/Tablo";
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Constants } from "../../entities/Constants";
-import { TokenProvider } from "../token/token";
+import {Injectable} from "@angular/core";
+import {Profil} from "../../entities/profil";
+import {EProfiles} from "../../entities/enums/eProfil";
+import {Tablo} from "../../entities/Tablo";
+import { HttpHeaders} from '@angular/common/http';
+import {Constants} from "../../entities/Constants";
 
 
 @Injectable()
@@ -29,8 +28,7 @@ export class ApiProvider {
   first = 0;
   tables: Tablo;
 
-  constructor(private http: HttpClient,
-    private token: TokenProvider) {
+  constructor() {
     this.constants = new Constants();
     this.pageSize = this.constants.API_PAGE_SIZE;
     console.log('Hello ApiProvider Provider');
@@ -140,11 +138,13 @@ export class ApiProvider {
   }
 
 
-  async getHeader() {
-    await this.token.getTokenInside();
-    return new HttpHeaders({
-      'Content-Type': 'application/json',
-      'accessToken': localStorage.getItem("accessToken")
+  getHeader(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      let header = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'accessToken': localStorage.getItem("accessToken")
+      });
+      resolve(header);
     });
   }
 }

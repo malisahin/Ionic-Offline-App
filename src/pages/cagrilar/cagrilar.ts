@@ -26,8 +26,7 @@ export class CagrilarPage {
     public navParams: NavParams,
     private modalController: ModalController,
     private cagriProvider: HizmetProvider,
-    private hizmetService: HizmetService,
-    private token: TokenProvider) {
+    private hizmetService: HizmetService) {
   }
 
   ionViewDidLoad() {

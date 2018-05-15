@@ -95,17 +95,17 @@ export class AdresDao {
 
   getIlceList(sehirKodu: string): Promise<any> {
     let query = "SELECT * FROM ILCE_TNM WHERE sehirKodu = ?";
-    let params = [sehirKodu]
+    let params = [sehirKodu];
     return this.baseDao.execute(query, params);
   }
 
   getSehirList(): Promise<any> {
-    let query = "SELECT sehirKodu,sehirAdi FROM SEHIR_TNM GROUP BY sehirKodu, sehirAdi"
+    let query = "SELECT sehirKodu,sehirAdi FROM SEHIR_TNM GROUP BY sehirKodu, sehirAdi";
     return this.baseDao.execute(query, []);
   }
 
   getMahalleList(ilceKodu: string): Promise<any> {
-    let query = "SELECT * FROM MAHALLE_TNM  WHERE ilceKodu = ? "
+    let query = "SELECT * FROM MAHALLE_TNM  WHERE ilceKodu = ? ";
     let params = [ilceKodu];
     return this.baseDao.execute(query, params);
   }

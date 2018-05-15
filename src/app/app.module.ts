@@ -118,7 +118,8 @@ import { Network } from "@ionic-native/network";
     GarantiSonucComponent,
     GarantiSorguComponent,
     HizmetDetayComponent,
-    DetayPiySearchComponent
+    DetayPiySearchComponent,
+
 
   ],
   providers: [
@@ -130,7 +131,6 @@ import { Network } from "@ionic-native/network";
     //{ provide: SQLitePorter, useClass: SQLitePorterMock },
     AuthService,
     LoginProvider,
-    TokenProvider,
     TokenProvider,
     ApiProvider,
     DatabaseProvider,
@@ -168,5 +168,9 @@ import { Network } from "@ionic-native/network";
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {
+
+  constructor(t:TokenProvider) {
+    console.log(t)
+  }
 }
 
