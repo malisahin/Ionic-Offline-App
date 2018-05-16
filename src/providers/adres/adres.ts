@@ -12,6 +12,7 @@ import {LoggerProvider} from '../logger/logger';
 import {Sehir} from "../../entities/Sehir";
 import {Ilce} from "../../entities/Ilce";
 import {Mahalle} from "../../entities/mahalle";
+import {TokenProvider} from "../token/token";
 
 
 @Injectable()
@@ -21,6 +22,7 @@ export class AdresProvider {
 
   constructor(public http: HttpClient,
               private api: ApiProvider,
+              private token: TokenProvider,
               private adresDao: AdresDao,
               private logger: LoggerProvider) {
 
@@ -30,7 +32,7 @@ export class AdresProvider {
 
   async downloadSehirData(): Promise<any> {
     let url = this.api.getSehirIlceUrl(this.constants.DATA_TYPE.SEHIR_TNM);
-    let header = this.api.getHeader();
+    let header = await this.token.callTokenAndGetHeader();
     let apiData = await this.http.get(url, {headers: header}).toPromise();
     let sehirList = this.fillSehirList(apiData);
     this.logger.dir(apiData);
@@ -39,7 +41,7 @@ export class AdresProvider {
 
   async downloadIlceData(): Promise<any> {
     let url = this.api.getSehirIlceUrl(this.constants.DATA_TYPE.ILCE_TNM);
-    let header = this.api.getHeader();
+    let header = await this.token.callTokenAndGetHeader();
     let apiData = await this.http.get(url, {headers: header}).toPromise();
     let ilceList = this.fillIlceList(apiData);
     return this.adresDao.insertIlceList(ilceList);
@@ -47,7 +49,7 @@ export class AdresProvider {
 
   async downloadMahalleData(first: number): Promise<any> {
     let url = this.api.getMahalleTnmUrl(first);
-    let header = this.api.getHeader();
+    let header = await this.token.callTokenAndGetHeader();
     let apiData = await this.http.get(url, {headers: header}).toPromise();
     let mahalleList = this.fillMahalleList(apiData);
     return this.adresDao.insertMahalleList(mahalleList);

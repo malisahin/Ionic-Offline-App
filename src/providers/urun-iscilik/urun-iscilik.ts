@@ -10,6 +10,7 @@ import "rxjs/add/operator/map";
 import {UrunIscilik} from "../../entities/urun-iscilik";
 import {Constants} from '../../entities/Constants';
 import {UrunIscilikDao} from '../urun-iscilik-dao/urun-iscilik-dao';
+import {TokenProvider} from "../token/token";
 
 
 @Injectable()
@@ -20,30 +21,31 @@ export class UrunIscilikProvider {
 
   constructor(public http: HttpClient,
               private api: ApiProvider,
-              private urunIscilikDao: UrunIscilikDao,) {
+              private urunIscilikDao: UrunIscilikDao,
+              private token: TokenProvider) {
     console.log('Hello UrunIscilikProvider Provider');
     this.constants = new Constants();
   }
 
 
-  downloadUrunIscilik(first: number): Promise<any> {
+  async downloadUrunIscilik(first: number): Promise<any> {
+
+    let item = await this.getDataFromApi(first);
+    let urunIscilik = new UrunIscilik();
+    let list = await urunIscilik.fillUrunIscilik(item);
     return new Promise((resolve, reject) => {
-      this.getDataFromApi(first).then(item => {
-        let urunIscilik = new UrunIscilik();
-        urunIscilik.fillUrunIscilik(item).then(list => {
-          this.urunIscilikDao.insertList(list).then(count => {
-            console.log(count);
-            resolve(this.constants.STATUS.SUCCESS);
-          });
+        this.urunIscilikDao.insertList(list).then(count => {
+          console.log(count);
+          resolve(this.constants.STATUS.SUCCESS);
         });
-      })
-    });
+      }
+    );
   }
 
-  async getDataFromApi(first: number): Promise<any> {
+  async  getDataFromApi(first: number): Promise < any > {
     let url = this.api.urunIscilikDownloadUrl(first);
-    let header = this.api.getHeader();
-    return this.http.get(url, {headers: header});
+    let header = await this.token.callTokenAndGetHeader();
+    return this.http.get(url, {headers: header}).toPromise();
   }
 
 }

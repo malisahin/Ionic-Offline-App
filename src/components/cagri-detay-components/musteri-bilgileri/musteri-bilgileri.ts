@@ -40,6 +40,24 @@ export class MusteriBilgileriComponent {
     this.getMahalleList(this.hizmet.ilceKod);
   }
 
+  ionViewWillLeave() {
+    this.hizmetService.saveAndFetchHizmet();
+  }
+
+  ionViewDidLeave() {
+    this.logger.log("ionViewDidLeave");
+    this.hizmetService.saveAndFetchHizmet();
+  }
+
+  ionViewWillUnload() {
+    this.logger.log("ionViewWillUnload");
+  }
+
+
+  ionViewCanLeave() {
+    this.logger.log("ionViewCanLeave");
+  }
+
   async getSehirList() {
     await this.adresDao.getSehirList().then(res => {
       for (let i = 0; i < res.rows.length; i++) {
@@ -59,7 +77,7 @@ export class MusteriBilgileriComponent {
   }
 
   async getMahalleList(item: any) {
-    await this.adresDao.getMahalleList(this.hizmet.mahalleKodu).then(res => {
+    await this.adresDao.getMahalleList(this.hizmet.ilceKod).then(res => {
       for (let i = 0; i < res.rows.length; i++) {
         this.mahalleler.push(res.rows.item(i));
       }

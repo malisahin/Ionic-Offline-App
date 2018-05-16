@@ -71,8 +71,10 @@ export class UrunDao {
     let AndOr = searchType == this.constant.SEARCH_TYPE.EXACT ? ' AND ' : ' OR ';
     let searchQuery = [];
 
-    if (this.util.isNotEmpty(item.mamAnagrp))
-      searchQuery.push(this.util.prepareWhereQuery(this.constant.SEARCH_TYPE.EXACT, 'mamAnagrp', item.mamAnagrp));
+    if (this.util.isNotEmpty(item.mamAnagrp)) {
+      query += " AND mamAnagrp='" + item.mamAnagrp + "'";
+      //  searchQuery.push(this.util.prepareWhereQuery(this.constant.SEARCH_TYPE.EXACT, 'mamAnagrp', item.mamAnagrp));
+    }
 
     if (this.util.isNotEmpty(item.mamKod))
       searchQuery.push(this.util.prepareWhereQuery(searchType, 'mamKod', item.mamKod));

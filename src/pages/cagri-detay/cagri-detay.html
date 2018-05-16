@@ -11,23 +11,23 @@
   <ion-toolbar no-border-top>
     <ion-segment [(ngModel)]="activePage">
 
-      <ion-segment-button value="hizmet">
+      <ion-segment-button value="hizmet" (ionSelect)="whenTabChange()">
         Hizmet Bilgileri
       </ion-segment-button>
 
-      <ion-segment-button value="musteri">
+      <ion-segment-button value="musteri" (ionSelect)="whenTabChange()">
         Müşteri Bilgileri
       </ion-segment-button>
 
-      <ion-segment-button value="urun">
+      <ion-segment-button value="urun" (ionSelect)="whenTabChange()">
         Ürün Bilgileri
       </ion-segment-button>
 
-      <ion-segment-button value="servis">
+      <ion-segment-button value="servis" (ionSelect)="whenTabChange()">
         Servis Bilgileri
       </ion-segment-button>
 
-      <ion-segment-button value="detay">
+      <ion-segment-button value="detay" (ionSelect)="whenTabChange()">
         Detaylar
       </ion-segment-button>
 

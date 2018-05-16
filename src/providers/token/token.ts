@@ -11,6 +11,7 @@ import {LoggerProvider} from '../logger/logger';
 import {Platform} from 'ionic-angular';
 import {UtilProvider} from '../util/util';
 import {User} from "../../entities/user";
+import {HttpHeaders} from '@angular/common/http';
 
 @Injectable()
 export class TokenProvider {
@@ -19,6 +20,7 @@ export class TokenProvider {
 
   userCode: string;
   password: string;
+  httpHeader: HttpHeaders;
 
   constructor(public http: HttpClient,
               public api: ApiProvider,
@@ -53,7 +55,7 @@ export class TokenProvider {
     }
   }
 
-   getTokenInside(): Promise<any> {
+  getTokenInside(): Promise<any> {
     return this.getToken(this.userCode, this.password);
   }
 
@@ -74,5 +76,14 @@ export class TokenProvider {
     return token.fillToken(res);
   }
 
+  async callTokenAndGetHeader(): Promise<any> {
+    await  this.getTokenInside();
+    return new Promise((response, reject) => {
+      response(new HttpHeaders({
+        'Content-Type': 'application/json',
+        'accessToken': localStorage.getItem("accessToken")
+      }));
+    });
+  }
 
 }

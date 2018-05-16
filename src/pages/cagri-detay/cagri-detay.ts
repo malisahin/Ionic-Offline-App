@@ -3,11 +3,11 @@
  * @email mehmetalisahinogullari@gmail.com
  */
 
-import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
-import { Hizmet } from "../../entities/hizmet/hizmet";
-import { HizmetProvider } from "../../providers/hizmet/hizmet";
-import { HizmetService } from "../../providers/hizmet-service/hizmet-service";
+import {Component} from "@angular/core";
+import {IonicPage, NavController, NavParams} from "ionic-angular";
+import {Hizmet} from "../../entities/hizmet/hizmet";
+import {HizmetProvider} from "../../providers/hizmet/hizmet";
+import {HizmetService} from "../../providers/hizmet-service/hizmet-service";
 
 
 @IonicPage()
@@ -23,9 +23,9 @@ export class CagriDetayPage {
   hizmet: Hizmet;
 
   constructor(public navCtrl: NavController,
-    private hizmetProvider: HizmetProvider,
-    public navParams: NavParams,
-    private hizmetService: HizmetService) {
+              private hizmetProvider: HizmetProvider,
+              public navParams: NavParams,
+              private hizmetService: HizmetService) {
     console.log("Hello Cagri Detay Page");
     this.hizmet = new Hizmet();
     this.hizmet.seqNo = this.navParams.get('seqNo');
@@ -46,13 +46,9 @@ export class CagriDetayPage {
     this.hizmetService.setHizmet(this.hizmet);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CagriDetayPage');
+  async whenTabChange() {
+    this.hizmet = await this.hizmetService.saveAndFetchHizmet();
   }
 
-  ionViewWillEnter() {
-    console.log('ionViewWillEnter CagriDetayPage');
-    //this.getHizmet();
-  }
 
 }

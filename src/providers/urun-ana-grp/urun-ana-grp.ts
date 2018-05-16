@@ -3,19 +3,21 @@
  * @email mehmetalisahinogullari@gmail.com
  */
 
-import {  HttpClient } from '@angular/common/http';
-import { Injectable } from "@angular/core";
-import { ApiProvider } from "../api/api";
-import { UrunAnaGrup } from "../../entities/urunAnaGrup";
-import { UrunAnaGrupDao } from '../urun-ana-grup-dao/urun-ana-grup-dao';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from "@angular/core";
+import {ApiProvider} from "../api/api";
+import {UrunAnaGrup} from "../../entities/urunAnaGrup";
+import {UrunAnaGrupDao} from '../urun-ana-grup-dao/urun-ana-grup-dao';
+import {TokenProvider} from "../token/token";
 
 
 @Injectable()
 export class UrunAnaGrpProvider {
 
   constructor(public http: HttpClient,
-    private api: ApiProvider,
-    private urunAnaGrupDao: UrunAnaGrupDao) {
+              private api: ApiProvider,
+              private token: TokenProvider,
+              private urunAnaGrupDao: UrunAnaGrupDao) {
     console.log('Hello UrunAnaGrpProvider Provider');
   }
 
@@ -34,11 +36,9 @@ export class UrunAnaGrpProvider {
 
   async getDataFromApi(): Promise<any> {
     let url = this.api.urunAnagrupDownloadUrl();
-    let header = this.api.getHeader();
-    return this.http.get(url, { headers: header }).toPromise();
+    let header = await this.token.callTokenAndGetHeader();
+    return this.http.get(url, {headers: header}).toPromise();
   }
-
-
 
 
 }

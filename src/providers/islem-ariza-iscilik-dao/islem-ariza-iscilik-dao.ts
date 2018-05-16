@@ -1,23 +1,22 @@
-
-import { Injectable } from '@angular/core';
-import { DatabaseProvider } from '../database/database';
-import { IslemArizaIscilik } from '../../entities/islem-ariza-iscilik';
-import { UtilProvider } from '../util/util';
-import { LoggerProvider } from '../logger/logger';
-import { Pageable } from '../../entities/Pageable';
-import { BaseDao } from '../base-dao/base-dao';
-import { Constants } from '../../entities/Constants';
+import {Injectable} from '@angular/core';
+import {DatabaseProvider} from '../database/database';
+import {IslemArizaIscilik} from '../../entities/islem-ariza-iscilik';
+import {UtilProvider} from '../util/util';
+import {LoggerProvider} from '../logger/logger';
+import {Pageable} from '../../entities/Pageable';
+import {BaseDao} from '../base-dao/base-dao';
+import {Constants} from '../../entities/Constants';
 
 
 @Injectable()
 export class IslemArizaIscilikDao {
 
   constants: Constants;
+
   constructor(public dbProvider: DatabaseProvider,
-    private util: UtilProvider,
-    private logger: LoggerProvider,
-    private baseDao: BaseDao
-  ) {
+              private util: UtilProvider,
+              private logger: LoggerProvider,
+              private baseDao: BaseDao) {
     this.constants = new Constants();
     console.log('Hello IslemArizaIscilikDaoProvider Provider');
   }
@@ -65,9 +64,9 @@ export class IslemArizaIscilikDao {
 
   getArizaGrupPage(item: IslemArizaIscilik, searchText: string): Promise<any> {
     let query = "SELECT arizaGrp,arizaGrpAdi FROM OFF_ISC_ISLARZGRP_TNM " +
-      "WHERE mamAnaGrp = '" + item.mamAnaGrp + "' and islemGrp = '" + item.islGrp + "' and durum='AKTIF' AND ( "
-    query += " arizaGrp like '%" + searchText + "%'"
-    query += " OR arizaGrpAdi like '%" + searchText + "%'"
+      "WHERE mamAnaGrp = '" + item.mamAnaGrp + "' and islemGrp = '" + item.islGrp + "' and durum='AKTIF' AND ( ";
+    query += " arizaGrp like '%" + searchText + "%'";
+    query += " OR arizaGrpAdi like '%" + searchText + "%'";
     query += ') GROUP BY arizaGrp,arizaGrpAdi';
     return this.baseDao.execute(query, []);
     // return this.baseDao.getList(query, "arizaGrp", item, searchType, pageAble.first, pageAble.pageSize, true);
@@ -76,11 +75,11 @@ export class IslemArizaIscilikDao {
   getPIYKoduPage(item: IslemArizaIscilik, mamKod: string, searchText: string): Promise<any> {
     let query = "SELECT t.*,i.iscAdi FROM OFF_ISC_ISLARZGRP_TNM t, OFF_MAM_TNM mam, OFF_MAM_ISC_TNM i WHERE t.mamAnaGrp = mam.mamAnaGrp" +
       " and mam.mamKod = i.mamKod and t.iscKod = i.iscKod and mam.mamKod =  '" + mamKod + "'";
-    query += ' and islemGrp = "' + item.islGrp + '" ';
+    query += " and islemGrp = '" + item.islGrp + "'";
 
-    query += ' and arizaGrp = "' + item.arzGrp + '" '
+    query += " and arizaGrp = '" + item.arzGrp + "'";
 
-    query += " AND ( t.iscKod like '%" + searchText + "%' OR i.iscAdi like '%" + searchText + "%')"
+    query += " AND ( t.iscKod like '%" + searchText + "%' OR i.iscAdi like '%" + searchText + "%')";
 
     return this.baseDao.execute(query, []);
 

@@ -20,24 +20,22 @@ export class UrunMalzemeProvider {
     this.constants = new Constants();
   }
 
-  downloadUrunMalzeme(first): Promise<any> {
+  async downloadUrunMalzeme(first): Promise<any> {
+
+    let data = await this.getDataFromApi(first);
+    let urunMalzeme = new UrunMalzeme();
+    let list = await urunMalzeme.fillUrunMalzeme(data);
     return new Promise((resolve, reject) => {
-      this.getDataFromApi(first).then(data => {
-        let urunMalzeme = new UrunMalzeme();
-        urunMalzeme.fillUrunMalzeme(data).then(list => {
-          this.urunMalzemeDao.insertList(list).then(res => {
-            resolve(res);
-          });
-        });
+      this.urunMalzemeDao.insertList(list).then(res => {
+        resolve(res);
       });
     });
   }
 
   async getDataFromApi(first: number): Promise<any> {
     let url = this.api.urunMalzemeDownloadUrl(first);
-    await  this.token.getTokenInside();
-    let header = this.api.getHeader();
-    return this.http.get(url, {headers: header});
+    let header = await this.token.callTokenAndGetHeader();
+    return this.http.get(url, {headers: header}).toPromise();
   }
 
 

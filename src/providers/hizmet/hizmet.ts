@@ -33,8 +33,7 @@ export class HizmetProvider {
 
   async fetchDataFromApi(): Promise<any> {
     let url = this.api.getCagriListUrl();
-    await this.token.getTokenInside();
-    let header = this.api.getHeader();
+    let header = await this.token.callTokenAndGetHeader();
     return new Promise((resolve, reject) => {
       this.http.get(url, {headers: header}).toPromise().then(res => {
         resolve(res);

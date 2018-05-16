@@ -39,4 +39,10 @@ export class HizmetService {
     return this.hizmetDao.updateHizmet(this.hizmet);
   }
 
+  async saveAndFetchHizmet(): Promise<any> {
+    await this.saveHizmet();
+    let list = await this.fetchHizmet(this.hizmet);
+    return new Promise((res, rej) => res(list.rows.item(0)))
+  }
+
 }

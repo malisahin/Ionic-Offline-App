@@ -20,14 +20,12 @@ export class IslemArizaIscilikProvider {
   }
 
   async downloadIslemArizaIscilik(first: number): Promise<any> {
+    let data = await      this.getDataFromApi(first);
+    let islemArizaIscilik = new IslemArizaIscilik();
+    let item = await islemArizaIscilik.fillIslemArizaIscilik(data);
     return new Promise((resolve, reject) => {
-      this.getDataFromApi(first).then(data => {
-        let islemArizaIscilik = new IslemArizaIscilik();
-        islemArizaIscilik.fillIslemArizaIscilik(data).then(item => {
-          this.islemArizaIscilikDao.insertList(item).then(res => {
-            resolve(res);
-          });
-        });
+      this.islemArizaIscilikDao.insertList(item).then(res => {
+        resolve(res);
       });
     });
   }
@@ -35,8 +33,7 @@ export class IslemArizaIscilikProvider {
 
   async  getDataFromApi(first): Promise<any> {
     let url = this.api.islemArizaIscilikDownloadUrl(first);
-    await this.tokenProvider.getTokenInside();
-    let header = this.api.getHeader();
-    return this.http.get(url, {headers: header});
+    let header = await this.tokenProvider.callTokenAndGetHeader();
+    return this.http.get(url, {headers: header}).toPromise();
   }
 }

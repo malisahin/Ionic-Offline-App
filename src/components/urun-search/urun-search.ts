@@ -55,7 +55,7 @@ export class UrunSearchComponent {
 
   fetchUrunList() {
     let urunSearch = this.prepareSearchUrun();
-    this.urunDao.getList(urunSearch, this.searchType, this.pageable.first, this.pageable.pageSize).then(data => {
+    this.urunDao.getList(urunSearch, this.constants.SEARCH_TYPE.LIKE, this.pageable.first, this.pageable.pageSize).then(data => {
       this.fillList(data);
     });
 

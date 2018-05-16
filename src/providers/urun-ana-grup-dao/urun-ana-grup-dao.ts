@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import { DatabaseProvider } from '../database/database';
-import { BaseDao } from '../base-dao/base-dao';
-import { UrunAnaGrup } from '../../entities/urunAnaGrup';
-import { Constants } from '../../entities/Constants';
-import { UtilProvider } from '../util/util';
-import { LoggerProvider } from "../logger/logger";
+import {Injectable} from '@angular/core';
+import {DatabaseProvider} from '../database/database';
+import {BaseDao} from '../base-dao/base-dao';
+import {UrunAnaGrup} from '../../entities/urunAnaGrup';
+import {Constants} from '../../entities/Constants';
+import {UtilProvider} from '../util/util';
+import {LoggerProvider} from "../logger/logger";
 
 @Injectable()
 export class UrunAnaGrupDao {
@@ -12,8 +12,8 @@ export class UrunAnaGrupDao {
   constant: Constants;
 
   constructor(private dbProvider: DatabaseProvider, private util: UtilProvider,
-    private logger: LoggerProvider,
-    private baseDao: BaseDao) {
+              private logger: LoggerProvider,
+              private baseDao: BaseDao) {
     this.constant = new Constants();
   }
 
@@ -58,34 +58,28 @@ export class UrunAnaGrupDao {
   }
 
   prepareQuery(item: UrunAnaGrup, searchType: string): string {
-    let query = "SELECT * from OFF_MAM_ANAGRP_TNM WHERE tip = '" + item.tip + "'";
+    let query = "SELECT * FROM OFF_MAM_ANAGRP_TNM WHERE tip = '" + item.tip + "'";
     let AndOr = searchType == this.constant.SEARCH_TYPE.EXACT ? ' AND ' : ' OR ';
 
-    let searchQuery = [];
+    let whereQuery = [];
     if (this.util.isNotEmpty(item.ad)) {
-      searchQuery.push(this.util.prepareWhereQuery(searchType, 'ad', item.ad));
+      whereQuery.push(this.util.prepareWhereQuery(searchType, 'ad', item.ad));
     }
     if (this.util.isNotEmpty(item.basvuruNeden)) {
-      searchQuery.push(this.util.prepareWhereQuery(searchType, 'basvuruNeden', item.basvuruNeden));
+      whereQuery.push(this.util.prepareWhereQuery(searchType, 'basvuruNeden', item.basvuruNeden));
     }
     if (this.util.isNotEmpty(item.mamAnaGrp)) {
-      searchQuery.push(this.util.prepareWhereQuery(searchType, 'mamAnaGrp', item.mamAnaGrp));
+      whereQuery.push(this.util.prepareWhereQuery(searchType, 'mamAnaGrp', item.mamAnaGrp));
     }
     if (this.util.isNotEmpty(item.kod)) {
-      searchQuery.push(this.util.prepareWhereQuery(searchType, 'kod', item.kod));
+      whereQuery.push(this.util.prepareWhereQuery(searchType, 'kod', item.kod));
     }
     if (this.util.isNotEmpty(item.durum)) {
-      searchQuery.push(this.util.prepareWhereQuery(searchType, 'durum', item.durum));
+      whereQuery.push(this.util.prepareWhereQuery(searchType, 'durum', item.durum));
     }
 
-    //return key + " LIKE '%" + value.split('').join('%') + "%'";
-    if (searchQuery.length > 0) {
-      query += " AND (";
-      query += searchQuery.join(AndOr);
-      query += ")"
-    }
     console.warn("Ürün Ana Grup Sorgu " + query);
-    return query;
+    return this.util.prepareQuery(query, whereQuery, searchType);
   }
 
 }
