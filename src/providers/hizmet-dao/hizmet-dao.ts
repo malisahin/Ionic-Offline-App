@@ -55,6 +55,10 @@ export class HizmetDao {
     return this.baseDao.execute(query, []);
   }
 
+  findWithQuery(query: string): Promise<Hizmet[]> {
+    return this.baseDao.execute(query, []);
+  }
+
   async isHizmetExist(seqNo: string): Promise<boolean> {
     let hizmet: Hizmet = new Hizmet();
     hizmet.seqNo = seqNo;

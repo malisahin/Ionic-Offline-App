@@ -22,6 +22,10 @@ export class HizmetService {
     return this.hizmetDao.find(hizmet);
   }
 
+  fetchHizmetWithQuery(query: string): Promise<any> {
+    return this.hizmetDao.findWithQuery(query);
+  }
+
 
   deleteHizmetList(): Promise<any> {
     return this.hizmetDao.deleteList();
