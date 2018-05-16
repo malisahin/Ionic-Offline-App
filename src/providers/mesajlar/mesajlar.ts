@@ -39,7 +39,7 @@ export class MesajlarProvider {
    */
   async downloadMesajlar(): Promise<any> {
     let url = this.api.getMesajlarUrl();
-    let header = await this.api.getHeader();
+    let header = this.api.getHeader();
     /*  return new Observable((observer) => {
      observer.next(this.setAlertFirst);
      observer.next(this.getDataFromApi);
@@ -50,7 +50,7 @@ export class MesajlarProvider {
 
   async getToken(): Promise<any> {
     let url = this.api.getMesajlarUrl();
-    let header = await  this.api.getHeader();
+    let header = this.api.getHeader();
 
     return this.tokenProvider.getTokenInside();
   }

@@ -34,7 +34,7 @@ export class UrunAnaGrpProvider {
 
   async getDataFromApi(): Promise<any> {
     let url = this.api.urunAnagrupDownloadUrl();
-    let header = await this.api.getHeader();
+    let header = this.api.getHeader();
     return this.http.get(url, { headers: header }).toPromise();
   }
 

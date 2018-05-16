@@ -82,11 +82,11 @@ export class GarantiSorguComponent {
     let user = new User();
     sorguData.mamKod = this.urun.mamKod;
     sorguData.satisTarihi = this.faturaTarihi.toString();
-    sorguData.orgKod = "ECA"  //user.getOrgKod();
+    sorguData.orgKod = "ECA";  //user.getOrgKod();
     sorguData.mamSeriNo = this.barkodNo;
     sorguData.islemTarihi = this.faturaTarihi.toString(); // new Date().toString();
-    sorguData.serKod = "ECA_TEST"//user.getSerKod();
-    sorguData.dilKod = "T"//user.getDilKod();
+    sorguData.serKod = "ECA_TEST"; //user.getSerKod();
+    sorguData.dilKod = "T"; //user.getDilKod();
     this.garantiSorguProvider.fetchDataFromApi(sorguData);
   }
 

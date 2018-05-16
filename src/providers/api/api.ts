@@ -6,9 +6,8 @@ import {Injectable} from "@angular/core";
 import {Profil} from "../../entities/profil";
 import {EProfiles} from "../../entities/enums/eProfil";
 import {Tablo} from "../../entities/Tablo";
-import { HttpHeaders} from '@angular/common/http';
+import {HttpHeaders} from '@angular/common/http';
 import {Constants} from "../../entities/Constants";
-
 
 @Injectable()
 export class ApiProvider {
@@ -138,13 +137,10 @@ export class ApiProvider {
   }
 
 
-  getHeader(): Promise<any> {
-    return new Promise((resolve, reject) => {
-      let header = new HttpHeaders({
-        'Content-Type': 'application/json',
-        'accessToken': localStorage.getItem("accessToken")
-      });
-      resolve(header);
+  getHeader() {
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      'accessToken': localStorage.getItem("accessToken")
     });
   }
 }

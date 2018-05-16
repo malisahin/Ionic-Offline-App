@@ -42,7 +42,7 @@ export class UrunIscilikProvider {
 
   async getDataFromApi(first: number): Promise<any> {
     let url = this.api.urunIscilikDownloadUrl(first);
-    let header = await this.api.getHeader();
+    let header = this.api.getHeader();
     return this.http.get(url, {headers: header});
   }
 

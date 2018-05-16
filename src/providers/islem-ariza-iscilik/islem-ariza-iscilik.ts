@@ -19,8 +19,7 @@ export class IslemArizaIscilikProvider {
     console.log('Hello IslemArizaIscilikProvider Provider');
   }
 
-  downloadIslemArizaIscilik(first: number): Promise<any> {
-    let header = this.api.getHeader();
+  async downloadIslemArizaIscilik(first: number): Promise<any> {
     return new Promise((resolve, reject) => {
       this.getDataFromApi(first).then(data => {
         let islemArizaIscilik = new IslemArizaIscilik();
@@ -36,7 +35,8 @@ export class IslemArizaIscilikProvider {
 
   async  getDataFromApi(first): Promise<any> {
     let url = this.api.islemArizaIscilikDownloadUrl(first);
-    let header = await this.api.getHeader();
+    await this.tokenProvider.getTokenInside();
+    let header = this.api.getHeader();
     return this.http.get(url, {headers: header});
   }
 }

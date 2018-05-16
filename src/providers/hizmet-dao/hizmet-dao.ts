@@ -2,9 +2,10 @@
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-import { Injectable } from "@angular/core";
-import { BaseDao } from "../base-dao/base-dao";
-import { Hizmet } from "../../entities/hizmet/hizmet";
+import {Injectable} from "@angular/core";
+import {BaseDao} from "../base-dao/base-dao";
+import {Hizmet} from "../../entities/hizmet/hizmet";
+import {LoggerProvider} from "../logger/logger";
 
 @Injectable()
 export class HizmetDao {
@@ -16,7 +17,7 @@ export class HizmetDao {
 
   insertedRow: number = 0;
 
-  constructor(private baseDao: BaseDao) {
+  constructor(private baseDao: BaseDao, private  logger: LoggerProvider) {
     console.log('Hello HizmetDaoProvider Provider');
   }
 
@@ -32,23 +33,34 @@ export class HizmetDao {
     });
   }
 
-  insertOne(hizmet: Hizmet): Promise<any> {
+  async insertOne(hizmet: Hizmet): Promise<any> {
     let hizmetObject: string = JSON.stringify(hizmet);
-    let params = [hizmet.seqNo, hizmet.randevuTarihi, hizmet.hizmetTipiAdi, hizmet.mamAnaGrpAdi, hizmet.basvuruNedeni,
-    hizmet.durum, hizmet.adi, hizmet.soyadi, hizmet.firmaUnvani, hizmet.evTel, hizmet.isTel, hizmet.gsmNo, hizmetObject];
-    return this.baseDao.execute(this.INSERT_QUERY, params);
+    let isHizmetExist = await this.isHizmetExist(hizmet.seqNo);
+    if (!isHizmetExist) {
+      let params = [hizmet.seqNo, hizmet.randevuTarihi, hizmet.hizmetTipiAdi, hizmet.mamAnaGrpAdi, hizmet.basvuruNedeni,
+        hizmet.durum, hizmet.adi, hizmet.soyadi, hizmet.firmaUnvani, hizmet.evTel, hizmet.isTel, hizmet.gsmNo, hizmetObject];
+      return this.baseDao.execute(this.INSERT_QUERY, params);
+    }
   }
 
   updateHizmet(hizmet: Hizmet) {
     let hizmetObject: string = JSON.stringify(hizmet);
     let params = [hizmet.seqNo, hizmet.randevuTarihi, hizmet.hizmetTipiAdi, hizmet.mamAnaGrpAdi, hizmet.basvuruNedeni,
-    hizmet.durum, hizmet.adi, hizmet.soyadi, hizmet.firmaUnvani, hizmet.evTel, hizmet.isTel, hizmet.gsmNo, hizmetObject, hizmet.seqNo];
+      hizmet.durum, hizmet.adi, hizmet.soyadi, hizmet.firmaUnvani, hizmet.evTel, hizmet.isTel, hizmet.gsmNo, hizmetObject, hizmet.seqNo];
     return this.baseDao.execute(this.UPDATE_QUERY, params);
   }
 
   find(item: Hizmet): Promise<Hizmet[]> {
     let query = this.prepareSelectQuery(item);
     return this.baseDao.execute(query, []);
+  }
+
+  async isHizmetExist(seqNo: string): Promise<boolean> {
+    let hizmet: Hizmet = new Hizmet();
+    hizmet.seqNo = seqNo;
+    let res = await this.baseDao.execute(this.prepareSelectQuery(hizmet), []);
+    this.logger.dir(res);
+    return res.rows.length > 0;
   }
 
   prepareSelectQuery(item: Hizmet): string {
@@ -95,7 +107,7 @@ export class HizmetDao {
     return query;
   }
 
-  deleteList(): Promise<any> {
+  deleteList(): Promise < any > {
     return this.baseDao.execute(this.DELETE_QUERY, []);
   }
 

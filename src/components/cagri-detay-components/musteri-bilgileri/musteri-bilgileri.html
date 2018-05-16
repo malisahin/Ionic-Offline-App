@@ -49,7 +49,7 @@
 
   <ion-item>
     <ion-label color="primary" floating>Mahalle</ion-label>
-    <ion-select [(ngModel)]="hizmet.mahalle">
+    <ion-select [(ngModel)]="hizmet.mahalleKodu">
       <ion-option *ngFor="let mahalle of mahalleler" [value]="mahalle.mahalleKodu">{{mahalle.mahalleKodu}} -
         {{mahalle.mahalleAdi}}
       </ion-option>

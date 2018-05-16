@@ -33,7 +33,8 @@ export class HizmetProvider {
 
   async fetchDataFromApi(): Promise<any> {
     let url = this.api.getCagriListUrl();
-    let header = await this.api.getHeader();
+    await this.token.getTokenInside();
+    let header = this.api.getHeader();
     return new Promise((resolve, reject) => {
       this.http.get(url, {headers: header}).toPromise().then(res => {
         resolve(res);
@@ -93,6 +94,7 @@ export class HizmetProvider {
     item.islemTarihi = obj.islemTarihi;
     item.kapatmaKodu = obj.kapatmaKodu;
     item.mahalle = obj.mahalle;
+    item.mahalleKodu = obj.mahalleKodu;
     item.mamAdi = obj.mamAdi;
     item.mamAnaGrp = obj.mamAnaGrp;
     item.mamAnaGrpAdi = obj.mamAnaGrpAdi;

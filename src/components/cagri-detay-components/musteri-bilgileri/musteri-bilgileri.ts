@@ -59,7 +59,7 @@ export class MusteriBilgileriComponent {
   }
 
   async getMahalleList(item: any) {
-    await this.adresDao.getMahalleList(this.hizmet.mahalle).then(res => {
+    await this.adresDao.getMahalleList(this.hizmet.mahalleKodu).then(res => {
       for (let i = 0; i < res.rows.length; i++) {
         this.mahalleler.push(res.rows.item(i));
       }

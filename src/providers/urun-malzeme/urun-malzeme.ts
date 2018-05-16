@@ -4,6 +4,7 @@ import {ApiProvider} from '../api/api';
 import {UrunMalzeme} from '../../entities/urun-malzeme';
 import {UrunMalzemeDao} from '../urun-malzeme-dao/urun-malzeme-dao';
 import {Constants} from '../../entities/Constants';
+import {TokenProvider} from "../token/token";
 
 
 @Injectable()
@@ -13,6 +14,7 @@ export class UrunMalzemeProvider {
 
   constructor(public http: HttpClient,
               private urunMalzemeDao: UrunMalzemeDao,
+              private token: TokenProvider,
               private api: ApiProvider) {
     console.log('Hello UrunMalzemeProvider Provider');
     this.constants = new Constants();
@@ -33,7 +35,8 @@ export class UrunMalzemeProvider {
 
   async getDataFromApi(first: number): Promise<any> {
     let url = this.api.urunMalzemeDownloadUrl(first);
-    let header = await this.api.getHeader();
+    await  this.token.getTokenInside();
+    let header = this.api.getHeader();
     return this.http.get(url, {headers: header});
   }
 
