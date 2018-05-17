@@ -9,7 +9,7 @@ export class IslemList {
    bekleKaynak: string;
    beklemeNeden: string;
    bitTar: Date;
-   durum: string;
-   islSira: String;
+   durum: string = "BASLA";
+   islSira: string;
    seqNo;
 }

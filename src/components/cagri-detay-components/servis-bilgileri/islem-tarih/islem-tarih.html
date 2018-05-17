@@ -30,7 +30,7 @@
 
   <ion-item *ngIf="hizmet.islemTarihi != null && hizmet.islemBitTarihi == null">
     <ion-label>Bekleme Nedeni</ion-label>
-    <ion-select [(ngModel)]="beklemeNedeni" interface="popover">
+    <ion-select [(ngModel)]="beklemeNedeni" interface="popover" (ionChange)="checkStatus()">
       <ion-option value="SERVIS" selected="true">Servis</ion-option>
       <ion-option value="MUSTERI">Müşteri</ion-option>
       <ion-option value="BAYI">Bayi</ion-option>
@@ -39,7 +39,7 @@
 
   <ion-item *ngIf="hizmet.islemTarihi != null && hizmet.islemBitTarihi == null">
     <ion-label>Bekleme Kaynağı</ion-label>
-    <ion-select [(ngModel)]="beklemeKaynagi" interface="popover">
+    <ion-select [(ngModel)]="beklemeKaynagi" interface="popover" (ionChange)="checkStatus()">
       <ion-option value="SERVIS" selected="true">Servis</ion-option>
       <ion-option value="MUSTERI">Müşteri</ion-option>
       <ion-option value="BAYI">Bayi</ion-option>
@@ -47,8 +47,17 @@
   </ion-item>
 
 
-  <ion-item>
-    <button ion-button primary round full>İşlem Başlat</button>
+  <ion-item *ngIf="sonIslem.durum == 'BASLA'">
+    <button ion-button primary round full (click)="islemBaslat()">İşlem Başlat</button>
   </ion-item>
+
+  <ion-item *ngIf="sonIslem.durum == 'BEKLE'">
+    <button ion-button primary round full (click)="islemBeklet()">Bekleme Başlat</button>
+  </ion-item>
+
+  <ion-item *ngIf="sonIslem.durum == 'BITIR' && sonIslem.bitTar != null">
+    <button ion-button primary round full (click)="islemBitir()">Bitir</button>
+  </ion-item>
+
 
 </ion-list>
