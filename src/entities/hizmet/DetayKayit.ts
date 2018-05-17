@@ -9,7 +9,7 @@ export class DetayKayit {
 
   aciklama: string;
   arizaKod: string;
-
+  birimFiyat: number;
   garFiyat: string;
   garTutar: string;
   islemKod: string;

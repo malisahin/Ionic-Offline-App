@@ -83,8 +83,6 @@ export class DetayPiySearchComponent {
     this.filter.mamAnaGrp = this.hizmet.mamAnaGrp;
     this.filter.islGrp = this.util.isNotEmpty(this.data.filter.islemKod) ? this.data.filter.islemKod : "";
     this.filter.arzGrp = this.util.isNotEmpty(this.data.filter.arizaKod) ? this.data.filter.arizaKod : "";
-    this.searchText = "";
-
   }
 
   fillList(data: any) {

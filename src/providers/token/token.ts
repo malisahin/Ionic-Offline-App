@@ -56,6 +56,8 @@ export class TokenProvider {
   }
 
   getTokenInside(): Promise<any> {
+    this.userCode = localStorage.getItem(this.user.keys.userCode);
+    this.password = localStorage.getItem(this.user.keys.password);
     return this.getToken(this.userCode, this.password);
   }
 

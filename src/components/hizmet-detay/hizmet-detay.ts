@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
-import { DetayKayit } from "../../entities/hizmet/DetayKayit";
-import { ViewController, NavParams, ModalController } from "ionic-angular";
-import { UtilProvider } from '../../providers/util/util';
-import { LoggerProvider } from '../../providers/logger/logger';
-import { Constants } from '../../entities/Constants';
-import { DetayPiySearchComponent } from '../detay-piy-search/detay-piy-search';
-import { FiyatDao } from '../../providers/fiyat-dao/fiyat-dao';
-import { Fiyat } from '../../entities/fiyat';
-import { HizmetService } from '../../providers/hizmet-service/hizmet-service';
-import { Hizmet } from '../../entities/hizmet/hizmet';
+import {Component} from '@angular/core';
+import {DetayKayit} from "../../entities/hizmet/DetayKayit";
+import {ViewController, NavParams, ModalController} from "ionic-angular";
+import {UtilProvider} from '../../providers/util/util';
+import {LoggerProvider} from '../../providers/logger/logger';
+import {Constants} from '../../entities/Constants';
+import {DetayPiySearchComponent} from '../detay-piy-search/detay-piy-search';
+import {FiyatDao} from '../../providers/fiyat-dao/fiyat-dao';
+import {Fiyat} from '../../entities/fiyat';
+import {HizmetService} from '../../providers/hizmet-service/hizmet-service';
+import {Hizmet} from '../../entities/hizmet/hizmet';
 
 
 @Component({
@@ -29,13 +29,14 @@ export class HizmetDetayComponent {
   detayTutari: Fiyat;
   hizmet: Hizmet;
   islemTipi: string = "";
+
   constructor(private viewCtrl: ViewController,
-    private params: NavParams,
-    private modalController: ModalController,
-    private util: UtilProvider,
-    private logger: LoggerProvider,
-    private fiyatDao: FiyatDao,
-    private hizmetService: HizmetService) {
+              private params: NavParams,
+              private modalController: ModalController,
+              private util: UtilProvider,
+              private logger: LoggerProvider,
+              private fiyatDao: FiyatDao,
+              private hizmetService: HizmetService) {
 
     this.hizmet = this.hizmetService.getHizmet();
     this.hizmetDetay = new DetayKayit();
@@ -53,8 +54,11 @@ export class HizmetDetayComponent {
   async detayKaydet() {
 
     if (this.util.isEmpty(this.hizmetDetay.satirNo)) {
-      this.hizmet.detayList[0].push(this.hizmetDetay);
-      this.satirNoBelirle();
+      await this.fiyatBul();
+      if (this.util.isNotEmpty(this.hizmetDetay.tutar)) {
+        this.hizmet.detayList[0].push(this.hizmetDetay);
+        this.satirNoBelirle();
+      }
     }
     else {
       this.hizmet.detayList[0].filter(det => {
@@ -80,7 +84,13 @@ export class HizmetDetayComponent {
       this.detayTutari.mamKod = this.hizmet.mamKod;
       this.detayTutari.iscMlzKod = this.hizmetDetay.mlzIscKod;
       let fiyatRes = await this.fiyatDao.findfiyat(this.detayTutari);
-      this.hizmetDetay.tutar = this.hizmetDetay.miktar * fiyatRes.fiyat;
+      if (fiyatRes.rows.length > 0) {
+        this.hizmetDetay.birimFiyat = fiyatRes.rows.item(0).fiyat;
+        this.hizmetDetay.garFiyat = fiyatRes.rows.item(0).gdfiyat;
+        this.hizmetDetay.tutar = this.hizmetDetay.miktar * this.hizmetDetay.birimFiyat;
+      } else {
+        this.util.message("Fiyat Bulunamadı");
+      }
     }
     else
       this.hizmetDetay.tutar = this.hizmetDetay.miktar * this.birimfiyat;
@@ -116,8 +126,6 @@ export class HizmetDetayComponent {
     });
     piyModal.present();
   }
-
-
 
 
   closeModal() {
