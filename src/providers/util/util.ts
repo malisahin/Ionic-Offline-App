@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Constants } from '../../entities/Constants';
-import { ToastController } from 'ionic-angular';
+import {Injectable} from '@angular/core';
+import {Constants} from '../../entities/Constants';
+import {ToastController} from 'ionic-angular';
 import moment from 'moment';
 
 
@@ -17,19 +16,11 @@ export class UtilProvider {
   }
 
   isEmpty(item: any): boolean {
-    if (typeof item == 'undefined' || item == null || item == "") {
-      return true;
-    } else {
-      return false;
-    }
+    return (typeof item == 'undefined' || item == null || item == "");
   }
 
   isNotEmpty(item: any): boolean {
-    if (typeof item == 'undefined' || item == null || item == "") {
-      return false;
-    } else {
-      return true;
-    }
+    return !(typeof item == 'undefined' || item == null || item == "")
   }
 
   prepareForLike(key: string, value: string): string {
@@ -58,7 +49,7 @@ export class UtilProvider {
     let toast = this.toast.create({
       message: message,
       duration: 2000,
-      position: 'top'
+      position: 'top',
     });
     toast.present();
   }
@@ -69,7 +60,7 @@ export class UtilProvider {
 
   dateFormatRegex(x, y): string {
     x = new Date(x);
-    var z = {
+    let z = {
       M: x.getMonth() + 1,
       d: x.getDate(),
       h: x.getHours(),
@@ -85,34 +76,24 @@ export class UtilProvider {
     });
   }
 
+  addMinutes(dateStr: Date, addition: number): Date {
+    return new Date(dateStr.setTime(dateStr.getTime() + 1000 * 60 * addition));
+  }
+
   // FIXME: Pluginden alınan bilgiye göre cevap dönecek
   isOnline(): boolean {
     return true;
   }
 
-
-  /**
-   *
-   * @param item  (let key in item)
-   * @param list
-   */
-  isNotUnique(item: any, list: any[]): boolean {
-    for (let o in list) {
-      for (let key in item) {
-
-      }
-    }
-    return false;
-  }
   /*
    for (let key in item) {
-      let value = item[key];
-      if (typeof value != undefined && value != null && value != "" && typeof value != "function" && typeof value != "object" && key != "tip") {
-        value = value.split('').join('%');
-        value = "%" + value + "%";
-        query.push(key + " LIKE '" + value + "'");
-      }
-    }
-  */
+   let value = item[key];
+   if (typeof value != undefined && value != null && value != "" && typeof value != "function" && typeof value != "object" && key != "tip") {
+   value = value.split('').join('%');
+   value = "%" + value + "%";
+   query.push(key + " LIKE '" + value + "'");
+   }
+   }
+   */
 
 }
