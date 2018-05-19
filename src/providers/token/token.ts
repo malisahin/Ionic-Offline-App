@@ -73,7 +73,6 @@ export class TokenProvider {
   }
 
   private extractData(res: {}) {
-    console.log(res);
     let token = new Token();
     return token.fillToken(res);
   }

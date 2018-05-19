@@ -2,7 +2,7 @@
 
   <ion-navbar>
     <button ion-button primary menuToggle>
-      <ion-icon name="list" item-start large ></ion-icon>
+      <ion-icon name="list" item-start large></ion-icon>
     </button>
     <icon-header></icon-header>
     <ion-title class="page-title">Ana Sayfa</ion-title>
@@ -13,11 +13,70 @@
 
 <ion-content padding>
 
+  <ion-grid>
+    <ion-row>
+      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>
+        <ion-card (click)="sayfayaGit('CagrilarPage')">
+          <ion-item>
+            <ion-icon name="list-box" item-start large></ion-icon>
+            Çağrılar
+          </ion-item>
+        </ion-card>
+      </ion-col>
+
+      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>
+        <ion-card (click)="sayfayaGit('BildirimlerPage')">
+          <ion-item>
+            <ion-icon name="notifications" item-start large></ion-icon>
+            Duyurular
+          </ion-item>
+        </ion-card>
+      </ion-col>
+
+      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>
+        <ion-card (click)="sayfayaGit('BildirimlerPage')">
+          <ion-item>
+            <ion-icon name="notifications" item-start large></ion-icon>
+            Uyarılar
+          </ion-item>
+        </ion-card>
+      </ion-col>
+
+      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>
+        <ion-card (click)="sayfayaGit('GuncellemePage')">
+          <ion-item>
+            <ion-icon name="refresh" item-start large></ion-icon>
+            Güncelleme
+          </ion-item>
+        </ion-card>
+      </ion-col>
+
+      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>
+        <ion-card (click)="sayfayaGit('BilgiSorguPage')">
+          <ion-item>
+            <ion-icon name="help" item-start large></ion-icon>
+            Bilgi Sorgu
+          </ion-item>
+        </ion-card>
+      </ion-col>
+
+      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>
+        <ion-card (click)="sayfayaGit('AyarlarPage')">
+          <ion-item>
+            <ion-icon name="settings" item-start large></ion-icon>
+            Ayarlar
+          </ion-item>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+  <!--
   <ion-list>
     <ion-item col-sm-12 col-md-6 col-lg-4 col-xl-4>
       <ion-card (click)="sayfayaGit('CagrilarPage')">
         <ion-item>
-          <ion-icon name="list-box" item-start large ></ion-icon>
+          <ion-icon name="list-box" item-start large></ion-icon>
           Çağrılar
         </ion-item>
       </ion-card>
@@ -26,8 +85,8 @@
     <ion-item col-sm-12 col-md-6 col-lg-4 col-xl-4>
       <ion-card (click)="sayfayaGit('BildirimlerPage')">
         <ion-item>
-          <ion-icon name="notifications" item-start large ></ion-icon>
-        Duyurular
+          <ion-icon name="notifications" item-start large></ion-icon>
+          Duyurular
         </ion-item>
       </ion-card>
     </ion-item>
@@ -35,7 +94,7 @@
     <ion-item col-sm-12 col-md-6 col-lg-4 col-xl-4>
       <ion-card (click)="sayfayaGit('BildirimlerPage')">
         <ion-item>
-          <ion-icon name="notifications" item-start large ></ion-icon>
+          <ion-icon name="notifications" item-start large></ion-icon>
           Uyarılar
         </ion-item>
       </ion-card>
@@ -44,7 +103,7 @@
     <ion-item col-sm-12 col-md-6 col-lg-4 col-xl-4>
       <ion-card (click)="sayfayaGit('GuncellemePage')">
         <ion-item>
-          <ion-icon name="refresh" item-start large ></ion-icon>
+          <ion-icon name="refresh" item-start large></ion-icon>
           Güncelleme
         </ion-item>
       </ion-card>
@@ -53,7 +112,7 @@
     <ion-item col-sm-12 col-md-6 col-lg-4 col-xl-4>
       <ion-card (click)="sayfayaGit('BilgiSorguPage')">
         <ion-item>
-          <ion-icon name="help" item-start large ></ion-icon>
+          <ion-icon name="help" item-start large></ion-icon>
           Bilgi Sorgu
         </ion-item>
       </ion-card>
@@ -62,13 +121,13 @@
     <ion-item col-sm-12 col-md-6 col-lg-4 col-xl-4>
       <ion-card (click)="sayfayaGit('AyarlarPage')">
         <ion-item>
-          <ion-icon name="settings" item-start large ></ion-icon>
+          <ion-icon name="settings" item-start large></ion-icon>
           Ayarlar
         </ion-item>
       </ion-card>
     </ion-item>
 
-  </ion-list>
+  </ion-list>-->
 
 </ion-content>
 
