@@ -22,7 +22,7 @@ export class HeaderComponent {
   constructor(private nav: NavController,
               private alert: AlertController,
               private platform: Platform) {
-    console.log('Hello HeaderComponent Component');
+
   }
 
 

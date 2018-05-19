@@ -26,7 +26,7 @@ export class BaseDao {
   }
 
   execute(query: string, params: any[]): Promise<any> {
-    console.log('query' + query);
+    console.log(query);
     let response: any;
     return new Promise((resolve, reject) => {
       this.DB.transaction().then(db => {

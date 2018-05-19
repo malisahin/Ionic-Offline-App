@@ -5,7 +5,7 @@
       <ion-icon name="list"></ion-icon>
     </button>
     <icon-header></icon-header>
-    <ion-title class="page-title">Bildirimler</ion-title>
+    <ion-title class="page-title">{{mesajBaslik}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,7 +17,7 @@
   <ion-row>
 
     <ion-col col-12 col-sm>
-      <button ion-button id="btnCagriGuncelle" round full cgrGuncelle (click)="guncelle();" color="secondary">
+      <button ion-button  round full (click)="guncelle();" color="secondary">
         Güncelle
       </button>
     </ion-col>

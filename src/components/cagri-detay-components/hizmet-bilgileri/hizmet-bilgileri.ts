@@ -19,7 +19,7 @@ export class HizmetBilgileriComponent {
   text: string;
 
   constructor(public hizmetService: HizmetService) {
-    console.log('Hello HizmetBilgileriComponent Component');
+
     this.text = 'Hello World';
     this.hizmet = this.hizmetService.getHizmet();
     this.getHizmet();

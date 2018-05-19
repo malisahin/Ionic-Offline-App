@@ -18,7 +18,7 @@ export class FiyatProvider {
               private api: ApiProvider,
               private fiyatDao: FiyatDao,
               private  token: TokenProvider) {
-    console.log('Hello FiyatProvider Provider');
+
   }
 
   downloadMalzemeFiyat(first): Promise<any> {

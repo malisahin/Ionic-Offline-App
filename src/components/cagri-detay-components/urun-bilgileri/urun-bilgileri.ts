@@ -31,8 +31,7 @@ export class UrunBilgileriComponent {
               private urunAnaGrpDao: UrunAnaGrupDao,
               private garantiSorguProvider: GarantiSorguProvider,
               private util: UtilProvider) {
-    console.log('Hello UrunBilgileriComponent Component');
-    this.text = 'Hello World';
+
     this.constants = new Constants();
     this.hizmet = this.hizmetService.getHizmet();
     this.findUrunAnaGrp();

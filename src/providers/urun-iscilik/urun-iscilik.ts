@@ -23,7 +23,7 @@ export class UrunIscilikProvider {
               private api: ApiProvider,
               private urunIscilikDao: UrunIscilikDao,
               private token: TokenProvider) {
-    console.log('Hello UrunIscilikProvider Provider');
+
     this.constants = new Constants();
   }
 

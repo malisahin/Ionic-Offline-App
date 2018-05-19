@@ -19,7 +19,7 @@ export class HizmetDao {
   insertedRow: number = 0;
 
   constructor(private baseDao: BaseDao, private  logger: LoggerProvider) {
-    console.log('Hello HizmetDaoProvider Provider');
+
   }
 
   // Listede her bir item kayit edilir ve liste tekrar cagrilir.Cagrilmadan once kayit edilen item listeden silinir.

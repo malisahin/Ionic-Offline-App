@@ -8,7 +8,6 @@ import { BaseDao } from '../base-dao/base-dao';
 export class VersiyonProvider {
 
   constructor(private baseDao: BaseDao) {
-    console.log('Hello VersiyonProvider Provider');
   }
 
   find(tableName: string): Promise<Versiyon[]> {

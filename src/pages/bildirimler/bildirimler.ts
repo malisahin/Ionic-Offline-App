@@ -8,6 +8,7 @@ import {MesajlarProvider} from '../../providers/mesajlar/mesajlar';
 import {Mesaj} from "../../entities/mesajlar";
 import {MesajDetailComponent} from "../../components/mesaj-detail/mesaj-detail";
 import {Pageable} from "../../entities/Pageable";
+import {MesajlarDao} from "../../providers/mesajlar-dao/mesajlar-dao";
 
 @IonicPage()
 @Component({
@@ -16,33 +17,45 @@ import {Pageable} from "../../entities/Pageable";
 })
 export class BildirimlerPage {
 
-  mesajList: Mesaj[];
+  mesajList: Mesaj[] = [];
   searchTip: string = "BEGINNING";
   pageable: Pageable;
+  mesajTip: string;
+  mesajBaslik: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private mesajProvider: MesajlarProvider,
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private mesajProvider: MesajlarProvider,
               private modalController: ModalController) {
-    this.fetchList(this.searchTip);
+    this.mesajTip = this.navParams.data.type;
     this.pageable = new Pageable();
+    this.fetchList(this.searchTip);
+
   }
 
-  async   fetchData() {
-    this.mesajList = await this.mesajProvider.getDataFromApi();
+  async fetchData() {
+    await this.mesajProvider.getDataFromApi();
+    await this.fetchList(this.searchTip);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BildirimlerPage');
+    this.mesajBaslik = this.mesajTip == 'WARN' ? 'Duyurular': 'Uyarılar'
   }
 
-  guncelle() {
+  async guncelle() {
+    await this.fetchData();
 
   }
 
-  fetchList(tip: string) {
-
+  async  fetchList(tip: string) {
+    let mes = new Mesaj();
+    mes.type = this.mesajTip;
+    this.pageable.tip = tip;
+    this.mesajList = await this.mesajProvider.fetchList(mes, this.pageable);
   }
 
-  public mesajDetayinaGit(event, id) {
+  public  mesajDetayinaGit(event, id) {
     let data = {id: id};
     let detailComponent = this.modalController.create(MesajDetailComponent, data);
     detailComponent.present();

@@ -23,8 +23,7 @@ export class ServisIslemTarihceComponent {
 
   constructor(private  hizmetService: HizmetService,
               private    util: UtilProvider) {
-    console.log('Hello ServisIslemTarihceComponent Component');
-    this.text = 'Hello World';
+
     this.hizmet = this.hizmetService.getHizmet();
     this.tarihceList = [];
     this.loadTarihce();

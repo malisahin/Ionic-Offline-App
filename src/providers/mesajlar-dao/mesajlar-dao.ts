@@ -5,6 +5,7 @@ import {DatabaseProvider} from '../database/database';
 import {UtilProvider} from "../util/util";
 import {Constants} from "../../entities/Constants";
 import {BaseDao} from "../base-dao/base-dao";
+import {Pageable} from "../../entities/Pageable";
 
 
 @Injectable()
@@ -28,7 +29,7 @@ export class MesajlarDao {
         db.transaction(function (tx) {
           let query = "INSERT OR REPLACE INTO OFF_ALERT (id, bitisTarihi, aciklama, gonderen, basTarihi, status, subject, type, valid) VALUES (?,?,?,?,?,?,?,?,?)";
           for (let item of list) {
-            let params = [item.id, item.endTime, item.expl, item.gonderen, item.startTime, item.status, item.subject, item.type, item.valid];
+            let params = [item.id, item.bitisTarihi, item.aciklama, item.gonderen, item.basTarihi, item.status, item.subject, item.type, item.valid];
             tx.executeSql(query, params, function (tx, res) {
               insertedItems += 1;
               if (list.length == insertedItems) {
@@ -44,13 +45,13 @@ export class MesajlarDao {
     });
   }
 
-  getList(mesaj: Mesaj): Promise<any> {
+  getList(mesaj: Mesaj, pageable: Pageable): Promise<any> {
     let query = this.prepareSearchQery(mesaj);
-    return this.baseDao.execute(query, []);
+    return this.baseDao.getList(query, "id", "", this.constants.SEARCH_TYPE.EXACT, pageable.first, pageable.pageSize, true);
   }
 
   private prepareSearchQery(mesaj: Mesaj): string {
-    let query = "SELECT * OFF_ALERT WHERE 1=1";
+    let query = "SELECT * FROM OFF_ALERT WHERE 1=1";
 
     if (this.util.isNotEmpty(mesaj.id)) {
       query += " AND id='" + mesaj.id + "' ";
@@ -59,11 +60,6 @@ export class MesajlarDao {
     if (this.util.isNotEmpty(mesaj.type)) {
       query += " AND type='" + mesaj.type + "' ";
     }
-
-    query += " AND new Date(" + mesaj.startTime + ") < DATE('now')";
-
-    query += " AND  DATE('now') < new Date(" + mesaj.endTime + ")";
-
     return query;
   }
 

@@ -21,8 +21,8 @@ export class Anasayfa {
     console.log('ionViewDidLoad Anasayfa');
   }
 
-  sayfayaGit(page) {
-    this.navCtrl.push(page);
+  sayfayaGit(page, param) {
+    this.navCtrl.push(page, param);
   }
 
 }
