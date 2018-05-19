@@ -51,7 +51,8 @@ export class IslemTarihComponent {
     } else if (this.util.isEmpty(this.sonIslem.beklemeNeden)) {
       this.util.message("Bekleme Nedeni boş olamaz.");
     } else {
-      this.sonIslem.bitTar = this.util.dateFormatRegex(this.util.addMinutes(new Date, 1), "dd/MM/yyyy hh:mm");
+      let dt = this.util.dateFormatRegex(this.util.addMinutes(new Date, 1), "dd/MM/yyyy hh:mm");
+      this.sonIslem.bitTar = new Date(dt);
       this.sonIslem.durum = 'BEKLE';
     }
     this.checkStatus();

@@ -99,5 +99,10 @@ export class UrunDao {
     return this.baseDao.getList(query, "mamKod", item, type, first, pageSize, true);
   }
 
+  deleteAll(): Promise<any> {
+    let query = "DELETE FROM OFF_MAM_TNM";
+    return this.baseDao.execute(query, []);
+  }
+
 
 }

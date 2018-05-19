@@ -1,13 +1,13 @@
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
-*/
-import { Injectable } from '@angular/core';
-import { BaseDao } from '../base-dao/base-dao';
-import { Fiyat } from '../../entities/fiyat';
-import { DatabaseProvider } from '../database/database';
-import { UtilProvider } from '../util/util';
-import { Constants } from '../../entities/Constants';
+ */
+import {Injectable} from '@angular/core';
+import {BaseDao} from '../base-dao/base-dao';
+import {Fiyat} from '../../entities/fiyat';
+import {DatabaseProvider} from '../database/database';
+import {UtilProvider} from '../util/util';
+import {Constants} from '../../entities/Constants';
 
 @Injectable()
 export class FiyatDao {
@@ -15,9 +15,10 @@ export class FiyatDao {
   UPDATE_QUERY = "UPDATE OFF_FIYAT SET fiyat = ?,gdfiyat=?, versiyon=? WHERE mamKod=? AND iscMlz = ? and iscMlzKod = ?";
   SELECT_QUERY = "SELECT * FROM OFF_FIYAT WHERE mamKod = ? and iscMlzKod = ?";
   constants: Constants;
+
   constructor(private baseDao: BaseDao,
-    private dbProvider: DatabaseProvider,
-    private util: UtilProvider) {
+              private dbProvider: DatabaseProvider,
+              private util: UtilProvider) {
 
     this.constants = new Constants();
 
@@ -83,21 +84,18 @@ export class FiyatDao {
     return null;
 
   }
-  /**
-   * prepareQuery(item: IslemArizaIscilik, searchType: string): string {
-    let query = "SELECT * FROM OFF_ISC_ISLARZGRP_TNM WHERE 1=1";
-    let whereQuery = [];
 
-    if (this.util.isNotEmpty(item.arzGrp)) {
-      whereQuery.push(this.util.prepareWhereQuery(searchType, 'arzGrp', item.arzGrp));
+  deleteAllByTip(tip: string): Promise<any> {
+
+    let query = " DELETE FROM OFF_FIYAT WHERE 1=1 ";
+
+    if (tip == this.constants.DATA_TYPE.ISCILIK_FIYAT) {
+      query += " AND iscMlz ='ISC'";
+    } else if (tip == this.constants.DATA_TYPE.MALZEME_FIYAT) {
+      query += " AND iscMlz ='MLZ'"
     }
-
-
-    return this.util.prepareQuery(query, whereQuery, searchType);
-
+    this.baseDao.resetVersion(tip);
+    return this.baseDao.execute(query, []);
 
   }
-
-   */
-
 }

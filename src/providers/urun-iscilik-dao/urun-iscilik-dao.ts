@@ -45,4 +45,10 @@ export class UrunIscilikDao {
     return this.baseDao.getList("OFF_MAM_ISC_TNM", "iscKod", item, type, first, pageSize, false);
   }
 
+
+  deleteAll(): Promise<any> {
+    let query = "DELETE FROM OFF_MAM_ISC_TNM ";
+    return this.baseDao.execute(query, []);
+  }
+
 }

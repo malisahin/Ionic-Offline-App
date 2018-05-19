@@ -13,10 +13,12 @@
 
   <ion-row>
     <ion-col col-12 col-sm>
-      <button ion-button id="btnCagriSorgu" round full cgrArama (click)="cagriSorgula();" color="secondary">Sorgula</button>
+      <button ion-button id="btnCagriSorgu" round full cgrArama (click)="cagriSorgula();" color="secondary">Sorgula
+      </button>
     </ion-col>
     <ion-col col-12 col-sm>
-      <button ion-button id="btnCagriGuncelle" round full cgrGuncelle (click)="cagriGuncelle();" color="secondary">Güncelle
+      <button ion-button id="btnCagriGuncelle" round full cgrGuncelle (click)="cagriGuncelle();" color="secondary">
+        Güncelle
       </button>
     </ion-col>
   </ion-row>
@@ -40,3 +42,32 @@
     <p>{{cagri.Adres}}</p>
   </ion-card>
 </ion-content>
+
+
+<ion-footer>
+
+  <ion-toolbar style="display: inline-block;">
+    <button ion-button color="light" (click)="fetchList('FIRST')">
+      <ion-icon name="arrow-dropleft"></ion-icon>
+    </button>
+    <button ion-button color="light" (click)="fetchList('PREVIOUS')">
+      <ion-icon name="arrow-back"></ion-icon>
+    </button>
+
+    <ion-item>
+      <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList('PAGE_NO')" interface="popover">
+        <ion-option value="10" selected="true">10</ion-option>
+        <ion-option value="20">20</ion-option>
+        <ion-option value="50">50</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <button ion-button color="light" (click)="fetchList('NEXT')">
+      <ion-icon name="arrow-forward"></ion-icon>
+    </button>
+    <button ion-button color="light" (click)="fetchList('LAST')">
+      <ion-icon name="arrow-dropright"></ion-icon>
+    </button>
+  </ion-toolbar>
+
+</ion-footer>

@@ -20,6 +20,12 @@ export class UrunMalzemeDao {
     return this.baseDao.execute(INSERT_QUERY, params);
   }
 
+
+  deleteAll(): Promise<any> {
+    let query = "DELETE FROM OFF_MAM_MLZ_TNM ";
+    return this.baseDao.execute(query, []);
+  }
+
   insertList(list: UrunMalzeme[]) {
     let response: any;
     let insertedItems = 0;

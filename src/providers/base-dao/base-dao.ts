@@ -2,15 +2,19 @@
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-import { Injectable } from "@angular/core";
-import { DatabaseProvider } from "../database/database";
+import {Injectable} from "@angular/core";
+import {DatabaseProvider} from "../database/database";
+import {Constants} from "../../entities/Constants";
 
 
 @Injectable()
 export class BaseDao {
 
+  constants: Constants;
+
   constructor(private DB: DatabaseProvider) {
     console.log('Hello BaseDaoProvider Provider');
+    this.constants = new Constants();
   }
 
   findOne() {
@@ -67,7 +71,16 @@ export class BaseDao {
 
   }
 
-  delete() {
+  deleteAll(tableName: string): Promise<any> {
+    let query = "DELETE FROM " + this.constants.TABLE_NAME[tableName];
+    this.resetVersion(tableName);
+    return this.execute(query, []);
+  }
+
+  resetVersion(tableName: string) {
+    let deletedVersion = (-1).toString();
+    localStorage.setItem(this.constants.VERSIYON.CLIENT[tableName], deletedVersion);
+    localStorage.setItem(this.constants.VERSIYON.SERVER[tableName], deletedVersion);
 
   }
 
@@ -104,10 +117,10 @@ export class BaseDao {
    * @param first = Pagination.FIRST
    * @param pageSize = PAGINATION.PAGESIZE
    * @param isQueryReady = tableNameOrQuery bir sorgu  ise burası true olmalı değilse false
-   * @returns {Promise<T>}
+   * @returns {Promise<any>}
    */
   getList(tableNameOrQuery: string, orderBy: string, item: any, type: string, first: number, pageSize: number, isQueryReady: boolean): Promise<any> {
-    let data: any = { res: {}, length: 0 };
+    let data: any = {res: {}, length: 0};
     let query = "";
     let searchQuery = [];
     let AndOr = type == "EXACT" ? " AND " : " OR ";
@@ -140,7 +153,6 @@ export class BaseDao {
         });
       });
     })
-
   }
 }
 

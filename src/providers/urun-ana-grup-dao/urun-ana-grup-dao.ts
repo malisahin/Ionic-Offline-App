@@ -82,4 +82,9 @@ export class UrunAnaGrupDao {
     return this.util.prepareQuery(query, whereQuery, searchType);
   }
 
+  deleteAll(): Promise<any> {
+    let query = "DELETE FROM OFF_MAM_ANAGRP_TNM ";
+    return this.baseDao.execute(query, []);
+  }
+
 }
