@@ -5,10 +5,10 @@
 
 
 export class IslemList {
-  basTar: Date;
+  basTar: string;
   bekleKaynak: string;
   beklemeNeden: string;
-  bitTar: Date;
+  bitTar: string;
   durum: string = "BASLA";
   islSira: number;
   seqNo: string;

@@ -6,6 +6,7 @@ import {Injectable} from "@angular/core";
 import {BaseDao} from "../base-dao/base-dao";
 import {Hizmet} from "../../entities/hizmet/hizmet";
 import {LoggerProvider} from "../logger/logger";
+import {Pageable} from "../../entities/Pageable";
 
 @Injectable()
 export class HizmetDao {
@@ -50,9 +51,13 @@ export class HizmetDao {
     return this.baseDao.execute(this.UPDATE_QUERY, params);
   }
 
-  find(item: Hizmet): Promise<Hizmet[]> {
+  find(item: Hizmet, pageable: Pageable): Promise<Hizmet[]> {
     let query = this.prepareSelectQuery(item);
-    return this.baseDao.execute(query, []);
+    return this.search(query, pageable);
+  }
+
+  search(query: string, pageable: Pageable): Promise<any> {
+    return this.baseDao.getList(query, "seqNo", "", "EXACT", pageable.first, pageable.pageSize, true);
   }
 
   findWithQuery(query: string): Promise<Hizmet[]> {

@@ -10,5 +10,8 @@ import { SharedModule } from '../shared-module/shared-module.module';
   imports: [
     IonicPageModule.forChild(AyarlarPage), SharedModule
   ],
+  exports:[
+   AyarlarPage
+  ]
 })
 export class AyarlarPageModule { }

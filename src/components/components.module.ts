@@ -22,6 +22,7 @@ import { UrunIscilikSearchComponent } from './urun-iscilik-search/urun-iscilik-s
 import { GarantiSonucComponent } from './garanti-sonuc/garanti-sonuc';
 import { HizmetDetayComponent } from './hizmet-detay/hizmet-detay';
 import { DetayPiySearchComponent } from './detay-piy-search/detay-piy-search';
+import { MesajDetailComponent } from './mesaj-detail/mesaj-detail';
 
 @NgModule({
     declarations: [CagrilarComponent,
@@ -42,7 +43,8 @@ import { DetayPiySearchComponent } from './detay-piy-search/detay-piy-search';
         UrunIscilikSearchComponent,
         GarantiSonucComponent,
         HizmetDetayComponent,
-        DetayPiySearchComponent
+        DetayPiySearchComponent,
+    MesajDetailComponent
     ],
     imports: [],
     exports: [
@@ -64,7 +66,8 @@ import { DetayPiySearchComponent } from './detay-piy-search/detay-piy-search';
         UrunIscilikSearchComponent,
         GarantiSonucComponent,
         HizmetDetayComponent,
-        DetayPiySearchComponent
+        DetayPiySearchComponent,
+    MesajDetailComponent
     ]
 })
 export class ComponentsModule { }

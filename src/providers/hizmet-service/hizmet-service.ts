@@ -6,6 +6,9 @@
 import {Injectable} from "@angular/core";
 import {Hizmet} from "../../entities/hizmet/hizmet";
 import {HizmetDao} from "../hizmet-dao/hizmet-dao";
+import {BaseDao} from "../base-dao/base-dao";
+import {UtilProvider} from "../util/util";
+import {Pageable} from "../../entities/Pageable";
 
 
 @Injectable()
@@ -13,17 +16,23 @@ export class HizmetService {
 
   hizmet: Hizmet;
 
-  constructor(private hizmetDao: HizmetDao) {
+  constructor(private hizmetDao: HizmetDao,
+              private  baseDao: BaseDao,
+              private  util: UtilProvider) {
     console.log('Hello HizmetServiceProvider Provider');
 
   }
 
-  fetchHizmet(hizmet: Hizmet): Promise<any> {
-    return this.hizmetDao.find(hizmet);
+  fetchHizmetWithPage(hizmet: Hizmet, pageable: Pageable): Promise<any> {
+    return this.hizmetDao.find(hizmet, pageable);
   }
 
-  fetchHizmetWithQuery(query: string): Promise<any> {
-    return this.hizmetDao.findWithQuery(query);
+  fetchHizmet(hizmet: Hizmet): Promise<any> {
+    return this.hizmetDao.find(hizmet, new Pageable());
+  }
+
+  fetchHizmetWithQuery(query: string, pageable: Pageable): Promise<any> {
+    return this.hizmetDao.search(query, pageable);
   }
 
 

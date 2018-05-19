@@ -1,33 +1,33 @@
-<ion-grid style=" display: inline-block;">
-  <ion-row>
+<ion-grid>
+  <ion-row style=" display: inline-block;">
 
     <div float-left>
       <ion-buttons>
         <button ion-button item-left icon-only (click)="sayfayaGit('CagrilarPage')">
           <ion-icon name="list-box"></ion-icon>
-          12
+          {{cagriSayisi}}
         </button>
 
         <button ion-button icon-only (click)="sayfayaGit('CagrilarPage')">
           <ion-icon name="volume-up"></ion-icon>
-          3
+          {{duyuruSayisi}}
         </button>
 
         <button ion-button icon-only (click)="sayfayaGit('BildirimlerPage')">
           <ion-icon name="notifications"></ion-icon>
-          5
+          {{uyariSayisi}}
         </button>
 
         <button ion-button icon-only (click)="sayfayaGit('GuncellemePage')">
           <ion-icon name="refresh"></ion-icon>
-          5
+          {{guncellemeSayisi}}
         </button>
       </ion-buttons>
     </div>
 
     <div float-right>
       <ion-buttons>
-        <button ion-button icon-only>
+        <button ion-button icon-only (click)="sayfayaGit('Anasayfa')">
           <ion-icon name="home"></ion-icon>
         </button>
 

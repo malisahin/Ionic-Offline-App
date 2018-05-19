@@ -1,14 +1,23 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Mesaj } from '../../entities/mesajlar';
-import { DatabaseProvider } from '../database/database';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Mesaj} from '../../entities/mesajlar';
+import {DatabaseProvider} from '../database/database';
+import {UtilProvider} from "../util/util";
+import {Constants} from "../../entities/Constants";
+import {BaseDao} from "../base-dao/base-dao";
 
 
 @Injectable()
 export class MesajlarDao {
 
-  constructor(public http: HttpClient, private dbProvider: DatabaseProvider) {
+  constants: Constants;
+
+  constructor(public http: HttpClient,
+              private dbProvider: DatabaseProvider,
+              private  util: UtilProvider,
+              private  baseDao: BaseDao) {
     console.log('Hello MesajlarDaoProvider Provider');
+    this.constants = new Constants();
   }
 
   insertList(list: Mesaj[]) {
@@ -34,5 +43,29 @@ export class MesajlarDao {
       });
     });
   }
+
+  getList(mesaj: Mesaj): Promise<any> {
+    let query = this.prepareSearchQery(mesaj);
+    return this.baseDao.execute(query, []);
+  }
+
+  private prepareSearchQery(mesaj: Mesaj): string {
+    let query = "SELECT * OFF_ALERT WHERE 1=1";
+
+    if (this.util.isNotEmpty(mesaj.id)) {
+      query += " AND id='" + mesaj.id + "' ";
+    }
+
+    if (this.util.isNotEmpty(mesaj.type)) {
+      query += " AND type='" + mesaj.type + "' ";
+    }
+
+    query += " AND new Date(" + mesaj.startTime + ") < DATE('now')";
+
+    query += " AND  DATE('now') < new Date(" + mesaj.endTime + ")";
+
+    return query;
+  }
+
 
 }

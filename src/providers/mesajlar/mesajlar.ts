@@ -16,46 +16,6 @@ export class MesajlarProvider {
     console.log('Hello MesajlarProvider Provider');
   }
 
-  /*
-   fillMesajlar(res: any): Mesaj[] {
-   let parsedList = [];
-   let mesajList = res.message;
-   mesajList.forEach(function (item) {
-   let mesaj = new Mesaj();
-   mesaj.status = item.status;
-   mesaj.subject = item.subject;
-   mesaj.endTime = item.endTime;
-   mesaj.startTime = item.endTime;
-   mesaj.valid = item.valid;
-   mesaj.gonderen = item.gonderen;
-   mesaj.expl = item.expl;
-   mesaj.id = item.id;
-   mesaj.type = item.type;
-   parsedList.push(mesaj);
-   console.log(mesaj.type);
-   });
-   return parsedList;
-   }
-   */
-  async downloadMesajlar(): Promise<any> {
-    let url = this.api.getMesajlarUrl();
-    let header = this.api.getHeader();
-    /*  return new Observable((observer) => {
-     observer.next(this.setAlertFirst);
-     observer.next(this.getDataFromApi);
-     observer.next(this.setAlertLast);
-     observer.error();
-     }); */
-  };
-
-  async getToken(): Promise<any> {
-    let url = this.api.getMesajlarUrl();
-    let header = this.api.getHeader();
-
-    return this.tokenProvider.getTokenInside();
-  }
-
-
   setAlertFirst() {
     this.util.message("Token  is Ok");
   }
@@ -64,29 +24,18 @@ export class MesajlarProvider {
     this.util.message("Notifications is Ok");
   }
 
-  getDataFromApi(): Promise<any> {
+  async getDataFromApi(): Promise<any> {
     let url = this.api.getMesajlarUrl();
-    let header = this.api.getHeader();
-    return this.tokenProvider.getTokenInside();
+    let header = await this.tokenProvider.callTokenAndGetHeader();
+    let res = await  this.http.get(url, {headers: header}).toPromise();
+    let mesaj = new Mesaj();
+    let list = await mesaj.fillMesajlar(res);
+    return new Promise((resolve, reject) => {
+      this.mesajDao.insertList(list).then(item => {
+        resolve(item);
+      });
+    })
   }
 
- /*  getDataFromApi2(): Promise<any> {
-    let url = this.api.getMesajlarUrl();
-    let header = this.api.getHeader();
 
-    return new Promise((resolve, reject) => {
-      this.tokenProvider.getTokenInside().then(() => {
-        this.http.get(url, {headers: header}).toPromise().then(res => {
-          let mesaj = new Mesaj();
-          mesaj.fillMesajlar(res).then(list => {
-            this.mesajDao.insertList(list).then(item => {
-              console.dir(item);
-              resolve(item);
-            });
-          });
-        });
-      });
-    });
-
-  }*/
 }

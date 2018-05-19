@@ -34,9 +34,8 @@ export class CagriDetayPage {
 
   getHizmet() {
     return this.hizmetService.fetchHizmet(this.hizmet).then(res => {
-      for (var i = 0; i < res.length; i++) {
-        let data = JSON.parse(res.item(i).data);
-        this.hizmet = data;
+      for (let i = 0; i < res.length; i++) {
+        this.hizmet = JSON.parse(res.item(i).data);
         this.hizmetService.setHizmet(this.hizmet);
       }
     });

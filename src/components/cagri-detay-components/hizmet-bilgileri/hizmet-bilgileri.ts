@@ -6,6 +6,7 @@
 import {Component} from "@angular/core";
 import {Hizmet} from "../../../entities/hizmet/hizmet";
 import {HizmetService} from "../../../providers/hizmet-service/hizmet-service";
+import {Pageable} from "../../../entities/Pageable";
 
 
 @Component({
@@ -32,7 +33,7 @@ export class HizmetBilgileriComponent {
   }
 
   getHizmet() {
-    this.hizmetService.fetchHizmet(this.hizmet).then(res => {
+    this.hizmetService.fetchHizmetWithPage(this.hizmet, new Pageable).then(res => {
       if(res.rows.length > 0) {
         this.hizmet = JSON.parse(res.rows.item(0).data);
         this.hizmetService.setHizmet(this.hizmet)

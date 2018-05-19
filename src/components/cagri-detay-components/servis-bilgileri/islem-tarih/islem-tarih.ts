@@ -51,8 +51,7 @@ export class IslemTarihComponent {
     } else if (this.util.isEmpty(this.sonIslem.beklemeNeden)) {
       this.util.message("Bekleme Nedeni boş olamaz.");
     } else {
-      let dt = this.util.dateFormatRegex(this.util.addMinutes(new Date, 1), "dd/MM/yyyy hh:mm");
-      this.sonIslem.bitTar = new Date(dt);
+      this.sonIslem.bitTar = this.util.dateFormatRegex(this.util.addMinutes(new Date, 1), "dd/MM/yyyy hh:mm");
       this.sonIslem.durum = 'BEKLE';
     }
     this.checkStatus();
@@ -105,7 +104,7 @@ export class IslemTarihComponent {
       });
     }
     this.hizmet.islemList[0] = this.tarihceList;
-    await this.hizmetService.saveHizmet(this.hizmet);
+    await this.hizmetService.saveHizmet();
   }
 }
 

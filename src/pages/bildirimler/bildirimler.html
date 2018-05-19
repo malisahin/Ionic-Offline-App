@@ -13,4 +13,71 @@
 
 <ion-content padding>
 
+
+  <ion-row>
+
+    <ion-col col-12 col-sm>
+      <button ion-button id="btnCagriGuncelle" round full cgrGuncelle (click)="guncelle();" color="secondary">
+        Güncelle
+      </button>
+    </ion-col>
+  </ion-row>
+
+  <ion-card *ngFor="let mesaj of mesajList" (click)="mesajDetayinaGit($event, mesaj.id)">
+    <p>
+      <label>
+        <i class="fas fa-user"></i> <strong> {{mesaj.gonderen}} </strong>
+        <i class="fas fa-envelope"></i> <strong>{{mesaj.subject}} </strong>
+      </label>
+    </p>
+    <p>
+      <label>
+        <i class="fas fa-info"></i> {{mesaj.aciklama}}
+      </label>
+    </p>
+  </ion-card>
 </ion-content>
+
+
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+
+      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>
+        <button ion-button color="light" (click)="fetchList('FIRST')">
+          <ion-icon name="arrow-dropleft"></ion-icon>
+        </button>
+      </ion-col>
+
+      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>
+        <button ion-button color="light" (click)="fetchList('PREVIOUS')">
+          <ion-icon name="arrow-back"></ion-icon>
+        </button>
+      </ion-col>
+
+      <ion-col col-sm-4 col-md-4 col-lg-4 col-xl-4>
+        <ion-item>
+          <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList('PAGE_NO')" interface="popover">
+            <ion-option value="10" selected="true">10</ion-option>
+            <ion-option value="20">20</ion-option>
+            <ion-option value="50">50</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+
+      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>
+        <button ion-button color="light" (click)="fetchList('NEXT')">
+          <ion-icon name="arrow-forward"></ion-icon>
+        </button>
+      </ion-col>
+
+      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>
+        <button ion-button color="light" (click)="fetchList('LAST')">
+          <ion-icon name="arrow-dropright"></ion-icon>
+        </button>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+</ion-footer>

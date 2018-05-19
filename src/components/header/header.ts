@@ -1,10 +1,10 @@
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
-*/
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular/navigation/nav-controller';
-import { AlertController, Platform } from 'ionic-angular';
+ */
+import {Component} from '@angular/core';
+import {NavController} from 'ionic-angular/navigation/nav-controller';
+import {AlertController, Platform} from 'ionic-angular';
 
 
 @Component({
@@ -14,13 +14,15 @@ import { AlertController, Platform } from 'ionic-angular';
 export class HeaderComponent {
 
   text: string;
+  cagriSayisi: number = 0;
+  duyuruSayisi: number = 0;
+  uyariSayisi: number = 0;
+  guncellemeSayisi: number = 10;
 
   constructor(private nav: NavController,
-    private alert: AlertController,
-    private platform: Platform
-  ) {
+              private alert: AlertController,
+              private platform: Platform) {
     console.log('Hello HeaderComponent Component');
-    this.text = 'Hello World';
   }
 
 
@@ -44,7 +46,6 @@ export class HeaderComponent {
     });
     alert.present();
   }
-
 
 
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular/navigation/nav-controller';
 import { NavParams } from 'ionic-angular/navigation/nav-params';
 import { CagrilarComponent } from '../cagrilar/cagrilar';
+import {Anasayfa} from "../../pages/anasayfa/anasayfa";
 
 /**
  * Generated class for the HomeComponent component.
@@ -23,7 +24,7 @@ export class HomeComponent {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
-    this.rootPage = HomeComponent;
+    this.rootPage = Anasayfa;
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 

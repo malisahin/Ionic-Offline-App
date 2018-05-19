@@ -69,6 +69,8 @@ import { DetayPiySearchComponent } from "../components/detay-piy-search/detay-pi
 import { UserProvider } from '../providers/user/user';
 import { UserDao } from '../providers/user-dao/user-dao';
 import { Network } from "@ionic-native/network";
+import {Anasayfa} from "../pages/anasayfa/anasayfa";
+import {AnasayfaPageModule} from "../pages/anasayfa/anasayfa.module";
 
 
 
@@ -77,7 +79,6 @@ import { Network } from "@ionic-native/network";
     MyApp,
     HomeComponent,
     CagrilarComponent,
-    AyarlarPage,
     LoginPage,
     CagriAramaModalPage,
     ListComponent,
@@ -93,7 +94,8 @@ import { Network } from "@ionic-native/network";
     KutuphanePageModule,
     CagriDetayPageModule,
     BilgiSorguPageModule,
-    BildirimlerPageModule
+    BildirimlerPageModule,
+    AnasayfaPageModule
   ],
   exports: [],
   bootstrap: [IonicApp],
@@ -101,7 +103,6 @@ import { Network } from "@ionic-native/network";
     MyApp,
     HomeComponent,
     CagrilarComponent,
-    AyarlarPage,
     BildirimlerPage,
     CagrilarPage,
     GuncellemePage,
@@ -119,8 +120,7 @@ import { Network } from "@ionic-native/network";
     GarantiSorguComponent,
     HizmetDetayComponent,
     DetayPiySearchComponent,
-
-
+    Anasayfa
   ],
   providers: [
     Network,
