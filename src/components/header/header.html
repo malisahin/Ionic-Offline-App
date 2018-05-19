@@ -3,22 +3,22 @@
 
     <div float-left>
       <ion-buttons>
-        <button ion-button item-left icon-only (click)="sayfayaGit('CagrilarPage')">
+        <button ion-button item-left icon-only (click)="sayfayaGit('CagrilarPage',{})">
           <ion-icon name="list-box"></ion-icon>
           {{cagriSayisi}}
         </button>
 
-        <button ion-button icon-only (click)="sayfayaGit('CagrilarPage')">
+        <button ion-button icon-only (click)="sayfayaGit('CagrilarPage',{type:'WARN'})">
           <ion-icon name="volume-up"></ion-icon>
           {{duyuruSayisi}}
         </button>
 
-        <button ion-button icon-only (click)="sayfayaGit('BildirimlerPage')">
+        <button ion-button icon-only (click)="sayfayaGit('BildirimlerPage',{type:'URGENT'})">
           <ion-icon name="notifications"></ion-icon>
           {{uyariSayisi}}
         </button>
 
-        <button ion-button icon-only (click)="sayfayaGit('GuncellemePage')">
+        <button ion-button icon-only (click)="sayfayaGit('GuncellemePage',{})">
           <ion-icon name="refresh"></ion-icon>
           {{guncellemeSayisi}}
         </button>
@@ -27,7 +27,7 @@
 
     <div float-right>
       <ion-buttons>
-        <button ion-button icon-only (click)="sayfayaGit('Anasayfa')">
+        <button ion-button icon-only (click)="sayfayaGit('Anasayfa',{})">
           <ion-icon name="home"></ion-icon>
         </button>
 

@@ -71,6 +71,7 @@ import { UserDao } from '../providers/user-dao/user-dao';
 import { Network } from "@ionic-native/network";
 import {Anasayfa} from "../pages/anasayfa/anasayfa";
 import {AnasayfaPageModule} from "../pages/anasayfa/anasayfa.module";
+import {MesajDetailComponent} from "../components/mesaj-detail/mesaj-detail";
 
 
 
@@ -120,7 +121,8 @@ import {AnasayfaPageModule} from "../pages/anasayfa/anasayfa.module";
     GarantiSorguComponent,
     HizmetDetayComponent,
     DetayPiySearchComponent,
-    Anasayfa
+    Anasayfa,
+    MesajDetailComponent
   ],
   providers: [
     Network,

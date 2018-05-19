@@ -26,8 +26,8 @@ export class HeaderComponent {
   }
 
 
-  sayfayaGit(page) {
-    this.nav.push(page);
+  sayfayaGit(page, param) {
+    this.nav.push(page, param);
   }
 
   closeApplicationConfirm() {
