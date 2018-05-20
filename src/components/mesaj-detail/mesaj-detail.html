@@ -1,18 +1,32 @@
-<ion-list>
-  <ion-item>
-    <ion-label>Gönderen</ion-label>
-    <ion-label>{{mesaj.gonderen}}</ion-label>
-  </ion-item>
+<ion-header>
+  <button ion-button round (click)="closeModal()">Kapat</button>
+  <ion-navbar no-border-bottom>
+  </ion-navbar>
 
-  <ion-item>
-    <ion-label>Konu</ion-label>
-    <ion-label>{{mesaj.subject}}</ion-label>
-  </ion-item>
+</ion-header>
 
-  <ion-card>
-    <ion-card-content>
-      {{mesaj.expl}}
-    </ion-card-content>
-  </ion-card>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Gönderen</ion-label>
+      <ion-label>{{mesaj.gonderen}}</ion-label>
+    </ion-item>
 
-</ion-list>
+    <ion-item>
+      <ion-label>Konu</ion-label>
+      <ion-label>{{mesaj.subject}}</ion-label>
+    </ion-item>
+
+    <ion-card>
+      <ion-card-content>
+        {{mesaj.expl}}
+      </ion-card-content>
+    </ion-card>
+
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+
+
+</ion-footer>

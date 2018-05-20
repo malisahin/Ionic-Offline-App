@@ -54,6 +54,7 @@ export class MesajlarProvider {
         mesaj.subject = item.subject;
         mesaj.type = item.type;
         mesaj.valid = item.valid;
+        mesaj.id = item.id;
         mesajList.push(mesaj);
       }
     }

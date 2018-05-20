@@ -3,6 +3,8 @@ import {Mesaj} from "../../entities/mesajlar";
 import {MesajlarDao} from "../../providers/mesajlar-dao/mesajlar-dao";
 import {UtilProvider} from "../../providers/util/util";
 import {NavParams} from "ionic-angular";
+import {Pageable} from "../../entities/Pageable";
+import {MesajlarProvider} from "../../providers/mesajlar/mesajlar";
 
 @Component({
   selector: 'mesaj-detail',
@@ -14,11 +16,21 @@ export class MesajDetailComponent {
   data: any;
   mesaj: Mesaj;
 
-  constructor(private mesajDao: MesajlarDao, params: NavParams, private  util: UtilProvider) {
-    console.log('Hello MesajDetailComponent Component');
-    this.text = 'Hello World';
-    this.data = params.get('data');
+  constructor(params: NavParams, private  util: UtilProvider, private  mesajProvider: MesajlarProvider) {
+    this.mesaj = new Mesaj();
+    this.data = params.data;
     this.mesaj.id = this.data.id;
+    this.fetchData();
   }
 
+  async fetchData() {
+    let list = await  this.mesajProvider.fetchList(this.mesaj, new Pageable);
+    if (list.length > 0)
+      this.mesaj = list[0];
+
+  }
+
+  closeModal() {
+    this.ionChange({key: '', value: ''});
+  }
 }
