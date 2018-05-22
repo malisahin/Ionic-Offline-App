@@ -45,6 +45,23 @@ export class MesajlarDao {
     });
   }
 
+  loadDuyuruSayisi(): Promise<any> {
+    return this.loadMesajSayisi("WARN");
+  }
+
+  loadUyariSayisi(): Promise<any> {
+    return this.loadMesajSayisi("URGENT");
+  }
+
+  async loadMesajSayisi(type: string): Promise<any> {
+    let mes = new Mesaj();
+    mes.type = type;
+    let result = await this.getList(mes, new Pageable());
+    return new Promise<any>((resolve, reject) => {
+      resolve(result.res.rows.length);
+    });
+  }
+
   getList(mesaj: Mesaj, pageable: Pageable): Promise<any> {
     let query = this.prepareSearchQery(mesaj);
     return this.baseDao.getList(query, "id", "", this.constants.SEARCH_TYPE.EXACT, pageable.first, pageable.pageSize, true);

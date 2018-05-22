@@ -31,6 +31,6 @@ export class MesajDetailComponent {
   }
 
   closeModal() {
-    this.ionChange({key: '', value: ''});
+
   }
 }
