@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {Mesaj} from "../../entities/mesajlar";
 import {MesajlarDao} from "../../providers/mesajlar-dao/mesajlar-dao";
 import {UtilProvider} from "../../providers/util/util";
-import {NavParams} from "ionic-angular";
+import {NavParams, ViewController} from "ionic-angular";
 import {Pageable} from "../../entities/Pageable";
 import {MesajlarProvider} from "../../providers/mesajlar/mesajlar";
 
@@ -16,7 +16,7 @@ export class MesajDetailComponent {
   data: any;
   mesaj: Mesaj;
 
-  constructor(params: NavParams, private  util: UtilProvider, private  mesajProvider: MesajlarProvider) {
+  constructor(params: NavParams, private  viewCtrl: ViewController, private  util: UtilProvider, private  mesajProvider: MesajlarProvider) {
     this.mesaj = new Mesaj();
     this.data = params.data;
     this.mesaj.id = this.data.id;
@@ -31,6 +31,6 @@ export class MesajDetailComponent {
   }
 
   closeModal() {
-
+    this.viewCtrl.dismiss();
   }
 }

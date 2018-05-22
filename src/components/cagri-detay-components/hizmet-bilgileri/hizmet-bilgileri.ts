@@ -33,9 +33,9 @@ export class HizmetBilgileriComponent {
   }
 
   getHizmet() {
-    this.hizmetService.fetchHizmetWithPage(this.hizmet, new Pageable).then(res => {
-      if(res.rows.length > 0) {
-        this.hizmet = JSON.parse(res.rows.item(0).data);
+    this.hizmetService.fetchHizmetWithPage(this.hizmet, new Pageable).then(result => {
+      if(result.res.rows.length > 0) {
+        this.hizmet = JSON.parse(result.res.rows.item(0).data);
         this.hizmetService.setHizmet(this.hizmet)
       }
     });

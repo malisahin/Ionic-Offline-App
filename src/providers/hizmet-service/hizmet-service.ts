@@ -55,7 +55,7 @@ export class HizmetService {
   async saveAndFetchHizmet(): Promise<any> {
     await this.saveHizmet();
     let list = await this.fetchHizmet(this.hizmet);
-    return new Promise((res, rej) => res(list.rows.item(0)))
+    return new Promise((res, rej) => res(list.res.rows.item(0)))
   }
 
 }

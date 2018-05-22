@@ -71,7 +71,7 @@ export class MesajlarDao {
     let query = "SELECT * FROM OFF_ALERT WHERE 1=1";
 
     if (this.util.isNotEmpty(mesaj.id)) {
-      query += " AND id='" + mesaj.id + "' ";
+      query += " AND id=" + mesaj.id + " ";
     }
 
     if (this.util.isNotEmpty(mesaj.type)) {

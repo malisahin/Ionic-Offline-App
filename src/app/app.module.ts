@@ -72,6 +72,7 @@ import { Network } from "@ionic-native/network";
 import {Anasayfa} from "../pages/anasayfa/anasayfa";
 import {AnasayfaPageModule} from "../pages/anasayfa/anasayfa.module";
 import {MesajDetailComponent} from "../components/mesaj-detail/mesaj-detail";
+import { HeaderProvider } from '../providers/header/header';
 
 
 
@@ -165,7 +166,8 @@ import {MesajDetailComponent} from "../components/mesaj-detail/mesaj-detail";
     AdresDao,
     LoggerProvider,
     UserProvider,
-    UserDao
+    UserDao,
+    HeaderProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

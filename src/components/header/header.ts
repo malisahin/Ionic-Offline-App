@@ -10,6 +10,8 @@ import {AlertDao} from "../../dao/alert-dao";
 import {MesajlarDao} from "../../providers/mesajlar-dao/mesajlar-dao";
 import {Mesaj} from "../../entities/mesajlar";
 import {Pageable} from "../../entities/Pageable";
+import {HizmetDao} from "../../providers/hizmet-dao/hizmet-dao";
+import {HeaderProvider} from "../../providers/header/header";
 
 
 @Component({
@@ -29,10 +31,13 @@ export class HeaderComponent {
   constructor(private nav: NavController,
               private alert: AlertController,
               private  mesajDao: MesajlarDao,
-              private platform: Platform) {
+              private  hizmetDao: HizmetDao,
+              private platform: Platform,
+              private  headerProvider: HeaderProvider) {
     this.constants = new Constants();
     this.loadGuncellemeSayisi();
     this.loadMesajSayilari();
+    this.loadHizmetSayisi();
   }
 
 
@@ -41,41 +46,20 @@ export class HeaderComponent {
   }
 
   closeApplicationConfirm() {
-    let alert = this.alert.create({
-      title: "Confirm",
-      message: "Çıkmak istediğinizden emin misiniz?",
-      enableBackdropDismiss: true
-      ,
-      buttons: [{
-        text: "Evet",
-        handler: () => this.platform.exitApp()
-      }, {
-        text: "Hayır",
-        role: 'cancel'
-      }]
-    });
-    alert.present();
+    this.headerProvider.closeApplicationConfirm();
   }
 
   loadGuncellemeSayisi() {
-    let tables: string[] = ['URUN', 'URUN_ANA_GRUP', 'URUN_ISCILIK',
-      'URUN_MALZEME', 'ISLEM_ARIZA_ISCILIK', 'MALZEME_FIYAT',
-      'ISCILIK_FIYAT', 'SEHIR_TNM', 'ILCE_TNM', 'MAHALLE_TNM'];
-
-    for (let i = 0; i < tables.length; i++) {
-      let item = tables[i];
-      let serverVersiyon = localStorage.getItem(this.constants.VERSIYON.SERVER[item]);
-      let clientVersiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT[item]);
-
-      if ((serverVersiyon > clientVersiyon) || clientVersiyon == "-1") {
-        this.guncellemeSayisi -= 1;
-      }
-    }
+   this.guncellemeSayisi =  this.headerProvider.loadGuncellemeSayisi();
   }
 
   async loadMesajSayilari() {
-   this.duyuruSayisi = await  this.mesajDao.loadDuyuruSayisi();
-   this.uyariSayisi = await  this.mesajDao.loadUyariSayisi();
+    this.duyuruSayisi = await  this.mesajDao.loadDuyuruSayisi();
+    this.uyariSayisi = await  this.mesajDao.loadUyariSayisi();
+  }
+
+  async loadHizmetSayisi() {
+    this.cagriSayisi = await this.hizmetDao.findAcikHizmetSayisi();
   }
 
 }

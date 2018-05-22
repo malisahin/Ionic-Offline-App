@@ -120,4 +120,12 @@ export class HizmetDao {
     return this.baseDao.execute(this.DELETE_QUERY, []);
   }
 
+  async findAcikHizmetSayisi(): Promise<any> {
+    let query = "SELECT * FROM OFF_HIZ_MST where durum not in('KAPALI', 'IPTAL')";
+    let result = await this.baseDao.execute(query, []);
+    let count = result.rows.length;
+    return new Promise((resolve, reject) => {
+      resolve(count);
+    })
+  }
 }

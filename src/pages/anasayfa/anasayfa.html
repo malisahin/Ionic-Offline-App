@@ -17,42 +17,94 @@
     <ion-row>
       <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>
         <ion-card (click)="sayfayaGit('CagrilarPage',{})">
-          <ion-item>
-            <ion-icon name="list-box" item-start xlarge></ion-icon>
-            Çağrılar
-          </ion-item>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-icon name="list-box" item-start xlarge></ion-icon>
+                Çağrılar
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <div class="circle">
+                {{cagriSayisi}}
+              </div>
+            </ion-col>
+          </ion-row>
+
         </ion-card>
       </ion-col>
 
       <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>
         <ion-card (click)="sayfayaGit('BildirimlerPage', {type:'WARN'})">
-          <ion-item>
-            <ion-icon name="notifications" item-start xlarge></ion-icon>
-            Duyurular
-          </ion-item>
+          <ion-row>
+
+            <ion-col>
+              <ion-item>
+                <ion-icon name="notifications" item-start xlarge></ion-icon>
+                Duyurular
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <div class="circle">
+                {{duyuruSayisi}}
+              </div>
+            </ion-col>
+
+          </ion-row>
+
         </ion-card>
       </ion-col>
 
       <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>
         <ion-card (click)="sayfayaGit('BildirimlerPage',{type:'URGENT'})">
-          <ion-item>
-            <ion-icon name="notifications" item-start xlarge></ion-icon>
-            Uyarılar
-          </ion-item>
+          <ion-row>
+
+            <ion-col>
+              <ion-item>
+                <ion-icon name="notifications" item-start xlarge></ion-icon>
+                Uyarılar
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <div class="circle">
+                {{uyariSayisi}}
+              </div>
+            </ion-col>
+          </ion-row>
+
         </ion-card>
       </ion-col>
 
       <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>
         <ion-card (click)="sayfayaGit('GuncellemePage',{})">
-          <ion-item>
-            <ion-icon name="refresh" item-start xlarge></ion-icon>
-            Güncelleme
-          </ion-item>
+          <ion-row>
+
+            <ion-col>
+              <ion-item>
+                <ion-icon name="refresh" item-start xlarge></ion-icon>
+                Güncelleme
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <div class="circle">
+                {{guncellemeSayisi}}
+              </div>
+            </ion-col>
+          </ion-row>
+
         </ion-card>
       </ion-col>
 
       <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>
         <ion-card (click)="sayfayaGit('BilgiSorguPage', {})">
+          <ion-row>
+            <ion-col></ion-col>
+            <ion-col></ion-col>
+          </ion-row>
           <ion-item>
             <ion-icon name="help" item-start xlarge></ion-icon>
             Bilgi Sorgu
@@ -62,10 +114,18 @@
 
       <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>
         <ion-card (click)="sayfayaGit('AyarlarPage',{})">
-          <ion-item>
-            <ion-icon name="settings" item-start xlarge></ion-icon>
-            Ayarlar
-          </ion-item>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-icon name="settings" item-start xlarge></ion-icon>
+                Ayarlar
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+
+            </ion-col>
+          </ion-row>
         </ion-card>
       </ion-col>
 
