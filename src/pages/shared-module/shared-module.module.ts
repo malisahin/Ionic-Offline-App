@@ -8,6 +8,7 @@ import { FiyatSorguComponent } from '../../components/fiyat-sorgu/fiyat-sorgu';
 import { UrunAnaGrupSearchComponent } from '../../components/urun-ana-grup-search/urun-ana-grup-search';
 import { UrunSearchComponent } from '../../components/urun-search/urun-search';
 import { UrunIscilikSearchComponent } from '../../components/urun-iscilik-search/urun-iscilik-search';
+import {PrinterComponent} from "../../components/printer/printer";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UrunIscilikSearchComponent } from '../../components/urun-iscilik-search
     FiyatSorguComponent,
     UrunAnaGrupSearchComponent,
     UrunSearchComponent,
-    UrunIscilikSearchComponent
+    UrunIscilikSearchComponent,
+    PrinterComponent
   ],
   imports: [
     IonicPageModule.forChild(HeaderComponent),
@@ -31,7 +33,8 @@ import { UrunIscilikSearchComponent } from '../../components/urun-iscilik-search
     FiyatSorguComponent,
     UrunAnaGrupSearchComponent,
     UrunSearchComponent,
-    UrunIscilikSearchComponent
+    UrunIscilikSearchComponent,
+    PrinterComponent
   ]
 })
 export class SharedModule { }

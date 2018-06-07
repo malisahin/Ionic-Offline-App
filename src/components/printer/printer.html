@@ -1,0 +1,8 @@
+<!-- Generated template for the HizmetBilgileriComponent component -->
+<ion-list inset>
+  <ion-item>
+    <button ion-item *ngFor="let item of list" (click)=" itemSelected(item) ">
+      {{ item.name }} -- {{ item.code }}
+    </button>
+  </ion-item>
+</ion-list>

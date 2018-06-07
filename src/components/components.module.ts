@@ -23,6 +23,7 @@ import { GarantiSonucComponent } from './garanti-sonuc/garanti-sonuc';
 import { HizmetDetayComponent } from './hizmet-detay/hizmet-detay';
 import { DetayPiySearchComponent } from './detay-piy-search/detay-piy-search';
 import { MesajDetailComponent } from './mesaj-detail/mesaj-detail';
+import { PrinterComponent } from './printer/printer';
 
 @NgModule({
     declarations: [CagrilarComponent,
@@ -44,7 +45,8 @@ import { MesajDetailComponent } from './mesaj-detail/mesaj-detail';
         GarantiSonucComponent,
         HizmetDetayComponent,
         DetayPiySearchComponent,
-    MesajDetailComponent
+    MesajDetailComponent,
+    PrinterComponent
     ],
     imports: [],
     exports: [
@@ -67,7 +69,8 @@ import { MesajDetailComponent } from './mesaj-detail/mesaj-detail';
         GarantiSonucComponent,
         HizmetDetayComponent,
         DetayPiySearchComponent,
-    MesajDetailComponent
+    MesajDetailComponent,
+    PrinterComponent
     ]
 })
 export class ComponentsModule { }

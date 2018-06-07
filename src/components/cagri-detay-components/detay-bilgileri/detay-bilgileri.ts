@@ -14,6 +14,7 @@ import {UrunAnaGrupDao} from "../../../providers/urun-ana-grup-dao/urun-ana-grup
 import {Constants} from "../../../entities/Constants";
 import {ModalController} from "ionic-angular";
 import {HizmetDetayComponent} from "../../hizmet-detay/hizmet-detay";
+import {PrinterComponent} from "../../printer/printer";
 
 
 @Component({
@@ -98,4 +99,10 @@ export class DetayBilgileriComponent {
       this.detayList.splice(index, 1);
     }
   }
+
+  print() {
+    let printModal = this.modalCtrl.create(PrinterComponent, {data: this.hizmet});
+    printModal.present();
+  }
+
 }

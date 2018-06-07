@@ -73,6 +73,7 @@ import {Anasayfa} from "../pages/anasayfa/anasayfa";
 import {AnasayfaPageModule} from "../pages/anasayfa/anasayfa.module";
 import {MesajDetailComponent} from "../components/mesaj-detail/mesaj-detail";
 import { HeaderProvider } from '../providers/header/header';
+import {PrinterComponent} from "../components/printer/printer";
 
 
 
@@ -123,7 +124,8 @@ import { HeaderProvider } from '../providers/header/header';
     HizmetDetayComponent,
     DetayPiySearchComponent,
     Anasayfa,
-    MesajDetailComponent
+    MesajDetailComponent,
+    PrinterComponent
   ],
   providers: [
     Network,

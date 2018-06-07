@@ -51,7 +51,7 @@ export class HizmetDetayComponent {
       this.islemAdi = this.hizmetDetay.islemKod;
       this.arizaAdi = this.hizmetDetay.arizaKod;
       this.mlzIscAdi = this.hizmetDetay.mlzIscKod;
-      this.birimfiyat = this.hizmetDetay.birimFiyat;
+      this.birimfiyat = this.hizmetDetay.tutar / this.hizmetDetay.miktar;
     }
   }
 
