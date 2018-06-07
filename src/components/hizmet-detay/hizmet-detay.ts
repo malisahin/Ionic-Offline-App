@@ -48,6 +48,10 @@ export class HizmetDetayComponent {
   init() {
     if (this.util.isNotEmpty(this.data.hizmetDetay)) {
       this.hizmetDetay = this.data.hizmetDetay;
+      this.islemAdi = this.hizmetDetay.islemKod;
+      this.arizaAdi = this.hizmetDetay.arizaKod;
+      this.mlzIscAdi = this.hizmetDetay.mlzIscKod;
+      this.birimfiyat = this.hizmetDetay.birimFiyat;
     }
   }
 
