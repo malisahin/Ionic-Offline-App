@@ -23,6 +23,7 @@ export class CagrilarPage {
   searchQuery: string = "";
   pageable: Pageable;
   searchType: string = "BEGINNING";
+  searchParams: string = "";
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -49,13 +50,16 @@ export class CagrilarPage {
   public cagriSorgula() {
     let aramaModal = this.modalController.create(CagriAramaModalPage);
     aramaModal.onDidDismiss(data => {
-      this.searchQuery = data;
+
+      this.searchQuery = data.query;
+      this.searchParams = data.params;
+      this.fetchList(this.searchType);
     });
     aramaModal.present();
-    this.fetchList(this.searchType);
   }
 
   async  fetchList(tip) {
+    this.cagrilar = [];
     this.pageable.tip = tip;
     this.pageable = this.pageable.compute();
     let list: any;
@@ -71,6 +75,7 @@ export class CagrilarPage {
         this.cagrilar.push(data);
       }
     }
+    this.searchQuery = "";
   }
 
   public cagriGuncelle() {
@@ -79,26 +84,4 @@ export class CagrilarPage {
     });
   }
 
-
-  /*ionViewDidLoad() {
-   this.fetchList('BEGINNING');
-   }
-
-   fetchList(type: string) {
-   this.pageable.tip = type;
-   this.pageable = this.pageable.compute();
-   this.list = [];
-
-   this.fetchUrunAnaGrupList();
-
-
-   }
-
-   fetchUrunAnaGrupList() {
-   let filter = this.prepareSearchItem();
-   this.urunAnaGrupDao.getPage(filter, this.searchType, this.pageable.first, this.pageable.pageSize).then(res => {
-   this.fillList(res);
-   });
-   }
-   */
 }

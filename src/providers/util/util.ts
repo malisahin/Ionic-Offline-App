@@ -85,15 +85,16 @@ export class UtilProvider {
     return true;
   }
 
-  /*
-   for (let key in item) {
-   let value = item[key];
-   if (typeof value != undefined && value != null && value != "" && typeof value != "function" && typeof value != "object" && key != "tip") {
-   value = value.split('').join('%');
-   value = "%" + value + "%";
-   query.push(key + " LIKE '" + value + "'");
-   }
-   }
-   */
+
+  getSystemParam(param) {
+    let paramList: [] = JSON.parse(localStorage.getItem("systemParams"));
+    let value: string = "";
+    paramList.forEach(item => {
+      if (item.kod == param) {
+        value = item.ad;
+      }
+    });
+    return value;
+  }
 
 }

@@ -22,18 +22,21 @@
       </button>
     </ion-col>
   </ion-row>
+  <ion-row *ngIf="this.searchParams != ''">
+    <ion-label>{{this.searchParams}}</ion-label>
+  </ion-row>
 
   <ion-card *ngFor="let cagri of cagrilar" (click)="cagriDetayinaGit($event, cagri.seqNo)">
     <label>
       <i class="fas fa-user"></i>
-      {{cagri.adi }} {{cagri.soyadi}}
+      {{cagri.adi }} {{cagri.soyadi}} ({{cagri.seqNo}}) - ({{cagri.crmNo}})
     </label>
     <p>
-    <strong>
-      <i class="fas fa-cog"></i>
-      {{cagri.mamAnaGrpAdi}} | {{cagri.hizmetTipiAdi}} | {{cagri.basvuruNedenAdi}}
-    </strong>
-  </p>
+      <strong>
+        <i class="fas fa-cog"></i>
+        {{cagri.mamAnaGrpAdi}} | {{cagri.hizmetTipiAdi}} | {{cagri.basvuruNedenAdi}}
+      </strong>
+    </p>
     <p>
       <i class="fas fa-phone"></i>{{cagri.gsmNo}} | {{cagri.evTel}} | {{cagri.evTel}}
     </p>
@@ -48,20 +51,20 @@
   <ion-grid>
     <ion-row>
 
-      <ion-col col-sm-2  col-md-2 col-lg-2 col-xl-2>
-        <button  ion-button color="light" (click)="fetchList('FIRST')">
+      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>
+        <button ion-button color="light" (click)="fetchList('FIRST')">
           <ion-icon name="arrow-dropleft"></ion-icon>
         </button>
       </ion-col>
 
-      <ion-col col-sm-2  col-md-2 col-lg-2 col-xl-2>
-        <button  ion-button color="light" (click)="fetchList('PREVIOUS')">
+      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>
+        <button ion-button color="light" (click)="fetchList('PREVIOUS')">
           <ion-icon name="arrow-back"></ion-icon>
         </button>
       </ion-col>
 
-      <ion-col col-sm-4  col-md-4 col-lg-4 col-xl-4>
-        <ion-item >
+      <ion-col col-sm-4 col-md-4 col-lg-4 col-xl-4>
+        <ion-item>
           <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList('PAGE_NO')" interface="popover">
             <ion-option value="10" selected="true">10</ion-option>
             <ion-option value="20">20</ion-option>
@@ -70,14 +73,14 @@
         </ion-item>
       </ion-col>
 
-      <ion-col col-sm-2  col-md-2 col-lg-2 col-xl-2>
-        <button  ion-button color="light" (click)="fetchList('NEXT')">
+      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>
+        <button ion-button color="light" (click)="fetchList('NEXT')">
           <ion-icon name="arrow-forward"></ion-icon>
         </button>
       </ion-col>
 
-      <ion-col col-sm-2  col-md-2 col-lg-2 col-xl-2>
-        <button  ion-button color="light" (click)="fetchList('LAST')">
+      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>
+        <button ion-button color="light" (click)="fetchList('LAST')">
           <ion-icon name="arrow-dropright"></ion-icon>
         </button>
       </ion-col>

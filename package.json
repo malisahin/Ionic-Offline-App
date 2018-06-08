@@ -82,7 +82,8 @@
       "cordova-plugin-statusbar": {},
       "cordova-plugin-x-toast": {},
       "cordova-plugin-local-notification": {},
-      "com.silverchip.cordovaprinter": {}
+      "com.silverchip.cordovaprinter": {},
+      "org.apache.cordova.sipkita": {}
     },
     "platforms": [
       "android",

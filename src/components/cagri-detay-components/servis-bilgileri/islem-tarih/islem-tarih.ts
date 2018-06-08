@@ -32,11 +32,15 @@ export class IslemTarihComponent {
               private  util: UtilProvider) {
     console.log('Hello IslemTarihComponent Component');
     this.hizmet = this.hizmetService.getHizmet();
-    this.tarihceList = this.hizmet.islemList[0];
+    this.init();
+  }
+
+  init() {
+    if (this.hizmet.islemList != null && this.hizmet.islemList.length > 0)
+      this.tarihceList = this.hizmet.islemList[0];
     this.sonIslem = new IslemList();
     this.loadTarihce();
     this.checkStatus();
-
   }
 
   islemBaslat() {

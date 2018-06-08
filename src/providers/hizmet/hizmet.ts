@@ -118,6 +118,7 @@ export class HizmetProvider {
     item.servisNotu = obj.servisNotu;
     item.sokak = obj.sokak;
     item.soyadi = obj.soyadi;
+    item.crmNo = obj.crmNo;
     return item;
   }
 
