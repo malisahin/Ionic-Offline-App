@@ -87,13 +87,16 @@ export class UtilProvider {
 
 
   getSystemParam(param) {
-    let paramList: [] = JSON.parse(localStorage.getItem("systemParams"));
-    let value: string = "";
-    paramList.forEach(item => {
-      if (item.kod == param) {
-        value = item.ad;
-      }
-    });
+    let systemParams = localStorage.getItem("systemParams");
+    if (systemParams != null) {
+      let paramList: [] = JSON.parse(systemParams);
+      let value: string = "";
+      paramList.forEach(item => {
+        if (item.kod == param) {
+          value = item.ad;
+        }
+      });
+    }
     return value;
   }
 

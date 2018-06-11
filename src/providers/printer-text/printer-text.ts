@@ -1,6 +1,8 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {HizmetService} from "../hizmet-service/hizmet-service";
+declare let window: any;
+declare let cordova: any;
 
 
 @Injectable()
@@ -31,9 +33,11 @@ export class AndroidPrinter {
   print(fnSuccess, fnError, printer, message) {
     cordova.exec(fnSuccess, fnError, "BluetoothPrinter", "print", [printer, message]);
   }
+
 }
 
 export class IOSPrinter {
+
   list(fnSuccess, fnError) {
     window.plugins.CordovaPrinter.getPrinters(fnSuccess, fnError);
   }
@@ -41,5 +45,6 @@ export class IOSPrinter {
   print(fnSuccess, fnError, printer, message) {
     window.plugins.CordovaPrinter.print(fnSuccess, fnError, printer, message);
   }
+
 }
 
