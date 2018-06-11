@@ -46,6 +46,7 @@ import { PrinterComponent } from './printer/printer';
         HizmetDetayComponent,
         DetayPiySearchComponent,
     MesajDetailComponent,
+    PrinterComponent,
     PrinterComponent
     ],
     imports: [],
@@ -70,6 +71,7 @@ import { PrinterComponent } from './printer/printer';
         HizmetDetayComponent,
         DetayPiySearchComponent,
     MesajDetailComponent,
+    PrinterComponent,
     PrinterComponent
     ]
 })

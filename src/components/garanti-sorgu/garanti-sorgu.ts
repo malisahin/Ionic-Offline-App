@@ -1,18 +1,17 @@
-import { Component } from '@angular/core';
-import { UrunAnaGrup } from '../../entities/urunAnaGrup';
-import { UrunAnaGrupDao } from '../../providers/urun-ana-grup-dao/urun-ana-grup-dao';
-import { Urun } from '../../entities/urun';
-import { ModalController, ViewController } from 'ionic-angular';
-import { Constants } from '../../entities/Constants';
-import { UtilProvider } from '../../providers/util/util';
-import { UrunAnaGrupSearchComponent } from '../urun-ana-grup-search/urun-ana-grup-search';
-import { UrunSearchComponent } from '../urun-search/urun-search';
-import { ApiProvider } from '../../providers/api/api';
-import { HttpClient } from '@angular/common/http';
-import { GarantiSorgu } from '../../entities/GarantiSorgu';
-import { GarantiSorguProvider } from '../../providers/garanti-sorgu/garanti-sorgu';
-import { User } from '../../entities/user';
-
+import {Component} from '@angular/core';
+import {UrunAnaGrup} from '../../entities/urunAnaGrup';
+import {UrunAnaGrupDao} from '../../providers/urun-ana-grup-dao/urun-ana-grup-dao';
+import {Urun} from '../../entities/urun';
+import {ModalController} from 'ionic-angular';
+import {Constants} from '../../entities/Constants';
+import {UtilProvider} from '../../providers/util/util';
+import {UrunAnaGrupSearchComponent} from '../urun-ana-grup-search/urun-ana-grup-search';
+import {UrunSearchComponent} from '../urun-search/urun-search';
+import {ApiProvider} from '../../providers/api/api';
+import {HttpClient} from '@angular/common/http';
+import {GarantiSorgu} from '../../entities/GarantiSorgu';
+import {GarantiSorguProvider} from '../../providers/garanti-sorgu/garanti-sorgu';
+import {User} from '../../entities/user';
 
 
 @Component({
@@ -26,14 +25,15 @@ export class GarantiSorguComponent {
   urunAnaGrupList: UrunAnaGrup[];
   urunAnaGrup: UrunAnaGrup;
   faturaTarihi: Date;
-  data = { type: "" };
+  data = {type: ""};
   constants: Constants;
-  constructor(private urunAnaGrupDao: UrunAnaGrupDao,
-    private modalController: ModalController,
-    private util: UtilProvider, private garantiSorguProvider: GarantiSorguProvider,
-    private api: ApiProvider, public http: HttpClient
 
-  ) {
+  constructor(private urunAnaGrupDao: UrunAnaGrupDao,
+              private modalController: ModalController,
+              private util: UtilProvider,
+              private garantiSorguProvider: GarantiSorguProvider,
+              private api: ApiProvider,
+              public http: HttpClient) {
     console.log('Hello GarantiSorguComponent Component');
     this.constants = new Constants();
     this.urunAnaGrup = new UrunAnaGrup(this.constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
@@ -51,7 +51,7 @@ export class GarantiSorguComponent {
 
   public urunAnaGrupSorgula() {
     this.data.type = this.constants.DATA_TYPE.URUN_ANA_GRUP;
-    let aramaModal = this.modalController.create(UrunAnaGrupSearchComponent, { data: this.data });
+    let aramaModal = this.modalController.create(UrunAnaGrupSearchComponent, {data: this.data});
     aramaModal.onDidDismiss(data => {
       this.urunAnaGrup = data;
     });
@@ -61,7 +61,7 @@ export class GarantiSorguComponent {
   public urunSorgula() {
 
     this.data.type = this.constants.DATA_TYPE.URUN;
-    let aramaModal = this.modalController.create(UrunSearchComponent, { data: this.data });
+    let aramaModal = this.modalController.create(UrunSearchComponent, {data: this.data});
     aramaModal.onDidDismiss(data => {
       this.urun = data;
     });
@@ -89,9 +89,6 @@ export class GarantiSorguComponent {
     sorguData.dilKod = "T"; //user.getDilKod();
     this.garantiSorguProvider.fetchDataFromApi(sorguData);
   }
-
-
-
 
 
 }

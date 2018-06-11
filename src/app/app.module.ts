@@ -74,7 +74,7 @@ import {AnasayfaPageModule} from "../pages/anasayfa/anasayfa.module";
 import {MesajDetailComponent} from "../components/mesaj-detail/mesaj-detail";
 import { HeaderProvider } from '../providers/header/header';
 import {PrinterComponent} from "../components/printer/printer";
-import { PrinterTextProvider } from '../providers/printer-text/printer-text';
+import { PrinterProvider } from '../providers/printer/printer';
 
 
 
@@ -171,7 +171,7 @@ import { PrinterTextProvider } from '../providers/printer-text/printer-text';
     UserProvider,
     UserDao,
     HeaderProvider,
-    PrinterTextProvider
+    PrinterProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -1,8 +1,19 @@
-<!-- Generated template for the HizmetBilgileriComponent component -->
-<ion-list inset>
-  <ion-item>
-    <button ion-item *ngFor="let item of list" (click)=" itemSelected(item) ">
-      {{ item.name }} -- {{ item.code }}
-    </button>
+<ion-header>
+  <button ion-button round (click)="closeModal()">Kapat</button>
+  <ion-navbar no-border-bottom>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-item *ngFor="let printer of printerList">
+    <button ion-button="" (click)="print(printer)" full round color="secondary"></button>
   </ion-item>
-</ion-list>
+
+</ion-content>
+
+<ion-footer>
+
+
+</ion-footer>

@@ -54,6 +54,15 @@ export class UtilProvider {
     toast.present();
   }
 
+  error(message: string) {
+    let toast = this.toast.create({
+      message: message,
+      duration: 2000,
+      position: 'top',
+    });
+    toast.present();
+  }
+
   dateFormat(dateString: Date, format: string): string {
     return moment(dateString).format(format);
   }
@@ -87,17 +96,78 @@ export class UtilProvider {
 
 
   getSystemParam(param) {
-    let systemParams = localStorage.getItem("systemParams");
+    return this.getLocalStorageParam("systemParams", param);
+  }
+
+  getSystemLabel(param) {
+    return this.getLocalStorageParam("labels", param);
+  }
+
+  private getLocalStorageParam(type: string, param: string) {
+    let value: string = "";
+    let systemParams = localStorage.getItem(type);
     if (systemParams != null) {
-      let paramList: [] = JSON.parse(systemParams);
-      let value: string = "";
+      let paramList = JSON.parse(systemParams);
       paramList.forEach(item => {
-        if (item.kod == param) {
+        if (item.kod != null && item.kod == param) {
           value = item.ad;
         }
       });
     }
     return value;
+  }
+
+  translateTurkishCharacters(text: string) {
+    let z = "";
+    if (text != null && text != '') {
+      let y = text.split('');
+      for (i = 0; y.length > i; i++) {
+        switch (y[i]) {
+          case "Ç":
+            z += y[i].replace("Ç", "C");
+            break;
+          case "ç":
+            z += y[i].replace("ç", "c");
+            break;
+          case "Ğ":
+            z += y[i].replace("Ğ", "G");
+            break;
+          case "ğ":
+            z += y[i].replace("ğ", "g");
+            break;
+          case "İ":
+            z += y[i].replace("İ", "I");
+            break;
+          case "ı":
+            z += y[i].replace("ı", "i");
+            break;
+          case "Ö":
+            z += y[i].replace("Ö", "O");
+            break;
+          case "ö":
+            z += y[i].replace("ö", "o");
+
+            break;
+          case "Ş":
+            z += y[i].replace("Ş", "S");
+            break;
+          case "ş":
+            z += y[i].replace("ş", "s");
+            break;
+          case "Ü":
+            z += y[i].replace("Ü", "U");
+            break;
+          case "ü":
+            z += y[i].replace("ü", "u");
+            break;
+          default:
+            z += y[i];
+            break;
+        }
+      }
+    }
+
+    return z
   }
 
 }

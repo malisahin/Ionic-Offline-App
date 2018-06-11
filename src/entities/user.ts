@@ -108,4 +108,8 @@ export class User {
   getDilKod(): string {
     return localStorage.getItem("dilKod");
   }
+
+  getIkAd(): string {
+    return localStorage.getItem("ikAd");
+  }
 }

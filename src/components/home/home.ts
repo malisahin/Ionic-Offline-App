@@ -1,15 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular/navigation/nav-controller';
 import { NavParams } from 'ionic-angular/navigation/nav-params';
-import { CagrilarComponent } from '../cagrilar/cagrilar';
 import {Anasayfa} from "../../pages/anasayfa/anasayfa";
 
-/**
- * Generated class for the HomeComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
   selector: 'home',
   templateUrl: 'home.html'

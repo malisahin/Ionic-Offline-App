@@ -76,5 +76,6 @@ export class Hizmet {
   soyadi: string = "";
   data: any;
   crmNo: string = "";
+  seriMetod: string = "1";
 
 }
