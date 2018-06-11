@@ -11,7 +11,6 @@ import {UserProvider} from '../../providers/user/user';
 import {UtilProvider} from '../../providers/util/util';
 import {LoggerProvider} from '../../providers/logger/logger';
 import {User} from "../../entities/user";
-import {Anasayfa} from "../anasayfa/anasayfa";
 
 @IonicPage()
 @Component({
@@ -54,7 +53,7 @@ export class LoginPage {
 
   route() {
     if (this.hasLoginPermission) {
-      this.nav.push(Anasayfa);
+      this.nav.push(HomeComponent);
       this.loading.dismiss();
     }
     else {

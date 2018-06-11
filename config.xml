@@ -92,7 +92,4 @@
     <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
     <plugin name="cordova-plugin-x-toast" spec="^2.6.2" />
     <plugin name="cordova-plugin-local-notification" spec="^0.9.0-beta.2" />
-    <plugin name="com.silverchip.cordovaprinter" spec="https://github.com/SistekCo/cordova-print.git" />
-    <plugin name="org.apache.cordova.sipkita" spec="https://github.com/SistekCo/Cordova-Android-Zebra-Printer" />
-    <plugin name="uk.co.workingedge.cordova.plugin.sqliteporter" spec="^1.0.2" />
 </widget>

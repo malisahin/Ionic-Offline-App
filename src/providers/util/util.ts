@@ -121,7 +121,7 @@ export class UtilProvider {
     let z = "";
     if (text != null && text != '') {
       let y = text.split('');
-      for (i = 0; y.length > i; i++) {
+      for (let i = 0; y.length > i; i++) {
         switch (y[i]) {
           case "Ç":
             z += y[i].replace("Ç", "C");

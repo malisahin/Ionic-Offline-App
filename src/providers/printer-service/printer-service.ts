@@ -1,15 +1,17 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {HizmetService} from "../hizmet-service/hizmet-service";
-import {Hizmet} from "../../entities/hizmet/hizmet";
-import {UtilProvider} from "../util/util";
 import {User} from "../../entities/user";
-import {DetayKayit} from "../../entities/hizmet/DetayKayit";
 import {NavParams, ModalController} from "ionic-angular";
-import {PrinterComponent} from "../../components/printer/printer";
+import {Hizmet} from "../../entities/hizmet/hizmet";
+import {HizmetService} from "../hizmet-service/hizmet-service";
+import {UtilProvider} from "../util/util";
+import {ZebraPrinterComponent} from "../../components/zebra-printer/zebra-printer";
+import {DetayKayit} from "../../entities/hizmet/DetayKayit";
+
 
 @Injectable()
-export class PrinterProvider {
+export class PrinterService {
+
 
   hizmet: Hizmet;
   seperator = "..............................................";
@@ -33,8 +35,9 @@ export class PrinterProvider {
 
   showPrinterList() {
     let text = this.getPrintText();
-    let modal = this.modalCtrl.create(PrinterComponent, text);
+    let modal = this.modalCtrl.create(ZebraPrinterComponent, text);
     modal.present();
+
   }
 
 
@@ -117,7 +120,7 @@ export class PrinterProvider {
 
 
     if (this.hizmet.detayList.length > 0) {
-      for (k = 0; this.hizmet.detayList.length > k; k++) {
+      for (let k = 0; this.hizmet.detayList.length > k; k++) {
         let item: DetayKayit = this.hizmet.detayList[k];
         toplamTutar = toplamTutar + item.tutar;
         kdv = kdv + (item.tutar / 100 * item.kdvOran);
@@ -166,7 +169,7 @@ export class PrinterProvider {
     }
     data += '\n\r' + this.seperator;
 
-    if (mst.garanti == 'VAR') {
+    if (this.hizmet.garanti == 'VAR') {
       data += '\n! U1 SETBOLD 2';
       data += '\n\r Toplam Hizmet Tutari  :   Garanti Dahili Islem ';
       data += '\n! U1 SETBOLD 0'
@@ -175,7 +178,7 @@ export class PrinterProvider {
       data += '\n\r Toplam Hizmet Tutari  :   ' + (toplamTutar).toFixed(2);
       data += '\n! U1 SETBOLD 0'
     }
-    if (mst.garanti == 'VAR') {
+    if (this.hizmet.garanti == 'VAR') {
       data += '\n! U1 SETBOLD 2';
       data += '\n\r KDV                   :   Garanti Dahili Islem ';
       data += '\n! U1 SETBOLD 0'
@@ -185,7 +188,7 @@ export class PrinterProvider {
       data += '\n! U1 SETBOLD 0'
     }
 
-    if (mst.garanti == 'VAR') {
+    if (this.hizmet.garanti == 'VAR') {
       data += '\n! U1 SETBOLD 2';
       data += '\n\r Genel Toplam          :   Garanti Dahili Islem ';
       data += '\n! U1 SETBOLD 0'
@@ -199,7 +202,7 @@ export class PrinterProvider {
     data += '\n! U1 SETBOLD 2';
     data += '\n\r Aciklama ';
     data += '\n! U1 SETBOLD 0';
-    data += '\n\r ' + this.util.translateTurkishCharacters(mst.aciklama);
+    data += '\n\r ' + this.util.translateTurkishCharacters(this.hizmet.aciklama);
     data += '\n\r' + this.seperator;
 
     data += '\n! U1 SETBOLD 2';
@@ -240,9 +243,5 @@ export class PrinterProvider {
   prepareDataBaymak() {
     return "";
   }
+
 }
-
-
-
-
-

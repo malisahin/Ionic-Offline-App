@@ -2,7 +2,7 @@
   <ion-row class="logo-row">
     <ion-col></ion-col>
     <ion-col width-67>
-      <img src="../assets/imgs/login-user.png" />
+      <!--<img src="resources/login-user.png"/>-->
     </ion-col>
     <ion-col></ion-col>
   </ion-row>
@@ -17,7 +17,8 @@
             </ion-item>
 
             <ion-item>
-              <ion-input [type]="passwordType" placeholder="Password" name="password" [(ngModel)]="password" required></ion-input>
+              <ion-input [type]="passwordType" placeholder="Password" name="password" [(ngModel)]="password"
+                         required></ion-input>
               <ion-icon item-end [name]="passwordIcon" class="passIcon" (click)='hideShowPassword()'></ion-icon>
             </ion-item>
 
