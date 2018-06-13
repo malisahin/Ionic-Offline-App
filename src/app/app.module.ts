@@ -73,6 +73,7 @@ import { AnasayfaPageModule } from "../pages/anasayfa/anasayfa.module";
 import { MesajDetailComponent } from "../components/mesaj-detail/mesaj-detail";
 import { HeaderProvider } from '../providers/header/header';
 import { PrinterService } from '../providers/printer-service/printer-service';
+import { ZebraPrinterComponent } from "../components/zebra-printer/zebra-printer";
 
 
 @NgModule({
@@ -122,7 +123,8 @@ import { PrinterService } from '../providers/printer-service/printer-service';
     HizmetDetayComponent,
     DetayPiySearchComponent,
     Anasayfa,
-    MesajDetailComponent
+    MesajDetailComponent,
+    ZebraPrinterComponent
 
   ],
   providers: [

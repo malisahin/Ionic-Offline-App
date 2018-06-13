@@ -18,14 +18,12 @@ export class PrinterService {
   user: User;
 
   constructor(public http: HttpClient,
-    public navParams: NavParams,
     private hizmetService: HizmetService,
     private modalCtrl: ModalController,
     private util: UtilProvider) {
     this.hizmet = new Hizmet();
     this.user = new User();
     this.init();
-
   }
 
   init() {
@@ -33,9 +31,10 @@ export class PrinterService {
 
   }
 
-  showPrinterList() {
+  showPrinterList(hizmet: Hizmet) {
+    this.hizmet = hizmet;
     let text = this.getPrintText();
-    let modal = this.modalCtrl.create(ZebraPrinterComponent, text);
+    let modal = this.modalCtrl.create(ZebraPrinterComponent, { text: text });
     modal.present();
 
   }
@@ -132,13 +131,13 @@ export class PrinterService {
       kdv = kdv + (item.tutar / 100 * item.kdvOran);
 
       if (item.mlzIsc == "ISC" && item.mlzIscKod != "999977" && item.mlzIscKod != "999988") {
-        iscilik += '\n\r ' + item.mlzIscKod + '-' + this.util.translateTurkishCharacters(item.aciklama.substring(0, 20)) + '   ' + item.miktar + '-' + item.olcuBrm + '    ' + (this.hizmet.garanti != 'VAR' ? (item.tutar).toFixed(2) : '')
+        iscilik += '\n\r ' + item.mlzIscKod + '-' + this.util.translateTurkishCharacters(item.aciklama.substring(0, 20)) + '   ' + item.miktar + '-' + item.olcuBrm + '    ' + (this.hizmet.garanti != 'VAR' ? (item.tutar) : '')
       } else if (item.mlzIsc == "MLZ") {
-        parca += '\n\r ' + item.mlzIscKod + '-' + this.util.translateTurkishCharacters(item.aciklama.substring(0, 20)) + '   ' + item.miktar + '-' + item.olcuBrm + '    ' + (this.hizmet.garanti != 'VAR' ? (item.tutar).toFixed(2) : '')
+        parca += '\n\r ' + item.mlzIscKod + '-' + this.util.translateTurkishCharacters(item.aciklama.substring(0, 20)) + '   ' + item.miktar + '-' + item.olcuBrm + '    ' + (this.hizmet.garanti != 'VAR' ? (item.tutar) : '')
       } else if (item.mlzIsc == "KM" && item.mlzIscKod == "999988") {
-        yol += '\n\r ' + item.mlzIscKod + '-' + this.util.translateTurkishCharacters(item.aciklama.substring(0, 20)) + '   ' + item.miktar + '-' + item.olcuBrm + '    ' + (this.hizmet.garanti != 'VAR' ? (item.tutar).toFixed(2) : '')
+        yol += '\n\r ' + item.mlzIscKod + '-' + this.util.translateTurkishCharacters(item.aciklama.substring(0, 20)) + '   ' + item.miktar + '-' + item.olcuBrm + '    ' + (this.hizmet.garanti != 'VAR' ? (item.tutar) : '')
       } else if (item.mlzIsc == "DGR" && item.mlzIscKod == "999977") {
-        diger += '\n\r ' + item.mlzIscKod + '-' + this.util.translateTurkishCharacters(item.aciklama.substring(0, 20)) + '   ' + item.miktar + '-' + item.olcuBrm + '    ' + (this.hizmet.garanti != 'VAR' ? (item.tutar).toFixed(2) : '')
+        diger += '\n\r ' + item.mlzIscKod + '-' + this.util.translateTurkishCharacters(item.aciklama.substring(0, 20)) + '   ' + item.miktar + '-' + item.olcuBrm + '    ' + (this.hizmet.garanti != 'VAR' ? (item.tutar) : '')
       }
 
 
@@ -181,7 +180,7 @@ export class PrinterService {
       data += '\n! U1 SETBOLD 0'
     } else {
       data += '\n! U1 SETBOLD 2';
-      data += '\n\r Toplam Hizmet Tutari  :   ' + (toplamTutar).toFixed(2);
+      //data += '\n\r Toplam Hizmet Tutari  :   ' + (toplamTutar).toFixed(2);
       data += '\n! U1 SETBOLD 0'
     }
     if (this.hizmet.garanti == 'VAR') {
@@ -190,7 +189,7 @@ export class PrinterService {
       data += '\n! U1 SETBOLD 0'
     } else {
       data += '\n! U1 SETBOLD 2';
-      data += '\n\r KDV                   :   ' + (kdv).toFixed(2);
+      //data += '\n\r KDV                   :   ' + (kdv).toFixed(2);
       data += '\n! U1 SETBOLD 0'
     }
 
@@ -200,7 +199,7 @@ export class PrinterService {
       data += '\n! U1 SETBOLD 0'
     } else {
       data += '\n! U1 SETBOLD 2';
-      data += '\n\r Genel Toplam          :   ' + (kdv + toplamTutar).toFixed(2);
+      //  data += '\n\r Genel Toplam          :   ' + (kdv + toplamTutar).toFixed(2);
       data += '\n! U1 SETBOLD 0'
     }
 

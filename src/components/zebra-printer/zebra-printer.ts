@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { UtilProvider } from '../../providers/util/util';
 import { LoggerProvider } from '../../providers/logger/logger';
 import { NavParams } from 'ionic-angular';
+import { Platform } from 'ionic-angular';
+import { ViewController } from 'ionic-angular/navigation/view-controller';
 declare let window: any;
 
 @Component({
@@ -13,25 +15,30 @@ export class ZebraPrinterComponent {
   text: string;
   selectedPrinter: string;
   printerList: string[] = [];
-  platform: string;
+
+  getPrinterList: (param: any) => any;
 
   constructor(private util: UtilProvider,
+    private platform: Platform, private viewCtrl: ViewController,
+    private logger: LoggerProvider,
     private navParams: NavParams) {
-    this.platform = window.device.platform;
+
     this.text = navParams.get("text");
+    this.logger.log(this.text);
     this.init();
   }
 
   init() {
-    if (this.platform == 'Android') {
+    if (this.platform.is('android')) {
       this.androidList();
-    } else if (this.platform == "iOS") {
+    } else if (this.platform.is('ios')) {
       this.iosList();
     }
-
+    this.getPrinterList = this.androidSetPrinterList;
   }
 
   androidSetPrinterList(list: any) {
+    this.logger.dir(list);
     if (this.util.isNotEmpty(list))
       this.printerList = list;
   }
@@ -50,7 +57,7 @@ export class ZebraPrinterComponent {
   }
 
   androidList() {
-    window.printer.list(this.androidSetPrinterList, this.fnError);
+    window.printer.list(this.getPrinterList, this.fnError);
   }
 
   androidClose() {
@@ -62,6 +69,7 @@ export class ZebraPrinterComponent {
   }
 
   androidPrint() {
+    this.androidOpen();
     window.printer.print(this.fnSuccess, this.fnError, this.text);
   }
 
@@ -73,6 +81,16 @@ export class ZebraPrinterComponent {
     window.plugins.CordovaPrinter.print(this.fnSuccess, this.fnError, this.selectedPrinter, this.text);
   }
 
+  closeModal() {
+    this.viewCtrl.dismiss();
+  }
 
+  yazdir(item) {
+    this.selectedPrinter = item;
+    if (this.platform.is('android'))
+      this.androidPrint();
+    else if (this.platform.is('ios'))
+      this.iosPrint();
+  }
 
 }

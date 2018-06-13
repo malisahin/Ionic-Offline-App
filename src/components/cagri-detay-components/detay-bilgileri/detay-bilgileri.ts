@@ -3,17 +3,19 @@
  * @email mehmetalisahinogullari@gmail.com
  */
 
-import {Component} from "@angular/core";
-import {Hizmet} from "../../../entities/hizmet/hizmet";
-import {HizmetService} from "../../../providers/hizmet-service/hizmet-service";
-import {DetayKayit} from "../../../entities/hizmet/DetayKayit";
-import {UtilProvider} from "../../../providers/util/util";
-import {LoggerProvider} from "../../../providers/logger/logger";
-import {UrunAnaGrup} from "../../../entities/urunAnaGrup";
-import {UrunAnaGrupDao} from "../../../providers/urun-ana-grup-dao/urun-ana-grup-dao";
-import {Constants} from "../../../entities/Constants";
-import {ModalController} from "ionic-angular";
-import {HizmetDetayComponent} from "../../hizmet-detay/hizmet-detay";
+import { Component } from "@angular/core";
+import { Hizmet } from "../../../entities/hizmet/hizmet";
+import { HizmetService } from "../../../providers/hizmet-service/hizmet-service";
+import { DetayKayit } from "../../../entities/hizmet/DetayKayit";
+import { UtilProvider } from "../../../providers/util/util";
+import { LoggerProvider } from "../../../providers/logger/logger";
+import { UrunAnaGrup } from "../../../entities/urunAnaGrup";
+import { UrunAnaGrupDao } from "../../../providers/urun-ana-grup-dao/urun-ana-grup-dao";
+import { Constants } from "../../../entities/Constants";
+import { ModalController } from "ionic-angular";
+import { HizmetDetayComponent } from "../../hizmet-detay/hizmet-detay";
+import { ZebraPrinterComponent } from "../../zebra-printer/zebra-printer";
+import { PrinterService } from "../../../providers/printer-service/printer-service";
 
 
 @Component({
@@ -29,10 +31,11 @@ export class DetayBilgileriComponent {
   constants: Constants;
 
   constructor(private hizmetService: HizmetService,
-              private urunAnaGrupDao: UrunAnaGrupDao,
-              private modalCtrl: ModalController,
-              private util: UtilProvider,
-              private logger: LoggerProvider) {
+    private urunAnaGrupDao: UrunAnaGrupDao,
+    private modalCtrl: ModalController,
+    private util: UtilProvider,
+    private logger: LoggerProvider,
+    private printService: PrinterService) {
     this.constants = new Constants();
     this.hizmet = this.hizmetService.getHizmet();
     this.loadDetayList();
@@ -99,9 +102,8 @@ export class DetayBilgileriComponent {
     }
   }
 
-  print() {
-  /*  let printModal = this.modalCtrl.create(TextPrintComponent, {data: this.hizmet});
-    printModal.present();*/
+  yazdir() {
+    this.printService.showPrinterList(this.hizmet);
   }
 
 }
