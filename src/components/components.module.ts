@@ -23,7 +23,7 @@ import {GarantiSonucComponent} from './garanti-sonuc/garanti-sonuc';
 import {HizmetDetayComponent} from './hizmet-detay/hizmet-detay';
 import {DetayPiySearchComponent} from './detay-piy-search/detay-piy-search';
 import {MesajDetailComponent} from './mesaj-detail/mesaj-detail';
-import {ZebraPrinterComponent} from './zebra-printer/zebra-printer';
+import {ZebraPrinterComponent} from "./zebra-printer/zebra-printer";
 
 @NgModule({
   declarations: [CagrilarComponent,
@@ -47,7 +47,6 @@ import {ZebraPrinterComponent} from './zebra-printer/zebra-printer';
     DetayPiySearchComponent,
     MesajDetailComponent,
     ZebraPrinterComponent,
-    ZebraPrinterComponent
   ],
   imports: [],
   exports: [
@@ -71,7 +70,6 @@ import {ZebraPrinterComponent} from './zebra-printer/zebra-printer';
     HizmetDetayComponent,
     DetayPiySearchComponent,
     MesajDetailComponent,
-    ZebraPrinterComponent,
     ZebraPrinterComponent
   ]
 })

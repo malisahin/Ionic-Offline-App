@@ -13,7 +13,7 @@ export class DetayKayit {
   garFiyat: string;
   garTutar: string;
   islemKod: string;
-  kdvOran: string;
+  kdvOran: number;
   miktar: number = 1;
   mlzIsc: string;
   mlzIscKod: string;

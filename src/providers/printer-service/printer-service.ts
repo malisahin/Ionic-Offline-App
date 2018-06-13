@@ -1,12 +1,12 @@
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {User} from "../../entities/user";
-import {NavParams, ModalController} from "ionic-angular";
-import {Hizmet} from "../../entities/hizmet/hizmet";
-import {HizmetService} from "../hizmet-service/hizmet-service";
-import {UtilProvider} from "../util/util";
-import {ZebraPrinterComponent} from "../../components/zebra-printer/zebra-printer";
-import {DetayKayit} from "../../entities/hizmet/DetayKayit";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { User } from "../../entities/user";
+import { NavParams, ModalController } from "ionic-angular";
+import { Hizmet } from "../../entities/hizmet/hizmet";
+import { HizmetService } from "../hizmet-service/hizmet-service";
+import { UtilProvider } from "../util/util";
+import { ZebraPrinterComponent } from "../../components/zebra-printer/zebra-printer";
+import { DetayKayit } from "../../entities/hizmet/DetayKayit";
 
 
 @Injectable()
@@ -18,10 +18,10 @@ export class PrinterService {
   user: User;
 
   constructor(public http: HttpClient,
-              public navParams: NavParams,
-              private hizmetService: HizmetService,
-              private modalCtrl: ModalController,
-              private util: UtilProvider) {
+    public navParams: NavParams,
+    private hizmetService: HizmetService,
+    private modalCtrl: ModalController,
+    private util: UtilProvider) {
     this.hizmet = new Hizmet();
     this.user = new User();
     this.init();
@@ -118,24 +118,30 @@ export class PrinterService {
     let yol = "";
     let diger = "";
 
+    let detayList = [];
 
     if (this.hizmet.detayList.length > 0) {
-      for (let k = 0; this.hizmet.detayList.length > k; k++) {
-        let item: DetayKayit = this.hizmet.detayList[k];
-        toplamTutar = toplamTutar + item.tutar;
-        kdv = kdv + (item.tutar / 100 * item.kdvOran);
+      detayList = this.hizmet.detayList[0];
+    }
 
-        if (item.mlzIsc == "ISC" && item.mlzIscKod != "999977" && item.mlzIscKod != "999988") {
-          iscilik += '\n\r ' + item.mlzIscKod + '-' + this.util.translateTurkishCharacters(item.aciklama.substring(0, 20)) + '   ' + item.miktar + '-' + item.olcuBrm + '    ' + (this.hizmet.garanti != 'VAR' ? (item.tutar).toFixed(2) : '')
-        } else if (item.mlzIsc == "MLZ") {
-          parca += '\n\r ' + item.mlzIscKod + '-' + this.util.translateTurkishCharacters(item.aciklama.substring(0, 20)) + '   ' + item.miktar + '-' + item.olcuBrm + '    ' + (this.hizmet.garanti != 'VAR' ? (item.tutar).toFixed(2) : '')
-        } else if (item.mlzIsc == "KM" && item.mlzIscKod == "999988") {
-          yol += '\n\r ' + item.mlzIscKod + '-' + this.util.translateTurkishCharacters(item.aciklama.substring(0, 20)) + '   ' + item.miktar + '-' + item.olcuBrm + '    ' + (this.hizmet.garanti != 'VAR' ? (item.tutar).toFixed(2) : '')
-        } else if (item.mlzIsc == "DGR" && item.mlzIscKod == "999977") {
-          diger += '\n\r ' + item.mlzIscKod + '-' + this.util.translateTurkishCharacters(item.aciklama.substring(0, 20)) + '   ' + item.miktar + '-' + item.olcuBrm + '    ' + (this.hizmet.garanti != 'VAR' ? (item.tutar).toFixed(2) : '')
-        }
 
+
+    for (let k = 0; detayList.length > k; k++) {
+      let item: DetayKayit = detayList[k];
+      toplamTutar = toplamTutar + item.tutar;
+      kdv = kdv + (item.tutar / 100 * item.kdvOran);
+
+      if (item.mlzIsc == "ISC" && item.mlzIscKod != "999977" && item.mlzIscKod != "999988") {
+        iscilik += '\n\r ' + item.mlzIscKod + '-' + this.util.translateTurkishCharacters(item.aciklama.substring(0, 20)) + '   ' + item.miktar + '-' + item.olcuBrm + '    ' + (this.hizmet.garanti != 'VAR' ? (item.tutar).toFixed(2) : '')
+      } else if (item.mlzIsc == "MLZ") {
+        parca += '\n\r ' + item.mlzIscKod + '-' + this.util.translateTurkishCharacters(item.aciklama.substring(0, 20)) + '   ' + item.miktar + '-' + item.olcuBrm + '    ' + (this.hizmet.garanti != 'VAR' ? (item.tutar).toFixed(2) : '')
+      } else if (item.mlzIsc == "KM" && item.mlzIscKod == "999988") {
+        yol += '\n\r ' + item.mlzIscKod + '-' + this.util.translateTurkishCharacters(item.aciklama.substring(0, 20)) + '   ' + item.miktar + '-' + item.olcuBrm + '    ' + (this.hizmet.garanti != 'VAR' ? (item.tutar).toFixed(2) : '')
+      } else if (item.mlzIsc == "DGR" && item.mlzIscKod == "999977") {
+        diger += '\n\r ' + item.mlzIscKod + '-' + this.util.translateTurkishCharacters(item.aciklama.substring(0, 20)) + '   ' + item.miktar + '-' + item.olcuBrm + '    ' + (this.hizmet.garanti != 'VAR' ? (item.tutar).toFixed(2) : '')
       }
+
+
 
 
       if (iscilik != "") {
@@ -213,7 +219,7 @@ export class PrinterService {
       "tarafima bilgilendirme ve tanitim yapilmasini kabul ediyorum.";
     data += '\n! U1 SETBOLD 2';
     data += '\n\r ' + note;
-    if (mst.iletisimIstek == 'H')
+    if (this.hizmet.iletisimIstek == 'H')
       data += '\n\r  EVET []  HAYIR[X] ';
     else
       data += '\n\r  EVET [X]  HAYIR[] ';
