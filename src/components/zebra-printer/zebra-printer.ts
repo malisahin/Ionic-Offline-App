@@ -16,7 +16,6 @@ export class ZebraPrinterComponent {
   selectedPrinter: string;
   printerList: string[] = [];
 
-  getPrinterList: (param: any) => any;
 
   constructor(private util: UtilProvider,
     private platform: Platform, private viewCtrl: ViewController,
@@ -34,7 +33,6 @@ export class ZebraPrinterComponent {
     } else if (this.platform.is('ios')) {
       this.iosList();
     }
-    this.getPrinterList = this.androidSetPrinterList;
   }
 
   androidSetPrinterList(list: any) {
@@ -57,28 +55,28 @@ export class ZebraPrinterComponent {
   }
 
   androidList() {
-    window.printer.list(this.getPrinterList, this.fnError);
+    window.printer.list(this.androidSetPrinterList.bind(this), this.fnError.bind(this));
   }
 
   androidClose() {
-    window.printer.close(this.fnSuccess, this.fnError);
+    window.printer.close(this.fnSuccess.bind(this), this.fnError.bind(this));
   }
 
   androidOpen() {
-    window.printer.open(this.fnSuccess, this.fnError, this.selectedPrinter);
+    window.printer.open(this.fnSuccess.bind(this), this.fnError.bind(this), this.selectedPrinter);
   }
 
   androidPrint() {
     this.androidOpen();
-    window.printer.print(this.fnSuccess, this.fnError, this.text);
+    window.printer.print(this.fnSuccess.bind(this), this.fnError.bind(this), this.text);
   }
 
   iosList() {
-    window.plugins.CordovaPrinter.getPrinters(this.fnSuccess, this.fnError);
+    window.plugins.CordovaPrinter.getPrinters(this.fnSuccess.bind(this), this.fnError.bind(this));
   }
 
   iosPrint() {
-    window.plugins.CordovaPrinter.print(this.fnSuccess, this.fnError, this.selectedPrinter, this.text);
+    window.plugins.CordovaPrinter.print(this.fnSuccess.bind(this), this.fnError.bind(this), this.selectedPrinter, this.text);
   }
 
   closeModal() {
