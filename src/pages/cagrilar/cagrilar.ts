@@ -23,7 +23,7 @@ export class CagrilarPage {
   searchQuery: string = "";
   pageable: Pageable;
   searchType: string = "BEGINNING";
-  searchParams: string = "";
+  searchParams: string[] = [];
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,

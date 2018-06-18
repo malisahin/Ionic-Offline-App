@@ -22,7 +22,7 @@ export class CagriAramaModalPage {
   filter: HizmetSearch;
   query: string;
   constants: Constants;
-  searchParams: string = "";
+  searchParams: string [] = [];
 
   constructor(public viewCtrl: ViewController,
               private util: UtilProvider) {
@@ -47,37 +47,37 @@ export class CagriAramaModalPage {
 
     if (this.util.isNotEmpty(this.filter.randevuTarFirst)) {
       this.query += " AND randevuTarihi > '" + this.filter.randevuTarFirst + " 00:00:00' ";
-      this.searchParams = "Randevu Tarihi Başlangıç: " + this.filter.randevuTarFirst + ", ";
+      this.searchParams.push("Randevu Tarihi Başlangıç: " + this.filter.randevuTarFirst);
     }
 
     if (this.util.isNotEmpty(this.filter.randevuTarLast)) {
       this.query += " AND randevuTarihi < '" + this.filter.randevuTarLast + " 23:59:59' ";
-      this.searchParams = "Randevu Tarihi Bitiş: " + this.filter.randevuTarLast + ", ";
+      this.searchParams.push("Randevu Tarihi Bitiş: " + this.filter.randevuTarLast);
     }
 
     if (this.util.isNotEmpty(this.filter.seqNo)) {
       whereQuery.push(this.util.prepareWhereQuery(searchType, "seqNo", this.filter.seqNo));
-      this.searchParams = "Hizmet Form No: " + this.filter.seqNo + ", ";
+      this.searchParams.push("Hizmet Form No: " + this.filter.seqNo);
     }
 
     if (this.util.isNotEmpty(this.filter.durum)) {
       whereQuery.push(this.util.prepareWhereQuery(searchType, "durum", this.filter.durum));
-      this.searchParams = "Çağrı Durumu: " + this.filter.durum + ", ";
+      this.searchParams.push("Çağrı Durumu: " + this.filter.durum);
     }
 
     if (this.util.isNotEmpty(this.filter.adi)) {
       whereQuery.push(this.util.prepareWhereQuery(searchType, "adi", this.filter.adi));
-      this.searchParams = " Müşteri Adı: " + this.filter.adi + ", ";
+      this.searchParams.push(" Müşteri Adı: " + this.filter.adi);
     }
 
     if (this.util.isNotEmpty(this.filter.soyadi)) {
       whereQuery.push(this.util.prepareWhereQuery(searchType, "soyadi", this.filter.soyadi));
-      this.searchParams = "Müşteri Soyadı: " + this.filter.soyadi + ", ";
+      this.searchParams.push("Müşteri Soyadı: " + this.filter.soyadi);
     }
 
     if (this.util.isNotEmpty(this.filter.unvani)) {
       whereQuery.push(this.util.prepareWhereQuery(searchType, "firmaUnvani", this.filter.unvani));
-      this.searchParams = "Müşteri Ünvanı: " + this.filter.unvani + ", ";
+      this.searchParams.push("Müşteri Ünvanı: " + this.filter.unvani);
     }
 
     this.query = this.util.prepareQuery(this.query, whereQuery, searchType);

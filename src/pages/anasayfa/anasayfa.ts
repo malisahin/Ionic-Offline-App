@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {HeaderProvider} from "../../providers/header/header";
 import {MesajlarDao} from "../../providers/mesajlar-dao/mesajlar-dao";
 import {HizmetDao} from "../../providers/hizmet-dao/hizmet-dao";
@@ -33,8 +33,7 @@ export class Anasayfa {
     this.loadHizmetSayisi();
   }
 
-  private
-  ionViewDidLoad() {
+  private ionViewDidLoad() {
     console.log('ionViewDidLoad Anasayfa');
   }
 
@@ -44,7 +43,7 @@ export class Anasayfa {
 
 
   loadGuncellemeSayisi() {
-    this.guncellemeSayisi =  this.headerProvider.loadGuncellemeSayisi();
+    this.guncellemeSayisi = this.headerProvider.loadGuncellemeSayisi();
   }
 
   async loadMesajSayilari() {

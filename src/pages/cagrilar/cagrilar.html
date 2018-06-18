@@ -23,7 +23,9 @@
     </ion-col>
   </ion-row>
   <ion-row *ngIf="this.searchParams != ''">
-    <ion-label>{{this.searchParams}}</ion-label>
+    <ion-chip *ngFor="let sorgu of searchParams">
+      <ion-label>{{sorgu}}</ion-label>
+    </ion-chip>
   </ion-row>
 
   <ion-card *ngFor="let cagri of cagrilar" (click)="cagriDetayinaGit($event, cagri.seqNo)">

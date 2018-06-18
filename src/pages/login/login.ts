@@ -5,12 +5,12 @@
 
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, Loading, IonicPage } from 'ionic-angular';
-import { HomeComponent } from '../../components/home/home';
 import { LoginProvider } from '../../providers/login/login';
 import { UserProvider } from '../../providers/user/user';
 import { UtilProvider } from '../../providers/util/util';
 import { LoggerProvider } from '../../providers/logger/logger';
 import { User } from "../../entities/user";
+import {Anasayfa} from "../anasayfa/anasayfa";
 
 @IonicPage()
 @Component({
@@ -53,7 +53,7 @@ export class LoginPage {
 
   route() {
     if (this.hasLoginPermission) {
-      this.nav.push(HomeComponent);
+      this.nav.push(Anasayfa);
       this.loading.dismiss();
     }
     else {

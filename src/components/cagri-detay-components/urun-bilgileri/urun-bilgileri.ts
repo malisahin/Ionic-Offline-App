@@ -63,9 +63,11 @@ export class UrunBilgileriComponent {
       }
     });
     anaGrpModal.onDidDismiss(res => {
-      this.hizmet.mamAnaGrpAdi = res.ad;
-      this.hizmet.mamAnaGrp = res.mamAnaGrp;
-      this.findUrunAnaGrp();
+      if (this.util.isNotEmpty(res)) {
+        this.hizmet.mamAnaGrpAdi = res.ad;
+        this.hizmet.mamAnaGrp = res.mamAnaGrp;
+        this.findUrunAnaGrp();
+      }
     });
     anaGrpModal.present();
   }
@@ -82,7 +84,7 @@ export class UrunBilgileriComponent {
   }
 
   urunSil() {
-    if (this.hizmet.detayList.length > 0) {
+    if (this.hizmet.detayList.length > 0 && this.hizmet.detayList[0].length > 0) {
       this.util.message("Ürüne bağlı Parça/İşçilik/Yol mevcut.Silinemez.");
       return false;
     }

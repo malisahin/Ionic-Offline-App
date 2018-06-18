@@ -4,7 +4,6 @@
  */
 import {NgModule} from '@angular/core';
 import {CagrilarComponent} from './cagrilar/cagrilar';
-import {HomeComponent} from './home/home';
 import {HeaderComponent} from './header/header';
 import {MusteriBilgileriComponent} from './cagri-detay-components/musteri-bilgileri/musteri-bilgileri';
 import {HizmetBilgileriComponent} from './cagri-detay-components/hizmet-bilgileri/hizmet-bilgileri';
@@ -27,7 +26,6 @@ import {ZebraPrinterComponent} from "./zebra-printer/zebra-printer";
 
 @NgModule({
   declarations: [CagrilarComponent,
-    HomeComponent,
     HeaderComponent,
     MusteriBilgileriComponent,
     HizmetBilgileriComponent,
@@ -51,7 +49,6 @@ import {ZebraPrinterComponent} from "./zebra-printer/zebra-printer";
   imports: [],
   exports: [
     CagrilarComponent,
-    HomeComponent,
     HeaderComponent,
     MusteriBilgileriComponent,
     HizmetBilgileriComponent,

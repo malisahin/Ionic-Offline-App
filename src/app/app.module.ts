@@ -5,7 +5,6 @@ import { MyApp } from "./app.component";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { AuthService } from "../providers/auth-service/auth-service";
-import { HomeComponent } from "../components/home/home";
 import { CagrilarComponent } from "../components/cagrilar/cagrilar";
 import { BildirimlerPage } from "../pages/bildirimler/bildirimler";
 import { CagrilarPage } from "../pages/cagrilar/cagrilar";
@@ -79,7 +78,6 @@ import { ZebraPrinterComponent } from "../components/zebra-printer/zebra-printer
 @NgModule({
   declarations: [
     MyApp,
-    HomeComponent,
     CagrilarComponent,
     LoginPage,
     CagriAramaModalPage,
@@ -103,7 +101,6 @@ import { ZebraPrinterComponent } from "../components/zebra-printer/zebra-printer
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomeComponent,
     CagrilarComponent,
     BildirimlerPage,
     CagrilarPage,
