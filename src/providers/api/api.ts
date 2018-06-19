@@ -8,10 +8,10 @@ import {EProfiles} from "../../entities/enums/eProfil";
 import {Tablo} from "../../entities/Tablo";
 import {HttpHeaders} from '@angular/common/http';
 import {Constants} from "../../entities/Constants";
+import {User} from "../../entities/user";
 
 @Injectable()
 export class ApiProvider {
-  constants: Constants;
   profil: Profil = new Profil();
   ACTIVE_PROFIL: EProfiles;
   orgKod: string = "ECAMERKEZ";
@@ -26,16 +26,17 @@ export class ApiProvider {
   pageSize: number;
   first = 0;
   tables: Tablo;
+  user: User;
 
   constructor() {
-    this.constants = new Constants();
-    this.pageSize = this.constants.API_PAGE_SIZE;
+    this.pageSize = Constants.API_PAGE_SIZE;
     this.ACTIVE_PROFIL = EProfiles.LOCAL_DEV;
 
     this.urlPrefixHizmet = this.profil.getActiveProfil(this.ACTIVE_PROFIL).domainUrl + '/sos-api/endpointrest/hizmet/';
     this.urlPrefixOffline = this.profil.getActiveProfil(this.ACTIVE_PROFIL).domainUrl + '/sos-api/endpointrest/offline/';
     this.urlPrefixKullanici = this.profil.getActiveProfil(this.ACTIVE_PROFIL).domainUrl + '/sos-api/endpointrest/kullanici/';
     this.tables = new Tablo();
+    this.user = new User();
   }
 
   getTokenUrl(userCode: String, password: String) {
@@ -59,31 +60,31 @@ export class ApiProvider {
   }
 
   downloadUrunUrl(first: number) {
-    let versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.ISCILIK_FIYAT);
+    let versiyon = localStorage.getItem(Constants.VERSIYON.CLIENT.ISCILIK_FIYAT);
     versiyon = versiyon == null ? "-1" : versiyon;
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/urunler';
   }
 
   urunAnagrupDownloadUrl() {
-    let versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.URUN_ANA_GRUP);
+    let versiyon = localStorage.getItem(Constants.VERSIYON.CLIENT.URUN_ANA_GRUP);
     versiyon = versiyon == null ? "-1" : versiyon;
     return this.urlPrefixOffline + versiyon + '/mamAnagrp';
   }
 
   urunIscilikDownloadUrl(first: number) {
-    let versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.URUN_ISCILIK);
+    let versiyon = localStorage.getItem(Constants.VERSIYON.CLIENT.URUN_ISCILIK);
     versiyon = versiyon == null ? "-1" : versiyon;
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/mamIsc';
   }
 
   urunMalzemeDownloadUrl(first: number) {
-    let versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.URUN_MALZEME);
+    let versiyon = localStorage.getItem(Constants.VERSIYON.CLIENT.URUN_MALZEME);
     versiyon = versiyon == null ? "-1" : versiyon;
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/mamMlz';
   }
 
   islemArizaIscilikDownloadUrl(first: number) {
-    let versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.ISLEM_ARIZA_ISCILIK);
+    let versiyon = localStorage.getItem(Constants.VERSIYON.CLIENT.ISLEM_ARIZA_ISCILIK);
     versiyon = versiyon == null ? "-1" : versiyon;
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/islArzIsc';
   }
@@ -91,9 +92,9 @@ export class ApiProvider {
   fiyatlarDownloadUrl(first: number, tip: string) {
     let versiyon = "-1";
     if (tip == "malzemeFiyatListesi") {
-      versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.MALZEME_FIYAT);
+      versiyon = localStorage.getItem(Constants.VERSIYON.CLIENT.MALZEME_FIYAT);
     } else {
-      versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.ISCILIK_FIYAT);
+      versiyon = localStorage.getItem(Constants.VERSIYON.CLIENT.ISCILIK_FIYAT);
     }
     versiyon = versiyon == null ? "-1" : versiyon;
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/' + tip;
@@ -112,27 +113,31 @@ export class ApiProvider {
     return this.urlPrefixKullanici + this.userName + '/type/NEW/mesajlar';
   }
 
-  updateMamAnaGrupUrl() {
-    return this.urlPrefixHizmet + this.orgKod + '/' + this.userName + '/' + this.dilKod + '/' + this.paraBirimi + '/UpdateMamAnaGrp';
-  }
-
   getMahalleTnmUrl(first: number) {
-    let versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.MAHALLE_TNM);
+    let versiyon = localStorage.getItem(Constants.VERSIYON.CLIENT.MAHALLE_TNM);
     versiyon = versiyon == null ? "-1" : versiyon;
     return this.urlPrefixOffline + versiyon + '/' + first + "/" + this.pageSize + '/mahalleler';
   }
 
   getSehirIlceUrl(tip: string) {
     let versiyon = "-1";
-    if (tip == this.constants.DATA_TYPE.SEHIR_TNM) {
-      versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.SEHIR_TNM);
+    if (tip == Constants.DATA_TYPE.SEHIR_TNM) {
+      versiyon = localStorage.getItem(Constants.VERSIYON.CLIENT.SEHIR_TNM);
       tip = 'sehirler';
-    } else if (tip == this.constants.DATA_TYPE.ILCE_TNM) {
-      versiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT.ISCILIK_FIYAT);
+    } else if (tip == Constants.DATA_TYPE.ILCE_TNM) {
+      versiyon = localStorage.getItem(Constants.VERSIYON.CLIENT.ISCILIK_FIYAT);
       tip = 'ilceler';
     }
     versiyon = versiyon == null ? "-1" : versiyon;
     return this.urlPrefixOffline + versiyon + '/' + tip;
+  }
+
+  seriNoSorguUrl(mamKod: string) {
+    return this.urlPrefixOffline + "seriNoSorgu/" + mamKod;
+  }
+
+  updateMamAnaGrupUrl() {
+    return this.urlPrefixHizmet + this.user.getOrgKod() + "/" + this.user.getUserCode() + "/" + this.user.getDilKod() + "/" + this.user.getPb() + "/UpdateMamAnaGrp"
   }
 
 

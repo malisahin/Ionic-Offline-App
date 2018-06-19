@@ -21,14 +21,13 @@ export class CagriAramaModalPage {
 
   filter: HizmetSearch;
   query: string;
-  constants: Constants;
   searchParams: string [] = [];
 
   constructor(public viewCtrl: ViewController,
               private util: UtilProvider) {
 
     this.filter = new HizmetSearch();
-    this.constants = new Constants();
+
   }
 
   ionViewDidLoad() {
@@ -43,7 +42,7 @@ export class CagriAramaModalPage {
   search() {
     this.query = " SELECT * FROM OFF_HIZ_MST WHERE 1=1";
     let whereQuery = [];
-    let searchType = this.constants.SEARCH_TYPE.EXACT;
+    let searchType = Constants.SEARCH_TYPE.EXACT;
 
     if (this.util.isNotEmpty(this.filter.randevuTarFirst)) {
       this.query += " AND randevuTarihi > '" + this.filter.randevuTarFirst + " 00:00:00' ";

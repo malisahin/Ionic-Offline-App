@@ -3,21 +3,19 @@ import {Injectable} from '@angular/core';
 import {ApiProvider} from '../api/api';
 import {UrunMalzeme} from '../../entities/urun-malzeme';
 import {UrunMalzemeDao} from '../urun-malzeme-dao/urun-malzeme-dao';
-import {Constants} from '../../entities/Constants';
 import {TokenProvider} from "../token/token";
 
 
 @Injectable()
 export class UrunMalzemeProvider {
 
-  constants: Constants;
+
 
   constructor(public http: HttpClient,
               private urunMalzemeDao: UrunMalzemeDao,
               private token: TokenProvider,
               private api: ApiProvider) {
     console.log('Hello UrunMalzemeProvider Provider');
-    this.constants = new Constants();
   }
 
   async downloadUrunMalzeme(first): Promise<any> {

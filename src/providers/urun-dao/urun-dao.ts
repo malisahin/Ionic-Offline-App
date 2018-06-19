@@ -8,13 +8,10 @@ import {UtilProvider} from "../util/util";
 @Injectable()
 export class UrunDao {
 
-  constant: Constants;
 
   constructor(private baseDao: BaseDao,
               private dbProvider: DatabaseProvider,
               private  util: UtilProvider) {
-    console.log('Hello UrunDaoProvider Provider');
-    this.constant = new Constants();
   }
 
   insertOne(item: Urun): Promise<any> {
@@ -25,7 +22,7 @@ export class UrunDao {
 
   getUrunAndUrunAnaGrup(urunKodu: string): Promise<any> {
     let query = 'Select mam.*,  anaGrp.ad as anaGrupAdi from OFF_MAM_ANAGRP_TNM anaGrp, OFF_MAM_TNM mam WHERE anaGrp.mamAnaGrp = mam.mamAnaGrp and anaGrp.tip=? and mam.mamKod =? ';
-    let params = [this.constant.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE, urunKodu];
+    let params = [Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE, urunKodu];
     return this.baseDao.execute(query, params);
   }
 
@@ -68,12 +65,10 @@ export class UrunDao {
 
   prepareSelectQuery(item: Urun, searchType: string): string {
     let query = 'SELECT * FROM OFF_MAM_TNM WHERE 1=1';
-    let AndOr = searchType == this.constant.SEARCH_TYPE.EXACT ? ' AND ' : ' OR ';
     let searchQuery = [];
 
     if (this.util.isNotEmpty(item.mamAnagrp)) {
       query += " AND mamAnagrp='" + item.mamAnagrp + "'";
-      //  searchQuery.push(this.util.prepareWhereQuery(this.constant.SEARCH_TYPE.EXACT, 'mamAnagrp', item.mamAnagrp));
     }
 
     if (this.util.isNotEmpty(item.mamKod))

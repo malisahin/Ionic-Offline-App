@@ -1,4 +1,4 @@
-import { Constants } from "./Constants";
+import {Constants} from "./Constants";
 
 /**
  * @author malisahin
@@ -46,9 +46,8 @@ export class BasvuruListe {
 
 
   fillBasvuruListe(list: BasvuruListe[], mainList: UrunAnaGrup[]) {
-    let constants = new Constants();
     list.forEach(function (item) {
-      let anaGrp = new UrunAnaGrup(constants.URUN_ANA_GRUP_TYPE.BASVURU_LISTE);
+      let anaGrp = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.BASVURU_LISTE);
       anaGrp.basvuruNeden = item.basvuruNeden;
       anaGrp.mamAnaGrp = item.mamAnagrp;
       anaGrp.ad = item.ad;
@@ -67,7 +66,7 @@ export class CozumListe {
   fillCozumListe(list: CozumListe[], mainList: UrunAnaGrup[]) {
 
     list.forEach(function (item) {
-      let anaGrp = new UrunAnaGrup(new Constants().URUN_ANA_GRUP_TYPE.COZUM_LISTE);
+      let anaGrp = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.COZUM_LISTE);
       anaGrp.kod = item.kod;
       anaGrp.ad = item.ad;
       mainList.push(anaGrp);
@@ -83,9 +82,9 @@ export class UrunAnaGrupListe {
   tip: string = "liste";
 
   fillMamAnaGrpListe(list: UrunAnaGrupListe[], mainList: UrunAnaGrup[]) {
-    localStorage.setItem(new Constants().VERSIYON.SERVER.URUN_ANA_GRUP, list.length.toString());
+    localStorage.setItem(Constants.VERSIYON.SERVER.URUN_ANA_GRUP, list.length.toString());
     list.forEach(item => {
-      let anaGrp = new UrunAnaGrup(new Constants().URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
+      let anaGrp = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
       anaGrp.mamAnaGrp = item.mamAnaGrp;
       anaGrp.durum = item.durum;
       anaGrp.ad = item.Adi;

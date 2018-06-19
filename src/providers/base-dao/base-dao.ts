@@ -5,16 +5,14 @@
 import {Injectable} from "@angular/core";
 import {DatabaseProvider} from "../database/database";
 import {Constants} from "../../entities/Constants";
+import {LoggerProvider} from "../logger/logger";
 
 
 @Injectable()
 export class BaseDao {
 
-  constants: Constants;
-
-  constructor(private DB: DatabaseProvider) {
-    console.log('Hello BaseDaoProvider Provider');
-    this.constants = new Constants();
+  constructor(private DB: DatabaseProvider,
+              private logger: LoggerProvider) {
   }
 
   findOne() {
@@ -26,8 +24,7 @@ export class BaseDao {
   }
 
   execute(query: string, params: any[]): Promise<any> {
-    console.log(query);
-    let response: any;
+    this.logger.log(query);
     return new Promise((resolve, reject) => {
       this.DB.transaction().then(db => {
         db.transaction(function (tx) {
@@ -43,7 +40,7 @@ export class BaseDao {
   }
 
   insertList(list: any[], query: string, params: string) {
-    console.log('query' + query);
+    this.logger.log(query);
     let response: any;
     let insertedItems = 0;
     return new Promise((resolve, reject) => {
@@ -72,15 +69,15 @@ export class BaseDao {
   }
 
   deleteAll(tableName: string): Promise<any> {
-    let query = "DELETE FROM " + this.constants.TABLE_NAME[tableName];
+    let query = "DELETE FROM " + Constants.TABLE_NAME[tableName];
     this.resetVersion(tableName);
     return this.execute(query, []);
   }
 
   resetVersion(tableName: string) {
     let deletedVersion = (-1).toString();
-    localStorage.setItem(this.constants.VERSIYON.CLIENT[tableName], deletedVersion);
-    localStorage.setItem(this.constants.VERSIYON.SERVER[tableName], deletedVersion);
+    localStorage.setItem(Constants.VERSIYON.CLIENT[tableName], deletedVersion);
+    localStorage.setItem(Constants.VERSIYON.SERVER[tableName], deletedVersion);
 
   }
 

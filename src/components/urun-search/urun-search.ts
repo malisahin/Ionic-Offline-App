@@ -17,7 +17,6 @@ export class UrunSearchComponent {
   data: any;
   list: { key: "", value: "" }[] = [];
   selectedItem: { key: "", value: "" } = {key: "", value: ""};
-  constants: Constants = new Constants();
   returnObject: any;
   pageable: Pageable;
   searchText: string = "";
@@ -27,12 +26,10 @@ export class UrunSearchComponent {
   constructor(public viewCtrl: ViewController, params: NavParams,
               private urunDao: UrunDao,
               private util: UtilProvider) {
-    console.log('Hello SelectSearchComponent Component');
     this.pageable = new Pageable();
-    this.text = 'Hello World';
     this.data = params.get('data');
     this.urun = new Urun();
-    this.searchType = this.constants.SEARCH_TYPE.LIKE;
+    this.searchType = Constants.SEARCH_TYPE.LIKE;
     this.ionViewDidLoad();
   }
 
@@ -55,7 +52,7 @@ export class UrunSearchComponent {
 
   fetchUrunList() {
     let urunSearch = this.prepareSearchUrun();
-    this.urunDao.getList(urunSearch, this.constants.SEARCH_TYPE.LIKE, this.pageable.first, this.pageable.pageSize).then(data => {
+    this.urunDao.getList(urunSearch, Constants.SEARCH_TYPE.LIKE, this.pageable.first, this.pageable.pageSize).then(data => {
       this.fillList(data);
     });
 

@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
-import { UrunAnaGrup } from '../../entities/urunAnaGrup';
-import { Constants } from '../../entities/Constants';
-import { Urun } from '../../entities/urun';
-import { UrunMalzeme } from '../../entities/urun-malzeme';
-import { UtilProvider } from '../../providers/util/util';
-import { ModalController } from 'ionic-angular';
-import { UrunIscilik } from '../../entities/urun-iscilik';
-import { UrunAnaGrupSearchComponent } from '../urun-ana-grup-search/urun-ana-grup-search';
-import { UrunSearchComponent } from '../urun-search/urun-search';
-import { UrunIscilikSearchComponent } from '../urun-iscilik-search/urun-iscilik-search';
+import {Component} from '@angular/core';
+import {UrunAnaGrup} from '../../entities/urunAnaGrup';
+import {Constants} from '../../entities/Constants';
+import {Urun} from '../../entities/urun';
+import {UrunMalzeme} from '../../entities/urun-malzeme';
+import {UtilProvider} from '../../providers/util/util';
+import {ModalController} from 'ionic-angular';
+import {UrunIscilik} from '../../entities/urun-iscilik';
+import {UrunAnaGrupSearchComponent} from '../urun-ana-grup-search/urun-ana-grup-search';
+import {UrunSearchComponent} from '../urun-search/urun-search';
+import {UrunIscilikSearchComponent} from '../urun-iscilik-search/urun-iscilik-search';
 
 
 @Component({
@@ -19,24 +19,24 @@ export class FiyatSorguComponent {
 
   text: string;
   urunAnaGrup: UrunAnaGrup;
-  constants: Constants;
+
   urun: Urun;
   urunIscilik: UrunIscilik;
   islemTipi: string;
   data: any;
+
   constructor(private modalController: ModalController, private util: UtilProvider) {
     console.log('Hello FiyatSorguComponent Component');
     this.data = {};
-    this.constants = new Constants();
-    this.urunAnaGrup = new UrunAnaGrup(this.constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
+    this.urunAnaGrup = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
     this.urun = new Urun();
     this.urunIscilik = new UrunIscilik();
     this.islemTipi = '';
   }
 
   public urunAnaGrupSorgula() {
-    this.data.type = this.constants.DATA_TYPE.URUN_ANA_GRUP;
-    let aramaModal = this.modalController.create(UrunAnaGrupSearchComponent, { data: this.data });
+    this.data.type = Constants.DATA_TYPE.URUN_ANA_GRUP;
+    let aramaModal = this.modalController.create(UrunAnaGrupSearchComponent, {data: this.data});
     aramaModal.onDidDismiss(data => {
       this.urunAnaGrup = data;
     });
@@ -45,8 +45,8 @@ export class FiyatSorguComponent {
 
   public urunSorgula() {
 
-    this.data.type = this.constants.DATA_TYPE.URUN;
-    let aramaModal = this.modalController.create(UrunSearchComponent, { data: this.data });
+    this.data.type = Constants.DATA_TYPE.URUN;
+    let aramaModal = this.modalController.create(UrunSearchComponent, {data: this.data});
     aramaModal.onDidDismiss(data => {
       this.urun = data;
     });
@@ -59,9 +59,9 @@ export class FiyatSorguComponent {
       this.util.message("Önce ürünü seçiniz.");
       return false;
     }
-    this.data.type = this.constants.DATA_TYPE.URUN_ISCILIK;
+    this.data.type = Constants.DATA_TYPE.URUN_ISCILIK;
     this.data.mamKod = this.urun.mamKod;
-    let aramaModal = this.modalController.create(UrunIscilikSearchComponent, { data: this.data });
+    let aramaModal = this.modalController.create(UrunIscilikSearchComponent, {data: this.data});
     aramaModal.onDidDismiss(data => {
       this.urunIscilik = data;
     });

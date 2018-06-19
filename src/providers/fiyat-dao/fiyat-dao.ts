@@ -14,14 +14,10 @@ export class FiyatDao {
   INSERT_QUERY = "INSERT OR REPLACE INTO OFF_FIYAT (mamKod,iscMlz,iscMlzKod,fiyat,gdfiyat,versiyon) VALUES (?,?,?,?,?,?)";
   UPDATE_QUERY = "UPDATE OFF_FIYAT SET fiyat = ?,gdfiyat=?, versiyon=? WHERE mamKod=? AND iscMlz = ? and iscMlzKod = ?";
   SELECT_QUERY = "SELECT * FROM OFF_FIYAT WHERE mamKod = ? and iscMlzKod = ?";
-  constants: Constants;
 
   constructor(private baseDao: BaseDao,
               private dbProvider: DatabaseProvider,
               private util: UtilProvider) {
-
-    this.constants = new Constants();
-
   }
 
   insertOne(item: Fiyat): Promise<any> {
@@ -54,7 +50,7 @@ export class FiyatDao {
   }
 
   async findfiyat(item: Fiyat) {
-    let query = this.prepareSearchQuery(item, this.constants.SEARCH_TYPE.EXACT);
+    let query = this.prepareSearchQuery(item, Constants.SEARCH_TYPE.EXACT);
     return this.baseDao.execute(query, []);
   }
 
@@ -89,9 +85,9 @@ export class FiyatDao {
 
     let query = " DELETE FROM OFF_FIYAT WHERE 1=1 ";
 
-    if (tip == this.constants.DATA_TYPE.ISCILIK_FIYAT) {
+    if (tip == Constants.DATA_TYPE.ISCILIK_FIYAT) {
       query += " AND iscMlz ='ISC'";
-    } else if (tip == this.constants.DATA_TYPE.MALZEME_FIYAT) {
+    } else if (tip == Constants.DATA_TYPE.MALZEME_FIYAT) {
       query += " AND iscMlz ='MLZ'"
     }
     this.baseDao.resetVersion(tip);

@@ -14,7 +14,6 @@ import {UrunAnaGrupDao} from "../../../providers/urun-ana-grup-dao/urun-ana-grup
 import {Constants} from "../../../entities/Constants";
 import {ModalController} from "ionic-angular";
 import {HizmetDetayComponent} from "../../hizmet-detay/hizmet-detay";
-import {ZebraPrinterComponent} from "../../zebra-printer/zebra-printer";
 import {PrinterService} from "../../../providers/printer-service/printer-service";
 
 
@@ -28,7 +27,6 @@ export class DetayBilgileriComponent {
   hizmet: Hizmet = new Hizmet();
   detayList: DetayKayit[];
   cozumKoduList: UrunAnaGrup[] = [];
-  constants: Constants;
 
   constructor(private hizmetService: HizmetService,
               private urunAnaGrupDao: UrunAnaGrupDao,
@@ -36,7 +34,6 @@ export class DetayBilgileriComponent {
               private util: UtilProvider,
               private logger: LoggerProvider,
               private printService: PrinterService) {
-    this.constants = new Constants();
     this.hizmet = this.hizmetService.getHizmet();
     this.loadDetayList();
     this.loadCozumKoduList();
@@ -59,8 +56,8 @@ export class DetayBilgileriComponent {
   }
 
   loadCozumKoduList() {
-    let filter = new UrunAnaGrup(this.constants.URUN_ANA_GRUP_TYPE.COZUM_LISTE);
-    this.urunAnaGrupDao.getList(filter, this.constants.SEARCH_TYPE.EXACT).then(res => {
+    let filter = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.COZUM_LISTE);
+    this.urunAnaGrupDao.getList(filter, Constants.SEARCH_TYPE.EXACT).then(res => {
       this.logger.dir(res);
       if (res.rows.length > 0) {
         for (let i = 0; i < res.rows.length; i++) {

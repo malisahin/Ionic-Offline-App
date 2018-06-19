@@ -19,7 +19,7 @@
         Ürün Ana Grup Değiştir
       </button>
     </ion-col>
-    <ion-col col-sm-12  col-md-6 col-lg-3 col-xl-3>
+    <ion-col col-sm-12 col-md-6 col-lg-3 col-xl-3>
       <button ion-button icon-start full round (click)="garantiSorgula()">
         <ion-icon style="width: 5%" name="help"></ion-icon>
         Garanti Sorgula
@@ -28,24 +28,7 @@
   </ion-row>
 </ion-grid>
 
-<!--div>
-  <button ion-button icon-start small round (click)="urunListesiniGetir()">
-    <ion-icon name="list"></ion-icon>
-    Ürün Seç
-  </button>
-  <button ion-button icon-start small round (click)="urunSil()">
-    <ion-icon name="trash"></ion-icon>
-    Ürün Sil
-  </button>
-  <button ion-button icon-start small round (click)="urunAnaGrupDegistir()">
-    <ion-icon name="refresh"></ion-icon>
-    Ürün Ana Grup Değiştir
-  </button>
-  <button ion-button icon-start small round (click)="garantiSorgula()">
-    <ion-icon style="width: 5%" name="help"></ion-icon>
-    Garanti Sorgula
-  </button>
-</div -->
+
 <ion-list>
 
   <ion-item>
@@ -64,8 +47,12 @@
   </ion-item>
 
   <ion-item>
-    <ion-label color="primary">Seri No</ion-label>
-    <ion-input [(ngModel)]="hizmet.mamSeriNo"></ion-input>
+    <ion-label style="width: 20%" color="primary">Seri No</ion-label>
+    <ion-input style="width: 65%" [(ngModel)]="hizmet.mamSeriNo"></ion-input>
+    <button style="width: 15%" item-end ion-button icon-only full round (click)="seriNoSorgula()">
+      <ion-icon name="search"></ion-icon>
+    </button>
+
   </ion-item>
 
   <ion-item>
@@ -75,12 +62,12 @@
 
   <ion-item>
     <ion-label color="primary">Garanti</ion-label>
-    <ion-toggle [(ngModel)]="hizmet.garanti" color="secondary"></ion-toggle>
+    <ion-toggle [(ngModel)]="hizmet.garanti" (ionChange)="garantiChange()" color="secondary"></ion-toggle>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary">Meşguliyet</ion-label>
-    <ion-toggle [(ngModel)]="hizmet.mesguliyet" color="secondary"></ion-toggle>
+    <ion-toggle [(ngModel)]="hizmet.mesguliyet" (ionChange)="mesguliyetChange()" color="secondary"></ion-toggle>
   </ion-item>
 
 </ion-list>

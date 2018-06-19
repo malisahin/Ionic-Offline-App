@@ -26,7 +26,6 @@ import { UtilProvider } from '../../providers/util/util';
 export class GuncellemePage {
   isAndroid: boolean = false;
   activePage: string = "guncelleme";
-  constants: Constants;
   pageSize = 10000;
   firstForUrunIscilik: number;
   firstForUrunMalzeme: number;
@@ -49,9 +48,8 @@ export class GuncellemePage {
     private logger: LoggerProvider,
     private util: UtilProvider
   ) {
-    this.constants = new Constants();
-    this.colors = this.constants.COLORS;
-    this.icons = this.constants.ICONS;
+    this.colors = Constants.COLORS;
+    this.icons = Constants.ICONS;
     this.firstForUrunIscilik = 0;
     this.firstForUrunMalzeme = 0;
     this.firstForUrunler = 0;
@@ -68,10 +66,10 @@ export class GuncellemePage {
     this.urunProvider.downloadUrunler(this.firstForUrunler).then(res => {
       console.log("Urunler Kayit Edildi");
       this.firstForUrunler += this.pageSize;
-      if (Number(localStorage.getItem(this.constants.GELEN_VERI.GELEN_URUN)) < this.constants.API_PAGE_SIZE) {
+      if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_URUN)) < Constants.API_PAGE_SIZE) {
 
         // TODO: Ürünler Indirildi.
-        localStorage.setItem(this.constants.VERSIYON.CLIENT.URUN, localStorage.getItem(this.constants.VERSIYON.SERVER.URUN));
+        localStorage.setItem(Constants.VERSIYON.CLIENT.URUN, localStorage.getItem(Constants.VERSIYON.SERVER.URUN));
         this.util.message("Ürünler Kayıt Edildi.");
         this.colors.URUN = "downloaded";
         this.icons.URUN = "done-all";
@@ -85,7 +83,7 @@ export class GuncellemePage {
   downloadUrunAnaGrup() {
     this.urunAnaGrpProvider.downloadUrunAnaGrup().then(res => {
       console.log("Ürün Ana Grubu Güncellendi" + res);
-      localStorage.setItem(this.constants.VERSIYON.CLIENT.URUN_ANA_GRUP, localStorage.getItem(this.constants.VERSIYON.SERVER.URUN_ANA_GRUP));
+      localStorage.setItem(Constants.VERSIYON.CLIENT.URUN_ANA_GRUP, localStorage.getItem(Constants.VERSIYON.SERVER.URUN_ANA_GRUP));
       this.util.message("Ürün Ana grup Kayıt Edildi.");
       this.colors.URUN_ANA_GRUP = "downloaded";
       this.icons.URUN_ANA_GRUP = "done-all";
@@ -97,9 +95,9 @@ export class GuncellemePage {
     this.urunIscilikProvider.downloadUrunIscilik(this.firstForUrunIscilik).then(res => {
       console.log(res);
       this.firstForUrunIscilik += this.pageSize;
-      console.log("Indirilen ürün İşçilik sayısı" + localStorage.getItem(this.constants.DATA_TYPE.URUN_ISCILIK));
-      if (Number(localStorage.getItem(this.constants.GELEN_VERI.GELEN_URUN_ISCILIK)) < this.constants.API_PAGE_SIZE) {
-        localStorage.setItem(this.constants.VERSIYON.CLIENT.URUN_ISCILIK, localStorage.getItem(this.constants.VERSIYON.SERVER.URUN_ISCILIK));
+      console.log("Indirilen ürün İşçilik sayısı" + localStorage.getItem(Constants.DATA_TYPE.URUN_ISCILIK));
+      if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_URUN_ISCILIK)) < Constants.API_PAGE_SIZE) {
+        localStorage.setItem(Constants.VERSIYON.CLIENT.URUN_ISCILIK, localStorage.getItem(Constants.VERSIYON.SERVER.URUN_ISCILIK));
         this.util.message("Ürün İşçilik Kayıt Edildi.");
         this.colors.URUN_ISCILIK = "downloaded";
         this.icons.URUN_ISCILIK = "done-all";
@@ -112,8 +110,8 @@ export class GuncellemePage {
   downloadUrunMalzeme() {
     this.urunMalzemeProvider.downloadUrunMalzeme(this.firstForUrunMalzeme).then(res => {
       console.log(res);
-      if (Number(localStorage.getItem(this.constants.GELEN_VERI.GELEN_URUN_MALZEME)) < this.constants.API_PAGE_SIZE) {
-        localStorage.setItem(this.constants.VERSIYON.CLIENT.URUN_MALZEME, localStorage.getItem(this.constants.VERSIYON.SERVER.URUN_MALZEME));
+      if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_URUN_MALZEME)) < Constants.API_PAGE_SIZE) {
+        localStorage.setItem(Constants.VERSIYON.CLIENT.URUN_MALZEME, localStorage.getItem(Constants.VERSIYON.SERVER.URUN_MALZEME));
         this.util.message("Ürün İşçilik Kayıt Edildi.");
         this.colors.URUN_MALZEME = "downloaded";
         this.icons.URUN_MALZEME = "done-all";
@@ -128,8 +126,8 @@ export class GuncellemePage {
   downloadIslemArizaIscilik() {
     this.islemArizaIscilikProvider.downloadIslemArizaIscilik(this.firstForIslemArizaIscilik).then(res => {
       console.log(res);
-      if (Number(localStorage.getItem(this.constants.GELEN_VERI.GELEN_ISLEM_ARIZA_ISCILIK)) < this.constants.API_PAGE_SIZE) {
-        localStorage.setItem(this.constants.VERSIYON.CLIENT.ISLEM_ARIZA_ISCILIK, localStorage.getItem(this.constants.VERSIYON.SERVER.ISLEM_ARIZA_ISCILIK));
+      if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_ISLEM_ARIZA_ISCILIK)) < Constants.API_PAGE_SIZE) {
+        localStorage.setItem(Constants.VERSIYON.CLIENT.ISLEM_ARIZA_ISCILIK, localStorage.getItem(Constants.VERSIYON.SERVER.ISLEM_ARIZA_ISCILIK));
         this.colors.ISLEM_ARIZA_ISCILIK = "downloaded";
         this.icons.ISLEM_ARIZA_ISCILIK = "done-all";
         this.util.message("Islem Ariza Iscilik Kayıt Edildi.");
@@ -144,8 +142,8 @@ export class GuncellemePage {
   downloadMalzemeFiyat() {
     this.fiyatProvider.downloadMalzemeFiyat(this.firstForMalzemeFiyat).then(res => {
       console.log(res);
-      if (Number(localStorage.getItem(this.constants.GELEN_VERI.GELEN_MALZEME_FIYAT)) < this.constants.API_PAGE_SIZE) {
-        localStorage.setItem(this.constants.VERSIYON.CLIENT.MALZEME_FIYAT, localStorage.getItem(this.constants.VERSIYON.SERVER.MALZEME_FIYAT));
+      if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_MALZEME_FIYAT)) < Constants.API_PAGE_SIZE) {
+        localStorage.setItem(Constants.VERSIYON.CLIENT.MALZEME_FIYAT, localStorage.getItem(Constants.VERSIYON.SERVER.MALZEME_FIYAT));
         this.colors.MALZEME_FIYAT = "downloaded";
         this.icons.MALZEME_FIYAT = "done-all";
         this.util.message("Malzeme Fiyatı Kayıt Edildi.");
@@ -159,8 +157,8 @@ export class GuncellemePage {
 
   downloadIscilikFiyat() {
     this.fiyatProvider.downloadIscilikFiyat(this.firstForIscilikFiyat).then(res => {
-      if (Number(localStorage.getItem(this.constants.GELEN_VERI.GELEN_ISCILIK_FIYAT)) < this.constants.API_PAGE_SIZE) {
-        localStorage.setItem(this.constants.VERSIYON.CLIENT.ISCILIK_FIYAT, localStorage.getItem(this.constants.VERSIYON.SERVER.ISCILIK_FIYAT));
+      if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_ISCILIK_FIYAT)) < Constants.API_PAGE_SIZE) {
+        localStorage.setItem(Constants.VERSIYON.CLIENT.ISCILIK_FIYAT, localStorage.getItem(Constants.VERSIYON.SERVER.ISCILIK_FIYAT));
         this.colors.ISCILIK_FIYAT = "downloaded";
         this.icons.ISCILIK_FIYAT = "done-all";
         this.util.message("Iscilik Fiyatı Kayıt Edildi.");
@@ -173,7 +171,7 @@ export class GuncellemePage {
 
   downloadSehirList() {
     this.adresProvider.downloadSehirData().then(res => {
-      localStorage.setItem(this.constants.VERSIYON.CLIENT.SEHIR_TNM, localStorage.getItem(this.constants.VERSIYON.SERVER.SEHIR_TNM));
+      localStorage.setItem(Constants.VERSIYON.CLIENT.SEHIR_TNM, localStorage.getItem(Constants.VERSIYON.SERVER.SEHIR_TNM));
       this.colors.SEHIR_TNM = "downloaded";
       this.icons.SEHIR_TNM = "done-all";
       this.logger.dir(res);
@@ -182,7 +180,7 @@ export class GuncellemePage {
 
   downloadIlceList() {
     this.adresProvider.downloadIlceData().then(res => {
-      localStorage.setItem(this.constants.VERSIYON.CLIENT.ILCE_TNM, localStorage.getItem(this.constants.VERSIYON.SERVER.ILCE_TNM));
+      localStorage.setItem(Constants.VERSIYON.CLIENT.ILCE_TNM, localStorage.getItem(Constants.VERSIYON.SERVER.ILCE_TNM));
       this.colors.ILCE_TNM = "downloaded";
       this.icons.ILCE_TNM = "done-all";
       this.logger.dir(res);
@@ -191,8 +189,8 @@ export class GuncellemePage {
 
   downloadMahalleList() {
     this.adresProvider.downloadMahalleData(this.firstForMahalleTnm).then(res => {
-      if (Number(localStorage.getItem(this.constants.GELEN_VERI.GELEN_MAHALLE_TNM)) < this.constants.API_PAGE_SIZE) {
-        localStorage.setItem(this.constants.VERSIYON.CLIENT.MAHALLE_TNM, localStorage.getItem(this.constants.VERSIYON.SERVER.MAHALLE_TNM));
+      if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_MAHALLE_TNM)) < Constants.API_PAGE_SIZE) {
+        localStorage.setItem(Constants.VERSIYON.CLIENT.MAHALLE_TNM, localStorage.getItem(Constants.VERSIYON.SERVER.MAHALLE_TNM));
         this.colors.MAHALLE_TNM = "downloaded";
         this.icons.MAHALLE_TNM = "done-all";
         this.util.message("Mahalle Bilgisi Kayıt Edildi.");
@@ -208,28 +206,28 @@ export class GuncellemePage {
   }
 
   setButtonsStyle() {
-    this.setButtonStyle(this.constants.DATA_TYPE.URUN);
-    this.setButtonStyle(this.constants.DATA_TYPE.URUN_ANA_GRUP);
-    this.setButtonStyle(this.constants.DATA_TYPE.URUN_ISCILIK);
-    this.setButtonStyle(this.constants.DATA_TYPE.URUN_MALZEME);
-    this.setButtonStyle(this.constants.DATA_TYPE.ISLEM_ARIZA_ISCILIK);
-    this.setButtonStyle(this.constants.DATA_TYPE.MALZEME_FIYAT);
-    this.setButtonStyle(this.constants.DATA_TYPE.ISCILIK_FIYAT);
-    this.setButtonStyle(this.constants.DATA_TYPE.SEHIR_TNM);
-    this.setButtonStyle(this.constants.DATA_TYPE.ILCE_TNM);
-    this.setButtonStyle(this.constants.DATA_TYPE.MAHALLE_TNM);
+    this.setButtonStyle(Constants.DATA_TYPE.URUN);
+    this.setButtonStyle(Constants.DATA_TYPE.URUN_ANA_GRUP);
+    this.setButtonStyle(Constants.DATA_TYPE.URUN_ISCILIK);
+    this.setButtonStyle(Constants.DATA_TYPE.URUN_MALZEME);
+    this.setButtonStyle(Constants.DATA_TYPE.ISLEM_ARIZA_ISCILIK);
+    this.setButtonStyle(Constants.DATA_TYPE.MALZEME_FIYAT);
+    this.setButtonStyle(Constants.DATA_TYPE.ISCILIK_FIYAT);
+    this.setButtonStyle(Constants.DATA_TYPE.SEHIR_TNM);
+    this.setButtonStyle(Constants.DATA_TYPE.ILCE_TNM);
+    this.setButtonStyle(Constants.DATA_TYPE.MAHALLE_TNM);
 
   }
 
   setButtonStyle(type: string) {
-    let clientVersiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT[type]);
-    let serverVersiyon = localStorage.getItem(this.constants.VERSIYON.SERVER[type]);
+    let clientVersiyon = localStorage.getItem(Constants.VERSIYON.CLIENT[type]);
+    let serverVersiyon = localStorage.getItem(Constants.VERSIYON.SERVER[type]);
     if (serverVersiyon == '-1' || clientVersiyon != serverVersiyon) {
-      this.constants.COLORS[type] = "notDownloaded";
-      this.constants.ICONS[type] = "download";
+      Constants.COLORS[type] = "notDownloaded";
+      Constants.ICONS[type] = "download";
     } else {
-      this.constants.COLORS[type] = "downloaded";
-      this.constants.ICONS[type] = "done-all";
+      Constants.COLORS[type] = "downloaded";
+      Constants.ICONS[type] = "done-all";
     }
   }
 

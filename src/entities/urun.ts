@@ -1,9 +1,10 @@
-import { Constants } from "./Constants";
+import {Constants} from "./Constants";
 
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
 */
+
 export class Urun {
   mamAnagrp: string = "";
   mamKod: string = "";
@@ -13,7 +14,6 @@ export class Urun {
   durum: string = "";
 
   fillUrun(res: any): Promise<any> {
-    let constant = new Constants();
     let parsedList = [];
     let urunList = res.message[0].liste;
     let urunVersiyon = res.message[0].versiyon;
@@ -22,8 +22,8 @@ export class Urun {
     /**
      *   Versiyon ve Ne kadar verinin geldiği burdan kontrol edilir
      */
-    localStorage.setItem(constant.VERSIYON.SERVER.URUN, urunVersiyon);
-    localStorage.setItem(constant.GELEN_VERI.GELEN_URUN, urunList.length);
+    localStorage.setItem(Constants.VERSIYON.SERVER.URUN, urunVersiyon);
+    localStorage.setItem(Constants.GELEN_VERI.GELEN_URUN, urunList.length);
 
     urunList.forEach(function (item) {
       let urun: Urun = new Urun();

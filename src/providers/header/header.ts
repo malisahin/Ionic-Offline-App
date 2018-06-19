@@ -1,20 +1,12 @@
-import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {NavController, AlertController, Platform} from "ionic-angular";
+import {AlertController, Platform} from "ionic-angular";
 import {Constants} from "../../entities/Constants";
-import {MesajlarDao} from "../mesajlar-dao/mesajlar-dao";
-import {HizmetDao} from "../hizmet-dao/hizmet-dao";
-
 
 @Injectable()
 export class HeaderProvider {
 
-  constants: Constants;
-
   constructor(private alert: AlertController,
-              private  hizmetDao: HizmetDao,
               private platform: Platform) {
-    this.constants = new Constants();
   }
 
 
@@ -43,8 +35,8 @@ export class HeaderProvider {
 
     for (let i = 0; i < tables.length; i++) {
       let item = tables[i];
-      let serverVersiyon = localStorage.getItem(this.constants.VERSIYON.SERVER[item]);
-      let clientVersiyon = localStorage.getItem(this.constants.VERSIYON.CLIENT[item]);
+      let serverVersiyon = localStorage.getItem(Constants.VERSIYON.SERVER[item]);
+      let clientVersiyon = localStorage.getItem(Constants.VERSIYON.CLIENT[item]);
 
       if ((serverVersiyon == clientVersiyon) && serverVersiyon != "-1") {
         guncellemeSayisi -= 1;

@@ -9,12 +9,10 @@ import {LoggerProvider} from "../logger/logger";
 @Injectable()
 export class UrunAnaGrupDao {
 
-  constant: Constants;
-
   constructor(private dbProvider: DatabaseProvider, private util: UtilProvider,
               private logger: LoggerProvider,
               private baseDao: BaseDao) {
-    this.constant = new Constants();
+    this.logger.log("Urun Ana Grup Constractor");
   }
 
   insertOne(item: UrunAnaGrup): Promise<any> {
@@ -34,7 +32,6 @@ export class UrunAnaGrupDao {
   }
 
   insertList(list: UrunAnaGrup[]) {
-    let response: any;
     let insertedItems = 0;
     return new Promise((resolve, reject) => {
       this.dbProvider.transaction().then(db => {
@@ -59,7 +56,6 @@ export class UrunAnaGrupDao {
 
   prepareQuery(item: UrunAnaGrup, searchType: string): string {
     let query = "SELECT * FROM OFF_MAM_ANAGRP_TNM WHERE tip = '" + item.tip + "'";
-    let AndOr = searchType == this.constant.SEARCH_TYPE.EXACT ? ' AND ' : ' OR ';
 
     let whereQuery = [];
     if (this.util.isNotEmpty(item.ad)) {

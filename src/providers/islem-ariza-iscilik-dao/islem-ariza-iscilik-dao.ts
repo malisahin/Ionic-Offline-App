@@ -11,13 +11,11 @@ import {Constants} from '../../entities/Constants';
 @Injectable()
 export class IslemArizaIscilikDao {
 
-  constants: Constants;
-
   constructor(public dbProvider: DatabaseProvider,
               private util: UtilProvider,
               private logger: LoggerProvider,
               private baseDao: BaseDao) {
-    this.constants = new Constants();
+
     console.log('Hello IslemArizaIscilikDaoProvider Provider');
   }
 
@@ -115,7 +113,7 @@ export class IslemArizaIscilikDao {
     }
 
     if (this.util.isNotEmpty(item.mamAnaGrp)) {
-      whereQuery.push(this.util.prepareWhereQuery(this.constants.SEARCH_TYPE.EXACT, 'mamAnaGrp', item.mamAnaGrp));
+      whereQuery.push(this.util.prepareWhereQuery(Constants.SEARCH_TYPE.EXACT, 'mamAnaGrp', item.mamAnaGrp));
     }
 
     return this.util.prepareQuery(query, whereQuery, searchType);

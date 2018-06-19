@@ -3,22 +3,18 @@ import {Injectable} from '@angular/core';
 import {Mesaj} from '../../entities/mesajlar';
 import {DatabaseProvider} from '../database/database';
 import {UtilProvider} from "../util/util";
-import {Constants} from "../../entities/Constants";
 import {BaseDao} from "../base-dao/base-dao";
 import {Pageable} from "../../entities/Pageable";
+import {Constants} from "../../entities/Constants";
 
 
 @Injectable()
 export class MesajlarDao {
-
-  constants: Constants;
-
   constructor(public http: HttpClient,
               private dbProvider: DatabaseProvider,
               private  util: UtilProvider,
               private  baseDao: BaseDao) {
-    console.log('Hello MesajlarDaoProvider Provider');
-    this.constants = new Constants();
+
   }
 
   insertList(list: Mesaj[]) {
@@ -64,7 +60,7 @@ export class MesajlarDao {
 
   getList(mesaj: Mesaj, pageable: Pageable): Promise<any> {
     let query = this.prepareSearchQery(mesaj);
-    return this.baseDao.getList(query, "id", "", this.constants.SEARCH_TYPE.EXACT, pageable.first, pageable.pageSize, true);
+    return this.baseDao.getList(query, "id", "", Constants.SEARCH_TYPE.EXACT, pageable.first, pageable.pageSize, true);
   }
 
   private prepareSearchQery(mesaj: Mesaj): string {

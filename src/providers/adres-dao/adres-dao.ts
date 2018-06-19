@@ -5,19 +5,16 @@ import { Mahalle } from '../../entities/mahalle';
 import { BaseDao } from '../base-dao/base-dao';
 import { Sehir } from '../../entities/Sehir';
 import { Ilce } from '../../entities/Ilce';
-import { Constants } from '../../entities/Constants';
 
 
 @Injectable()
 export class AdresDao {
 
-  constants: Constants;
   constructor(
     public http: HttpClient,
     private dbProvider: DatabaseProvider,
     private baseDao: BaseDao) {
     console.log('Hello AdresDaoProvider Provider');
-    this.constants = new Constants();
   }
 
   insertSehirList(list: Sehir[]): Promise<any> {

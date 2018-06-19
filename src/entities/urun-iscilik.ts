@@ -1,4 +1,4 @@
-import { Constants } from "./Constants";
+import {Constants} from "./Constants";
 
 /**
  * @author malisahin
@@ -17,13 +17,12 @@ export class UrunIscilik {
   maxIscMiktar: string = '';
 
   fillUrunIscilik(res: any): Promise<any> {
-    let constant = new Constants();
     let parsedList = [];
-    let urunIscilikList = res.message[0].liste
+    let urunIscilikList = res.message[0].liste;
     let urunIscilikVersiyon = res.message[0].versiyon;
 
-    localStorage.setItem(constant.GELEN_VERI.GELEN_URUN_ISCILIK, urunIscilikList.length);
-    localStorage.setItem(constant.VERSIYON.SERVER.URUN_ISCILIK, urunIscilikVersiyon);
+    localStorage.setItem(Constants.GELEN_VERI.GELEN_URUN_ISCILIK, urunIscilikList.length);
+    localStorage.setItem(Constants.VERSIYON.SERVER.URUN_ISCILIK, urunIscilikVersiyon);
 
     urunIscilikList.forEach(function (item) {
       let urunIscilik = new UrunIscilik();

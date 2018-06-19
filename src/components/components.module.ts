@@ -23,6 +23,7 @@ import {HizmetDetayComponent} from './hizmet-detay/hizmet-detay';
 import {DetayPiySearchComponent} from './detay-piy-search/detay-piy-search';
 import {MesajDetailComponent} from './mesaj-detail/mesaj-detail';
 import {ZebraPrinterComponent} from "./zebra-printer/zebra-printer";
+import { UpdateUrunAnaGrupComponent } from './update-urun-ana-grup/update-urun-ana-grup';
 
 @NgModule({
   declarations: [CagrilarComponent,
@@ -45,6 +46,7 @@ import {ZebraPrinterComponent} from "./zebra-printer/zebra-printer";
     DetayPiySearchComponent,
     MesajDetailComponent,
     ZebraPrinterComponent,
+    UpdateUrunAnaGrupComponent,
   ],
   imports: [],
   exports: [
@@ -67,7 +69,8 @@ import {ZebraPrinterComponent} from "./zebra-printer/zebra-printer";
     HizmetDetayComponent,
     DetayPiySearchComponent,
     MesajDetailComponent,
-    ZebraPrinterComponent
+    ZebraPrinterComponent,
+    UpdateUrunAnaGrupComponent
   ]
 })
 export class ComponentsModule {

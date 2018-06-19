@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
-import { IslemArizaIscilik } from '../../entities/islem-ariza-iscilik';
-import { IslemArizaIscilikDao } from '../../providers/islem-ariza-iscilik-dao/islem-ariza-iscilik-dao';
-import { NavParams, ViewController } from 'ionic-angular';
-import { UtilProvider } from '../../providers/util/util';
-import { Pageable } from '../../entities/Pageable';
-import { Constants } from '../../entities/Constants';
-import { HizmetService } from '../../providers/hizmet-service/hizmet-service';
-import { Hizmet } from '../../entities/hizmet/hizmet';
+import {Component} from '@angular/core';
+import {IslemArizaIscilik} from '../../entities/islem-ariza-iscilik';
+import {IslemArizaIscilikDao} from '../../providers/islem-ariza-iscilik-dao/islem-ariza-iscilik-dao';
+import {NavParams, ViewController} from 'ionic-angular';
+import {UtilProvider} from '../../providers/util/util';
+import {Pageable} from '../../entities/Pageable';
+import {HizmetService} from '../../providers/hizmet-service/hizmet-service';
+import {Hizmet} from '../../entities/hizmet/hizmet';
 
 
 @Component({
@@ -18,22 +17,19 @@ export class DetayPiySearchComponent {
   text: string;
   data: any;
   list: { key: "", value: "", data: {} }[] = [];
-  selectedItem: { key: "", value: "", data: {} } = { key: "", value: "", data: {} };
-  constants: Constants = new Constants();
-  returnObject: any;
+  selectedItem: { key: "", value: "", data: {} } = {key: "", value: "", data: {}};
   pageable: Pageable;
   searchText: string = "";
   searchType: string;
   hizmet: Hizmet;
   dataType: string;
   filter: IslemArizaIscilik;
-  constructor(
-    public viewCtrl: ViewController,
-    private params: NavParams,
-    private util: UtilProvider,
-    private hizmetService: HizmetService,
-    private islemArizaIscilikDao: IslemArizaIscilikDao) {
-    console.log('Hello UrunAnaGrupSearchComponent Component');
+
+  constructor(public viewCtrl: ViewController,
+              private params: NavParams,
+              private util: UtilProvider,
+              private hizmetService: HizmetService,
+              private islemArizaIscilikDao: IslemArizaIscilikDao) {
     this.text = 'Hello World';
     this.pageable = new Pageable();
     this.data = params.get('data');
@@ -43,7 +39,7 @@ export class DetayPiySearchComponent {
   }
 
   closeModal() {
-    this.ionChange({ key: '', value: '' });
+    this.ionChange({key: '', value: ''});
   }
 
   ionViewDidLoad() {
@@ -96,13 +92,13 @@ export class DetayPiySearchComponent {
 
   fillItemByType(item: any) {
     if (this.dataType == "ISLEM") {
-      this.list.push({ key: item.islemGrp, value: item.islemGrpAdi, data: item });
+      this.list.push({key: item.islemGrp, value: item.islemGrpAdi, data: item});
     }
     if (this.dataType == "ARIZA")
-      this.list.push({ key: item.arizaGrp, value: item.arizaGrpAdi, data: item });
+      this.list.push({key: item.arizaGrp, value: item.arizaGrpAdi, data: item});
 
     if (this.dataType == "PIY")
-      this.list.push({ key: item.iscKod, value: item.iscAdi, data: item });
+      this.list.push({key: item.iscKod, value: item.iscAdi, data: item});
 
   }
 
@@ -112,15 +108,14 @@ export class DetayPiySearchComponent {
       if (res.key == item.key && res.value == item.value) {
         isUnique = false;
       }
-    })
+    });
     return isUnique;
   }
 
   public ionChange(item: any) {
 
-    this.viewCtrl.dismiss({ data: item });
+    this.viewCtrl.dismiss({data: item});
   }
-
 
 
 }

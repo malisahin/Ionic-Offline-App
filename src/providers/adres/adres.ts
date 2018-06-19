@@ -18,20 +18,17 @@ import {TokenProvider} from "../token/token";
 @Injectable()
 export class AdresProvider {
 
-  constants: Constants;
-
   constructor(public http: HttpClient,
               private api: ApiProvider,
               private token: TokenProvider,
               private adresDao: AdresDao,
               private logger: LoggerProvider) {
 
-    this.constants = new Constants();
     console.log('Hello AdresProvider Provider');
   }
 
   async downloadSehirData(): Promise<any> {
-    let url = this.api.getSehirIlceUrl(this.constants.DATA_TYPE.SEHIR_TNM);
+    let url = this.api.getSehirIlceUrl(Constants.DATA_TYPE.SEHIR_TNM);
     let header = await this.token.callTokenAndGetHeader();
     let apiData = await this.http.get(url, {headers: header}).toPromise();
     let sehirList = this.fillSehirList(apiData);
@@ -40,7 +37,7 @@ export class AdresProvider {
   }
 
   async downloadIlceData(): Promise<any> {
-    let url = this.api.getSehirIlceUrl(this.constants.DATA_TYPE.ILCE_TNM);
+    let url = this.api.getSehirIlceUrl(Constants.DATA_TYPE.ILCE_TNM);
     let header = await this.token.callTokenAndGetHeader();
     let apiData = await this.http.get(url, {headers: header}).toPromise();
     let ilceList = this.fillIlceList(apiData);
@@ -59,7 +56,7 @@ export class AdresProvider {
     let sehirList: Sehir[] = new Array();
     let list = item.message.data;
     let versiyon = item.message.versiyon;
-    localStorage.setItem(this.constants.VERSIYON.SERVER.SEHIR_TNM, versiyon);
+    localStorage.setItem(Constants.VERSIYON.SERVER.SEHIR_TNM, versiyon);
     list.forEach(row => {
       let sehir = new Sehir();
       sehir.sehirAdi = row.sehirAdi;
@@ -73,7 +70,7 @@ export class AdresProvider {
     let ilceList: Ilce[] = new Array();
     let list = item.message.data;
     let versiyon = item.message.versiyon;
-    localStorage.setItem(this.constants.VERSIYON.SERVER.ILCE_TNM, versiyon);
+    localStorage.setItem(Constants.VERSIYON.SERVER.ILCE_TNM, versiyon);
     list.forEach(row => {
       let ilce = new Ilce();
       ilce.ilceAdi = row.ilceAdi;
@@ -88,8 +85,8 @@ export class AdresProvider {
     let mahalleList: Mahalle[] = new Array();
     let list = item.message.data;
     let versiyon = item.message.versiyon;
-    localStorage.setItem(this.constants.VERSIYON.SERVER.MAHALLE_TNM, versiyon);
-    localStorage.setItem(this.constants.GELEN_VERI.GELEN_MAHALLE_TNM, item.message.data.length.toString());
+    localStorage.setItem(Constants.VERSIYON.SERVER.MAHALLE_TNM, versiyon);
+    localStorage.setItem(Constants.GELEN_VERI.GELEN_MAHALLE_TNM, item.message.data.length.toString());
     list.forEach(row => {
       let mahalle = new Mahalle();
       mahalle.sehirKodu = row.sehirKodu;

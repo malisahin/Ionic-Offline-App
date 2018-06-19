@@ -1,4 +1,4 @@
-import { Constants } from "./Constants";
+import {Constants} from "./Constants";
 
 /**
  * @author malisahin
@@ -15,7 +15,6 @@ export class Fiyat {
     versiyon: string = null;
 
     fillFiyat(res): Promise<any> {
-        let constant = new Constants();
         let parsedList = [];
         let fiyatList = res.message[0].liste;
         let versiyon = res.message[0].versiyon;
@@ -34,23 +33,14 @@ export class Fiyat {
         });
 
         if (tip == "MLZ") {
-            localStorage.setItem(constant.GELEN_VERI.GELEN_MALZEME_FIYAT, fiyatList.length);
-            localStorage.setItem(constant.VERSIYON.SERVER.MALZEME_FIYAT, versiyon);
+            localStorage.setItem(Constants.GELEN_VERI.GELEN_MALZEME_FIYAT, fiyatList.length);
+            localStorage.setItem(Constants.VERSIYON.SERVER.MALZEME_FIYAT, versiyon);
 
         } else if (tip == 'ISC') {
-            localStorage.setItem(constant.GELEN_VERI.GELEN_ISCILIK_FIYAT, fiyatList.length);
-            localStorage.setItem(constant.VERSIYON.SERVER.ISCILIK_FIYAT, versiyon);
+            localStorage.setItem(Constants.GELEN_VERI.GELEN_ISCILIK_FIYAT, fiyatList.length);
+            localStorage.setItem(Constants.VERSIYON.SERVER.ISCILIK_FIYAT, versiyon);
         }
 
         return new Promise(res => res(parsedList));
     }
 }
-
-/**
- * "mamKod": "MLZ",
-"iscMlz": "MLZ",
-"iscMlzKod": "8705700067",
-"fiyat": 109.83,
-"gdfiyat": 109.83,
-"versiyon": "-1"
- */

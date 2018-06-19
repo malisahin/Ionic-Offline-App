@@ -7,11 +7,7 @@ import moment from 'moment';
 @Injectable()
 export class UtilProvider {
 
-  constants: Constants;
-
   constructor(private toast: ToastController) {
-    console.log('Hello UtilProvider Provider');
-    this.constants = new Constants();
     moment.locale('tr');
   }
 
@@ -32,11 +28,11 @@ export class UtilProvider {
   }
 
   prepareWhereQuery(type: string, key: string, value: string): string {
-    return type == this.constants.SEARCH_TYPE.EXACT ? this.prepareForEqual(key, value) : this.prepareForLike(key, value);
+    return type == Constants.SEARCH_TYPE.EXACT ? this.prepareForEqual(key, value) : this.prepareForLike(key, value);
   }
 
   prepareQuery(query: string, whereQueries: string[], searchType: string): string {
-    let AndOr = searchType == this.constants.SEARCH_TYPE.EXACT ? ' AND ' : ' OR ';
+    let AndOr = searchType == Constants.SEARCH_TYPE.EXACT ? ' AND ' : ' OR ';
     if (whereQueries.length > 0) {
       query += " AND (";
       query += whereQueries.join(AndOr);
@@ -49,6 +45,25 @@ export class UtilProvider {
     let toast = this.toast.create({
       message: message,
       duration: 2000,
+      position: 'top',
+    });
+    toast.present();
+  }
+
+
+  info(message: string) {
+    let toast = this.toast.create({
+      message: message,
+      duration: 3000,
+      position: 'top',
+    });
+    toast.present();
+  }
+
+  warn(message: string) {
+    let toast = this.toast.create({
+      message: message,
+      duration: 3000,
       position: 'top',
     });
     toast.present();

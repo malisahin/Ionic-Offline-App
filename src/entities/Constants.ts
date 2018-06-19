@@ -8,20 +8,20 @@ export class Constants {
 
   }
 
-  public API_PAGE_SIZE = 10000;
+  public static API_PAGE_SIZE = 10000;
 
-  public STATUS = {
+  public static STATUS = {
     SUCCESS: "SUCCESS",
     ERROR: "ERROR"
   };
 
-  public URUN_ANA_GRUP_TYPE = {
+  public static URUN_ANA_GRUP_TYPE = {
     ANA_GRUP_LISTE: "ANA_GRUP_LISTE",
     BASVURU_LISTE: "BASVURU_LISTE",
     COZUM_LISTE: "COZUM_LISTE"
   };
 
-  public TABLE_NAME = {
+  public static TABLE_NAME = {
     URUN: "OFF_MAM_TNM",
     URUN_ANA_GRUP: "OFF_MAM_ANAGRP_TNM",
     URUN_ISCILIK: "OFF_MAM_ISC_TNM",
@@ -33,9 +33,9 @@ export class Constants {
     ISLEM_ARIZA_ISCILIK: "OFF_ISC_ISLARZGRP_TNM"
   };
 
-  public SEARCH_TYPE = {LIKE: "LIKE", EXACT: "EXACT"};
+  public static SEARCH_TYPE = {LIKE: "LIKE", EXACT: "EXACT"};
 
-  public DATA_TYPE = {
+  public static DATA_TYPE = {
     URUN: "URUN",
     URUN_ANA_GRUP: "URUN_ANA_GRUP",
     URUN_ISCILIK: "URUN_ISCILIK",
@@ -48,7 +48,7 @@ export class Constants {
     ISLEM_ARIZA_ISCILIK: "ISLEM_ARIZA_ISCILIK"
   };
 
-  public GELEN_VERI = {
+  public static GELEN_VERI = {
     GELEN_URUN: "GELEN_URUN",
     GELEN_URUN_ANA_GRUP: "GELEN_URUN_ANA_GRUP",
     GELEN_URUN_ISCILIK: "GELEN_URUN_ISCILIK",
@@ -61,7 +61,7 @@ export class Constants {
     GELEN_MAHALLE_TNM: "GELEN_MAHALLE_TNM"
   };
 
-  public VERSIYON = {
+  public static VERSIYON = {
 
     CLIENT: {
       URUN: "URUN_CLIENT_VERSIYON",
@@ -90,7 +90,7 @@ export class Constants {
     }
 
   };
-  public COLORS = {
+  public static COLORS = {
     URUN: "",
     URUN_ANA_GRUP: "",
     URUN_ISCILIK: "",
@@ -103,7 +103,7 @@ export class Constants {
     MAHALLE_TNM: ""
   };
 
-  public ICONS = {
+  public static ICONS = {
     URUN: "",
     URUN_ANA_GRUP: "",
     URUN_ISCILIK: "",

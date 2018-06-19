@@ -61,6 +61,7 @@ export class User {
     user.eLibsDokuman = item.eLibsDokuman;
     user.ikBrans = item.ikBrans;
     user.labels = item.obj;
+    user.pb = item.pB;
     this.saveUserData(user);
     return user;
   }

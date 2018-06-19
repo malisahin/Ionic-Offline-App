@@ -16,7 +16,6 @@ export class UrunAnaGrupSearchComponent {
   data: any;
   list: { key: "", value: "" }[] = [];
   selectedItem: { key: "", value: "" } = {key: "", value: ""};
-  constants: Constants = new Constants();
   returnObject: any;
   pageable: Pageable;
   searchText: string = "";
@@ -26,10 +25,9 @@ export class UrunAnaGrupSearchComponent {
   constructor(public viewCtrl: ViewController, params: NavParams,
               private util: UtilProvider,
               private urunAnaGrupDao: UrunAnaGrupDao) {
-    console.log('Hello UrunAnaGrupSearchComponent Component');
-    this.text = 'Hello World';
+
     this.pageable = new Pageable();
-    this.urunAnaGrup = new UrunAnaGrup(this.constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
+    this.urunAnaGrup = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
     this.data = params.get('data');
   }
 
@@ -62,9 +60,9 @@ export class UrunAnaGrupSearchComponent {
     if (this.util.isNotEmpty(this.data.searchType)) {
       this.searchType = this.data.searchType;
     } else {
-      this.searchType = this.constants.SEARCH_TYPE.LIKE;
+      this.searchType = Constants.SEARCH_TYPE.LIKE;
     }
-    let anaGrp = new UrunAnaGrup(this.constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
+    let anaGrp = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
     anaGrp.ad = this.searchText;
     anaGrp.mamAnaGrp = this.searchText;
     return anaGrp;

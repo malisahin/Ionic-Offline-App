@@ -16,7 +16,6 @@ import {TokenProvider} from "../token/token";
 @Injectable()
 export class UrunIscilikProvider {
 
-  constants: Constants;
   INSERT_QUERY: string = "INSERT OR REPLACE INTO OFF_MAM_ISC_TNM (mamKod,iscKod,iscAdi,durum,iscMikFlag,maxIscMiktar,fiyat,gdfiyat) VALUES(?,?,?,?,?,?,?,?)";
 
   constructor(public http: HttpClient,
@@ -24,7 +23,6 @@ export class UrunIscilikProvider {
               private urunIscilikDao: UrunIscilikDao,
               private token: TokenProvider) {
 
-    this.constants = new Constants();
   }
 
 
@@ -36,7 +34,7 @@ export class UrunIscilikProvider {
     return new Promise((resolve, reject) => {
         this.urunIscilikDao.insertList(list).then(count => {
           console.log(count);
-          resolve(this.constants.STATUS.SUCCESS);
+          resolve(Constants.STATUS.SUCCESS);
         });
       }
     );

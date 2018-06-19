@@ -6,12 +6,12 @@ import {UrunSearchComponent} from '../../urun-search/urun-search';
 import {UtilProvider} from "../../../providers/util/util";
 import {Constants} from "../../../entities/Constants";
 import {LoggerProvider} from "../../../providers/logger/logger";
-import {UrunAnaGrupSearchComponent} from "../../urun-ana-grup-search/urun-ana-grup-search";
-import {UrunDao} from "../../../providers/urun-dao/urun-dao";
 import {UrunAnaGrupDao} from "../../../providers/urun-ana-grup-dao/urun-ana-grup-dao";
 import {UrunAnaGrup} from "../../../entities/urunAnaGrup";
 import {GarantiSorguProvider} from "../../../providers/garanti-sorgu/garanti-sorgu";
 import {GarantiSorgu} from "../../../entities/GarantiSorgu";
+import {SeriNoSorguProvider} from "../../../providers/seri-no-sorgu/seri-no-sorgu";
+import {UpdateUrunAnaGrupComponent} from "../../update-urun-ana-grup/update-urun-ana-grup";
 
 @Component({
   selector: 'urun-bilgileri',
@@ -20,26 +20,24 @@ import {GarantiSorgu} from "../../../entities/GarantiSorgu";
 export class UrunBilgileriComponent {
   text: string;
   hizmet: Hizmet = new Hizmet();
-  constants: Constants;
 
   mamAnaGrpValue: string;
 
   constructor(private modalController: ModalController,
               private hizmetService: HizmetService,
-              private urunDao: UrunDao,
               private logger: LoggerProvider,
-              private urunAnaGrpDao: UrunAnaGrupDao,
               private garantiSorguProvider: GarantiSorguProvider,
-              private util: UtilProvider) {
+              private util: UtilProvider,
+              private  seriNoSorguProvider: SeriNoSorguProvider,
+              private  urunAnaGrpDao: UrunAnaGrupDao) {
 
-    this.constants = new Constants();
     this.hizmet = this.hizmetService.getHizmet();
     this.findUrunAnaGrp();
   }
 
   urunListesiniGetir() {
     let mamAnagrp = this.hizmet.mamAnaGrp;
-    let searchType = this.constants.SEARCH_TYPE.EXACT;
+    let searchType = Constants.SEARCH_TYPE.EXACT;
     let aramaModal = this.modalController.create(UrunSearchComponent, {
       data: {
         mamAnagrp: mamAnagrp,
@@ -57,25 +55,22 @@ export class UrunBilgileriComponent {
   }
 
   urunAnaGrupDegistir() {
-    let anaGrpModal = this.modalController.create(UrunAnaGrupSearchComponent, {
-      data: {
-        type: this.constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE
-      }
+    let anaGrpUpdateModal = this.modalController.create(UpdateUrunAnaGrupComponent, {
+      hizmet: this.hizmet
     });
-    anaGrpModal.onDidDismiss(res => {
+    anaGrpUpdateModal.onDidDismiss(res => {
       if (this.util.isNotEmpty(res)) {
-        this.hizmet.mamAnaGrpAdi = res.ad;
-        this.hizmet.mamAnaGrp = res.mamAnaGrp;
-        this.findUrunAnaGrp();
+        /*this.hizmet = res.hizmet;
+         this.mamAnaGrpValue = res.mamAnaGrpValue;*/
       }
     });
-    anaGrpModal.present();
+    anaGrpUpdateModal.present();
   }
 
   findUrunAnaGrp() {
-    let urunAnaGrp = new UrunAnaGrup(this.constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
+    let urunAnaGrp = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
     urunAnaGrp.mamAnaGrp = this.hizmet.mamAnaGrp;
-    this.urunAnaGrpDao.getList(urunAnaGrp, this.constants.SEARCH_TYPE.EXACT).then(res => {
+    this.urunAnaGrpDao.getList(urunAnaGrp, Constants.SEARCH_TYPE.EXACT).then(res => {
       if (res.rows.length > 0)
         this.hizmet.mamAnaGrpAdi = this.util.isNotEmpty(res.rows) ? res.rows.item(0).ad : "";
 
@@ -91,6 +86,7 @@ export class UrunBilgileriComponent {
 
     this.hizmet.mamKod = "";
     this.hizmet.mamAdi = "";
+
   }
 
   garantiSorgula() {
@@ -103,6 +99,45 @@ export class UrunBilgileriComponent {
     sorguData.islemTarihi = this.util.dateFormat(new Date(this.hizmet.islemTarihi), "YYYY-MM-DD");
     sorguData.orgKod = 'ECA';
     this.garantiSorguProvider.fetchDataFromApi(sorguData);
+  }
+
+  async seriNoSorgula() {
+    let res = await this.seriNoSorguProvider.fetchData(this.hizmet.mamSeriNo);
+    this.logger.warn(res);
+    if (this.util.isNotEmpty(res) && this.util.isNotEmpty(res.message)) {
+      let item = res.message[0];
+
+      if (item.mamAnagrp == this.hizmet.mamAnaGrp) {
+        this.hizmet.mamKod = item.mamKod;
+        this.hizmet.mamAdi = item.mamAdi;
+        this.util.info("Ürün bilgileri seri No bilgisine bağlı olarak değiştirildi.")
+      } else {
+        let anagrp = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
+        anagrp.mamAnaGrp = item.mamAnagrp;
+        let urunAnaGrp = await this.urunAnaGrpDao.getList(anagrp, Constants.SEARCH_TYPE.EXACT);
+        this.logger.warn(urunAnaGrp);
+        let mes = "Sorguladığınız Seri No ";
+        if (urunAnaGrp.rows.length > 0) {
+          urunAnaGrp = urunAnaGrp.rows.item(0);
+          mes += urunAnaGrp.ad;
+        } else {
+          mes += "başka bir";
+        }
+        this.util.warn(mes + " ana grubuna bağlıdır. Önce Ana Grubu Değiştiriniz.")
+      }
+    }
+    else {
+      this.util.error("Bu Seri Numarasına bağlı ürün bulunamadı.Tekrar kontrol ediniz.")
+    }
+  }
+
+
+  mesguliyetChange() {
+
+  }
+
+  garantiChange() {
+
   }
 }
 
