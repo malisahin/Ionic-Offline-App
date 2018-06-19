@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <!-- Generated template for the HizmetBilgileriComponent component -->
+  <ion-list inset>
+    <ion-item>
+      <ion-label>Ürün Ana Grup</ion-label>
+      <ion-input type="text" [(ngModel)]="urunAnaGrup.ad" (focus)="urunAnaGrupSorgula()">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Başvuru Nedeni</ion-label>
+      <ion-select [(ngModel)]="basvuruNedeni">
+        <ion-option *ngFor="let neden of basvuruNedeniList" [value]="neden.basvuruNeden">
+          {{neden.ad }} ({{neden.basvuruNeden}})
+        </ion-option>
+      </ion-select>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-row>
+        <ion-col col-12 col-sm>
+          <button ion-button round full (click)="kaydet();" color="secondary">
+            Kaydet
+          </button>
+        </ion-col>
+        <ion-col col-12 col-sm>
+          <button ion-button round full (click)="iptal();" color="secondary">
+            Iptal
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+
+
+</ion-footer>
