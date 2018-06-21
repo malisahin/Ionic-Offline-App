@@ -22,4 +22,7 @@ export class ProcessResults {
     return this.objects.length > 0;
   }
 
+  addErrorMessage(message: string) {
+    this.errorMessages.push(message);
+  }
 }

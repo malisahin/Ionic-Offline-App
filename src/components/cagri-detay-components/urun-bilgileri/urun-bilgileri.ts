@@ -12,6 +12,7 @@ import {GarantiSorguProvider} from "../../../providers/garanti-sorgu/garanti-sor
 import {GarantiSorgu} from "../../../entities/GarantiSorgu";
 import {SeriNoSorguProvider} from "../../../providers/seri-no-sorgu/seri-no-sorgu";
 import {UpdateUrunAnaGrupComponent} from "../../update-urun-ana-grup/update-urun-ana-grup";
+import {ProcessResults} from "../../../entities/ProcessResults";
 
 @Component({
   selector: 'urun-bilgileri',
@@ -55,7 +56,9 @@ export class UrunBilgileriComponent {
   }
 
   urunAnaGrupDegistir() {
-    if (this.urunAnaGrupDegistirmeKontrol()) {
+    let processResult = this.urunAnaGrupDegistirmeKontrol();
+
+    if (processResult.isErrorMessagesNull()) {
       let anaGrpUpdateModal = this.modalController.create(UpdateUrunAnaGrupComponent, {
         hizmet: this.hizmet
       });
@@ -66,18 +69,22 @@ export class UrunBilgileriComponent {
         }
       });
       anaGrpUpdateModal.present();
+    } else {
+      this.util.pushErrorMessages(processResult);
     }
   }
 
-  urunAnaGrupDegistirmeKontrol(): boolean {
-    let check: boolean = true;
+  urunAnaGrupDegistirmeKontrol(): ProcessResults {
+    let res = new ProcessResults();
     let mamKodVarMi: boolean = this.util.isNotEmpty(this.hizmet.mamKod);
-    let detayKaydiVarMi: boolean = this.util.isNotEmpty(this.hizmet.detayList) && this.hizmet.detayList.length > 0;
-    if (mamKodVarMi || detayKaydiVarMi) {
-      check = false;
+
+    if (mamKodVarMi) {
+      res.addErrorMessage("Ürün Ana grubuna bağlı ürün bulundu.Önce ürünü siliniz.");
     }
-    return check;
+
+    return res;
   }
+
 
   findUrunAnaGrp() {
     let urunAnaGrp = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
