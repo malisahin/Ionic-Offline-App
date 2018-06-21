@@ -19,8 +19,6 @@ export class HizmetService {
   constructor(private hizmetDao: HizmetDao,
               private  baseDao: BaseDao,
               private  util: UtilProvider) {
-    console.log('Hello HizmetServiceProvider Provider');
-
   }
 
   fetchHizmetWithPage(hizmet: Hizmet, pageable: Pageable): Promise<any> {

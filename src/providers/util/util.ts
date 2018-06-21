@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Constants} from '../../entities/Constants';
 import {ToastController} from 'ionic-angular';
 import moment from 'moment';
+import {ProcessResults} from "../../entities/ProcessResults";
 
 
 @Injectable()
@@ -183,6 +184,25 @@ export class UtilProvider {
     }
 
     return z
+  }
+
+  pushErrorMessages(result: ProcessResults) {
+    result.errorMessages.forEach((val, index) => {
+      console.error(val, index);
+      this.error(val);
+    })
+  }
+
+  pushInfoMessages(result: ProcessResults) {
+    result.infoMessages.forEach((val, index) => {
+      console.warn(val, index);
+      this.warn(val);
+    })
+  }
+
+  pushAllMessages(result: ProcessResults) {
+    this.pushErrorMessages(result);
+    this.pushInfoMessages(result);
   }
 
 }

@@ -1,4 +1,3 @@
-<!-- Generated template for the HizmetBilgileriComponent component -->
 <ion-list inset>
 
   <ion-item>
@@ -33,15 +32,15 @@
   </ion-item>
 
 
-  <ion-item *ngIf="sonIslem.durum == 'BASLA'">
+  <ion-item *ngIf="buttonStatus == 'BASLA'">
     <button ion-button primary round full (click)="islemBaslat()">İşlem Başlat</button>
   </ion-item>
 
-  <ion-item *ngIf="sonIslem.durum == 'BEKLE'">
+  <ion-item *ngIf="buttonStatus == 'BEKLE'">
     <button ion-button primary round full (click)="islemBeklet()">Bekleme Başlat</button>
   </ion-item>
 
-  <ion-item *ngIf="sonIslem.durum == 'BITIR' && sonIslem.bitTar == null">
+  <ion-item *ngIf="buttonStatus == 'BITIR'">
     <button ion-button primary round full (click)="islemBitir()">Bitir</button>
   </ion-item>
 

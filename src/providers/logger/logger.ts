@@ -30,4 +30,8 @@ export class LoggerProvider {
     console.warn(res);
   }
 
+  table(res){
+    console.table(res);
+  }
+
 }

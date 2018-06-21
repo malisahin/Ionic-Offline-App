@@ -75,7 +75,8 @@ export class HizmetProvider {
     item.cmTarihi = obj.cmTarihi;
     item.cozumKodu = obj.cozumKodu;
     item.daireNo = obj.daireNo;
-    item.detayList = obj.detayDtoList;
+    if (obj.detayDtoList != null && obj.detayDtoList.length > 0)
+      item.detayList = obj.detayDtoList[0];
     item.durum = obj.durum;
     item.eposta = obj.eposta;
     item.evTel = obj.evTel;
@@ -89,7 +90,9 @@ export class HizmetProvider {
     item.iletisimIstek = obj.iletisimIstek;
     item.isTel = obj.isTel;
     item.islemBitTarihi = obj.islemBitTarihi;
-    item.islemList = obj.islemList;
+    if (obj.islemList != null && obj.islemList.length > 0)
+      item.islemList = obj.islemList[0];
+
     item.islemTarihi = obj.islemTarihi;
     item.kapatmaKodu = obj.kapatmaKodu;
     item.mahalle = obj.mahalle;

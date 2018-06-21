@@ -8,6 +8,8 @@ import {HizmetService} from '../../../../providers/hizmet-service/hizmet-service
 import {Hizmet} from '../../../../entities/hizmet/hizmet';
 import {UtilProvider} from "../../../../providers/util/util";
 import {IslemList} from "../../../../entities/hizmet/islemList";
+import {ProcessResults} from "../../../../entities/ProcessResults";
+import {LoggerProvider} from "../../../../providers/logger/logger";
 
 
 enum Durum {
@@ -27,88 +29,158 @@ export class IslemTarihComponent {
   isenabled: boolean = true;
   tarihceList: IslemList[];
   sonIslem: IslemList;
+  islemBitmisMi: string = "";
+  buttonStatus: string = Durum.BASLA;
+  islemList: IslemList[] = [];
 
   constructor(private hizmetService: HizmetService,
+              private logger: LoggerProvider,
               private  util: UtilProvider) {
-    console.log('Hello IslemTarihComponent Component');
     this.hizmet = this.hizmetService.getHizmet();
+    this.logger.table(this.hizmet.islemList);
     this.init();
   }
 
   init() {
-    if (this.hizmet.islemList != null && this.hizmet.islemList.length > 0)
-      this.tarihceList = this.hizmet.islemList[0];
-    this.sonIslem = new IslemList();
+    if (this.util.isNotEmpty(this.hizmet.islemList)) {
+      this.islemList = this.hizmet.islemList;
+    }
     this.loadTarihce();
-    this.checkStatus();
   }
 
   islemBaslat() {
     this.sonIslem.basTar = this.util.dateFormatRegex(new Date(), "dd/MM/yyyy hh:mm");
     this.hizmet.islemTarihi = this.sonIslem.basTar;
     this.checkStatus();
+    this.setButtonStatus();
+    this.logger.log("Işlem Başlatıldı. Başlatma Anı" + this.sonIslem.basTar);
   }
 
   islemBeklet() {
-    if (this.util.isEmpty(this.sonIslem.bekleKaynak)) {
-      this.util.message("Bekleme kaynağı boş olamaz");
-    } else if (this.util.isEmpty(this.sonIslem.beklemeNeden)) {
-      this.util.message("Bekleme Nedeni boş olamaz.");
+    let res = this.islemBeklemeKontrol();
+    if (res.isErrorMessagesNotNull()) {
+      this.util.pushErrorMessages(res);
     } else {
       this.sonIslem.bitTar = this.util.dateFormatRegex(this.util.addMinutes(new Date, 1), "dd/MM/yyyy hh:mm");
-      this.sonIslem.durum = 'BEKLE';
+      this.sonIslem.durum = Durum.BEKLE;
+      this.checkStatus();
+      this.sonIslem = new IslemList();
+      this.setButtonStatus();
+      this.logger.log("Işlem Bekletildi. Bekleme Nedeni :" + this.sonIslem.beklemeNeden + " Bekleme Kaynağı: " + this.sonIslem.bekleKaynak + " Bekletilme Anı" + this.sonIslem.basTar);
     }
-    this.checkStatus();
+  }
+
+  islemBeklemeKontrol(): ProcessResults {
+    let res = new ProcessResults();
+    if (this.util.isEmpty(this.sonIslem.bekleKaynak)) {
+      res.errorMessages.push("Bekleme kaynağı boş olamaz");
+    } else if (this.util.isEmpty(this.sonIslem.beklemeNeden)) {
+      res.errorMessages.push("Bekleme Nedeni boş olamaz.");
+    }
+    return res;
   }
 
   islemBitir() {
     this.sonIslem.bitTar = this.util.dateFormatRegex(this.util.addMinutes(new Date, 1), "dd/MM/yyyy hh:mm");
-    this.sonIslem.durum = 'BITIR';
+    this.sonIslem.durum = Durum.BITIR;
     this.hizmet.islemBitTarihi = this.sonIslem.bitTar;
     this.checkStatus();
+    this.setButtonStatus();
+    this.logger.log("Işlem Bitirildi. Bitirilme Anı" + this.sonIslem.bitTar);
   }
 
   loadTarihce() {
-    if (this.util.isNotEmpty(this.hizmet.islemList) && this.util.isNotEmpty(this.hizmet.islemList[0] && this.hizmet.islemList[0].length > 0)) {
-      let sonIslemSira = 0;
-      this.tarihceList.forEach(res => {
-        if (Number(res.islSira) > sonIslemSira) {
-          this.sonIslem = res;
-          sonIslemSira = this.sonIslem.islSira;
-        }
-      })
+    let islemKaydiVarMi: boolean = this.util.isNotEmpty(this.islemList) && this.islemList.length > 0;
+
+    if (islemKaydiVarMi) {
+      this.sonIslemiBul();
     } else {
-      this.hizmet.islemList.push([]);
-      this.hizmet.islemList[0].push(new IslemList);
+      this.yeniIslemEkle("1");
     }
+  }
+
+  yeniIslemEkle(islemSira: string) {
+    this.sonIslem = new IslemList();
+    this.sonIslem.islSira = islemSira;
+    this.sonIslem.seqNo = this.hizmet.seqNo;
+
+    this.islemList.push(this.sonIslem);
+    this.checkStatus();
+  }
+
+  sonIslemiBul() {
+    let sonIslemSira = 0;
+
+    this.islemList.forEach(islem => {
+      if (Number(islem.islSira) > sonIslemSira) {
+        this.sonIslem = islem
+      }
+    });
+
+    if (this.sonIslem.durum != Durum.BITIR && this.util.isNotEmpty(this.sonIslem.basTar) && this.util.isNotEmpty(this.sonIslem.bitTar)) {
+      this.yeniIslemEkle(String(Number(this.sonIslem.islSira) + 1));
+    }
+
+    this.setButtonStatus();
   }
 
   checkStatus() {
-    if (this.util.isNotEmpty(this.sonIslem.basTar)) {
-      if (this.util.isNotEmpty(this.sonIslem.bekleKaynak) || this.util.isNotEmpty(this.sonIslem.beklemeNeden)) {
-        this.sonIslem.durum = Durum.BEKLE;
-      } else {
-        this.sonIslem.durum = Durum.BITIR;
-      }
-    } else {
-      this.sonIslem.durum = Durum.BASLA;
+    this.logger.dir(this.sonIslem);
+    let beklemeParamSecilmisMi: boolean = this.util.isNotEmpty(this.sonIslem.bekleKaynak) || this.util.isNotEmpty(this.sonIslem.beklemeNeden);
+
+    if (beklemeParamSecilmisMi) {
+      this.sonIslem.durum = Durum.BEKLE;
+    } else if (this.util.isNotEmpty(this.sonIslem.bitTar)) {
+      this.sonIslem.durum = Durum.BITIR;
     }
     this.updateTarihceList();
+    this.setButtonStatus();
+  }
+
+  setButtonStatus() {
+    let beklemeParamSecilmisMi: boolean = this.util.isNotEmpty(this.sonIslem.bekleKaynak) || this.util.isNotEmpty(this.sonIslem.beklemeNeden);
+    if (this.util.isEmpty(this.sonIslem.basTar)) {
+      this.buttonStatus = Durum.BASLA;
+    } else if (beklemeParamSecilmisMi) {
+      this.buttonStatus = Durum.BEKLE;
+    } else if (this.util.isEmpty(this.sonIslem.bitTar)) {
+      this.buttonStatus = Durum.BITIR;
+    } else {
+      this.buttonStatus = Durum.OK;
+    }
+
   }
 
   async updateTarihceList() {
-    if (this.util.isEmpty(this.sonIslem.islSira)) {
-      this.sonIslem.islSira = 1;
-      this.tarihceList.push(this.sonIslem);
-    } else {
-      this.tarihceList.forEach(item => {
-        if (item.islSira == this.sonIslem.islSira) {
-          item = this.sonIslem;
-        }
-      });
+
+    if (this.checkIslemKayitEdilebilme()) {
+      /* this.hizmet.islemList.forEach(item => {
+       if (item.islSira == this.sonIslem.islSira) {
+       item = this.sonIslem;
+       }
+       });*/
+      this.hizmet.islemList = this.islemList;
+      this.logger.table(this.hizmet.islemList);
+      await this.hizmetService.saveHizmet();
+      this.loadTarihce();
     }
-    this.hizmet.islemList[0] = this.tarihceList;
-    await this.hizmetService.saveHizmet();
+  }
+
+  checkIslemKayitEdilebilme(): boolean {
+    let saveable = false;
+
+    let islemBaslatKosullari: boolean = this.sonIslem.durum == Durum.BASLA && this.util.isNotEmpty(this.sonIslem.basTar);
+
+    let islemBekletmeKosullari: boolean = this.sonIslem.durum == Durum.BEKLE && this.util.isNotEmpty(this.sonIslem.bitTar)
+      && this.util.isNotEmpty(this.sonIslem.bekleKaynak) && this.util.isNotEmpty(this.sonIslem.beklemeNeden);
+
+    let islemBitirmeKosullari: boolean = this.sonIslem.durum == Durum.BITIR && this.util.isNotEmpty(this.sonIslem.bitTar);
+
+    if (islemBaslatKosullari || islemBekletmeKosullari || islemBitirmeKosullari) {
+      this.logger.log("Işlem Kayıt Ediliyor. Yeni Durum : " + this.sonIslem.durum);
+      saveable = true;
+    }
+    return saveable;
   }
 }
 

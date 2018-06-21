@@ -1,12 +1,12 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { User } from "../../entities/user";
-import { NavParams, ModalController } from "ionic-angular";
-import { Hizmet } from "../../entities/hizmet/hizmet";
-import { HizmetService } from "../hizmet-service/hizmet-service";
-import { UtilProvider } from "../util/util";
-import { ZebraPrinterComponent } from "../../components/zebra-printer/zebra-printer";
-import { DetayKayit } from "../../entities/hizmet/DetayKayit";
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {User} from "../../entities/user";
+import {NavParams, ModalController} from "ionic-angular";
+import {Hizmet} from "../../entities/hizmet/hizmet";
+import {HizmetService} from "../hizmet-service/hizmet-service";
+import {UtilProvider} from "../util/util";
+import {ZebraPrinterComponent} from "../../components/zebra-printer/zebra-printer";
+import {DetayKayit} from "../../entities/hizmet/DetayKayit";
 
 
 @Injectable()
@@ -18,9 +18,9 @@ export class PrinterService {
   user: User;
 
   constructor(public http: HttpClient,
-    private hizmetService: HizmetService,
-    private modalCtrl: ModalController,
-    private util: UtilProvider) {
+              private hizmetService: HizmetService,
+              private modalCtrl: ModalController,
+              private util: UtilProvider) {
     this.hizmet = new Hizmet();
     this.user = new User();
     this.init();
@@ -34,7 +34,7 @@ export class PrinterService {
   showPrinterList(hizmet: Hizmet) {
     this.hizmet = hizmet;
     let text = this.getPrintText();
-    let modal = this.modalCtrl.create(ZebraPrinterComponent, { text: text });
+    let modal = this.modalCtrl.create(ZebraPrinterComponent, {text: text});
     modal.present();
 
   }
@@ -117,16 +117,9 @@ export class PrinterService {
     let yol = "";
     let diger = "";
 
-    let detayList = [];
 
-    if (this.hizmet.detayList.length > 0) {
-      detayList = this.hizmet.detayList[0];
-    }
-
-
-
-    for (let k = 0; detayList.length > k; k++) {
-      let item: DetayKayit = detayList[k];
+    for (let k = 0; this.hizmet.detayList.length > k; k++) {
+      let item: DetayKayit = this.hizmet.detayList[k];
       toplamTutar = toplamTutar + item.tutar;
       kdv = kdv + (item.tutar / 100 * item.kdvOran);
 
@@ -139,8 +132,6 @@ export class PrinterService {
       } else if (item.mlzIsc == "DGR" && item.mlzIscKod == "999977") {
         diger += '\n\r ' + item.mlzIscKod + '-' + this.util.translateTurkishCharacters(item.aciklama.substring(0, 20)) + '   ' + item.miktar + '-' + item.olcuBrm + '    ' + (this.hizmet.garanti != 'VAR' ? (item.tutar) : '')
       }
-
-
 
 
       if (iscilik != "") {

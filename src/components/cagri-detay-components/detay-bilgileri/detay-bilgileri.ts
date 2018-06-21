@@ -49,9 +49,8 @@ export class DetayBilgileriComponent {
   }
 
   loadDetayList() {
-    if (this.util.isNotEmpty(this.hizmet.detayList) && this.hizmet.detayList.length > 0
-      && this.util.isNotEmpty(this.hizmet.detayList[0])) {
-      this.detayList = this.hizmet.detayList[0];
+    if (this.util.isNotEmpty(this.hizmet.detayList)) {
+      this.detayList = this.hizmet.detayList;
     }
   }
 

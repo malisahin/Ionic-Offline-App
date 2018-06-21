@@ -20,7 +20,6 @@ export class ServisBilgileriComponent {
   constructor(private hizmetService: HizmetService) {
     console.log('Hello ServisBilgileriComponent Component');
     this.text = 'Hello World';
-    //this.hizmet = this.hizmetService.getHizmet();
   }
 
 }

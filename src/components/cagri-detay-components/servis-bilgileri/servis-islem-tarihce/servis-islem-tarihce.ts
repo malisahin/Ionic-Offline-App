@@ -31,8 +31,8 @@ export class ServisIslemTarihceComponent {
   }
 
   loadTarihce() {
-    if (this.util.isNotEmpty(this.hizmet.islemList) && this.util.isNotEmpty(this.hizmet.islemList[0]))
-      this.tarihceList = this.hizmet.islemList[0];
+    if (this.util.isNotEmpty(this.hizmet.islemList) )
+      this.tarihceList = this.hizmet.islemList;
   }
 
 

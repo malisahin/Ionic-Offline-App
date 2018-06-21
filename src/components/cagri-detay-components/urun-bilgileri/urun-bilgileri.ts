@@ -55,16 +55,28 @@ export class UrunBilgileriComponent {
   }
 
   urunAnaGrupDegistir() {
-    let anaGrpUpdateModal = this.modalController.create(UpdateUrunAnaGrupComponent, {
-      hizmet: this.hizmet
-    });
-    anaGrpUpdateModal.onDidDismiss(res => {
-      if (this.util.isNotEmpty(res)) {
-        /*this.hizmet = res.hizmet;
-         this.mamAnaGrpValue = res.mamAnaGrpValue;*/
-      }
-    });
-    anaGrpUpdateModal.present();
+    if (this.urunAnaGrupDegistirmeKontrol()) {
+      let anaGrpUpdateModal = this.modalController.create(UpdateUrunAnaGrupComponent, {
+        hizmet: this.hizmet
+      });
+      anaGrpUpdateModal.onDidDismiss(res => {
+        if (this.util.isNotEmpty(res)) {
+          /*this.hizmet = res.hizmet;
+           this.mamAnaGrpValue = res.mamAnaGrpValue;*/
+        }
+      });
+      anaGrpUpdateModal.present();
+    }
+  }
+
+  urunAnaGrupDegistirmeKontrol(): boolean {
+    let check: boolean = true;
+    let mamKodVarMi: boolean = this.util.isNotEmpty(this.hizmet.mamKod);
+    let detayKaydiVarMi: boolean = this.util.isNotEmpty(this.hizmet.detayList) && this.hizmet.detayList.length > 0;
+    if (mamKodVarMi || detayKaydiVarMi) {
+      check = false;
+    }
+    return check;
   }
 
   findUrunAnaGrp() {
@@ -79,7 +91,7 @@ export class UrunBilgileriComponent {
   }
 
   urunSil() {
-    if (this.hizmet.detayList.length > 0 && this.hizmet.detayList[0].length > 0) {
+    if (this.hizmet.detayList.length > 0) {
       this.util.message("Ürüne bağlı Parça/İşçilik/Yol mevcut.Silinemez.");
       return false;
     }

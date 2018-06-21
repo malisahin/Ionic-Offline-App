@@ -60,12 +60,12 @@ export class HizmetDetayComponent {
     if (this.util.isEmpty(this.hizmetDetay.satirNo)) {
       await this.fiyatBul();
       if (this.util.isNotEmpty(this.hizmetDetay.tutar)) {
-        this.hizmet.detayList[0].push(this.hizmetDetay);
+        this.hizmet.detayList.push(this.hizmetDetay);
         this.satirNoBelirle();
       }
     }
     else {
-      this.hizmet.detayList[0].filter(det => {
+      this.hizmet.detayList.filter(det => {
         if (det.satirNo) {
           det = this.hizmetDetay;
         }
@@ -78,8 +78,8 @@ export class HizmetDetayComponent {
   }
 
   satirNoBelirle() {
-    for (let i = 0; i < this.hizmet.detayList[0].length; i++) {
-      this.hizmet.detayList[0][i].satirNo = i + 1;
+    for (let i = 0; i < this.hizmet.detayList.length; i++) {
+      this.hizmet.detayList[i].satirNo = i + 1;
     }
   }
 

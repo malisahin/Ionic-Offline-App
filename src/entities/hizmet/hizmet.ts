@@ -31,7 +31,7 @@ export class Hizmet {
   cmTarihi: string = "";
   cozumKodu: string = "";
   daireNo: string = "";
-  detayList: DetayKayit[][];
+  detayList: DetayKayit[];
   durum: string = "";
   eposta: string = "";
   evTel: string = "";
@@ -45,7 +45,7 @@ export class Hizmet {
   iletisimIstek: string = "";
   isTel: string = "";
   islemBitTarihi: string = "";
-  islemList: IslemList[][];
+  islemList: IslemList[];
   islemTarihi: string = "";
   kapatmaKodu: string = "";
   mahalle: string = "";
