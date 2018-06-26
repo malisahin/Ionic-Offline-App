@@ -23,9 +23,8 @@ export class LoginPage {
   passwordType: string = 'password';
   passwordIcon: string = 'eye-off';
   loading: Loading;
-  registerCredentials = { email: '', password: '' };
-  userCode: string = "ECAMERKEZ";
-  password: string = "EMAR6565";
+  userCode: string = "BAYMERKEZ";
+  password: string = "13131313";
   user: User;
   hasLoginPermission = false;
 

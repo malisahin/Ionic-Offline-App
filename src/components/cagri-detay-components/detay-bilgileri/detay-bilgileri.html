@@ -1,5 +1,5 @@
 <ion-grid>
-  <ion-row>
+  <ion-row *ngIf="hizmet.durum == 'ACIK'">
     <ion-col col-12 col-sm>
       <button ion-button primary round full (click)="hizmetDetayaGit()">
         <ion-icon style="width: 20%" name="add-circle"></ion-icon>
@@ -49,10 +49,10 @@
       <ion-label>{{detay.tutar}}</ion-label>
     </ion-col>
     <ion-col col-12 col-sm>
-      <button ion-button icon-only (click)="update(detay)">
+      <button ion-button icon-only (click)="update(detay)" *ngIf="hizmet.durum != 'ACIK'">
         <ion-icon name="create" small></ion-icon>
       </button>
-      <button ion-button icon-only (click)="delete(detay)">
+      <button ion-button icon-only (click)="delete(detay)" *ngIf="hizmet.durum != 'ACIK'">
         <ion-icon name="close-circle" small></ion-icon>
       </button>
     </ion-col>
@@ -68,16 +68,17 @@
     <ion-grid>
       <ion-row>
         <ion-col col-12 col-md-6 col-sm>
-          <button ion-button round color="secondary" full>Kapat</button>
+          <button ion-button round color="secondary" (click)="kapat()" *ngIf="hizmet.durum == 'ACIK'" full>Kapat
+          </button>
         </ion-col>
         <ion-col col-12 col-md-6 col-sm>
-          <button ion-button round color="secondary" full>Iptal</button>
+          <button ion-button round color="secondary" *ngIf="hizmet.durum == 'ACIK'" full>Iptal</button>
         </ion-col>
         <ion-col col-12 col-md-6 col-sm>
           <button ion-button round color="secondary" (click)="yazdir()" full>Yazdır</button>
         </ion-col>
         <ion-col col-12 col-md-6 col-sm>
-          <button ion-button round color="secondary" full>Sil</button>
+          <button ion-button round color="secondary" *ngIf="hizmet.durum == 'ACIK'" full>Sil</button>
         </ion-col>
       </ion-row>
 
@@ -88,13 +89,13 @@
 
       <ion-item>
         <ion-label color="primary">Açıklama</ion-label>
-        <ion-textarea></ion-textarea>
+        <ion-textarea [(ngModel)]="hizmet.aciklama" [disabled]="hizmet.durum != 'ACIK'"></ion-textarea>
       </ion-item>
 
 
       <ion-item>
         <ion-label color="primary">Kapatma Şekli</ion-label>
-        <ion-select>
+        <ion-select [(ngModel)]="hizmet.kapatmaKodu" [disabled]="hizmet.durum != 'ACIK'">
           <ion-option value="NORMAL">Normal Kapatma</ion-option>
           <ion-option value="MESGULIYET">Meşguliyet Kapatma</ion-option>
         </ion-select>
@@ -102,7 +103,7 @@
 
       <ion-item>
         <ion-label color="primary">Ödeme Tipi</ion-label>
-        <ion-select po>
+        <ion-select [(ngModel)]="hizmet.odemeTipi" [disabled]="hizmet.durum != 'ACIK'">
           <ion-option value="NAKIT">Nakit</ion-option>
           <ion-option value="KREDIKARTI">Kredi Kartı</ion-option>
         </ion-select>
@@ -111,14 +112,15 @@
       <ion-item>
         <ion-label color="primary">Çözüm Kodu</ion-label>
 
-        <ion-select [(ngModel)]="hizmet.cozumKodu">
+        <ion-select [(ngModel)]="hizmet.cozumKodu" [disabled]="hizmet.durum != 'ACIK'">
           <ion-option *ngFor="let cozum of cozumKoduList" [value]="cozum.kod">{{cozum.ad}}</ion-option>
         </ion-select>
       </ion-item>
 
       <ion-item>
         <ion-label color="primary">Iletişim Istek</ion-label>
-        <ion-toggle ion-toggle-text="EVET;HAYIR">EVET</ion-toggle>
+        <ion-label color="primary">{{iletisimIstek == true ? 'EVET' : 'HAYIR'}}</ion-label>
+        <ion-toggle (ionChange)="iletisimIstekChange()" [(ngModel)]="iletisimIstek"></ion-toggle>
       </ion-item>
 
     </ion-list>

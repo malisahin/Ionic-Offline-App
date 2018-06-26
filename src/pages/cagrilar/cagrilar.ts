@@ -48,6 +48,7 @@ export class CagrilarPage {
   }
 
   public cagriSorgula() {
+
     let aramaModal = this.modalController.create(CagriAramaModalPage);
     aramaModal.onDidDismiss(data => {
 

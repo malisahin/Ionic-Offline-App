@@ -99,6 +99,8 @@ export class UpdateUrunAnaGrupComponent {
       this.hizmet = JSON.parse(fetchedData.res.rows.item(0).data);
       this.logger.log(this.hizmet);
       this.viewCtrl.dismiss({hizmet: this.hizmet});
+    } else {
+      this.util.error("Ürün Ana Grup Değiştirirken hata oluştu.")
     }
   }
 

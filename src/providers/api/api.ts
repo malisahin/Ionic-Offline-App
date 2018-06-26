@@ -14,12 +14,6 @@ import {User} from "../../entities/user";
 export class ApiProvider {
   profil: Profil = new Profil();
   ACTIVE_PROFIL: EProfiles;
-  orgKod: string = "ECAMERKEZ";
-  serKod: string = "ECA_TEST";
-  dilKod: string;
-  ikKod: string = "5961";
-  userName: string = "ECAMERKEZ";
-  paraBirimi: string;
   urlPrefixHizmet: string;
   urlPrefixOffline: string;
   urlPrefixKullanici: string;
@@ -30,7 +24,7 @@ export class ApiProvider {
 
   constructor() {
     this.pageSize = Constants.API_PAGE_SIZE;
-    this.ACTIVE_PROFIL = EProfiles.LOCAL_DEV;
+    this.ACTIVE_PROFIL = EProfiles.CUSTOMER1;
 
     this.urlPrefixHizmet = this.profil.getActiveProfil(this.ACTIVE_PROFIL).domainUrl + '/sos-api/endpointrest/hizmet/';
     this.urlPrefixOffline = this.profil.getActiveProfil(this.ACTIVE_PROFIL).domainUrl + '/sos-api/endpointrest/offline/';
@@ -47,16 +41,15 @@ export class ApiProvider {
   loginUrl: string = "";
 
   getKullaniciUrl() {
-    return this.urlPrefixKullanici + this.userName;
+    return this.urlPrefixKullanici + this.user.getUserCode();
   }
 
   getCagriListUrl() {
-    this.ikKod = '5961';
-    return this.urlPrefixHizmet + this.orgKod + '/' + this.serKod + '/' + this.ikKod + '/param/ikCagriListesi';
+    return this.urlPrefixHizmet + this.user.getOrgKod()+ '/' + this.user.getSerKod() + '/' + this.user.getIkKod() + '/param/ikCagriListesi';
   }
 
   setCagriUrl(siparisMi: string) {
-    return this.urlPrefixHizmet + this.orgKod + '/' + this.userName + '/' + this.dilKod + '/' + this.paraBirimi + '/' + siparisMi + '/' + '/CagriKaydet';
+    return this.urlPrefixHizmet + this.user.getOrgKod() + '/' + this.user.getUserCode() + '/' + this.user.getDilKod() + '/' + this.user.getPb() + '/' + siparisMi + '/CagriKaydet';
   }
 
   downloadUrunUrl(first: number) {
@@ -109,8 +102,7 @@ export class ApiProvider {
   }
 
   getMesajlarUrl() {
-    this.userName = 'ECAMERKEZ';
-    return this.urlPrefixKullanici + this.userName + '/type/NEW/mesajlar';
+    return this.urlPrefixKullanici + this.user.getUserCode() + '/type/NEW/mesajlar';
   }
 
   getMahalleTnmUrl(first: number) {

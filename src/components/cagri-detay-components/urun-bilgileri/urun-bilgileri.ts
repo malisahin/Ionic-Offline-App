@@ -21,8 +21,9 @@ import {ProcessResults} from "../../../entities/ProcessResults";
 export class UrunBilgileriComponent {
   text: string;
   hizmet: Hizmet = new Hizmet();
-
   mamAnaGrpValue: string;
+  mesguliyet: boolean = false;
+  garanti: boolean = false;
 
   constructor(private modalController: ModalController,
               private hizmetService: HizmetService,
@@ -33,7 +34,13 @@ export class UrunBilgileriComponent {
               private  urunAnaGrpDao: UrunAnaGrupDao) {
 
     this.hizmet = this.hizmetService.getHizmet();
+    this.init();
     this.findUrunAnaGrp();
+  }
+
+  init() {
+    this.garanti = this.util.isNotEmpty(this.hizmet.garanti) && this.hizmet.garanti == 'VAR';
+    this.mesguliyet = this.util.isNotEmpty(this.hizmet.mesguliyet) && this.hizmet.mesguliyet == 'VAR';
   }
 
   urunListesiniGetir() {
@@ -150,11 +157,11 @@ export class UrunBilgileriComponent {
 
 
   mesguliyetChange() {
-
+    this.hizmet.mesguliyet = this.mesguliyet == true ? 'VAR' : 'YOK';
   }
 
   garantiChange() {
-
+    this.hizmet.garanti = this.garanti == true ? 'VAR' : 'YOK';
   }
 }
 

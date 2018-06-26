@@ -22,6 +22,8 @@ export class LoginProvider {
     this.user.userCode = userCode;
     this.user.password = password;
     return this.token.getToken(userCode, password).then(res => {
+      localStorage.setItem(this.user.keys.userCode, userCode);
+      localStorage.setItem(this.user.keys.password, password);
       console.log(res);
     });
   }

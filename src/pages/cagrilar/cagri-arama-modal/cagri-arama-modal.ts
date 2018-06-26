@@ -42,7 +42,7 @@ export class CagriAramaModalPage {
   search() {
     this.query = " SELECT * FROM OFF_HIZ_MST WHERE 1=1";
     let whereQuery = [];
-    let searchType = Constants.SEARCH_TYPE.EXACT;
+    let searchType = Constants.SEARCH_TYPE.LIKE;
 
     if (this.util.isNotEmpty(this.filter.randevuTarFirst)) {
       this.query += " AND randevuTarihi > '" + this.filter.randevuTarFirst + " 00:00:00' ";
@@ -80,6 +80,12 @@ export class CagriAramaModalPage {
     }
 
     this.query = this.util.prepareQuery(this.query, whereQuery, searchType);
+
+    if (this.util.isNotEmpty(this.filter.telefon)) {
+      this.query += " AND ( evTel like '%" + this.filter.telefon + "%' " +
+        "OR isTel like '%" + this.filter.telefon + "%' " +
+        "OR gsmNo like '%" + this.filter.telefon + "%' )"
+    }
     this.closeModal();
   }
 }

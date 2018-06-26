@@ -71,11 +71,11 @@ export class Profil {
 
     private getCustomer1() {
         let domain = new Domain();
-        domain.orgKod = "SAHIN";
+        domain.orgKod = "BAY";
         domain.kod = 'SECRET';
         domain.name = 'Development';
-        domain.domainUrl = "";
-        domain.securityUrl = "";
+        domain.domainUrl = "http://sos.baymak.com.tr:7008";
+        domain.securityUrl = "http://sos.baymak.com.tr:7008";
         domain.activeTabCss = "'background', '#65c8f7','border-bottom','3px solid #65c8f7'";
         domain.passiveTabCss = "'background', '#244085','border-bottom','3px solid #244085'";
         domain.downloadedButtonCss = {

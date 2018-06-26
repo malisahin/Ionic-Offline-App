@@ -46,6 +46,18 @@ export class HizmetService {
     return this.hizmet;
   }
 
+  async getHizmetBySeqNo(seqNo: string): Promise<Hizmet> {
+    let hizmet = new Hizmet();
+    hizmet.seqNo = seqNo;
+    let result = await this.fetchHizmet(hizmet);
+    debugger;
+    if(this.util.isNotEmpty(result) && this.util.isNotEmpty(result.res.rows) && result.res.rows.length> 0) {
+      hizmet = result.res.rows.item(0);
+    }
+    return hizmet;
+
+  }
+
   saveHizmet(): Promise<any> {
     return this.hizmetDao.updateHizmet(this.hizmet);
   }

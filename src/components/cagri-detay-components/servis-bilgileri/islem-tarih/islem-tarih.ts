@@ -25,9 +25,9 @@ enum Durum {
 })
 export class IslemTarihComponent {
 
+  DATE_FORMAT : string = "yyyy.MM.dd hh:mm:ss";
   hizmet: Hizmet = new Hizmet();
   isenabled: boolean = true;
-  tarihceList: IslemList[];
   sonIslem: IslemList;
   islemBitmisMi: string = "";
   buttonStatus: string = Durum.BASLA;
@@ -38,6 +38,7 @@ export class IslemTarihComponent {
               private  util: UtilProvider) {
     this.hizmet = this.hizmetService.getHizmet();
     this.logger.table(this.hizmet.islemList);
+    this.formatIslemListDates();
     this.init();
   }
 
@@ -49,7 +50,7 @@ export class IslemTarihComponent {
   }
 
   islemBaslat() {
-    this.sonIslem.basTar = this.util.dateFormatRegex(new Date(), "dd/MM/yyyy hh:mm");
+    this.sonIslem.basTar = this.util.dateFormatRegex(new Date(), this.DATE_FORMAT);
     this.hizmet.islemTarihi = this.sonIslem.basTar;
     this.checkStatus();
     this.setButtonStatus();
@@ -61,7 +62,7 @@ export class IslemTarihComponent {
     if (res.isErrorMessagesNotNull()) {
       this.util.pushErrorMessages(res);
     } else {
-      this.sonIslem.bitTar = this.util.dateFormatRegex(this.util.addMinutes(new Date, 1), "dd/MM/yyyy hh:mm");
+      this.sonIslem.bitTar = this.util.dateFormatRegex(this.util.addMinutes(new Date, 1), this.DATE_FORMAT);
       this.sonIslem.durum = Durum.BEKLE;
       this.checkStatus();
       this.sonIslem = new IslemList();
@@ -81,7 +82,7 @@ export class IslemTarihComponent {
   }
 
   islemBitir() {
-    this.sonIslem.bitTar = this.util.dateFormatRegex(this.util.addMinutes(new Date, 1), "dd/MM/yyyy hh:mm");
+    this.sonIslem.bitTar = this.util.dateFormatRegex(this.util.addMinutes(new Date, 1), this.DATE_FORMAT);
     this.sonIslem.durum = Durum.BITIR;
     this.hizmet.islemBitTarihi = this.sonIslem.bitTar;
     this.checkStatus();
@@ -181,6 +182,20 @@ export class IslemTarihComponent {
       saveable = true;
     }
     return saveable;
+  }
+
+  formatIslemListDates(){
+    if(this.util.isNotEmpty(this.hizmet.islemList)){
+      this.hizmet.islemList.forEach(item=> {
+        if(this.util.isNotEmpty(item.basTar)){
+          item.basTar =  this.util.dateFormatRegex(new Date(item.basTar), this.DATE_FORMAT);
+        }
+
+        if(this.util.isNotEmpty(item.bitTar)){
+          item.bitTar =  this.util.dateFormatRegex(new Date(item.bitTar), this.DATE_FORMAT);
+        }
+      })
+    }
   }
 }
 

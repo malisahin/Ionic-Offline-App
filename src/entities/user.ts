@@ -113,4 +113,12 @@ export class User {
   getIkAd(): string {
     return localStorage.getItem("ikAd");
   }
+
+  getIkKod(): string {
+    return localStorage.getItem("ikKod");
+  }
+
+  getPassword(): string {
+    return localStorage.getItem("password");
+  }
 }

@@ -35,7 +35,7 @@
 
   <ion-item>
     <ion-label color="primary" floating>İlçe</ion-label>
-    <ion-select [(ngModel)]="hizmet.ilceKod" (ionChange)="getMahalleList(ilce)">
+    <ion-select [(ngModel)]="hizmet.ilceKod" (ionChange)="getMahalleList(ilce)" [disabled]="hizmet.durum != 'ACIK'">
       <ion-option *ngFor="let ilce of ilceler" [value]="ilce.ilceKodu">
         {{ilce.ilceKodu}} - {{ilce.ilceAdi}}
       </ion-option>
@@ -44,45 +44,45 @@
 
   <ion-item>
     <ion-label color="primary" floating>Semt/Köy</ion-label>
-    <ion-input [(ngModel)]="hizmet.semt"></ion-input>
+    <ion-input [(ngModel)]="hizmet.semt" [disabled]="hizmet.durum != 'ACIK'"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>Mahalle</ion-label>
     <ion-select [(ngModel)]="hizmet.mahalleKodu">
-      <ion-option *ngFor="let mahalle of mahalleler" [value]="mahalle.mahalleKodu">{{mahalle.mahalleKodu}} -
-        {{mahalle.mahalleAdi}}
+      <ion-option *ngFor="let mahalle of mahalleler" [value]="mahalle.mahalleKodu" [disabled]="hizmet.durum != 'ACIK'">
+        {{mahalle.mahalleKodu}} - {{mahalle.mahalleAdi}}
       </ion-option>
     </ion-select>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>Cadde</ion-label>
-    <ion-input [(ngModel)]="hizmet.cadde"></ion-input>
+    <ion-input [(ngModel)]="hizmet.cadde" [disabled]="hizmet.durum != 'ACIK'"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>Sokak</ion-label>
-    <ion-input [(ngModel)]="hizmet.sokak"></ion-input>
+    <ion-input [(ngModel)]="hizmet.sokak" [disabled]="hizmet.durum != 'ACIK'"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>Apartman/Site</ion-label>
-    <ion-input [(ngModel)]="hizmet.apartman"></ion-input>
+    <ion-input [(ngModel)]="hizmet.apartman" [disabled]="hizmet.durum != 'ACIK'"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>Apartman No</ion-label>
-    <ion-input [(ngModel)]="hizmet.apartmanNo"></ion-input>
+    <ion-input [(ngModel)]="hizmet.aparmanNo" [disabled]="hizmet.durum != 'ACIK'"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>Blok</ion-label>
-    <ion-input [(ngModel)]="hizmet.blok"></ion-input>
+    <ion-input [(ngModel)]="hizmet.blok" [disabled]="hizmet.durum != 'ACIK'"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" floating>Daire No</ion-label>
-    <ion-input [(ngModel)]="hizmet.daireNo"></ion-input>
+    <ion-input [(ngModel)]="hizmet.daireNo" [disabled]="hizmet.durum != 'ACIK'"></ion-input>
   </ion-item>
 </ion-list>

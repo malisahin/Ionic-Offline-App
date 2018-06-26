@@ -7,12 +7,12 @@
 
   <ion-item>
     <ion-label color="primary">Çağrı Açılış Tarihi</ion-label>
-    <ion-input [(ngModel)]="hizmet.cagriTarihi" readonly></ion-input>
+    <ion-input [(ngModel)]="hizmet.cagriTarihi" [disabled]="hizmet.durum != 'ACIK'" readonly></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary">Hizmet Tipi</ion-label>
-    <ion-input [(ngModel)]="hizmet.hizmetTipiAdi" readonly></ion-input>
+    <ion-input [(ngModel)]="hizmet.hizmetTipiAdi" [disabled]="hizmet.durum != 'ACIK'" readonly></ion-input>
   </ion-item>
 
   <ion-item>

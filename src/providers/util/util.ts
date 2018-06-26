@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Constants} from '../../entities/Constants';
-import {ToastController} from 'ionic-angular';
+import {ToastController, LoadingController, Loading} from 'ionic-angular';
 import moment from 'moment';
 import {ProcessResults} from "../../entities/ProcessResults";
 
@@ -8,7 +8,9 @@ import {ProcessResults} from "../../entities/ProcessResults";
 @Injectable()
 export class UtilProvider {
 
-  constructor(private toast: ToastController) {
+  private loader: Loading;
+
+  constructor(private toast: ToastController, private  loadingController: LoadingController) {
     moment.locale('tr');
   }
 
@@ -205,4 +207,13 @@ export class UtilProvider {
     this.pushInfoMessages(result);
   }
 
+
+  loaderStart() {
+    this.loader = this.loadingController.create({spinner: 'dots'});
+    this.loader.present();
+  }
+
+  loaderEnd() {
+    this.loader.dismissAll();
+  }
 }

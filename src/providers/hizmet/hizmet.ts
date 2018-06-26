@@ -25,14 +25,19 @@ export class HizmetProvider {
   }
 
   downloadCagriList(): Promise<any> {
-
     return new Promise((resolve, reject) => {
       this.fetchDataFromApi()
         .then(res => this.insertComingData(res))
         .then(res => resolve("SUCCESS"));
     });
-
   }
+
+  async updateCagri(hizmet: Hizmet, durum: string): Promise<any> {
+    let url = this.api.setCagriUrl(durum);
+    let header = await this.token.callTokenAndGetHeader();
+    return this.http.post(url, hizmet, {headers: header}).toPromise();
+  }
+
 
   async fetchDataFromApi(): Promise<any> {
     let url = this.api.getCagriListUrl();

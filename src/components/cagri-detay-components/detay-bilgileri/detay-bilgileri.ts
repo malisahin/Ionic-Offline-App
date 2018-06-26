@@ -15,6 +15,8 @@ import {Constants} from "../../../entities/Constants";
 import {ModalController} from "ionic-angular";
 import {HizmetDetayComponent} from "../../hizmet-detay/hizmet-detay";
 import {PrinterService} from "../../../providers/printer-service/printer-service";
+import {HizmetProvider} from "../../../providers/hizmet/hizmet";
+import {ProcessResults} from "../../../entities/ProcessResults";
 
 
 @Component({
@@ -27,12 +29,14 @@ export class DetayBilgileriComponent {
   hizmet: Hizmet = new Hizmet();
   detayList: DetayKayit[];
   cozumKoduList: UrunAnaGrup[] = [];
+  iletisimIstek: boolean = false;
 
   constructor(private hizmetService: HizmetService,
               private urunAnaGrupDao: UrunAnaGrupDao,
               private modalCtrl: ModalController,
               private util: UtilProvider,
               private logger: LoggerProvider,
+              private hizmetProvider: HizmetProvider,
               private printService: PrinterService) {
     this.hizmet = this.hizmetService.getHizmet();
     this.loadDetayList();
@@ -75,6 +79,7 @@ export class DetayBilgileriComponent {
       });
       detayModal.onDidDismiss(res => {
         this.logger.dir(res);
+        this.updateHizmet();
       });
       detayModal.present();
     } else {
@@ -90,6 +95,7 @@ export class DetayBilgileriComponent {
     });
     detayModal.onDidDismiss(res => {
       this.logger.dir(res);
+      this.updateHizmet();
     });
     detayModal.present();
   }
@@ -104,6 +110,68 @@ export class DetayBilgileriComponent {
 
   yazdir() {
     this.printService.showPrinterList(this.hizmet);
+  }
+
+  async kapat() {
+    let result = this.kapatmaKontrol();
+    if (result.isErrorMessagesNull()) {
+      this.hizmet.durum = "KAPALI";
+      this.util.loaderStart();
+      let res = await this.hizmetProvider.updateCagri(this.hizmet, "HAYIR");
+      this.logger.dir(res);
+      this.util.loaderEnd();
+    } else {
+      this.util.pushAllMessages(result);
+    }
+  }
+
+  async siparisOlustur() {
+    this.util.loaderStart();
+    let res = await this.hizmetProvider.updateCagri(this.hizmet, "EVET");
+    this.util.loaderEnd();
+  }
+
+  async updateHizmet() {
+    debugger;
+    this.hizmet = await this.hizmetService.getHizmetBySeqNo(this.hizmet.seqNo);
+  }
+
+  kapatmaKontrol(): ProcessResults {
+    this.logger.dir(this.hizmet);
+    let result = new ProcessResults();
+    if (this.util.isEmpty(this.hizmet.sattar)) {
+      result.addErrorMessage("Fatura tarihi boş bırakılamaz.");
+    }
+
+    if (this.util.isEmpty(this.hizmet.detayList) || !(this.hizmet.detayList.length > 0)) {
+      result.addErrorMessage("Parça/Işçilik/Yol Seçilmelidir.");
+    }
+
+    if (this.util.isEmpty(this.hizmet.aciklama)) {
+      result.addErrorMessage("Açıklama alanı boş bırakılamaz.");
+    }
+
+    if (this.util.isEmpty(this.hizmet.kapatmaKodu)) {
+      result.addErrorMessage("Kapatma şekli boş bırakılamaz.");
+    }
+
+    if (this.util.isEmpty(this.hizmet.odemeTipi)) {
+      result.addErrorMessage("Ödeme tipi boş bırakılamaz.");
+    }
+
+    if (this.util.isEmpty(this.hizmet.cozumKodu)) {
+      result.addErrorMessage("Çözüm Kodu boş bırakılamaz.");
+    }
+
+    if (this.util.isEmpty(this.hizmet.islemBitTarihi)) {
+      result.addErrorMessage("Işlem bitiş tarihi boş bırakılamaz.");
+    }
+
+    return result;
+  }
+
+  iletisimIstekChange() {
+    this.hizmet.iletisimIstek = this.iletisimIstek == true ? 'EVET' : 'HAYIR';
   }
 
 }

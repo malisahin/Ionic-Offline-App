@@ -60,6 +60,10 @@ export class HizmetDetayComponent {
     if (this.util.isEmpty(this.hizmetDetay.satirNo)) {
       await this.fiyatBul();
       if (this.util.isNotEmpty(this.hizmetDetay.tutar)) {
+
+        if (this.util.isEmpty(this.hizmet.detayList))
+          this.hizmet.detayList = [];
+
         this.hizmet.detayList.push(this.hizmetDetay);
         this.satirNoBelirle();
       }
@@ -74,7 +78,7 @@ export class HizmetDetayComponent {
     let result = await this.hizmetService.saveHizmet();
     this.logger.dir(result);
 
-    this.closeModal()
+    this.closeModal();
   }
 
   satirNoBelirle() {
