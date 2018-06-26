@@ -63,9 +63,9 @@ export class UrunBilgileriComponent {
         hizmet: this.hizmet
       });
       anaGrpUpdateModal.onDidDismiss(res => {
-        if (this.util.isNotEmpty(res)) {
-          /*this.hizmet = res.hizmet;
-           this.mamAnaGrpValue = res.mamAnaGrpValue;*/
+        if (this.util.isNotEmpty(res) && this.util.isNotEmpty(res.hizmet)) {
+          this.hizmet = res.hizmet;
+          this.findUrunAnaGrp();
         }
       });
       anaGrpUpdateModal.present();
@@ -77,11 +77,9 @@ export class UrunBilgileriComponent {
   urunAnaGrupDegistirmeKontrol(): ProcessResults {
     let res = new ProcessResults();
     let mamKodVarMi: boolean = this.util.isNotEmpty(this.hizmet.mamKod);
-
     if (mamKodVarMi) {
       res.addErrorMessage("Ürün Ana grubuna bağlı ürün bulundu.Önce ürünü siliniz.");
     }
-
     return res;
   }
 
@@ -98,7 +96,7 @@ export class UrunBilgileriComponent {
   }
 
   urunSil() {
-    if (this.hizmet.detayList.length > 0) {
+    if (this.util.isNotEmpty(this.hizmet.detayList) && this.hizmet.detayList.length > 0) {
       this.util.message("Ürüne bağlı Parça/İşçilik/Yol mevcut.Silinemez.");
       return false;
     }

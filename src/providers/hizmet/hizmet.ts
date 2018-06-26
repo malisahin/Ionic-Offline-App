@@ -16,7 +16,10 @@ export class HizmetProvider {
 
   getToken: Promise<any>;
 
-  constructor(public http: HttpClient, private api: ApiProvider, private hizmetDao: HizmetDao, private token: TokenProvider) {
+  constructor(public http: HttpClient,
+              private api: ApiProvider,
+              private hizmetDao: HizmetDao,
+              private token: TokenProvider) {
     console.log('Hello CagriProvider Provider');
 
   }
@@ -45,6 +48,15 @@ export class HizmetProvider {
     let hizmetList: Hizmet[];
     hizmetList = this.seperateCagri(res);
     return this.hizmetDao.insertList(hizmetList);
+  }
+
+
+  async updateComingData(res: any): Promise<any> {
+    let hizmetList: Hizmet[];
+    hizmetList = this.seperateCagri(res);
+    await hizmetList.forEach(item => {
+      this.hizmetDao.updateHizmet(item);
+    });
   }
 
 

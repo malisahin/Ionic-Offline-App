@@ -8,6 +8,9 @@ import {Constants} from "../../entities/Constants";
 import {UrunAnaGrupDao} from "../../providers/urun-ana-grup-dao/urun-ana-grup-dao";
 import {UrunAnaGrpProvider} from "../../providers/urun-ana-grp/urun-ana-grp";
 import {Hizmet} from "../../entities/hizmet/hizmet";
+import {HizmetProvider} from "../../providers/hizmet/hizmet";
+import {HizmetService} from "../../providers/hizmet-service/hizmet-service";
+import {Pageable} from "../../entities/Pageable";
 
 /**
  * @author mali.sahin
@@ -32,6 +35,8 @@ export class UpdateUrunAnaGrupComponent {
               private modalController: ModalController,
               private urunAnaGrupProvider: UrunAnaGrpProvider,
               private navParams: NavParams,
+              private hizmetService: HizmetService,
+              private  hizmetProvider: HizmetProvider,
               private  urunAnaGrupDao: UrunAnaGrupDao) {
     this.urunAnaGrup = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.BASVURU_LISTE);
     this.logger.dir(this.navParams.data);
@@ -74,10 +79,27 @@ export class UpdateUrunAnaGrupComponent {
   async kaydet() {
     this.hizmet.mamAnaGrp = this.urunAnaGrup.mamAnaGrp;
     this.hizmet.basvuruNedeni = this.basvuruNedeni;
-    let data: any = {};
     let res = await this.urunAnaGrupProvider.updateMamAnaGrp(this.hizmet);
     this.logger.warn(res);
-    //  data.this.viewCtrl.dismiss();
+    if (this.util.isNotEmpty(res) && this.util.isNotEmpty(res)) {
+      await this.hizmetProvider.updateComingData(res);
+      this.logger.log(res);
+      await this.getUpdatedHizmet();
+    } else {
+      this.iptal();
+      this.util.error("Ürün Ana Grubu değiştirirken hata oluştu.Verileri kontrol ediniz.")
+    }
+  }
+
+  async getUpdatedHizmet() {
+    let searchData = new Hizmet();
+    searchData.seqNo = this.hizmet.seqNo;
+    let fetchedData = await this.hizmetService.fetchHizmet(searchData);
+    if (this.util.isNotEmpty(fetchedData) && this.util.isNotEmpty(fetchedData.res.rows) && fetchedData.res.rows.length > 0) {
+      this.hizmet = JSON.parse(fetchedData.res.rows.item(0).data);
+      this.logger.log(this.hizmet);
+      this.viewCtrl.dismiss({hizmet: this.hizmet});
+    }
   }
 
 
