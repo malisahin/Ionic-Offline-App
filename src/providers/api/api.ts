@@ -24,7 +24,7 @@ export class ApiProvider {
 
   constructor() {
     this.pageSize = Constants.API_PAGE_SIZE;
-    this.ACTIVE_PROFIL = EProfiles.CUSTOMER1;
+    this.ACTIVE_PROFIL = EProfiles.LOCAL_DEV;
 
     this.urlPrefixHizmet = this.profil.getActiveProfil(this.ACTIVE_PROFIL).domainUrl + '/sos-api/endpointrest/hizmet/';
     this.urlPrefixOffline = this.profil.getActiveProfil(this.ACTIVE_PROFIL).domainUrl + '/sos-api/endpointrest/offline/';
@@ -45,7 +45,7 @@ export class ApiProvider {
   }
 
   getCagriListUrl() {
-    return this.urlPrefixHizmet + this.user.getOrgKod()+ '/' + this.user.getSerKod() + '/' + this.user.getIkKod() + '/param/ikCagriListesi';
+    return this.urlPrefixHizmet + this.user.getOrgKod() + '/' + this.user.getSerKod() + '/' + this.user.getIkKod() + '/param/ikCagriListesi';
   }
 
   setCagriUrl(siparisMi: string) {

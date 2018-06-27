@@ -17,9 +17,9 @@ export class Pageable {
 
     compute() {
         let firstItemOfLastPage;
-        let bolumdenKalan = this.listLength % this.pageSize;
+        let bolumdenKalan = this.listLength % Number(this.pageSize);
         if (bolumdenKalan == 0) {
-            firstItemOfLastPage = this.listLength - this.pageSize;
+            firstItemOfLastPage = this.listLength - Number(this.pageSize);
         } else {
             firstItemOfLastPage = this.listLength - bolumdenKalan;
         }
@@ -28,27 +28,27 @@ export class Pageable {
 
         }
         else if (this.tip == 'PREVIOUS') {
-            this.first -= this.pageSize;
+            this.first -= Number(this.pageSize);
             if (this.first < 0) {
                 this.first = 0;
             }
         }
         else if (this.tip == 'NEXT') {
-            this.first += this.pageSize;
+            this.first += Number(this.pageSize);
             if (this.first > this.listLength)
-                this.first = firstItemOfLastPage;
+                this.first = Number(firstItemOfLastPage);
         }
         else if (this.tip == 'FIRST') {
             this.first = 0;
         }
         else if (this.tip == 'LAST') {
-            this.first = firstItemOfLastPage;
+            this.first = Number(firstItemOfLastPage);
         }
         else if (this.tip == 'LIST_LENGTH') {
             this.first = 0;
         }
         else if (this.tip == 'PAGENO') {
-            this.first = this.pageSize * this.toPage;
+            this.first = Number(this.pageSize) * Number(this.pageSize);
         }
 
         return this;

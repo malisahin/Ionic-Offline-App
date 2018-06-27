@@ -9,6 +9,7 @@ import {HizmetDao} from "../hizmet-dao/hizmet-dao";
 import {BaseDao} from "../base-dao/base-dao";
 import {UtilProvider} from "../util/util";
 import {Pageable} from "../../entities/Pageable";
+import {HizmetProvider} from "../hizmet/hizmet";
 
 
 @Injectable()
@@ -17,8 +18,8 @@ export class HizmetService {
   hizmet: Hizmet;
 
   constructor(private hizmetDao: HizmetDao,
-              private  baseDao: BaseDao,
-              private  util: UtilProvider) {
+              private  util: UtilProvider,
+              private hizmetProvider: HizmetProvider) {
   }
 
   fetchHizmetWithPage(hizmet: Hizmet, pageable: Pageable): Promise<any> {
@@ -51,7 +52,7 @@ export class HizmetService {
     hizmet.seqNo = seqNo;
     let result = await this.fetchHizmet(hizmet);
     debugger;
-    if(this.util.isNotEmpty(result) && this.util.isNotEmpty(result.res.rows) && result.res.rows.length> 0) {
+    if (this.util.isNotEmpty(result) && this.util.isNotEmpty(result.res.rows) && result.res.rows.length > 0) {
       hizmet = result.res.rows.item(0);
     }
     return hizmet;
@@ -62,10 +63,15 @@ export class HizmetService {
     return this.hizmetDao.updateHizmet(this.hizmet);
   }
 
-  async saveAndFetchHizmet(): Promise<any> {
-    await this.saveHizmet();
-    let list = await this.fetchHizmet(this.hizmet);
-    return new Promise((res, rej) => res(list.res.rows.item(0)))
+  async saveAndFetchHizmet(hizmet: Hizmet): Promise<any> {
+    await this.hizmetDao.updateHizmet(hizmet);
+    let list = await this.fetchHizmet(hizmet);
+    return new Promise((res, rej) => {
+      let stringData = list.res.rows.item(0).data;
+      let jsonData = JSON.parse(stringData);
+      let hzmet = this.hizmetProvider.fillHizmet(jsonData);
+      res(hzmet);
+    })
   }
 
 }

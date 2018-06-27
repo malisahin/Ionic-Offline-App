@@ -23,8 +23,8 @@ export class LoginPage {
   passwordType: string = 'password';
   passwordIcon: string = 'eye-off';
   loading: Loading;
-  userCode: string = "BAYMERKEZ";
-  password: string = "13131313";
+  userCode: string = "";
+  password: string = "";
   user: User;
   hasLoginPermission = false;
 

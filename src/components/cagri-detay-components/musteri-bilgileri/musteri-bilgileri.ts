@@ -29,8 +29,6 @@ export class MusteriBilgileriComponent {
               private adresDao: AdresDao,
               private logger: LoggerProvider,
               private util: UtilProvider) {
-    console.log('Hello MusteriBilgileriComponent Component');
-    this.text = 'Hello World';
     this.sehirler = [];
     this.ilceler = [];
     this.mahalleler = [];
@@ -41,21 +39,12 @@ export class MusteriBilgileriComponent {
   }
 
   ionViewWillLeave() {
-    this.hizmetService.saveAndFetchHizmet();
+    this.hizmetService.saveAndFetchHizmet(this.hizmet);
   }
 
   ionViewDidLeave() {
     this.logger.log("ionViewDidLeave");
-    this.hizmetService.saveAndFetchHizmet();
-  }
-
-  ionViewWillUnload() {
-    this.logger.log("ionViewWillUnload");
-  }
-
-
-  ionViewCanLeave() {
-    this.logger.log("ionViewCanLeave");
+    this.hizmetService.saveAndFetchHizmet(this.hizmet);
   }
 
   async getSehirList() {

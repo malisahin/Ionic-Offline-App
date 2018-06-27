@@ -46,7 +46,7 @@ export class CagriDetayPage {
   }
 
   async whenTabChange() {
-    this.hizmet = await this.hizmetService.saveAndFetchHizmet();
+    this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
   }
 
 

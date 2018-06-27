@@ -17,11 +17,11 @@ export class DetayKayit {
   miktar: number = 1;
   mlzIsc: string;
   mlzIscKod: string;
-  olcuBrm: string;
-  satirHata: string;
   satirNo: number;
   seqNo: string;
   tutar: number;
+  olcuBrm: string = "";
+  satirHata: string = "";
 
   constructor() {
 

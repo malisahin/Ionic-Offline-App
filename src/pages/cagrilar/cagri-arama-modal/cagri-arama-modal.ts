@@ -84,7 +84,8 @@ export class CagriAramaModalPage {
     if (this.util.isNotEmpty(this.filter.telefon)) {
       this.query += " AND ( evTel like '%" + this.filter.telefon + "%' " +
         "OR isTel like '%" + this.filter.telefon + "%' " +
-        "OR gsmNo like '%" + this.filter.telefon + "%' )"
+        "OR gsmNo like '%" + this.filter.telefon + "%' )";
+      this.searchParams.push("Telefon: " + this.filter.telefon);
     }
     this.closeModal();
   }

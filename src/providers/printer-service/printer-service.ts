@@ -118,8 +118,8 @@ export class PrinterService {
     let diger = "";
 
 
-    for (let k = 0; this.hizmet.detayList.length > k; k++) {
-      let item: DetayKayit = this.hizmet.detayList[k];
+    for (let k = 0; this.hizmet.detayDtoList.length > k; k++) {
+      let item: DetayKayit = this.hizmet.detayDtoList[k];
       toplamTutar = toplamTutar + item.tutar;
       kdv = kdv + (item.tutar / 100 * item.kdvOran);
 

@@ -31,7 +31,7 @@ export class Hizmet {
   cmTarihi: string = "";
   cozumKodu: string = "";
   daireNo: string = "";
-  detayList: DetayKayit[];
+  detayDtoList: DetayKayit[];
   durum: string = "";
   eposta: string = "";
   evTel: string = "";

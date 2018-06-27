@@ -18,6 +18,11 @@ import {PrinterService} from "../../../providers/printer-service/printer-service
 import {HizmetProvider} from "../../../providers/hizmet/hizmet";
 import {ProcessResults} from "../../../entities/ProcessResults";
 
+enum Durum {
+  ACIK = 'ACIK',
+  KAPALI = 'KAPALI',
+  IPTAL = 'IPTAL'
+}
 
 @Component({
   selector: 'detay-bilgileri',
@@ -53,8 +58,8 @@ export class DetayBilgileriComponent {
   }
 
   loadDetayList() {
-    if (this.util.isNotEmpty(this.hizmet.detayList)) {
-      this.detayList = this.hizmet.detayList;
+    if (this.util.isNotEmpty(this.hizmet.detayDtoList)) {
+      this.detayList = this.hizmet.detayDtoList;
     }
   }
 
@@ -98,6 +103,7 @@ export class DetayBilgileriComponent {
       this.updateHizmet();
     });
     detayModal.present();
+
   }
 
   delete(item: any) {
@@ -106,20 +112,29 @@ export class DetayBilgileriComponent {
     if (index > -1) {
       this.detayList.splice(index, 1);
     }
+    this.updateHizmet();
   }
 
   yazdir() {
     this.printService.showPrinterList(this.hizmet);
   }
 
-  async kapat() {
+  async kapat(durum: string) {
     let result = this.kapatmaKontrol();
     if (result.isErrorMessagesNull()) {
-      this.hizmet.durum = "KAPALI";
+      this.hizmet.durum = durum;
       this.util.loaderStart();
       let res = await this.hizmetProvider.updateCagri(this.hizmet, "HAYIR");
-      this.logger.dir(res);
       this.util.loaderEnd();
+      this.logger.dir(res);
+      if (res.responseCode == "FAIL") {
+        this.util.error(res.description);
+        this.hizmet.durum = Durum.ACIK;
+      } else {
+        if (this.hizmet.durum != Durum.KAPALI)
+          this.kapat(Durum.KAPALI);
+      }
+      this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
     } else {
       this.util.pushAllMessages(result);
     }
@@ -132,8 +147,9 @@ export class DetayBilgileriComponent {
   }
 
   async updateHizmet() {
-    debugger;
-    this.hizmet = await this.hizmetService.getHizmetBySeqNo(this.hizmet.seqNo);
+    this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
+    //this.hizmet = await this.hizmetService.getHizmetBySeqNo(this.hizmet.seqNo);
+    this.loadDetayList();
   }
 
   kapatmaKontrol(): ProcessResults {
@@ -143,7 +159,7 @@ export class DetayBilgileriComponent {
       result.addErrorMessage("Fatura tarihi boş bırakılamaz.");
     }
 
-    if (this.util.isEmpty(this.hizmet.detayList) || !(this.hizmet.detayList.length > 0)) {
+    if (this.util.isEmpty(this.hizmet.detayDtoList) || !(this.hizmet.detayDtoList.length > 0)) {
       result.addErrorMessage("Parça/Işçilik/Yol Seçilmelidir.");
     }
 

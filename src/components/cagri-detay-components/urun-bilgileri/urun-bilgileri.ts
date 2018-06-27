@@ -41,6 +41,8 @@ export class UrunBilgileriComponent {
   init() {
     this.garanti = this.util.isNotEmpty(this.hizmet.garanti) && this.hizmet.garanti == 'VAR';
     this.mesguliyet = this.util.isNotEmpty(this.hizmet.mesguliyet) && this.hizmet.mesguliyet == 'VAR';
+    this.mesguliyetChange();
+    this.garantiChange();
   }
 
   urunListesiniGetir() {
@@ -102,15 +104,15 @@ export class UrunBilgileriComponent {
     });
   }
 
-  urunSil() {
-    if (this.util.isNotEmpty(this.hizmet.detayList) && this.hizmet.detayList.length > 0) {
+  async urunSil() {
+    if (this.util.isNotEmpty(this.hizmet.detayDtoList) && this.hizmet.detayDtoList.length > 0) {
       this.util.message("Ürüne bağlı Parça/İşçilik/Yol mevcut.Silinemez.");
       return false;
     }
 
     this.hizmet.mamKod = "";
     this.hizmet.mamAdi = "";
-
+    this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
   }
 
   garantiSorgula() {
@@ -134,7 +136,9 @@ export class UrunBilgileriComponent {
       if (item.mamAnagrp == this.hizmet.mamAnaGrp) {
         this.hizmet.mamKod = item.mamKod;
         this.hizmet.mamAdi = item.mamAdi;
-        this.util.info("Ürün bilgileri seri No bilgisine bağlı olarak değiştirildi.")
+        this.hizmet.mamSeriNo = item.mamSerino;
+        this.util.info("Ürün bilgileri seri No bilgisine bağlı olarak değiştirildi.");
+        this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
       } else {
         let anagrp = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
         anagrp.mamAnaGrp = item.mamAnagrp;
@@ -156,12 +160,14 @@ export class UrunBilgileriComponent {
   }
 
 
-  mesguliyetChange() {
+  async mesguliyetChange() {
     this.hizmet.mesguliyet = this.mesguliyet == true ? 'VAR' : 'YOK';
+    this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
   }
 
-  garantiChange() {
+  async garantiChange() {
     this.hizmet.garanti = this.garanti == true ? 'VAR' : 'YOK';
+    this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
   }
 }
 

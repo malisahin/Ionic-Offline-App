@@ -49,10 +49,10 @@
       <ion-label>{{detay.tutar}}</ion-label>
     </ion-col>
     <ion-col col-12 col-sm>
-      <button ion-button icon-only (click)="update(detay)" *ngIf="hizmet.durum != 'ACIK'">
+      <button ion-button icon-only (click)="update(detay)" *ngIf="hizmet.durum == 'ACIK'">
         <ion-icon name="create" small></ion-icon>
       </button>
-      <button ion-button icon-only (click)="delete(detay)" *ngIf="hizmet.durum != 'ACIK'">
+      <button ion-button icon-only (click)="delete(detay)" *ngIf="hizmet.durum == 'ACIK'">
         <ion-icon name="close-circle" small></ion-icon>
       </button>
     </ion-col>
@@ -68,7 +68,7 @@
     <ion-grid>
       <ion-row>
         <ion-col col-12 col-md-6 col-sm>
-          <button ion-button round color="secondary" (click)="kapat()" *ngIf="hizmet.durum == 'ACIK'" full>Kapat
+          <button ion-button round color="secondary" (click)="kapat('ACIK')" *ngIf="hizmet.durum == 'ACIK'" full>Kapat
           </button>
         </ion-col>
         <ion-col col-12 col-md-6 col-sm>
@@ -119,8 +119,9 @@
 
       <ion-item>
         <ion-label color="primary">Iletişim Istek</ion-label>
-        <ion-label color="primary">{{iletisimIstek == true ? 'EVET' : 'HAYIR'}}</ion-label>
-        <ion-toggle (ionChange)="iletisimIstekChange()" [(ngModel)]="iletisimIstek"></ion-toggle>
+        <ion-label color="primary" style="text-align: end">{{iletisimIstek == true ? 'EVET' : 'HAYIR'}}</ion-label>
+        <ion-toggle (ionChange)="iletisimIstekChange()" style="text-align: end"
+                    [(ngModel)]="iletisimIstek"></ion-toggle>
       </ion-item>
 
     </ion-list>

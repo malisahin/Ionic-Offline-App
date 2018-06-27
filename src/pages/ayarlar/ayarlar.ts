@@ -9,6 +9,8 @@ import {Constants} from "../../entities/Constants";
 import {BaseDao} from "../../providers/base-dao/base-dao";
 import {FiyatDao} from "../../providers/fiyat-dao/fiyat-dao";
 import {HizmetDao} from "../../providers/hizmet-dao/hizmet-dao";
+import {CagrilarPage} from "../cagrilar/cagrilar";
+import {GuncellemePage} from "../guncelleme/guncelleme";
 
 @IonicPage()
 @Component({
@@ -87,6 +89,9 @@ export class AyarlarPage {
 
     await  this.hizmetDao.deleteList();
     this.util.message("Çağrı Listesi Silindi");
+    setTimeout(() => {
+      this.navCtrl.push(CagrilarPage)
+    }, 500);
   }
 
   async deleteAllRecords() {
@@ -100,8 +105,10 @@ export class AyarlarPage {
     await this.deleteSehirList();
     await this.deleteIlceList();
     await this.deleteMahalleList();
-    this.util.message("Tüm Kayıtlar Silindi.")
-
+    this.util.message("Tüm Kayıtlar Silindi.");
+    setTimeout(() => {
+      this.navCtrl.push(GuncellemePage)
+    }, 500);
   }
 
 }

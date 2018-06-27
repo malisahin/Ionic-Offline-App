@@ -25,7 +25,7 @@ enum Durum {
 })
 export class IslemTarihComponent {
 
-  DATE_FORMAT : string = "yyyy.MM.dd hh:mm:ss";
+  DATE_FORMAT : string = "dd.MM.yyyy hh:mm:ss";
   hizmet: Hizmet = new Hizmet();
   isenabled: boolean = true;
   sonIslem: IslemList;

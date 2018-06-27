@@ -10,6 +10,8 @@ import {Hizmet} from '../../entities/hizmet/hizmet';
 import {TokenProvider} from '../token/token';
 import {HttpClient} from '@angular/common/http';
 import {ApiProvider} from '../api/api';
+import {DetayKayit} from "../../entities/hizmet/DetayKayit";
+import {UtilProvider} from "../util/util";
 
 @Injectable()
 export class HizmetProvider {
@@ -19,7 +21,8 @@ export class HizmetProvider {
   constructor(public http: HttpClient,
               private api: ApiProvider,
               private hizmetDao: HizmetDao,
-              private token: TokenProvider) {
+              private token: TokenProvider,
+              private util: UtilProvider) {
     console.log('Hello CagriProvider Provider');
 
   }
@@ -77,6 +80,17 @@ export class HizmetProvider {
   }
 
   fillHizmet(obj) {
+    /**
+     *
+     * @type fromServer
+     *  @description Hem Sunucudan gelen veri hem de uygulama içerisindeki veri bu fonksiyon ile dolduruluyor.
+     *  Sunucu ile Client verisi hazırlanırken ufak bir farklılık mevcut. Bu farklılığı 'fromServer' ile yönetiyoruz.
+     *  farklılık:
+     *    server : detayDtoList : [][]
+     *    client : detayDtoList : []
+     *
+     */
+    let fromServer: boolean = false;
     let item = new Hizmet();
     item.aciklama = obj.aciklama;
     item.adi = obj.adi;
@@ -92,8 +106,21 @@ export class HizmetProvider {
     item.cmTarihi = obj.cmTarihi;
     item.cozumKodu = obj.cozumKodu;
     item.daireNo = obj.daireNo;
-    if (obj.detayDtoList != null && obj.detayDtoList.length > 0)
-      item.detayList = obj.detayDtoList[0];
+    if (obj.detayDtoList != null && obj.detayDtoList.length > 0) {
+      fromServer = Array.isArray(obj.detayDtoList[0]);
+      // Sunucudan matris geldiği için obj.detayDtoList[0] kullanmak gerekti. Uygulama da normal array kullanılıyor.
+      if (fromServer)
+        item.detayDtoList = this.fillHizmetDetay(obj.detayDtoList[0], obj.seqNo);
+      else {
+        item.detayDtoList = this.fillHizmetDetay(obj.detayDtoList, obj.seqNo);
+      }
+    }
+    /*
+     if (obj.detayDtoList != null && obj.detayDtoList.length > 0 && !fromServer) {
+     item.detayDtoList = [];
+     item.detayDtoList = this.fillHizmetDetay(obj.detayDtoList, obj.seqNo);
+     }*/
+
     item.durum = obj.durum;
     item.eposta = obj.eposta;
     item.evTel = obj.evTel;
@@ -142,5 +169,28 @@ export class HizmetProvider {
     return item;
   }
 
+
+  fillHizmetDetay(detayList: any[], seqNo: string) {
+    let detayDtoList: DetayKayit[] = [];
+    detayList.forEach(res => {
+      let det: DetayKayit = new DetayKayit();
+      det.seqNo = seqNo;
+      det.satirNo = res.satirNo;
+      det.islemKod = res.islemKod;
+      det.arizaKod = res.arizaKod;
+      det.mlzIsc = res.mlzIsc;
+      det.mlzIscKod = res.mlzIscKod;
+      det.aciklama = res.aciklama;
+      det.miktar = Number(res.miktar);
+      det.birimFiyat = Number(res.birimFiyat);
+      det.kdvOran = 18;
+      det.tutar = Number(res.tutar);
+      det.olcuBrm = "";
+      det.satirHata = "";
+      detayDtoList.push(det);
+    });
+
+    return detayDtoList;
+  }
 
 }

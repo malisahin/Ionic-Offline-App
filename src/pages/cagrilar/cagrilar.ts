@@ -70,7 +70,7 @@ export class CagrilarPage {
       list = await this.hizmetService.fetchHizmetWithPage(new Hizmet(), this.pageable);
     }
     if (this.util.isNotEmpty(list.res.rows)) {
-      this.pageable.listLength = list.res.listLength;
+      this.pageable.listLength = list.listLength;
       for (let i = 0; i < list.res.rows.length; i++) {
         let data = JSON.parse(list.res.rows.item(i).data);
         this.cagrilar.push(data);
@@ -79,10 +79,14 @@ export class CagrilarPage {
     this.searchQuery = "";
   }
 
-  public cagriGuncelle() {
-    this.cagriProvider.downloadCagriList().then(res => {
+  async cagriGuncelle() {
+    this.util.loaderStart();
+    await this.cagriProvider.downloadCagriList().then(res => {
       this.fetchList(this.searchType);
+      this.util.message("Çağrılar Güncellendi.");
     });
+    this.util.loaderEnd();
+
   }
 
 }

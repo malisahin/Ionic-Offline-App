@@ -216,4 +216,12 @@ export class UtilProvider {
   loaderEnd() {
     this.loader.dismissAll();
   }
+
+  timerStart(name: string) {
+    console.time(name);
+  }
+
+  timerEnd(name:string){
+    console.timeEnd(name);
+  }
 }

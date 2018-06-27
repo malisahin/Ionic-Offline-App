@@ -58,19 +58,23 @@
 
   <ion-item>
     <ion-label color="primary">Fatura Tarihi</ion-label>
-    <ion-datetime [(ngModel)]="hizmet.sattar" [disabled]="hizmet.durum != 'ACIK'" displayFormat="MM/DD/YYYY"></ion-datetime>
+    <ion-datetime [(ngModel)]="hizmet.sattar" [disabled]="hizmet.durum != 'ACIK'"
+                  displayFormat="MM/DD/YYYY"></ion-datetime>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary">Garanti</ion-label>
-    <ion-label color="primary">{{garanti == true ? 'VAR' : 'YOK'}}</ion-label>
-    <ion-toggle [(ngModel)]="garanti" (ionChange)="garantiChange()" [disabled]="hizmet.durum != 'ACIK'" color="secondary"></ion-toggle>
+    <ion-label color="primary" style="text-align: end">{{garanti == true ? 'VAR' : 'YOK'}}</ion-label>
+    <ion-toggle [(ngModel)]="garanti" (ionChange)="garantiChange()" style="text-align: end"
+                [disabled]="hizmet.durum != 'ACIK'"
+                color="secondary"></ion-toggle>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary">Meşguliyet</ion-label>
-    <ion-label color="primary">{{mesguliyet == true ? 'VAR' : 'YOK'}}</ion-label>
-    <ion-toggle [(ngModel)]="mesguliyet" (ionChange)="mesguliyetChange()" [disabled]="hizmet.durum != 'ACIK'" color="secondary"></ion-toggle>
+    <ion-label color="primary" style="text-align: end">{{mesguliyet == true ? 'VAR' : 'YOK'}}</ion-label>
+    <ion-toggle [(ngModel)]="mesguliyet" (ionChange)="mesguliyetChange()" style="text-align: end"
+                [disabled]="hizmet.durum != 'ACIK'" color="secondary"></ion-toggle>
   </ion-item>
 
 </ion-list>
