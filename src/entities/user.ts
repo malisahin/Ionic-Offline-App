@@ -21,6 +21,8 @@ export class User {
   eLibsDokuman: {};
   hatirla: string = "";
   labels = {};
+  systemParams = {};
+
   public keys: any = {
     userCode: "userCode",
     userName: "userName",
@@ -37,7 +39,8 @@ export class User {
     dilKod: "dilKod",
     pb: "pb",
     ikBrans: "ikBrans",
-    labels: "labels"
+    labels: "labels",
+    systemParams: "systemParams"
   };
 
   constructor() {
@@ -62,6 +65,7 @@ export class User {
     user.ikBrans = item.ikBrans;
     user.labels = item.obj;
     user.pb = item.pB;
+    user.systemParams = item.systemParams;
     this.saveUserData(user);
     return user;
   }
@@ -84,6 +88,7 @@ export class User {
     localStorage.setItem(pattern.keys.pb, user.pb);
     localStorage.setItem(pattern.keys.ikBrans, JSON.stringify(user.ikBrans));
     localStorage.setItem(pattern.keys.labels, JSON.stringify(user.labels));
+    localStorage.setItem(pattern.keys.systemParams, JSON.stringify(user.systemParams));
   }
 
   getUserCode(): string {

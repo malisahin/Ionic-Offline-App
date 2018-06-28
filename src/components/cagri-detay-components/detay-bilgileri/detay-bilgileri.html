@@ -72,13 +72,13 @@
           </button>
         </ion-col>
         <ion-col col-12 col-md-6 col-sm>
-          <button ion-button round color="secondary" *ngIf="hizmet.durum == 'ACIK'" full>Iptal</button>
+          <button ion-button round color="secondary" *ngIf="hizmet.durum == 'ACIK'" (click)="hizmetIptalKontrol()" full>Iptal</button>
         </ion-col>
         <ion-col col-12 col-md-6 col-sm>
           <button ion-button round color="secondary" (click)="yazdir()" full>Yazdır</button>
         </ion-col>
         <ion-col col-12 col-md-6 col-sm>
-          <button ion-button round color="secondary" *ngIf="hizmet.durum == 'ACIK'" full>Sil</button>
+          <button ion-button round color="secondary" *ngIf="hizmet.durum == 'ACIK'" (click)="hizmetSilKontrol()"  full>Sil</button>
         </ion-col>
       </ion-row>
 

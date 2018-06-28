@@ -10,6 +10,7 @@ import {BaseDao} from "../base-dao/base-dao";
 import {UtilProvider} from "../util/util";
 import {Pageable} from "../../entities/Pageable";
 import {HizmetProvider} from "../hizmet/hizmet";
+import {AlertController} from "ionic-angular";
 
 
 @Injectable()
@@ -19,6 +20,7 @@ export class HizmetService {
 
   constructor(private hizmetDao: HizmetDao,
               private  util: UtilProvider,
+              private  alertCtrl: AlertController,
               private hizmetProvider: HizmetProvider) {
   }
 
@@ -51,7 +53,6 @@ export class HizmetService {
     let hizmet = new Hizmet();
     hizmet.seqNo = seqNo;
     let result = await this.fetchHizmet(hizmet);
-    debugger;
     if (this.util.isNotEmpty(result) && this.util.isNotEmpty(result.res.rows) && result.res.rows.length > 0) {
       hizmet = result.res.rows.item(0);
     }
@@ -72,6 +73,10 @@ export class HizmetService {
       let hzmet = this.hizmetProvider.fillHizmet(jsonData);
       res(hzmet);
     })
+  }
+
+  deleteHizmet(seqNo: string): Promise<any> {
+    return this.hizmetDao.deleteHizmet(seqNo);
   }
 
 }

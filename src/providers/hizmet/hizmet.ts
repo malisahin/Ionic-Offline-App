@@ -106,6 +106,7 @@ export class HizmetProvider {
     item.cmTarihi = obj.cmTarihi;
     item.cozumKodu = obj.cozumKodu;
     item.daireNo = obj.daireNo;
+
     if (obj.detayDtoList != null && obj.detayDtoList.length > 0) {
       fromServer = Array.isArray(obj.detayDtoList[0]);
       // Sunucudan matris geldiği için obj.detayDtoList[0] kullanmak gerekti. Uygulama da normal array kullanılıyor.
@@ -115,12 +116,6 @@ export class HizmetProvider {
         item.detayDtoList = this.fillHizmetDetay(obj.detayDtoList, obj.seqNo);
       }
     }
-    /*
-     if (obj.detayDtoList != null && obj.detayDtoList.length > 0 && !fromServer) {
-     item.detayDtoList = [];
-     item.detayDtoList = this.fillHizmetDetay(obj.detayDtoList, obj.seqNo);
-     }*/
-
     item.durum = obj.durum;
     item.eposta = obj.eposta;
     item.evTel = obj.evTel;
@@ -134,8 +129,12 @@ export class HizmetProvider {
     item.iletisimIstek = obj.iletisimIstek;
     item.isTel = obj.isTel;
     item.islemBitTarihi = obj.islemBitTarihi;
-    if (obj.islemList != null && obj.islemList.length > 0)
-      item.islemList = obj.islemList[0];
+
+    if (obj.islemList != null && obj.islemList.length > 0) {
+      fromServer = Array.isArray(obj.islemList[0]);
+
+      item.islemList = fromServer ? obj.islemList[0] : obj.islemList;
+    }
 
     item.islemTarihi = obj.islemTarihi;
     item.kapatmaKodu = obj.kapatmaKodu;
@@ -192,5 +191,6 @@ export class HizmetProvider {
 
     return detayDtoList;
   }
+
 
 }

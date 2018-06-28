@@ -4,18 +4,18 @@
  */
 
 
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { UrunProvider } from '../../providers/urun/urun';
-import { UrunAnaGrpProvider } from '../../providers/urun-ana-grp/urun-ana-grp';
-import { UrunIscilikProvider } from '../../providers/urun-iscilik/urun-iscilik';
-import { UrunMalzemeProvider } from '../../providers/urun-malzeme/urun-malzeme';
-import { FiyatProvider } from '../../providers/fiyat/fiyat';
-import { IslemArizaIscilikProvider } from '../../providers/islem-ariza-iscilik/islem-ariza-iscilik';
-import { Constants } from '../../entities/Constants';
-import { AdresProvider } from '../../providers/adres/adres';
-import { LoggerProvider } from '../../providers/logger/logger';
-import { UtilProvider } from '../../providers/util/util';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {UrunProvider} from '../../providers/urun/urun';
+import {UrunAnaGrpProvider} from '../../providers/urun-ana-grp/urun-ana-grp';
+import {UrunIscilikProvider} from '../../providers/urun-iscilik/urun-iscilik';
+import {UrunMalzemeProvider} from '../../providers/urun-malzeme/urun-malzeme';
+import {FiyatProvider} from '../../providers/fiyat/fiyat';
+import {IslemArizaIscilikProvider} from '../../providers/islem-ariza-iscilik/islem-ariza-iscilik';
+import {Constants} from '../../entities/Constants';
+import {AdresProvider} from '../../providers/adres/adres';
+import {LoggerProvider} from '../../providers/logger/logger';
+import {UtilProvider} from '../../providers/util/util';
 
 
 @IonicPage()
@@ -36,18 +36,18 @@ export class GuncellemePage {
   firstForMahalleTnm: number;
   colors: any;
   icons: any;
+
   constructor(public navCtrl: NavController,
-    public navParams: NavParams,
-    private urunProvider: UrunProvider,
-    private urunAnaGrpProvider: UrunAnaGrpProvider,
-    private urunIscilikProvider: UrunIscilikProvider,
-    private urunMalzemeProvider: UrunMalzemeProvider,
-    private islemArizaIscilikProvider: IslemArizaIscilikProvider,
-    private fiyatProvider: FiyatProvider,
-    private adresProvider: AdresProvider,
-    private logger: LoggerProvider,
-    private util: UtilProvider
-  ) {
+              public navParams: NavParams,
+              private urunProvider: UrunProvider,
+              private urunAnaGrpProvider: UrunAnaGrpProvider,
+              private urunIscilikProvider: UrunIscilikProvider,
+              private urunMalzemeProvider: UrunMalzemeProvider,
+              private islemArizaIscilikProvider: IslemArizaIscilikProvider,
+              private fiyatProvider: FiyatProvider,
+              private adresProvider: AdresProvider,
+              private logger: LoggerProvider,
+              private util: UtilProvider) {
     this.colors = Constants.COLORS;
     this.icons = Constants.ICONS;
     this.firstForUrunIscilik = 0;
@@ -96,6 +96,7 @@ export class GuncellemePage {
       this.util.message("Ürün Ana grup Kayıt Edildi.");
     });
     this.util.timerEnd(Constants.DATA_TYPE.URUN_ANA_GRUP);
+    this.util.updateHeader();
   }
 
 
@@ -268,7 +269,6 @@ export class GuncellemePage {
       Constants.ICONS[type] = "done-all";
     }
   }
-
 
 
 }

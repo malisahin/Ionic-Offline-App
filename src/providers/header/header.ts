@@ -12,8 +12,7 @@ export class HeaderProvider {
 
   closeApplicationConfirm() {
     let alert = this.alert.create({
-      title: "Confirm",
-      message: "Çıkmak istediğinizden emin misiniz?",
+      title: "Çıkmak istediğinizden emin misiniz?",
       enableBackdropDismiss: true
       ,
       buttons: [{

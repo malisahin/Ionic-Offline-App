@@ -1,6 +1,6 @@
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule, ErrorHandler, CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
-import {IonicApp, IonicModule, IonicErrorHandler, ToastController} from "ionic-angular";
+import {IonicApp, IonicModule, IonicErrorHandler, ToastController, NavController} from "ionic-angular";
 import {MyApp} from "./app.component";
 import {StatusBar} from "@ionic-native/status-bar";
 import {SplashScreen} from "@ionic-native/splash-screen";
@@ -172,8 +172,8 @@ import {UrunIscilikSearchComponent} from "../components/urun-iscilik-search/urun
     UserDao,
     HeaderProvider,
     PrinterService,
-    SeriNoSorguProvider
-  ],
+    SeriNoSorguProvider],
+
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {

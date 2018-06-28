@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar hideBackButton="true">
     <button ion-button primary menuToggle>
       <ion-icon name="list"></ion-icon>
     </button>
@@ -55,7 +55,8 @@
           </span>
         </button>
 
-        <button ion-button icon-end [color]="colors.ISLEM_ARIZA_ISCILIK" (click)="downloadIslemArizaIscilik();" round full>
+        <button ion-button icon-end [color]="colors.ISLEM_ARIZA_ISCILIK" (click)="downloadIslemArizaIscilik();" round
+                full>
           <span item-left style="width: 95%">Işlem-Arıza-Işçilik</span>
           <span item-right style="width: 5%">
             <ion-icon [name]="icons.ISLEM_ARIZA_ISCILIK"></ion-icon>

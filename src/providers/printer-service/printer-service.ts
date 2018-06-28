@@ -1,9 +1,8 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {User} from "../../entities/user";
-import {NavParams, ModalController} from "ionic-angular";
+import {ModalController} from "ionic-angular";
 import {Hizmet} from "../../entities/hizmet/hizmet";
-import {HizmetService} from "../hizmet-service/hizmet-service";
 import {UtilProvider} from "../util/util";
 import {ZebraPrinterComponent} from "../../components/zebra-printer/zebra-printer";
 import {DetayKayit} from "../../entities/hizmet/DetayKayit";
@@ -18,7 +17,6 @@ export class PrinterService {
   user: User;
 
   constructor(public http: HttpClient,
-              private hizmetService: HizmetService,
               private modalCtrl: ModalController,
               private util: UtilProvider) {
     this.hizmet = new Hizmet();
@@ -202,7 +200,7 @@ export class PrinterService {
     data += '\n\r' + this.seperator;
 
     data += '\n! U1 SETBOLD 2';
-    //data += '\n\r Iletisim Istek ';
+    // data += '\n\r Iletisim Istek ';
     data += '\n! U1 SETBOLD 0';
 
     let note = "Elginkan Toplulugu Sirketleri tarafindan sesli mesaj, sms, e-posta, vb. tum elektronik iletisim vasitalari kullanilarak " +

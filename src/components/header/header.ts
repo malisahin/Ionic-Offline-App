@@ -7,6 +7,7 @@ import {NavController} from 'ionic-angular/navigation/nav-controller';
 import {MesajlarDao} from "../../providers/mesajlar-dao/mesajlar-dao";
 import {HizmetDao} from "../../providers/hizmet-dao/hizmet-dao";
 import {HeaderProvider} from "../../providers/header/header";
+import {Events} from "ionic-angular";
 
 
 @Component({
@@ -24,10 +25,12 @@ export class HeaderComponent {
   constructor(private nav: NavController,
               private  mesajDao: MesajlarDao,
               private  hizmetDao: HizmetDao,
-              private  headerProvider: HeaderProvider) {
-    this.loadGuncellemeSayisi();
-    this.loadMesajSayilari();
-    this.loadHizmetSayisi();
+              private  headerProvider: HeaderProvider, private  events: Events) {
+    this.updateHeader();
+    events.subscribe("update:header", () =>{
+      this.updateHeader();
+    });
+
   }
 
 
@@ -52,6 +55,11 @@ export class HeaderComponent {
     this.cagriSayisi = await this.hizmetDao.findAcikHizmetSayisi();
   }
 
+  updateHeader(){
+    this.loadGuncellemeSayisi();
+    this.loadMesajSayilari();
+    this.loadHizmetSayisi();
+  }
 }
 
 

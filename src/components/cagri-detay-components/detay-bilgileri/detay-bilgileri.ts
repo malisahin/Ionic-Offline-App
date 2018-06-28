@@ -12,16 +12,22 @@ import {LoggerProvider} from "../../../providers/logger/logger";
 import {UrunAnaGrup} from "../../../entities/urunAnaGrup";
 import {UrunAnaGrupDao} from "../../../providers/urun-ana-grup-dao/urun-ana-grup-dao";
 import {Constants} from "../../../entities/Constants";
-import {ModalController} from "ionic-angular";
+import {ModalController, AlertController, NavController} from "ionic-angular";
 import {HizmetDetayComponent} from "../../hizmet-detay/hizmet-detay";
 import {PrinterService} from "../../../providers/printer-service/printer-service";
 import {HizmetProvider} from "../../../providers/hizmet/hizmet";
 import {ProcessResults} from "../../../entities/ProcessResults";
+import {CagrilarPage} from "../../../pages/cagrilar/cagrilar";
 
-enum Durum {
+enum DURUM {
   ACIK = 'ACIK',
   KAPALI = 'KAPALI',
   IPTAL = 'IPTAL'
+}
+
+enum ISTEK {
+  EVET = 'E',
+  HAYIR = 'H'
 }
 
 @Component({
@@ -34,19 +40,22 @@ export class DetayBilgileriComponent {
   hizmet: Hizmet = new Hizmet();
   detayList: DetayKayit[];
   cozumKoduList: UrunAnaGrup[] = [];
-  iletisimIstek: boolean = false;
+  iletisimIstek: boolean;
+  verilerSunucuyaKayitEdildiMi: boolean = false;
 
   constructor(private hizmetService: HizmetService,
               private urunAnaGrupDao: UrunAnaGrupDao,
               private modalCtrl: ModalController,
               private util: UtilProvider,
               private logger: LoggerProvider,
+              private alertCtrl: AlertController,
+              private nav: NavController,
               private hizmetProvider: HizmetProvider,
               private printService: PrinterService) {
     this.hizmet = this.hizmetService.getHizmet();
     this.loadDetayList();
     this.loadCozumKoduList();
-
+    this.loadletisimIstek();
   }
 
   getHizmet() {
@@ -122,20 +131,31 @@ export class DetayBilgileriComponent {
   async kapat(durum: string) {
     let result = this.kapatmaKontrol();
     if (result.isErrorMessagesNull()) {
-      this.hizmet.durum = durum;
+      let kapatmaHizmet = this.hizmet;
+
+      if (!this.verilerSunucuyaKayitEdildiMi) {
+        kapatmaHizmet = this.sunucuyaKayitIcinHazirla(kapatmaHizmet);
+      }
+      kapatmaHizmet.durum = durum;
       this.util.loaderStart();
-      let res = await this.hizmetProvider.updateCagri(this.hizmet, "HAYIR");
+      let res = await this.hizmetProvider.updateCagri(kapatmaHizmet, "HAYIR");
       this.util.loaderEnd();
       this.logger.dir(res);
       if (res.responseCode == "FAIL") {
         this.util.error(res.description);
-        this.hizmet.durum = Durum.ACIK;
+        this.hizmet.durum = DURUM.ACIK;
       } else {
-        if (this.hizmet.durum != Durum.KAPALI)
-          this.kapat(Durum.KAPALI);
+        this.verilerSunucuyaKayitEdildiMi = true;
+        if (kapatmaHizmet.durum != DURUM.KAPALI)
+          this.kapat(DURUM.KAPALI);
       }
-      this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
-    } else {
+      if (this.util.isNotEmpty(res.responseCode) && res.responseCode == "SUCCESS" && this.util.isNotEmpty(res.description) && res.description == "CLOSED") {
+        this.hizmet.durum = DURUM.KAPALI;
+        this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
+        this.util.message("Çağrı Kayıt Edildi.")
+      }
+    }
+    else {
       this.util.pushAllMessages(result);
     }
   }
@@ -143,6 +163,7 @@ export class DetayBilgileriComponent {
   async siparisOlustur() {
     this.util.loaderStart();
     let res = await this.hizmetProvider.updateCagri(this.hizmet, "EVET");
+    this.logger.dir(res);
     this.util.loaderEnd();
   }
 
@@ -187,7 +208,137 @@ export class DetayBilgileriComponent {
   }
 
   iletisimIstekChange() {
-    this.hizmet.iletisimIstek = this.iletisimIstek == true ? 'EVET' : 'HAYIR';
+    this.hizmet.iletisimIstek = this.iletisimIstek ? ISTEK.EVET : ISTEK.HAYIR;
   }
+
+  loadletisimIstek() {
+    let istek = this.util.getSystemParam("ILET_IST_DFALT");
+    this.logger.warn("Iletişim Istek: " + this.hizmet.iletisimIstek + " Default : " + istek);
+    if (this.util.isEmpty(this.hizmet.iletisimIstek)) {
+      this.iletisimIstek = istek == 'E';
+      this.hizmet.iletisimIstek = this.iletisimIstek ? ISTEK.EVET : ISTEK.HAYIR;
+    } else {
+      this.iletisimIstek = this.hizmet.iletisimIstek == ISTEK.EVET;
+    }
+  }
+
+  sunucuyaKayitIcinHazirla(hizmet: Hizmet) {
+    let DATE_FORMAT: string = "dd.MM.yyyy hh:mm:ss";
+
+    if (this.util.isNotEmpty(hizmet.islemList)) {
+      hizmet.islemList.forEach(islem => {
+
+        if (this.util.isNotEmpty(islem.basTar)) {
+          islem.basTar = this.util.dateFormatRegex(islem.basTar, DATE_FORMAT)
+        }
+
+        if (this.util.isNotEmpty(islem.bitTar)) {
+          islem.bitTar = this.util.dateFormatRegex(islem.bitTar, DATE_FORMAT)
+        }
+
+      })
+    }
+    hizmet.randevuTarihi = this.util.dateFormatRegex(hizmet.randevuTarihi, DATE_FORMAT);
+    hizmet.islemTarihi = this.util.dateFormatRegex(hizmet.islemTarihi, DATE_FORMAT);
+    hizmet.islemBitTarihi = this.util.dateFormatRegex(hizmet.islemBitTarihi, DATE_FORMAT);
+
+    return hizmet;
+  }
+
+  hizmetSilKontrol() {
+
+    let alert = this.alertCtrl.create({
+      title: 'Silmek Istediğinizden Emin misiniz?',
+      message: 'Yaptığınız değişiklikleri kaybedeceksiniz.',
+      buttons: [
+        {
+          text: 'Sil',
+          handler: () => {
+            this.logger.warn("Silme Işlemi Onaylandı.");
+            this.hizmetiSil();
+          }
+        },
+        {
+          text: 'Iptal',
+          handler: () => {
+            this.logger.warn("Silme Işlemi Iptal Edildi");
+          }
+        }
+      ]
+    });
+
+    alert.present();
+
+  }
+
+  async hizmetiSil() {
+    this.util.loaderStart();
+    await this.hizmetService.deleteHizmet(this.hizmet.seqNo);
+    this.util.loaderEnd();
+    this.navigate('CagrilarPage', "Çağrı Silindi");
+  }
+
+
+  hizmetIptalKontrol() {
+    let alert = this.alertCtrl.create({
+      title: 'Iptal etmek istediğinize emin misiniz?',
+      message: 'Bu işlemi geri alamazsınız.',
+      buttons: [
+        {
+          text: 'EVET',
+          handler: () => {
+            this.logger.warn("Iptal Işlemi Onaylandı.");
+            this.hizmetIptal();
+          }
+        },
+        {
+          text: 'Iptal',
+          handler: () => {
+            this.logger.warn("Hizmet Iptal Işlemi Iptal Edildi");
+          }
+        }
+      ]
+    });
+
+    alert.present();
+  }
+
+  async hizmetIptal() {
+    this.util.loaderStart();
+    let iptalHizmet = this.hizmetProvider.fillHizmet(this.hizmet);
+    iptalHizmet.durum = DURUM.IPTAL;
+    iptalHizmet = this.sunucuyaKayitIcinHazirla(iptalHizmet);
+    let res = await this.hizmetProvider.updateCagri(iptalHizmet, "HAYIR");
+    this.logger.dir(res);
+
+    if (this.util.isNotEmpty(res) && this.util.isNotEmpty(res.responseCode) && res.responseCode == "SUCCESS") {
+      this.hizmet.durum = DURUM.IPTAL;
+      await this.hizmetService.saveAndFetchHizmet(this.hizmet);
+      this.util.loaderEnd();
+      this.navigate('CagrilarPage', "Çağrı iptal edildi.");
+
+    } else if (this.util.isNotEmpty(res) && this.util.isNotEmpty(res.responseCode)) {
+      this.hizmet.durum = DURUM.ACIK;
+      this.util.error(res.description);
+      this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
+      this.util.loaderEnd();
+
+    } else {
+      this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
+      this.util.error("Iptal etme işlemi sırasında hata oluştu.");
+      this.util.loaderEnd();
+
+    }
+
+  }
+
+  navigate(path: string, message: string) {
+    this.logger.warn("Navigating: " + path);
+    setTimeout(() => this.nav.push(path), 1000);
+
+    if (this.util.isNotEmpty(message))
+      this.util.info(message);
+  }
+
 
 }

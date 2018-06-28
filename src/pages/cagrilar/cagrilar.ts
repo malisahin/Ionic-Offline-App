@@ -67,7 +67,9 @@ export class CagrilarPage {
     if (this.util.isNotEmpty(this.searchQuery)) {
       list = await this.hizmetService.fetchHizmetWithQuery(this.searchQuery, this.pageable);
     } else {
-      list = await this.hizmetService.fetchHizmetWithPage(new Hizmet(), this.pageable);
+      let hizmet= new Hizmet();
+      hizmet.durum = 'ACIK';
+      list = await this.hizmetService.fetchHizmetWithPage(hizmet, this.pageable);
     }
     if (this.util.isNotEmpty(list.res.rows)) {
       this.pageable.listLength = list.listLength;

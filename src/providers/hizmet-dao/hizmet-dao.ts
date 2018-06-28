@@ -120,6 +120,11 @@ export class HizmetDao {
     return this.baseDao.execute(this.DELETE_QUERY, []);
   }
 
+  deleteHizmet(seqNo: string): Promise<any> {
+    let query = this.DELETE_QUERY + " WHERE seqNo='" + seqNo + "'";
+    return this.baseDao.execute(query, []);
+  }
+
   async findAcikHizmetSayisi(): Promise<any> {
     let query = "SELECT * FROM OFF_HIZ_MST where durum not in('KAPALI', 'IPTAL')";
     let result = await this.baseDao.execute(query, []);

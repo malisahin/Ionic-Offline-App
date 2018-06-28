@@ -25,7 +25,7 @@ enum Durum {
 })
 export class IslemTarihComponent {
 
-  DATE_FORMAT : string = "dd.MM.yyyy hh:mm:ss";
+  DATE_FORMAT: string = "yyyy-MM-dd hh:mm:ss";
   hizmet: Hizmet = new Hizmet();
   isenabled: boolean = true;
   sonIslem: IslemList;
@@ -134,6 +134,7 @@ export class IslemTarihComponent {
     } else if (this.util.isNotEmpty(this.sonIslem.bitTar)) {
       this.sonIslem.durum = Durum.BITIR;
     }
+
     this.updateTarihceList();
     this.setButtonStatus();
   }
@@ -148,6 +149,16 @@ export class IslemTarihComponent {
       this.buttonStatus = Durum.BITIR;
     } else {
       this.buttonStatus = Durum.OK;
+    }
+
+    if (this.util.isNotEmpty(this.sonIslem)) {
+      if (this.util.isNotEmpty(this.sonIslem.basTar)) {
+        this.hizmet.islemTarihi = this.sonIslem.basTar;
+      }
+
+      if (this.util.isNotEmpty(this.sonIslem.bitTar) && (this.sonIslem.durum == Durum.BITIR || this.sonIslem.durum == Durum.OK)) {
+        this.hizmet.islemBitTarihi = this.sonIslem.bitTar;
+      }
     }
 
   }
@@ -178,21 +189,21 @@ export class IslemTarihComponent {
     let islemBitirmeKosullari: boolean = this.sonIslem.durum == Durum.BITIR && this.util.isNotEmpty(this.sonIslem.bitTar);
 
     if (islemBaslatKosullari || islemBekletmeKosullari || islemBitirmeKosullari) {
-      this.logger.log("Işlem Kayıt Ediliyor. Yeni Durum : " + this.sonIslem.durum);
+      this.logger.log("Işlem Kayıt Ediliyor. Yeni DURUM : " + this.sonIslem.durum);
       saveable = true;
     }
     return saveable;
   }
 
-  formatIslemListDates(){
-    if(this.util.isNotEmpty(this.hizmet.islemList)){
-      this.hizmet.islemList.forEach(item=> {
-        if(this.util.isNotEmpty(item.basTar)){
-          item.basTar =  this.util.dateFormatRegex(new Date(item.basTar), this.DATE_FORMAT);
+  formatIslemListDates() {
+    if (this.util.isNotEmpty(this.hizmet.islemList)) {
+      this.hizmet.islemList.forEach(item => {
+        if (this.util.isNotEmpty(item.basTar)) {
+          item.basTar = this.util.dateFormatRegex(new Date(item.basTar), this.DATE_FORMAT);
         }
 
-        if(this.util.isNotEmpty(item.bitTar)){
-          item.bitTar =  this.util.dateFormatRegex(new Date(item.bitTar), this.DATE_FORMAT);
+        if (this.util.isNotEmpty(item.bitTar)) {
+          item.bitTar = this.util.dateFormatRegex(new Date(item.bitTar), this.DATE_FORMAT);
         }
       })
     }
