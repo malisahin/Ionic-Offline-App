@@ -16,7 +16,7 @@
   </ion-row>
 </ion-grid>
 
-<ion-grid>
+<ion-grid *ngIf="detayList != null && detayList.length > 0">
   <ion-row>
     <ion-col col-12 col-sm>
       <ion-label>İşlem Tipi</ion-label>
@@ -57,6 +57,24 @@
       </button>
     </ion-col>
   </ion-row>
+
+  <ion-row>
+    <ion-col col-12 col-sm>
+      <ion-label></ion-label>
+    </ion-col>
+    <ion-col col-12 col-sm>
+      <ion-label></ion-label>
+    </ion-col>
+    <ion-col col-12 col-sm>
+      <ion-label>KDV'li Toplam Tutar</ion-label>
+    </ion-col>
+    <ion-col col-12 col-sm>
+      <ion-label>{{toplamTutar}}</ion-label>
+    </ion-col>
+    <ion-col col-12 col-sm>
+
+    </ion-col>
+  </ion-row>
 </ion-grid>
 
 <ion-list>
@@ -72,13 +90,17 @@
           </button>
         </ion-col>
         <ion-col col-12 col-md-6 col-sm>
-          <button ion-button round color="secondary" *ngIf="hizmet.durum == 'ACIK'" (click)="hizmetIptalKontrol()" full>Iptal</button>
+          <button ion-button round color="secondary" *ngIf="hizmet.durum == 'ACIK'" (click)="hizmetIptalKontrol()" full>
+            Iptal
+          </button>
         </ion-col>
         <ion-col col-12 col-md-6 col-sm>
           <button ion-button round color="secondary" (click)="yazdir()" full>Yazdır</button>
         </ion-col>
         <ion-col col-12 col-md-6 col-sm>
-          <button ion-button round color="secondary" *ngIf="hizmet.durum == 'ACIK'" (click)="hizmetSilKontrol()"  full>Sil</button>
+          <button ion-button round color="secondary" *ngIf="hizmet.durum == 'ACIK'" (click)="hizmetSilKontrol()" full>
+            Sil
+          </button>
         </ion-col>
       </ion-row>
 

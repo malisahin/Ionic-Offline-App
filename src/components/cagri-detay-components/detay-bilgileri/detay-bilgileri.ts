@@ -42,6 +42,7 @@ export class DetayBilgileriComponent {
   cozumKoduList: UrunAnaGrup[] = [];
   iletisimIstek: boolean;
   verilerSunucuyaKayitEdildiMi: boolean = false;
+  toplamTutar: number = 0;
 
   constructor(private hizmetService: HizmetService,
               private urunAnaGrupDao: UrunAnaGrupDao,
@@ -69,6 +70,13 @@ export class DetayBilgileriComponent {
   loadDetayList() {
     if (this.util.isNotEmpty(this.hizmet.detayDtoList)) {
       this.detayList = this.hizmet.detayDtoList;
+      this.toplamTutar = 0;
+      this.detayList.forEach(item => {
+        if (this.util.isNotEmpty(item.tutar))
+          this.toplamTutar += Number(item.tutar);
+
+        this.toplamTutar = (this.toplamTutar * 1.18).toFixed(2);
+      })
     }
   }
 
@@ -168,7 +176,7 @@ export class DetayBilgileriComponent {
   }
 
   async updateHizmet() {
-    this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
+    this.hizmet = await this.hizmetService.getHizmetBySeqNo(this.hizmet.seqNo);
     //this.hizmet = await this.hizmetService.getHizmetBySeqNo(this.hizmet.seqNo);
     this.loadDetayList();
   }

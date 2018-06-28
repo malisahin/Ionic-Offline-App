@@ -9,6 +9,9 @@ import {UrunIscilik} from '../../entities/urun-iscilik';
 import {UrunAnaGrupSearchComponent} from '../urun-ana-grup-search/urun-ana-grup-search';
 import {UrunSearchComponent} from '../urun-search/urun-search';
 import {UrunIscilikSearchComponent} from '../urun-iscilik-search/urun-iscilik-search';
+import {LoggerProvider} from "../../providers/logger/logger";
+import {FiyatDao} from "../../providers/fiyat-dao/fiyat-dao";
+import {Fiyat} from "../../entities/fiyat";
 
 
 @Component({
@@ -24,8 +27,12 @@ export class FiyatSorguComponent {
   urunIscilik: UrunIscilik;
   islemTipi: string;
   data: any;
+  fiyat: Fiyat = new Fiyat();
 
-  constructor(private modalController: ModalController, private util: UtilProvider) {
+  constructor(private modalController: ModalController,
+              private util: UtilProvider,
+              private fiyatDao: FiyatDao,
+              private logger: LoggerProvider) {
     console.log('Hello FiyatSorguComponent Component');
     this.data = {};
     this.urunAnaGrup = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
@@ -35,6 +42,9 @@ export class FiyatSorguComponent {
   }
 
   public urunAnaGrupSorgula() {
+    this.urunIscilik = new UrunIscilik();
+    this.fiyat = new Fiyat();
+    this.urun = new Urun();
     this.data.type = Constants.DATA_TYPE.URUN_ANA_GRUP;
     let aramaModal = this.modalController.create(UrunAnaGrupSearchComponent, {data: this.data});
     aramaModal.onDidDismiss(data => {
@@ -44,7 +54,8 @@ export class FiyatSorguComponent {
   }
 
   public urunSorgula() {
-
+    this.urunIscilik = new UrunIscilik();
+    this.fiyat = new Fiyat();
     this.data.type = Constants.DATA_TYPE.URUN;
     let aramaModal = this.modalController.create(UrunSearchComponent, {data: this.data});
     aramaModal.onDidDismiss(data => {
@@ -54,7 +65,7 @@ export class FiyatSorguComponent {
   }
 
   public urunIscilikSorgula() {
-
+    this.fiyat = new Fiyat();
     if (this.util.isEmpty(this.urun.mamKod)) {
       this.util.message("Önce ürünü seçiniz.");
       return false;
@@ -79,12 +90,35 @@ export class FiyatSorguComponent {
   private iscilikFiyatSorgula() {
     if (this.util.isEmpty(this.urun.mamKod) || this.util.isEmpty(this.urunIscilik.iscKod)) {
       this.util.message("Önce İşçilik/Malzeme seçiniz.");
+    } else {
+      this.logger.warn("Işçilik Fiyat Bulma");
+      this.fiyatBul(this.urun.mamKod, this.urunIscilik.iscKod)
     }
+  }
+
+  async fiyatBul(mamKod: string, iscMlzKod: string) {
+    debugger;
+    let filter = new Fiyat();
+    filter.mamKod = mamKod;
+    filter.iscMlzKod = iscMlzKod;
+    let query = await this.fiyatDao.findFiyat(filter);
+    if (this.util.isNotEmpty(query) && query.rows.length > 0) {
+      this.logger.dir(query.rows);
+      let res = query.rows.item(0);
+      this.fiyat.fiyat = (Number(res.fiyat) * 1.18).toFixed(2);
+      this.fiyat.gdFiyat = (Number(res.gdfiyat) * 1.18).toFixed(2);
+      this.fiyat.mamKod = res.mamKod;
+    } else {
+      this.util.warn("Fiyat Bulunamadı.")
+    }
+
   }
 
   private malzemeFiyatSorgula() {
     if (this.util.isEmpty(this.urun.mamKod)) {
       this.util.message("Önce Ürün/Kodu seçiniz.");
+    } else {
+      this.fiyatBul("MLZ", this.urun.mamKod);
     }
   }
 

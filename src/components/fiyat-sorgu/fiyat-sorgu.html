@@ -38,4 +38,18 @@
     </button>
   </ion-item>
 
+
+</ion-list>
+
+<ion-list *ngIf="fiyat.fiyat != null">
+  <ion-item>
+    <ion-label>(KDV Dahil) Garanti Fiyat</ion-label>
+    <ion-label>{{fiyat.fiyat}}</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>(KDV Dahil) Garanti Dışı Fiyat</ion-label>
+    <ion-label>{{fiyat.gdFiyat}}</ion-label>
+  </ion-item>
+
 </ion-list>

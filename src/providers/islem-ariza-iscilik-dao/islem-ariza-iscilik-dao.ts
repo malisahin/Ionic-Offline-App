@@ -118,7 +118,35 @@ export class IslemArizaIscilikDao {
 
     return this.util.prepareQuery(query, whereQuery, searchType);
 
+  }
+
+  getIslemGrup(item: IslemArizaIscilik): Promise<any> {
+    let query = "SELECT islemGrp,islemGrpAdi FROM OFF_ISC_ISLARZGRP_TNM WHERE mamAnaGrp = '" + item.mamAnaGrp + "' and durum='AKTIF' AND (";
+    query += " islemGrp = '" + item.islGrp + "'";
+    query += ') GROUP BY islemGrp,islemGrpAdi';
+    return this.baseDao.execute(query, []);
 
   }
+
+  getArizaGrup(item: IslemArizaIscilik): Promise<any> {
+    let query = "SELECT arizaGrp,arizaGrpAdi FROM OFF_ISC_ISLARZGRP_TNM " +
+      "WHERE mamAnaGrp = '" + item.mamAnaGrp + "' and islemGrp = '" + item.islGrp + "' and durum='AKTIF' AND ( ";
+    query += " arizaGrp = '" + item.arzGrp + "'";
+    query += ') GROUP BY arizaGrp, arizaGrpAdi';
+    return this.baseDao.execute(query, []);
+
+  }
+
+  getPIYKodu(item: IslemArizaIscilik, mamKod: string): Promise<any> {
+    let query = "SELECT t.*,i.iscAdi FROM OFF_ISC_ISLARZGRP_TNM t, OFF_MAM_TNM mam, OFF_MAM_ISC_TNM i WHERE t.mamAnaGrp = mam.mamAnaGrp" +
+      " and mam.mamKod = i.mamKod and t.iscKod = i.iscKod and mam.mamKod =  '" + mamKod + "'";
+    query += " AND islemGrp = '" + item.islGrp + "'";
+    query += " AND arizaGrp = '" + item.arzGrp + "'";
+    query += " AND t.iscKod = '" + item.iscKod + "'";
+
+    return this.baseDao.execute(query, []);
+
+  }
+
 
 }

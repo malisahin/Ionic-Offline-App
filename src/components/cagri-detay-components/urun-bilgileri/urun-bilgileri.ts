@@ -45,7 +45,7 @@ export class UrunBilgileriComponent {
     this.garantiChange();
   }
 
-  urunListesiniGetir() {
+ async urunListesiniGetir() {
     let mamAnagrp = this.hizmet.mamAnaGrp;
     let searchType = Constants.SEARCH_TYPE.EXACT;
     let aramaModal = this.modalController.create(UrunSearchComponent, {
@@ -60,6 +60,7 @@ export class UrunBilgileriComponent {
       if (this.util.isNotEmpty(data.mamAdi))
         this.hizmet.mamAdi = data.mamAdi;
 
+      this.hizmetService.saveAndFetchHizmet(this.hizmet);
     });
     aramaModal.present();
   }
@@ -93,7 +94,7 @@ export class UrunBilgileriComponent {
   }
 
 
-  findUrunAnaGrp() {
+ async findUrunAnaGrp() {
     let urunAnaGrp = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
     urunAnaGrp.mamAnaGrp = this.hizmet.mamAnaGrp;
     this.urunAnaGrpDao.getList(urunAnaGrp, Constants.SEARCH_TYPE.EXACT).then(res => {
@@ -102,6 +103,7 @@ export class UrunBilgileriComponent {
 
       this.mamAnaGrpValue = this.hizmet.mamAnaGrp + " - " + this.hizmet.mamAnaGrpAdi;
     });
+    this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
   }
 
   async urunSil() {

@@ -54,7 +54,7 @@ export class HizmetService {
     hizmet.seqNo = seqNo;
     let result = await this.fetchHizmet(hizmet);
     if (this.util.isNotEmpty(result) && this.util.isNotEmpty(result.res.rows) && result.res.rows.length > 0) {
-      hizmet = result.res.rows.item(0);
+      hizmet = JSON.parse(result.res.rows.item(0).data);
     }
     return hizmet;
 
@@ -65,6 +65,7 @@ export class HizmetService {
   }
 
   async saveAndFetchHizmet(hizmet: Hizmet): Promise<any> {
+    this.hizmet = hizmet;
     await this.hizmetDao.updateHizmet(hizmet);
     let list = await this.fetchHizmet(hizmet);
     return new Promise((res, rej) => {

@@ -9,6 +9,8 @@ import {FiyatDao} from '../../providers/fiyat-dao/fiyat-dao';
 import {Fiyat} from '../../entities/fiyat';
 import {HizmetService} from '../../providers/hizmet-service/hizmet-service';
 import {Hizmet} from '../../entities/hizmet/hizmet';
+import {IslemArizaIscilikDao} from "../../providers/islem-ariza-iscilik-dao/islem-ariza-iscilik-dao";
+import {IslemArizaIscilik} from "../../entities/islem-ariza-iscilik";
 
 
 @Component({
@@ -36,6 +38,7 @@ export class HizmetDetayComponent {
               private util: UtilProvider,
               private logger: LoggerProvider,
               private fiyatDao: FiyatDao,
+              private islemArizaIscilikDao: IslemArizaIscilikDao,
               private hizmetService: HizmetService) {
 
     this.hizmet = this.hizmetService.getHizmet();
@@ -52,11 +55,15 @@ export class HizmetDetayComponent {
       this.arizaAdi = this.hizmetDetay.arizaKod;
       this.mlzIscAdi = this.hizmetDetay.mlzIscKod;
       this.birimfiyat = this.hizmetDetay.tutar / this.hizmetDetay.miktar;
+      debugger;
+      this.loadHizmetDetay();
     }
   }
 
+
   async detayKaydet() {
 
+    debugger;
     if (this.util.isEmpty(this.hizmetDetay.satirNo)) {
       await this.fiyatBul();
       if (this.util.isNotEmpty(this.hizmetDetay.tutar)) {
@@ -92,7 +99,7 @@ export class HizmetDetayComponent {
     if (this.hizmetDetay.mlzIsc != "DGR") {
       this.detayTutari.mamKod = this.hizmet.mamKod;
       this.detayTutari.iscMlzKod = this.hizmetDetay.mlzIscKod;
-      let fiyatRes = await this.fiyatDao.findfiyat(this.detayTutari);
+      let fiyatRes = await this.fiyatDao.findFiyat(this.detayTutari);
       if (fiyatRes.rows.length > 0) {
         this.hizmetDetay.birimFiyat = fiyatRes.rows.item(0).fiyat;
         this.hizmetDetay.garFiyat = fiyatRes.rows.item(0).gdfiyat;
@@ -136,6 +143,33 @@ export class HizmetDetayComponent {
     piyModal.present();
   }
 
+
+  async loadHizmetDetay() {
+    let islemArizaIscilik = new IslemArizaIscilik();
+    islemArizaIscilik.mamAnaGrp = this.hizmet.mamAnaGrp;
+    islemArizaIscilik.islGrp = this.hizmetDetay.islemKod;
+    islemArizaIscilik.arzGrp = this.hizmetDetay.arizaKod;
+    islemArizaIscilik.iscKod = this.hizmetDetay.mlzIscKod;
+    debugger;
+    await this.islemArizaIscilikDao.getIslemGrup(islemArizaIscilik).then(query => {
+      this.logger.warn(query);
+      if (this.util.isNotEmpty(query) && query.rows.length > 0) {
+        let item = query.rows.item(0);
+        this.islemAdi = item.islemGrp + " - " + item.islemGrpAdi;
+      }
+    });
+
+    await this.islemArizaIscilikDao.getArizaGrup(islemArizaIscilik).then(query => {
+      this.logger.warn(query);
+      if (this.util.isNotEmpty(query) && query.rows.length > 0) {
+        let item = query.rows.item(0);
+        this.arizaAdi = item.arizaGrp + " - " + item.arizaGrpAdi;
+      }
+    });
+
+    this.mlzIscAdi = this.mlzIscAdi + " - " + this.hizmetDetay.aciklama;
+
+  }
 
   closeModal() {
     this.viewCtrl.dismiss();

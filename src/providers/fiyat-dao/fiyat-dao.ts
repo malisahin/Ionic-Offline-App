@@ -49,7 +49,7 @@ export class FiyatDao {
     });
   }
 
-  async findfiyat(item: Fiyat) {
+  async findFiyat(item: Fiyat) {
     let query = this.prepareSearchQuery(item, Constants.SEARCH_TYPE.EXACT);
     return this.baseDao.execute(query, []);
   }
