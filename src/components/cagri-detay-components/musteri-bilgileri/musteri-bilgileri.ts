@@ -62,6 +62,7 @@ export class MusteriBilgileriComponent {
         for (let i = 0; i < res.rows.length; i++) {
           this.ilceler.push(res.rows.item(i));
         }
+        this.onHizmetChange();
       });
   }
 
@@ -70,7 +71,17 @@ export class MusteriBilgileriComponent {
       for (let i = 0; i < res.rows.length; i++) {
         this.mahalleler.push(res.rows.item(i));
       }
+      this.onHizmetChange();
     });
   }
+
+  async onHizmetChange() {
+    this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
+  }
+
+  isHizmetDisabled(): boolean {
+    return this.hizmet.durum == "KAPALI" || this.hizmet.durum == "IPTAL";
+  }
+
 
 }

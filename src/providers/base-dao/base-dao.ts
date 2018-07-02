@@ -78,6 +78,7 @@ export class BaseDao {
     let deletedVersion = (-1).toString();
     localStorage.setItem(Constants.VERSIYON.CLIENT[tableName], deletedVersion);
     localStorage.setItem(Constants.VERSIYON.SERVER[tableName], deletedVersion);
+    localStorage.removeItem("GELEN_" + tableName);
 
   }
 

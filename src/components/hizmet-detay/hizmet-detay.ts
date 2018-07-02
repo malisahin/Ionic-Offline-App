@@ -86,6 +86,7 @@ export class HizmetDetayComponent {
     let result = await this.hizmetService.saveHizmet();
     this.logger.dir(result);
 
+
     this.closeModal();
   }
 
@@ -150,7 +151,6 @@ export class HizmetDetayComponent {
     islemArizaIscilik.islGrp = this.hizmetDetay.islemKod;
     islemArizaIscilik.arzGrp = this.hizmetDetay.arizaKod;
     islemArizaIscilik.iscKod = this.hizmetDetay.mlzIscKod;
-    debugger;
     await this.islemArizaIscilikDao.getIslemGrup(islemArizaIscilik).then(query => {
       this.logger.warn(query);
       if (this.util.isNotEmpty(query) && query.rows.length > 0) {

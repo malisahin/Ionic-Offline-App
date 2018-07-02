@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Constants} from '../../entities/Constants';
-import {ToastController, LoadingController, Loading, Events, NavController, App} from 'ionic-angular';
+import {ToastController, LoadingController, Loading} from 'ionic-angular';
 import moment from 'moment';
 import {ProcessResults} from "../../entities/ProcessResults";
 
@@ -9,10 +9,10 @@ import {ProcessResults} from "../../entities/ProcessResults";
 export class UtilProvider {
 
   private loader: Loading;
+  private isLoaderRunning: boolean = false;
 
   constructor(private toast: ToastController,
-              private  loadingController: LoadingController,
-              private  event: Events, private  app: App) {
+              private  loadingController: LoadingController) {
     moment.locale('tr');
   }
 
@@ -212,11 +212,14 @@ export class UtilProvider {
 
   loaderStart() {
     this.loader = this.loadingController.create({spinner: 'dots'});
+    this.isLoaderRunning = true;
     this.loader.present();
   }
 
   loaderEnd() {
-    this.loader.dismissAll();
+    if (this.isLoaderRunning)
+      this.loader.dismissAll();
+    this.isLoaderRunning = false;
   }
 
   timerStart(name: string) {
@@ -225,10 +228,6 @@ export class UtilProvider {
 
   timerEnd(name: string) {
     console.timeEnd(name);
-  }
-
-  updateHeader() {
-    this.event.publish("update:header");
   }
 
 }

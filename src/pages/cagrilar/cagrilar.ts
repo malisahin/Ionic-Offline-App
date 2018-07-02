@@ -2,7 +2,7 @@
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-import {Component} from "@angular/core";
+import {Component, ViewChild} from "@angular/core";
 import {IonicPage, NavController, NavParams} from "ionic-angular";
 import {CagriDetayPage} from "../cagri-detay/cagri-detay";
 import {ModalController} from "ionic-angular/components/modal/modal-controller";
@@ -12,6 +12,7 @@ import {HizmetService} from "../../providers/hizmet-service/hizmet-service";
 import {Hizmet} from "../../entities/hizmet/hizmet";
 import {UtilProvider} from "../../providers/util/util";
 import {Pageable} from "../../entities/Pageable";
+import {HeaderComponent} from "../../components/header/header";
 
 @IonicPage()
 @Component({
@@ -19,11 +20,13 @@ import {Pageable} from "../../entities/Pageable";
   templateUrl: 'cagrilar.html',
 })
 export class CagrilarPage {
+
   cagrilar: Hizmet[] = [];
   searchQuery: string = "";
   pageable: Pageable;
   searchType: string = "BEGINNING";
   searchParams: string[] = [];
+  @ViewChild("header") header: HeaderComponent;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -67,7 +70,7 @@ export class CagrilarPage {
     if (this.util.isNotEmpty(this.searchQuery)) {
       list = await this.hizmetService.fetchHizmetWithQuery(this.searchQuery, this.pageable);
     } else {
-      let hizmet= new Hizmet();
+      let hizmet = new Hizmet();
       hizmet.durum = 'ACIK';
       list = await this.hizmetService.fetchHizmetWithPage(hizmet, this.pageable);
     }
@@ -88,7 +91,7 @@ export class CagrilarPage {
       this.util.message("Çağrılar Güncellendi.");
     });
     this.util.loaderEnd();
-
+    this.header.updateHeader();
   }
 
 }

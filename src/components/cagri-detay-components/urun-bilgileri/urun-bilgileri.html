@@ -2,19 +2,19 @@
 <ion-grid>
   <ion-row>
     <ion-col col-sm-12 col-md-6 col-lg-3 col-xl-3>
-      <button ion-button icon-start full round (click)="urunListesiniGetir()" [disabled]="hizmet.durum != 'ACIK'">
+      <button ion-button icon-start full round (click)="urunListesiniGetir()" [disabled]="isHizmetDisabled()">
         <ion-icon name="list"></ion-icon>
         Ürün Seç
       </button>
     </ion-col>
     <ion-col col-sm-12 col-md-6 col-lg-3 col-xl-3>
-      <button ion-button icon-start full round (click)="urunSil()" [disabled]="hizmet.durum != 'ACIK'">
+      <button ion-button icon-start full round (click)="urunSil()" [disabled]="isHizmetDisabled()">
         <ion-icon name="trash"></ion-icon>
         Ürün Sil
       </button>
     </ion-col>
     <ion-col col-sm-12 col-md-6 col-lg-3 col-xl-3>
-      <button ion-button icon-start full round (click)="urunAnaGrupDegistir()" [disabled]="hizmet.durum != 'ACIK'">
+      <button ion-button icon-start full round (click)="urunAnaGrupDegistir()" [disabled]="isHizmetDisabled()">
         <ion-icon name="refresh"></ion-icon>
         Ürün Ana Grup Değiştir
       </button>
@@ -48,9 +48,9 @@
 
   <ion-item>
     <ion-label style="width: 20%" color="primary">Seri No</ion-label>
-    <ion-input style="width: 65%" [(ngModel)]="hizmet.mamSeriNo" [disabled]="hizmet.durum != 'ACIK'"></ion-input>
+    <ion-input style="width: 65%" [(ngModel)]="hizmet.mamSeriNo" [disabled]="isHizmetDisabled()"></ion-input>
     <button style="width: 15%" item-end ion-button icon-only full round (click)="seriNoSorgula()"
-            [disabled]="hizmet.durum != 'ACIK'">
+            [disabled]="isHizmetDisabled()">
       <ion-icon name="search"></ion-icon>
     </button>
 
@@ -58,7 +58,7 @@
 
   <ion-item>
     <ion-label color="primary">Fatura Tarihi</ion-label>
-    <ion-datetime [(ngModel)]="hizmet.sattar" [disabled]="hizmet.durum != 'ACIK'"
+    <ion-datetime [(ngModel)]="hizmet.sattar" [disabled]="isHizmetDisabled()" (ionChange)="faturaTarihiChange()"
                   displayFormat="MM/DD/YYYY"></ion-datetime>
   </ion-item>
 
@@ -66,7 +66,7 @@
     <ion-label color="primary">Garanti</ion-label>
     <ion-label color="primary" style="text-align: end">{{garanti == true ? 'VAR' : 'YOK'}}</ion-label>
     <ion-toggle [(ngModel)]="garanti" (ionChange)="garantiChange()" style="text-align: end"
-                [disabled]="hizmet.durum != 'ACIK'"
+                [disabled]="isHizmetDisabled()"
                 color="secondary"></ion-toggle>
   </ion-item>
 
@@ -74,7 +74,7 @@
     <ion-label color="primary">Meşguliyet</ion-label>
     <ion-label color="primary" style="text-align: end">{{mesguliyet == true ? 'VAR' : 'YOK'}}</ion-label>
     <ion-toggle [(ngModel)]="mesguliyet" (ionChange)="mesguliyetChange()" style="text-align: end"
-                [disabled]="hizmet.durum != 'ACIK'" color="secondary"></ion-toggle>
+                [disabled]="isHizmetDisabled()" color="secondary"></ion-toggle>
   </ion-item>
 
 </ion-list>

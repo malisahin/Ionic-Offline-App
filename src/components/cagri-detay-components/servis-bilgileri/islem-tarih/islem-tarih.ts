@@ -208,5 +208,9 @@ export class IslemTarihComponent {
       })
     }
   }
+
+  isHizmetDisabled(): boolean {
+    return this.hizmet.durum == "KAPALI" || this.hizmet.durum == "IPTAL";
+  }
 }
 

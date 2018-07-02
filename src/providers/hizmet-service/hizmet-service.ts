@@ -67,12 +67,10 @@ export class HizmetService {
   async saveAndFetchHizmet(hizmet: Hizmet): Promise<any> {
     this.hizmet = hizmet;
     await this.hizmetDao.updateHizmet(hizmet);
-    let list = await this.fetchHizmet(hizmet);
-    return new Promise((res, rej) => {
-      let stringData = list.res.rows.item(0).data;
-      let jsonData = JSON.parse(stringData);
-      let hzmet = this.hizmetProvider.fillHizmet(jsonData);
-      res(hzmet);
+    let jsonData = await this.getHizmetBySeqNo(hizmet.seqNo);
+    return new Promise((resolve, rej) => {
+      let hzmet: Hizmet = this.hizmetProvider.fillHizmet(jsonData);
+      resolve(hzmet);
     })
   }
 

@@ -79,7 +79,7 @@ export class HizmetProvider {
     return hizmetList;
   }
 
-  fillHizmet(obj) {
+  fillHizmet(obj): Hizmet {
     /**
      *
      * @type fromServer

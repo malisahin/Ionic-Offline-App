@@ -87,6 +87,10 @@ export class FiyatSorguComponent {
     }
   }
 
+  IslemTipiChange() {
+
+  }
+
   private iscilikFiyatSorgula() {
     if (this.util.isEmpty(this.urun.mamKod) || this.util.isEmpty(this.urunIscilik.iscKod)) {
       this.util.message("Önce İşçilik/Malzeme seçiniz.");
@@ -105,8 +109,8 @@ export class FiyatSorguComponent {
     if (this.util.isNotEmpty(query) && query.rows.length > 0) {
       this.logger.dir(query.rows);
       let res = query.rows.item(0);
-      this.fiyat.fiyat = (Number(res.fiyat) * 1.18).toFixed(2);
-      this.fiyat.gdFiyat = (Number(res.gdfiyat) * 1.18).toFixed(2);
+      this.fiyat.fiyat = Number((Number(res.fiyat) * 1.18).toFixed(2));
+      this.fiyat.gdFiyat = Number((Number(res.gdfiyat) * 1.18).toFixed(2));
       this.fiyat.mamKod = res.mamKod;
     } else {
       this.util.warn("Fiyat Bulunamadı.")

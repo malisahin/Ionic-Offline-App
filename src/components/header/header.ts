@@ -27,7 +27,7 @@ export class HeaderComponent {
               private  hizmetDao: HizmetDao,
               private  headerProvider: HeaderProvider, private  events: Events) {
     this.updateHeader();
-    events.subscribe("update:header", () =>{
+    events.subscribe("updateHizmetDetay:header", () => {
       this.updateHeader();
     });
 
@@ -55,7 +55,7 @@ export class HeaderComponent {
     this.cagriSayisi = await this.hizmetDao.findAcikHizmetSayisi();
   }
 
-  updateHeader(){
+  public updateHeader() {
     this.loadGuncellemeSayisi();
     this.loadMesajSayilari();
     this.loadHizmetSayisi();

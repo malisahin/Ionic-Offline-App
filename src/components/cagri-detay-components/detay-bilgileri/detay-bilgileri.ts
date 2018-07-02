@@ -75,7 +75,7 @@ export class DetayBilgileriComponent {
         if (this.util.isNotEmpty(item.tutar))
           this.toplamTutar += Number(item.tutar);
 
-        this.toplamTutar = (this.toplamTutar * 1.18).toFixed(2);
+        this.toplamTutar = Number((this.toplamTutar * 1.18).toFixed(2));
       })
     }
   }
@@ -109,7 +109,7 @@ export class DetayBilgileriComponent {
     }
   }
 
-  update(item: any) {
+  updateHizmetDetay(item: any) {
     let detayModal = this.modalCtrl.create(HizmetDetayComponent, {
       data: {
         hizmetDetay: item
@@ -123,12 +123,13 @@ export class DetayBilgileriComponent {
 
   }
 
-  delete(item: any) {
+  deleteHizmetDetay(item: any) {
     let index = this.detayList.indexOf(item);
 
     if (index > -1) {
       this.detayList.splice(index, 1);
     }
+    this.hizmet.detayDtoList = this.detayList;
     this.updateHizmet();
   }
 
@@ -160,7 +161,7 @@ export class DetayBilgileriComponent {
       if (this.util.isNotEmpty(res.responseCode) && res.responseCode == "SUCCESS" && this.util.isNotEmpty(res.description) && res.description == "CLOSED") {
         this.hizmet.durum = DURUM.KAPALI;
         this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
-        this.util.message("Çağrı Kayıt Edildi.")
+        this.navigate("CagrilarPage", "Çağrı Kayıt Edildi.")
       }
     }
     else {
@@ -171,12 +172,23 @@ export class DetayBilgileriComponent {
   async siparisOlustur() {
     this.util.loaderStart();
     let res = await this.hizmetProvider.updateCagri(this.hizmet, "EVET");
+    if (this.util.isNotEmpty(res) && this.util.isNotEmpty(res.responseCode)) {
+      if (res.responseCode == "FAIL") {
+        this.util.error(res.description);
+
+      } else if (res.responseCode == "SUCCESS") {
+        this.util.message(res.description);
+
+      } else {
+        this.util.error("Sipariş oluşturmada bir hata oluştu.");
+      }
+    }
     this.logger.dir(res);
     this.util.loaderEnd();
   }
 
   async updateHizmet() {
-    this.hizmet = await this.hizmetService.getHizmetBySeqNo(this.hizmet.seqNo);
+    this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
     //this.hizmet = await this.hizmetService.getHizmetBySeqNo(this.hizmet.seqNo);
     this.loadDetayList();
   }
@@ -346,6 +358,16 @@ export class DetayBilgileriComponent {
 
     if (this.util.isNotEmpty(message))
       this.util.info(message);
+  }
+
+
+  async onHizmetChange() {
+    this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
+    this.logger.warn("Hizmet Durumu" + this.hizmet.durum);
+  }
+
+  isHizmetDisabled(): boolean {
+    return this.hizmet.durum == "KAPALI" || this.hizmet.durum == "IPTAL";
   }
 
 

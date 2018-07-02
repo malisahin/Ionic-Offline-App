@@ -109,7 +109,7 @@ export class SQLitePorterMock {
       // Strip empty statements
       for (var i = 0; i < statements.length; i++) {
         if (!statements[i]) {
-          delete statements[i];
+          deleteHizmetDetay statements[i];
         }
       }
       return db.sqlBatch(statements)

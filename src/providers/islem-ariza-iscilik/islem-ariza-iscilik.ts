@@ -20,7 +20,7 @@ export class IslemArizaIscilikProvider {
   }
 
   async downloadIslemArizaIscilik(first: number): Promise<any> {
-    let data = await      this.getDataFromApi(first);
+    let data = await this.getDataFromApi(first);
     let islemArizaIscilik = new IslemArizaIscilik();
     let item = await islemArizaIscilik.fillIslemArizaIscilik(data);
     return new Promise((resolve, reject) => {

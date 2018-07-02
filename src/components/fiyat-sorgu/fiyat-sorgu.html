@@ -6,7 +6,7 @@
   </ion-item>
 
   <ion-item>
-    <ion-select [(ngModel)]="islemTipi" interface="popover">
+    <ion-select [(ngModel)]="islemTipi" interface="popover" (ionChange)="IslemTipiChange()">
       <ion-option value="" selected="true"></ion-option>
       <ion-option value="ISC">İşçilik</ion-option>
       <ion-option value="MLZ">Malzeme</ion-option>

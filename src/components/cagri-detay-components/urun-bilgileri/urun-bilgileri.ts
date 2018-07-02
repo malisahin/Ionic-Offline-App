@@ -60,7 +60,7 @@ export class UrunBilgileriComponent {
       if (this.util.isNotEmpty(data.mamAdi))
         this.hizmet.mamAdi = data.mamAdi;
 
-      this.hizmetService.saveAndFetchHizmet(this.hizmet);
+      this.saveHizmet();
     });
     aramaModal.present();
   }
@@ -103,7 +103,7 @@ export class UrunBilgileriComponent {
 
       this.mamAnaGrpValue = this.hizmet.mamAnaGrp + " - " + this.hizmet.mamAnaGrpAdi;
     });
-    this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
+    this.saveHizmet();
   }
 
   async urunSil() {
@@ -114,7 +114,7 @@ export class UrunBilgileriComponent {
 
     this.hizmet.mamKod = "";
     this.hizmet.mamAdi = "";
-    this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
+    this.saveHizmet();
   }
 
   garantiSorgula() {
@@ -140,7 +140,7 @@ export class UrunBilgileriComponent {
         this.hizmet.mamAdi = item.mamAdi;
         this.hizmet.mamSeriNo = item.mamSerino;
         this.util.info("Ürün bilgileri seri No bilgisine bağlı olarak değiştirildi.");
-        this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
+        this.saveHizmet();
       } else {
         let anagrp = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
         anagrp.mamAnaGrp = item.mamAnagrp;
@@ -164,12 +164,24 @@ export class UrunBilgileriComponent {
 
   async mesguliyetChange() {
     this.hizmet.mesguliyet = this.mesguliyet == true ? 'VAR' : 'YOK';
-    this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
+    this.saveHizmet();
   }
 
   async garantiChange() {
     this.hizmet.garanti = this.garanti == true ? 'VAR' : 'YOK';
+    this.saveHizmet();
+  }
+
+  faturaTarihiChange(){
+    this.saveHizmet();
+  }
+
+  async saveHizmet(){
     this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
+  }
+
+  isHizmetDisabled(): boolean {
+    return this.hizmet.durum == "KAPALI" || this.hizmet.durum == "IPTAL";
   }
 }
 

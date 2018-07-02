@@ -9,6 +9,8 @@ import {ApiProvider} from "../api/api";
 import {Urun} from "../../entities/urun";
 import {UrunDao} from '../urun-dao/urun-dao';
 import {TokenProvider} from "../token/token";
+import {UtilProvider} from "../util/util";
+import {Constants} from "../../entities/Constants";
 
 
 @Injectable()
@@ -18,15 +20,23 @@ export class UrunProvider {
   constructor(public http: HttpClient,
               private api: ApiProvider,
               private urunDao: UrunDao,
+              private  util: UtilProvider,
               private  token: TokenProvider) {
   }
 
   async downloadUrunler(first: number): Promise<any> {
-    let item = await this.getDataFromApi(first);
+    let data = await this.getDataFromApi(first);
     let urun = new Urun();
-    return urun.fillUrun(item).then(item => {
-      this.urunDao.insertList(item)
-    });
+    let list = await urun.fillUrun(data);
+    let item: any;
+    if (this.util.isNotEmpty(list) && list.length > 0) {
+      item = await this.urunDao.insertList(list);
+    }
+
+    return new Promise((resolve, reject) => {
+      resolve(Constants.STATUS.SUCCESS);
+      reject(Constants.STATUS.ERROR);
+    })
   }
 
   async getDataFromApi(first): Promise<any> {

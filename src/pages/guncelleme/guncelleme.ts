@@ -4,8 +4,8 @@
  */
 
 
-import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
+import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 import {UrunProvider} from '../../providers/urun/urun';
 import {UrunAnaGrpProvider} from '../../providers/urun-ana-grp/urun-ana-grp';
 import {UrunIscilikProvider} from '../../providers/urun-iscilik/urun-iscilik';
@@ -16,6 +16,7 @@ import {Constants} from '../../entities/Constants';
 import {AdresProvider} from '../../providers/adres/adres';
 import {LoggerProvider} from '../../providers/logger/logger';
 import {UtilProvider} from '../../providers/util/util';
+import {HeaderComponent} from "../../components/header/header";
 
 
 @IonicPage()
@@ -36,6 +37,7 @@ export class GuncellemePage {
   firstForMahalleTnm: number;
   colors: any;
   icons: any;
+  @ViewChild("header") header: HeaderComponent;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -62,182 +64,214 @@ export class GuncellemePage {
   }
 
 
-  downloadUrunler() {
-    this.util.timerStart(Constants.DATA_TYPE.URUN);
-    this.util.loaderStart();
-    this.urunProvider.downloadUrunler(this.firstForUrunler).then(res => {
-      console.log("Urunler Kayit Edildi");
-      this.firstForUrunler += this.pageSize;
-      if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_URUN)) < Constants.API_PAGE_SIZE) {
+  async downloadUrunler() {
+    try {
+      this.util.timerStart(Constants.DATA_TYPE.URUN);
+      this.util.loaderStart();
+      let res = await this.urunProvider.downloadUrunler(this.firstForUrunler);
+      this.logger.warn("downloadUrunler ==> " + res);
 
-        // TODO: Ürünler Indirildi.
-        localStorage.setItem(Constants.VERSIYON.CLIENT.URUN, localStorage.getItem(Constants.VERSIYON.SERVER.URUN));
-        this.colors.URUN = "downloaded";
-        this.icons.URUN = "done-all";
-        this.util.loaderEnd();
-        this.util.message("Ürünler Kayıt Edildi.");
+      if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_URUN)) < Constants.API_PAGE_SIZE) {
+        this.doWhenDataDownloaded(Constants.DATA_TYPE.URUN, "Ürünler Kayıt Edildi.");
       }
       else {
+        this.firstForUrunler += this.pageSize;
         this.downloadUrunler();
       }
-    });
-    this.util.timerEnd(Constants.DATA_TYPE.URUN);
+      this.util.timerEnd(Constants.DATA_TYPE.URUN);
+    } catch (e) {
+      this.catchException(e, Constants.DATA_TYPE.URUN);
+    }
   }
 
   downloadUrunAnaGrup() {
-    this.util.timerStart(Constants.DATA_TYPE.URUN_ANA_GRUP);
-    this.util.loaderStart();
-    this.urunAnaGrpProvider.downloadUrunAnaGrup().then(res => {
-      console.log("Ürün Ana Grubu Güncellendi" + res);
-      localStorage.setItem(Constants.VERSIYON.CLIENT.URUN_ANA_GRUP, localStorage.getItem(Constants.VERSIYON.SERVER.URUN_ANA_GRUP));
-      this.colors.URUN_ANA_GRUP = "downloaded";
-      this.icons.URUN_ANA_GRUP = "done-all";
-      this.util.loaderEnd();
-      this.util.message("Ürün Ana grup Kayıt Edildi.");
-    });
-    this.util.timerEnd(Constants.DATA_TYPE.URUN_ANA_GRUP);
-    this.util.updateHeader();
+    try {
+      this.util.timerStart(Constants.DATA_TYPE.URUN_ANA_GRUP);
+      this.util.loaderStart();
+      this.urunAnaGrpProvider.downloadUrunAnaGrup().then(res => {
+        this.doWhenDataDownloaded(Constants.DATA_TYPE.URUN_ANA_GRUP, "Ürün Ana grup Kayıt Edildi.");
+      });
+      this.util.timerEnd(Constants.DATA_TYPE.URUN_ANA_GRUP);
+    }
+    catch (e) {
+      this.catchException(e, Constants.DATA_TYPE.URUN_ANA_GRUP);
+
+    }
   }
 
 
-  downloadUrunIscilik() {
-    this.util.timerStart(Constants.DATA_TYPE.URUN_ISCILIK);
-    this.util.loaderStart();
-    this.urunIscilikProvider.downloadUrunIscilik(this.firstForUrunIscilik).then(res => {
-      console.log(res);
-      this.firstForUrunIscilik += this.pageSize;
-      console.log("Indirilen ürün İşçilik sayısı" + localStorage.getItem(Constants.DATA_TYPE.URUN_ISCILIK));
+  async downloadUrunIscilik() {
+    try {
+      this.util.timerStart(Constants.DATA_TYPE.URUN_ISCILIK);
+      this.util.loaderStart();
+      let res = await this.urunIscilikProvider.downloadUrunIscilik(this.firstForUrunIscilik);
+      this.logger.warn("downloadUrunIscilik ==> " + res);
+
       if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_URUN_ISCILIK)) < Constants.API_PAGE_SIZE) {
-        localStorage.setItem(Constants.VERSIYON.CLIENT.URUN_ISCILIK, localStorage.getItem(Constants.VERSIYON.SERVER.URUN_ISCILIK));
-        this.colors.URUN_ISCILIK = "downloaded";
-        this.icons.URUN_ISCILIK = "done-all";
-        this.util.loaderEnd();
-        this.util.message("Ürün İşçilik Kayıt Edildi.");
+        this.doWhenDataDownloaded(Constants.DATA_TYPE.URUN_ISCILIK, "Ürün İşçilik Kayıt Edildi.");
       } else {
+        this.firstForUrunIscilik += this.pageSize;
         this.downloadUrunIscilik();
       }
-    });
-    this.util.timerEnd(Constants.DATA_TYPE.URUN_ISCILIK);
+
+      this.util.timerEnd(Constants.DATA_TYPE.URUN_ISCILIK);
+    } catch (e) {
+      this.catchException(e, Constants.DATA_TYPE.URUN_ISCILIK);
+
+    }
   }
 
   downloadUrunMalzeme() {
-    this.util.timerStart(Constants.DATA_TYPE.URUN_MALZEME);
-    this.util.loaderStart();
-    this.urunMalzemeProvider.downloadUrunMalzeme(this.firstForUrunMalzeme).then(res => {
-      console.log(res);
-      if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_URUN_MALZEME)) < Constants.API_PAGE_SIZE) {
-        localStorage.setItem(Constants.VERSIYON.CLIENT.URUN_MALZEME, localStorage.getItem(Constants.VERSIYON.SERVER.URUN_MALZEME));
-        this.colors.URUN_MALZEME = "downloaded";
-        this.icons.URUN_MALZEME = "done-all";
-        this.util.message("Ürün İşçilik Kayıt Edildi.");
-      } else {
-        this.firstForUrunMalzeme += this.pageSize;
-        this.downloadUrunMalzeme();
-      }
-    });
-    this.util.timerEnd(Constants.DATA_TYPE.URUN_MALZEME);
-    this.util.loaderEnd();
+    try {
+      this.util.timerStart(Constants.DATA_TYPE.URUN_MALZEME);
+      this.util.loaderStart();
+
+      this.urunMalzemeProvider.downloadUrunMalzeme(this.firstForUrunMalzeme).then(res => {
+        this.logger.warn("downloadUrunMalzeme ==> " + res);
+        if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_URUN_MALZEME)) < Constants.API_PAGE_SIZE) {
+          this.doWhenDataDownloaded(Constants.DATA_TYPE.URUN_MALZEME, "Ürün İşçilik Kayıt Edildi.");
+
+        } else {
+          this.firstForUrunMalzeme += this.pageSize;
+          this.downloadUrunMalzeme();
+        }
+      });
+      this.util.timerEnd(Constants.DATA_TYPE.URUN_MALZEME);
+
+    } catch (e) {
+      this.catchException(e, Constants.DATA_TYPE.URUN_MALZEME);
+
+    }
   }
 
   downloadIslemArizaIscilik() {
-    this.util.timerStart(Constants.DATA_TYPE.ISLEM_ARIZA_ISCILIK);
-    this.util.loaderStart();
-    this.islemArizaIscilikProvider.downloadIslemArizaIscilik(this.firstForIslemArizaIscilik).then(res => {
-      console.log(res);
-      if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_ISLEM_ARIZA_ISCILIK)) < Constants.API_PAGE_SIZE) {
-        localStorage.setItem(Constants.VERSIYON.CLIENT.ISLEM_ARIZA_ISCILIK, localStorage.getItem(Constants.VERSIYON.SERVER.ISLEM_ARIZA_ISCILIK));
-        this.colors.ISLEM_ARIZA_ISCILIK = "downloaded";
-        this.icons.ISLEM_ARIZA_ISCILIK = "done-all";
-        this.util.loaderEnd();
-        this.util.message("Islem Ariza Iscilik Kayıt Edildi.");
-      } else {
-        this.firstForIslemArizaIscilik += this.pageSize;
-        this.downloadIslemArizaIscilik();
-      }
+    try {
+      this.util.timerStart(Constants.DATA_TYPE.ISLEM_ARIZA_ISCILIK);
+      this.util.loaderStart();
+      this.islemArizaIscilikProvider.downloadIslemArizaIscilik(this.firstForIslemArizaIscilik).then(res => {
+        this.logger.warn("downloadIslemArizaIscilik ==> " + res);
+        if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_ISLEM_ARIZA_ISCILIK)) < Constants.API_PAGE_SIZE) {
+          this.doWhenDataDownloaded(Constants.DATA_TYPE.ISLEM_ARIZA_ISCILIK, "Islem Ariza Iscilik Kayıt Edildi.");
+        } else {
+          this.firstForIslemArizaIscilik += this.pageSize;
+          this.downloadIslemArizaIscilik();
 
-    });
-    this.util.timerEnd(Constants.DATA_TYPE.ISLEM_ARIZA_ISCILIK);
+        }
+
+      });
+      this.util.timerEnd(Constants.DATA_TYPE.ISLEM_ARIZA_ISCILIK);
+
+    } catch (e) {
+      this.catchException(e, Constants.DATA_TYPE.ISLEM_ARIZA_ISCILIK);
+    }
   }
 
-  downloadMalzemeFiyat() {
-    this.util.timerStart(Constants.DATA_TYPE.MALZEME_FIYAT);
-    this.util.loaderStart();
-    this.fiyatProvider.downloadMalzemeFiyat(this.firstForMalzemeFiyat).then(res => {
-      console.log(res);
+  async  downloadMalzemeFiyat() {
+    try {
+      this.util.timerStart(Constants.DATA_TYPE.MALZEME_FIYAT);
+      this.util.loaderStart();
+      let res = await this.fiyatProvider.downloadMalzemeFiyat(this.firstForMalzemeFiyat);
+
+      this.logger.warn("downloadMalzemeFiyat ==> " + res);
+
       if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_MALZEME_FIYAT)) < Constants.API_PAGE_SIZE) {
-        localStorage.setItem(Constants.VERSIYON.CLIENT.MALZEME_FIYAT, localStorage.getItem(Constants.VERSIYON.SERVER.MALZEME_FIYAT));
-        this.colors.MALZEME_FIYAT = "downloaded";
-        this.icons.MALZEME_FIYAT = "done-all";
-        this.util.message("Malzeme Fiyatı Kayıt Edildi.");
+
+        this.doWhenDataDownloaded(Constants.DATA_TYPE.MALZEME_FIYAT, "Malzeme Fiyatı Kayıt Edildi.");
+
       } else {
         this.firstForMalzemeFiyat += this.pageSize;
         this.downloadMalzemeFiyat();
+
       }
-    });
-    this.util.timerEnd(Constants.DATA_TYPE.MALZEME_FIYAT);
-    this.util.loaderEnd();
+      this.util.timerEnd(Constants.DATA_TYPE.MALZEME_FIYAT);
+    }
+    catch (e) {
+      this.catchException(e, Constants.DATA_TYPE.MALZEME_FIYAT);
+
+    }
   }
 
-  downloadIscilikFiyat() {
-    this.util.timerStart(Constants.DATA_TYPE.ISCILIK_FIYAT);
-    this.util.loaderStart();
-    this.fiyatProvider.downloadIscilikFiyat(this.firstForIscilikFiyat).then(res => {
-      if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_ISCILIK_FIYAT)) < Constants.API_PAGE_SIZE) {
-        localStorage.setItem(Constants.VERSIYON.CLIENT.ISCILIK_FIYAT, localStorage.getItem(Constants.VERSIYON.SERVER.ISCILIK_FIYAT));
-        this.colors.ISCILIK_FIYAT = "downloaded";
-        this.icons.ISCILIK_FIYAT = "done-all";
-        this.util.message("Iscilik Fiyatı Kayıt Edildi.");
-        this.util.loaderEnd();
-      } else {
-        this.firstForIscilikFiyat += this.pageSize;
-        this.downloadIscilikFiyat();
-      }
-    });
-    this.util.timerEnd(Constants.DATA_TYPE.ISCILIK_FIYAT);
+  async downloadIscilikFiyat() {
+    try {
+      this.util.timerStart(Constants.DATA_TYPE.ISCILIK_FIYAT);
+      this.util.loaderStart();
+      await this.fiyatProvider.downloadIscilikFiyat(this.firstForIscilikFiyat).then(res => {
+
+        this.logger.warn("downloadIscilikFiyat ==> " + res);
+
+        if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_ISCILIK_FIYAT)) < Constants.API_PAGE_SIZE) {
+          this.doWhenDataDownloaded(Constants.DATA_TYPE.ISCILIK_FIYAT, "Iscilik Fiyatı Kayıt Edildi.");
+
+        } else {
+          this.firstForIscilikFiyat += this.pageSize;
+          this.downloadIscilikFiyat();
+
+        }
+      });
+      this.util.timerEnd(Constants.DATA_TYPE.ISCILIK_FIYAT);
+
+    } catch (e) {
+      this.catchException(e, Constants.DATA_TYPE.ISCILIK_FIYAT)
+    }
   }
 
-  downloadSehirList() {
-    this.util.timerStart(Constants.DATA_TYPE.SEHIR_TNM);
-    this.util.loaderStart();
-    this.adresProvider.downloadSehirData().then(res => {
-      localStorage.setItem(Constants.VERSIYON.CLIENT.SEHIR_TNM, localStorage.getItem(Constants.VERSIYON.SERVER.SEHIR_TNM));
-      this.colors.SEHIR_TNM = "downloaded";
-      this.icons.SEHIR_TNM = "done-all";
-      this.logger.dir(res);
-      this.util.loaderEnd();
-    });
-    this.util.timerEnd(Constants.DATA_TYPE.SEHIR_TNM);
+  async downloadSehirList() {
+    try {
+      this.util.timerStart(Constants.DATA_TYPE.SEHIR_TNM);
+      this.util.loaderStart();
+
+      await this.adresProvider.downloadSehirData().then(res => {
+        this.logger.warn("downloadSehirList ==> " + res);
+        this.doWhenDataDownloaded(Constants.DATA_TYPE.SEHIR_TNM, "Şehir listesi güncellendi.");
+
+      });
+      this.util.timerEnd(Constants.DATA_TYPE.SEHIR_TNM);
+
+    } catch (e) {
+      this.catchException(e, Constants.DATA_TYPE.SEHIR_TNM);
+
+    }
   }
 
-  downloadIlceList() {
-    this.util.timerStart(Constants.DATA_TYPE.ILCE_TNM);
-    this.util.loaderStart();
-    this.adresProvider.downloadIlceData().then(res => {
-      localStorage.setItem(Constants.VERSIYON.CLIENT.ILCE_TNM, localStorage.getItem(Constants.VERSIYON.SERVER.ILCE_TNM));
-      this.colors.ILCE_TNM = "downloaded";
-      this.icons.ILCE_TNM = "done-all";
-      this.logger.dir(res);
-      this.util.loaderEnd();
-    });
-    this.util.timerEnd(Constants.DATA_TYPE.ILCE_TNM);
+  async downloadIlceList() {
+    try {
+      this.util.timerStart(Constants.DATA_TYPE.ILCE_TNM);
+      this.util.loaderStart();
+
+      await this.adresProvider.downloadIlceData().then(res => {
+        this.logger.warn("downloadIlceList ==> " + res);
+        this.doWhenDataDownloaded(Constants.DATA_TYPE.ILCE_TNM, "Ilçe listesi güncellendi.");
+
+      });
+      this.util.timerEnd(Constants.DATA_TYPE.ILCE_TNM);
+
+    } catch (e) {
+      this.catchException(e, Constants.DATA_TYPE.ILCE_TNM);
+    }
   }
 
-  downloadMahalleList() {
-    this.util.timerStart(Constants.DATA_TYPE.MAHALLE_TNM);
-    this.util.loaderStart();
-    this.adresProvider.downloadMahalleData(this.firstForMahalleTnm).then(res => {
-      if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_MAHALLE_TNM)) < Constants.API_PAGE_SIZE) {
-        localStorage.setItem(Constants.VERSIYON.CLIENT.MAHALLE_TNM, localStorage.getItem(Constants.VERSIYON.SERVER.MAHALLE_TNM));
-        this.colors.MAHALLE_TNM = "downloaded";
-        this.icons.MAHALLE_TNM = "done-all";
-        this.util.message("Mahalle Bilgisi Kayıt Edildi.");
-        this.util.loaderEnd();
-      } else {
-        this.firstForMahalleTnm += this.pageSize;
-        this.downloadMahalleList();
-      }
-    });
-    this.util.timerEnd(Constants.DATA_TYPE.MAHALLE_TNM);
+  async downloadMahalleList() {
+    try {
+      this.util.timerStart(Constants.DATA_TYPE.MAHALLE_TNM);
+      this.util.loaderStart();
+
+      await this.adresProvider.downloadMahalleData(this.firstForMahalleTnm).then(res => {
+
+        this.logger.warn("downloadMahalleList ==> " + res);
+        if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_MAHALLE_TNM)) < Constants.API_PAGE_SIZE) {
+          this.doWhenDataDownloaded(Constants.DATA_TYPE.MAHALLE_TNM, "Mahalle Bilgisi Kayıt Edildi.");
+
+        } else {
+          this.firstForMahalleTnm += this.pageSize;
+          this.downloadMahalleList();
+
+        }
+      });
+      this.util.timerEnd(Constants.DATA_TYPE.MAHALLE_TNM);
+
+    } catch (e) {
+      this.catchException(e, Constants.DATA_TYPE.MAHALLE_TNM);
+    }
   }
 
   ionViewDidLoad() {
@@ -261,7 +295,8 @@ export class GuncellemePage {
   setButtonStyle(type: string) {
     let clientVersiyon = localStorage.getItem(Constants.VERSIYON.CLIENT[type]);
     let serverVersiyon = localStorage.getItem(Constants.VERSIYON.SERVER[type]);
-    if (serverVersiyon == '-1' || clientVersiyon != serverVersiyon) {
+    let gelenVeri = localStorage.getItem(Constants.GELEN_VERI[type]);
+    if (serverVersiyon == '-1' || clientVersiyon != serverVersiyon || (this.util.isNotEmpty(gelenVeri) && gelenVeri != "0")) {
       Constants.COLORS[type] = "notDownloaded";
       Constants.ICONS[type] = "download";
     } else {
@@ -270,5 +305,28 @@ export class GuncellemePage {
     }
   }
 
+  updateHeader() {
+    setTimeout(() => {
+      this.header.updateHeader();
+    }, 200)
+  }
 
+
+  catchException(e, place) {
+    this.logger.error(e);
+    this.updateHeader();
+    this.util.error("Indirme işleminde Hata oluştu lütfen tekrar deneyiniz." + place);
+    this.util.loaderEnd();
+  }
+
+  doWhenDataDownloaded(type: string, message: string) {
+    localStorage.setItem(Constants.VERSIYON.CLIENT[type], localStorage.getItem(Constants.VERSIYON.SERVER[type]));
+    this.colors[type] = "downloaded";
+    this.icons[type] = "done-all";
+    this.util.loaderEnd();
+    this.updateHeader();
+    setTimeout(() => {
+      this.util.message(message);
+    }, 500)
+  }
 }

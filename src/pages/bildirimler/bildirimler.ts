@@ -2,13 +2,15 @@
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {IonicPage, NavController, NavParams, ModalController} from 'ionic-angular';
 import {MesajlarProvider} from '../../providers/mesajlar/mesajlar';
 import {Mesaj} from "../../entities/mesajlar";
 import {MesajDetailComponent} from "../../components/mesaj-detail/mesaj-detail";
 import {Pageable} from "../../entities/Pageable";
 import {MesajlarDao} from "../../providers/mesajlar-dao/mesajlar-dao";
+import {HeaderComponent} from "../../components/header/header";
+import {timeout} from "rxjs/operators";
 
 @IonicPage()
 @Component({
@@ -22,6 +24,7 @@ export class BildirimlerPage {
   pageable: Pageable;
   mesajTip: string;
   mesajBaslik: string;
+  @ViewChild("header") header: HeaderComponent;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -40,7 +43,7 @@ export class BildirimlerPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BildirimlerPage');
-    this.mesajBaslik = this.mesajTip == 'WARN' ? 'Duyurular': 'Uyarılar'
+    this.mesajBaslik = this.mesajTip == 'WARN' ? 'Duyurular' : 'Uyarılar'
   }
 
   async guncelle() {
@@ -53,6 +56,10 @@ export class BildirimlerPage {
     mes.type = this.mesajTip;
     this.pageable.tip = tip;
     this.mesajList = await this.mesajProvider.fetchList(mes, this.pageable);
+
+    setTimeout(() => {
+      this.header.updateHeader();
+    }, 500);
   }
 
   public  mesajDetayinaGit(event, id) {
@@ -60,5 +67,6 @@ export class BildirimlerPage {
     let detailComponent = this.modalController.create(MesajDetailComponent, data);
     detailComponent.present();
   }
+
 
 }
