@@ -76,6 +76,7 @@ import {ZebraPrinterComponent} from "../components/zebra-printer/zebra-printer";
 import {SeriNoSorguProvider} from '../providers/seri-no-sorgu/seri-no-sorgu';
 import {UpdateUrunAnaGrupComponent} from "../components/update-urun-ana-grup/update-urun-ana-grup";
 import {UrunIscilikSearchComponent} from "../components/urun-iscilik-search/urun-iscilik-search";
+import { TasksProvider } from '../providers/tasks/tasks';
 
 
 @NgModule({
@@ -172,14 +173,16 @@ import {UrunIscilikSearchComponent} from "../components/urun-iscilik-search/urun
     UserDao,
     HeaderProvider,
     PrinterService,
-    SeriNoSorguProvider],
+    SeriNoSorguProvider,
+    TasksProvider,
+    VersiyonProvider],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {
 
-  constructor(t: TokenProvider) {
-    console.log(t)
+  constructor() {
+
   }
 }
 

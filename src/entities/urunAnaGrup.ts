@@ -23,8 +23,10 @@ export class UrunAnaGrup {
   }
 
   fillUrunAnaGrup(res: any): Promise<UrunAnaGrup[]> {
+    debugger;
     res = res.message;
     let urunAnaGrpList = [];
+    localStorage.setItem(Constants.VERSIYON.SERVER.URUN_ANA_GRUP, res.versiyon);
     let cozumListe = new CozumListe();
     let basvuruListe = new BasvuruListe();
     let liste = new UrunAnaGrupListe();
@@ -82,7 +84,6 @@ export class UrunAnaGrupListe {
   tip: string = "liste";
 
   fillMamAnaGrpListe(list: UrunAnaGrupListe[], mainList: UrunAnaGrup[]) {
-    localStorage.setItem(Constants.VERSIYON.SERVER.URUN_ANA_GRUP, list.length.toString());
     list.forEach(item => {
       let anaGrp = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
       anaGrp.mamAnaGrp = item.mamAnaGrp;

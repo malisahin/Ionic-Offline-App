@@ -25,6 +25,7 @@ export class UrunAnaGrpProvider {
   }
 
   downloadUrunAnaGrup(): Promise<any> {
+    debugger;
     return new Promise((resolve, reject) => {
       this.getDataFromApi().then(item => {
         let anaGrp = new UrunAnaGrup("");

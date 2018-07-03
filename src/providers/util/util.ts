@@ -2,7 +2,9 @@ import {Injectable} from '@angular/core';
 import {Constants} from '../../entities/Constants';
 import {ToastController, LoadingController, Loading} from 'ionic-angular';
 import moment from 'moment';
-import {ProcessResults} from "../../entities/ProcessResults";
+import {ProcessResults} from "../../entities/ProcessResults"
+import {Network} from '@ionic-native/network';
+import {LoggerProvider} from "../logger/logger";
 
 
 @Injectable()
@@ -12,6 +14,8 @@ export class UtilProvider {
   private isLoaderRunning: boolean = false;
 
   constructor(private toast: ToastController,
+              private network: Network,
+              private logger: LoggerProvider,
               private  loadingController: LoadingController) {
     moment.locale('tr');
   }
@@ -111,7 +115,12 @@ export class UtilProvider {
 
   // FIXME: Pluginden alınan bilgiye göre cevap dönecek
   isOnline(): boolean {
-    return true;
+    let connection: boolean = true;
+    let connectionType = this.network.type;
+    this.logger.warn(connectionType);
+
+    return connection;
+
   }
 
 

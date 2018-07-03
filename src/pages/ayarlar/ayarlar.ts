@@ -11,6 +11,7 @@ import {FiyatDao} from "../../providers/fiyat-dao/fiyat-dao";
 import {HizmetDao} from "../../providers/hizmet-dao/hizmet-dao";
 import {CagrilarPage} from "../cagrilar/cagrilar";
 import {GuncellemePage} from "../guncelleme/guncelleme";
+import {TasksProvider} from "../../providers/tasks/tasks";
 
 @IonicPage()
 @Component({
@@ -22,13 +23,17 @@ export class AyarlarPage {
   activePage: string = "silme";
 
   deletedVersion: string = (-1).toString();
+  syncTime: number;
+  DEFAULT_SYNC_TIME: number = 2;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private  util: UtilProvider,
               private  baseDao: BaseDao,
+              private tasks: TasksProvider,
               private  fiyatDao: FiyatDao,
               private  hizmetDao: HizmetDao) {
+    this.senkronizeOnChange('IN');
   }
 
   ionViewDidLoad() {
@@ -109,6 +114,24 @@ export class AyarlarPage {
     setTimeout(() => {
       this.navCtrl.push(GuncellemePage)
     }, 500);
+  }
+
+  senkronizeOnChange(nerden: string) {
+    let permanentSyncTime = Number(localStorage.getItem(Constants.SYNC_TIME));
+    if (this.util.isEmpty(this.syncTime)) {
+      if (this.util.isEmpty(permanentSyncTime)) {
+        this.syncTime = this.DEFAULT_SYNC_TIME;
+        localStorage.setItem(Constants.SYNC_TIME, this.DEFAULT_SYNC_TIME);
+      } else {
+        this.syncTime = Number(permanentSyncTime);
+      }
+    } else {
+      localStorage.setItem(Constants.SYNC_TIME, String(this.syncTime));
+      if (nerden == 'OUT') {
+        this.util.message("Senkronize süresi değiştirildi. Atanan değer " + String(this.syncTime) + " dk.")
+        this.tasks.killAndStartTasks();
+      }
+    }
   }
 
 }

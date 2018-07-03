@@ -78,6 +78,7 @@ export class TokenProvider {
   }
 
   async callTokenAndGetHeader(): Promise<any> {
+    this.util.isOnline();
     await  this.getTokenInside();
     return new Promise((response, reject) => {
       response(new HttpHeaders({
