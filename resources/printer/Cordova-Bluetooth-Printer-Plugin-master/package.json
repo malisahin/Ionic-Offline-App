@@ -1,0 +1,18 @@
+{
+  "name": "cordova-bluetooth-printer-plugin-master",
+  "version": "1.0.0",
+  "description": "Cordova Zebra Printer Plugin",
+  "main": "www/printer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "zebra",
+    "printer",
+    "plugin",
+    "cordova",
+    "android"
+  ],
+  "author": "",
+  "license": "ISC"
+}
