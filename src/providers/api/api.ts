@@ -136,7 +136,7 @@ export class ApiProvider {
   getHeader() {
     return new HttpHeaders({
       'Content-Type': 'application/json',
-      'accessToken': localStorage.getItem("accessToken")
+      'accessToken': localStorage.getItem(Constants.ACCESS_TOKEN)
     });
   }
 }

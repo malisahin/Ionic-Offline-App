@@ -17,6 +17,8 @@ export class Constants {
 
   public static DATE_FORMAT = "dd.MM.yyyy hh:mm:ss";
 
+  public static ACCESS_TOKEN = "ACCESS_TOKEN";
+
   public static STATUS = {
     SUCCESS: "SUCCESS",
     ERROR: "ERROR"
@@ -40,7 +42,7 @@ export class Constants {
     ISLEM_ARIZA_ISCILIK: "OFF_ISC_ISLARZGRP_TNM"
   };
 
-  public static SEARCH_TYPE = { LIKE: "LIKE", EXACT: "EXACT" };
+  public static SEARCH_TYPE = {LIKE: "LIKE", EXACT: "EXACT"};
 
   public static DATA_TYPE = {
     URUN: "URUN",

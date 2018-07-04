@@ -17,7 +17,7 @@ export class UrunAnaGrupDao {
 
   insertOne(item: UrunAnaGrup): Promise<any> {
     let query = 'INSERT OR REPLACE INTO OFF_MAM_ANAGRP_TNM (tip,mamAnaGrp,ad,durum,kod, neden) VALUES (?,?,?,?,?,?)';
-    let params = [item.tip, item.mamAnaGrp, item.ad, item.durum, item.kod, item.basvuruNeden];
+    let params = [item.tip, item.mamAnaGrp, item.ad, item.durum, item.kod, item.neden];
     return this.baseDao.execute(query, params);
   }
 
@@ -38,7 +38,7 @@ export class UrunAnaGrupDao {
         db.transaction(function (tx) {
           let query = 'INSERT OR REPLACE INTO OFF_MAM_ANAGRP_TNM (tip,mamAnaGrp,ad,durum,kod, neden) VALUES (?,?,?,?,?,?)';
           for (let item of list) {
-            let params = [item.tip, item.mamAnaGrp, item.ad, item.durum, item.kod, item.basvuruNeden];
+            let params = [item.tip, item.mamAnaGrp, item.ad, item.durum, item.kod, item.neden];
             tx.executeSql(query, params, function (tx, res) {
               insertedItems += 1;
               if (list.length == insertedItems) {
@@ -61,8 +61,8 @@ export class UrunAnaGrupDao {
     if (this.util.isNotEmpty(item.ad)) {
       whereQuery.push(this.util.prepareWhereQuery(searchType, 'ad', item.ad));
     }
-    if (this.util.isNotEmpty(item.basvuruNeden)) {
-      whereQuery.push(this.util.prepareWhereQuery(searchType, 'basvuruNeden', item.basvuruNeden));
+    if (this.util.isNotEmpty(item.neden)) {
+      whereQuery.push(this.util.prepareWhereQuery(searchType, 'neden', item.neden));
     }
     if (this.util.isNotEmpty(item.mamAnaGrp)) {
       whereQuery.push(this.util.prepareWhereQuery(searchType, 'mamAnaGrp', item.mamAnaGrp));

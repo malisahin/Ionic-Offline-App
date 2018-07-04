@@ -38,14 +38,17 @@ export class TasksProvider {
   runTasks() {
     this.interval = setInterval(() => {
       this.logger.warn("Tasks running command is given.");
-      this.versiyonTask();
-      this.messageTask();
+      let token = localStorage.getItem(Constants.ACCESS_TOKEN);
+      if (this.util.isNotEmpty(token)) {
+        this.versiyonTask();
+        this.messageTask();
+      }
 
     }, this.TASK_TIME_INTERVAL);
   }
 
   public killAndStartTasks() {
-    this.logger.warn("Task Killed. [" + String(this.interval)+ "]");
+    this.logger.warn("Task Killed. [" + String(this.interval) + "]");
     clearInterval(this.interval);
     this.init();
     this.runTasks();

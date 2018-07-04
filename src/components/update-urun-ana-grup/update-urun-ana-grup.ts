@@ -68,7 +68,7 @@ export class UpdateUrunAnaGrupComponent {
         let anaGrp = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.BASVURU_LISTE);
         anaGrp.mamAnaGrp = item.mamAnaGrp;
         anaGrp.ad = item.ad;
-        anaGrp.basvuruNeden = item.neden;
+        anaGrp.neden = item.neden;
         this.basvuruNedeniList.push(anaGrp);
 
       }

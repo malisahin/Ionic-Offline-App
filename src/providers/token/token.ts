@@ -12,6 +12,7 @@ import {Platform} from 'ionic-angular';
 import {UtilProvider} from '../util/util';
 import {User} from "../../entities/user";
 import {HttpHeaders} from '@angular/common/http';
+import {Constants} from "../../entities/Constants";
 
 @Injectable()
 export class TokenProvider {
@@ -45,6 +46,7 @@ export class TokenProvider {
       return this.extractData(token);
     } catch (e) {
 
+      localStorage.setItem(Constants.ACCESS_TOKEN, "");
       this.logger.error(e);
       if (e.error.error = "invalid_grant") {
         this.util.message("Giriş bilgileriniz yanlış lütfen kontrol ediniz.");
@@ -83,7 +85,7 @@ export class TokenProvider {
     return new Promise((response, reject) => {
       response(new HttpHeaders({
         'Content-Type': 'application/json',
-        'accessToken': localStorage.getItem("accessToken")
+        'accessToken': localStorage.getItem(Constants.ACCESS_TOKEN)
       }));
     });
   }

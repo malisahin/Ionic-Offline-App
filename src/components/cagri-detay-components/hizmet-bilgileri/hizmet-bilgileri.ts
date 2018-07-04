@@ -3,12 +3,16 @@
  * @email [mehmetalisahinogullari@gmail.com]
  */
 
-import { Component } from "@angular/core";
-import { Hizmet } from "../../../entities/hizmet/hizmet";
-import { HizmetService } from "../../../providers/hizmet-service/hizmet-service";
-import { Pageable } from "../../../entities/Pageable";
-import { UtilProvider } from "../../../providers/util/util";
-import { Constants } from "../../../entities/Constants";
+import {Component} from "@angular/core";
+import {Hizmet} from "../../../entities/hizmet/hizmet";
+import {HizmetService} from "../../../providers/hizmet-service/hizmet-service";
+import {Pageable} from "../../../entities/Pageable";
+import {UtilProvider} from "../../../providers/util/util";
+import {Constants} from "../../../entities/Constants";
+import {UrunAnaGrup} from "../../../entities/urunAnaGrup";
+import {UrunAnaGrpProvider} from "../../../providers/urun-ana-grp/urun-ana-grp";
+import {Logger} from "@ionic/app-scripts/dist/logger/logger";
+import {LoggerProvider} from "../../../providers/logger/logger";
 
 
 @Component({
@@ -24,7 +28,9 @@ export class HizmetBilgileriComponent {
   cagriTarihi: any;
 
   constructor(public hizmetService: HizmetService,
-    private util: UtilProvider) {
+              private urunAnaGrpProvider: UrunAnaGrpProvider,
+              private logger: LoggerProvider,
+              private util: UtilProvider) {
 
     this.text = 'Hello World';
     this.hizmet = this.hizmetService.getHizmet();
@@ -32,25 +38,47 @@ export class HizmetBilgileriComponent {
 
   }
 
-  fetchHizmet() {
-    if (this.hizmet.seqNo == null || this.hizmet.seqNo == "") {
-      this.hizmet = this.hizmetService.getHizmet();
+  async fetchHizmet() {
+    if (this.util.isNotEmpty(this.hizmet)) {
+      this.hizmet = await this.hizmetService.getHizmetBySeqNo(this.hizmet.seqNo);
     }
   }
 
-  getHizmet() {
-    this.hizmetService.fetchHizmetWithPage(this.hizmet, new Pageable).then(result => {
-      if (result.res.rows.length > 0) {
-        this.hizmet = JSON.parse(result.res.rows.item(0).data);
-        this.hizmetService.setHizmet(this.hizmet);
+  async getHizmet() {
 
-        this.randevuTarihi = this.util.dateFormatRegex(this.hizmet.randevuTarihi, Constants.DATE_FORMAT);
-        this.cagriTarihi = this.util.dateFormatRegex(this.hizmet.cagriTarihi, Constants.DATE_FORMAT);
-      }
-    });
+    await this.fetchHizmet();
+
+    this.hizmetService.setHizmet(this.hizmet);
+    this.randevuTarihi = this.util.dateFormatRegex(this.hizmet.randevuTarihi, Constants.DATE_FORMAT);
+    this.cagriTarihi = this.util.dateFormatRegex(this.hizmet.cagriTarihi, Constants.DATE_FORMAT);
+    await this.findUrunAnaGrpProvider();
+    await this.findBasvuruNedeni();
   }
 
-  find
+  async findUrunAnaGrpProvider() {
+    if (this.util.isEmpty(this.hizmet.mamAnaGrpAdi) && this.util.isNotEmpty(this.hizmet.mamAnaGrp)) {
+      let filter = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
+      filter.mamAnaGrp = this.hizmet.mamAnaGrp;
+      let result = await  this.urunAnaGrpProvider.findUrunAnaGrp(filter);
+      this.logger.dir(result);
+      if (this.util.isNotEmpty(result)) {
+        this.hizmet.mamAnaGrpAdi = result.ad;
+      }
+
+    }
+  }
+
+  async findBasvuruNedeni() {
+    if (this.util.isNotEmpty(this.hizmet.basvuruNedeni)&& this.util.isEmpty(this.hizmet.basvuruNedenAdi)) {
+      let filter = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.BASVURU_LISTE);
+      filter.neden = this.hizmet.basvuruNedeni;
+      filter.mamAnaGrp = this.hizmet.mamAnaGrp;
+      let result = await this.urunAnaGrpProvider.findUrunAnaGrp(filter);
+      if(this.util.isNotEmpty(result)){
+        this.hizmet.basvuruNedenAdi = result.ad;
+      }
+    }
+  }
 
 
 }

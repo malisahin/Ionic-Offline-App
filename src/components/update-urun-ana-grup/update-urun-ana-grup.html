@@ -16,8 +16,8 @@
     <ion-item>
       <ion-label>Başvuru Nedeni</ion-label>
       <ion-select [(ngModel)]="basvuruNedeni">
-        <ion-option *ngFor="let neden of basvuruNedeniList" [value]="neden.basvuruNeden">
-          {{neden.ad }} ({{neden.basvuruNeden}})
+        <ion-option *ngFor="let neden of basvuruNedeniList" [value]="neden.neden">
+          {{neden.ad }} ({{neden.neden}})
         </ion-option>
       </ion-select>
     </ion-item>

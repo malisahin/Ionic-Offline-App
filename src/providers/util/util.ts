@@ -220,9 +220,11 @@ export class UtilProvider {
 
 
   loaderStart() {
-    this.loader = this.loadingController.create({spinner: 'dots'});
-    this.isLoaderRunning = true;
-    this.loader.present();
+    if(!this.isLoaderRunning) {
+      this.loader = this.loadingController.create({spinner: 'dots'});
+      this.isLoaderRunning = true;
+      this.loader.present();
+    }
   }
 
   loaderEnd() {

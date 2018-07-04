@@ -12,6 +12,7 @@ import {LoggerProvider} from '../../providers/logger/logger';
 import {User} from "../../entities/user";
 import {Anasayfa} from "../anasayfa/anasayfa";
 import {ThemeProvider} from "../../providers/theme/theme";
+import {Constants} from "../../entities/Constants";
 
 @IonicPage()
 @Component({
@@ -42,13 +43,23 @@ export class LoginPage {
   }
 
   async  login() {
+
     this.util.loaderStart();
+    localStorage.setItem(this.user.keys.userCode, this.userCode);
+    localStorage.setItem(this.user.keys.password, this.password);
     this.checkLoginInfo();
     let token = await this.loginProvider.login(this.userCode, this.password);
     this.logger.log("Username: " + this.userCode + " Password: " + this.password);
 
-    this.user = await this.userProvider.getUser(this.userCode, this.password);
-    this.hasLoginPermission = this.user != null;
+    token = localStorage.getItem(Constants.ACCESS_TOKEN);
+    if(this.util.isNotEmpty(token)){
+      this.user = await this.userProvider.getUser(this.userCode, this.password);
+      this.hasLoginPermission = this.user != null;
+    }
+    else {
+      this.hasLoginPermission = false;
+    }
+
     this.logger.dir(this.user);
     this.route();
     this.util.loaderEnd();

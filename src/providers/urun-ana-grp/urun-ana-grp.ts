@@ -51,13 +51,15 @@ export class UrunAnaGrpProvider {
   }
 
 
-  findUrunAnaGrp(mamAnaGrp: string) {
-    let urunAnaGrp = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
-    urunAnaGrp.mamAnaGrp = mamAnaGrp;
-    this.urunAnaGrupDao.getList(urunAnaGrp, Constants.SEARCH_TYPE.EXACT).then(res => {
-      //if (res.rows.length > 0)
-      // this.hizmet.mamAnaGrpAdi = this.util.isNotEmpty(res.rows) ? res.rows.item(0).ad : "";
-    });
+  async findUrunAnaGrp(filter: UrunAnaGrup) {
+    let urunAnaGrp: any;
+    let res = await this.urunAnaGrupDao.getList(filter, Constants.SEARCH_TYPE.EXACT);
+
+    if (res.rows.length > 0) {
+      urunAnaGrp = this.util.isNotEmpty(res.rows) ? res.rows.item(0) : "";
+    }
+
+    return urunAnaGrp;
   }
 
 

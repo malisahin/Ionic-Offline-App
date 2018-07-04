@@ -11,7 +11,7 @@ export class UrunAnaGrup {
   basvuruListe: BasvuruListe[] = [];
   liste: UrunAnaGrupListe[] = [];
 
-  basvuruNeden: string = "";
+  neden: string = "";
   mamAnaGrp: string = "";
   ad: string = "";
   durum: string = "";
@@ -50,7 +50,7 @@ export class BasvuruListe {
   fillBasvuruListe(list: BasvuruListe[], mainList: UrunAnaGrup[]) {
     list.forEach(function (item) {
       let anaGrp = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.BASVURU_LISTE);
-      anaGrp.basvuruNeden = item.basvuruNeden;
+      anaGrp.neden = item.basvuruNeden;
       anaGrp.mamAnaGrp = item.mamAnagrp;
       anaGrp.ad = item.ad;
       anaGrp.durum = item.durum;
