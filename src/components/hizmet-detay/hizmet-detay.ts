@@ -83,7 +83,7 @@ export class HizmetDetayComponent {
         }
       });
     }
-    let result = await this.hizmetService.saveHizmet();
+    let result = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
     this.logger.dir(result);
 
 

@@ -1,9 +1,7 @@
 <ion-header>
 
-  <ion-navbar>
-    <button ion-button primary menuToggle>
-      <ion-icon name="list"></ion-icon>
-    </button>
+  <ion-navbar hideBackButton="true">
+
     <icon-header></icon-header>
   </ion-navbar>
 
@@ -11,7 +9,17 @@
 
 
 <ion-content padding>
-  <ion-title class="page-title">Çağrı Detay</ion-title>
+  <ion-row>
+    <ion-col (click)="goback()">
+      <button ion-button>
+        <label>Geri</label>
+      </button>
+    </ion-col>
+    <ion-col>
+      <ion-title class="page-title">Çağrı Detay</ion-title>
+    </ion-col>
+
+  </ion-row>
 
 
   <ion-toolbar no-border-top class="main-tabs">

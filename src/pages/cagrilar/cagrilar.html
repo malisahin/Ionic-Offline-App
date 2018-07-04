@@ -41,7 +41,7 @@
       <i class="fas fa-phone"></i>{{cagri.gsmNo}} | {{cagri.evTel}} | {{cagri.evTel}}
     </p>
     <p class="call-date">
-      <i class="far fa-clock"></i> {{cagri.randevuTarihi}} </p>
+      <i class="far fa-clock"></i> {{cagri.randevuTarihi | date: 'dd-MM-yyyy HH:mm'}} </p>
     <p>{{cagri.Adres}}</p>
   </ion-card>
 </ion-content>

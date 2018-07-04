@@ -47,5 +47,8 @@ export class CagriDetayPage {
     //this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
   }
 
+  goback() {
+    this.navCtrl.pop();
+  }
 
 }

@@ -124,7 +124,7 @@
       <ion-col col-8 col-md-8>
         <ion-textarea [(ngModel)]="hizmet.aciklama"
                       [disabled]="isHizmetDisabled()"
-                      (ionChange)="onHizmetChange()"></ion-textarea>
+                      (ionBlur)="onHizmetChange()"></ion-textarea>
       </ion-col>
 
       <ion-col col-4 col-md-4>

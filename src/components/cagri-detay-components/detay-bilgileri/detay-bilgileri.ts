@@ -101,7 +101,7 @@ export class DetayBilgileriComponent {
       });
       detayModal.onDidDismiss(res => {
         this.logger.dir(res);
-        this.updateHizmet();
+        this.updateHizmet('INSERT');
       });
       detayModal.present();
     } else {
@@ -117,7 +117,7 @@ export class DetayBilgileriComponent {
     });
     detayModal.onDidDismiss(res => {
       this.logger.dir(res);
-      this.updateHizmet();
+      this.updateHizmet('NEW');
     });
     detayModal.present();
 
@@ -130,7 +130,7 @@ export class DetayBilgileriComponent {
       this.detayList.splice(index, 1);
     }
     this.hizmet.detayDtoList = this.detayList;
-    this.updateHizmet();
+    this.updateHizmet('DELETE');
   }
 
   yazdir() {
@@ -187,9 +187,15 @@ export class DetayBilgileriComponent {
     this.util.loaderEnd();
   }
 
-  async updateHizmet() {
-    this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
-    //this.hizmet = await this.hizmetService.getHizmetBySeqNo(this.hizmet.seqNo);
+  async updateHizmet(nerden: string) {
+    if (nerden == 'DELETE') {
+      this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
+
+    } else {
+      this.hizmet = await this.hizmetService.getHizmetBySeqNo(this.hizmet.seqNo);
+
+    }
+
     this.loadDetayList();
   }
 

@@ -42,7 +42,7 @@ export class LoginPage {
   }
 
   async  login() {
-    this.showLoading();
+    this.util.loaderStart();
     this.checkLoginInfo();
     let token = await this.loginProvider.login(this.userCode, this.password);
     this.logger.log("Username: " + this.userCode + " Password: " + this.password);
@@ -51,39 +51,18 @@ export class LoginPage {
     this.hasLoginPermission = this.user != null;
     this.logger.dir(this.user);
     this.route();
+    this.util.loaderEnd();
   }
 
   route() {
     if (this.hasLoginPermission) {
       this.nav.push(Anasayfa);
-      this.loading.dismiss();
     }
     else {
       this.util.message("Giriş bilgileriniz yanlış lütfen kontrol ediniz.");
-      this.loading.dismiss();
     }
+    this.util.loaderEnd();
   }
-
-  showLoading() {
-    this.loading = this.loadingCtrl.create({
-      content: 'Please wait...',
-      dismissOnPageChange: true,
-      enableBackdropDismiss: true,
-      showBackdrop: true
-    });
-    this.loading.present();
-  }
-
-  showError(text) {
-    this.loading.dismiss();
-
-    let alert = this.alertCtrl.create({
-      title: 'Fail',
-      subTitle: text,
-      buttons: ['OK']
-    });
-  }
-
 
   hideShowPassword() {
     this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
