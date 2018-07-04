@@ -29,52 +29,58 @@
 </ion-grid>
 
 
-<ion-list>
-
-  <ion-item>
+<ion-row class="urun-bilgileri">
+  <ion-col col-4 col-md-2>
     <ion-label color="primary">Ürün Ana Grubu</ion-label>
+  </ion-col>
+  <ion-col col-8 col-md-10>
     <ion-input [(ngModel)]="mamAnaGrpValue" readonly></ion-input>
-  </ion-item>
+  </ion-col>
 
-  <ion-item>
+  <ion-col col-4 col-md-2>
     <ion-label color="primary">Ürün Kodu</ion-label>
+  </ion-col>
+  <ion-col col-8 col-md-10>
     <ion-input [(ngModel)]="hizmet.mamKod" readonly></ion-input>
-  </ion-item>
+  </ion-col>
 
-  <ion-item>
+  <ion-col col-4 col-md-2>
     <ion-label color="primary">Ürün Adı</ion-label>
+  </ion-col>
+  <ion-col col-8 col-md-10>
     <ion-input [(ngModel)]="hizmet.mamAdi" readonly></ion-input>
-  </ion-item>
+  </ion-col>
 
-  <ion-item>
-    <ion-label style="width: 20%" color="primary">Seri No</ion-label>
-    <ion-input style="width: 65%" [(ngModel)]="hizmet.mamSeriNo" [disabled]="isHizmetDisabled()"></ion-input>
-    <button style="width: 15%" item-end ion-button icon-only full round (click)="seriNoSorgula()"
-            [disabled]="isHizmetDisabled()">
+  <ion-col col-4 col-md-2>
+    <ion-label color="primary">Seri No</ion-label>
+  </ion-col>
+  <ion-col col-5 col-md-10>
+    <ion-input [(ngModel)]="hizmet.mamSeriNo" [disabled]="isHizmetDisabled()"></ion-input>
+  </ion-col>
+  <ion-col col-3 col-md-12>
+    <button ion-button icon-start full round (click)="seriNoSorgula()" [disabled]="isHizmetDisabled()">
       <ion-icon name="search"></ion-icon>
     </button>
+  </ion-col>
 
-  </ion-item>
-
-  <ion-item>
+  <ion-col col-4 col-md-2>
     <ion-label color="primary">Fatura Tarihi</ion-label>
-    <ion-datetime [(ngModel)]="hizmet.sattar" [disabled]="isHizmetDisabled()" (ionChange)="faturaTarihiChange()"
-                  displayFormat="MM/DD/YYYY"></ion-datetime>
-  </ion-item>
+  </ion-col>
+  <ion-col col-8 col-md-10>
+    <ion-datetime [(ngModel)]="hizmet.sattar" [disabled]="isHizmetDisabled()" (ionChange)="faturaTarihiChange()" displayFormat="MM/DD/YYYY"></ion-datetime>
+  </ion-col>
 
-  <ion-item>
+  <ion-col col-4 col-md-2>
     <ion-label color="primary">Garanti</ion-label>
-    <ion-label color="primary" style="text-align: end">{{garanti == true ? 'VAR' : 'YOK'}}</ion-label>
-    <ion-toggle [(ngModel)]="garanti" (ionChange)="garantiChange()" style="text-align: end"
-                [disabled]="isHizmetDisabled()"
-                color="secondary"></ion-toggle>
-  </ion-item>
+  </ion-col>
+  <ion-col col-8 col-md-10>
+    <ion-toggle [(ngModel)]="hizmet.garanti" (ionChange)="garantiChange()" color="secondary"></ion-toggle>
+  </ion-col>
 
-  <ion-item>
+  <ion-col col-4 col-md-2>
     <ion-label color="primary">Meşguliyet</ion-label>
-    <ion-label color="primary" style="text-align: end">{{mesguliyet == true ? 'VAR' : 'YOK'}}</ion-label>
-    <ion-toggle [(ngModel)]="mesguliyet" (ionChange)="mesguliyetChange()" style="text-align: end"
-                [disabled]="isHizmetDisabled()" color="secondary"></ion-toggle>
-  </ion-item>
-
-</ion-list>
+  </ion-col>
+  <ion-col col-8 col-md-10>
+    <ion-toggle [(ngModel)]="hizmet.mesguliyet" (ionChange)="mesguliyetChange()" color="secondary"></ion-toggle>
+  </ion-col>
+</ion-row>

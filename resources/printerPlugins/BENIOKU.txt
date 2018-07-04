@@ -1,8 +1,0 @@
-
-##########################################
-		@author: mali.sahin
-
-		@since: 03.07.2018 
-#########################################
-
-Plugins klasörü altındaki pluginler mevcut uygulama'da kullanılan ve yedeklenmesi gereken pluginlerdir.
