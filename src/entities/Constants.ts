@@ -13,6 +13,8 @@ export class Constants {
 
   public static SYNC_TIME = "SYNC_TIME";
 
+  public static SELECTED_THEME = "SELECTED_THEME";
+
   public static STATUS = {
     SUCCESS: "SUCCESS",
     ERROR: "ERROR"

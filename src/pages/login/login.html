@@ -1,25 +1,27 @@
-<ion-content class="login-content" padding>
-  <ion-row class="logo-row">
+<ion-content class="content-background login-content" padding>
+
+  <ion-row>
     <ion-col></ion-col>
-    <ion-col width-67>
-      <!--<img src="resources/login-user.png"/>-->
+    <ion-col class="logo">
+      <ion-icon name="contact"></ion-icon>
     </ion-col>
     <ion-col></ion-col>
   </ion-row>
   <div class="login-box">
     <form (ngSubmit)="login()" #registerForm="ngForm">
+
       <ion-row>
         <ion-col>
-          <ion-list inset>
+
+          <ion-list>
 
             <ion-item>
-              <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="userCode" required></ion-input>
+              <ion-input type="text" placeholder="Kullanıcı Adı" name="email" [(ngModel)]="userCode" required></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-input [type]="passwordType" placeholder="Password" name="password" [(ngModel)]="password"
-                         required></ion-input>
-              <ion-icon item-end [name]="passwordIcon" class="passIcon" (click)='hideShowPassword()'></ion-icon>
+              <ion-input [type]="passwordType" placeholder="Şifre" name="password" [(ngModel)]="password" required></ion-input>
+              <ion-icon item-end [name]="passwordIcon" class="password-icon passIcon" (click)='hideShowPassword()'></ion-icon>
             </ion-item>
 
           </ion-list>
@@ -30,6 +32,7 @@
         <ion-col class="signup-col">
           <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Login</button>
         </ion-col>
+
       </ion-row>
 
     </form>

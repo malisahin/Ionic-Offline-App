@@ -12,12 +12,16 @@ import {HizmetDao} from "../../providers/hizmet-dao/hizmet-dao";
 import {CagrilarPage} from "../cagrilar/cagrilar";
 import {GuncellemePage} from "../guncelleme/guncelleme";
 import {TasksProvider} from "../../providers/tasks/tasks";
+import {BehaviorSubject} from "rxjs";
+import {ThemeProvider} from "../../providers/theme/theme";
+import {LoggerProvider} from "../../providers/logger/logger";
 
 @IonicPage()
 @Component({
   selector: 'page-ayarlar',
   templateUrl: 'ayarlar.html',
 })
+
 export class AyarlarPage {
 
   activePage: string = "silme";
@@ -26,14 +30,20 @@ export class AyarlarPage {
   syncTime: number;
   DEFAULT_SYNC_TIME: number = 2;
 
+  selectedTheme: string;
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private  util: UtilProvider,
               private  baseDao: BaseDao,
               private tasks: TasksProvider,
               private  fiyatDao: FiyatDao,
-              private  hizmetDao: HizmetDao) {
-    this.senkronizeOnChange('IN');
+              private  hizmetDao: HizmetDao,
+              private themeProvider: ThemeProvider,
+              private logger: LoggerProvider) {
+    this.onChangeSyncTime('IN');
+    this.selectedTheme = this.themeProvider.getSelectedTheme();
+    this.onChangeTheme();
   }
 
   ionViewDidLoad() {
@@ -116,21 +126,32 @@ export class AyarlarPage {
     }, 500);
   }
 
-  senkronizeOnChange(nerden: string) {
+  onChangeSyncTime(nerden: string) {
     let permanentSyncTime = Number(localStorage.getItem(Constants.SYNC_TIME));
     if (this.util.isEmpty(this.syncTime)) {
       if (this.util.isEmpty(permanentSyncTime)) {
         this.syncTime = this.DEFAULT_SYNC_TIME;
-        localStorage.setItem(Constants.SYNC_TIME, this.DEFAULT_SYNC_TIME);
+        localStorage.setItem(Constants.SYNC_TIME, String(this.DEFAULT_SYNC_TIME));
       } else {
         this.syncTime = Number(permanentSyncTime);
       }
     } else {
       localStorage.setItem(Constants.SYNC_TIME, String(this.syncTime));
       if (nerden == 'OUT') {
-        this.util.message("Senkronize süresi değiştirildi. Atanan değer " + String(this.syncTime) + " dk.")
+        this.util.message("Senkronize süresi değiştirildi. Atanan değer " + String(this.syncTime) + " dk.");
         this.tasks.killAndStartTasks();
       }
+    }
+  }
+
+
+  onChangeTheme() {
+    if (this.util.isEmpty(this.selectedTheme)) {
+      this.logger.log("Tema seçilmemiş default set edilir.");
+      this.themeProvider.setTheme();
+    } else {
+      this.logger.log("Tema değiştirildi. Yeni tema" + this.selectedTheme);
+      this.themeProvider.changeTheme(this.selectedTheme);
     }
   }
 

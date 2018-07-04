@@ -11,6 +11,9 @@ import {AyarlarPage} from '../pages/ayarlar/ayarlar';
 import {LoginPage} from '../pages/login/login';
 import {DatabaseProvider} from '../providers/database/database';
 import {BilgiSorguPage} from '../pages/bilgi-sorgu/bilgi-sorgu';
+import {ThemeProvider} from "../providers/theme/theme";
+import {Constants} from "../entities/Constants";
+import {LoggerProvider} from "../providers/logger/logger";
 
 
 @Component({
@@ -22,12 +25,18 @@ export class MyApp {
   pages: Array<{ title: string, component: any, active: boolean, icon: string, param: any }>;
   rootPage: any = LoginPage;
 
+  selectedTheme: string;
+
   constructor(public platform: Platform,
               public menu: MenuController,
               public statusBar: StatusBar,
               public splashScreen: SplashScreen,
+              private logger: LoggerProvider,
+              private themeProvider: ThemeProvider,
               public db: DatabaseProvider) {
     this.initializeApp();
+    this.selectedTheme = this.themeProvider.setTheme();
+    this.logger.warn("SELECTED DEFAULT THEME" + this.selectedTheme);
 
     this.pages = [
       {title: 'Çağrılar', component: CagrilarPage, active: true, icon: 'home', param: {}},

@@ -5,10 +5,16 @@
       <ion-icon name="list"></ion-icon>
     </button>
     <icon-header></icon-header>
-    <ion-title class="page-title">Çağrı Detay</ion-title>
   </ion-navbar>
 
-  <ion-toolbar no-border-top>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-title class="page-title">Çağrı Detay</ion-title>
+
+
+  <ion-toolbar no-border-top class="main-tabs">
     <ion-segment [(ngModel)]="activePage">
 
       <ion-segment-button value="hizmet" (ionSelect)="whenTabChange()">
@@ -34,10 +40,6 @@
     </ion-segment>
   </ion-toolbar>
 
-</ion-header>
-
-
-<ion-content padding>
   <div [ngSwitch]="activePage">
 
     <div *ngSwitchCase="'hizmet'">

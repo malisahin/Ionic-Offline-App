@@ -47,3 +47,20 @@ $colors: ( primary: #488aff, secondary: #32db64, danger: #f53d3d, light: #f4f4f4
 // --------------------------------------------------
 @import "roboto";
 @import "noto-sans";
+
+
+/*-------------------------------
+
+            IONIC THEMES
+
+---------------------------------*/
+
+@import "theme.green";
+@import "theme.blue";
+
+@import "./components/_tabs.scss";
+@import "./components/_input.scss";
+@import "./components/_label.scss";
+@import "./components/_selectbox.scss";
+@import "./components/_theme.scss";
+

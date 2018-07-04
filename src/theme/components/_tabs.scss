@@ -1,0 +1,34 @@
+.segment-button.activated, .segment-button.segment-activated{
+    border-radius: 5px;
+    margin-top: -8px;
+}
+
+.main-tabs {
+    .segment-md .segment-button{
+        border-radius: 5px;
+        text-overflow: inherit;
+        white-space: inherit;
+        line-height: 25px;
+        padding-top: 7px;
+    }
+
+    .toolbar-ios .segment-button{
+        height: 35px;
+        font-size: 16px;
+        line-height: 33px;
+        max-width: 100%;
+    }
+}
+
+.segment-ios .segment-button:last-of-type{
+    border-radius: 25px;
+    margin-left: -30px;
+}
+
+.segment-ios .segment-button:first-of-type{
+    border-radius: 25px;
+}
+
+.main-tabs{
+    margin-bottom: 25px;
+}

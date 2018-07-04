@@ -1,0 +1,382 @@
+//*--------------------- START:IOS CSS ---------------------*//
+@media only screen and (max-width: 500px) {
+  .content {
+
+    .text-input-ios {
+      width: 100%;
+    }
+
+    .select-ios {
+      border-radius: 25px;
+      padding: 8px;
+      padding-left: 15px;
+      text-align: left;
+      font-size: 14px;
+      max-width: 100%;
+      margin-top: 10px;
+
+      .select-icon {
+        margin-right: 10px;
+      }
+    }
+
+    .announcements {
+      top: -5px;
+    }
+
+    .login-box {
+      .item-ios ion-icon[item-end] {
+        margin-left: -40px;
+      }
+    }
+
+    .list-ios > .item-block:first-child {
+      border-top: inherit;
+    }
+
+    .list-ios > .item-block:last-child {
+      border-bottom: inherit;
+    }
+
+    .gray-box .item-ios {
+      background-color: inherit;
+    }
+
+    .list-ios[inset] .item {
+      border-bottom: 0px;
+    }
+
+    .button-ios .label-ios {
+      margin-top: 10px;
+      padding-top: 0;
+    }
+
+    .label-ios {
+      white-space: inherit;
+    }
+
+    textarea.text-input {
+      padding: 0px;
+    }
+
+    .toolbar-ios .segment-button {
+      white-space: inherit;
+      height: 47px;
+      padding-top: 5px;
+      line-height: 15px;
+      border-radius: 5px;
+    }
+
+    .toolbar-ios {
+      min-height: 50px;
+    }
+
+    .main-tabs {
+      .segment-button {
+        height: 40px;
+      }
+    }
+
+    .segment-ios .segment-button:first-of-type, .segment-ios .segment-button:last-of-type {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-radius: 5px;
+    }
+
+    .label-ios {
+      padding-top: 10px;
+    }
+
+  }
+}
+
+.header {
+  .tabs-ios .tab-button.icon-only {
+    min-height: 43px;
+  }
+
+  .toolbar-ios ion-title {
+    padding: 0px;
+  }
+
+}
+
+.footer {
+
+  .button-ios-light {
+    float: left;
+  }
+
+  .item-ios {
+    width: 53%;
+    float: left;
+    margin-top: 5px;
+  }
+
+  ion-select {
+    max-width: 60%;
+  }
+
+  .select-ios {
+    padding: 11px 14px 8px 35px;
+  }
+}
+
+//*--------------------- END:IOS CSS ---------------------*//
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.announcements {
+  border-radius: 100%;
+  font-size: 12px;
+  top: 5px;
+  position: absolute;
+  z-index: 999;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  right: 0px;
+}
+
+.pull-right {
+  float: right;
+  text-align: right;
+}
+
+.pull-left {
+  float: left;
+  text-align: left;
+}
+
+hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bilgileri, garanti-sorgu {
+  .item-inner.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, item, .list-md .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child, .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-bottom: 0px;
+  }
+}
+
+.w-15 {
+  width: 15%;
+}
+
+.w-17 {
+  width: 17%;
+}
+
+.w-70 {
+  width: 70%;
+}
+
+.w-68 {
+  width: 68%;
+}
+
+//*------- START:HEADER -----*//
+.header {
+
+  button.disable-hover.bar-button.bar-button-ios.bar-button-default.bar-button-default-ios {
+    border-radius: 100%;
+    font-size: 12px;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    margin-left: 7px;
+  }
+
+  .close-icon {
+    margin-right: 20px;
+    font-size: 20px;
+  }
+
+  .tabbar {
+    opacity: 1;
+  }
+
+}
+
+//*------- END:HEADER -----*//
+
+//*------- START:HOME-CONTENT -----*//
+.home-content {
+
+  .label-md {
+    margin: 13px 0px 13px 0px;
+  }
+
+  .item-md.item-block .item-inner {
+    padding-right: 0px;
+  }
+
+  .grid {
+    margin-top: 15%;
+    padding: 15px;
+  }
+
+  .card {
+    border-radius: 5px;
+    padding: 5px;
+  }
+
+  .card-ios {
+    margin: 0px 0px 10px 0px;
+    width: 100%;
+  }
+
+  .bar-buttons {
+    border-radius: 100%;
+    position: absolute;
+    z-index: 999;
+    width: 38px;
+    height: 35px;
+    text-align: center;
+  }
+
+  .icon-box, .text-box {
+    text-align: center;
+
+    .icon {
+      font-size: 40px;
+    }
+
+    span {
+      font-size: 20px;
+    }
+  }
+}
+
+//*------- END:HOME-CONTENT -----*//
+
+//*------- START:CONTENT -----*//
+
+.content-background {
+  background-image: url("../../assets/img/eca/login/login-background.jpg");
+  background-repeat: no-repeat;
+}
+
+.content {
+
+  .toolbar-title-md, .toolbar-title-ios {
+    font-weight: 600;
+  }
+
+  .toolbar .searchbar-ios .searchbar-input {
+    height: 35px;
+  }
+
+  .label-md {
+    margin-top: 20px;
+  }
+
+  .item-md {
+    padding-left: 0px;
+  }
+
+  .fiyat-sorgu .select-md {
+    width: 75%;
+  }
+
+  .select-md .select-icon {
+    width: 20px;
+  }
+
+  .button-ios {
+    height: 2.5em;
+  }
+
+  .toolbar-title {
+    margin-bottom: 10px;
+  }
+
+  .item.item-block .item-inner {
+    border-bottom: 0px;
+  }
+
+  .scroll-content {
+    padding: 16px;
+  }
+
+  .card-box {
+    padding: 15px;
+    margin: 0px;
+    width: 100%;
+
+    i {
+      font-size: 15px;
+      margin-right: 5px;
+    }
+
+    label, p {
+      line-height: 22px;
+    }
+
+    .call-date {
+      float: right;
+      font-size: 12px;
+    }
+  }
+
+  .gray-box {
+    padding: 10px;
+  }
+
+}
+
+//*------- END:CONTENT -----*//
+
+//*------- START:LOGIN-CONTENT -----*//
+.login-content {
+
+  .submit-btn {
+    border-radius: 25px;
+  }
+
+  .item-md {
+    background: none;
+    padding-left: 0px;
+  }
+
+  .item-block {
+    background: none;
+  }
+
+  .login-box {
+    margin-top: 5%;
+  }
+
+  .password-icon {
+    position: relative;
+    display: block;
+    padding-right: 15px;
+    font-size: 20px;
+    padding-top: 3px;
+  }
+
+  .item-md ion-icon[item-end] {
+    margin-left: -35px;
+  }
+
+  .list-md .item-input:last-child {
+    border-bottom: none;
+  }
+
+  .item-md.item-block .item-inner {
+    padding-right: 0px;
+  }
+
+  .logo {
+    font-size: 80px;
+    text-align: center;
+  }
+
+  .list-md {
+    margin: 0px;
+  }
+}
+
+//*------- END:LOGIN-CONTENT -----*//
+
+

@@ -11,6 +11,7 @@ import {UtilProvider} from '../../providers/util/util';
 import {LoggerProvider} from '../../providers/logger/logger';
 import {User} from "../../entities/user";
 import {Anasayfa} from "../anasayfa/anasayfa";
+import {ThemeProvider} from "../../providers/theme/theme";
 
 @IonicPage()
 @Component({
@@ -34,7 +35,9 @@ export class LoginPage {
               private userProvider: UserProvider,
               private loadingCtrl: LoadingController,
               private logger: LoggerProvider,
-              private loginProvider: LoginProvider) {
+              private loginProvider: LoginProvider,
+              private  themeProvider: ThemeProvider) {
+    this.themeProvider.setTheme();
     this.user = new User();
   }
 

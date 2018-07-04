@@ -151,13 +151,28 @@
         </ion-list-header>
         <ion-item>
           <ion-label>Senkronize Süresi(Dakika)</ion-label>
-          <ion-select [(ngModel)]="syncTime" interface="popover" (ionChange)="senkronizeOnChange('OUT')">
+          <ion-select [(ngModel)]="syncTime" interface="popover" (ionChange)="onChangeSyncTime('OUT')">
             <ion-option value="0.5">0.5</ion-option>
             <ion-option value="1">1</ion-option>
             <ion-option value="2">2</ion-option>
             <ion-option value="3">3</ion-option>
             <ion-option value="5">5</ion-option>
             <ion-option value="10">10</ion-option>
+          </ion-select>
+        </ion-item>
+
+      </ion-list>
+
+
+      <ion-list>
+        <ion-list-header>
+          Tema
+        </ion-list-header>
+        <ion-item>
+          <ion-label>Tema</ion-label>
+          <ion-select [(ngModel)]="selectedTheme" interface="popover" (ionChange)="onChangeTheme()">
+            <ion-option value="BLUE">Mavi</ion-option>
+            <ion-option value="GREEN">Yeşil</ion-option>
           </ion-select>
         </ion-item>
 

@@ -77,6 +77,7 @@ import {SeriNoSorguProvider} from '../providers/seri-no-sorgu/seri-no-sorgu';
 import {UpdateUrunAnaGrupComponent} from "../components/update-urun-ana-grup/update-urun-ana-grup";
 import {UrunIscilikSearchComponent} from "../components/urun-iscilik-search/urun-iscilik-search";
 import { TasksProvider } from '../providers/tasks/tasks';
+import { ThemeProvider } from '../providers/theme/theme';
 
 
 @NgModule({
@@ -175,7 +176,8 @@ import { TasksProvider } from '../providers/tasks/tasks';
     PrinterService,
     SeriNoSorguProvider,
     TasksProvider,
-    VersiyonProvider],
+    VersiyonProvider,
+    ThemeProvider],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

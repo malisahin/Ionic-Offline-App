@@ -8,6 +8,11 @@ import {MesajlarDao} from "../../providers/mesajlar-dao/mesajlar-dao";
 import {HizmetDao} from "../../providers/hizmet-dao/hizmet-dao";
 import {HeaderProvider} from "../../providers/header/header";
 import {Events} from "ionic-angular";
+import {CagrilarPage} from "../../pages/cagrilar/cagrilar";
+import {BildirimlerPage} from "../../pages/bildirimler/bildirimler";
+import {GuncellemePage} from "../../pages/guncelleme/guncelleme";
+import {Anasayfa} from "../../pages/anasayfa/anasayfa";
+import {LoggerProvider} from "../../providers/logger/logger";
 
 
 @Component({
@@ -17,22 +22,32 @@ import {Events} from "ionic-angular";
 export class HeaderComponent {
 
   text: string;
+  index: any = 1;
   cagriSayisi: number = 0;
   duyuruSayisi: number = 0;
   uyariSayisi: number = 0;
   guncellemeSayisi: number = 10;
 
+  cagrilarPage: any;
+  bildirimlerPage: any;
+  guncellemePage: any;
+  anaSayfa: any;
+
   constructor(private nav: NavController,
               private  mesajDao: MesajlarDao,
               private  hizmetDao: HizmetDao,
-              private  headerProvider: HeaderProvider, private  events: Events) {
+              private  headerProvider: HeaderProvider, private logger: LoggerProvider) {
+    logger.warn("Gidilen sayfa " + String(this.index));
     this.updateHeader();
-    events.subscribe("updateHizmetDetay:header", () => {
-      this.updateHeader();
-    });
-
   }
 
+  ionViewDidLoad() {
+    this.logger.warn("****************HEADER****************");
+    this.cagrilarPage = CagrilarPage;
+    this.bildirimlerPage = BildirimlerPage;
+    this.guncellemePage = GuncellemePage;
+    this.anaSayfa = Anasayfa;
+  }
 
   sayfayaGit(page, param) {
     this.nav.push(page, param);

@@ -26,7 +26,7 @@
 
   <ion-item>
     <ion-label color="primary" floating>Şehir</ion-label>
-    <ion-select [(ngModel)]="hizmet.sehirKod" (ionChange)="getIlceList(sehir)">
+    <ion-select [(ngModel)]="hizmet.sehirKod" (ionChange)="getIlceList(sehir)" interface="popover">
       <ion-option *ngFor="let sehir of sehirler" [value]="sehir.sehirKodu">
         {{sehir.sehirKodu}} - {{sehir.sehirAdi}}
       </ion-option>
@@ -36,7 +36,8 @@
   <ion-item>
     <ion-label color="primary" floating>İlçe</ion-label>
     <ion-select [(ngModel)]="hizmet.ilceKod" (ionChange)="getMahalleList(ilce)"
-                [disabled]="isHizmetDisabled()">
+                [disabled]="isHizmetDisabled()"
+                interface="popover">
       <ion-option *ngFor="let ilce of ilceler" [value]="ilce.ilceKodu">
         {{ilce.ilceKodu}} - {{ilce.ilceAdi}}
       </ion-option>

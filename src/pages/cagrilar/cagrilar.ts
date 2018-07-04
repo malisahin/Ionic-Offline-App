@@ -21,6 +21,7 @@ import {HeaderComponent} from "../../components/header/header";
 })
 export class CagrilarPage {
 
+  title: string;
   cagrilar: Hizmet[] = [];
   searchQuery: string = "";
   pageable: Pageable;
@@ -39,6 +40,7 @@ export class CagrilarPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CagrilarPage');
+    this.title = 'Çağrılar';
     this.fetchList(this.searchType);
   }
 

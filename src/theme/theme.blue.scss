@@ -1,0 +1,244 @@
+.blue-theme{
+
+//*------- START:HEADER -----*//
+    .header{
+
+        button.disable-hover.bar-button.bar-button-ios.bar-button-default.bar-button-default-ios{
+            background: #0081db;
+            color:#fff;
+        }
+
+        .header-title{
+            .toolbar-title.toolbar-title-md{
+                color:red;
+            }
+
+            .toolbar-title-ios{
+                color:#004154;
+
+            }
+        }
+
+        .tabs-ios-primary .tabbar, .tabs-md-primary .tabbar{
+            border-color: #004154;
+            background-color: #004154;
+        } 
+
+        .toolbar-title-md, .toolbar-title-ios{
+            color: #004154;
+           
+        }
+
+        .header-title .toolbar-title-ios{
+             color: #004154;
+        }
+        
+    }
+
+    .ion-page{
+        .header-title .toolbar-title-ios{
+            color: #004154;
+       } 
+    }
+
+//*------- END:HEADER -----*//
+
+
+//*------- START:LOGIN-CONTENT -----*//
+.login-content, {
+
+    .submit-btn {
+        background: #0081db;
+       }
+
+       .button-ios-secondary, .button-md-secondary, .button-md-secondary:hover:not(.disable-hover){
+        background: #0081db;
+       }
+
+       input{
+        border: 1px solid #fff;
+        color:#fff;
+       }
+
+       input::placeholder{
+        color:#fff;
+    }
+
+    .password-icon{
+        color:#fff;
+    }
+
+    .logo ion-icon{
+        color:#fff;
+    }
+
+    .toolbar-background{
+        background: #fff;
+    }
+
+    .text-input{
+        border: 1px solid #fff;
+    }
+}
+//*------- END:LOGIN-CONTENT -----*//
+
+
+//*------- START:CONTENT -----*//
+
+
+.content{ 
+    
+.text-input-ios{
+    border:1px solid #9cc0da;
+}
+
+    .toolbar-title-md, .toolbar-title-ios{
+        color: #004154;
+       
+    }
+    
+    .searchbar-ios .searchbar-input{
+        border: 1px solid #0081db;
+    }
+
+    .select-md{
+        border: 1px solid #9cc0da;
+    }
+
+    .toolbar-background-ios{
+        background: #fff;
+    }
+    
+    .item-md{
+        background: none;
+    }
+  
+    .item-select .label-md{
+        color:#0081db;
+    }
+
+    textarea.text-input{
+        border: 1px solid #9cc0da;
+    }
+
+    .select-ios{
+        border: 1px solid #9cc0da;
+    }
+
+.gray-box{
+    background: #f1f1f1;
+}
+
+    .submit-btn, .button-md {
+        background: #0081db;
+       }
+
+       .button-ios-secondary, .button-md-secondary, .button-md-secondary:hover:not(.disable-hover){
+        background: #0081db;
+       }
+
+       .card-box{
+        background: #f3f3f3;
+        border-bottom: 1px solid #0081db;
+
+        i{
+            color: #0081db;
+        }
+    }
+
+    .item-input .label-md, .item-datetime .label-md{
+        color:#0081db;
+    }
+
+    .main-tabs{
+        .toolbar-background-md{
+            background: #fff;
+        }
+
+        .segment-md .segment-button{
+            border: 1px solid #0081db;
+            opacity: 1;
+        }
+        
+    }
+}
+//*------- END:CONTENT -----*//
+
+
+//*------- START:HOME-CONTENT -----*//
+.home-content{
+
+    .card{
+        border: 1px solid #0081db;
+    }
+
+    .icon-ios{
+        color:#004154;
+    }
+
+    .label{
+        color: #004154;
+    }
+}
+//*------- END:HOME-CONTENT -----*//
+
+
+.announcements{
+    background: #ff3838;
+    color: #fff;
+}
+
+
+.segment-button.activated, .segment-button.segment-activated{
+    border-color: #0081db;
+    background: #0081db;
+    color: #fff;
+}
+
+  .searchbox  .searchbar-md .searchbar-input{
+        border-radius: 65px;
+        border:1px solid   #488aff;
+    }
+
+
+}
+
+//*------- START:FOOTER -----*//
+.footer,.toolbar-background-ios {
+    background-color: #004154;
+    bottom:-1px;
+
+    .item-ios, .item-md{
+        background-color: #004154;
+        color: #fff;
+    }
+
+    .label{
+        color:#fff;
+    }
+
+    .button-ios-light,.button-md-light{
+        color: #fff;
+        background-color: #004154;
+    }
+}
+
+
+//*------- END:FOOTER -----*//
+
+
+.msj-info{
+    background:blue;
+}
+
+.msg-success{
+    background: green;
+}
+
+.msj-warn{
+    background: orange;
+}
+
+.msj-error{
+    background:red;
+}

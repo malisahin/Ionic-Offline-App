@@ -1,46 +1,47 @@
-<ion-header>
+<ion-header class="header-content">
   <ion-navbar hideBackButton="true">
 
     <icon-header #header></icon-header>
-    <ion-title class="page-title">Çağrılar</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="content cagri-content">
 
+  <ion-title class="page-title">{{title}}</ion-title>
 
-  <ion-row>
-    <ion-col col-12 col-sm>
+  <ion-row class="mb-20">
+    <ion-col col-12 col-6 col-sm>
       <button ion-button id="btnCagriSorgu" round full cgrArama (click)="cagriSorgula();" color="secondary">Sorgula
       </button>
     </ion-col>
-    <ion-col col-12 col-sm>
+    <ion-col col-12 col-6 col-sm>
       <button ion-button id="btnCagriGuncelle" round full cgrGuncelle (click)="cagriGuncelle();" color="secondary">
         Güncelle
       </button>
     </ion-col>
   </ion-row>
+
   <ion-row *ngIf="this.searchParams != ''">
     <ion-chip *ngFor="let sorgu of searchParams">
       <ion-label>{{sorgu}}</ion-label>
     </ion-chip>
   </ion-row>
 
-  <ion-card *ngFor="let cagri of cagrilar" (click)="cagriDetayinaGit($event, cagri.seqNo)">
+  <ion-card *ngFor="let cagri of cagrilar" (click)="cagriDetayinaGit($event, cagri.seqNo)" class="card-box">
     <label>
-      <i class="fas fa-user"></i>
-      {{cagri.adi }} {{cagri.soyadi}} ({{cagri.seqNo}}) - ({{cagri.crmNo}})
+      <strong>
+        <i class="fas fa-user"></i>
+        {{cagri.adi }} {{cagri.soyadi}} ({{cagri.seqNo}}) - ({{cagri.crmNo}})
+      </strong>
     </label>
     <p>
-      <strong>
-        <i class="fas fa-cog"></i>
-        {{cagri.mamAnaGrpAdi}} | {{cagri.hizmetTipiAdi}} | {{cagri.basvuruNedenAdi}}
-      </strong>
+      <i class="fas fa-cog"></i>
+      {{cagri.mamAnaGrpAdi}} | {{cagri.hizmetTipiAdi}} | {{cagri.basvuruNedenAdi}}
     </p>
     <p>
       <i class="fas fa-phone"></i>{{cagri.gsmNo}} | {{cagri.evTel}} | {{cagri.evTel}}
     </p>
-    <p>
+    <p class="call-date">
       <i class="far fa-clock"></i> {{cagri.randevuTarihi}} </p>
     <p>{{cagri.Adres}}</p>
   </ion-card>
