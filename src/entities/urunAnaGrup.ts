@@ -23,7 +23,6 @@ export class UrunAnaGrup {
   }
 
   fillUrunAnaGrup(res: any): Promise<UrunAnaGrup[]> {
-    debugger;
     res = res.message;
     let urunAnaGrpList = [];
     localStorage.setItem(Constants.VERSIYON.SERVER.URUN_ANA_GRUP, res.versiyon);

@@ -55,7 +55,6 @@ export class HizmetDetayComponent {
       this.arizaAdi = this.hizmetDetay.arizaKod;
       this.mlzIscAdi = this.hizmetDetay.mlzIscKod;
       this.birimfiyat = this.hizmetDetay.tutar / this.hizmetDetay.miktar;
-      debugger;
       this.loadHizmetDetay();
     }
   }
@@ -63,7 +62,6 @@ export class HizmetDetayComponent {
 
   async detayKaydet() {
 
-    debugger;
     if (this.util.isEmpty(this.hizmetDetay.satirNo)) {
       await this.fiyatBul();
       if (this.util.isNotEmpty(this.hizmetDetay.tutar)) {

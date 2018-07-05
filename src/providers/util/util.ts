@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, forwardRef} from '@angular/core';
 import {Constants} from '../../entities/Constants';
 import {ToastController, LoadingController, Loading} from 'ionic-angular';
 import moment from 'moment';
@@ -220,7 +220,7 @@ export class UtilProvider {
 
 
   loaderStart() {
-    if(!this.isLoaderRunning) {
+    if (!this.isLoaderRunning) {
       this.loader = this.loadingController.create({spinner: 'dots'});
       this.isLoaderRunning = true;
       this.loader.present();
@@ -239,6 +239,22 @@ export class UtilProvider {
 
   timerEnd(name: string) {
     console.timeEnd(name);
+  }
+
+  phoneMask(tel: string): string {
+    let maskedValue = "";
+    debugger;
+    if (this.isNotEmpty(tel)) {
+      let missing: number = 10 - tel.length;
+
+
+      for (let i = 0; i < missing; i++) {
+        tel += " ";
+      }
+      maskedValue = "(" + tel.substring(0, 3) + ") " + tel.substring(3, 6) + "-" + tel.substring(6, 10);
+
+      return maskedValue;
+    }
   }
 
 }

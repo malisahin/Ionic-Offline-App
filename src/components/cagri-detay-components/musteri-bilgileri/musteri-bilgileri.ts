@@ -26,7 +26,9 @@ export class MusteriBilgileriComponent {
   ilceler: Ilce[];
   mahalleler: Mahalle[];
 
-  PHONE_NUMBER_MASK = Constants.MASK.PHONE_NUMBER;
+  evTel: string;
+  isTel: string;
+  cepTel: string;
 
   constructor(private hizmetService: HizmetService,
               private adresDao: AdresDao,
@@ -39,6 +41,13 @@ export class MusteriBilgileriComponent {
     this.getSehirList();
     this.getIlceList(this.hizmet.sehirKod);
     this.getMahalleList(this.hizmet.ilceKod);
+    this.init();
+  }
+
+  init() {
+    this.evTel = this.util.phoneMask(this.hizmet.evTel);
+    this.isTel = this.util.phoneMask(this.hizmet.isTel);
+    this.cepTel = this.util.phoneMask(this.hizmet.gsmNo);
   }
 
   ionViewWillLeave() {

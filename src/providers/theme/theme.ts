@@ -39,7 +39,6 @@ export class ThemeProvider {
   }
 
   getSelectedTheme(): string {
-    debugger;
     let permanentTheme: string = localStorage.getItem(Constants.SELECTED_THEME);
     let selectedTheme = "";
     if (this.util.isEmpty(permanentTheme) || permanentTheme == THEME.BLUE) {

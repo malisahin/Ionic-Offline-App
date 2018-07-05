@@ -101,7 +101,6 @@ export class FiyatSorguComponent {
   }
 
   async fiyatBul(mamKod: string, iscMlzKod: string) {
-    debugger;
     let filter = new Fiyat();
     filter.mamKod = mamKod;
     filter.iscMlzKod = iscMlzKod;
