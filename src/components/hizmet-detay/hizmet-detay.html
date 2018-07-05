@@ -1,15 +1,18 @@
 <ion-header>
   <ion-navbar no-border-bottom>
-    <ion-title class="page-title">Hizmet Detay</ion-title>
   </ion-navbar>
 
 </ion-header>
 <!-- Generated template for the HizmetBilgileriComponent component -->
-<ion-content>
-  <ion-list inset>
+<ion-content class="content">
 
-    <ion-item>
-      <ion-label>Işlem Tipi</ion-label>
+  <ion-title class="page-title">Hizmet Detay</ion-title>
+
+  <ion-row>
+    <ion-col col-4 col-md-2>
+      <ion-label color="primary">İşlem Tipi</ion-label>
+    </ion-col>
+    <ion-col col-8 col-md-10>
       <ion-select [(ngModel)]="hizmetDetay.mlzIsc" interface="popover">
         <ion-option value="" selected="true"></ion-option>
         <ion-option value="ISC">İşçilik</ion-option>
@@ -17,65 +20,73 @@
         <ion-option value="KM">Yol</ion-option>
         <ion-option value="DGR">Diğer</ion-option>
       </ion-select>
+    </ion-col>
 
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Işlem Kodu</ion-label>
+    <ion-col col-4 col-md-2>
+      <ion-label color="primary">İşlem Kodu</ion-label>
+    </ion-col>
+    <ion-col col-8 col-md-10>
       <ion-input type="text" [(ngModel)]="islemAdi" (ionFocus)="IslemArizaIscilikBul('ISLEM')"></ion-input>
-    </ion-item>
+    </ion-col>
 
-    <ion-item>
-      <ion-label>Arıza Kodu</ion-label>
+    <ion-col col-4 col-md-2>
+      <ion-label color="primary">Arıza Kodu</ion-label>
+    </ion-col>
+    <ion-col col-8 col-md-10>
       <ion-input type="text" [(ngModel)]="arizaAdi" (ionFocus)="IslemArizaIscilikBul('ARIZA')"></ion-input>
-    </ion-item>
+    </ion-col>
 
-    <ion-item>
-      <ion-label>P/I/Y Kodu</ion-label>
+    <ion-col col-4 col-md-2>
+      <ion-label color="primary">P/I/Y Kodu</ion-label>
+    </ion-col>
+    <ion-col col-8 col-md-10>
       <ion-input type="text" [(ngModel)]="mlzIscAdi" (ionFocus)="IslemArizaIscilikBul('PIY')"></ion-input>
+    </ion-col>
 
-    </ion-item>
-
-    <ion-item>
-      <ion-label>P/I/Y Açıklama</ion-label>
+    <ion-col col-4 col-md-2>
+      <ion-label color="primary">P/I/Y Açıklama</ion-label>
+    </ion-col>
+    <ion-col col-8 col-md-10>
       <ion-input type="text" [(ngModel)]="hizmetDetay.aciklama"></ion-input>
-    </ion-item>
+    </ion-col>
 
-    <ion-item *ngIf="hizmetDetay.mlzIsc == 'DGR' || hizmetDetay.mlzIsc == 'KM' || hizmetDetay.mlzIsc =='MLZ'">
-      <ion-label>Miktar</ion-label>
+    <ion-col col-4 col-md-2 *ngIf="hizmetDetay.mlzIsc == 'DGR' || hizmetDetay.mlzIsc == 'KM' || hizmetDetay.mlzIsc =='MLZ'">
+      <ion-label color="primary">Miktar</ion-label>
+    </ion-col>
+    <ion-col col-8 col-md-10 *ngIf="hizmetDetay.mlzIsc == 'DGR' || hizmetDetay.mlzIsc == 'KM' || hizmetDetay.mlzIsc =='MLZ'">
       <ion-input type="number" [(ngModel)]="hizmetDetay.miktar"></ion-input>
-    </ion-item>
+    </ion-col>
 
-    <ion-item *ngIf="hizmetDetay.mlzIsc == 'DGR'">
-      <ion-label>Birim Fiyat</ion-label>
+    <ion-col col-4 col-md-2 *ngIf="hizmetDetay.mlzIsc == 'DGR'">
+      <ion-label color="primary">Birim Fiyat</ion-label>
+    </ion-col>
+    <ion-col col-8 col-md-10 *ngIf="hizmetDetay.mlzIsc == 'DGR'">
       <ion-input type="number" [(ngModel)]="birimfiyat"></ion-input>
-    </ion-item>
+    </ion-col>
 
-  </ion-list>
 
-  <ion-grid>
-    <ion-row>
-      <ion-col col-12 col-sm>
-        <button ion-button [color]="primary" (click)="closeModal()" round full>
-          Iptal
-          <span item-right>
-            <ion-icon name="ion-plus-round"></ion-icon>
-          </span>
-        </button>
-      </ion-col>
-      <ion-col col-12 col-sm>
-        <button ion-button icon-end [color]="primary" (click)="detayKaydet()" round full>
-          Kaydet
-          <span item-right>
-            <ion-icon name="ion-plus-round"></ion-icon>
-          </span>
-        </button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  </ion-row>
+
+  <ion-row>
+    <ion-col col-6 col-md-6>
+      <button ion-button [color]="primary" (click)="closeModal()" round full>
+        İptal
+        <span item-right>
+          <ion-icon name="ion-plus-round"></ion-icon>
+        </span>
+      </button>
+    </ion-col>
+    <ion-col col-6 col-md-6>
+      <button ion-button icon-end [color]="primary" (click)="detayKaydet()" round full>
+        Kaydet
+        <span item-right>
+          <ion-icon name="ion-plus-round"></ion-icon>
+        </span>
+      </button>
+    </ion-col>
+  </ion-row>
 </ion-content>
 
 <ion-footer>
-
 
 </ion-footer>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="com.silverchip.cordovaprinter"
+        version="1.0.0">
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+    <js-module src="www/printer.js" name="print">
+      <clobbers target="window.plugins.print" />
+    </js-module>
+    <name>CordovaPrinter</name>
+    <description>Print on a Zebra Printer</description>
+    <author>Silverchip</author>
+    <keywords>Zebra</keywords>
+    <license>Apache 2.0 License</license>
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="CordovaPrinter">
+                <param name="ios-package" value="CordovaPrinter" />
+            </feature>
+        </config-file>
+
+ <config-file target="*-Info.plist" parent="UISupportedExternalAccessoryProtocols">
+    <array>
+    <string>com.zebra.rawport</string>
+    </array>
+    </config-file>
+
+        <header-file src="src/CordovaPrinter.h" />
+        <source-file src="src/CordovaPrinter.m" />
+
+        <header-file src="src/zebra/include/MfiBtPrinterConnection.h" />
+         <header-file src="src/zebra/include/ZebraPrinterFactory.h" />
+          <header-file src="src/zebra/include/ZebraPrinterConnection.h" />
+           <header-file src="src/zebra/include/ZebraPrinter.h" />
+           <header-file src="src/zebra/include/FormatUtil.h" />
+           <header-file src="src/zebra/include/FileUtil.h" />
+
+        <header-file src="src/zebra/include/PrinterStatus.h" />
+        <header-file src="src/zebra/include/PrinterStatusMessages.h" />
+
+        <header-file src="src/zebra/include/ZplPrintMode.h" />
+
+        <header-file src="src/zebra/include/GraphicsUtil.h" />
+        <header-file src="src/zebra/include/DiscoveredPrinter.h" />
+        <header-file src="src/zebra/include/FieldDescriptionData.h" />
+
+        <header-file src="src/zebra/include/DiscoveredPrinterNetwork.h" />
+        <header-file src="src/zebra/include/MagCardReader.h" />
+        <header-file src="src/zebra/include/NetworkDiscoverer.h" />
+        <header-file src="src/zebra/include/SGD.h" />
+        <header-file src="src/zebra/include/SmartCardReader.h" />
+
+        <header-file src="src/zebra/include/ToolsUtil.h" />
+        <header-file src="src/zebra/include/TcpPrinterConnection.h" />
+
+        <source-file src="src/zebra/libZSDK_API.a" framework="true" />
+
+        <framework src="ExternalAccessory.framework" />
+
+
+
+
+    </platform>
+</plugin>

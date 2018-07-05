@@ -4,6 +4,7 @@
 
     .text-input-ios {
       width: 100%;
+      border:1px solid 
     }
 
     .select-ios {
@@ -27,7 +28,6 @@
     .announcements {
       top: -5px;
     }
-
 
     .login-box {
       .item-ios ion-icon[item-end] {
@@ -58,10 +58,6 @@
 
     .label-ios {
       white-space: inherit;
-    }
-
-    textarea.text-input {
-      padding: 0px;
     }
 
     .toolbar-ios .segment-button {

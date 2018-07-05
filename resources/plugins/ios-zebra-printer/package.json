@@ -1,0 +1,11 @@
+{
+  "name": "ios-zebra-printer",
+  "version": "1.0.0",
+  "description": "This is a Cordova plugin that allows you to print to Zebra bluetooth printers using your iOS device.",
+  "main": "www/printer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
