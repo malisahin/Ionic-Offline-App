@@ -31,8 +31,9 @@ export class UrunAnaGrupDao {
     return this.baseDao.execute(query, []);
   }
 
-  insertList(list: UrunAnaGrup[]) {
+  async insertList(list: UrunAnaGrup[]) {
     let insertedItems = 0;
+    await this.deleteAll();
     return new Promise((resolve, reject) => {
       this.dbProvider.transaction().then(db => {
         db.transaction(function (tx) {

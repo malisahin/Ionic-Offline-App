@@ -24,7 +24,7 @@ export class GarantiSorguComponent {
   urunAnaGrupList: UrunAnaGrup[];
   urunAnaGrup: UrunAnaGrup;
   faturaTarihi: Date;
-  data = {type: ""};
+  data = {type: "", nerden: "BILGI_SORGU"};
 
   constructor(private urunAnaGrupDao: UrunAnaGrupDao,
               private modalController: ModalController,

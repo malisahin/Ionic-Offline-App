@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { ViewController, NavParams } from 'ionic-angular';
-import { GarantiSorgu } from '../../entities/GarantiSorgu';
-import { UtilProvider } from '../../providers/util/util';
-import { UrunDao } from '../../providers/urun-dao/urun-dao';
-import { UrunAnaGrupDao } from '../../providers/urun-ana-grup-dao/urun-ana-grup-dao';
+import {Component} from '@angular/core';
+import {ViewController, NavParams} from 'ionic-angular';
+import {GarantiSorgu} from '../../entities/GarantiSorgu';
+import {UtilProvider} from '../../providers/util/util';
+import {UrunDao} from '../../providers/urun-dao/urun-dao';
+import {UrunAnaGrupDao} from '../../providers/urun-ana-grup-dao/urun-ana-grup-dao';
 
 
 @Component({
@@ -19,20 +19,21 @@ export class GarantiSonucComponent {
   mamanaGrp: string = "";
   mamKod: string = "";
   mamAdi: string = "";
-  garantiBasTar: string = "";
+  garantiBasTar: any;
   garantiSuresi: string = "";
-  stdGarantiBitisTar: string = "";
+  stdGarantiBitisTar: any;
   garantiTipi: string = "";
   ekGaranti: string = "";
-  ekGarantiSuresi: string = "";
-  ekGarantiBasTar: string = "";
-  ekGarantiBitisTar: string = "";
+  ekGarantiSuresi: any;
+  ekGarantiBasTar: any;
+  ekGarantiBitisTar: any;
   aciklama: string = "";
   sonuc: string = "";
+
   constructor(private viewCtrl: ViewController,
-    private params: NavParams,
-    private util: UtilProvider,
-    private urunDao: UrunDao) {
+              private params: NavParams,
+              private util: UtilProvider,
+              private urunDao: UrunDao) {
     console.log('Hello GarantiSonucComponent Component');
     this.garanti = new GarantiSorgu();
     this.data = params.get('data');
@@ -45,14 +46,16 @@ export class GarantiSonucComponent {
   }
 
   loadData() {
+    debugger;
     if (this.util.isNotEmpty(this.data.gbastar)) {
-      this.garantiBasTar = this.data.gbastar;
+
+      this.garantiBasTar = new Date(this.data.gbastar);
     }
     if (this.util.isNotEmpty(this.data.gsure)) {
       this.garantiSuresi = this.data.gsure;
     }
     if (this.util.isNotEmpty(this.data.std_gbt)) {
-      this.stdGarantiBitisTar = this.data.std_gbt;
+      this.stdGarantiBitisTar = new Date(this.data.std_gbt);
     }
     if (this.util.isNotEmpty(this.data.garantiTipi)) {
       if (this.data.garantiTipi == "STD")
@@ -67,10 +70,10 @@ export class GarantiSonucComponent {
       this.ekGarantiSuresi = this.data.ekgSure;
     }
     if (this.util.isNotEmpty(this.data.ekGarBas)) {
-      this.ekGarantiBasTar = this.data.ekGarBas;
+      this.ekGarantiBasTar = new Date(this.data.ekGarBas);
     }
     if (this.util.isNotEmpty(this.data.mgarantiBitisTarihi)) {
-      this.ekGarantiBitisTar = this.data.mgarantiBitisTarihi;
+      this.ekGarantiBitisTar = new Date(this.data.mgarantiBitisTarihi);
     }
 
     if (this.util.isNotEmpty(this.data.aciklama)) {
@@ -82,7 +85,6 @@ export class GarantiSonucComponent {
     //this.mlzList = this.data.mlzList;
     this.sonuc = this.data.sonuc;
     this.mamKod = this.data.mamKod;
-    this.data.garantiBitis = this.data.garantiBitis;
 
     if (this.util.isNotEmpty(this.mamKod)) {
       this.urunDao.getUrunAndUrunAnaGrup(this.mamKod).then(res => {

@@ -20,7 +20,8 @@ export class Hizmet {
   aciklama: string = "";
   adi: string = "";
   anket: Anket[];
-  apartman: string;
+  aparman: string;
+  apartmanNo: string;
   basvuruNedenAdi: string = "";
   basvuruNedeni: string = "";
   bayiKod: string = "";

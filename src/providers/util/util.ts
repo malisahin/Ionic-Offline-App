@@ -243,7 +243,6 @@ export class UtilProvider {
 
   phoneMask(tel: string): string {
     let maskedValue = "";
-    debugger;
     if (this.isNotEmpty(tel)) {
       let missing: number = 10 - tel.length;
 

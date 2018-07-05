@@ -22,7 +22,7 @@
 
     <ion-item>
       <ion-label>Garanti Başlangıç Tarihi</ion-label>
-      <ion-label>{{garantiBasTar}}</ion-label>
+      <ion-label>{{garantiBasTar | date: 'dd-MM-yyyy'}}</ion-label>
     </ion-item>
 
     <ion-item>
@@ -32,7 +32,7 @@
 
     <ion-item>
       <ion-label>Standart Garanti Bitiş Tarihi</ion-label>
-      <ion-label>{{stdGarantiBitisTar}}</ion-label>
+      <ion-label>{{stdGarantiBitisTar | date: 'dd-MM-yyyy'}}</ion-label>
     </ion-item>
 
     <ion-item>
@@ -52,12 +52,12 @@
 
     <ion-item>
       <ion-label>Ek Garanti Başlangıç Tarihi</ion-label>
-      <ion-label>{{ekGarantiBasTar}}</ion-label>
+      <ion-label>{{ekGarantiBasTar | date: 'dd-MM-yyyy'}}</ion-label>
     </ion-item>
 
     <ion-item>
       <ion-label>Garanti Bitiş Tarihi</ion-label>
-      <ion-label>{{ekGarantiBitisTar}}</ion-label>
+      <ion-label>{{ekGarantiBitisTar | date: 'dd-MM-yyyy'}}</ion-label>
     </ion-item>
 
     <ion-card>

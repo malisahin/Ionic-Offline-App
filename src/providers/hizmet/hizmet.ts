@@ -73,6 +73,7 @@ export class HizmetProvider {
     let list = [];
     list = obj.message.hizmetDtoList;
     for (let item of list) {
+      debugger;
       let cgr = this.fillHizmet(item);
       hizmetList.push(cgr);
     }
@@ -95,7 +96,8 @@ export class HizmetProvider {
     item.aciklama = obj.aciklama;
     item.adi = obj.adi;
     //item.anket = Anket[];
-    item.apartman = obj.aparman;
+    item.aparman = obj.aparman;
+    item.apartmanNo = obj.apartmanNo;
     item.basvuruNedenAdi = obj.basvuruNedenAdi;
     item.basvuruNedeni = obj.basvuruNedeni;
     item.bayiKod = obj.bayiKod;

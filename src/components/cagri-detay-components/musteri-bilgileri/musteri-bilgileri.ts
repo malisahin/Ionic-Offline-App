@@ -69,6 +69,7 @@ export class MusteriBilgileriComponent {
   }
 
   async getIlceList(item: any) {
+    this.hizmet.ilceKod = "";
     if (this.util.isNotEmpty(this.hizmet.sehirKod))
       await this.adresDao.getIlceList(this.hizmet.sehirKod).then(res => {
         for (let i = 0; i < res.rows.length; i++) {
@@ -79,6 +80,7 @@ export class MusteriBilgileriComponent {
   }
 
   async getMahalleList(item: any) {
+    this.hizmet.mahalleKodu = "";
     await this.adresDao.getMahalleList(this.hizmet.ilceKod).then(res => {
       for (let i = 0; i < res.rows.length; i++) {
         this.mahalleler.push(res.rows.item(i));

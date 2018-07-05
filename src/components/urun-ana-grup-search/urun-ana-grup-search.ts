@@ -78,8 +78,16 @@ export class UrunAnaGrupSearchComponent {
   }
 
   fillItemByType(item: any) {
-
+    debugger;
+ /*   if (this.util.isNotEmpty(this.data) && this.util.isNotEmpty(this.data.nerden) && this.data.nerden == "BILGI_SORGU") {
+      let uniqueList = new Set(this.list);
+      this.list = [];
+      uniqueList.forEach(val => {
+        this.list.push(val);
+      });
+    } else {*/
     this.list.push({key: item.mamAnaGrp, value: item.ad});
+
 
   }
 

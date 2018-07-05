@@ -1,27 +1,21 @@
-
-<nav>
-  <ul>
-    <li>Start</li>
-    <li>About</li>
-    <li>Contact</li>
-  </ul>
-</nav>
 <ion-menu [content]="content">
 
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Pages</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!--
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Pages</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
-  <ion-content>
-    <ion-list>
-      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
-    </ion-list>
-  </ion-content>
+    <ion-content>
+      <ion-list>
+        <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
+          {{p.title}}
+        </button>
+      </ion-list>
+    </ion-content>
+  -->
 
 </ion-menu>
 
-<ion-nav [root]="rootPage" #content swipeBackEnabled="true" [class] ="selectedTheme" ></ion-nav>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="true" [class]="selectedTheme"></ion-nav>
