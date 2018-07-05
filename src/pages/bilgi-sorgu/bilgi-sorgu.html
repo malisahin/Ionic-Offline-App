@@ -1,9 +1,6 @@
 <ion-header>
 
   <ion-navbar hideBackButton="true">
-    <button ion-button primary menuToggle>
-      <ion-icon name="list"></ion-icon>
-    </button>
     <icon-header></icon-header>
   </ion-navbar>
 </ion-header>
@@ -16,11 +13,11 @@
   <ion-toolbar class="main-tabs">
     <ion-segment [(ngModel)]="activePage">
 
-      <ion-segment-button value="garantiSorguSegment">
+      <ion-segment-button value="garantiSorguSegment" class="seg-button">
         Garanti Sorgu
       </ion-segment-button>
 
-      <ion-segment-button value="fiyatSorguSegment">
+      <ion-segment-button value="fiyatSorguSegment" class="seg-button">
         Fiyat Sorgu
       </ion-segment-button>
 

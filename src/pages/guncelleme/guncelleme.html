@@ -1,9 +1,6 @@
 <ion-header>
 
   <ion-navbar hideBackButton="true">
-    <button ion-button primary menuToggle>
-      <ion-icon name="list"></ion-icon>
-    </button>
     <icon-header #header></icon-header>
   </ion-navbar>
 </ion-header>
@@ -15,10 +12,10 @@
 
   <ion-toolbar class="main-tabs">
     <ion-segment [(ngModel)]="activePage">
-      <ion-segment-button value="guncelleme">
+      <ion-segment-button value="guncelleme" class="seg-button">
         Güncelleme
       </ion-segment-button>
-      <ion-segment-button value="versiyon">
+      <ion-segment-button value="versiyon" class="seg-button">
         Versiyon
       </ion-segment-button>
     </ion-segment>

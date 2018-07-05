@@ -29,12 +29,10 @@
     <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="faturaTarihi" required></ion-datetime>
   </ion-col>
 
-  <ion-col col-12 col-md-12>
-    <button ion-button icon-end [color]="primary" (click)="garantiSorgula();" round full>
+  <ion-col col-sm-12 col-md-6 col-lg-3 col-xl-3>
+    <button ion-button icon-start full round (click)="garantiSorgula();">
+      <ion-icon name="md-help"></ion-icon>
       Garanti Sorgula
-      <span item-right>
-        <ion-icon name="help"></ion-icon>
-      </span>
     </button>
   </ion-col>
 </ion-row>

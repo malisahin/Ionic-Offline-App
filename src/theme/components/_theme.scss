@@ -2,9 +2,14 @@
 @media only screen and (max-width: 500px) {
   .content {
 
+ 
+    .item-ios .item-button{
+      height: 30px;
+    }
+
     .text-input-ios {
       width: 100%;
-      border:1px solid 
+     
     }
 
     .select-ios {
@@ -15,6 +20,7 @@
       font-size: 14px;
       max-width: 100%;
       margin-top: 10px;
+      width: 100%;
 
       .select-icon {
         margin-right: 10px;
@@ -56,10 +62,6 @@
       padding-top: 0;
     }
 
-    .label-ios {
-      white-space: inherit;
-    }
-
     .toolbar-ios .segment-button {
       white-space: inherit;
       height: 47px;
@@ -72,10 +74,20 @@
       min-height: 50px;
     }
 
+
     .main-tabs {
+      .seg-button{
+        height: 30px!important;
+      }
+  
       .segment-button {
         height: 40px;
         margin-right: 10px;
+      }
+      .segment-ios .segment-button:last-of-type{
+
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
       }
     }
 
@@ -86,14 +98,13 @@
       }
     
       .segment-button:first-of-type, .segment-ios .segment-button:last-of-type {
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px;
         border-radius: 5px;
         margin-right: 10px;
       }
     } 
     .button-ios {
       height: 35px;
+      margin-bottom: 15px;
     
     }
 

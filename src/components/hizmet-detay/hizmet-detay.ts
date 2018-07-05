@@ -1,21 +1,22 @@
-import {Component} from '@angular/core';
-import {DetayKayit} from "../../entities/hizmet/DetayKayit";
-import {ViewController, NavParams, ModalController} from "ionic-angular";
-import {UtilProvider} from '../../providers/util/util';
-import {LoggerProvider} from '../../providers/logger/logger';
-import {Constants} from '../../entities/Constants';
-import {DetayPiySearchComponent} from '../detay-piy-search/detay-piy-search';
-import {FiyatDao} from '../../providers/fiyat-dao/fiyat-dao';
-import {Fiyat} from '../../entities/fiyat';
-import {HizmetService} from '../../providers/hizmet-service/hizmet-service';
-import {Hizmet} from '../../entities/hizmet/hizmet';
-import {IslemArizaIscilikDao} from "../../providers/islem-ariza-iscilik-dao/islem-ariza-iscilik-dao";
-import {IslemArizaIscilik} from "../../entities/islem-ariza-iscilik";
+import { Component } from '@angular/core';
+import { DetayKayit } from "../../entities/hizmet/DetayKayit";
+import { ViewController, NavParams, ModalController } from "ionic-angular";
+import { UtilProvider } from '../../providers/util/util';
+import { LoggerProvider } from '../../providers/logger/logger';
+import { Constants } from '../../entities/Constants';
+import { DetayPiySearchComponent } from '../detay-piy-search/detay-piy-search';
+import { FiyatDao } from '../../providers/fiyat-dao/fiyat-dao';
+import { Fiyat } from '../../entities/fiyat';
+import { HizmetService } from '../../providers/hizmet-service/hizmet-service';
+import { Hizmet } from '../../entities/hizmet/hizmet';
+import { IslemArizaIscilikDao } from "../../providers/islem-ariza-iscilik-dao/islem-ariza-iscilik-dao";
+import { IslemArizaIscilik } from "../../entities/islem-ariza-iscilik";
 
 
 @Component({
   selector: 'hizmet-detay',
   templateUrl: 'hizmet-detay.html'
+
 })
 export class HizmetDetayComponent {
 
@@ -33,13 +34,13 @@ export class HizmetDetayComponent {
   islemTipi: string = "";
 
   constructor(private viewCtrl: ViewController,
-              private params: NavParams,
-              private modalController: ModalController,
-              private util: UtilProvider,
-              private logger: LoggerProvider,
-              private fiyatDao: FiyatDao,
-              private islemArizaIscilikDao: IslemArizaIscilikDao,
-              private hizmetService: HizmetService) {
+    private params: NavParams,
+    private modalController: ModalController,
+    private util: UtilProvider,
+    private logger: LoggerProvider,
+    private fiyatDao: FiyatDao,
+    private islemArizaIscilikDao: IslemArizaIscilikDao,
+    private hizmetService: HizmetService) {
 
     this.hizmet = this.hizmetService.getHizmet();
     this.hizmetDetay = new DetayKayit();
