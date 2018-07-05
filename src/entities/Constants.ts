@@ -24,6 +24,14 @@ export class Constants {
     ERROR: "ERROR"
   };
 
+
+  public static MASK = {
+    PHONE_NUMBER: ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/],
+    CARD_NUMBER: [/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/],
+    CARD_EXPIRY: [/[0-1]/, /\d/, '/', /[1-2]/, /\d/],
+    ORDER_CODE: [/[a-zA-z]/, ':', /\d/, /\d/, /\d/, /\d/]
+  };
+
   public static URUN_ANA_GRUP_TYPE = {
     ANA_GRUP_LISTE: "ANA_GRUP_LISTE",
     BASVURU_LISTE: "BASVURU_LISTE",
@@ -42,7 +50,7 @@ export class Constants {
     ISLEM_ARIZA_ISCILIK: "OFF_ISC_ISLARZGRP_TNM"
   };
 
-  public static SEARCH_TYPE = {LIKE: "LIKE", EXACT: "EXACT"};
+  public static SEARCH_TYPE = { LIKE: "LIKE", EXACT: "EXACT" };
 
   public static DATA_TYPE = {
     URUN: "URUN",

@@ -12,10 +12,11 @@ import {Mahalle} from "../../../entities/mahalle";
 import {AdresDao} from "../../../providers/adres-dao/adres-dao";
 import {LoggerProvider} from "../../../providers/logger/logger";
 import {UtilProvider} from "../../../providers/util/util";
+import {Constants} from "../../../entities/Constants";
 
 @Component({
   selector: 'musteri-bilgileri',
-  templateUrl: 'musteri-bilgileri.html'
+  templateUrl: 'musteri-bilgileri.html',
 })
 export class MusteriBilgileriComponent {
 
@@ -24,6 +25,8 @@ export class MusteriBilgileriComponent {
   sehirler: Sehir[];
   ilceler: Ilce[];
   mahalleler: Mahalle[];
+
+  PHONE_NUMBER_MASK = Constants.MASK.PHONE_NUMBER;
 
   constructor(private hizmetService: HizmetService,
               private adresDao: AdresDao,
