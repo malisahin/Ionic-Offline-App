@@ -20,9 +20,14 @@
       }
     }
 
+    .button-ios{
+      margin: 0px;
+    }
+
     .announcements {
       top: -5px;
     }
+
 
     .login-box {
       .item-ios ion-icon[item-end] {
@@ -74,13 +79,26 @@
     .main-tabs {
       .segment-button {
         height: 40px;
+        margin-right: 10px;
       }
     }
 
-    .segment-ios .segment-button:first-of-type, .segment-ios .segment-button:last-of-type {
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px;
-      border-radius: 5px;
+    .segment-ios
+    {
+      .segment-button:not(:first-of-type){
+        border-left-width:1px;
+      }
+    
+      .segment-button:first-of-type, .segment-ios .segment-button:last-of-type {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-radius: 5px;
+        margin-right: 10px;
+      }
+    } 
+    .button-ios {
+      height: 35px;
+    
     }
 
     .label-ios {
@@ -88,6 +106,11 @@
     }
 
   }
+
+  .header-bar .bar-announcements{
+    font-size: 13px;
+  }
+
 }
 
 .header {
@@ -141,6 +164,35 @@
   right: 0px;
 }
 
+
+.header-bar{
+  .bar-button-md[icon-only] ion-icon{
+  font-size: 35px;
+}
+.bar-button-ios[icon-only] ion-icon{
+  font-size: 25px;
+}
+
+}
+
+.bar-button-md {
+  width: 90px;
+}
+
+.bar-announcements {
+  border-radius: 100%;
+  font-size: 15px;
+  top: -10px;
+  position: relative;
+  z-index: 999;
+  text-align: center;
+  line-height: 18px;
+  right: 0px;
+  padding: 3px 8px;
+  display: inline-block;
+}
+
+
 .pull-right {
   float: right;
   text-align: right;
@@ -181,7 +233,7 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
   button.disable-hover.bar-button.bar-button-ios.bar-button-default.bar-button-default-ios {
     border-radius: 100%;
     font-size: 12px;
-    width: 35px;
+    width:50px;
     height: 35px;
     text-align: center;
     margin-left: 7px;
@@ -202,10 +254,6 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
 
 //*------- START:HOME-CONTENT -----*//
 .home-content {
-
-  .label-md {
-    margin: 13px 0px 13px 0px;
-  }
 
   .item-md.item-block .item-inner {
     padding-right: 0px;
@@ -267,22 +315,25 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
     height: 35px;
   }
 
-  .label-md {
-    margin-top: 20px;
-  }
-
   .item-md {
     padding-left: 0px;
-  }
 
+    .item-button {
+      height: 35px;
+    }
+  }
+ 
   .fiyat-sorgu .select-md {
     width: 75%;
   }
 
+.mr-icon{
+  margin-right: 10px;
+}
 
-  .button-ios {
-    height: 2.5em;
-  }
+.list .button-md{
+  text-transform: inherit;
+}
 
   .toolbar-title {
     margin-bottom: 10px;

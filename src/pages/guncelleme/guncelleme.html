@@ -5,10 +5,15 @@
       <ion-icon name="list"></ion-icon>
     </button>
     <icon-header #header></icon-header>
-    <ion-title class="page-title">Güncelleme</ion-title>
   </ion-navbar>
+</ion-header>
 
-  <ion-toolbar no-border-top>
+
+<ion-content class="content">
+
+  <ion-title class="page-title">Güncelleme</ion-title>
+
+  <ion-toolbar class="main-tabs">
     <ion-segment [(ngModel)]="activePage">
       <ion-segment-button value="guncelleme">
         Güncelleme
@@ -19,82 +24,77 @@
     </ion-segment>
   </ion-toolbar>
 
-</ion-header>
-
-
-<ion-content padding>
   <div [ngSwitch]="activePage">
     <div *ngSwitchCase="'guncelleme'">
 
       <ion-list>
-        <button ion-button icon-end [color]="colors.URUN" (click)="downloadUrunler();" round full>
+        <button ion-button primary round full [color]="colors.URUN" (click)="downloadUrunler();" round full>
           <span item-left style="width: 95%">Ürünler</span>
           <span item-right style="width: 5%">
             <ion-icon [name]="icons.URUN"></ion-icon>
           </span>
         </button>
 
-        <button ion-button icon-end [color]="colors.URUN_ANA_GRUP" (click)="downloadUrunAnaGrup();" round full>
+        <button ion-button primary round full [color]="colors.URUN_ANA_GRUP" (click)="downloadUrunAnaGrup();" round full>
           <span item-left style="width: 95%">Ürün Ana Grupları</span>
           <span item-right style="width: 5%">
             <ion-icon [name]="icons.URUN_ANA_GRUP"></ion-icon>
           </span>
         </button>
 
-        <button ion-button icon-end [color]="colors.URUN_ISCILIK" (click)="downloadUrunIscilik();" round full>
+        <button ion-button primary round full [color]="colors.URUN_ISCILIK" (click)="downloadUrunIscilik();" round full>
           <span item-left style="width: 95%">Ürün Işçilik</span>
           <span item-right style="width: 5%">
             <ion-icon [name]="icons.URUN_ISCILIK"></ion-icon>
           </span>
         </button>
 
-        <button ion-button icon-end [color]="colors.URUN_MALZEME" (click)="downloadUrunMalzeme();" round full>
+        <button ion-button primary round full [color]="colors.URUN_MALZEME" (click)="downloadUrunMalzeme();" round full>
           <span item-left style="width: 95%">Ürün-Malzeme</span>
           <span item-right style="width: 5%">
             <ion-icon [name]="icons.URUN_MALZEME"></ion-icon>
           </span>
         </button>
 
-        <button ion-button icon-end [color]="colors.ISLEM_ARIZA_ISCILIK" (click)="downloadIslemArizaIscilik();" round
-                full>
-          <span item-left style="width: 95%">Işlem-Arıza-Işçilik</span>
+        <button ion-button primary round full [color]="colors.ISLEM_ARIZA_ISCILIK" (click)="downloadIslemArizaIscilik();" round full>
+          <span item-left style="width: 95%">İşlem-Arıza-İşçilik</span>
           <span item-right style="width: 5%">
             <ion-icon [name]="icons.ISLEM_ARIZA_ISCILIK"></ion-icon>
           </span>
         </button>
 
-        <button ion-button icon-end [color]="colors.MALZEME_FIYAT" (click)="downloadMalzemeFiyat();" round full>
+        <button ion-button primary round full [color]="colors.MALZEME_FIYAT" (click)="downloadMalzemeFiyat();" round full>
           <span item-left style="width: 95%">Malzeme Fiyatları</span>
           <span item-right style="width: 5%">
             <ion-icon [name]="icons.MALZEME_FIYAT"></ion-icon>
           </span>
         </button>
 
-        <button ion-button icon-end [color]="colors.ISCILIK_FIYAT" (click)="downloadIscilikFiyat();" round full>
-          <span item-left style="width: 95%">Işçilik Fiyatları</span>
+        <button ion-button primary round full [color]="colors.ISCILIK_FIYAT" (click)="downloadIscilikFiyat();" round full>
+          <span item-left style="width: 95%">İşçilik Fiyatları</span>
           <span item-right style="width: 5%">
             <ion-icon [name]="icons.ISCILIK_FIYAT"></ion-icon>
           </span>
         </button>
 
-        <button ion-button icon-end [color]="colors.SEHIR_TNM" (click)="downloadSehirList();" round full>
+        <button ion-button primary round full [color]="colors.SEHIR_TNM" (click)="downloadSehirList();" round full>
           <span item-left style="width: 95%">Şehir Listesi</span>
           <span item-right style="width: 5%">
             <ion-icon [name]="icons.SEHIR_TNM"></ion-icon>
           </span>
         </button>
 
-        <button ion-button icon-end [color]="colors.ILCE_TNM" (click)="downloadIlceList();" round full>
-          <span item-left style="width: 95%">Ilçe Listesi</span>
+        <button ion-button primary round full [color]="colors.ILCE_TNM" (click)="downloadIlceList();" round full>
+          <span item-left style="width: 95%">İİlçe Listesi</span>
           <span item-right style="width: 5%">
             <ion-icon [name]="icons.ILCE_TNM"></ion-icon>
           </span>
         </button>
 
-        <button ion-button icon-end [color]="colors.MAHALLE_TNM" (click)="downloadMahalleList();" round full>
-          <span item-left style="width: 95%">Mahalle Listesi</span>
+        <button ion-button primary round full [color]="colors.MAHALLE_TNM" (click)="downloadMahalleList();" round full>
+          <span item-left style="width: 95%"> Mahalle Listesi</span>
           <span item-right style="width: 5%">
-            <ion-icon [name]="icons.MAHALLE_TNM"></ion-icon>
+            <ion-icon [name]="icons.MAHALLE_TNM" class="mr-icon"></ion-icon>
           </span>
         </button>
 
@@ -104,13 +104,13 @@
     </div>
 
     <div *ngSwitchCase="'versiyon'">
-      <button ion-button icon-end [color]="light" round full readonly>Ürünler</button>
-      <button ion-button [color]="light" round full>Ürün Ana Grupları</button>
-      <button ion-button [color]="light" round full>Ürün Işçilik</button>
-      <button ion-button [color]="light" round full>Ürün-Malzeme</button>
-      <button ion-button [color]="light" round full>Işlem-Arıza-Işçilik</button>
-      <button ion-button [color]="light" round full>Malzeme Fiyatları</button>
-      <button ion-button [color]="light" round full>Işçilik Fiyatları</button>
+      <button ion-button primary round full [color]="light">Ürünler</button>
+      <button ion-button primary round full [color]="light">Ürün Ana Grupları</button>
+      <button ion-button primary round full [color]="light">Ürün İşçilik</button>
+      <button ion-button primary round full [color]="light">Ürün-Malzeme</button>
+      <button ion-button primary round full [color]="light">İşlem-Arıza-İşçilik</button>
+      <button ion-button primary round full [color]="light">Malzeme Fiyatları</button>
+      <button ion-button primary round full [color]="light">İşçilik Fiyatları</button>
     </div>
 
   </div>

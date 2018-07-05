@@ -5,17 +5,15 @@
       <ion-icon name="list"></ion-icon>
     </button>
     <icon-header #header></icon-header>
-    <ion-title class="page-title">{{mesajBaslik}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content class="content">
+  <ion-title class="page-title">{{mesajBaslik}}</ion-title>
 
   <ion-row>
-
     <ion-col col-12 col-sm>
       <button ion-button round full (click)="guncelle();" color="secondary">
         Güncelle
@@ -23,15 +21,17 @@
     </ion-col>
   </ion-row>
 
-  <ion-card *ngFor="let mesaj of mesajList" (click)="mesajDetayinaGit($event, mesaj.id)">
+  <ion-card *ngFor="let mesaj of mesajList" class="card-box" (click)="mesajDetayinaGit($event, mesaj.id)">
     <p>
       <label>
-        <i class="fas fa-user"></i> <strong> {{mesaj.gonderen}} </strong>
+        <i class="fas fa-user"></i>
+        <strong> {{mesaj.gonderen}} </strong>
       </label>
     </p>
     <p>
       <label>
-        <i class="fas fa-envelope"></i> <strong>{{mesaj.subject}} </strong>
+        <i class="fas fa-envelope"></i>
+        <strong>{{mesaj.subject}} </strong>
       </label>
     </p>
   </ion-card>

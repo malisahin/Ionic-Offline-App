@@ -2,10 +2,15 @@
 
   <ion-navbar hideBackButton="true">
     <icon-header></icon-header>
-    <ion-title class="page-title">Ayarlar</ion-title>
   </ion-navbar>
+</ion-header>
 
-  <ion-toolbar no-border-top>
+
+<ion-content class="content">
+
+  <ion-title class="page-title">Ayarlar</ion-title>
+
+  <ion-toolbar class="main-tabs">
     <ion-segment [(ngModel)]="activePage">
       <ion-segment-button value="silme">
         Silme Işlemleri
@@ -15,105 +20,96 @@
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
-
-</ion-header>
-
-
-<ion-content padding>
   <div [ngSwitch]="activePage">
     <div *ngSwitchCase="'silme'">
-
       <ion-list>
-        <ion-list-header>
-          Tablo Silme
-        </ion-list-header>
         <ion-item>
-          <button ion-button icon-end (click)="deleteUrunler();" round full>
+          <button ion-button primary round full (click)="deleteUrunler();">
             <span item-left style="width: 95%">Ürünler</span>
             <span item-right style="width: 5%">
-            <ion-icon name="trash"></ion-icon>
-          </span>
+              <ion-icon name="trash"></ion-icon>
+            </span>
           </button>
         </ion-item>
 
         <ion-item>
-          <button ion-button icon-end (click)="deleteUrunAnaGrup();" round full>
+          <button ion-button primary round full (click)="deleteUrunAnaGrup();">
             <span item-left style="width: 95%">Ürün Ana Grupları</span>
             <span item-right style="width: 5%">
-            <ion-icon name="trash"></ion-icon>
-          </span>
+              <ion-icon name="trash"></ion-icon>
+            </span>
           </button>
         </ion-item>
 
         <ion-item>
-          <button ion-button icon-end (click)="deleteUrunIscilik();" round full>
+          <button ion-button primary round full (click)="deleteUrunIscilik();">
             <span item-left style="width: 95%">Ürün Işçilik</span>
             <span item-right style="width: 5%">
-            <ion-icon name="trash"></ion-icon>
-          </span>
+              <ion-icon name="trash"></ion-icon>
+            </span>
           </button>
         </ion-item>
 
         <ion-item>
-          <button ion-button icon-end (click)="deleteUrunMalzeme();" round full>
+          <button ion-button primary round full (click)="deleteUrunMalzeme();">
             <span item-left style="width: 95%">Ürün-Malzeme</span>
             <span item-right style="width: 5%">
-            <ion-icon name="trash"></ion-icon>
-          </span>
+              <ion-icon name="trash"></ion-icon>
+            </span>
           </button>
         </ion-item>
 
         <ion-item>
-          <button ion-button icon-end (click)="deleteIslemArizaIscilik();" round full>
+          <button ion-button primary round full (click)="deleteIslemArizaIscilik();">
             <span item-left style="width: 95%">Işlem-Arıza-Işçilik</span>
             <span item-right style="width: 5%">
-            <ion-icon name="trash"></ion-icon>
-          </span>
+              <ion-icon name="trash"></ion-icon>
+            </span>
           </button>
         </ion-item>
 
         <ion-item>
-          <button ion-button icon-end (click)="deleteMalzemeFiyat();" round full>
+          <button ion-button primary round full (click)="deleteMalzemeFiyat();">
             <span item-left style="width: 95%">Malzeme Fiyatları</span>
             <span item-right style="width: 5%">
-            <ion-icon name="trash"></ion-icon>
-          </span>
+              <ion-icon name="trash"></ion-icon>
+            </span>
           </button>
         </ion-item>
 
         <ion-item>
-          <button ion-button icon-end (click)="deleteIscilikFiyat();" round full>
+          <button ion-button primary round full (click)="deleteIscilikFiyat();">
             <span item-left style="width: 95%">Işçilik Fiyatları</span>
             <span item-right style="width: 5%">
-            <ion-icon name="trash"></ion-icon>
-          </span>
+              <ion-icon name="trash"></ion-icon>
+            </span>
           </button>
         </ion-item>
 
         <ion-item>
-          <button ion-button icon-end (click)="deleteSehirList();" round full>
+          <button ion-button primary round full (click)="deleteSehirList();">
             <span item-left style="width: 95%">Şehir Listesi</span>
             <span item-right style="width: 5%">
-            <ion-icon name="trash"></ion-icon>
-          </span>
+              <ion-icon name="trash"></ion-icon>
+            </span>
           </button>
         </ion-item>
 
         <ion-item>
-          <button ion-button icon-end (click)="deleteIlceList();" round full>
+          <button ion-button primary round full (click)="deleteIlceList();">
             <span item-left style="width: 95%">Ilçe Listesi</span>
             <span item-right style="width: 5%">
-            <ion-icon name="trash"></ion-icon>
-          </span>
+              <ion-icon name="trash"></ion-icon>
+            </span>
           </button>
         </ion-item>
 
         <ion-item>
-          <button ion-button icon-end (click)="deleteMahalleList();" round full>
+          <button ion-button primary round full (click)="deleteMahalleList();">
             <span item-left style="width: 95%">Mahalle Listesi</span>
             <span item-right style="width: 5%">
-            <ion-icon name="trash"></ion-icon>
-          </span>
+              <ion-icon name="trash"></ion-icon>
+            </span>
           </button>
         </ion-item>
 
@@ -126,29 +122,28 @@
         </ion-list-header>
 
         <ion-item>
-          <button ion-button icon-end (click)="deleteAllRecords();" color="danger" round full>
+          <button ion-button round full (click)="deleteAllRecords();" color="danger">
             <span item-left style="width: 95%">Tüm Kayıtlar</span>
             <span item-right style="width: 5%">
-            <ion-icon name="trash"></ion-icon>
-          </span>
+              <ion-icon name="trash"></ion-icon>
+            </span>
           </button>
         </ion-item>
 
         <ion-item>
-          <button ion-button icon-end (click)="deleteAllServices();" color="danger" round full>
+          <button ion-button round full (click)="deleteAllServices();" color="danger">
             <span item-left style="width: 95%">Tüm Çağrılar</span>
             <span item-right style="width: 5%">
-            <ion-icon name="trash"></ion-icon>
-          </span>
+              <ion-icon name="trash"></ion-icon>
+            </span>
           </button>
         </ion-item>
 
       </ion-list>
 
       <ion-list>
-        <ion-list-header>
-          Arka Plan Ayarları
-        </ion-list-header>
+        <ion-title class="page-title"> Arka Plan Ayarları</ion-title>
+
         <ion-item>
           <ion-label>Senkronize Süresi(Dakika)</ion-label>
           <ion-select [(ngModel)]="syncTime" interface="popover" (ionChange)="onChangeSyncTime('OUT')">
@@ -165,11 +160,8 @@
 
 
       <ion-list>
-        <ion-list-header>
-          Tema
-        </ion-list-header>
+        <ion-title class="page-title">Tema Ayarları</ion-title>
         <ion-item>
-          <ion-label>Tema</ion-label>
           <ion-select [(ngModel)]="selectedTheme" interface="popover" (ionChange)="onChangeTheme()">
             <ion-option value="BLUE">Mavi</ion-option>
             <ion-option value="GREEN">Yeşil</ion-option>
@@ -180,27 +172,27 @@
 
     </div>
 
-    <div *ngSwitchCase="''">
+    <div *ngSwitchCase="'versiyon'" class="versiyon">
       <ion-item>
-        <button ion-button icon-end color="light" round full readonly>Ürünler</button>
+        <button ion-button primary round full>Ürünler</button>
       </ion-item>
       <ion-item>
-        <button ion-button color="light" round full>Ürün Ana Grupları</button>
+        <button ion-button primary round full>Ürün Ana Grupları</button>
       </ion-item>
       <ion-item>
-        <button ion-button color="light" round full>Ürün Işçilik</button>
+        <button ion-button primary round full>Ürün Işçilik</button>
       </ion-item>
       <ion-item>
-        <button ion-button color="light" round full>Ürün-Malzeme</button>
+        <button ion-button primary round full>Ürün-Malzeme</button>
       </ion-item>
       <ion-item>
-        <button ion-button color="light" round full>Işlem-Arıza-Işçilik</button>
+        <button ion-button primary round full>Işlem-Arıza-Işçilik</button>
       </ion-item>
       <ion-item>
-        <button ion-button color="light" round full>Malzeme Fiyatları</button>
+        <button ion-button primary round full>Malzeme Fiyatları</button>
       </ion-item>
       <ion-item>
-        <button ion-button color="light" round full>Işçilik Fiyatları</button>
+        <button ion-button primary round full>Işçilik Fiyatları</button>
       </ion-item>
     </div>
 

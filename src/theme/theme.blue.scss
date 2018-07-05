@@ -4,8 +4,12 @@
     .header{
 
         button.disable-hover.bar-button.bar-button-ios.bar-button-default.bar-button-default-ios{
-            background: #0081db;
             color:#fff;
+        }
+
+        .toolbar-background-md, .toolbar-background-ios{
+            border-color: #004154;
+            background: #004154;
         }
 
         .header-title{
@@ -40,6 +44,14 @@
             color: #004154;
        } 
     }
+
+    .header-bar{
+        .bar-button-default-md,.bar-button-default-ios{
+            color:#fff;
+        }
+       
+    }
+
 
 //*------- END:HEADER -----*//
 
@@ -87,8 +99,17 @@
 
 
 .content{ 
+
+    .button-md-downloaded {
+        color: #fff;
+        background-color: #41a85f;
+    }
     
-.text-input-ios{
+    .button-md-notDownloaded{
+        background-color: #0081db;
+    }
+
+.text-input-ios, .text-input{
     border:1px solid #9cc0da;
 }
 
@@ -105,6 +126,7 @@
         border: 1px solid #9cc0da;
     }
 
+   
     .toolbar-background-ios{
         background: #fff;
     }
@@ -125,13 +147,14 @@
         border: 1px solid #9cc0da;
     }
 
+    .segment-ios .segment-button.segment-activated{
+        box-shadow: 5px 2px 15px 0px #488aff;
+    }
 .gray-box{
     background: #f1f1f1;
 }
 
-    .submit-btn, .button-md {
-        background: #0081db;
-       }
+    
 
        .button-ios-secondary, .button-md-secondary, .button-md-secondary:hover:not(.disable-hover){
         background: #0081db;
@@ -183,7 +206,7 @@
 //*------- END:HOME-CONTENT -----*//
 
 
-.announcements{
+.announcements, .bar-announcements{
     background: #ff3838;
     color: #fff;
 }

@@ -15,13 +15,13 @@
     </ion-col>
     <ion-col col-sm-12 col-md-6 col-lg-3 col-xl-3>
       <button ion-button icon-start full round (click)="urunAnaGrupDegistir()" [disabled]="isHizmetDisabled()">
-        <ion-icon name="refresh"></ion-icon>
+        <ion-icon name="md-refresh"></ion-icon>
         Ürün Ana Grup Değiştir
       </button>
     </ion-col>
     <ion-col col-sm-12 col-md-6 col-lg-3 col-xl-3>
       <button ion-button icon-start full round (click)="garantiSorgula()">
-        <ion-icon style="width: 5%" name="help"></ion-icon>
+        <ion-icon style="width: 5%" name="md-help"></ion-icon>
         Garanti Sorgula
       </button>
     </ion-col>
@@ -54,11 +54,11 @@
   <ion-col col-4 col-md-2>
     <ion-label color="primary">Seri No</ion-label>
   </ion-col>
-  <ion-col col-5 col-md-10>
+  <ion-col col-5 col-md-8>
     <ion-input [(ngModel)]="hizmet.mamSeriNo" [disabled]="isHizmetDisabled()"></ion-input>
   </ion-col>
-  <ion-col col-3 col-md-12>
-    <button ion-button icon-start full round (click)="seriNoSorgula()" [disabled]="isHizmetDisabled()">
+  <ion-col col-3 col-md-2>
+    <button ion-button icon-start full round (click)="seriNoSorgula()" [disabled]="isHizmetDisabled()" style="margin-top:13px;">
       <ion-icon name="search"></ion-icon>
     </button>
   </ion-col>
@@ -70,17 +70,17 @@
     <ion-datetime [(ngModel)]="hizmet.sattar" [disabled]="isHizmetDisabled()" (ionChange)="faturaTarihiChange()" displayFormat="DD/MM/YYYY"></ion-datetime>
   </ion-col>
 
-  <ion-col col-4 col-md-2>
+  <ion-col col-4 col-md-11>
     <ion-label color="primary">Garanti</ion-label>
   </ion-col>
-  <ion-col col-8 col-md-10>
+  <ion-col col-8 col-md-1>
     <ion-toggle [(ngModel)]="hizmet.garanti" (ionChange)="garantiChange()" color="secondary"></ion-toggle>
   </ion-col>
 
-  <ion-col col-4 col-md-2>
+  <ion-col col-4 col-md-11>
     <ion-label color="primary">Meşguliyet</ion-label>
   </ion-col>
-  <ion-col col-8 col-md-10>
+  <ion-col col-8 col-md-1>
     <ion-toggle [(ngModel)]="hizmet.mesguliyet" (ionChange)="mesguliyetChange()" color="secondary"></ion-toggle>
   </ion-col>
 </ion-row>

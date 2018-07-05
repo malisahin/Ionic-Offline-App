@@ -3854,8 +3854,12 @@ ion-icon::before {
 }
 
 .blue-theme .header button.disable-hover.bar-button.bar-button-ios.bar-button-default.bar-button-default-ios {
-  background: #0081db;
   color: #fff;
+}
+
+.blue-theme .header .toolbar-background-md, .blue-theme .header .toolbar-background-ios {
+  border-color: #004154;
+  background: #004154;
 }
 
 .blue-theme .header .header-title .toolbar-title.toolbar-title-md {
@@ -3881,6 +3885,10 @@ ion-icon::before {
 
 .blue-theme .ion-page .header-title .toolbar-title-ios {
   color: #004154;
+}
+
+.blue-theme .header-bar .bar-button-default-md, .blue-theme .header-bar .bar-button-default-ios {
+  color: #fff;
 }
 
 .blue-theme .login-content .submit-btn {
@@ -3928,7 +3936,16 @@ ion-icon::before {
   border: 1px solid #fff;
 }
 
-.blue-theme .content .text-input-ios {
+.blue-theme .content .button-md-downloaded {
+  color: #fff;
+  background-color: #41a85f;
+}
+
+.blue-theme .content .button-md-notDownloaded {
+  background-color: #0081db;
+}
+
+.blue-theme .content .text-input-ios, .blue-theme .content .text-input {
   border: 1px solid #9cc0da;
 }
 
@@ -3964,12 +3981,13 @@ ion-icon::before {
   border: 1px solid #9cc0da;
 }
 
-.blue-theme .content .gray-box {
-  background: #f1f1f1;
+.blue-theme .content .segment-ios .segment-button.segment-activated {
+  -webkit-box-shadow: 5px 2px 15px 0px #488aff;
+  box-shadow: 5px 2px 15px 0px #488aff;
 }
 
-.blue-theme .content .submit-btn, .blue-theme .content .button-md {
-  background: #0081db;
+.blue-theme .content .gray-box {
+  background: #f1f1f1;
 }
 
 .blue-theme .content .button-ios-secondary, .blue-theme .content .button-md-secondary, .blue-theme .content .button-md-secondary:hover:not(.disable-hover) {
@@ -4010,7 +4028,7 @@ ion-icon::before {
   color: #004154;
 }
 
-.blue-theme .announcements {
+.blue-theme .announcements, .blue-theme .bar-announcements {
   background: #ff3838;
   color: #fff;
 }
@@ -4064,6 +4082,8 @@ ion-icon::before {
 .segment-button.activated, .segment-button.segment-activated {
   border-radius: 5px;
   margin-top: -8px;
+  -webkit-box-shadow: 5px 2px 15px 0px #488aff;
+  box-shadow: 5px 2px 15px 0px #488aff;
 }
 
 .main-tabs .segment-md .segment-button {
@@ -4072,6 +4092,8 @@ ion-icon::before {
   white-space: inherit;
   line-height: 25px;
   padding-top: 7px;
+  text-transform: inherit;
+  font-size: 14px;
 }
 
 .main-tabs .toolbar-ios .segment-button {
@@ -4079,6 +4101,10 @@ ion-icon::before {
   font-size: 16px;
   line-height: 33px;
   max-width: 100%;
+}
+
+.main-tabs .segment-button {
+  margin-right: 10px;
 }
 
 .segment-ios .segment-button:last-of-type {
@@ -4117,8 +4143,21 @@ ion-icon::before {
   font-size: 14px;
 }
 
+.content textarea.text-input {
+  padding: 10px 0px 0px 15px;
+  height: 37px;
+}
+
 .home-content .label, .footer .label {
   font-size: 16px;
+}
+
+.content .label-md {
+  margin: 13px 0px 13px 0px;
+}
+
+.content .list-md .label-md, .content .versiyon .label-md {
+  margin-top: 0px;
 }
 
 .content .select-md {
@@ -4165,6 +4204,9 @@ ion-icon::before {
   .content .select-ios .select-icon {
     margin-right: 10px;
   }
+  .content .button-ios {
+    margin: 0px;
+  }
   .content .announcements {
     top: -5px;
   }
@@ -4205,14 +4247,25 @@ ion-icon::before {
   }
   .content .main-tabs .segment-button {
     height: 40px;
+    margin-right: 10px;
   }
-  .content .segment-ios .segment-button:first-of-type, .content .segment-ios .segment-button:last-of-type {
+  .content .segment-ios .segment-button:not(:first-of-type) {
+    border-left-width: 1px;
+  }
+  .content .segment-ios .segment-button:first-of-type, .content .segment-ios .segment-ios .segment-button:last-of-type {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     border-radius: 5px;
+    margin-right: 10px;
+  }
+  .content .button-ios {
+    height: 35px;
   }
   .content .label-ios {
     padding-top: 10px;
+  }
+  .header-bar .bar-announcements {
+    font-size: 13px;
   }
 }
 
@@ -4259,6 +4312,31 @@ ion-icon::before {
   right: 0px;
 }
 
+.header-bar .bar-button-md[icon-only] ion-icon {
+  font-size: 35px;
+}
+
+.header-bar .bar-button-ios[icon-only] ion-icon {
+  font-size: 25px;
+}
+
+.bar-button-md {
+  width: 90px;
+}
+
+.bar-announcements {
+  border-radius: 100%;
+  font-size: 15px;
+  top: -10px;
+  position: relative;
+  z-index: 999;
+  text-align: center;
+  line-height: 18px;
+  right: 0px;
+  padding: 3px 8px;
+  display: inline-block;
+}
+
 .pull-right {
   float: right;
   text-align: right;
@@ -4294,7 +4372,7 @@ hizmet-bilgileri .item-inner.item-md.item-input.ng-valid.item-input-has-value:no
 .header button.disable-hover.bar-button.bar-button-ios.bar-button-default.bar-button-default-ios {
   border-radius: 100%;
   font-size: 12px;
-  width: 35px;
+  width: 50px;
   height: 35px;
   text-align: center;
   margin-left: 7px;
@@ -4307,10 +4385,6 @@ hizmet-bilgileri .item-inner.item-md.item-input.ng-valid.item-input-has-value:no
 
 .header .tabbar {
   opacity: 1;
-}
-
-.home-content .label-md {
-  margin: 13px 0px 13px 0px;
 }
 
 .home-content .item-md.item-block .item-inner {
@@ -4366,20 +4440,24 @@ hizmet-bilgileri .item-inner.item-md.item-input.ng-valid.item-input-has-value:no
   height: 35px;
 }
 
-.content .label-md {
-  margin-top: 20px;
-}
-
 .content .item-md {
   padding-left: 0px;
+}
+
+.content .item-md .item-button {
+  height: 35px;
 }
 
 .content .fiyat-sorgu .select-md {
   width: 75%;
 }
 
-.content .button-ios {
-  height: 2.5em;
+.content .mr-icon {
+  margin-right: 10px;
+}
+
+.content .list .button-md {
+  text-transform: inherit;
 }
 
 .content .toolbar-title {
@@ -31185,18 +31263,6 @@ ion-navbar.toolbar {
 
 urun-bilgileri ion-toggle {
   text-align: end;
-}
-
-detay-bilgileri #btnCagriKaydet {
-  float: left;
-}
-
-detay-bilgileri #btnSiparisOlustur {
-  float: right;
-}
-
-detay-bilgileri #divKapatmaIslemleri {
-  border: 1px solid black;
 }
 
 header #header-div {
