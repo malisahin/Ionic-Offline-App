@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
-import { DetayKayit } from "../../entities/hizmet/DetayKayit";
-import { ViewController, NavParams, ModalController } from "ionic-angular";
-import { UtilProvider } from '../../providers/util/util';
-import { LoggerProvider } from '../../providers/logger/logger';
-import { Constants } from '../../entities/Constants';
-import { DetayPiySearchComponent } from '../detay-piy-search/detay-piy-search';
-import { FiyatDao } from '../../providers/fiyat-dao/fiyat-dao';
-import { Fiyat } from '../../entities/fiyat';
-import { HizmetService } from '../../providers/hizmet-service/hizmet-service';
-import { Hizmet } from '../../entities/hizmet/hizmet';
-import { IslemArizaIscilikDao } from "../../providers/islem-ariza-iscilik-dao/islem-ariza-iscilik-dao";
-import { IslemArizaIscilik } from "../../entities/islem-ariza-iscilik";
+import {Component} from '@angular/core';
+import {DetayKayit} from "../../entities/hizmet/DetayKayit";
+import {ViewController, NavParams, ModalController} from "ionic-angular";
+import {UtilProvider} from '../../providers/util/util';
+import {LoggerProvider} from '../../providers/logger/logger';
+import {Constants} from '../../entities/Constants';
+import {DetayPiySearchComponent} from '../detay-piy-search/detay-piy-search';
+import {FiyatDao} from '../../providers/fiyat-dao/fiyat-dao';
+import {Fiyat} from '../../entities/fiyat';
+import {HizmetService} from '../../providers/hizmet-service/hizmet-service';
+import {Hizmet} from '../../entities/hizmet/hizmet';
+import {IslemArizaIscilikDao} from "../../providers/islem-ariza-iscilik-dao/islem-ariza-iscilik-dao";
+import {IslemArizaIscilik} from "../../entities/islem-ariza-iscilik";
+import {query} from "@angular/core/src/animation/dsl";
 
 
 @Component({
@@ -26,21 +27,24 @@ export class HizmetDetayComponent {
   constants: Constants;
   islemAdi: string = "";
   arizaAdi: string = "";
-  mlzIscAdi: string = "";
+  mlzIsckod: string = "";
   birimfiyat: number;
   piyTutari: any;
   detayTutari: Fiyat;
   hizmet: Hizmet;
   islemTipi: string = "";
+  aciklama: string = "";
+  miktar: number = 1;
+  hold: any = {islemAdi: '', islemKod: '', mlzIscKod: '', aciklama: '', arizaKod: '', arizaAdi: '', miktar: 1};
 
   constructor(private viewCtrl: ViewController,
-    private params: NavParams,
-    private modalController: ModalController,
-    private util: UtilProvider,
-    private logger: LoggerProvider,
-    private fiyatDao: FiyatDao,
-    private islemArizaIscilikDao: IslemArizaIscilikDao,
-    private hizmetService: HizmetService) {
+              private params: NavParams,
+              private modalController: ModalController,
+              private util: UtilProvider,
+              private logger: LoggerProvider,
+              private fiyatDao: FiyatDao,
+              private islemArizaIscilikDao: IslemArizaIscilikDao,
+              private hizmetService: HizmetService) {
 
     this.hizmet = this.hizmetService.getHizmet();
     this.hizmetDetay = new DetayKayit();
@@ -54,8 +58,10 @@ export class HizmetDetayComponent {
       this.hizmetDetay = this.data.hizmetDetay;
       this.islemAdi = this.hizmetDetay.islemKod;
       this.arizaAdi = this.hizmetDetay.arizaKod;
-      this.mlzIscAdi = this.hizmetDetay.mlzIscKod;
+      this.mlzIsckod = this.hizmetDetay.mlzIscKod;
       this.birimfiyat = this.hizmetDetay.tutar / this.hizmetDetay.miktar;
+      this.aciklama = this.hizmetDetay.aciklama;
+      this.miktar = this.hizmetDetay.miktar;
       this.loadHizmetDetay();
     }
   }
@@ -96,6 +102,7 @@ export class HizmetDetayComponent {
   }
 
   async fiyatBul() {
+    this.hizmetDetay.miktar = this.miktar;
     if (this.hizmetDetay.mlzIsc != "DGR") {
       this.detayTutari.mamKod = this.hizmet.mamKod;
       this.detayTutari.iscMlzKod = this.hizmetDetay.mlzIscKod;
@@ -108,8 +115,9 @@ export class HizmetDetayComponent {
         this.util.message("Fiyat Bulunamadı");
       }
     }
-    else
+    else {
       this.hizmetDetay.tutar = this.hizmetDetay.miktar * this.birimfiyat;
+    }
   }
 
 
@@ -137,7 +145,8 @@ export class HizmetDetayComponent {
       if (tip == "PIY") {
         this.hizmetDetay.mlzIscKod = res.data.key;
         this.hizmetDetay.aciklama = res.data.value;
-        this.mlzIscAdi = res.data.key + " - " + res.data.value;
+        this.mlzIsckod = res.data.key + " - " + res.data.value;
+        this.aciklama = res.data.value;
       }
     });
     piyModal.present();
@@ -150,6 +159,7 @@ export class HizmetDetayComponent {
     islemArizaIscilik.islGrp = this.hizmetDetay.islemKod;
     islemArizaIscilik.arzGrp = this.hizmetDetay.arizaKod;
     islemArizaIscilik.iscKod = this.hizmetDetay.mlzIscKod;
+
     await this.islemArizaIscilikDao.getIslemGrup(islemArizaIscilik).then(query => {
       this.logger.warn(query);
       if (this.util.isNotEmpty(query) && query.rows.length > 0) {
@@ -166,11 +176,41 @@ export class HizmetDetayComponent {
       }
     });
 
-    this.mlzIscAdi = this.mlzIscAdi + " - " + this.hizmetDetay.aciklama;
+    await this.islemArizaIscilikDao.getPIYKodu(islemArizaIscilik, this.hizmet.mamKod).then(query => {
+      this.logger.warn(query);
+      debugger;
+      if (this.util.isNotEmpty(query) && query.rows.length > 0) {
+        let item = query.rows.item(0);
+        this.mlzIsckod = item.iscKod;
+        this.aciklama = item.iscAdi;
+        this.mlzIsckod = this.mlzIsckod + " - " + this.aciklama;
+      }
+
+    });
+
 
   }
 
   closeModal() {
     this.viewCtrl.dismiss();
   }
+
+  onChangeIslemTipi() {
+    this.islemAdi = "";
+  }
+
+  onChangeIslemKodu() {
+    this.arizaAdi = "";
+  }
+
+  onChangeArizaKodu() {
+    this.mlzIsckod = "";
+    this.aciklama = "";
+  }
+
+  onChangeParcaIscilikYol() {
+    this.birimfiyat = 1;
+  }
+
+
 }
