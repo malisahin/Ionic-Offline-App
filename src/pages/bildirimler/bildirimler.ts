@@ -2,15 +2,15 @@
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, NavParams, ModalController} from 'ionic-angular';
-import {MesajlarProvider} from '../../providers/mesajlar/mesajlar';
-import {Mesaj} from "../../entities/mesajlar";
-import {MesajDetailComponent} from "../../components/mesaj-detail/mesaj-detail";
-import {Pageable} from "../../entities/Pageable";
-import {MesajlarDao} from "../../providers/mesajlar-dao/mesajlar-dao";
-import {HeaderComponent} from "../../components/header/header";
-import {timeout} from "rxjs/operators";
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { MesajlarProvider } from '../../providers/mesajlar/mesajlar';
+import { Mesaj } from "../../entities/mesajlar";
+import { MesajDetailComponent } from "../../components/mesaj-detail/mesaj-detail";
+import { Pageable } from "../../entities/Pageable";
+import { MesajlarDao } from "../../providers/mesajlar-dao/mesajlar-dao";
+import { HeaderComponent } from "../../components/header/header";
+import { timeout } from "rxjs/operators";
 
 @IonicPage()
 @Component({
@@ -27,9 +27,9 @@ export class BildirimlerPage {
   @ViewChild("header") header: HeaderComponent;
 
   constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              private mesajProvider: MesajlarProvider,
-              private modalController: ModalController) {
+    public navParams: NavParams,
+    private mesajProvider: MesajlarProvider,
+    private modalController: ModalController) {
     this.mesajTip = this.navParams.data.type;
     this.pageable = new Pageable();
     this.fetchList(this.searchTip);
@@ -62,8 +62,8 @@ export class BildirimlerPage {
     }, 500);
   }
 
-  public  mesajDetayinaGit(event, id) {
-    let data = {id: id};
+  public mesajDetayinaGit(event, id) {
+    let data = { id: id };
     let detailComponent = this.modalController.create(MesajDetailComponent, data);
     detailComponent.present();
   }

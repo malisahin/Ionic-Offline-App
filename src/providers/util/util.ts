@@ -1,10 +1,10 @@
-import {Injectable, forwardRef} from '@angular/core';
-import {Constants} from '../../entities/Constants';
-import {ToastController, LoadingController, Loading} from 'ionic-angular';
+import { Constants } from './../../entities/Constants';
+import { Injectable, forwardRef } from '@angular/core';
+import { ToastController, LoadingController, Loading } from 'ionic-angular';
 import moment from 'moment';
-import {ProcessResults} from "../../entities/ProcessResults"
-import {Network} from '@ionic-native/network';
-import {LoggerProvider} from "../logger/logger";
+import { ProcessResults } from "../../entities/ProcessResults"
+import { Network } from '@ionic-native/network';
+import { LoggerProvider } from "../logger/logger";
 
 
 @Injectable()
@@ -14,9 +14,9 @@ export class UtilProvider {
   private isLoaderRunning: boolean = false;
 
   constructor(private toast: ToastController,
-              private network: Network,
-              private logger: LoggerProvider,
-              private  loadingController: LoadingController) {
+    private network: Network,
+    private logger: LoggerProvider,
+    private loadingController: LoadingController) {
     moment.locale('tr');
   }
 
@@ -221,7 +221,7 @@ export class UtilProvider {
 
   loaderStart() {
     if (!this.isLoaderRunning) {
-      this.loader = this.loadingController.create({spinner: 'dots'});
+      this.loader = this.loadingController.create({ spinner: 'dots' });
       this.isLoaderRunning = true;
       this.loader.present();
     }
@@ -256,4 +256,14 @@ export class UtilProvider {
     }
   }
 
+  getSelectedTheme() {
+    let theme = localStorage.getItem(Constants.SELECTED_THEME);
+    if (this.isEmpty) {
+      theme = 'blue-theme';
+    }
+
+    return theme;
+  }
 }
+
+

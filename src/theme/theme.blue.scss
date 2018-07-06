@@ -1,15 +1,28 @@
+
+$color-darkBlue: #004154;
+$color-blue:#0081db;
+$color-lightBlue: #9cc0da;
+$color-white:#ffffff;
+$color-red:#ff0000;
+$color-green:#41a85f;
+$color-gray:#f1f1f1;
+
 .blue-theme{
 
 //*------- START:HEADER -----*//
     .header{
 
         button.disable-hover.bar-button.bar-button-ios.bar-button-default.bar-button-default-ios{
-            color:#fff;
+            color:$color-white;
         }
 
         .toolbar-background-md, .toolbar-background-ios{
-            border-color: #004154;
-            background: #004154;
+            border-color:$color-darkBlue;
+            background: $color-darkBlue;
+        }
+
+        .modal-title .toolbar-title-ios, .modal-title .close-icon, .modal-title .toolbar-title-md{
+            color:$color-white;
         }
 
         .header-title{
@@ -18,36 +31,36 @@
             }
 
             .toolbar-title-ios{
-                color:#004154;
+                color:$color-darkBlue;
 
             }
         }
 
         .tabs-ios-primary .tabbar, .tabs-md-primary .tabbar{
-            border-color: #004154;
-            background-color: #004154;
+            border-color: $color-darkBlue;
+            background-color: $color-darkBlue;
         } 
 
         .toolbar-title-md, .toolbar-title-ios{
-            color: #004154;
+            color: $color-darkBlue;
            
         }
 
         .header-title .toolbar-title-ios{
-             color: #004154;
+             color: $color-darkBlue;
         }
         
     }
 
     .ion-page{
         .header-title .toolbar-title-ios{
-            color: #004154;
+            color: $color-darkBlue;
        } 
     }
 
     .header-bar{
         .bar-button-default-md,.bar-button-default-ios{
-            color:#fff;
+            color:$color-white;
         }
        
     }
@@ -60,36 +73,36 @@
 .login-content, {
 
     .submit-btn {
-        background: #0081db;
+        background: $color-blue;
        }
 
        .button-ios-secondary, .button-md-secondary, .button-md-secondary:hover:not(.disable-hover){
-        background: #0081db;
+        background: $color-blue;
        }
 
        input{
-        border: 1px solid #fff;
-        color:#fff;
+        border: 1px solid $color-white;
+        color : $color-white;
        }
 
        input::placeholder{
-        color:#fff;
+        color: $color-white;
     }
 
     .password-icon{
-        color:#fff;
+        color: $color-white;
     }
 
     .logo ion-icon{
-        color:#fff;
+        color: $color-white;
     }
 
     .toolbar-background{
-        background: #fff;
+        background:  $color-white;
     }
 
     .text-input{
-        border: 1px solid #fff;
+        border: 1px solid  $color-white;
     }
 }
 //*------- END:LOGIN-CONTENT -----*//
@@ -98,91 +111,96 @@
 //*------- START:CONTENT -----*//
 
 
-.content{ 
-    .text-input-ios{
-        border: 1px solid #9cc0da;
+.content{
+
+    .toolbar-background-ios{
+        background: inherit;
     }
 
-    .button-md-downloaded {
-        color: #fff;
-        background-color: #41a85f;
+    .button-ios{
+        background-color:$color-blue; 
+    }
+
+    .text-input-ios{
+        border: 1px solid  $color-lightBlue;
+    }
+
+    .searchbar-ios .searchbar-input, .searchbar-md .searchbar-input{
+        border: 1px solid $color-lightBlue;
+    }
+
+    .button-md-downloaded, .button-ios-downloaded {
+        color:  $color-white;
+        background-color:  $color-green;
     }
     
     .button-md-notDownloaded{
-        background-color: #0081db;
+        background-color:  $color-blue;
     }
 
-.text-input-ios, .text-input{
-    border:1px solid #9cc0da;
-}
+    .text-input-ios, .text-input{
+        border:1px solid  $color-lightBlue;
+    }
 
     .toolbar-title-md, .toolbar-title-ios{
-        color: #004154;
+        color:  $color-darkBlue;
        
     }
     
     .searchbar-ios .searchbar-input{
-        border: 1px solid #0081db;
+        border: 1px solid  $color-blue;
     }
 
     .select-md{
-        border: 1px solid #9cc0da;
+        border: 1px solid  $color-lightBlue;
     }
 
-   
-    .toolbar-background-ios{
-        background: #fff;
-    }
-    
-    .item-md{
-        background: none;
-    }
   
     .item-select .label-md{
-        color:#0081db;
+        color:$color-blue;
     }
 
     textarea.text-input{
-        border: 1px solid #9cc0da;
+        border: 1px solid $color-lightBlue;
     }
 
     .select-ios{
-        border: 1px solid #9cc0da;
+        border: 1px solid $color-lightBlue;
     }
 
     .segment-ios .segment-button.segment-activated{
-        box-shadow: 5px 2px 15px 0px #488aff;
+        box-shadow: 5px 2px 15px 0px $color-blue;
+        background-color: $color-blue;
     }
-.gray-box{
-    background: #f1f1f1;
-}
-
-    
+     
+    .gray-box{
+        background: $color-gray;
+    }
 
        .button-ios-secondary, .button-md-secondary, .button-md-secondary:hover:not(.disable-hover){
-        background: #0081db;
+        background: $color-blue;
        }
 
        .card-box{
-        background: #f3f3f3;
-        border-bottom: 1px solid #0081db;
+        background: $color-gray;
+        border-bottom: 1px solid $color-blue;
 
         i{
-            color: #0081db;
+            color: $color-blue;
         }
     }
 
     .item-input .label-md, .item-datetime .label-md{
-        color:#0081db;
+        color:$color-blue;
     }
 
     .main-tabs{
         .toolbar-background-md{
-            background: #fff;
+            background: $color-white;
         }
 
         .segment-md .segment-button{
-            border: 1px solid #0081db;
+            border: 1px solid $color-blue;
             opacity: 1;
         }
         
@@ -195,57 +213,68 @@
 .home-content{
 
     .card{
-        border: 1px solid #0081db;
+        border: 1px solid $color-blue;
     }
 
     .icon-ios{
-        color:#004154;
+        color:$color-darkBlue;
     }
 
     .label{
-        color: #004154;
+        color: $color-darkBlue;
     }
 }
 //*------- END:HOME-CONTENT -----*//
 
 
 .announcements, .bar-announcements{
-    background: #ff3838;
-    color: #fff;
+    background: $color-red;
+    color: $color-white;
 }
 
 
 .segment-button.activated, .segment-button.segment-activated{
-    border-color: #0081db;
-    background: #0081db;
-    color: #fff;
+    border-color: $color-blue;
+    background: $color-blue;
+    color: $color-white;
 }
 
   .searchbox  .searchbar-md .searchbar-input{
         border-radius: 65px;
-        border:1px solid   #488aff;
+        border:1px solid   $color-blue;
     }
 
 
 }
 
 //*------- START:FOOTER -----*//
-.footer,.toolbar-background-ios {
-    background-color: #004154;
-    bottom:-1px;
-
+.footer {
+    background-color: $color-darkBlue;
+    .toolbar-background-ios {
+        background-color: $color-darkBlue;
+    }
+   
     .item-ios, .item-md{
-        background-color: #004154;
-        color: #fff;
+        background-color:  $color-darkBlue;
+        color: $color-white;
     }
 
     .label{
-        color:#fff;
+        color: $color-white;
     }
 
     .button-ios-light,.button-md-light{
-        color: #fff;
-        background-color: #004154;
+        color:  $color-white;
+        background-color:  $color-darkBlue;
+    }
+
+    .select-md,.select-ios{
+        color:$color-white;
+    }
+
+    .select-ios .select-text, .select-md .select-text{
+        min-width: 27px;
+        font-size: 18px;
     }
 }
 

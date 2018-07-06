@@ -389,7 +389,6 @@ var UrunAnaGrpProvider = (function () {
     }
     UrunAnaGrpProvider.prototype.downloadUrunAnaGrup = function () {
         var _this = this;
-        debugger;
         return new Promise(function (resolve, reject) {
             _this.getDataFromApi().then(function (item) {
                 var anaGrp = new __WEBPACK_IMPORTED_MODULE_3__entities_urunAnaGrup__["a" /* UrunAnaGrup */]("");
@@ -663,7 +662,6 @@ var ThemeProvider = (function () {
         this.setTheme();
     };
     ThemeProvider.prototype.getSelectedTheme = function () {
-        debugger;
         var permanentTheme = localStorage.getItem(__WEBPACK_IMPORTED_MODULE_2__entities_Constants__["a" /* Constants */].SELECTED_THEME);
         var selectedTheme = "";
         if (this.util.isEmpty(permanentTheme) || permanentTheme == THEME.BLUE) {
@@ -896,7 +894,7 @@ var CagriDetayPage = (function () {
     };
     CagriDetayPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-cagri-detay',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\cagri-detay\cagri-detay.html"*/'<ion-header>\n\n\n\n  <ion-navbar hideBackButton="true">\n\n\n\n    <icon-header></icon-header>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-row>\n\n    <ion-col (click)="goback()">\n\n      <button ion-button>\n\n        <label>Geri</label>\n\n      </button>\n\n    </ion-col>\n\n    <ion-col>\n\n      <ion-title class="page-title">Çağrı Detay</ion-title>\n\n    </ion-col>\n\n\n\n  </ion-row>\n\n\n\n\n\n  <ion-toolbar no-border-top class="main-tabs">\n\n    <ion-segment [(ngModel)]="activePage">\n\n\n\n      <ion-segment-button value="hizmet" (ionSelect)="whenTabChange()">\n\n        Hizmet Bilgileri\n\n      </ion-segment-button>\n\n\n\n      <ion-segment-button value="musteri" (ionSelect)="whenTabChange()">\n\n        Müşteri Bilgileri\n\n      </ion-segment-button>\n\n\n\n      <ion-segment-button value="urun" (ionSelect)="whenTabChange()">\n\n        Ürün Bilgileri\n\n      </ion-segment-button>\n\n\n\n      <ion-segment-button value="servis" (ionSelect)="whenTabChange()">\n\n        Servis Bilgileri\n\n      </ion-segment-button>\n\n\n\n      <ion-segment-button value="detay" (ionSelect)="whenTabChange()">\n\n        Detaylar\n\n      </ion-segment-button>\n\n\n\n    </ion-segment>\n\n  </ion-toolbar>\n\n\n\n  <div [ngSwitch]="activePage">\n\n\n\n    <div *ngSwitchCase="\'hizmet\'">\n\n      <hizmet-bilgileri></hizmet-bilgileri>\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'musteri\'">\n\n      <musteri-bilgileri></musteri-bilgileri>\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'urun\'">\n\n      <urun-bilgileri></urun-bilgileri>\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'servis\'">\n\n      <servis-bilgileri></servis-bilgileri>\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'detay\'">\n\n      <detay-bilgileri></detay-bilgileri>\n\n    </div>\n\n\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\cagri-detay\cagri-detay.html"*/,
+            selector: 'page-cagri-detay',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\cagri-detay\cagri-detay.html"*/'<ion-header>\n\n\n\n  <ion-navbar hideBackButton="true">\n\n\n\n    <icon-header></icon-header>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content class="content blue-theme">\n\n  <ion-row>\n\n    <ion-col col-2 col-md-2>\n\n      <button ion-button>\n\n        <ion-icon name="ios-arrow-back" (click)="goback()" class="pull-right close-icon"></ion-icon>\n\n      </button>\n\n    </ion-col>\n\n    <ion-col col-10 col-md-10>\n\n      <ion-title class="page-title">Çağrı Detay</ion-title>\n\n    </ion-col>\n\n\n\n  </ion-row>\n\n\n\n\n\n  <ion-toolbar no-border-top class="main-tabs">\n\n    <ion-segment [(ngModel)]="activePage">\n\n\n\n      <ion-segment-button value="hizmet" (ionSelect)="whenTabChange()">\n\n        Hizmet Bilgileri\n\n      </ion-segment-button>\n\n\n\n      <ion-segment-button value="musteri" (ionSelect)="whenTabChange()">\n\n        Müşteri Bilgileri\n\n      </ion-segment-button>\n\n\n\n      <ion-segment-button value="urun" (ionSelect)="whenTabChange()">\n\n        Ürün Bilgileri\n\n      </ion-segment-button>\n\n\n\n      <ion-segment-button value="servis" (ionSelect)="whenTabChange()">\n\n        Servis Bilgileri\n\n      </ion-segment-button>\n\n\n\n      <ion-segment-button value="detay" (ionSelect)="whenTabChange()">\n\n        Detaylar\n\n      </ion-segment-button>\n\n\n\n    </ion-segment>\n\n  </ion-toolbar>\n\n\n\n  <div [ngSwitch]="activePage">\n\n\n\n    <div *ngSwitchCase="\'hizmet\'">\n\n      <hizmet-bilgileri></hizmet-bilgileri>\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'musteri\'">\n\n      <musteri-bilgileri></musteri-bilgileri>\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'urun\'">\n\n      <urun-bilgileri></urun-bilgileri>\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'servis\'">\n\n      <servis-bilgileri></servis-bilgileri>\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'detay\'">\n\n      <detay-bilgileri class="blue-theme"></detay-bilgileri>\n\n    </div>\n\n\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\cagri-detay\cagri-detay.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -1000,7 +998,7 @@ var MesajDetailComponent = (function () {
     };
     MesajDetailComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'mesaj-detail',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\mesaj-detail\mesaj-detail.html"*/'<ion-header>\n\n  <button ion-button round (click)="closeModal()">Kapat</button>\n\n  <ion-navbar no-border-bottom>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-list>\n\n    <ion-item>\n\n      <ion-label>Gönderen</ion-label>\n\n      <ion-label>{{mesaj.gonderen}}</ion-label>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Konu</ion-label>\n\n      <ion-label>{{mesaj.subject}}</ion-label>\n\n    </ion-item>\n\n\n\n    <ion-card>\n\n      <ion-card-content>\n\n        {{mesaj.aciklama}}\n\n      </ion-card-content>\n\n    </ion-card>\n\n\n\n  </ion-list>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n\n\n\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\mesaj-detail\mesaj-detail.html"*/
+            selector: 'mesaj-detail',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\mesaj-detail\mesaj-detail.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-row class="modal-title">\n\n      <ion-col col-11 col-md-11>\n\n        <ion-title>Mesaj Detayı</ion-title>\n\n      </ion-col>\n\n      <ion-col col-1 col-md-1>\n\n        <ion-icon name="close" (click)="closeModal()" class="pull-right close-icon"></ion-icon>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n  <ion-row>\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Gönderen</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-label>{{mesaj.gonderen}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Konu</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-label>{{mesaj.subject}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-card>\n\n      <ion-card-content class="card-box">\n\n        {{mesaj.aciklama}}\n\n      </ion-card-content>\n\n    </ion-card>\n\n  </ion-row>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n\n\n\n\n</ion-footer>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\mesaj-detail\mesaj-detail.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["n" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__providers_util_util__["a" /* UtilProvider */], __WEBPACK_IMPORTED_MODULE_5__providers_mesajlar_mesajlar__["a" /* MesajlarProvider */]])
     ], MesajDetailComponent);
@@ -1168,7 +1166,6 @@ var Fiyat = (function () {
             parsedList.push(fiyat);
         });
         if (tip == "MLZ" || tip == "malzemeFiyatListesi") {
-            debugger;
             localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].GELEN_VERI.GELEN_MALZEME_FIYAT, fiyatList.length);
             localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].VERSIYON.SERVER.MALZEME_FIYAT, versiyon);
         }
@@ -1436,7 +1433,11 @@ var GarantiSorguProvider = (function () {
     };
     GarantiSorguProvider.prototype.showGarantiSonuc = function (res) {
         if (res.responseCode == "SUCCESS") {
-            var aramaModal = this.modalController.create(__WEBPACK_IMPORTED_MODULE_3__components_garanti_sonuc_garanti_sonuc__["a" /* GarantiSonucComponent */], { data: res.message });
+            var aramaModal = this.modalController.create(__WEBPACK_IMPORTED_MODULE_3__components_garanti_sonuc_garanti_sonuc__["a" /* GarantiSonucComponent */], {
+                data: res.message
+            }, {
+                cssClass: this.util.getSelectedTheme()
+            });
             aramaModal.present();
         }
         else {
@@ -1491,14 +1492,9 @@ var GarantiSonucComponent = (function () {
         this.mamanaGrp = "";
         this.mamKod = "";
         this.mamAdi = "";
-        this.garantiBasTar = "";
         this.garantiSuresi = "";
-        this.stdGarantiBitisTar = "";
         this.garantiTipi = "";
         this.ekGaranti = "";
-        this.ekGarantiSuresi = "";
-        this.ekGarantiBasTar = "";
-        this.ekGarantiBitisTar = "";
         this.aciklama = "";
         this.sonuc = "";
         console.log('Hello GarantiSonucComponent Component');
@@ -1511,14 +1507,15 @@ var GarantiSonucComponent = (function () {
     };
     GarantiSonucComponent.prototype.loadData = function () {
         var _this = this;
+        debugger;
         if (this.util.isNotEmpty(this.data.gbastar)) {
-            this.garantiBasTar = this.data.gbastar;
+            this.garantiBasTar = new Date(this.data.gbastar);
         }
         if (this.util.isNotEmpty(this.data.gsure)) {
             this.garantiSuresi = this.data.gsure;
         }
         if (this.util.isNotEmpty(this.data.std_gbt)) {
-            this.stdGarantiBitisTar = this.data.std_gbt;
+            this.stdGarantiBitisTar = new Date(this.data.std_gbt);
         }
         if (this.util.isNotEmpty(this.data.garantiTipi)) {
             if (this.data.garantiTipi == "STD")
@@ -1533,10 +1530,10 @@ var GarantiSonucComponent = (function () {
             this.ekGarantiSuresi = this.data.ekgSure;
         }
         if (this.util.isNotEmpty(this.data.ekGarBas)) {
-            this.ekGarantiBasTar = this.data.ekGarBas;
+            this.ekGarantiBasTar = new Date(this.data.ekGarBas);
         }
         if (this.util.isNotEmpty(this.data.mgarantiBitisTarihi)) {
-            this.ekGarantiBitisTar = this.data.mgarantiBitisTarihi;
+            this.ekGarantiBitisTar = new Date(this.data.mgarantiBitisTarihi);
         }
         if (this.util.isNotEmpty(this.data.aciklama)) {
             this.aciklama = this.data.aciklama;
@@ -1547,7 +1544,6 @@ var GarantiSonucComponent = (function () {
         //this.mlzList = this.data.mlzList;
         this.sonuc = this.data.sonuc;
         this.mamKod = this.data.mamKod;
-        this.data.garantiBitis = this.data.garantiBitis;
         if (this.util.isNotEmpty(this.mamKod)) {
             this.urunDao.getUrunAndUrunAnaGrup(this.mamKod).then(function (res) {
                 if (res.rows.length > 0) {
@@ -1560,7 +1556,7 @@ var GarantiSonucComponent = (function () {
     };
     GarantiSonucComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'garanti-sonuc',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\garanti-sonuc\garanti-sonuc.html"*/'<ion-header>\n\n  <button ion-button round (click)="closeModal()">Kapat</button>\n\n  <ion-navbar no-border-bottom>\n\n    <ion-title>Garanti Sonucu</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n  <ion-list>\n\n    <ion-item>\n\n      <ion-label>Ürün Ana Grubu</ion-label>\n\n      <ion-label>{{mamanaGrp}}</ion-label>\n\n\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Ürün Kodu ve Adı</ion-label>\n\n      <ion-label>{{mamKod}} - {{mamAdi}}</ion-label>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Garanti Başlangıç Tarihi</ion-label>\n\n      <ion-label>{{garantiBasTar}}</ion-label>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Garanti Süresi</ion-label>\n\n      <ion-label>{{garantiSuresi}}</ion-label>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Standart Garanti Bitiş Tarihi</ion-label>\n\n      <ion-label>{{stdGarantiBitisTar}}</ion-label>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Garanti Tipi</ion-label>\n\n      <ion-label>{{garantiTipi}}</ion-label>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Ek Garanti</ion-label>\n\n      <ion-label>{{ekGaranti}}</ion-label>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Ek Garanti Süresi</ion-label>\n\n      <ion-label>{{ekGarantiSuresi}}</ion-label>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Ek Garanti Başlangıç Tarihi</ion-label>\n\n      <ion-label>{{ekGarantiBasTar}}</ion-label>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Garanti Bitiş Tarihi</ion-label>\n\n      <ion-label>{{ekGarantiBitisTar}}</ion-label>\n\n    </ion-item>\n\n\n\n    <ion-card>\n\n      <ion-card-content>\n\n        {{aciklama}}\n\n      </ion-card-content>\n\n    </ion-card>\n\n\n\n    <ion-card>\n\n      <ion-card-content>\n\n        {{sonuc}}\n\n      </ion-card-content>\n\n    </ion-card>\n\n\n\n  </ion-list>\n\n\n\n</ion-content>\n\n\n\n\n\n<ion-footer>\n\n\n\n\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\garanti-sonuc\garanti-sonuc.html"*/
+            selector: 'garanti-sonuc',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\garanti-sonuc\garanti-sonuc.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-row class="modal-title">\n\n      <ion-col col-11 col-md-11>\n\n        <ion-title>Garanti Sonucu</ion-title>\n\n      </ion-col>\n\n      <ion-col col-1 col-md-1>\n\n        <ion-icon name="close" (click)="closeModal()" class="pull-right close-icon"></ion-icon>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content class="content">\n\n\n\n  <ion-row>\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Ürün Ana Grubu</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-label>{{mamanaGrp}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Ürün Kodu ve Adı</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-label>{{mamKod}} - {{mamAdi}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Garanti Başlangıç Tarihi</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-label>{{garantiBasTar | date: \'dd-MM-yyyy\'}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Garanti Süresi</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-label>{{garantiSuresi}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Standart Garanti Bitiş Tarihi</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-label>{{stdGarantiBitisTar | date: \'dd-MM-yyyy\'}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Garanti Tipi</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-label>{{garantiTipi}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Ek Garanti</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-label>{{ekGaranti}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Ek Garanti Süresi</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-label>{{ekGarantiSuresi}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Ek Garanti Başlangıç Tarihi</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-label>{{ekGarantiBasTar | date: \'dd-MM-yyyy\'}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Garanti Bitiş Tarihi</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-label>{{ekGarantiBitisTar | date: \'dd-MM-yyyy\'}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-card>\n\n      <ion-card-content class="card-box">\n\n        {{aciklama}}\n\n      </ion-card-content>\n\n    </ion-card>\n\n\n\n    <ion-card>\n\n      <ion-card-content class="card-box">\n\n        {{sonuc}}\n\n      </ion-card-content>\n\n    </ion-card>\n\n  </ion-row>\n\n\n\n</ion-content>\n\n<ion-footer>\n\n</ion-footer>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\garanti-sonuc\garanti-sonuc.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -1957,7 +1953,7 @@ var BilgiSorguPage = (function () {
     };
     BilgiSorguPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-bilgi-sorgu',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\bilgi-sorgu\bilgi-sorgu.html"*/'<ion-header>\n\n\n\n  <ion-navbar hideBackButton="true">\n\n    <button ion-button primary menuToggle>\n\n      <ion-icon name="list"></ion-icon>\n\n    </button>\n\n    <icon-header></icon-header>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content class="content">\n\n\n\n  <ion-title class="page-title">Bilgi Sorgu</ion-title>\n\n\n\n  <ion-toolbar class="main-tabs">\n\n    <ion-segment [(ngModel)]="activePage">\n\n\n\n      <ion-segment-button value="garantiSorguSegment">\n\n        Garanti Sorgu\n\n      </ion-segment-button>\n\n\n\n      <ion-segment-button value="fiyatSorguSegment">\n\n        Fiyat Sorgu\n\n      </ion-segment-button>\n\n\n\n    </ion-segment>\n\n  </ion-toolbar>\n\n\n\n  <div [ngSwitch]="activePage">\n\n\n\n    <div *ngSwitchCase="\'garantiSorguSegment\'">\n\n      <garanti-sorgu></garanti-sorgu>\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'fiyatSorguSegment\'">\n\n      <fiyat-sorgu></fiyat-sorgu>\n\n    </div>\n\n\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\bilgi-sorgu\bilgi-sorgu.html"*/,
+            selector: 'page-bilgi-sorgu',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\bilgi-sorgu\bilgi-sorgu.html"*/'<ion-header>\n\n\n\n  <ion-navbar hideBackButton="true">\n\n    <icon-header></icon-header>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content class="content">\n\n\n\n  <ion-title class="page-title">Bilgi Sorgu</ion-title>\n\n\n\n  <ion-toolbar class="main-tabs">\n\n    <ion-segment [(ngModel)]="activePage">\n\n\n\n      <ion-segment-button value="garantiSorguSegment" class="seg-button">\n\n        Garanti Sorgu\n\n      </ion-segment-button>\n\n\n\n      <ion-segment-button value="fiyatSorguSegment" class="seg-button">\n\n        Fiyat Sorgu\n\n      </ion-segment-button>\n\n\n\n    </ion-segment>\n\n  </ion-toolbar>\n\n\n\n  <div [ngSwitch]="activePage">\n\n\n\n    <div *ngSwitchCase="\'garantiSorguSegment\'">\n\n      <garanti-sorgu></garanti-sorgu>\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'fiyatSorguSegment\'">\n\n      <fiyat-sorgu></fiyat-sorgu>\n\n    </div>\n\n\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\bilgi-sorgu\bilgi-sorgu.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]])
@@ -2313,7 +2309,6 @@ var HizmetDetayComponent = (function () {
             this.arizaAdi = this.hizmetDetay.arizaKod;
             this.mlzIscAdi = this.hizmetDetay.mlzIscKod;
             this.birimfiyat = this.hizmetDetay.tutar / this.hizmetDetay.miktar;
-            debugger;
             this.loadHizmetDetay();
         }
     };
@@ -2324,7 +2319,6 @@ var HizmetDetayComponent = (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        debugger;
                         if (!this.util.isEmpty(this.hizmetDetay.satirNo)) return [3 /*break*/, 2];
                         return [4 /*yield*/, this.fiyatBul()];
                     case 1:
@@ -2455,7 +2449,7 @@ var HizmetDetayComponent = (function () {
     };
     HizmetDetayComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'hizmet-detay',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\hizmet-detay\hizmet-detay.html"*/'<ion-header>\n\n  <ion-navbar no-border-bottom>\n\n    <ion-title class="page-title">Hizmet Detay</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n<!-- Generated template for the HizmetBilgileriComponent component -->\n\n<ion-content>\n\n  <ion-list inset>\n\n\n\n    <ion-item>\n\n      <ion-label>Işlem Tipi</ion-label>\n\n      <ion-select [(ngModel)]="hizmetDetay.mlzIsc" interface="popover">\n\n        <ion-option value="" selected="true"></ion-option>\n\n        <ion-option value="ISC">İşçilik</ion-option>\n\n        <ion-option value="MLZ">Malzeme</ion-option>\n\n        <ion-option value="KM">Yol</ion-option>\n\n        <ion-option value="DGR">Diğer</ion-option>\n\n      </ion-select>\n\n\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Işlem Kodu</ion-label>\n\n      <ion-input type="text" [(ngModel)]="islemAdi" (ionFocus)="IslemArizaIscilikBul(\'ISLEM\')"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Arıza Kodu</ion-label>\n\n      <ion-input type="text" [(ngModel)]="arizaAdi" (ionFocus)="IslemArizaIscilikBul(\'ARIZA\')"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>P/I/Y Kodu</ion-label>\n\n      <ion-input type="text" [(ngModel)]="mlzIscAdi" (ionFocus)="IslemArizaIscilikBul(\'PIY\')"></ion-input>\n\n\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>P/I/Y Açıklama</ion-label>\n\n      <ion-input type="text" [(ngModel)]="hizmetDetay.aciklama"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item *ngIf="hizmetDetay.mlzIsc == \'DGR\' || hizmetDetay.mlzIsc == \'KM\' || hizmetDetay.mlzIsc ==\'MLZ\'">\n\n      <ion-label>Miktar</ion-label>\n\n      <ion-input type="number" [(ngModel)]="hizmetDetay.miktar"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item *ngIf="hizmetDetay.mlzIsc == \'DGR\'">\n\n      <ion-label>Birim Fiyat</ion-label>\n\n      <ion-input type="number" [(ngModel)]="birimfiyat"></ion-input>\n\n    </ion-item>\n\n\n\n  </ion-list>\n\n\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-12 col-sm>\n\n        <button ion-button [color]="primary" (click)="closeModal()" round full>\n\n          Iptal\n\n          <span item-right>\n\n            <ion-icon name="ion-plus-round"></ion-icon>\n\n          </span>\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-12 col-sm>\n\n        <button ion-button icon-end [color]="primary" (click)="detayKaydet()" round full>\n\n          Kaydet\n\n          <span item-right>\n\n            <ion-icon name="ion-plus-round"></ion-icon>\n\n          </span>\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n\n\n\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\hizmet-detay\hizmet-detay.html"*/
+            selector: 'hizmet-detay',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\hizmet-detay\hizmet-detay.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-row class="modal-title">\n\n      <ion-col col-11 col-md-11>\n\n        <ion-title>Hizmet detay</ion-title>\n\n      </ion-col>\n\n      <ion-col col-1 col-md-1>\n\n        <ion-icon name="close" (click)="closeModal()" class="pull-right close-icon"></ion-icon>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n<!-- Generated template for the HizmetBilgileriComponent component -->\n\n<ion-content class="content ">\n\n  <ion-row>\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">İşlem Tipi</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-select [(ngModel)]="hizmetDetay.mlzIsc" (ionChange)="onChangeIslemTipi()" interface="popover">\n\n        <ion-option value="" selected="true"></ion-option>\n\n        <ion-option value="ISC">İşçilik</ion-option>\n\n        <ion-option value="MLZ">Malzeme</ion-option>\n\n        <ion-option value="KM">Yol</ion-option>\n\n        <ion-option value="DGR">Diğer</ion-option>\n\n      </ion-select>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">İşlem Kodu</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-input type="text" [(ngModel)]="islemAdi" (ionChange)="onChangeIslemKodu()" (ionFocus)="IslemArizaIscilikBul(\'ISLEM\')"></ion-input>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Arıza Kodu</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-input type="text" [(ngModel)]="arizaAdi" (ionChange)="onChangeArizaKodu()" (ionFocus)="IslemArizaIscilikBul(\'ARIZA\')"></ion-input>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">P/I/Y Kodu</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-input type="text" [(ngModel)]="mlzIsckod" (ionChange)="onChangeParcaIscilikYol()" (ionFocus)="IslemArizaIscilikBul(\'PIY\')"></ion-input>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">P/I/Y Açıklama</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-input type="text" [(ngModel)]="aciklama"></ion-input>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2 *ngIf="hizmetDetay.mlzIsc == \'DGR\' || hizmetDetay.mlzIsc == \'KM\' || hizmetDetay.mlzIsc ==\'MLZ\'">\n\n      <ion-label color="primary">Miktar</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10 *ngIf="hizmetDetay.mlzIsc == \'DGR\' || hizmetDetay.mlzIsc == \'KM\' || hizmetDetay.mlzIsc ==\'MLZ\'">\n\n      <ion-input type="number" [(ngModel)]="hizmetDetay.miktar"></ion-input>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2 *ngIf="hizmetDetay.mlzIsc == \'DGR\'">\n\n      <ion-label color="primary">Birim Fiyat</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10 *ngIf="hizmetDetay.mlzIsc == \'DGR\'">\n\n      <ion-input type="number" [(ngModel)]="birimfiyat"></ion-input>\n\n    </ion-col>\n\n\n\n\n\n  </ion-row>\n\n\n\n  <ion-row>\n\n    <ion-col col-12 col-md-12>\n\n      <button ion-button icon-end [color]="primary" (click)="detayKaydet()" round full>\n\n        Kaydet\n\n        <span item-right>\n\n          <ion-icon name="ion-plus-round"></ion-icon>\n\n        </span>\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n\n\n</ion-footer>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\hizmet-detay\hizmet-detay.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["n" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */],
@@ -2630,7 +2624,7 @@ var KutuphanePage = (function () {
     };
     KutuphanePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-kutuphane',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\kutuphane\kutuphane.html"*/'<!--\n\n  Generated template for the KutuphanePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <button ion-button primary menuToggle>\n\n      <ion-icon name="list"></ion-icon>\n\n    </button>\n\n    <ion-title class="page-title">E-Kütüphane</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\kutuphane\kutuphane.html"*/,
+            selector: 'page-kutuphane',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\kutuphane\kutuphane.html"*/'<!--\n\n  Generated template for the KutuphanePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <button ion-button primary>\n\n      <ion-icon name="list"></ion-icon>\n\n    </button>\n\n    <ion-title class="page-title">E-Kütüphane</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\kutuphane\kutuphane.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
     ], KutuphanePage);
@@ -2823,8 +2817,8 @@ var LoginPage = (function () {
         this.themeProvider = themeProvider;
         this.passwordType = 'password';
         this.passwordIcon = 'eye-off';
-        this.userCode = "";
-        this.password = "";
+        this.userCode = "ECAMERKEZ";
+        this.password = "EMAR6464";
         this.hasLoginPermission = false;
         this.themeProvider.setTheme();
         this.user = new __WEBPACK_IMPORTED_MODULE_6__entities_user__["a" /* User */]();
@@ -3078,20 +3072,20 @@ var map = {
 		405
 	],
 	"../pages/bildirimler/bildirimler.module": [
-		497
+		502
 	],
 	"../pages/bilgi-sorgu/bilgi-sorgu.module": [
-		498
+		497
 	],
 	"../pages/cagri-detay/cagri-detay.module": [
-		499
+		498
 	],
 	"../pages/cagrilar/cagri-arama-modal/cagri-arama-modal.module": [
 		907,
 		2
 	],
 	"../pages/cagrilar/cagrilar.module": [
-		502
+		501
 	],
 	"../pages/guncelleme/guncelleme.module": [
 		503
@@ -4907,7 +4901,7 @@ var GarantiSorguComponent = (function () {
         this.util = util;
         this.garantiSorguProvider = garantiSorguProvider;
         this.http = http;
-        this.data = { type: "" };
+        this.data = { type: "", nerden: "BILGI_SORGU" };
         this.urunAnaGrup = new __WEBPACK_IMPORTED_MODULE_1__entities_urunAnaGrup__["a" /* UrunAnaGrup */](__WEBPACK_IMPORTED_MODULE_5__entities_Constants__["a" /* Constants */].URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
         this.urun = new __WEBPACK_IMPORTED_MODULE_3__entities_urun__["a" /* Urun */]();
         this.ionViewDidLoad();
@@ -4959,7 +4953,7 @@ var GarantiSorguComponent = (function () {
     };
     GarantiSorguComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'garanti-sorgu',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\garanti-sorgu\garanti-sorgu.html"*/'<!-- Generated template for the HizmetBilgileriComponent component -->\n\n\n\n<ion-row>\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Ürün Ana Grubu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input type="text" [(ngModel)]="urunAnaGrup.ad" (focus)="urunAnaGrupSorgula()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Ürün Kodu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input type="text" [(ngModel)]="urun.mamKod" (focus)="urunSorgula()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Barkod Numarası</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input type="text" [(ngModel)]="barkodNo" required></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Fatura Tarihi</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="faturaTarihi" required></ion-datetime>\n\n  </ion-col>\n\n\n\n  <ion-col col-12 col-md-12>\n\n    <button ion-button icon-end [color]="primary" (click)="garantiSorgula();" round full>\n\n      Garanti Sorgula\n\n      <span item-right>\n\n        <ion-icon name="help"></ion-icon>\n\n      </span>\n\n    </button>\n\n  </ion-col>\n\n</ion-row>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\garanti-sorgu\garanti-sorgu.html"*/
+            selector: 'garanti-sorgu',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\garanti-sorgu\garanti-sorgu.html"*/'<!-- Generated template for the HizmetBilgileriComponent component -->\n\n\n\n<ion-row>\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Ürün Ana Grubu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input type="text" [(ngModel)]="urunAnaGrup.ad" (focus)="urunAnaGrupSorgula()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Ürün Kodu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input type="text" [(ngModel)]="urun.mamKod" (focus)="urunSorgula()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Barkod Numarası</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input type="text" [(ngModel)]="barkodNo" required></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Fatura Tarihi</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="faturaTarihi" required></ion-datetime>\n\n  </ion-col>\n\n\n\n  <ion-col col-sm-12 col-md-6 col-lg-3 col-xl-3>\n\n    <button ion-button icon-start full round (click)="garantiSorgula();">\n\n      <ion-icon name="md-help"></ion-icon>\n\n      Garanti Sorgula\n\n    </button>\n\n  </ion-col>\n\n</ion-row>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\garanti-sorgu\garanti-sorgu.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_urun_ana_grup_dao_urun_ana_grup_dao__["a" /* UrunAnaGrupDao */],
             __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["h" /* ModalController */],
@@ -5337,7 +5331,7 @@ var AyarlarPage = (function () {
     };
     AyarlarPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-ayarlar',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\ayarlar\ayarlar.html"*/'<ion-header>\n\n\n\n  <ion-navbar hideBackButton="true">\n\n    <icon-header></icon-header>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content class="content">\n\n\n\n  <ion-title class="page-title">Ayarlar</ion-title>\n\n\n\n  <ion-toolbar class="main-tabs">\n\n    <ion-segment [(ngModel)]="activePage">\n\n      <ion-segment-button value="silme">\n\n        Silme Işlemleri\n\n      </ion-segment-button>\n\n      <ion-segment-button value="versiyon">\n\n        Versiyon\n\n      </ion-segment-button>\n\n    </ion-segment>\n\n  </ion-toolbar>\n\n  <div [ngSwitch]="activePage">\n\n    <div *ngSwitchCase="\'silme\'">\n\n      <ion-list>\n\n        <ion-item>\n\n          <button ion-button primary round full (click)="deleteUrunler();">\n\n            <span item-left style="width: 95%">Ürünler</span>\n\n            <span item-right style="width: 5%">\n\n              <ion-icon name="trash"></ion-icon>\n\n            </span>\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <button ion-button primary round full (click)="deleteUrunAnaGrup();">\n\n            <span item-left style="width: 95%">Ürün Ana Grupları</span>\n\n            <span item-right style="width: 5%">\n\n              <ion-icon name="trash"></ion-icon>\n\n            </span>\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <button ion-button primary round full (click)="deleteUrunIscilik();">\n\n            <span item-left style="width: 95%">Ürün Işçilik</span>\n\n            <span item-right style="width: 5%">\n\n              <ion-icon name="trash"></ion-icon>\n\n            </span>\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <button ion-button primary round full (click)="deleteUrunMalzeme();">\n\n            <span item-left style="width: 95%">Ürün-Malzeme</span>\n\n            <span item-right style="width: 5%">\n\n              <ion-icon name="trash"></ion-icon>\n\n            </span>\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <button ion-button primary round full (click)="deleteIslemArizaIscilik();">\n\n            <span item-left style="width: 95%">Işlem-Arıza-Işçilik</span>\n\n            <span item-right style="width: 5%">\n\n              <ion-icon name="trash"></ion-icon>\n\n            </span>\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <button ion-button primary round full (click)="deleteMalzemeFiyat();">\n\n            <span item-left style="width: 95%">Malzeme Fiyatları</span>\n\n            <span item-right style="width: 5%">\n\n              <ion-icon name="trash"></ion-icon>\n\n            </span>\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <button ion-button primary round full (click)="deleteIscilikFiyat();">\n\n            <span item-left style="width: 95%">Işçilik Fiyatları</span>\n\n            <span item-right style="width: 5%">\n\n              <ion-icon name="trash"></ion-icon>\n\n            </span>\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <button ion-button primary round full (click)="deleteSehirList();">\n\n            <span item-left style="width: 95%">Şehir Listesi</span>\n\n            <span item-right style="width: 5%">\n\n              <ion-icon name="trash"></ion-icon>\n\n            </span>\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <button ion-button primary round full (click)="deleteIlceList();">\n\n            <span item-left style="width: 95%">Ilçe Listesi</span>\n\n            <span item-right style="width: 5%">\n\n              <ion-icon name="trash"></ion-icon>\n\n            </span>\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <button ion-button primary round full (click)="deleteMahalleList();">\n\n            <span item-left style="width: 95%">Mahalle Listesi</span>\n\n            <span item-right style="width: 5%">\n\n              <ion-icon name="trash"></ion-icon>\n\n            </span>\n\n          </button>\n\n        </ion-item>\n\n\n\n\n\n      </ion-list>\n\n\n\n      <ion-list>\n\n        <ion-list-header>\n\n\n\n        </ion-list-header>\n\n\n\n        <ion-item>\n\n          <button ion-button round full (click)="deleteAllRecords();" color="danger">\n\n            <span item-left style="width: 95%">Tüm Kayıtlar</span>\n\n            <span item-right style="width: 5%">\n\n              <ion-icon name="trash"></ion-icon>\n\n            </span>\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <button ion-button round full (click)="deleteAllServices();" color="danger">\n\n            <span item-left style="width: 95%">Tüm Çağrılar</span>\n\n            <span item-right style="width: 5%">\n\n              <ion-icon name="trash"></ion-icon>\n\n            </span>\n\n          </button>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n\n\n      <ion-list>\n\n        <ion-title class="page-title"> Arka Plan Ayarları</ion-title>\n\n\n\n        <ion-item>\n\n          <ion-label>Senkronize Süresi(Dakika)</ion-label>\n\n          <ion-select [(ngModel)]="syncTime" interface="popover" (ionChange)="onChangeSyncTime(\'OUT\')">\n\n            <ion-option value="0.5">0.5</ion-option>\n\n            <ion-option value="1">1</ion-option>\n\n            <ion-option value="2">2</ion-option>\n\n            <ion-option value="3">3</ion-option>\n\n            <ion-option value="5">5</ion-option>\n\n            <ion-option value="10">10</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n\n\n\n\n      <ion-list>\n\n        <ion-title class="page-title">Tema Ayarları</ion-title>\n\n        <ion-item>\n\n          <ion-select [(ngModel)]="selectedTheme" interface="popover" (ionChange)="onChangeTheme()">\n\n            <ion-option value="BLUE">Mavi</ion-option>\n\n            <ion-option value="GREEN">Yeşil</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'versiyon\'" class="versiyon">\n\n      <ion-item>\n\n        <button ion-button primary round full>Ürünler</button>\n\n      </ion-item>\n\n      <ion-item>\n\n        <button ion-button primary round full>Ürün Ana Grupları</button>\n\n      </ion-item>\n\n      <ion-item>\n\n        <button ion-button primary round full>Ürün Işçilik</button>\n\n      </ion-item>\n\n      <ion-item>\n\n        <button ion-button primary round full>Ürün-Malzeme</button>\n\n      </ion-item>\n\n      <ion-item>\n\n        <button ion-button primary round full>Işlem-Arıza-Işçilik</button>\n\n      </ion-item>\n\n      <ion-item>\n\n        <button ion-button primary round full>Malzeme Fiyatları</button>\n\n      </ion-item>\n\n      <ion-item>\n\n        <button ion-button primary round full>Işçilik Fiyatları</button>\n\n      </ion-item>\n\n    </div>\n\n\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\ayarlar\ayarlar.html"*/,
+            selector: 'page-ayarlar',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\ayarlar\ayarlar.html"*/'<ion-header>\n\n\n\n  <ion-navbar hideBackButton="true">\n\n    <icon-header #header></icon-header>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content class="content">\n\n\n\n  <ion-title class="page-title">Ayarlar</ion-title>\n\n\n\n  <ion-toolbar class="main-tabs">\n\n    <ion-segment [(ngModel)]="activePage">\n\n      <ion-segment-button value="silme" class="seg-button">\n\n        Silme Işlemleri\n\n      </ion-segment-button>\n\n      <ion-segment-button value="versiyon" class="seg-button">\n\n        Versiyon\n\n      </ion-segment-button>\n\n    </ion-segment>\n\n  </ion-toolbar>\n\n  <div [ngSwitch]="activePage">\n\n    <div *ngSwitchCase="\'silme\'">\n\n      <ion-list>\n\n        <button ion-button primary round full (click)="deleteUrunler();">\n\n          <span item-left style="width: 95%">Ürünler</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full (click)="deleteUrunAnaGrup();">\n\n          <span item-left style="width: 95%">Ürün Ana Grupları</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full (click)="deleteUrunIscilik();">\n\n          <span item-left style="width: 95%">Ürün Işçilik</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full (click)="deleteUrunMalzeme();">\n\n          <span item-left style="width: 95%">Ürün-Malzeme</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full (click)="deleteIslemArizaIscilik();">\n\n          <span item-left style="width: 95%">Işlem-Arıza-Işçilik</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full (click)="deleteMalzemeFiyat();">\n\n          <span item-left style="width: 95%">Malzeme Fiyatları</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full (click)="deleteIscilikFiyat();">\n\n          <span item-left style="width: 95%">Işçilik Fiyatları</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full (click)="deleteSehirList();">\n\n          <span item-left style="width: 95%">Şehir Listesi</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full (click)="deleteIlceList();">\n\n          <span item-left style="width: 95%">Ilçe Listesi</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full (click)="deleteMahalleList();">\n\n          <span item-left style="width: 95%">Mahalle Listesi</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </span>\n\n        </button>\n\n      </ion-list>\n\n\n\n      <ion-list>\n\n        <button ion-button round full (click)="deleteAllRecords();" color="danger">\n\n          <span item-left style="width: 95%">Tüm Kayıtlar</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button round full (click)="deleteAllServices();" color="danger">\n\n          <span item-left style="width: 95%">Tüm Çağrılar</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n      </ion-list>\n\n\n\n      <ion-row>\n\n        <ion-col col-12 col-md-12>\n\n          <ion-title class="page-title"> Arka Plan Ayarları</ion-title>\n\n        </ion-col>\n\n\n\n        <ion-col col-6 col-md-2>\n\n          <ion-label>Senkronize Süresi(Dakika)</ion-label>\n\n        </ion-col>\n\n        <ion-col col-6 col-md-10>\n\n          <ion-select [(ngModel)]="syncTime" interface="popover" (ionChange)="onChangeSyncTime(\'OUT\')">\n\n            <ion-option value="0.5">0.5</ion-option>\n\n            <ion-option value="1">1</ion-option>\n\n            <ion-option value="2">2</ion-option>\n\n            <ion-option value="3">3</ion-option>\n\n            <ion-option value="5">5</ion-option>\n\n            <ion-option value="10">10</ion-option>\n\n          </ion-select>\n\n        </ion-col>\n\n      </ion-row>\n\n\n\n      <ion-row>\n\n        <ion-col col-12 col-md-12>\n\n          <ion-title class="page-title"> Tema Ayarları</ion-title>\n\n        </ion-col>\n\n\n\n\n\n        <ion-col col-12 col-md-12>\n\n          <ion-select [(ngModel)]="selectedTheme" interface="popover" (ionChange)="onChangeTheme()">\n\n            <ion-option value="BLUE">Mavi</ion-option>\n\n            <ion-option value="GREEN">Yeşil</ion-option>\n\n          </ion-select>\n\n        </ion-col>\n\n      </ion-row>\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'versiyon\'" class="versiyon">\n\n      <button ion-button primary round full>Ürünler</button>\n\n\n\n      <button ion-button primary round full>Ürün Ana Grupları</button>\n\n\n\n      <button ion-button primary round full>Ürün Işçilik</button>\n\n\n\n      <button ion-button primary round full>Ürün-Malzeme</button>\n\n\n\n      <button ion-button primary round full>Işlem-Arıza-Işçilik</button>\n\n\n\n      <button ion-button primary round full>Malzeme Fiyatları</button>\n\n\n\n      <button ion-button primary round full>Işçilik Fiyatları</button>\n\n    </div>\n\n\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\ayarlar\ayarlar.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -5624,49 +5618,6 @@ var Pageable = (function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BildirimlerPageModule", function() { return BildirimlerPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bildirimler__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_module_shared_module_module__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_mesaj_detail_mesaj_detail__ = __webpack_require__(156);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-var BildirimlerPageModule = (function () {
-    function BildirimlerPageModule() {
-    }
-    BildirimlerPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__bildirimler__["a" /* BildirimlerPage */],
-                __WEBPACK_IMPORTED_MODULE_4__components_mesaj_detail_mesaj_detail__["a" /* MesajDetailComponent */]
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__bildirimler__["a" /* BildirimlerPage */]), __WEBPACK_IMPORTED_MODULE_3__shared_module_shared_module_module__["SharedModule"]
-            ],
-        })
-    ], BildirimlerPageModule);
-    return BildirimlerPageModule;
-}());
-
-//# sourceMappingURL=bildirimler.module.js.map
-
-/***/ }),
-
-/***/ 498:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BilgiSorguPageModule", function() { return BilgiSorguPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
@@ -5703,7 +5654,7 @@ var BilgiSorguPageModule = (function () {
 
 /***/ }),
 
-/***/ 499:
+/***/ 498:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5773,7 +5724,7 @@ var CagriDetayPageModule = (function () {
 
 /***/ }),
 
-/***/ 500:
+/***/ 499:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5887,7 +5838,7 @@ var SeriNoSorguProvider = (function () {
 
 /***/ }),
 
-/***/ 501:
+/***/ 500:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6125,7 +6076,7 @@ var PrinterService = (function () {
 
 /***/ }),
 
-/***/ 502:
+/***/ 501:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6163,6 +6114,49 @@ var CagrilarPageModule = (function () {
 }());
 
 //# sourceMappingURL=cagrilar.module.js.map
+
+/***/ }),
+
+/***/ 502:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BildirimlerPageModule", function() { return BildirimlerPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bildirimler__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_module_shared_module_module__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_mesaj_detail_mesaj_detail__ = __webpack_require__(156);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+var BildirimlerPageModule = (function () {
+    function BildirimlerPageModule() {
+    }
+    BildirimlerPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__bildirimler__["a" /* BildirimlerPage */],
+                __WEBPACK_IMPORTED_MODULE_4__components_mesaj_detail_mesaj_detail__["a" /* MesajDetailComponent */]
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__bildirimler__["a" /* BildirimlerPage */]), __WEBPACK_IMPORTED_MODULE_3__shared_module_shared_module_module__["SharedModule"]
+            ],
+        })
+    ], BildirimlerPageModule);
+    return BildirimlerPageModule;
+}());
+
+//# sourceMappingURL=bildirimler.module.js.map
 
 /***/ }),
 
@@ -6280,7 +6274,7 @@ var KampanyalarPage = (function () {
     };
     KampanyalarPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-kampanyalar',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\kampanyalar\kampanyalar.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <button ion-button primary menuToggle>\n\n      <ion-icon name="list"></ion-icon>\n\n    </button>\n\n    <ion-title class="page-title">Kampanyalar</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\kampanyalar\kampanyalar.html"*/,
+            selector: 'page-kampanyalar',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\kampanyalar\kampanyalar.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <button ion-button primary>\n\n      <ion-icon name="list"></ion-icon>\n\n    </button>\n\n    <ion-title class="page-title">Kampanyalar</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\kampanyalar\kampanyalar.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
     ], KampanyalarPage);
@@ -6589,7 +6583,6 @@ var UrunAnaGrup = (function () {
         this.tip = tip;
     }
     UrunAnaGrup.prototype.fillUrunAnaGrup = function (res) {
-        debugger;
         res = res.message;
         var urunAnaGrpList = [];
         localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].VERSIYON.SERVER.URUN_ANA_GRUP, res.versiyon);
@@ -6859,13 +6852,13 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__components_urun_search_urun_search__ = __webpack_require__(77);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__providers_garanti_sorgu_garanti_sorgu__ = __webpack_require__(162);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__pages_shared_module_shared_module_module__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__pages_cagrilar_cagrilar_module__ = __webpack_require__(502);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__pages_cagrilar_cagrilar_module__ = __webpack_require__(501);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__pages_guncelleme_guncelleme_module__ = __webpack_require__(503);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__pages_kampanyalar_kampanyalar_module__ = __webpack_require__(504);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__pages_kutuphane_kutuphane_module__ = __webpack_require__(506);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__pages_cagri_detay_cagri_detay_module__ = __webpack_require__(499);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__pages_bilgi_sorgu_bilgi_sorgu_module__ = __webpack_require__(498);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__pages_bildirimler_bildirimler_module__ = __webpack_require__(497);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__pages_cagri_detay_cagri_detay_module__ = __webpack_require__(498);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__pages_bilgi_sorgu_bilgi_sorgu_module__ = __webpack_require__(497);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__pages_bildirimler_bildirimler_module__ = __webpack_require__(502);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__providers_adres_adres__ = __webpack_require__(403);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__providers_adres_dao_adres_dao__ = __webpack_require__(160);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__providers_logger_logger__ = __webpack_require__(14);
@@ -6880,9 +6873,9 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__pages_anasayfa_anasayfa_module__ = __webpack_require__(264);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__components_mesaj_detail_mesaj_detail__ = __webpack_require__(156);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__providers_header_header__ = __webpack_require__(148);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__providers_printer_service_printer_service__ = __webpack_require__(501);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__providers_printer_service_printer_service__ = __webpack_require__(500);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__components_zebra_printer_zebra_printer__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__providers_seri_no_sorgu_seri_no_sorgu__ = __webpack_require__(500);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__providers_seri_no_sorgu_seri_no_sorgu__ = __webpack_require__(499);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__components_update_urun_ana_grup_update_urun_ana_grup__ = __webpack_require__(180);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__components_urun_iscilik_search_urun_iscilik_search__ = __webpack_require__(164);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_78__providers_tasks_tasks__ = __webpack_require__(166);
@@ -6995,11 +6988,11 @@ var AppModule = (function () {
                     links: [
                         { loadChildren: '../pages/anasayfa/anasayfa.module#AnasayfaPageModule', name: 'Anasayfa', segment: 'anasayfa', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/ayarlar/ayarlar.module#AyarlarPageModule', name: 'AyarlarPage', segment: 'ayarlar', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/bildirimler/bildirimler.module#BildirimlerPageModule', name: 'BildirimlerPage', segment: 'bildirimler', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/bilgi-sorgu/bilgi-sorgu.module#BilgiSorguPageModule', name: 'BilgiSorguPage', segment: 'bilgi-sorgu', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/cagri-detay/cagri-detay.module#CagriDetayPageModule', name: 'CagriDetayPage', segment: 'cagri-detay', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/cagrilar/cagri-arama-modal/cagri-arama-modal.module#CagriAramaModalPageModule', name: 'CagriAramaModalPage', segment: 'cagri-arama-modal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/cagrilar/cagrilar.module#CagrilarPageModule', name: 'CagrilarPage', segment: 'cagrilar', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/bildirimler/bildirimler.module#BildirimlerPageModule', name: 'BildirimlerPage', segment: 'bildirimler', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/guncelleme/guncelleme.module#GuncellemePageModule', name: 'GuncellemePage', segment: 'guncelleme', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/kampanyalar/kampanyalar.module#KampanyalarPageModule', name: 'KampanyalarPage', segment: 'kampanyalar', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/kutuphane/kutuphane.module#KutuphanePageModule', name: 'KutuphanePage', segment: 'kutuphane', priority: 'low', defaultHistory: [] },
@@ -7518,6 +7511,41 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
 
 
 
@@ -7545,26 +7573,37 @@ var UrunAnaGrupDao = (function () {
         return this.baseDao.execute(query, []);
     };
     UrunAnaGrupDao.prototype.insertList = function (list) {
-        var _this = this;
-        var insertedItems = 0;
-        return new Promise(function (resolve, reject) {
-            _this.dbProvider.transaction().then(function (db) {
-                db.transaction(function (tx) {
-                    var query = 'INSERT OR REPLACE INTO OFF_MAM_ANAGRP_TNM (tip,mamAnaGrp,ad,durum,kod, neden) VALUES (?,?,?,?,?,?)';
-                    for (var _i = 0, list_1 = list; _i < list_1.length; _i++) {
-                        var item = list_1[_i];
-                        var params = [item.tip, item.mamAnaGrp, item.ad, item.durum, item.kod, item.neden];
-                        tx.executeSql(query, params, function (tx, res) {
-                            insertedItems += 1;
-                            if (list.length == insertedItems) {
-                                resolve(res);
-                            }
-                        }, function (err, mes) {
-                            console.error("Error" + mes.message + " Code: " + mes.code);
-                            reject(err);
-                        });
-                    }
-                });
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            var insertedItems;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        insertedItems = 0;
+                        return [4 /*yield*/, this.deleteAll()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/, new Promise(function (resolve, reject) {
+                                _this.dbProvider.transaction().then(function (db) {
+                                    db.transaction(function (tx) {
+                                        var query = 'INSERT OR REPLACE INTO OFF_MAM_ANAGRP_TNM (tip,mamAnaGrp,ad,durum,kod, neden) VALUES (?,?,?,?,?,?)';
+                                        for (var _i = 0, list_1 = list; _i < list_1.length; _i++) {
+                                            var item = list_1[_i];
+                                            var params = [item.tip, item.mamAnaGrp, item.ad, item.durum, item.kod, item.neden];
+                                            tx.executeSql(query, params, function (tx, res) {
+                                                insertedItems += 1;
+                                                if (list.length == insertedItems) {
+                                                    resolve(res);
+                                                }
+                                            }, function (err, mes) {
+                                                console.error("Error" + mes.message + " Code: " + mes.code);
+                                                reject(err);
+                                            });
+                                        }
+                                    });
+                                });
+                            })];
+                }
             });
         });
     };
@@ -8176,7 +8215,6 @@ var FiyatSorguComponent = (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        debugger;
                         filter = new __WEBPACK_IMPORTED_MODULE_12__entities_fiyat__["a" /* Fiyat */]();
                         filter.mamKod = mamKod;
                         filter.iscMlzKod = iscMlzKod;
@@ -8208,7 +8246,7 @@ var FiyatSorguComponent = (function () {
     };
     FiyatSorguComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'fiyat-sorgu',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\fiyat-sorgu\fiyat-sorgu.html"*/'<!-- Generated template for the HizmetBilgileriComponent component -->\n\n<ion-list inset>\n\n\n\n  <ion-item *ngIf="islemTipi != \'ISC\' && islemTipi != \'MLZ\'">\n\n    <ion-label>Önce işlem tipini seçiniz</ion-label>\n\n  </ion-item>\n\n\n\n  <ion-item>\n\n    <ion-select [(ngModel)]="islemTipi" interface="popover" (ionChange)="IslemTipiChange()">\n\n      <ion-option value="" selected="true"></ion-option>\n\n      <ion-option value="ISC">İşçilik</ion-option>\n\n      <ion-option value="MLZ">Malzeme</ion-option>\n\n    </ion-select>\n\n\n\n  </ion-item>\n\n\n\n  <ion-item *ngIf="islemTipi != \'\' && islemTipi==\'ISC\'">\n\n    <ion-label>Ürün ana Grubu</ion-label>\n\n    <ion-input type="text" [(ngModel)]="urunAnaGrup.ad" (focus)="urunAnaGrupSorgula()"></ion-input>\n\n  </ion-item>\n\n\n\n  <ion-item *ngIf="islemTipi == \'ISC\' || islemTipi == \'MLZ\'">\n\n    <ion-label>Ürün Kodu</ion-label>\n\n    <ion-input type="text" [(ngModel)]="urun.mamKod" (focus)="urunSorgula()"></ion-input>\n\n  </ion-item>\n\n\n\n  <ion-item *ngIf="islemTipi != \'\' && islemTipi==\'ISC\'">\n\n    <ion-label>Ürün İşçilik</ion-label>\n\n    <ion-input type="text" [(ngModel)]="urunIscilik.iscAdi" (focus)="urunIscilikSorgula()"></ion-input>\n\n  </ion-item>\n\n\n\n  <ion-item>\n\n    <button ion-button icon-end [color]="primary" (click)="fiyatSorgula();" round full>\n\n      Fiyat Sorgula\n\n      <span item-right>\n\n        <ion-icon name="help"></ion-icon>\n\n      </span>\n\n    </button>\n\n  </ion-item>\n\n\n\n\n\n</ion-list>\n\n\n\n<ion-list *ngIf="fiyat.fiyat != null">\n\n  <ion-item>\n\n    <ion-label>(KDV Dahil) Garanti Fiyat</ion-label>\n\n    <ion-label>{{fiyat.fiyat}}</ion-label>\n\n  </ion-item>\n\n\n\n  <ion-item>\n\n    <ion-label>(KDV Dahil) Garanti Dışı Fiyat</ion-label>\n\n    <ion-label>{{fiyat.gdFiyat}}</ion-label>\n\n  </ion-item>\n\n\n\n</ion-list>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\fiyat-sorgu\fiyat-sorgu.html"*/
+            selector: 'fiyat-sorgu',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\fiyat-sorgu\fiyat-sorgu.html"*/'<!-- Generated template for the HizmetBilgileriComponent component -->\n\n\n\n<ion-row>\n\n  <ion-col col-6 col-md-2>\n\n    <ion-label color="primary">Önce işlem tipini seçiniz</ion-label>\n\n  </ion-col>\n\n  <ion-col col-6 col-md-10>\n\n    <ion-select [(ngModel)]="islemTipi" interface="popover" (ionChange)="IslemTipiChange()">\n\n      <ion-option value="" selected="true"></ion-option>\n\n      <ion-option value="ISC">İşçilik</ion-option>\n\n      <ion-option value="MLZ">Malzeme</ion-option>\n\n    </ion-select>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2 *ngIf="islemTipi != \'\' && islemTipi==\'ISC\'">\n\n    <ion-label color="primary">Ürün ana Grubu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10 *ngIf="islemTipi != \'\' && islemTipi==\'ISC\'">\n\n    <ion-input type="text" [(ngModel)]="urunAnaGrup.ad" (focus)="urunAnaGrupSorgula()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2 *ngIf="islemTipi == \'ISC\' || islemTipi == \'MLZ\'">\n\n    <ion-label color="primary">Ürün Kodu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10 *ngIf="islemTipi == \'ISC\' || islemTipi == \'MLZ\'">\n\n    <ion-input type="text" [(ngModel)]="urun.mamKod" (focus)="urunSorgula()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2 *ngIf="islemTipi != \'\' && islemTipi==\'ISC\'">\n\n    <ion-label color="primary">Ürün İşçilik</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10 *ngIf="islemTipi != \'\' && islemTipi==\'ISC\'">\n\n    <ion-input type="text" [(ngModel)]="urunIscilik.iscAdi" (focus)="urunIscilikSorgula()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2 *ngIf="islemTipi != \'\' && islemTipi==\'ISC\'">\n\n    <ion-label color="primary">Ürün İşçilik</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10 *ngIf="islemTipi != \'\' && islemTipi==\'ISC\'">\n\n    <ion-input type="text" [(ngModel)]="urunIscilik.iscAdi" (focus)="urunIscilikSorgula()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-sm-12 col-md-6 col-lg-3 col-xl-3>\n\n    <button ion-button icon-start full round (click)="fiyatSorgula();">\n\n      <ion-icon name="md-help"></ion-icon>\n\n      Fiyat Sorgula\n\n    </button>\n\n  </ion-col>\n\n</ion-row>\n\n\n\n<ion-row *ngIf="fiyat.fiyat != null">\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">(KDV Dahil) Garanti Fiyat</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-label>{{fiyat.fiyat}}</ion-label>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">(KDV Dahil) Garanti Dışı Fiyat</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-label>{{fiyat.gdFiyat}}</ion-label>\n\n  </ion-col>\n\n\n\n</ion-row>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\fiyat-sorgu\fiyat-sorgu.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["h" /* ModalController */],
             __WEBPACK_IMPORTED_MODULE_4__providers_util_util__["a" /* UtilProvider */],
@@ -8227,8 +8265,8 @@ var FiyatSorguComponent = (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UtilProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_Constants__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__entities_Constants__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_moment__);
@@ -8271,10 +8309,10 @@ var UtilProvider = (function () {
         return key + "='" + value + "'";
     };
     UtilProvider.prototype.prepareWhereQuery = function (type, key, value) {
-        return type == __WEBPACK_IMPORTED_MODULE_1__entities_Constants__["a" /* Constants */].SEARCH_TYPE.EXACT ? this.prepareForEqual(key, value) : this.prepareForLike(key, value);
+        return type == __WEBPACK_IMPORTED_MODULE_0__entities_Constants__["a" /* Constants */].SEARCH_TYPE.EXACT ? this.prepareForEqual(key, value) : this.prepareForLike(key, value);
     };
     UtilProvider.prototype.prepareQuery = function (query, whereQueries, searchType) {
-        var AndOr = searchType == __WEBPACK_IMPORTED_MODULE_1__entities_Constants__["a" /* Constants */].SEARCH_TYPE.EXACT ? ' AND ' : ' OR ';
+        var AndOr = searchType == __WEBPACK_IMPORTED_MODULE_0__entities_Constants__["a" /* Constants */].SEARCH_TYPE.EXACT ? ' AND ' : ' OR ';
         if (whereQueries.length > 0) {
             query += " AND (";
             query += whereQueries.join(AndOr);
@@ -8448,14 +8486,30 @@ var UtilProvider = (function () {
     UtilProvider.prototype.timerEnd = function (name) {
         console.timeEnd(name);
     };
+    UtilProvider.prototype.phoneMask = function (tel) {
+        var maskedValue = "";
+        if (this.isNotEmpty(tel)) {
+            var missing = 10 - tel.length;
+            for (var i = 0; i < missing; i++) {
+                tel += " ";
+            }
+            maskedValue = "(" + tel.substring(0, 3) + ") " + tel.substring(3, 6) + "-" + tel.substring(6, 10);
+            return maskedValue;
+        }
+    };
+    UtilProvider.prototype.getSelectedTheme = function () {
+        var theme = localStorage.getItem(__WEBPACK_IMPORTED_MODULE_0__entities_Constants__["a" /* Constants */].SELECTED_THEME);
+        if (this.isEmpty) {
+            theme = 'blue-theme';
+        }
+        return theme;
+    };
     UtilProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["m" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_4__ionic_native_network__["a" /* Network */],
-            __WEBPACK_IMPORTED_MODULE_5__logger_logger__["a" /* LoggerProvider */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* LoadingController */]])
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["B" /* Injectable */])(),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["m" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["m" /* ToastController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_network__["a" /* Network */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_network__["a" /* Network */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__logger_logger__["a" /* LoggerProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__logger_logger__["a" /* LoggerProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* LoadingController */]) === "function" && _d || Object])
     ], UtilProvider);
     return UtilProvider;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=util.js.map
@@ -8834,7 +8888,7 @@ var CagrilarPage = (function () {
     ], CagrilarPage.prototype, "header", void 0);
     CagrilarPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-cagrilar',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\cagrilar\cagrilar.html"*/'<ion-header class="header-content">\n\n  <ion-navbar>\n\n    <icon-header #header></icon-header>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="content cagri-content">\n\n\n\n  <ion-title class="page-title">{{title}}</ion-title>\n\n\n\n  <ion-row class="mb-20">\n\n    <ion-col col-12 col-6 col-sm>\n\n      <button ion-button id="btnCagriSorgu" round full cgrArama (click)="cagriSorgula();" color="secondary">Sorgula\n\n      </button>\n\n    </ion-col>\n\n    <ion-col col-12 col-6 col-sm>\n\n      <button ion-button id="btnCagriGuncelle" round full cgrGuncelle (click)="cagriGuncelle();" color="secondary">\n\n        Güncelle\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row *ngIf="this.searchParams != \'\'">\n\n    <ion-chip *ngFor="let sorgu of searchParams">\n\n      <ion-label>{{sorgu}}</ion-label>\n\n    </ion-chip>\n\n  </ion-row>\n\n\n\n  <ion-card *ngFor="let cagri of cagrilar" (click)="cagriDetayinaGit($event, cagri.seqNo)" class="card-box">\n\n    <label>\n\n      <strong>\n\n        <i class="fas fa-user"></i>\n\n        {{cagri.adi }} {{cagri.soyadi}} ({{cagri.seqNo}}) - ({{cagri.crmNo}})\n\n      </strong>\n\n    </label>\n\n    <p>\n\n      <i class="fas fa-cog"></i>\n\n      {{cagri.mamAnaGrpAdi}} | {{cagri.hizmetTipiAdi}} | {{cagri.basvuruNedenAdi}}\n\n    </p>\n\n    <p>\n\n      <i class="fas fa-phone"></i>{{cagri.gsmNo}} | {{cagri.evTel}} | {{cagri.evTel}}\n\n    </p>\n\n    <p class="call-date">\n\n      <i class="far fa-clock"></i> {{cagri.randevuTarihi | date: \'dd-MM-yyyy HH:mm\'}} </p>\n\n    <p>{{cagri.Adres}}</p>\n\n  </ion-card>\n\n</ion-content>\n\n\n\n\n\n<ion-footer>\n\n  <ion-grid>\n\n    <ion-row>\n\n\n\n      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>\n\n        <button ion-button color="light" (click)="fetchList(\'FIRST\')">\n\n          <ion-icon name="arrow-dropleft"></ion-icon>\n\n        </button>\n\n      </ion-col>\n\n\n\n      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>\n\n        <button ion-button color="light" (click)="fetchList(\'PREVIOUS\')">\n\n          <ion-icon name="arrow-back"></ion-icon>\n\n        </button>\n\n      </ion-col>\n\n\n\n      <ion-col col-sm-4 col-md-4 col-lg-4 col-xl-4>\n\n        <ion-item>\n\n          <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList(\'PAGE_NO\')" interface="popover">\n\n            <ion-option value="10" selected="true">10</ion-option>\n\n            <ion-option value="20">20</ion-option>\n\n            <ion-option value="50">50</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n      </ion-col>\n\n\n\n      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>\n\n        <button ion-button color="light" (click)="fetchList(\'NEXT\')">\n\n          <ion-icon name="arrow-forward"></ion-icon>\n\n        </button>\n\n      </ion-col>\n\n\n\n      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>\n\n        <button ion-button color="light" (click)="fetchList(\'LAST\')">\n\n          <ion-icon name="arrow-dropright"></ion-icon>\n\n        </button>\n\n      </ion-col>\n\n\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\cagrilar\cagrilar.html"*/,
+            selector: 'page-cagrilar',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\cagrilar\cagrilar.html"*/'<ion-header class="header-content">\n\n  <ion-navbar hideBackButton="true">\n\n    <icon-header #header></icon-header>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="content cagri-content">\n\n\n\n  <ion-title class="page-title">{{title}}</ion-title>\n\n\n\n  <ion-row class="mb-20">\n\n    <ion-col col-6 col-6 col-sm>\n\n      <button ion-button id="btnCagriSorgu" round full cgrArama (click)="cagriSorgula();" color="secondary">Sorgula\n\n      </button>\n\n    </ion-col>\n\n    <ion-col col-6 col-6 col-sm>\n\n      <button ion-button id="btnCagriGuncelle" round full cgrGuncelle (click)="cagriGuncelle();" color="secondary">\n\n        Güncelle\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row *ngIf="this.searchParams != \'\'">\n\n    <ion-chip *ngFor="let sorgu of searchParams">\n\n      <ion-label>{{sorgu}}</ion-label>\n\n    </ion-chip>\n\n  </ion-row>\n\n\n\n  <ion-card *ngFor="let cagri of cagrilar" (click)="cagriDetayinaGit($event, cagri.seqNo)" class="card-box">\n\n    <label>\n\n      <strong>\n\n        <i class="fas fa-user"></i>\n\n        {{cagri.adi }} {{cagri.soyadi}} ({{cagri.seqNo}}) - ({{cagri.crmNo}})\n\n      </strong>\n\n    </label>\n\n    <p>\n\n      <i class="fas fa-cog"></i>\n\n      {{cagri.mamAnaGrpAdi}} | {{cagri.hizmetTipiAdi}} | {{cagri.basvuruNedenAdi}}\n\n    </p>\n\n    <p>\n\n      <i class="fas fa-phone"></i>{{cagri.gsmNo}} | {{cagri.evTel}} | {{cagri.evTel}}\n\n    </p>\n\n    <p class="call-date">\n\n      <i class="far fa-clock"></i> {{cagri.randevuTarihi | date: \'dd-MM-yyyy HH:mm\'}} </p>\n\n    <p>{{cagri.Adres}}</p>\n\n  </ion-card>\n\n</ion-content>\n\n\n\n\n\n<ion-footer>\n\n  <ion-row>\n\n    <ion-col col-4 col-md-2>\n\n      <button ion-button color="light" (click)="fetchList(\'FIRST\')">\n\n        <ion-icon name="arrow-dropleft"></ion-icon>\n\n      </button>\n\n      <button ion-button color="light" (click)="fetchList(\'PREVIOUS\')">\n\n        <ion-icon name="arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-col>\n\n    <ion-col col-4 col-md-8>\n\n      <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList(\'PAGE_NO\')" interface="popover">\n\n        <ion-option value="10" selected="true">10</ion-option>\n\n        <ion-option value="20">20</ion-option>\n\n        <ion-option value="50">50</ion-option>\n\n      </ion-select>\n\n    </ion-col>\n\n    <ion-col col-4 col-md-2>\n\n      <button ion-button color="light" (click)="fetchList(\'NEXT\')">\n\n        <ion-icon name="arrow-forward"></ion-icon>\n\n      </button>\n\n      <button ion-button color="light" (click)="fetchList(\'LAST\')">\n\n        <ion-icon name="arrow-dropright"></ion-icon>\n\n      </button>\n\n    </ion-col>\n\n\n\n  </ion-row>\n\n\n\n\n\n</ion-footer>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\cagrilar\cagrilar.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -9000,6 +9054,7 @@ var HizmetProvider = (function () {
         list = obj.message.hizmetDtoList;
         for (var _i = 0, list_1 = list; _i < list_1.length; _i++) {
             var item = list_1[_i];
+            debugger;
             var cgr = this.fillHizmet(item);
             hizmetList.push(cgr);
         }
@@ -9021,7 +9076,8 @@ var HizmetProvider = (function () {
         item.aciklama = obj.aciklama;
         item.adi = obj.adi;
         //item.anket = Anket[];
-        item.apartman = obj.aparman;
+        item.aparman = obj.aparman;
+        item.apartmanNo = obj.apartmanNo;
         item.basvuruNedenAdi = obj.basvuruNedenAdi;
         item.basvuruNedeni = obj.basvuruNedeni;
         item.bayiKod = obj.bayiKod;
@@ -9557,7 +9613,7 @@ var GuncellemePage = (function () {
     ], GuncellemePage.prototype, "header", void 0);
     GuncellemePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-guncelleme',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\guncelleme\guncelleme.html"*/'<ion-header>\n\n\n\n  <ion-navbar hideBackButton="true">\n\n    <button ion-button primary menuToggle>\n\n      <ion-icon name="list"></ion-icon>\n\n    </button>\n\n    <icon-header #header></icon-header>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content class="content">\n\n\n\n  <ion-title class="page-title">Güncelleme</ion-title>\n\n\n\n  <ion-toolbar class="main-tabs">\n\n    <ion-segment [(ngModel)]="activePage">\n\n      <ion-segment-button value="guncelleme">\n\n        Güncelleme\n\n      </ion-segment-button>\n\n      <ion-segment-button value="versiyon">\n\n        Versiyon\n\n      </ion-segment-button>\n\n    </ion-segment>\n\n  </ion-toolbar>\n\n\n\n  <div [ngSwitch]="activePage">\n\n    <div *ngSwitchCase="\'guncelleme\'">\n\n\n\n      <ion-list>\n\n        <button ion-button primary round full [color]="colors.URUN" (click)="downloadUrunler();" round full>\n\n          <span item-left style="width: 95%">Ürünler</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.URUN"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.URUN_ANA_GRUP" (click)="downloadUrunAnaGrup();" round full>\n\n          <span item-left style="width: 95%">Ürün Ana Grupları</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.URUN_ANA_GRUP"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.URUN_ISCILIK" (click)="downloadUrunIscilik();" round full>\n\n          <span item-left style="width: 95%">Ürün Işçilik</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.URUN_ISCILIK"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.URUN_MALZEME" (click)="downloadUrunMalzeme();" round full>\n\n          <span item-left style="width: 95%">Ürün-Malzeme</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.URUN_MALZEME"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.ISLEM_ARIZA_ISCILIK" (click)="downloadIslemArizaIscilik();" round full>\n\n          <span item-left style="width: 95%">İşlem-Arıza-İşçilik</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.ISLEM_ARIZA_ISCILIK"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.MALZEME_FIYAT" (click)="downloadMalzemeFiyat();" round full>\n\n          <span item-left style="width: 95%">Malzeme Fiyatları</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.MALZEME_FIYAT"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.ISCILIK_FIYAT" (click)="downloadIscilikFiyat();" round full>\n\n          <span item-left style="width: 95%">İşçilik Fiyatları</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.ISCILIK_FIYAT"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.SEHIR_TNM" (click)="downloadSehirList();" round full>\n\n          <span item-left style="width: 95%">Şehir Listesi</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.SEHIR_TNM"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.ILCE_TNM" (click)="downloadIlceList();" round full>\n\n          <span item-left style="width: 95%">İİlçe Listesi</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.ILCE_TNM"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.MAHALLE_TNM" (click)="downloadMahalleList();" round full>\n\n          <span item-left style="width: 95%"> Mahalle Listesi</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.MAHALLE_TNM" class="mr-icon"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n      </ion-list>\n\n\n\n\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'versiyon\'">\n\n      <button ion-button primary round full [color]="light">Ürünler</button>\n\n      <button ion-button primary round full [color]="light">Ürün Ana Grupları</button>\n\n      <button ion-button primary round full [color]="light">Ürün İşçilik</button>\n\n      <button ion-button primary round full [color]="light">Ürün-Malzeme</button>\n\n      <button ion-button primary round full [color]="light">İşlem-Arıza-İşçilik</button>\n\n      <button ion-button primary round full [color]="light">Malzeme Fiyatları</button>\n\n      <button ion-button primary round full [color]="light">İşçilik Fiyatları</button>\n\n    </div>\n\n\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\guncelleme\guncelleme.html"*/,
+            selector: 'page-guncelleme',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\guncelleme\guncelleme.html"*/'<ion-header>\n\n\n\n  <ion-navbar hideBackButton="true">\n\n    <icon-header #header></icon-header>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content class="content">\n\n\n\n  <ion-title class="page-title">Güncelleme</ion-title>\n\n\n\n  <ion-toolbar class="main-tabs">\n\n    <ion-segment [(ngModel)]="activePage">\n\n      <ion-segment-button value="guncelleme" class="seg-button">\n\n        Güncelleme\n\n      </ion-segment-button>\n\n      <ion-segment-button value="versiyon" class="seg-button">\n\n        Versiyon\n\n      </ion-segment-button>\n\n    </ion-segment>\n\n  </ion-toolbar>\n\n\n\n  <div [ngSwitch]="activePage">\n\n    <div *ngSwitchCase="\'guncelleme\'">\n\n\n\n      <ion-list>\n\n        <button ion-button primary round full [color]="colors.URUN" (click)="downloadUrunler();" round full>\n\n          <span item-left style="width: 95%">Ürünler</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.URUN"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.URUN_ANA_GRUP" (click)="downloadUrunAnaGrup();" round full>\n\n          <span item-left style="width: 95%">Ürün Ana Grupları</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.URUN_ANA_GRUP"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.URUN_ISCILIK" (click)="downloadUrunIscilik();" round full>\n\n          <span item-left style="width: 95%">Ürün Işçilik</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.URUN_ISCILIK"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.URUN_MALZEME" (click)="downloadUrunMalzeme();" round full>\n\n          <span item-left style="width: 95%">Ürün-Malzeme</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.URUN_MALZEME"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.ISLEM_ARIZA_ISCILIK" (click)="downloadIslemArizaIscilik();" round full>\n\n          <span item-left style="width: 95%">İşlem-Arıza-İşçilik</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.ISLEM_ARIZA_ISCILIK"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.MALZEME_FIYAT" (click)="downloadMalzemeFiyat();" round full>\n\n          <span item-left style="width: 95%">Malzeme Fiyatları</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.MALZEME_FIYAT"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.ISCILIK_FIYAT" (click)="downloadIscilikFiyat();" round full>\n\n          <span item-left style="width: 95%">İşçilik Fiyatları</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.ISCILIK_FIYAT"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.SEHIR_TNM" (click)="downloadSehirList();" round full>\n\n          <span item-left style="width: 95%">Şehir Listesi</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.SEHIR_TNM"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.ILCE_TNM" (click)="downloadIlceList();" round full>\n\n          <span item-left style="width: 95%">İİlçe Listesi</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.ILCE_TNM"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.MAHALLE_TNM" (click)="downloadMahalleList();" round full>\n\n          <span item-left style="width: 95%"> Mahalle Listesi</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.MAHALLE_TNM" class="mr-icon"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n      </ion-list>\n\n\n\n\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'versiyon\'">\n\n      <button ion-button primary round full [color]="light">Ürünler</button>\n\n      <button ion-button primary round full [color]="light">Ürün Ana Grupları</button>\n\n      <button ion-button primary round full [color]="light">Ürün İşçilik</button>\n\n      <button ion-button primary round full [color]="light">Ürün-Malzeme</button>\n\n      <button ion-button primary round full [color]="light">İşlem-Arıza-İşçilik</button>\n\n      <button ion-button primary round full [color]="light">Malzeme Fiyatları</button>\n\n      <button ion-button primary round full [color]="light">İşçilik Fiyatları</button>\n\n    </div>\n\n\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\guncelleme\guncelleme.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -9810,6 +9866,14 @@ var UrunAnaGrupSearchComponent = (function () {
         console.dir(res);
     };
     UrunAnaGrupSearchComponent.prototype.fillItemByType = function (item) {
+        debugger;
+        /*   if (this.util.isNotEmpty(this.data) && this.util.isNotEmpty(this.data.nerden) && this.data.nerden == "BILGI_SORGU") {
+             let uniqueList = new Set(this.list);
+             this.list = [];
+             uniqueList.forEach(val => {
+               this.list.push(val);
+             });
+           } else {*/
         this.list.push({ key: item.mamAnaGrp, value: item.ad });
     };
     UrunAnaGrupSearchComponent.prototype.ionChange = function (item) {
@@ -9931,7 +9995,7 @@ var UrunSearchComponent = (function () {
     };
     UrunSearchComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'urun-search',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\urun-search\urun-search.html"*/'<ion-header>\n\n  <button ion-button round (click)="closeModal()">Iptal</button>\n\n  <ion-navbar no-border-bottom>\n\n    <ion-title>Searchbar</ion-title>\n\n  </ion-navbar>\n\n\n\n  <ion-toolbar no-border-top>\n\n    <ion-searchbar placeholder="Ara" [(ngModel)]="searchText" (ionInput)="fetchList()"></ion-searchbar>\n\n  </ion-toolbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n  <ion-list radio-group [(ngModel)]="selectedItem">\n\n    <ion-item *ngFor="let item of list">\n\n      <ion-label>{{item.key}} - {{item.value}}</ion-label>\n\n      <ion-radio (ionSelect)="ionChange(item)"></ion-radio>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n</ion-content>\n\n\n\n\n\n<ion-footer>\n\n\n\n  <ion-toolbar>\n\n    <button ion-button color="light" (click)="fetchList(\'FIRST\')">\n\n      <ion-icon name="arrow-dropleft"></ion-icon>\n\n    </button>\n\n    <button ion-button color="light" (click)="fetchList(\'PREVIOUS\')">\n\n      <ion-icon name="arrow-back"></ion-icon>\n\n    </button>\n\n\n\n    <ion-item>\n\n      <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList(\'PAGE_NO\')" interface="popover">\n\n        <ion-option value="10" selected="true">10</ion-option>\n\n        <ion-option value="20">20</ion-option>\n\n        <ion-option value="50">50</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n\n\n    <button ion-button color="light" (click)="fetchList(\'NEXT\')">\n\n      <ion-icon name="arrow-forward"></ion-icon>\n\n    </button>\n\n    <button ion-button color="light" (click)="fetchList(\'LAST\')">\n\n      <ion-icon name="arrow-dropright"></ion-icon>\n\n    </button>\n\n  </ion-toolbar>\n\n\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\urun-search\urun-search.html"*/
+            selector: 'urun-search',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\urun-search\urun-search.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-row class="modal-title">\n\n      <ion-col col-11 col-md-11>\n\n        <ion-title>Ürün Arama</ion-title>\n\n      </ion-col>\n\n      <ion-col col-1 col-md-1>\n\n        <ion-icon name="close" (click)="closeModal()" class="pull-right close-icon"></ion-icon>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content class="content">\n\n\n\n  <ion-searchbar placeholder="Ara" [(ngModel)]="searchText" (ionInput)="fetchList()"></ion-searchbar>\n\n\n\n  <ion-list radio-group [(ngModel)]="selectedItem">\n\n    <ion-item *ngFor="let item of list">\n\n      <ion-label>{{item.key}} - {{item.value}}</ion-label>\n\n      <ion-radio (ionSelect)="ionChange(item)"></ion-radio>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n\n\n</ion-content>\n\n\n\n\n\n<ion-footer>\n\n\n\n\n\n  <ion-row>\n\n    <ion-col col-4 col-md-2>\n\n      <button ion-button color="light" (click)="fetchList(\'FIRST\')">\n\n        <ion-icon name="arrow-dropleft"></ion-icon>\n\n      </button>\n\n      <button ion-button color="light" (click)="fetchList(\'PREVIOUS\')">\n\n        <ion-icon name="arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-col>\n\n    <ion-col col-4 col-md-8>\n\n      <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList(\'PAGE_NO\')" interface="popover">\n\n        <ion-option value="10" selected="true">10</ion-option>\n\n        <ion-option value="20">20</ion-option>\n\n        <ion-option value="50">50</ion-option>\n\n      </ion-select>\n\n    </ion-col>\n\n    <ion-col col-4 col-md-2>\n\n      <button ion-button color="light" (click)="fetchList(\'NEXT\')">\n\n        <ion-icon name="arrow-forward"></ion-icon>\n\n      </button>\n\n      <button ion-button color="light" (click)="fetchList(\'LAST\')">\n\n        <ion-icon name="arrow-dropright"></ion-icon>\n\n      </button>\n\n    </ion-col>\n\n\n\n  </ion-row>\n\n\n\n</ion-footer>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\urun-search\urun-search.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["n" /* ViewController */], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_4__providers_urun_dao_urun_dao__["a" /* UrunDao */],
@@ -9964,6 +10028,12 @@ var Constants = (function () {
     Constants.STATUS = {
         SUCCESS: "SUCCESS",
         ERROR: "ERROR"
+    };
+    Constants.MASK = {
+        PHONE_NUMBER: ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/],
+        CARD_NUMBER: [/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/],
+        CARD_EXPIRY: [/[0-1]/, /\d/, '/', /[1-2]/, /\d/],
+        ORDER_CODE: [/[a-zA-z]/, ':', /\d/, /\d/, /\d/, /\d/]
     };
     Constants.URUN_ANA_GRUP_TYPE = {
         ANA_GRUP_LISTE: "ANA_GRUP_LISTE",
@@ -10332,7 +10402,13 @@ var MusteriBilgileriComponent = (function () {
         this.getSehirList();
         this.getIlceList(this.hizmet.sehirKod);
         this.getMahalleList(this.hizmet.ilceKod);
+        this.init();
     }
+    MusteriBilgileriComponent.prototype.init = function () {
+        this.evTel = this.util.phoneMask(this.hizmet.evTel);
+        this.isTel = this.util.phoneMask(this.hizmet.isTel);
+        this.cepTel = this.util.phoneMask(this.hizmet.gsmNo);
+    };
     MusteriBilgileriComponent.prototype.ionViewWillLeave = function () {
         this.hizmetService.saveAndFetchHizmet(this.hizmet);
     };
@@ -10364,6 +10440,7 @@ var MusteriBilgileriComponent = (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        this.hizmet.ilceKod = "";
                         if (!this.util.isNotEmpty(this.hizmet.sehirKod)) return [3 /*break*/, 2];
                         return [4 /*yield*/, this.adresDao.getIlceList(this.hizmet.sehirKod).then(function (res) {
                                 for (var i = 0; i < res.rows.length; i++) {
@@ -10384,12 +10461,14 @@ var MusteriBilgileriComponent = (function () {
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.adresDao.getMahalleList(this.hizmet.ilceKod).then(function (res) {
-                            for (var i = 0; i < res.rows.length; i++) {
-                                _this.mahalleler.push(res.rows.item(i));
-                            }
-                            _this.onHizmetChange();
-                        })];
+                    case 0:
+                        this.hizmet.mahalleKodu = "";
+                        return [4 /*yield*/, this.adresDao.getMahalleList(this.hizmet.ilceKod).then(function (res) {
+                                for (var i = 0; i < res.rows.length; i++) {
+                                    _this.mahalleler.push(res.rows.item(i));
+                                }
+                                _this.onHizmetChange();
+                            })];
                     case 1:
                         _a.sent();
                         return [2 /*return*/];
@@ -10417,7 +10496,7 @@ var MusteriBilgileriComponent = (function () {
     };
     MusteriBilgileriComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'musteri-bilgileri',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\cagri-detay-Components\musteri-bilgileri\musteri-bilgileri.html"*/'<ion-row>\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Müşteri</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.adi" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Ev Telefonu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.evTel" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">İş Telefonu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.isTel" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Cep Telefonu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.gsmNo" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">E-Posta</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.eposta" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Şehir</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-select [(ngModel)]="hizmet.sehirKod" (ionChange)="getIlceList(sehir)" interface="popover">\n\n      <ion-option *ngFor="let sehir of sehirler" [value]="sehir.sehirKodu">\n\n        {{sehir.sehirKodu}} - {{sehir.sehirAdi}}\n\n      </ion-option>\n\n    </ion-select>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">İlçe</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-select [(ngModel)]="hizmet.ilceKod" (ionChange)="getMahalleList(ilce)" interface="popover" [disabled]="isHizmetDisabled()"\n\n      interface="popover">\n\n      <ion-option *ngFor="let ilce of ilceler" [value]="ilce.ilceKodu">\n\n        {{ilce.ilceKodu}} - {{ilce.ilceAdi}}\n\n      </ion-option>\n\n    </ion-select>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Semt/Köy</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.semt" [disabled]="hizmet.durum != \'ACIK\'" (ionBlur)="onHizmetChange()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Mahalle</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-select [(ngModel)]="hizmet.mahalleKodu" (ionChange)="onHizmetChange()" interface="popover">\n\n      <ion-option *ngFor="let mahalle of mahalleler" [value]="mahalle.mahalleKodu" [disabled]="isHizmetDisabled()">\n\n        {{mahalle.mahalleKodu}} - {{mahalle.mahalleAdi}}\n\n      </ion-option>\n\n    </ion-select>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Cadde</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.cadde" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Sokak</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.sokak" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Apartman/Site</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.apartman" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Apartman No</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.aparmanNo" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Blok</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.blok" [disabled]="isHizmetDisabled()" (ionBlur)="onHizmetChange()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Daire No</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.daireNo" [disabled]="isHizmetDisabled()" (ionBlur)="onHizmetChange()"></ion-input>\n\n  </ion-col>\n\n</ion-row>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\cagri-detay-Components\musteri-bilgileri\musteri-bilgileri.html"*/
+            selector: 'musteri-bilgileri',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\cagri-detay-Components\musteri-bilgileri\musteri-bilgileri.html"*/'<ion-row>\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Müşteri</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.adi" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Ev Telefonu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input type="tel" [(ngModel)]="evTel" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">İş Telefonu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input type="tel" [(ngModel)]="isTel" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Cep Telefonu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input type="tel" [(ngModel)]="cepTel" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">E-Posta</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.eposta" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Şehir</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-select [(ngModel)]="hizmet.sehirKod" (ionChange)="getIlceList(sehir)" interface="popover">\n\n      <ion-option *ngFor="let sehir of sehirler" [value]="sehir.sehirKodu">\n\n        {{sehir.sehirKodu}} - {{sehir.sehirAdi}}\n\n      </ion-option>\n\n    </ion-select>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">İlçe</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-select [(ngModel)]="hizmet.ilceKod" (ionChange)="getMahalleList(ilce)" interface="popover"\n\n                [disabled]="isHizmetDisabled()"\n\n                interface="popover">\n\n      <ion-option *ngFor="let ilce of ilceler" [value]="ilce.ilceKodu">\n\n        {{ilce.ilceKodu}} - {{ilce.ilceAdi}}\n\n      </ion-option>\n\n    </ion-select>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Semt/Köy</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.semt" [disabled]="hizmet.durum != \'ACIK\'" (ionBlur)="onHizmetChange()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Mahalle</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-select [(ngModel)]="hizmet.mahalleKodu" (ionChange)="onHizmetChange()" interface="popover">\n\n      <ion-option *ngFor="let mahalle of mahalleler" [value]="mahalle.mahalleKodu" [disabled]="isHizmetDisabled()">\n\n        {{mahalle.mahalleKodu}} - {{mahalle.mahalleAdi}}\n\n      </ion-option>\n\n    </ion-select>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Cadde</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.cadde" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Sokak</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.sokak" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Apartman/Site</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.aparman" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Apartman No</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.apartmanNo" [disabled]="isHizmetDisabled()"\n\n               (ionChange)="onHizmetChange()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Blok</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.blok" [disabled]="isHizmetDisabled()" (ionBlur)="onHizmetChange()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Daire No</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.daireNo" [disabled]="isHizmetDisabled()" (ionBlur)="onHizmetChange()"></ion-input>\n\n  </ion-col>\n\n\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Servis Uyarı Notu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-textarea [(ngModel)]="hizmet.servisNotu" [disabled]="isHizmetDisabled()" (ionBlur)="onHizmetChange()"></ion-textarea>\n\n  </ion-col>\n\n\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Merkez Uyarı Notu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-textarea [(ngModel)]="hizmet.merkezNotu" [disabled]="isHizmetDisabled()" (ionBlur)="onHizmetChange()"></ion-textarea>\n\n  </ion-col>\n\n</ion-row>\n\n\n\n\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\cagri-detay-Components\musteri-bilgileri\musteri-bilgileri.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_hizmet_service_hizmet_service__["a" /* HizmetService */],
             __WEBPACK_IMPORTED_MODULE_3__providers_adres_dao_adres_dao__["a" /* AdresDao */],
@@ -10465,7 +10544,7 @@ var ServisBilgileriComponent = (function () {
     }
     ServisBilgileriComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'servis-bilgileri',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\cagri-detay-components\servis-bilgileri\servis-bilgileri.html"*/'<ion-toolbar class="main-tabs">\n\n  <ion-segment [(ngModel)]="activePage">\n\n    <ion-segment-button value="servis">\n\n      Işlem Tarihleri\n\n    </ion-segment-button>\n\n\n\n    <ion-segment-button value="tarihce">\n\n      Tarihçe Bilgisi\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n\n\n\n\n  <div [ngSwitch]="activePage">\n\n    <div *ngSwitchCase="\'servis\'">\n\n      <islem-tarih></islem-tarih>\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'tarihce\'">\n\n      <servis-islem-tarihce></servis-islem-tarihce>\n\n    </div>\n\n  </div>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\cagri-detay-components\servis-bilgileri\servis-bilgileri.html"*/
+            selector: 'servis-bilgileri',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\cagri-detay-components\servis-bilgileri\servis-bilgileri.html"*/'<ion-toolbar class="main-tabs">\n\n  <ion-segment [(ngModel)]="activePage" style="padding-top: 10px;">\n\n    <ion-segment-button value="servis">\n\n      İşlem Tarihleri\n\n    </ion-segment-button>\n\n\n\n    <ion-segment-button value="tarihce">\n\n      Tarihçe Bilgisi\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n\n\n\n\n  <div [ngSwitch]="activePage">\n\n    <div *ngSwitchCase="\'servis\'">\n\n      <islem-tarih></islem-tarih>\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'tarihce\'">\n\n      <servis-islem-tarihce></servis-islem-tarihce>\n\n    </div>\n\n  </div>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\cagri-detay-components\servis-bilgileri\servis-bilgileri.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_hizmet_service_hizmet_service__["a" /* HizmetService */]])
     ], ServisBilgileriComponent);
@@ -10493,7 +10572,7 @@ var ServisBilgileriComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__entities_urunAnaGrup__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_garanti_sorgu_garanti_sorgu__ = __webpack_require__(162);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__entities_GarantiSorgu__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_seri_no_sorgu_seri_no_sorgu__ = __webpack_require__(500);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_seri_no_sorgu_seri_no_sorgu__ = __webpack_require__(499);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__update_urun_ana_grup_update_urun_ana_grup__ = __webpack_require__(180);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__entities_ProcessResults__ = __webpack_require__(181);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10589,6 +10668,8 @@ var UrunBilgileriComponent = (function () {
                         mamAnagrp: mamAnagrp,
                         searchType: searchType
                     }
+                }, {
+                    cssClass: this.util.getSelectedTheme()
                 });
                 aramaModal.onDidDismiss(function (data) {
                     if (_this.util.isNotEmpty(data.mamKod))
@@ -10788,7 +10869,7 @@ var UrunBilgileriComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_Constants__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ionic_angular__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__hizmet_detay_hizmet_detay__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_printer_service_printer_service__ = __webpack_require__(501);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_printer_service_printer_service__ = __webpack_require__(500);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_hizmet_hizmet__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__entities_ProcessResults__ = __webpack_require__(181);
 /**
@@ -10921,6 +11002,8 @@ var DetayBilgileriComponent = (function () {
                 data: {
                     detay: ""
                 }
+            }, {
+                cssClass: this.util.getSelectedTheme()
             });
             detayModal.onDidDismiss(function (res) {
                 _this.logger.dir(res);
@@ -11247,7 +11330,7 @@ var DetayBilgileriComponent = (function () {
     };
     DetayBilgileriComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'detay-bilgileri',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\cagri-detay-components\detay-bilgileri\detay-bilgileri.html"*/'<ion-grid>\n\n  <ion-row>\n\n    <ion-col col-12 col-md-12 col-sm>\n\n      <button ion-button primary round full (click)="hizmetDetayaGit()" [disabled]="isHizmetDisabled()">\n\n        <ion-label>\n\n          <ion-icon name="add-circle" class="mr-icon"></ion-icon> Yeni</ion-label>\n\n      </button>\n\n    </ion-col>\n\n\n\n    <ion-col col-12 col-sm>\n\n      <button ion-button primary round full [disabled]="isHizmetDisabled()" (click)="siparisOlustur()">\n\n        <ion-label>\n\n          <ion-icon class="mr-icon" name="basket"></ion-icon> Sipariş Oluştur</ion-label>\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>\n\n\n\n<ion-grid *ngIf="detayList != null && detayList.length > 0">\n\n  <ion-row>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>İşlem Tipi</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>İşlem Kodu</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>Miktar</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>Tutar</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row *ngFor="let detay of detayList">\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>{{detay.mlzIsc}}</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>{{detay.mlzIscKod}} - {{detay.aciklama}}</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>{{detay.miktar}}</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>{{detay.tutar}}</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <button ion-button icon-only (click)="updateHizmetDetay(detay)" [disabled]="isHizmetDisabled()">\n\n        <ion-icon name="create" small></ion-icon>\n\n      </button>\n\n      <button ion-button icon-only (click)="deleteHizmetDetay(detay)" [disabled]="isHizmetDisabled()">\n\n        <ion-icon name="close-circle" small></ion-icon>\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label></ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label></ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>KDV\'li Toplam Tutar</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>{{toplamTutar}}</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>\n\n\n\n<ion-list>\n\n\n\n  <ion-row>\n\n    <ion-col col-12 col-sm>\n\n      <button ion-button primary round full (click)="toggleDetails()">\n\n        <ion-label>\n\n          <ion-icon name="arrow-down" class="mr-icon"></ion-icon> Kapatma İşlemleri</ion-label>\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <div id="divKapatmaIslemleri" class="gray-box" *ngIf="showDetails == -1">\n\n    <ion-grid>\n\n      <ion-row>\n\n        <ion-col col-6 col-md-6 col-sm>\n\n          <button ion-button round color="secondary" (click)="kapat(\'ACIK\')" [disabled]="isHizmetDisabled()" full>Kapat\n\n          </button>\n\n        </ion-col>\n\n        <ion-col col-6 col-md-6 col-sm>\n\n          <button ion-button round color="secondary" [disabled]="isHizmetDisabled()" (click)="hizmetIptalKontrol()" full>\n\n            İptal\n\n          </button>\n\n        </ion-col>\n\n        <ion-col col-6 col-md-6 col-sm>\n\n          <button ion-button round color="secondary" (click)="yazdir()" full>Yazdır</button>\n\n        </ion-col>\n\n        <ion-col col-6 col-md-6 col-sm>\n\n          <button ion-button round color="secondary" [disabled]="isHizmetDisabled()" (click)="hizmetSilKontrol()" full>\n\n            Sil\n\n          </button>\n\n        </ion-col>\n\n      </ion-row>\n\n\n\n\n\n    </ion-grid>\n\n\n\n    <ion-row>\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">Açıklama</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-textarea [(ngModel)]="hizmet.aciklama" [disabled]="isHizmetDisabled()" (ionBlur)="onHizmetChange()"></ion-textarea>\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">Kapatma Şekli</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-select [(ngModel)]="hizmet.kapatmaKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()">\n\n          <ion-option value="NORMAL">Normal Kapatma</ion-option>\n\n          <ion-option value="MESGULIYET">Meşguliyet Kapatma</ion-option>\n\n        </ion-select>\n\n\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">Ödeme Tipi</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-select [(ngModel)]="hizmet.odemeTipi" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()">\n\n          <ion-option value="NAKIT">Nakit</ion-option>\n\n          <ion-option value="KREDIKARTI">Kredi Kartı</ion-option>\n\n        </ion-select>\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">Çözüm Kodu</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-select [(ngModel)]="hizmet.cozumKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()">\n\n          <ion-option *ngFor="let cozum of cozumKoduList" [value]="cozum.kod">{{cozum.ad}}</ion-option>\n\n        </ion-select>\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">İletişim Istek</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-6 col-md-9>\n\n\n\n        <ion-label color="primary" style="text-align: end;margin-top: 20px;position: relative;">{{iletisimIstek == true ? \'EVET\' : \'HAYIR\'}}</ion-label>\n\n\n\n      </ion-col>\n\n      <ion-col col-2 col-md-1>\n\n        <ion-toggle (ionChange)="iletisimIstekChange()" style="text-align: end; margin-top: 10px" [disabled]="isHizmetDisabled()"\n\n          [(ngModel)]="iletisimIstek"></ion-toggle>\n\n      </ion-col>\n\n\n\n    </ion-row>\n\n  </div>\n\n</ion-list>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\cagri-detay-components\detay-bilgileri\detay-bilgileri.html"*/
+            selector: 'detay-bilgileri',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\cagri-detay-components\detay-bilgileri\detay-bilgileri.html"*/'<ion-grid class="detay">\n\n  <ion-row>\n\n    <ion-col col-12 col-md-12 col-sm>\n\n      <button ion-button primary round full (click)="hizmetDetayaGit()" [disabled]="isHizmetDisabled()">\n\n        <ion-label>\n\n          <ion-icon name="add-circle" class="mr-icon"></ion-icon> Yeni</ion-label>\n\n      </button>\n\n    </ion-col>\n\n\n\n    <ion-col col-12 col-sm>\n\n      <button ion-button primary round full [disabled]="isHizmetDisabled()" (click)="siparisOlustur()">\n\n        <ion-label>\n\n          <ion-icon class="mr-icon" name="basket"></ion-icon> Sipariş Oluştur</ion-label>\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>\n\n\n\n<ion-grid *ngIf="detayList != null && detayList.length > 0">\n\n  <ion-row>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>İşlem Tipi</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>İşlem Kodu</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>Miktar</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>Tutar</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row *ngFor="let detay of detayList">\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>{{detay.mlzIsc}}</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>{{detay.mlzIscKod}} - {{detay.aciklama}}</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>{{detay.miktar}}</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>{{detay.tutar}}</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <button ion-button icon-only (click)="updateHizmetDetay(detay)" [disabled]="isHizmetDisabled()">\n\n        <ion-icon name="create" small></ion-icon>\n\n      </button>\n\n      <button ion-button icon-only (click)="deleteHizmetDetay(detay)" [disabled]="isHizmetDisabled()">\n\n        <ion-icon name="close-circle" small></ion-icon>\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label></ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label></ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>KDV\'li Toplam Tutar</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>{{toplamTutar}}</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>\n\n\n\n<ion-list>\n\n\n\n  <ion-row>\n\n    <ion-col col-12 col-sm class="detay">\n\n      <button ion-button primary round full (click)="toggleDetails()">\n\n        <ion-label>\n\n          <ion-icon name="arrow-down" class="mr-icon"></ion-icon> Kapatma İşlemleri</ion-label>\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <div id="divKapatmaIslemleri" class="gray-box" *ngIf="showDetails == -1">\n\n    <ion-grid>\n\n      <ion-row>\n\n        <ion-col col-6 col-md-6 col-sm>\n\n          <button ion-button round color="secondary" (click)="kapat(\'ACIK\')" [disabled]="isHizmetDisabled()" full>Kapat\n\n          </button>\n\n        </ion-col>\n\n        <ion-col col-6 col-md-6 col-sm>\n\n          <button ion-button round color="secondary" [disabled]="isHizmetDisabled()" (click)="hizmetIptalKontrol()" full>\n\n            İptal\n\n          </button>\n\n        </ion-col>\n\n        <ion-col col-6 col-md-6 col-sm>\n\n          <button ion-button round color="secondary" (click)="yazdir()" full>Yazdır</button>\n\n        </ion-col>\n\n        <ion-col col-6 col-md-6 col-sm>\n\n          <button ion-button round color="secondary" [disabled]="isHizmetDisabled()" (click)="hizmetSilKontrol()" full>\n\n            Sil\n\n          </button>\n\n        </ion-col>\n\n      </ion-row>\n\n\n\n\n\n    </ion-grid>\n\n\n\n    <ion-row>\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">Açıklama</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-textarea [(ngModel)]="hizmet.aciklama" [disabled]="isHizmetDisabled()" (ionBlur)="onHizmetChange()"></ion-textarea>\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">Kapatma Şekli</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-select [(ngModel)]="hizmet.kapatmaKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()">\n\n          <ion-option value="NORMAL">Normal Kapatma</ion-option>\n\n          <ion-option value="MESGULIYET">Meşguliyet Kapatma</ion-option>\n\n        </ion-select>\n\n\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">Ödeme Tipi</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-select [(ngModel)]="hizmet.odemeTipi" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()">\n\n          <ion-option value="NAKIT">Nakit</ion-option>\n\n          <ion-option value="KREDIKARTI">Kredi Kartı</ion-option>\n\n        </ion-select>\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">Çözüm Kodu</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-select [(ngModel)]="hizmet.cozumKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()">\n\n          <ion-option *ngFor="let cozum of cozumKoduList" [value]="cozum.kod">{{cozum.ad}}</ion-option>\n\n        </ion-select>\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">İletişim Istek</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-6 col-md-9>\n\n\n\n        <ion-label color="primary" style="text-align: end;margin-top: 20px;position: relative;">{{iletisimIstek == true ? \'EVET\' : \'HAYIR\'}}</ion-label>\n\n\n\n      </ion-col>\n\n      <ion-col col-2 col-md-1>\n\n        <ion-toggle (ionChange)="iletisimIstekChange()" style="text-align: end; margin-top: 10px" [disabled]="isHizmetDisabled()"\n\n          [(ngModel)]="iletisimIstek"></ion-toggle>\n\n      </ion-col>\n\n\n\n    </ion-row>\n\n  </div>\n\n</ion-list>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\cagri-detay-components\detay-bilgileri\detay-bilgileri.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_hizmet_service_hizmet_service__["a" /* HizmetService */],
             __WEBPACK_IMPORTED_MODULE_6__providers_urun_ana_grup_dao_urun_ana_grup_dao__["a" /* UrunAnaGrupDao */],
@@ -11687,7 +11770,7 @@ var MyApp = (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\app\app.html"*/'\n\n<nav>\n\n  <ul>\n\n    <li>Start</li>\n\n    <li>About</li>\n\n    <li>Contact</li>\n\n  </ul>\n\n</nav>\n\n<ion-menu [content]="content">\n\n\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>Pages</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n        {{p.title}}\n\n      </button>\n\n    </ion-list>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="true" [class] ="selectedTheme" ></ion-nav>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\app\app.html"*/'<ion-menu [content]="content">\n\n\n\n  <!--\n\n    <ion-header>\n\n      <ion-toolbar>\n\n        <ion-title>Pages</ion-title>\n\n      </ion-toolbar>\n\n    </ion-header>\n\n\n\n    <ion-content>\n\n      <ion-list>\n\n        <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </ion-list>\n\n    </ion-content>\n\n  -->\n\n\n\n</ion-menu>\n\n\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="true" [class]="selectedTheme"></ion-nav>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */],
@@ -11987,7 +12070,7 @@ var Anasayfa = (function () {
     };
     Anasayfa = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-anasayfa',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\anasayfa\anasayfa.html"*/'<ion-header>\n\n\n\n  <ion-navbar hideBackButton="true">\n\n    <icon-header></icon-header>\n\n\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content class="content-background home-content">\n\n\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n\n        <ion-card (click)="sayfayaGit(\'CagrilarPage\',{})">\n\n\n\n          <ion-item>\n\n            <div class="icon-box">\n\n              <ion-icon name="list-box" item-start xlarge></ion-icon>\n\n            </div>\n\n            <div class="text-box">\n\n              <span>Çağrılar</span>\n\n            </div>\n\n          </ion-item>\n\n          <div class="announcements">\n\n            {{cagriSayisi}}\n\n          </div>\n\n\n\n        </ion-card>\n\n      </ion-col>\n\n\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n\n        <ion-card (click)="sayfayaGit(\'BildirimlerPage\', {type:\'WARN\'})">\n\n\n\n          <ion-item>\n\n            <div class="icon-box">\n\n              <ion-icon name="notifications" item-start xlarge></ion-icon>\n\n            </div>\n\n            <div class="text-box">\n\n              <span>Duyurular</span>\n\n            </div>\n\n          </ion-item>\n\n\n\n\n\n          <div class="announcements">\n\n            {{duyuruSayisi}}\n\n          </div>\n\n\n\n        </ion-card>\n\n      </ion-col>\n\n\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n\n        <ion-card (click)="sayfayaGit(\'BildirimlerPage\',{type:\'URGENT\'})">\n\n\n\n          <ion-item>\n\n            <div class="icon-box">\n\n              <ion-icon name="notifications" item-start xlarge></ion-icon>\n\n            </div>\n\n            <div class="text-box">\n\n              <span>Uyarılar</span>\n\n            </div>\n\n          </ion-item>\n\n\n\n          <div class="announcements">\n\n            {{uyariSayisi}}\n\n          </div>\n\n\n\n        </ion-card>\n\n      </ion-col>\n\n\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n\n        <ion-card (click)="sayfayaGit(\'GuncellemePage\',{})">\n\n\n\n          <ion-item>\n\n            <div class="icon-box">\n\n              <ion-icon name="md-refresh" item-start xlarge></ion-icon>\n\n            </div>\n\n            <div class="text-box">\n\n              <span>Güncelleme  </span>\n\n            </div>\n\n          </ion-item>\n\n\n\n          <div class="announcements">\n\n            {{guncellemeSayisi}}\n\n          </div>\n\n\n\n\n\n        </ion-card>\n\n      </ion-col>\n\n\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n\n        <ion-card (click)="sayfayaGit(\'BilgiSorguPage\', {})">\n\n\n\n          <ion-item>\n\n            <div class="icon-box">\n\n              <ion-icon name="md-help" item-start xlarge></ion-icon>\n\n            </div>\n\n            <div class="text-box">\n\n              <span> Bilgi Sorgu</span>\n\n            </div>\n\n          </ion-item>\n\n        </ion-card>\n\n      </ion-col>\n\n\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n\n        <ion-card (click)="sayfayaGit(\'AyarlarPage\',{})">\n\n\n\n          <ion-item>\n\n            <div class="icon-box">\n\n              <ion-icon name="settings" item-start xlarge></ion-icon>\n\n            </div>\n\n            <div class="text-box">\n\n              <span>Ayarlar</span>\n\n            </div>\n\n          </ion-item>\n\n\n\n        </ion-card>\n\n      </ion-col>\n\n\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n</ion-content>\n\n\n\n\n\n<ion-footer>\n\n  <ion-item float-left style="width: 40%">\n\n    <ion-label class="pull-left">SISTEK© 2018</ion-label>\n\n  </ion-item>\n\n  <ion-item float-right style="width: 60%">\n\n    <ion-label class="pull-right">Servis Otomasyon Sistemi</ion-label>\n\n  </ion-item>\n\n</ion-footer>\n\n\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\anasayfa\anasayfa.html"*/,
+            selector: 'page-anasayfa',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\anasayfa\anasayfa.html"*/'<ion-header>\n\n\n\n  <ion-navbar hideBackButton="true">\n\n    <icon-header #header></icon-header>\n\n\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content class="content-background home-content">\n\n\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n\n        <ion-card (click)="sayfayaGit(\'CagrilarPage\',{})">\n\n\n\n          <ion-item>\n\n            <div class="icon-box">\n\n              <ion-icon name="ios-call" item-start xlarge></ion-icon>\n\n            </div>\n\n            <div class="text-box">\n\n              <span>Çağrılar</span>\n\n            </div>\n\n          </ion-item>\n\n          <div class="announcements">\n\n            {{cagriSayisi}}\n\n          </div>\n\n\n\n        </ion-card>\n\n      </ion-col>\n\n\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n\n        <ion-card (click)="sayfayaGit(\'BildirimlerPage\', {type:\'WARN\'})">\n\n\n\n          <ion-item>\n\n            <div class="icon-box">\n\n              <ion-icon name="notifications" item-start xlarge></ion-icon>\n\n            </div>\n\n            <div class="text-box">\n\n              <span>Duyurular</span>\n\n            </div>\n\n          </ion-item>\n\n\n\n\n\n          <div class="announcements">\n\n            {{duyuruSayisi}}\n\n          </div>\n\n\n\n        </ion-card>\n\n      </ion-col>\n\n\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n\n        <ion-card (click)="sayfayaGit(\'BildirimlerPage\',{type:\'URGENT\'})">\n\n\n\n          <ion-item>\n\n            <div class="icon-box">\n\n              <ion-icon name="notifications" item-start xlarge></ion-icon>\n\n            </div>\n\n            <div class="text-box">\n\n              <span>Uyarılar</span>\n\n            </div>\n\n          </ion-item>\n\n\n\n          <div class="announcements">\n\n            {{uyariSayisi}}\n\n          </div>\n\n\n\n        </ion-card>\n\n      </ion-col>\n\n\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n\n        <ion-card (click)="sayfayaGit(\'GuncellemePage\',{})">\n\n\n\n          <ion-item>\n\n            <div class="icon-box">\n\n              <ion-icon name="md-refresh" item-start xlarge></ion-icon>\n\n            </div>\n\n            <div class="text-box">\n\n              <span>Güncelleme </span>\n\n            </div>\n\n          </ion-item>\n\n\n\n          <div class="announcements">\n\n            {{guncellemeSayisi}}\n\n          </div>\n\n\n\n\n\n        </ion-card>\n\n      </ion-col>\n\n\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n\n        <ion-card (click)="sayfayaGit(\'BilgiSorguPage\', {})">\n\n\n\n          <ion-item>\n\n            <div class="icon-box">\n\n              <ion-icon name="md-help" item-start xlarge></ion-icon>\n\n            </div>\n\n            <div class="text-box">\n\n              <span> Bilgi Sorgu</span>\n\n            </div>\n\n          </ion-item>\n\n        </ion-card>\n\n      </ion-col>\n\n\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n\n        <ion-card (click)="sayfayaGit(\'AyarlarPage\',{})">\n\n\n\n          <ion-item>\n\n            <div class="icon-box">\n\n              <ion-icon name="settings" item-start xlarge></ion-icon>\n\n            </div>\n\n            <div class="text-box">\n\n              <span>Ayarlar</span>\n\n            </div>\n\n          </ion-item>\n\n\n\n        </ion-card>\n\n      </ion-col>\n\n\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n</ion-content>\n\n\n\n\n\n<ion-footer>\n\n  <ion-item float-left style="width: 40%">\n\n    <ion-label class="pull-left">SISTEK© 2018</ion-label>\n\n  </ion-item>\n\n  <ion-item float-right style="width: 60%">\n\n    <ion-label class="pull-right">Servis Otomasyon Sistemi</ion-label>\n\n  </ion-item>\n\n</ion-footer>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\anasayfa\anasayfa.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -12337,7 +12420,7 @@ var HeaderComponent = (function () {
     };
     HeaderComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'icon-header',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\header\header.html"*/'<ion-grid>\n\n  <ion-row style=" display: inline-block;">\n\n\n\n    <div float-left class="header-bar">\n\n      <ion-buttons>\n\n        <button ion-button item-left icon-only (click)="sayfayaGit(\'CagrilarPage\',{})">\n\n          <ion-icon name="list-box"></ion-icon>\n\n          <div class="bar-announcements">{{cagriSayisi}}</div>\n\n        </button>\n\n\n\n        <button ion-button icon-only (click)="sayfayaGit(\'BildirimlerPage\',{type:\'WARN\'})">\n\n          <ion-icon name="volume-up"></ion-icon>\n\n          <div class="bar-announcements">{{duyuruSayisi}}</div>\n\n        </button>\n\n\n\n        <button ion-button icon-only (click)="sayfayaGit(\'BildirimlerPage\',{type:\'URGENT\'})">\n\n          <ion-icon name="notifications"></ion-icon>\n\n          <div class="bar-announcements">{{uyariSayisi}}</div>\n\n        </button>\n\n\n\n        <button ion-button icon-only (click)="sayfayaGit(\'GuncellemePage\',{})">\n\n          <ion-icon name="md-refresh"></ion-icon>\n\n          <div class="bar-announcements">{{guncellemeSayisi}}</div>\n\n        </button>\n\n      </ion-buttons>\n\n    </div>\n\n\n\n    <div float-right class="header-bar">\n\n      <ion-buttons>\n\n        <button ion-button icon-only (click)="sayfayaGit(\'Anasayfa\',{})">\n\n          <ion-icon name="home"></ion-icon>\n\n        </button>\n\n\n\n        <button ion-button icon-only (click)="closeApplicationConfirm()">\n\n          <ion-icon name="exit"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n    </div>\n\n\n\n  </ion-row>\n\n</ion-grid>\n\n\n\n\n\n\n\n<!--\n\n<ion-tabs tabs-only [selectedIndex]="index" color="primary">\n\n\n\n  <ion-tab tabIcon="list-box" [root]="cagrilarPage" tabBadge="{{cagriSayisi}}" tabBadgeStyle="danger"></ion-tab>\n\n\n\n  <ion-tab tabIcon="volume-up" [root]="bildirimlerPage" tabBadge="{{duyuruSayisi}}" tabBadgeStyle="danger"></ion-tab>\n\n\n\n  <ion-tab tabIcon="notifications" [root]="bildirimlerPage" tabBadge="{{uyariSayisi}}" tabBadgeStyle="danger"></ion-tab>\n\n\n\n  <ion-tab tabIcon="md-refresh" [root]="guncellemePage" tabBadge="{{guncellemeSayisi}}"\n\n           tabBadgeStyle="danger"></ion-tab>\n\n\n\n  <div float-right>\n\n    <ion-tab tabIcon="home" [root]="anaSayfa"></ion-tab>\n\n    &lt;!&ndash;<ion-tab tabIcon="exit" [root]="closeApplicationConfirm"></ion-tab>&ndash;&gt;\n\n  </div>\n\n\n\n</ion-tabs>-->'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\header\header.html"*/
+            selector: 'icon-header',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\header\header.html"*/'<ion-grid>\n\n  <ion-row style=" display: inline-block;">\n\n\n\n    <div float-left class="header-bar">\n\n      <ion-buttons>\n\n        <button ion-button item-left icon-only (click)="sayfayaGit(\'CagrilarPage\',{})">\n\n          <ion-icon name="ios-call"></ion-icon>\n\n          <div class="bar-announcements">{{cagriSayisi}}</div>\n\n        </button>\n\n\n\n        <button ion-button icon-only (click)="sayfayaGit(\'BildirimlerPage\',{type:\'WARN\'})">\n\n          <ion-icon name="volume-up"></ion-icon>\n\n          <div class="bar-announcements">{{duyuruSayisi}}</div>\n\n        </button>\n\n\n\n        <button ion-button icon-only (click)="sayfayaGit(\'BildirimlerPage\',{type:\'URGENT\'})">\n\n          <ion-icon name="notifications"></ion-icon>\n\n          <div class="bar-announcements">{{uyariSayisi}}</div>\n\n        </button>\n\n\n\n        <button ion-button icon-only (click)="sayfayaGit(\'GuncellemePage\',{})">\n\n          <ion-icon name="md-refresh"></ion-icon>\n\n          <div class="bar-announcements">{{guncellemeSayisi}}</div>\n\n        </button>\n\n      </ion-buttons>\n\n    </div>\n\n\n\n    <div float-right class="header-bar">\n\n      <ion-buttons>\n\n        <button ion-button icon-only (click)="sayfayaGit(\'Anasayfa\',{})">\n\n          <ion-icon name="home"></ion-icon>\n\n        </button>\n\n\n\n        <button ion-button icon-only (click)="closeApplicationConfirm()">\n\n          <ion-icon name="exit"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n    </div>\n\n\n\n  </ion-row>\n\n</ion-grid>\n\n\n\n\n\n\n\n<!--\n\n<ion-tabs tabs-only [selectedIndex]="index" color="primary">\n\n\n\n  <ion-tab tabIcon="list-box" [root]="cagrilarPage" tabBadge="{{cagriSayisi}}" tabBadgeStyle="danger"></ion-tab>\n\n\n\n  <ion-tab tabIcon="volume-up" [root]="bildirimlerPage" tabBadge="{{duyuruSayisi}}" tabBadgeStyle="danger"></ion-tab>\n\n\n\n  <ion-tab tabIcon="notifications" [root]="bildirimlerPage" tabBadge="{{uyariSayisi}}" tabBadgeStyle="danger"></ion-tab>\n\n\n\n  <ion-tab tabIcon="md-refresh" [root]="guncellemePage" tabBadge="{{guncellemeSayisi}}"\n\n           tabBadgeStyle="danger"></ion-tab>\n\n\n\n  <div float-right>\n\n    <ion-tab tabIcon="home" [root]="anaSayfa"></ion-tab>\n\n    &lt;!&ndash;<ion-tab tabIcon="exit" [root]="closeApplicationConfirm"></ion-tab>&ndash;&gt;\n\n  </div>\n\n\n\n</ion-tabs>-->'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\components\header\header.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_controller__["a" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__providers_mesajlar_dao_mesajlar_dao__["a" /* MesajlarDao */],
@@ -12494,7 +12577,7 @@ var BildirimlerPage = (function () {
     ], BildirimlerPage.prototype, "header", void 0);
     BildirimlerPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-bildirimler',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\bildirimler\bildirimler.html"*/'<ion-header>\n\n\n\n  <ion-navbar hideBackButton="true">\n\n    <button ion-button primary menuToggle>\n\n      <ion-icon name="list"></ion-icon>\n\n    </button>\n\n    <icon-header #header></icon-header>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content class="content">\n\n  <ion-title class="page-title">{{mesajBaslik}}</ion-title>\n\n\n\n  <ion-row>\n\n    <ion-col col-12 col-sm>\n\n      <button ion-button round full (click)="guncelle();" color="secondary">\n\n        Güncelle\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-card *ngFor="let mesaj of mesajList" class="card-box" (click)="mesajDetayinaGit($event, mesaj.id)">\n\n    <p>\n\n      <label>\n\n        <i class="fas fa-user"></i>\n\n        <strong> {{mesaj.gonderen}} </strong>\n\n      </label>\n\n    </p>\n\n    <p>\n\n      <label>\n\n        <i class="fas fa-envelope"></i>\n\n        <strong>{{mesaj.subject}} </strong>\n\n      </label>\n\n    </p>\n\n  </ion-card>\n\n</ion-content>\n\n\n\n\n\n<ion-footer>\n\n  <ion-grid>\n\n    <ion-row>\n\n\n\n      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>\n\n        <button ion-button color="light" (click)="fetchList(\'FIRST\')">\n\n          <ion-icon name="arrow-dropleft"></ion-icon>\n\n        </button>\n\n      </ion-col>\n\n\n\n      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>\n\n        <button ion-button color="light" (click)="fetchList(\'PREVIOUS\')">\n\n          <ion-icon name="arrow-back"></ion-icon>\n\n        </button>\n\n      </ion-col>\n\n\n\n      <ion-col col-sm-4 col-md-4 col-lg-4 col-xl-4>\n\n        <ion-item>\n\n          <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList(\'PAGE_NO\')" interface="popover">\n\n            <ion-option value="10" selected="true">10</ion-option>\n\n            <ion-option value="20">20</ion-option>\n\n            <ion-option value="50">50</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n      </ion-col>\n\n\n\n      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>\n\n        <button ion-button color="light" (click)="fetchList(\'NEXT\')">\n\n          <ion-icon name="arrow-forward"></ion-icon>\n\n        </button>\n\n      </ion-col>\n\n\n\n      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>\n\n        <button ion-button color="light" (click)="fetchList(\'LAST\')">\n\n          <ion-icon name="arrow-dropright"></ion-icon>\n\n        </button>\n\n      </ion-col>\n\n\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n</ion-footer>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\bildirimler\bildirimler.html"*/,
+            selector: 'page-bildirimler',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\bildirimler\bildirimler.html"*/'<ion-header>\n\n\n\n  <ion-navbar hideBackButton="true">\n\n    <icon-header #header></icon-header>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content class="content">\n\n  <ion-title class="page-title">{{mesajBaslik}}</ion-title>\n\n\n\n  <ion-row>\n\n    <ion-col col-12 col-sm>\n\n      <button ion-button round full (click)="guncelle();" color="secondary">\n\n        Güncelle\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-card *ngFor="let mesaj of mesajList" class="card-box" (click)="mesajDetayinaGit($event, mesaj.id)">\n\n    <p>\n\n      <label>\n\n        <i class="fas fa-user"></i>\n\n        <strong> {{mesaj.gonderen}} </strong>\n\n      </label>\n\n    </p>\n\n    <p>\n\n      <label>\n\n        <i class="fas fa-envelope"></i>\n\n        <strong>{{mesaj.subject}} </strong>\n\n      </label>\n\n    </p>\n\n  </ion-card>\n\n</ion-content>\n\n\n\n\n\n<ion-footer>\n\n  <ion-grid>\n\n    <ion-row>\n\n\n\n      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>\n\n        <button ion-button color="light" (click)="fetchList(\'FIRST\')">\n\n          <ion-icon name="arrow-dropleft"></ion-icon>\n\n        </button>\n\n      </ion-col>\n\n\n\n      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>\n\n        <button ion-button color="light" (click)="fetchList(\'PREVIOUS\')">\n\n          <ion-icon name="arrow-back"></ion-icon>\n\n        </button>\n\n      </ion-col>\n\n\n\n      <ion-col col-sm-4 col-md-4 col-lg-4 col-xl-4>\n\n        <ion-item>\n\n          <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList(\'PAGE_NO\')" interface="popover">\n\n            <ion-option value="10" selected="true">10</ion-option>\n\n            <ion-option value="20">20</ion-option>\n\n            <ion-option value="50">50</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n      </ion-col>\n\n\n\n      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>\n\n        <button ion-button color="light" (click)="fetchList(\'NEXT\')">\n\n          <ion-icon name="arrow-forward"></ion-icon>\n\n        </button>\n\n      </ion-col>\n\n\n\n      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>\n\n        <button ion-button color="light" (click)="fetchList(\'LAST\')">\n\n          <ion-icon name="arrow-dropright"></ion-icon>\n\n        </button>\n\n      </ion-col>\n\n\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n</ion-footer>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v2\Ionic-Offline-App\src\pages\bildirimler\bildirimler.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],

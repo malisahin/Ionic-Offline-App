@@ -1,16 +1,20 @@
 <ion-header>
-  <button ion-button round (click)="closeModal()">Iptal</button>
-  <ion-navbar no-border-bottom>
-    <ion-title>Searchbar</ion-title>
+  <ion-navbar>
+    <ion-row class="modal-title">
+      <ion-col col-11 col-md-11>
+        <ion-title>Ürün Arama</ion-title>
+      </ion-col>
+      <ion-col col-1 col-md-1>
+        <ion-icon name="close" (click)="closeModal()" class="pull-right close-icon"></ion-icon>
+      </ion-col>
+    </ion-row>
   </ion-navbar>
-
-  <ion-toolbar no-border-top>
-    <ion-searchbar placeholder="Ara" [(ngModel)]="searchText" (ionInput)="fetchList()"></ion-searchbar>
-  </ion-toolbar>
 
 </ion-header>
 
-<ion-content>
+<ion-content class="content">
+
+  <ion-searchbar placeholder="Ara" [(ngModel)]="searchText" (ionInput)="fetchList()"></ion-searchbar>
 
   <ion-list radio-group [(ngModel)]="selectedItem">
     <ion-item *ngFor="let item of list">
@@ -19,33 +23,38 @@
     </ion-item>
   </ion-list>
 
+
 </ion-content>
 
 
 <ion-footer>
 
-  <ion-toolbar>
-    <button ion-button color="light" (click)="fetchList('FIRST')">
-      <ion-icon name="arrow-dropleft"></ion-icon>
-    </button>
-    <button ion-button color="light" (click)="fetchList('PREVIOUS')">
-      <ion-icon name="arrow-back"></ion-icon>
-    </button>
 
-    <ion-item>
+  <ion-row>
+    <ion-col col-4 col-md-2>
+      <button ion-button color="light" (click)="fetchList('FIRST')">
+        <ion-icon name="arrow-dropleft"></ion-icon>
+      </button>
+      <button ion-button color="light" (click)="fetchList('PREVIOUS')">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-col>
+    <ion-col col-4 col-md-8>
       <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList('PAGE_NO')" interface="popover">
         <ion-option value="10" selected="true">10</ion-option>
         <ion-option value="20">20</ion-option>
         <ion-option value="50">50</ion-option>
       </ion-select>
-    </ion-item>
+    </ion-col>
+    <ion-col col-4 col-md-2>
+      <button ion-button color="light" (click)="fetchList('NEXT')">
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+      <button ion-button color="light" (click)="fetchList('LAST')">
+        <ion-icon name="arrow-dropright"></ion-icon>
+      </button>
+    </ion-col>
 
-    <button ion-button color="light" (click)="fetchList('NEXT')">
-      <ion-icon name="arrow-forward"></ion-icon>
-    </button>
-    <button ion-button color="light" (click)="fetchList('LAST')">
-      <ion-icon name="arrow-dropright"></ion-icon>
-    </button>
-  </ion-toolbar>
+  </ion-row>
 
 </ion-footer>

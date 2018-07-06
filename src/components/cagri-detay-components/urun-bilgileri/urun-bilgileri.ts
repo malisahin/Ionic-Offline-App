@@ -1,18 +1,18 @@
-import {Component} from '@angular/core';
-import {ModalController} from 'ionic-angular';
-import {Hizmet} from '../../../entities/hizmet/hizmet';
-import {HizmetService} from "../../../providers/hizmet-service/hizmet-service";
-import {UrunSearchComponent} from '../../urun-search/urun-search';
-import {UtilProvider} from "../../../providers/util/util";
-import {Constants} from "../../../entities/Constants";
-import {LoggerProvider} from "../../../providers/logger/logger";
-import {UrunAnaGrupDao} from "../../../providers/urun-ana-grup-dao/urun-ana-grup-dao";
-import {UrunAnaGrup} from "../../../entities/urunAnaGrup";
-import {GarantiSorguProvider} from "../../../providers/garanti-sorgu/garanti-sorgu";
-import {GarantiSorgu} from "../../../entities/GarantiSorgu";
-import {SeriNoSorguProvider} from "../../../providers/seri-no-sorgu/seri-no-sorgu";
-import {UpdateUrunAnaGrupComponent} from "../../update-urun-ana-grup/update-urun-ana-grup";
-import {ProcessResults} from "../../../entities/ProcessResults";
+import { Component } from '@angular/core';
+import { ModalController } from 'ionic-angular';
+import { Hizmet } from '../../../entities/hizmet/hizmet';
+import { HizmetService } from "../../../providers/hizmet-service/hizmet-service";
+import { UrunSearchComponent } from '../../urun-search/urun-search';
+import { UtilProvider } from "../../../providers/util/util";
+import { Constants } from "../../../entities/Constants";
+import { LoggerProvider } from "../../../providers/logger/logger";
+import { UrunAnaGrupDao } from "../../../providers/urun-ana-grup-dao/urun-ana-grup-dao";
+import { UrunAnaGrup } from "../../../entities/urunAnaGrup";
+import { GarantiSorguProvider } from "../../../providers/garanti-sorgu/garanti-sorgu";
+import { GarantiSorgu } from "../../../entities/GarantiSorgu";
+import { SeriNoSorguProvider } from "../../../providers/seri-no-sorgu/seri-no-sorgu";
+import { UpdateUrunAnaGrupComponent } from "../../update-urun-ana-grup/update-urun-ana-grup";
+import { ProcessResults } from "../../../entities/ProcessResults";
 
 @Component({
   selector: 'urun-bilgileri',
@@ -26,12 +26,12 @@ export class UrunBilgileriComponent {
   garanti: boolean = false;
 
   constructor(private modalController: ModalController,
-              private hizmetService: HizmetService,
-              private logger: LoggerProvider,
-              private garantiSorguProvider: GarantiSorguProvider,
-              private util: UtilProvider,
-              private  seriNoSorguProvider: SeriNoSorguProvider,
-              private  urunAnaGrpDao: UrunAnaGrupDao) {
+    private hizmetService: HizmetService,
+    private logger: LoggerProvider,
+    private garantiSorguProvider: GarantiSorguProvider,
+    private util: UtilProvider,
+    private seriNoSorguProvider: SeriNoSorguProvider,
+    private urunAnaGrpDao: UrunAnaGrupDao) {
 
     this.hizmet = this.hizmetService.getHizmet();
     this.init();
@@ -45,7 +45,7 @@ export class UrunBilgileriComponent {
     this.garantiChange();
   }
 
- async urunListesiniGetir() {
+  async urunListesiniGetir() {
     let mamAnagrp = this.hizmet.mamAnaGrp;
     let searchType = Constants.SEARCH_TYPE.EXACT;
     let aramaModal = this.modalController.create(UrunSearchComponent, {
@@ -53,7 +53,11 @@ export class UrunBilgileriComponent {
         mamAnagrp: mamAnagrp,
         searchType: searchType
       }
-    });
+    },
+      {
+        cssClass: this.util.getSelectedTheme()
+      }
+    );
     aramaModal.onDidDismiss(data => {
       if (this.util.isNotEmpty(data.mamKod))
         this.hizmet.mamKod = data.mamKod;
@@ -94,7 +98,7 @@ export class UrunBilgileriComponent {
   }
 
 
- async findUrunAnaGrp() {
+  async findUrunAnaGrp() {
     let urunAnaGrp = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
     urunAnaGrp.mamAnaGrp = this.hizmet.mamAnaGrp;
     this.urunAnaGrpDao.getList(urunAnaGrp, Constants.SEARCH_TYPE.EXACT).then(res => {
@@ -172,11 +176,11 @@ export class UrunBilgileriComponent {
     this.saveHizmet();
   }
 
-  faturaTarihiChange(){
+  faturaTarihiChange() {
     this.saveHizmet();
   }
 
-  async saveHizmet(){
+  async saveHizmet() {
     this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
   }
 

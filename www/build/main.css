@@ -3854,12 +3854,16 @@ ion-icon::before {
 }
 
 .blue-theme .header button.disable-hover.bar-button.bar-button-ios.bar-button-default.bar-button-default-ios {
-  color: #fff;
+  color: #ffffff;
 }
 
 .blue-theme .header .toolbar-background-md, .blue-theme .header .toolbar-background-ios {
   border-color: #004154;
   background: #004154;
+}
+
+.blue-theme .header .modal-title .toolbar-title-ios, .blue-theme .header .modal-title .close-icon, .blue-theme .header .modal-title .toolbar-title-md {
+  color: #ffffff;
 }
 
 .blue-theme .header .header-title .toolbar-title.toolbar-title-md {
@@ -3888,7 +3892,7 @@ ion-icon::before {
 }
 
 .blue-theme .header-bar .bar-button-default-md, .blue-theme .header-bar .bar-button-default-ios {
-  color: #fff;
+  color: #ffffff;
 }
 
 .blue-theme .login-content .submit-btn {
@@ -3900,44 +3904,60 @@ ion-icon::before {
 }
 
 .blue-theme .login-content input {
-  border: 1px solid #fff;
-  color: #fff;
+  border: 1px solid #ffffff;
+  color: #ffffff;
 }
 
 .blue-theme .login-content input::-webkit-input-placeholder {
-  color: #fff;
+  color: #ffffff;
 }
 
 .blue-theme .login-content input:-ms-input-placeholder {
-  color: #fff;
+  color: #ffffff;
 }
 
 .blue-theme .login-content input::-ms-input-placeholder {
-  color: #fff;
+  color: #ffffff;
 }
 
 .blue-theme .login-content input::placeholder {
-  color: #fff;
+  color: #ffffff;
 }
 
 .blue-theme .login-content .password-icon {
-  color: #fff;
+  color: #ffffff;
 }
 
 .blue-theme .login-content .logo ion-icon {
-  color: #fff;
+  color: #ffffff;
 }
 
 .blue-theme .login-content .toolbar-background {
-  background: #fff;
+  background: #ffffff;
 }
 
 .blue-theme .login-content .text-input {
-  border: 1px solid #fff;
+  border: 1px solid #ffffff;
 }
 
-.blue-theme .content .button-md-downloaded {
-  color: #fff;
+.blue-theme .content .toolbar-background-ios {
+  background: inherit;
+}
+
+.blue-theme .content .button-ios {
+  background-color: #0081db;
+}
+
+.blue-theme .content .text-input-ios {
+  border: 1px solid #9cc0da;
+}
+
+.blue-theme .content .searchbar-ios .searchbar-input, .blue-theme .content .searchbar-md .searchbar-input {
+  border: 1px solid #9cc0da;
+}
+
+.blue-theme .content .button-md-downloaded, .blue-theme .content .button-ios-downloaded {
+  color: #ffffff;
   background-color: #41a85f;
 }
 
@@ -3961,14 +3981,6 @@ ion-icon::before {
   border: 1px solid #9cc0da;
 }
 
-.blue-theme .content .toolbar-background-ios {
-  background: #fff;
-}
-
-.blue-theme .content .item-md {
-  background: none;
-}
-
 .blue-theme .content .item-select .label-md {
   color: #0081db;
 }
@@ -3982,8 +3994,9 @@ ion-icon::before {
 }
 
 .blue-theme .content .segment-ios .segment-button.segment-activated {
-  -webkit-box-shadow: 5px 2px 15px 0px #488aff;
-  box-shadow: 5px 2px 15px 0px #488aff;
+  -webkit-box-shadow: 5px 2px 15px 0px #0081db;
+  box-shadow: 5px 2px 15px 0px #0081db;
+  background-color: #0081db;
 }
 
 .blue-theme .content .gray-box {
@@ -3995,7 +4008,7 @@ ion-icon::before {
 }
 
 .blue-theme .content .card-box {
-  background: #f3f3f3;
+  background: #f1f1f1;
   border-bottom: 1px solid #0081db;
 }
 
@@ -4008,7 +4021,7 @@ ion-icon::before {
 }
 
 .blue-theme .content .main-tabs .toolbar-background-md {
-  background: #fff;
+  background: #ffffff;
 }
 
 .blue-theme .content .main-tabs .segment-md .segment-button {
@@ -4029,38 +4042,50 @@ ion-icon::before {
 }
 
 .blue-theme .announcements, .blue-theme .bar-announcements {
-  background: #ff3838;
-  color: #fff;
+  background: #ff0000;
+  color: #ffffff;
 }
 
 .blue-theme .segment-button.activated, .blue-theme .segment-button.segment-activated {
   border-color: #0081db;
   background: #0081db;
-  color: #fff;
+  color: #ffffff;
 }
 
 .blue-theme .searchbox .searchbar-md .searchbar-input {
   border-radius: 65px;
-  border: 1px solid   #488aff;
+  border: 1px solid #0081db;
 }
 
-.footer, .toolbar-background-ios {
+.footer {
   background-color: #004154;
-  bottom: -1px;
 }
 
-.footer .item-ios, .footer .item-md, .toolbar-background-ios .item-ios, .toolbar-background-ios .item-md {
+.footer .toolbar-background-ios {
   background-color: #004154;
-  color: #fff;
 }
 
-.footer .label, .toolbar-background-ios .label {
-  color: #fff;
-}
-
-.footer .button-ios-light, .footer .button-md-light, .toolbar-background-ios .button-ios-light, .toolbar-background-ios .button-md-light {
-  color: #fff;
+.footer .item-ios, .footer .item-md {
   background-color: #004154;
+  color: #ffffff;
+}
+
+.footer .label {
+  color: #ffffff;
+}
+
+.footer .button-ios-light, .footer .button-md-light {
+  color: #ffffff;
+  background-color: #004154;
+}
+
+.footer .select-md, .footer .select-ios {
+  color: #ffffff;
+}
+
+.footer .select-ios .select-text, .footer .select-md .select-text {
+  min-width: 27px;
+  font-size: 18px;
 }
 
 .msj-info {
@@ -4094,6 +4119,7 @@ ion-icon::before {
   padding-top: 7px;
   text-transform: inherit;
   font-size: 14px;
+  height: 40px;
 }
 
 .main-tabs .toolbar-ios .segment-button {
@@ -4153,7 +4179,15 @@ ion-icon::before {
 }
 
 .content .label-md {
-  margin: 13px 0px 13px 0px;
+  margin: 20px 0px 0px 0px;
+}
+
+.content .detay .label-md {
+  margin: 0px;
+}
+
+.content .label-ios {
+  margin-bottom: 0px;
 }
 
 .content .list-md .label-md, .content .versiyon .label-md {
@@ -4189,8 +4223,26 @@ ion-icon::before {
 }
 
 @media only screen and (max-width: 500px) {
+  .content .toolbar-ios .segment-ios {
+    position: inherit;
+  }
+  .content .card-content-ios, .content .card-content-md {
+    font-size: 15px;
+  }
+  .content .item-md {
+    background: none;
+  }
+  .content .item-ios .item-button {
+    height: 30px;
+  }
   .content .text-input-ios {
     width: 100%;
+  }
+  .content .searchbar-ios {
+    background: inherit;
+  }
+  .content .searchbar-ios .searchbar-input {
+    height: 35px;
   }
   .content .select-ios {
     border-radius: 25px;
@@ -4200,9 +4252,13 @@ ion-icon::before {
     font-size: 14px;
     max-width: 100%;
     margin-top: 10px;
+    width: 100%;
   }
   .content .select-ios .select-icon {
     margin-right: 10px;
+  }
+  .content .detay .button-ios {
+    padding-bottom: 12px;
   }
   .content .button-ios {
     margin: 0px;
@@ -4229,12 +4285,6 @@ ion-icon::before {
     margin-top: 10px;
     padding-top: 0;
   }
-  .content .label-ios {
-    white-space: inherit;
-  }
-  .content textarea.text-input {
-    padding: 0px;
-  }
   .content .toolbar-ios .segment-button {
     white-space: inherit;
     height: 47px;
@@ -4245,21 +4295,27 @@ ion-icon::before {
   .content .toolbar-ios {
     min-height: 50px;
   }
+  .content .main-tabs .seg-button {
+    height: 30px !important;
+  }
   .content .main-tabs .segment-button {
     height: 40px;
     margin-right: 10px;
+  }
+  .content .main-tabs .segment-ios .segment-button:last-of-type {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
   }
   .content .segment-ios .segment-button:not(:first-of-type) {
     border-left-width: 1px;
   }
   .content .segment-ios .segment-button:first-of-type, .content .segment-ios .segment-ios .segment-button:last-of-type {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
     border-radius: 5px;
     margin-right: 10px;
   }
   .content .button-ios {
     height: 35px;
+    margin-bottom: 15px;
   }
   .content .label-ios {
     padding-top: 10px;
@@ -4275,6 +4331,14 @@ ion-icon::before {
 
 .header .toolbar-ios ion-title {
   padding: 0px;
+}
+
+.footer {
+  bottom: -1px;
+}
+
+.footer .toolbar-background-ios {
+  bottom: -1px;
 }
 
 .footer .button-ios-light {
@@ -4380,7 +4444,8 @@ hizmet-bilgileri .item-inner.item-md.item-input.ng-valid.item-input-has-value:no
 
 .header .close-icon {
   margin-right: 20px;
-  font-size: 20px;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .header .tabbar {
@@ -4432,11 +4497,43 @@ hizmet-bilgileri .item-inner.item-md.item-input.ng-valid.item-input-has-value:no
   background-repeat: no-repeat;
 }
 
+.content .button-md, .content .button-ios {
+  text-transform: inherit;
+}
+
+.content .button-round-md {
+  margin-bottom: 10px;
+}
+
+.content .radio-ios .radio-icon {
+  left: 0;
+  top: 0;
+  margin: 0;
+  border-radius: 50%;
+  position: relative;
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #787878;
+}
+
+.content .modal-title {
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.content .searchbar-md, .content .searchbar-ios {
+  margin-bottom: 20px;
+}
+
 .content .toolbar-title-md, .content .toolbar-title-ios {
   font-weight: 600;
 }
 
-.content .toolbar .searchbar-ios .searchbar-input {
+.content .toolbar .searchbar-ios .searchbar-input, .content .toolbar .searchbar-md .searchbar-input {
   height: 35px;
 }
 
@@ -4540,6 +4637,15 @@ hizmet-bilgileri .item-inner.item-md.item-input.ng-valid.item-input-has-value:no
 
 .login-content .list-md {
   margin: 0px;
+}
+
+.footer .select-md {
+  max-width: 25%;
+  margin-left: 35%;
+}
+
+.footer .select-ios {
+  margin-top: 5px;
 }
 
 ion-action-sheet {

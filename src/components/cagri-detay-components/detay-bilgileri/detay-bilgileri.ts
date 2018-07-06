@@ -3,21 +3,21 @@
  * @email mehmetalisahinogullari@gmail.com
  */
 
-import {Component} from "@angular/core";
-import {Hizmet} from "../../../entities/hizmet/hizmet";
-import {HizmetService} from "../../../providers/hizmet-service/hizmet-service";
-import {DetayKayit} from "../../../entities/hizmet/DetayKayit";
-import {UtilProvider} from "../../../providers/util/util";
-import {LoggerProvider} from "../../../providers/logger/logger";
-import {UrunAnaGrup} from "../../../entities/urunAnaGrup";
-import {UrunAnaGrupDao} from "../../../providers/urun-ana-grup-dao/urun-ana-grup-dao";
-import {Constants} from "../../../entities/Constants";
-import {ModalController, AlertController, NavController} from "ionic-angular";
-import {HizmetDetayComponent} from "../../hizmet-detay/hizmet-detay";
-import {PrinterService} from "../../../providers/printer-service/printer-service";
-import {HizmetProvider} from "../../../providers/hizmet/hizmet";
-import {ProcessResults} from "../../../entities/ProcessResults";
-import {CagrilarPage} from "../../../pages/cagrilar/cagrilar";
+import { Component } from "@angular/core";
+import { Hizmet } from "../../../entities/hizmet/hizmet";
+import { HizmetService } from "../../../providers/hizmet-service/hizmet-service";
+import { DetayKayit } from "../../../entities/hizmet/DetayKayit";
+import { UtilProvider } from "../../../providers/util/util";
+import { LoggerProvider } from "../../../providers/logger/logger";
+import { UrunAnaGrup } from "../../../entities/urunAnaGrup";
+import { UrunAnaGrupDao } from "../../../providers/urun-ana-grup-dao/urun-ana-grup-dao";
+import { Constants } from "../../../entities/Constants";
+import { ModalController, AlertController, NavController } from "ionic-angular";
+import { HizmetDetayComponent } from "../../hizmet-detay/hizmet-detay";
+import { PrinterService } from "../../../providers/printer-service/printer-service";
+import { HizmetProvider } from "../../../providers/hizmet/hizmet";
+import { ProcessResults } from "../../../entities/ProcessResults";
+import { CagrilarPage } from "../../../pages/cagrilar/cagrilar";
 
 enum DURUM {
   ACIK = 'ACIK',
@@ -45,14 +45,14 @@ export class DetayBilgileriComponent {
   toplamTutar: number = 0;
 
   constructor(private hizmetService: HizmetService,
-              private urunAnaGrupDao: UrunAnaGrupDao,
-              private modalCtrl: ModalController,
-              private util: UtilProvider,
-              private logger: LoggerProvider,
-              private alertCtrl: AlertController,
-              private nav: NavController,
-              private hizmetProvider: HizmetProvider,
-              private printService: PrinterService) {
+    private urunAnaGrupDao: UrunAnaGrupDao,
+    private modalCtrl: ModalController,
+    private util: UtilProvider,
+    private logger: LoggerProvider,
+    private alertCtrl: AlertController,
+    private nav: NavController,
+    private hizmetProvider: HizmetProvider,
+    private printService: PrinterService) {
     this.hizmet = this.hizmetService.getHizmet();
     this.loadDetayList();
     this.loadCozumKoduList();
@@ -98,7 +98,11 @@ export class DetayBilgileriComponent {
         data: {
           detay: ""
         }
-      });
+      },
+        {
+          cssClass: this.util.getSelectedTheme()
+        });
+
       detayModal.onDidDismiss(res => {
         this.logger.dir(res);
         this.updateHizmet('INSERT');

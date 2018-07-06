@@ -10,12 +10,12 @@
 
 <ion-content class="content blue-theme">
   <ion-row>
-    <ion-col (click)="goback()">
+    <ion-col col-2 col-md-2>
       <button ion-button>
-        <label>Geri</label>
+        <ion-icon name="ios-arrow-back" (click)="goback()" class="pull-right close-icon"></ion-icon>
       </button>
     </ion-col>
-    <ion-col>
+    <ion-col col-10 col-md-10>
       <ion-title class="page-title">Çağrı Detay</ion-title>
     </ion-col>
 
@@ -67,7 +67,7 @@
     </div>
 
     <div *ngSwitchCase="'detay'">
-      <detay-bilgileri></detay-bilgileri>
+      <detay-bilgileri class="blue-theme"></detay-bilgileri>
     </div>
 
   </div>

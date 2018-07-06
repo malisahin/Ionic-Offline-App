@@ -6,7 +6,15 @@
 
 .content{
     .label-md {
-        margin: 13px 0px 13px 0px;
+        margin: 20px 0px 0px 0px;
+      }
+
+      .detay .label-md{
+          margin: 0px;
+      }
+      
+      .label-ios{
+          margin-bottom: 0px;
       }
 
       .list-md .label-md, .versiyon .label-md{
