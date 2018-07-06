@@ -14,6 +14,7 @@ import { SeriNoSorguProvider } from "../../../providers/seri-no-sorgu/seri-no-so
 import { UpdateUrunAnaGrupComponent } from "../../update-urun-ana-grup/update-urun-ana-grup";
 import { ProcessResults } from "../../../entities/ProcessResults";
 
+
 @Component({
   selector: 'urun-bilgileri',
   templateUrl: 'urun-bilgileri.html'
@@ -22,8 +23,9 @@ export class UrunBilgileriComponent {
   text: string;
   hizmet: Hizmet = new Hizmet();
   mamAnaGrpValue: string;
-  mesguliyet: boolean = false;
-  garanti: boolean = false;
+  mesguliyet: boolean;
+  garanti: boolean;
+
 
   constructor(private modalController: ModalController,
     private hizmetService: HizmetService,

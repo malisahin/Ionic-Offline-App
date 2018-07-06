@@ -4190,7 +4190,7 @@ ion-icon::before {
   margin-bottom: 0px;
 }
 
-.content .list-md .label-md, .content .versiyon .label-md {
+.content .versiyon .label-md {
   margin-top: 0px;
 }
 
@@ -4223,6 +4223,12 @@ ion-icon::before {
 }
 
 @media only screen and (max-width: 500px) {
+  .content ion-label.radio-btn {
+    margin-top: 10px;
+  }
+  .content .toggle-btn {
+    margin-top: 10px;
+  }
   .content .toolbar-ios .segment-ios {
     position: inherit;
   }
@@ -4452,6 +4458,10 @@ hizmet-bilgileri .item-inner.item-md.item-input.ng-valid.item-input-has-value:no
   opacity: 1;
 }
 
+.home-content .label-ios, .home-content .label-md {
+  margin-bottom: 15px;
+}
+
 .home-content .item-md.item-block .item-inner {
   padding-right: 0px;
 }
@@ -4495,6 +4505,14 @@ hizmet-bilgileri .item-inner.item-md.item-input.ng-valid.item-input-has-value:no
 .content-background {
   background-image: url("../../assets/img/eca/login/login-background.jpg");
   background-repeat: no-repeat;
+}
+
+.content .radio-btn {
+  margin-top: 22px;
+}
+
+.content .toggle-btn {
+  margin-top: 10px;
 }
 
 .content .button-md, .content .button-ios {
@@ -4633,10 +4651,6 @@ hizmet-bilgileri .item-inner.item-md.item-input.ng-valid.item-input-has-value:no
 .login-content .logo {
   font-size: 80px;
   text-align: center;
-}
-
-.login-content .list-md {
-  margin: 0px;
 }
 
 .footer .select-md {

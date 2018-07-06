@@ -2,6 +2,14 @@
 @media only screen and (max-width: 500px) {
   .content {
 
+    ion-label.radio-btn{
+      margin-top: 10px;
+    }
+
+    .toggle-btn{
+      margin-top: 10px;
+    }
+
     .toolbar-ios .segment-ios{
       position: inherit;
     }
@@ -292,6 +300,10 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
 //*------- START:HOME-CONTENT -----*//
 .home-content {
 
+  .label-ios, .label-md{
+    margin-bottom: 15px;
+  }
+
   .item-md.item-block .item-inner {
     padding-right: 0px;
   }
@@ -343,6 +355,15 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
 }
 
 .content {
+
+  .radio-btn{
+    margin-top: 22px;
+  }
+
+  .toggle-btn{
+    margin-top: 10px;
+  }
+
   .button-md, .button-ios{
     text-transform: inherit;
   }
@@ -491,9 +512,6 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
     text-align: center;
   }
 
-  .list-md {
-    margin: 0px;
-  }
 }
 
 //*------- END:LOGIN-CONTENT -----*//
