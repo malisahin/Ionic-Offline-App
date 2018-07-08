@@ -38,6 +38,16 @@ export class FiyatProvider {
     let url = this.api.fiyatlarDownloadUrl(first, tip);
     let header = await this.token.callTokenAndGetHeader();
 
+    if (this.util.isOnline()) {
+      this.util.loaderStart();
+      return this.getFiyat(url, header, tip);
+    } else {
+      this.util.ifOffline();
+    }
+  }
+
+  async getFiyat(url, header, tip): Promise<any> {
+
     let data = await this.http.get(url, {headers: header}).toPromise();
     let fiyatlar = new Fiyat();
     let list = await fiyatlar.fillFiyat(data, tip);
@@ -45,26 +55,12 @@ export class FiyatProvider {
     if (this.util.isNotEmpty(list) && list.length > 0) {
       item = await this.fiyatDao.insertList(list);
     }
+
     return new Promise((resolve, reject) => {
       resolve(Constants.STATUS.SUCCESS);
       reject(Constants.STATUS.ERROR);
     });
 
-
-    /*  return new Promise((resolve, reject) => {
-     this.http.get(url, {headers: header}).toPromise().then(res => {
-     let fiyatlar = new Fiyat();
-     fiyatlar.fillFiyat(res).then(list => {
-     this.fiyatDao.insertList(list).then(item => {
-     console.dir(item);
-     resolve(Constants.STATUS.SUCCESS);
-     reject(Constants.STATUS.ERROR);
-     });
-     });
-     });
-     });
-     */
   }
-
 }
 

@@ -5,6 +5,7 @@ import {UrunMalzeme} from '../../entities/urun-malzeme';
 import {UrunMalzemeDao} from '../urun-malzeme-dao/urun-malzeme-dao';
 import {TokenProvider} from "../token/token";
 import {Constants} from "../../entities/Constants";
+import {UtilProvider} from "../util/util";
 
 
 @Injectable()
@@ -14,26 +15,28 @@ export class UrunMalzemeProvider {
   constructor(public http: HttpClient,
               private urunMalzemeDao: UrunMalzemeDao,
               private token: TokenProvider,
+              private util: UtilProvider,
               private api: ApiProvider) {
     console.log('Hello UrunMalzemeProvider Provider');
   }
 
   async downloadUrunMalzeme(first): Promise<any> {
-
-    let data = await this.getDataFromApi(first);
-    let urunMalzeme = new UrunMalzeme();
-    let list = await urunMalzeme.fillUrunMalzeme(data);
-    return new Promise((resolve, reject) => {
-      this.urunMalzemeDao.insertList(list).then(res => {
-        resolve(Constants.STATUS.SUCCESS);
-        reject(Constants.STATUS.ERROR);
+    let header = await this.token.callTokenAndGetHeader();
+    if (this.util.isOnline()) {
+      let data = await this.getDataFromApi(first, header);
+      let urunMalzeme = new UrunMalzeme();
+      let list = await urunMalzeme.fillUrunMalzeme(data);
+      let res = await  this.urunMalzemeDao.insertList(list);
+      return new Promise((resolve, reject) => {
+        resolve(res);
       });
-    });
+    } else {
+      this.util.ifOffline();
+    }
   }
 
-  async getDataFromApi(first: number): Promise<any> {
+  async getDataFromApi(first: number, header): Promise<any> {
     let url = this.api.urunMalzemeDownloadUrl(first);
-    let header = await this.token.callTokenAndGetHeader();
     return this.http.get(url, {headers: header}).toPromise();
   }
 

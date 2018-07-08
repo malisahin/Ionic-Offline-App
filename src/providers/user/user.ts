@@ -39,21 +39,20 @@ export class UserProvider {
       userApi.message.password = password;
       this.user = this.user.fillUser(userApi);
       await this.userDao.insertOne(this.user);
-      return await this.getDataFromDB();
+      return await this.getUserFromDB(this.user);
     } else {
-      return await this.getDataFromDB();
+      return await this.getUserFromDB(this.user);
     }
   }
 
-  async getDataFromDB() {
-    let result = await this.userDao.getList(this.user);
+  async getUserFromDB(user: User) {
+    let result = await this.userDao.getList(user);
     this.logger.dir(result);
     if (result.res.rows.length > 0) {
       return result.res.rows.item(0)
     }
+
     return null;
-
-
   }
 
 

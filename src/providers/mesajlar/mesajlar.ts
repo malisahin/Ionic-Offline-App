@@ -7,6 +7,7 @@ import {MesajlarDao} from '../mesajlar-dao/mesajlar-dao';
 import {TokenProvider} from '../token/token';
 import {UtilProvider} from '../util/util';
 import {Pageable} from "../../entities/Pageable";
+import {Constants} from "../../entities/Constants";
 
 
 @Injectable()
@@ -25,9 +26,17 @@ export class MesajlarProvider {
     this.util.message("Notifications is Ok");
   }
 
-  async getDataFromApi(): Promise<any> {
+  async getDataFromApi(calledFrom: string): Promise<any> {
     let url = this.api.getMesajlarUrl();
     let header = await this.tokenProvider.callTokenAndGetHeader();
+    if (this.util.isOnline()) {
+      return this.getMesajlar(url, header);
+    } else if (calledFrom != Constants.CALLED_FROM.TASKS) {
+      this.util.ifOffline()
+    }
+  }
+
+  async getMesajlar(url, header): Promise<any> {
     let res = await  this.http.get(url, {headers: header}).toPromise();
     let mesaj = new Mesaj();
     let list = await mesaj.fillMesajlar(res);
@@ -39,7 +48,7 @@ export class MesajlarProvider {
   }
 
 
-  async  fetchList(mes: Mesaj, pageable: Pageable): Promise<any> {
+  async fetchList(mes: Mesaj, pageable: Pageable): Promise<any> {
     let mesajList: Mesaj[] = [];
     let data = await  this.mesajDao.getList(mes, pageable);
     data = data.res.rows;

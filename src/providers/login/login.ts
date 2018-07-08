@@ -31,6 +31,7 @@ export class LoginProvider {
 
       localStorage.setItem(this.user.keys.userCode, userCode);
       localStorage.setItem(this.user.keys.password, password);
+      localStorage.setItem(Constants.IS_ONLINE, String(true));
 
       this.setDefaultSettings();
       this.tasks.runTasks();

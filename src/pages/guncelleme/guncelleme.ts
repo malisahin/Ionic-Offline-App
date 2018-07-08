@@ -67,16 +67,19 @@ export class GuncellemePage {
   async downloadUrunler() {
     try {
       this.util.timerStart(Constants.DATA_TYPE.URUN);
-      this.util.loaderStart();
       let res = await this.urunProvider.downloadUrunler(this.firstForUrunler);
       this.logger.warn("downloadUrunler ==> " + res);
+      if (this.util.isNotEmpty(res)) {
 
-      if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_URUN)) < Constants.API_PAGE_SIZE) {
-        this.doWhenDataDownloaded(Constants.DATA_TYPE.URUN, "Ürünler Kayıt Edildi.");
-      }
-      else {
-        this.firstForUrunler += this.pageSize;
-        this.downloadUrunler();
+        if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_URUN)) < Constants.API_PAGE_SIZE) {
+          this.doWhenDataDownloaded(Constants.DATA_TYPE.URUN, "Ürünler Kayıt Edildi.");
+        }
+        else {
+          this.firstForUrunler += this.pageSize;
+          this.downloadUrunler();
+        }
+      } else {
+        this.onComplete();
       }
       this.util.timerEnd(Constants.DATA_TYPE.URUN);
     } catch (e) {
@@ -89,7 +92,11 @@ export class GuncellemePage {
       this.util.timerStart(Constants.DATA_TYPE.URUN_ANA_GRUP);
       this.util.loaderStart();
       this.urunAnaGrpProvider.downloadUrunAnaGrup().then(res => {
-        this.doWhenDataDownloaded(Constants.DATA_TYPE.URUN_ANA_GRUP, "Ürün Ana grup Kayıt Edildi.");
+        if (this.util.isNotEmpty(res))
+          this.doWhenDataDownloaded(Constants.DATA_TYPE.URUN_ANA_GRUP, "Ürün Ana grup Kayıt Edildi.");
+        else
+          this.onComplete();
+
       });
       this.util.timerEnd(Constants.DATA_TYPE.URUN_ANA_GRUP);
     }
@@ -103,17 +110,18 @@ export class GuncellemePage {
   async downloadUrunIscilik() {
     try {
       this.util.timerStart(Constants.DATA_TYPE.URUN_ISCILIK);
-      this.util.loaderStart();
       let res = await this.urunIscilikProvider.downloadUrunIscilik(this.firstForUrunIscilik);
       this.logger.warn("downloadUrunIscilik ==> " + res);
-
-      if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_URUN_ISCILIK)) < Constants.API_PAGE_SIZE) {
-        this.doWhenDataDownloaded(Constants.DATA_TYPE.URUN_ISCILIK, "Ürün İşçilik Kayıt Edildi.");
+      if (this.util.isNotEmpty(res)) {
+        if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_URUN_ISCILIK)) < Constants.API_PAGE_SIZE) {
+          this.doWhenDataDownloaded(Constants.DATA_TYPE.URUN_ISCILIK, "Ürün İşçilik Kayıt Edildi.");
+        } else {
+          this.firstForUrunIscilik += this.pageSize;
+          this.downloadUrunIscilik();
+        }
       } else {
-        this.firstForUrunIscilik += this.pageSize;
-        this.downloadUrunIscilik();
+        this.onComplete();
       }
-
       this.util.timerEnd(Constants.DATA_TYPE.URUN_ISCILIK);
     } catch (e) {
       this.catchException(e, Constants.DATA_TYPE.URUN_ISCILIK);
@@ -124,17 +132,22 @@ export class GuncellemePage {
   downloadUrunMalzeme() {
     try {
       this.util.timerStart(Constants.DATA_TYPE.URUN_MALZEME);
-      this.util.loaderStart();
 
       this.urunMalzemeProvider.downloadUrunMalzeme(this.firstForUrunMalzeme).then(res => {
         this.logger.warn("downloadUrunMalzeme ==> " + res);
-        if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_URUN_MALZEME)) < Constants.API_PAGE_SIZE) {
-          this.doWhenDataDownloaded(Constants.DATA_TYPE.URUN_MALZEME, "Ürün İşçilik Kayıt Edildi.");
+        if (this.util.isNotEmpty(res)) {
+          if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_URUN_MALZEME)) < Constants.API_PAGE_SIZE) {
+            this.doWhenDataDownloaded(Constants.DATA_TYPE.URUN_MALZEME, "Ürün İşçilik Kayıt Edildi.");
+
+          } else {
+            this.firstForUrunMalzeme += this.pageSize;
+            this.downloadUrunMalzeme();
+          }
 
         } else {
-          this.firstForUrunMalzeme += this.pageSize;
-          this.downloadUrunMalzeme();
+          this.onComplete();
         }
+
       });
       this.util.timerEnd(Constants.DATA_TYPE.URUN_MALZEME);
 
@@ -147,15 +160,19 @@ export class GuncellemePage {
   downloadIslemArizaIscilik() {
     try {
       this.util.timerStart(Constants.DATA_TYPE.ISLEM_ARIZA_ISCILIK);
-      this.util.loaderStart();
+
       this.islemArizaIscilikProvider.downloadIslemArizaIscilik(this.firstForIslemArizaIscilik).then(res => {
         this.logger.warn("downloadIslemArizaIscilik ==> " + res);
-        if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_ISLEM_ARIZA_ISCILIK)) < Constants.API_PAGE_SIZE) {
-          this.doWhenDataDownloaded(Constants.DATA_TYPE.ISLEM_ARIZA_ISCILIK, "Islem Ariza Iscilik Kayıt Edildi.");
-        } else {
-          this.firstForIslemArizaIscilik += this.pageSize;
-          this.downloadIslemArizaIscilik();
+        if (this.util.isNotEmpty(res)) {
+          if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_ISLEM_ARIZA_ISCILIK)) < Constants.API_PAGE_SIZE) {
+            this.doWhenDataDownloaded(Constants.DATA_TYPE.ISLEM_ARIZA_ISCILIK, "Islem Ariza Iscilik Kayıt Edildi.");
+          } else {
+            this.firstForIslemArizaIscilik += this.pageSize;
+            this.downloadIslemArizaIscilik();
+          }
 
+        } else {
+          this.onComplete();
         }
 
       });
@@ -166,46 +183,51 @@ export class GuncellemePage {
     }
   }
 
-  async  downloadMalzemeFiyat() {
+  async downloadMalzemeFiyat() {
     try {
       this.util.timerStart(Constants.DATA_TYPE.MALZEME_FIYAT);
-      this.util.loaderStart();
+
       let res = await this.fiyatProvider.downloadMalzemeFiyat(this.firstForMalzemeFiyat);
 
       this.logger.warn("downloadMalzemeFiyat ==> " + res);
-
-      if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_MALZEME_FIYAT)) < Constants.API_PAGE_SIZE) {
-
-        this.doWhenDataDownloaded(Constants.DATA_TYPE.MALZEME_FIYAT, "Malzeme Fiyatı Kayıt Edildi.");
+      if (this.util.isNotEmpty(res)) {
+        if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_MALZEME_FIYAT)) < Constants.API_PAGE_SIZE) {
+          this.doWhenDataDownloaded(Constants.DATA_TYPE.MALZEME_FIYAT, "Malzeme Fiyatı Kayıt Edildi.");
+        }
+        else {
+          this.firstForMalzemeFiyat += this.pageSize;
+          this.downloadMalzemeFiyat();
+        }
 
       } else {
-        this.firstForMalzemeFiyat += this.pageSize;
-        this.downloadMalzemeFiyat();
-
+        this.onComplete();
       }
       this.util.timerEnd(Constants.DATA_TYPE.MALZEME_FIYAT);
     }
     catch (e) {
       this.catchException(e, Constants.DATA_TYPE.MALZEME_FIYAT);
-
+      this.onComplete();
     }
   }
 
   async downloadIscilikFiyat() {
     try {
       this.util.timerStart(Constants.DATA_TYPE.ISCILIK_FIYAT);
-      this.util.loaderStart();
+
       await this.fiyatProvider.downloadIscilikFiyat(this.firstForIscilikFiyat).then(res => {
+        if (this.util.isNotEmpty(res)) {
+          this.logger.warn("downloadIscilikFiyat ==> " + res);
 
-        this.logger.warn("downloadIscilikFiyat ==> " + res);
+          if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_ISCILIK_FIYAT)) < Constants.API_PAGE_SIZE) {
+            this.doWhenDataDownloaded(Constants.DATA_TYPE.ISCILIK_FIYAT, "Iscilik Fiyatı Kayıt Edildi.");
 
-        if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_ISCILIK_FIYAT)) < Constants.API_PAGE_SIZE) {
-          this.doWhenDataDownloaded(Constants.DATA_TYPE.ISCILIK_FIYAT, "Iscilik Fiyatı Kayıt Edildi.");
+          } else {
+            this.firstForIscilikFiyat += this.pageSize;
+            this.downloadIscilikFiyat();
+          }
 
         } else {
-          this.firstForIscilikFiyat += this.pageSize;
-          this.downloadIscilikFiyat();
-
+          this.onComplete();
         }
       });
       this.util.timerEnd(Constants.DATA_TYPE.ISCILIK_FIYAT);
@@ -218,11 +240,13 @@ export class GuncellemePage {
   async downloadSehirList() {
     try {
       this.util.timerStart(Constants.DATA_TYPE.SEHIR_TNM);
-      this.util.loaderStart();
-
       await this.adresProvider.downloadSehirData().then(res => {
         this.logger.warn("downloadSehirList ==> " + res);
-        this.doWhenDataDownloaded(Constants.DATA_TYPE.SEHIR_TNM, "Şehir listesi güncellendi.");
+        if (this.util.isNotEmpty(res))
+          this.doWhenDataDownloaded(Constants.DATA_TYPE.SEHIR_TNM, "Şehir listesi güncellendi.");
+        else {
+          this.onComplete();
+        }
 
       });
       this.util.timerEnd(Constants.DATA_TYPE.SEHIR_TNM);
@@ -236,12 +260,14 @@ export class GuncellemePage {
   async downloadIlceList() {
     try {
       this.util.timerStart(Constants.DATA_TYPE.ILCE_TNM);
-      this.util.loaderStart();
 
       await this.adresProvider.downloadIlceData().then(res => {
         this.logger.warn("downloadIlceList ==> " + res);
-        this.doWhenDataDownloaded(Constants.DATA_TYPE.ILCE_TNM, "Ilçe listesi güncellendi.");
-
+        if (this.util.isNotEmpty(res)) {
+          this.doWhenDataDownloaded(Constants.DATA_TYPE.ILCE_TNM, "Ilçe listesi güncellendi.");
+        } else {
+          this.onComplete();
+        }
       });
       this.util.timerEnd(Constants.DATA_TYPE.ILCE_TNM);
 
@@ -253,18 +279,21 @@ export class GuncellemePage {
   async downloadMahalleList() {
     try {
       this.util.timerStart(Constants.DATA_TYPE.MAHALLE_TNM);
-      this.util.loaderStart();
 
       await this.adresProvider.downloadMahalleData(this.firstForMahalleTnm).then(res => {
 
         this.logger.warn("downloadMahalleList ==> " + res);
-        if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_MAHALLE_TNM)) < Constants.API_PAGE_SIZE) {
-          this.doWhenDataDownloaded(Constants.DATA_TYPE.MAHALLE_TNM, "Mahalle Bilgisi Kayıt Edildi.");
+        if(this.util.isNotEmpty(res)) {
+          if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_MAHALLE_TNM)) < Constants.API_PAGE_SIZE) {
+            this.doWhenDataDownloaded(Constants.DATA_TYPE.MAHALLE_TNM, "Mahalle Bilgisi Kayıt Edildi.");
+
+          } else {
+            this.firstForMahalleTnm += this.pageSize;
+            this.downloadMahalleList();
+          }
 
         } else {
-          this.firstForMahalleTnm += this.pageSize;
-          this.downloadMahalleList();
-
+          this.onComplete();
         }
       });
       this.util.timerEnd(Constants.DATA_TYPE.MAHALLE_TNM);
@@ -323,10 +352,14 @@ export class GuncellemePage {
     localStorage.setItem(Constants.VERSIYON.CLIENT[type], localStorage.getItem(Constants.VERSIYON.SERVER[type]));
     this.colors[type] = "downloaded";
     this.icons[type] = "done-all";
-    this.util.loaderEnd();
-    this.updateHeader();
     setTimeout(() => {
       this.util.message(message);
-    }, 500)
+    }, 500);
+    this.onComplete();
+  }
+
+  onComplete() {
+    this.util.loaderEnd();
+    this.updateHeader();
   }
 }

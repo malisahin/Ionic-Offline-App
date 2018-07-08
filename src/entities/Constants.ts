@@ -1,3 +1,5 @@
+import {BildirimlerPage} from "../pages/bildirimler/bildirimler";
+
 /**
  * @author malisahin
  * @date 2018-04-08
@@ -10,6 +12,10 @@ export class Constants {
 
   public static API_PAGE_SIZE = 10000;
 
+  public static CALLED_FROM = {
+    TASKS: "TASKS",
+    BILDIRIMLER_PAGE: "BILDIRIMLER_PAGE"
+  };
 
   public static SYNC_TIME = "SYNC_TIME";
 
@@ -18,6 +24,16 @@ export class Constants {
   public static DATE_FORMAT = "dd.MM.yyyy hh:mm:ss";
 
   public static ACCESS_TOKEN = "ACCESS_TOKEN";
+
+  public static IS_ONLINE = "IS_ONLINE";
+
+  public static LOGGED_IN = "LOGGED_IN";
+
+  public static NETWORK = {
+    ONLINE: "ONLINE",
+    OFFLINE: "OFFLINE",
+    NONE: "NONE"
+  };
 
   public static STATUS = {
     SUCCESS: "SUCCESS",
@@ -50,7 +66,7 @@ export class Constants {
     ISLEM_ARIZA_ISCILIK: "OFF_ISC_ISLARZGRP_TNM"
   };
 
-  public static SEARCH_TYPE = { LIKE: "LIKE", EXACT: "EXACT" };
+  public static SEARCH_TYPE = {LIKE: "LIKE", EXACT: "EXACT"};
 
   public static DATA_TYPE = {
     URUN: "URUN",

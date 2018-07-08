@@ -13,6 +13,7 @@ import {Sehir} from "../../entities/Sehir";
 import {Ilce} from "../../entities/Ilce";
 import {Mahalle} from "../../entities/mahalle";
 import {TokenProvider} from "../token/token";
+import {UtilProvider} from "../util/util";
 
 
 @Injectable()
@@ -22,6 +23,7 @@ export class AdresProvider {
               private api: ApiProvider,
               private token: TokenProvider,
               private adresDao: AdresDao,
+              private util: UtilProvider,
               private logger: LoggerProvider) {
 
     console.log('Hello AdresProvider Provider');
@@ -30,26 +32,42 @@ export class AdresProvider {
   async downloadSehirData(): Promise<any> {
     let url = this.api.getSehirIlceUrl(Constants.DATA_TYPE.SEHIR_TNM);
     let header = await this.token.callTokenAndGetHeader();
-    let apiData = await this.http.get(url, {headers: header}).toPromise();
-    let sehirList = this.fillSehirList(apiData);
-    this.logger.dir(apiData);
-    return this.adresDao.insertSehirList(sehirList);
+    if (this.util.isOnline()) {
+      this.util.loaderStart();
+      let apiData = await this.http.get(url, {headers: header}).toPromise();
+      let sehirList = this.fillSehirList(apiData);
+      this.logger.dir(apiData);
+      return this.adresDao.insertSehirList(sehirList);
+    } else {
+      this.util.ifOffline();
+    }
+
   }
 
   async downloadIlceData(): Promise<any> {
     let url = this.api.getSehirIlceUrl(Constants.DATA_TYPE.ILCE_TNM);
     let header = await this.token.callTokenAndGetHeader();
-    let apiData = await this.http.get(url, {headers: header}).toPromise();
-    let ilceList = this.fillIlceList(apiData);
-    return this.adresDao.insertIlceList(ilceList);
+    if (this.util.isOnline()) {
+      this.util.loaderStart();
+      let apiData = await this.http.get(url, {headers: header}).toPromise();
+      let ilceList = this.fillIlceList(apiData);
+      return this.adresDao.insertIlceList(ilceList);
+    } else {
+      this.util.ifOffline();
+    }
   }
 
   async downloadMahalleData(first: number): Promise<any> {
     let url = this.api.getMahalleTnmUrl(first);
     let header = await this.token.callTokenAndGetHeader();
-    let apiData = await this.http.get(url, {headers: header}).toPromise();
-    let mahalleList = this.fillMahalleList(apiData);
-    return this.adresDao.insertMahalleList(mahalleList);
+    if (this.util.isOnline()) {
+      this.util.loaderStart();
+      let apiData = await this.http.get(url, {headers: header}).toPromise();
+      let mahalleList = this.fillMahalleList(apiData);
+      return this.adresDao.insertMahalleList(mahalleList);
+    } else {
+      this.util.ifOffline();
+    }
   }
 
   fillSehirList(item: any): Sehir[] {

@@ -2,15 +2,16 @@
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-import { MesajlarProvider } from '../../providers/mesajlar/mesajlar';
-import { Mesaj } from "../../entities/mesajlar";
-import { MesajDetailComponent } from "../../components/mesaj-detail/mesaj-detail";
-import { Pageable } from "../../entities/Pageable";
-import { MesajlarDao } from "../../providers/mesajlar-dao/mesajlar-dao";
-import { HeaderComponent } from "../../components/header/header";
-import { timeout } from "rxjs/operators";
+import {Component, ViewChild} from '@angular/core';
+import {IonicPage, NavController, NavParams, ModalController} from 'ionic-angular';
+import {MesajlarProvider} from '../../providers/mesajlar/mesajlar';
+import {Mesaj} from "../../entities/mesajlar";
+import {MesajDetailComponent} from "../../components/mesaj-detail/mesaj-detail";
+import {Pageable} from "../../entities/Pageable";
+import {MesajlarDao} from "../../providers/mesajlar-dao/mesajlar-dao";
+import {HeaderComponent} from "../../components/header/header";
+import {timeout} from "rxjs/operators";
+import {Constants} from "../../entities/Constants";
 
 @IonicPage()
 @Component({
@@ -27,9 +28,9 @@ export class BildirimlerPage {
   @ViewChild("header") header: HeaderComponent;
 
   constructor(public navCtrl: NavController,
-    public navParams: NavParams,
-    private mesajProvider: MesajlarProvider,
-    private modalController: ModalController) {
+              public navParams: NavParams,
+              private mesajProvider: MesajlarProvider,
+              private modalController: ModalController) {
     this.mesajTip = this.navParams.data.type;
     this.pageable = new Pageable();
     this.fetchList(this.searchTip);
@@ -37,7 +38,7 @@ export class BildirimlerPage {
   }
 
   async fetchData() {
-    await this.mesajProvider.getDataFromApi();
+    await this.mesajProvider.getDataFromApi(Constants.CALLED_FROM.BILDIRIMLER_PAGE);
     await this.fetchList(this.searchTip);
   }
 
@@ -51,7 +52,7 @@ export class BildirimlerPage {
 
   }
 
-  async  fetchList(tip: string) {
+  async fetchList(tip: string) {
     let mes = new Mesaj();
     mes.type = this.mesajTip;
     this.pageable.tip = tip;
@@ -63,7 +64,7 @@ export class BildirimlerPage {
   }
 
   public mesajDetayinaGit(event, id) {
-    let data = { id: id };
+    let data = {id: id};
     let detailComponent = this.modalController.create(MesajDetailComponent, data);
     detailComponent.present();
   }

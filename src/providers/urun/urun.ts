@@ -25,23 +25,29 @@ export class UrunProvider {
   }
 
   async downloadUrunler(first: number): Promise<any> {
-    let data = await this.getDataFromApi(first);
-    let urun = new Urun();
-    let list = await urun.fillUrun(data);
-    let item: any;
-    if (this.util.isNotEmpty(list) && list.length > 0) {
-      item = await this.urunDao.insertList(list);
-    }
+    let header = await this.token.callTokenAndGetHeader();
+    if (this.util.isOnline()) {
+      this.util.loaderStart();
+      let data = await this.getDataFromApi(first, header);
+      let urun = new Urun();
+      let list = await urun.fillUrun(data);
+      let item: any;
+      if (this.util.isNotEmpty(list) && list.length > 0) {
+        item = await this.urunDao.insertList(list);
+      }
 
-    return new Promise((resolve, reject) => {
-      resolve(Constants.STATUS.SUCCESS);
-      reject(Constants.STATUS.ERROR);
-    })
+      return new Promise((resolve, reject) => {
+        resolve(Constants.STATUS.SUCCESS);
+        reject(Constants.STATUS.ERROR);
+      })
+    } else {
+      this.util.ifOffline();
+    }
   }
 
-  async getDataFromApi(first): Promise<any> {
-    let header = await this.token.callTokenAndGetHeader();
+  async getDataFromApi(first, header): Promise<any> {
     let url = this.api.downloadUrunUrl(first);
     return this.http.get(url, {headers: header}).toPromise();
+
   }
 }

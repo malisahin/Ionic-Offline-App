@@ -8,7 +8,7 @@ import {ApiProvider} from '../api/api';
 import {Token} from '../../entities/token'
 import {Network} from '@ionic-native/network';
 import {LoggerProvider} from '../logger/logger';
-import {Platform} from 'ionic-angular';
+import {NavController, Platform} from 'ionic-angular';
 import {UtilProvider} from '../util/util';
 import {User} from "../../entities/user";
 import {HttpHeaders} from '@angular/common/http';
@@ -39,6 +39,7 @@ export class TokenProvider {
   }
 
   async getToken(userCode: string, password: string): Promise<any> {
+    let isOnline: boolean = false;
     let tokenUrl = this.api.getTokenUrl(userCode, password);
     try {
       let token = await this.http.post(tokenUrl, {}, {}).toPromise();
@@ -47,11 +48,13 @@ export class TokenProvider {
     } catch (e) {
 
       localStorage.setItem(Constants.ACCESS_TOKEN, "");
+      localStorage.setItem(Constants.IS_ONLINE, String(false));
       this.logger.error(e);
-      if (e.error.error = "invalid_grant") {
+      if (e.error.error == "invalid_grant") {
         this.util.message("Giriş bilgileriniz yanlış lütfen kontrol ediniz.");
+        localStorage.setItem(Constants.LOGGED_IN, String(false));
       } else {
-        this.util.message("Bağlantı hatası.");
+        //this.logger.error("Bağlantı hatası.");
       }
       return false;
     }

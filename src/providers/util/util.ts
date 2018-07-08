@@ -1,10 +1,11 @@
-import { Constants } from './../../entities/Constants';
-import { Injectable, forwardRef } from '@angular/core';
-import { ToastController, LoadingController, Loading } from 'ionic-angular';
+import {Constants} from './../../entities/Constants';
+import {Injectable, forwardRef} from '@angular/core';
+import {ToastController, LoadingController, Loading} from 'ionic-angular';
 import moment from 'moment';
-import { ProcessResults } from "../../entities/ProcessResults"
-import { Network } from '@ionic-native/network';
-import { LoggerProvider } from "../logger/logger";
+import {ProcessResults} from "../../entities/ProcessResults"
+import {Network} from '@ionic-native/network';
+import {LoggerProvider} from "../logger/logger";
+import {User} from "../../entities/user";
 
 
 @Injectable()
@@ -14,9 +15,9 @@ export class UtilProvider {
   private isLoaderRunning: boolean = false;
 
   constructor(private toast: ToastController,
-    private network: Network,
-    private logger: LoggerProvider,
-    private loadingController: LoadingController) {
+              private network: Network,
+              private logger: LoggerProvider,
+              private loadingController: LoadingController) {
     moment.locale('tr');
   }
 
@@ -115,11 +116,14 @@ export class UtilProvider {
 
   // FIXME: Pluginden alınan bilgiye göre cevap dönecek
   isOnline(): boolean {
-    let connection: boolean = true;
-    let connectionType = this.network.type;
-    this.logger.warn(connectionType);
+    let token = localStorage.getItem(Constants.ACCESS_TOKEN);
+    return this.isNotEmpty(token);
 
-    return connection;
+  }
+
+  ifOffline() {
+    this.error("Bu işlemi yapabilmek için internet bağlantısı gereklidir.");
+    this.loaderEnd();
 
   }
 
@@ -221,7 +225,7 @@ export class UtilProvider {
 
   loaderStart() {
     if (!this.isLoaderRunning) {
-      this.loader = this.loadingController.create({ spinner: 'dots' });
+      this.loader = this.loadingController.create({spinner: 'dots'});
       this.isLoaderRunning = true;
       this.loader.present();
     }
@@ -263,6 +267,19 @@ export class UtilProvider {
     }
 
     return theme;
+  }
+
+  getConnectionStatus() {
+    let loggedIn = localStorage.getItem(Constants.LOGGED_IN) == "true";
+    let token = localStorage.getItem(Constants.ACCESS_TOKEN);
+    if (this.isNotEmpty(token)) {
+      return Constants.NETWORK.ONLINE;
+    }
+    else if (loggedIn) {
+      return Constants.NETWORK.OFFLINE;
+    } else {
+      return Constants.NETWORK.NONE;
+    }
   }
 }
 

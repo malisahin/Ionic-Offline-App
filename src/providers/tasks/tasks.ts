@@ -62,7 +62,7 @@ export class TasksProvider {
 
   async messageTask() {
     this.logger.warn("Messages Task Started");
-    await this.mesajProvider.getDataFromApi();
+    await this.mesajProvider.getDataFromApi(Constants.CALLED_FROM.TASKS);
   }
 
 
