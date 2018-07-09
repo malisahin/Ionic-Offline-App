@@ -78,6 +78,8 @@ import {UpdateUrunAnaGrupComponent} from "../components/update-urun-ana-grup/upd
 import {UrunIscilikSearchComponent} from "../components/urun-iscilik-search/urun-iscilik-search";
 import { TasksProvider } from '../providers/tasks/tasks';
 import { ThemeProvider } from '../providers/theme/theme';
+import { DeeplinkProvider } from '../providers/deeplink/deeplink';
+import {Deeplinks} from "@ionic-native/deeplinks";
 
 
 @NgModule({
@@ -177,7 +179,10 @@ import { ThemeProvider } from '../providers/theme/theme';
     SeriNoSorguProvider,
     TasksProvider,
     VersiyonProvider,
-    ThemeProvider],
+    ThemeProvider,
+    DeeplinkProvider,
+    Deeplinks
+  ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

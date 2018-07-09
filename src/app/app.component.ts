@@ -12,8 +12,9 @@ import {LoginPage} from '../pages/login/login';
 import {DatabaseProvider} from '../providers/database/database';
 import {BilgiSorguPage} from '../pages/bilgi-sorgu/bilgi-sorgu';
 import {ThemeProvider} from "../providers/theme/theme";
-import {Constants} from "../entities/Constants";
 import {LoggerProvider} from "../providers/logger/logger";
+import {Deeplinks} from "@ionic-native/deeplinks";
+import {ZebraPrinterComponent} from "../components/zebra-printer/zebra-printer";
 
 
 @Component({
@@ -29,6 +30,7 @@ export class MyApp {
 
   constructor(public platform: Platform,
               public menu: MenuController,
+              private deeplinks: Deeplinks,
               public statusBar: StatusBar,
               public splashScreen: SplashScreen,
               private logger: LoggerProvider,
@@ -61,6 +63,21 @@ export class MyApp {
 
   openPage(page) {
     this.nav.setRoot(page.component, page.param);
+  }
+
+  ngAfterViewInit() {
+    this.platform.ready().then(() => {
+
+      this.logger.warn("Deeplink is Working");
+      this.deeplinks.routeWithNavController(this.nav, {
+        '/': ZebraPrinterComponent,
+        '/sos.com/Kurumsal/:seqNo': ZebraPrinterComponent
+      }).subscribe((match) => {
+        console.log('Successfully routed', match);
+      }, (nomatch) => {
+        console.warn('Unmatched Route', nomatch);
+      });
+    })
   }
 
 }
