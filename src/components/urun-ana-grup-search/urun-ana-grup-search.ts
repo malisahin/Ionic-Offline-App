@@ -78,7 +78,6 @@ export class UrunAnaGrupSearchComponent {
   }
 
   fillItemByType(item: any) {
-    debugger;
  /*   if (this.util.isNotEmpty(this.data) && this.util.isNotEmpty(this.data.nerden) && this.data.nerden == "BILGI_SORGU") {
       let uniqueList = new Set(this.list);
       this.list = [];

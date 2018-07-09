@@ -12,6 +12,7 @@ import {MesajlarDao} from "../../providers/mesajlar-dao/mesajlar-dao";
 import {HeaderComponent} from "../../components/header/header";
 import {timeout} from "rxjs/operators";
 import {Constants} from "../../entities/Constants";
+import {UtilProvider} from "../../providers/util/util";
 
 @IonicPage()
 @Component({
@@ -30,6 +31,7 @@ export class BildirimlerPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private mesajProvider: MesajlarProvider,
+              private util: UtilProvider,
               private modalController: ModalController) {
     this.mesajTip = this.navParams.data.type;
     this.pageable = new Pageable();
@@ -38,8 +40,10 @@ export class BildirimlerPage {
   }
 
   async fetchData() {
-    await this.mesajProvider.getDataFromApi(Constants.CALLED_FROM.BILDIRIMLER_PAGE);
+    let res = await this.mesajProvider.getDataFromApi(Constants.CALLED_FROM.BILDIRIMLER_PAGE);
     await this.fetchList(this.searchTip);
+    if (this.util.isOnline())
+      this.util.message(this.mesajBaslik + " güncellenmiştir.");
   }
 
   ionViewDidLoad() {

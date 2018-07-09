@@ -6,8 +6,8 @@
 import {Component} from "@angular/core";
 import {IonicPage, NavController, NavParams} from "ionic-angular";
 import {Hizmet} from "../../entities/hizmet/hizmet";
-import {HizmetProvider} from "../../providers/hizmet/hizmet";
 import {HizmetService} from "../../providers/hizmet-service/hizmet-service";
+import {CagrilarPage} from "../cagrilar/cagrilar";
 
 
 @IonicPage()
@@ -48,7 +48,7 @@ export class CagriDetayPage {
   }
 
   goback() {
-    this.navCtrl.pop();
+    this.navCtrl.push(CagrilarPage);
   }
 
 }

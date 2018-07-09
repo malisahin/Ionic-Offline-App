@@ -26,10 +26,15 @@ export class SeriNoSorguProvider {
       let url = this.api.seriNoSorguUrl(mamKod);
       this.logger.warn(url);
       let header = await this.tokenProvider.callTokenAndGetHeader();
-      let res = await this.http.get(url, {headers: header}).toPromise();
-      return new Promise((resolve, reject) => {
-        resolve(res);
-      })
+      if (this.util.isOnline()) {
+        let res = await this.http.get(url, {headers: header}).toPromise();
+        return new Promise((resolve, reject) => {
+          resolve(res);
+        })
+      } else {
+        this.util.ifOffline();
+      }
+
     } else {
       this.util.error("Seri No alanı sorgu için zorunludur.");
     }

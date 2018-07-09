@@ -27,24 +27,33 @@ export class HizmetProvider {
 
   }
 
-  downloadCagriList(): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.fetchDataFromApi()
-        .then(res => this.insertComingData(res))
-        .then(res => resolve("SUCCESS"));
-    });
+ async downloadCagriList(): Promise<any> {
+    let header = await this.token.callTokenAndGetHeader();
+    if(this.util.isOnline()) {
+      this.util.loaderStart();
+      return new Promise((resolve, reject) => {
+        this.fetchDataFromApi(header)
+          .then(res => this.insertComingData(res))
+          .then(res => resolve("SUCCESS"));
+      });
+    } else {
+      this.util.error("Çağrılar yalnızca online durumda güncellenebilir.")
+    }
   }
 
   async updateCagri(hizmet: Hizmet, durum: string): Promise<any> {
     let url = this.api.setCagriUrl(durum);
     let header = await this.token.callTokenAndGetHeader();
-    return this.http.post(url, hizmet, {headers: header}).toPromise();
+    if(this.util.isOnline()) {
+      return this.http.post(url, hizmet, {headers: header}).toPromise();
+    } else {
+      this.util.ifOffline();
+    }
   }
 
 
-  async fetchDataFromApi(): Promise<any> {
+  async fetchDataFromApi(header): Promise<any> {
     let url = this.api.getCagriListUrl();
-    let header = await this.token.callTokenAndGetHeader();
     return new Promise((resolve, reject) => {
       this.http.get(url, {headers: header}).toPromise().then(res => {
         resolve(res);

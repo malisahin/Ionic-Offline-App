@@ -87,10 +87,11 @@ export class CagrilarPage {
   }
 
   async cagriGuncelle() {
-    this.util.loaderStart();
     await this.cagriProvider.downloadCagriList().then(res => {
-      this.fetchList(this.searchType);
-      this.util.message("Çağrılar Güncellendi.");
+      if (this.util.isNotEmpty(res)) {
+        this.fetchList(this.searchType);
+        this.util.message("Çağrılar Güncellendi.");
+      }
     });
     this.util.loaderEnd();
     this.header.updateHeader();

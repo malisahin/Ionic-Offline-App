@@ -42,7 +42,8 @@ export class TokenProvider {
     let isOnline: boolean = false;
     let tokenUrl = this.api.getTokenUrl(userCode, password);
     try {
-      let token = await this.http.post(tokenUrl, {}, {}).toPromise();
+      let token = await this.http.post(tokenUrl, {}, {})
+        .timeout(5000).toPromise();
       this.logger.dir(token);
       return this.extractData(token);
     } catch (e) {

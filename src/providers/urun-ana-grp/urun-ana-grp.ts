@@ -51,7 +51,13 @@ export class UrunAnaGrpProvider {
   async updateMamAnaGrp(hizmet: Hizmet): Promise<any> {
     let url = this.api.updateMamAnaGrupUrl();
     let header = await this.token.callTokenAndGetHeader();
-    return this.http.post(url, hizmet, {headers: header}).toPromise();
+    if (this.util.isOnline()) {
+      return this.http.post(url, hizmet, {headers: header}).toPromise();
+
+    } else {
+      this.util.ifOffline();
+    }
+
   }
 
 

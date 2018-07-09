@@ -29,12 +29,8 @@ plugins/android.json
 plugins/ios.json
 $RECYCLE.BIN/
 
-www/build/0.js
-www/build/1.js
-www/build/2.js
-www/build/main.js
-www/build/main.css
-
+www/build/
+build/
 
 
 

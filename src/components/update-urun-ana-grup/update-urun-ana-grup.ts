@@ -81,14 +81,26 @@ export class UpdateUrunAnaGrupComponent {
     this.hizmet.basvuruNedeni = this.basvuruNedeni;
     let res = await this.urunAnaGrupProvider.updateMamAnaGrp(this.hizmet);
     this.logger.warn(res);
+    if (this.util.isOnline()) {
+      this.setGarantiDegisimSonuc(res);
+
+    } else {
+      this.util.ifOffline();
+    }
+
+  }
+
+  async  setGarantiDegisimSonuc(res) {
     if (this.util.isNotEmpty(res) && this.util.isNotEmpty(res)) {
       await this.hizmetProvider.updateComingData(res);
       this.logger.log(res);
       await this.getUpdatedHizmet();
-    } else {
+    }
+    else {
       this.iptal();
       this.util.error("Ürün Ana Grubu değiştirirken hata oluştu.Verileri kontrol ediniz.")
     }
+
   }
 
   async getUpdatedHizmet() {

@@ -3,21 +3,21 @@
  * @email mehmetalisahinogullari@gmail.com
  */
 
-import { Component } from "@angular/core";
-import { Hizmet } from "../../../entities/hizmet/hizmet";
-import { HizmetService } from "../../../providers/hizmet-service/hizmet-service";
-import { DetayKayit } from "../../../entities/hizmet/DetayKayit";
-import { UtilProvider } from "../../../providers/util/util";
-import { LoggerProvider } from "../../../providers/logger/logger";
-import { UrunAnaGrup } from "../../../entities/urunAnaGrup";
-import { UrunAnaGrupDao } from "../../../providers/urun-ana-grup-dao/urun-ana-grup-dao";
-import { Constants } from "../../../entities/Constants";
-import { ModalController, AlertController, NavController } from "ionic-angular";
-import { HizmetDetayComponent } from "../../hizmet-detay/hizmet-detay";
-import { PrinterService } from "../../../providers/printer-service/printer-service";
-import { HizmetProvider } from "../../../providers/hizmet/hizmet";
-import { ProcessResults } from "../../../entities/ProcessResults";
-import { CagrilarPage } from "../../../pages/cagrilar/cagrilar";
+import {Component} from "@angular/core";
+import {Hizmet} from "../../../entities/hizmet/hizmet";
+import {HizmetService} from "../../../providers/hizmet-service/hizmet-service";
+import {DetayKayit} from "../../../entities/hizmet/DetayKayit";
+import {UtilProvider} from "../../../providers/util/util";
+import {LoggerProvider} from "../../../providers/logger/logger";
+import {UrunAnaGrup} from "../../../entities/urunAnaGrup";
+import {UrunAnaGrupDao} from "../../../providers/urun-ana-grup-dao/urun-ana-grup-dao";
+import {Constants} from "../../../entities/Constants";
+import {ModalController, AlertController, NavController} from "ionic-angular";
+import {HizmetDetayComponent} from "../../hizmet-detay/hizmet-detay";
+import {PrinterService} from "../../../providers/printer-service/printer-service";
+import {HizmetProvider} from "../../../providers/hizmet/hizmet";
+import {ProcessResults} from "../../../entities/ProcessResults";
+import {CagrilarPage} from "../../../pages/cagrilar/cagrilar";
 
 enum DURUM {
   ACIK = 'ACIK',
@@ -45,14 +45,14 @@ export class DetayBilgileriComponent {
   toplamTutar: number = 0;
 
   constructor(private hizmetService: HizmetService,
-    private urunAnaGrupDao: UrunAnaGrupDao,
-    private modalCtrl: ModalController,
-    private util: UtilProvider,
-    private logger: LoggerProvider,
-    private alertCtrl: AlertController,
-    private nav: NavController,
-    private hizmetProvider: HizmetProvider,
-    private printService: PrinterService) {
+              private urunAnaGrupDao: UrunAnaGrupDao,
+              private modalCtrl: ModalController,
+              private util: UtilProvider,
+              private logger: LoggerProvider,
+              private alertCtrl: AlertController,
+              private nav: NavController,
+              private hizmetProvider: HizmetProvider,
+              private printService: PrinterService) {
     this.hizmet = this.hizmetService.getHizmet();
     this.loadDetayList();
     this.loadCozumKoduList();
@@ -95,10 +95,10 @@ export class DetayBilgileriComponent {
   hizmetDetayaGit() {
     if (this.util.isNotEmpty(this.hizmet.mamKod)) {
       let detayModal = this.modalCtrl.create(HizmetDetayComponent, {
-        data: {
-          detay: ""
-        }
-      },
+          data: {
+            detay: ""
+          }
+        },
         {
           cssClass: this.util.getSelectedTheme()
         });
@@ -154,18 +154,9 @@ export class DetayBilgileriComponent {
       let res = await this.hizmetProvider.updateCagri(kapatmaHizmet, "HAYIR");
       this.util.loaderEnd();
       this.logger.dir(res);
-      if (res.responseCode == "FAIL") {
-        this.util.error(res.description);
-        this.hizmet.durum = DURUM.ACIK;
-      } else {
-        this.verilerSunucuyaKayitEdildiMi = true;
-        if (kapatmaHizmet.durum != DURUM.KAPALI)
-          this.kapat(DURUM.KAPALI);
-      }
-      if (this.util.isNotEmpty(res.responseCode) && res.responseCode == "SUCCESS" && this.util.isNotEmpty(res.description) && res.description == "CLOSED") {
-        this.hizmet.durum = DURUM.KAPALI;
-        this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
-        this.navigate("CagrilarPage", "Çağrı Kayıt Edildi.")
+
+      if (this.util.isOnline()) {
+        this.setCagriKapatSonuc(res, kapatmaHizmet);
       }
     }
     else {
@@ -173,9 +164,35 @@ export class DetayBilgileriComponent {
     }
   }
 
+  async setCagriKapatSonuc(res, kapatmaHizmet) {
+    if (res.responseCode == "FAIL") {
+      this.util.error(res.description);
+      this.hizmet.durum = DURUM.ACIK;
+    } else {
+      this.verilerSunucuyaKayitEdildiMi = true;
+      if (kapatmaHizmet.durum != DURUM.KAPALI)
+        this.kapat(DURUM.KAPALI);
+    }
+    if (this.util.isNotEmpty(res.responseCode) && res.responseCode == "SUCCESS" && this.util.isNotEmpty(res.description) && res.description == "CLOSED") {
+      this.hizmet.durum = DURUM.KAPALI;
+      this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
+      this.navigate("CagrilarPage", "Çağrı Kayıt Edildi.")
+    }
+  }
+
   async siparisOlustur() {
     this.util.loaderStart();
     let res = await this.hizmetProvider.updateCagri(this.hizmet, "EVET");
+
+    if (this.util.isOnline()) {
+      this.setSiparisOlusturmaSonuc(res);
+    }
+
+    this.logger.dir(res);
+    this.util.loaderEnd();
+  }
+
+  setSiparisOlusturmaSonuc(res) {
     if (this.util.isNotEmpty(res) && this.util.isNotEmpty(res.responseCode)) {
       if (res.responseCode == "FAIL") {
         this.util.error(res.description);
@@ -187,8 +204,6 @@ export class DetayBilgileriComponent {
         this.util.error("Sipariş oluşturmada bir hata oluştu.");
       }
     }
-    this.logger.dir(res);
-    this.util.loaderEnd();
   }
 
   async updateHizmet(nerden: string) {
@@ -341,6 +356,12 @@ export class DetayBilgileriComponent {
     let res = await this.hizmetProvider.updateCagri(iptalHizmet, "HAYIR");
     this.logger.dir(res);
 
+    if (this.util.isOnline()) {
+      this.setHizmetIptalSonuc(res);
+    }
+  }
+
+  async setHizmetIptalSonuc(res) {
     if (this.util.isNotEmpty(res) && this.util.isNotEmpty(res.responseCode) && res.responseCode == "SUCCESS") {
       this.hizmet.durum = DURUM.IPTAL;
       await this.hizmetService.saveAndFetchHizmet(this.hizmet);
@@ -359,7 +380,6 @@ export class DetayBilgileriComponent {
       this.util.loaderEnd();
 
     }
-
   }
 
   navigate(path: string, message: string) {
