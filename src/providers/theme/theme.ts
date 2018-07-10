@@ -3,9 +3,10 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
 import {Constants} from "../../entities/Constants";
 import {UtilProvider} from "../util/util";
+import {User} from "../../entities/user";
 
 
- enum THEME {
+enum THEME {
   BLUE = 'blue-theme',
   GREEN = 'green-theme'
 }
@@ -14,6 +15,7 @@ import {UtilProvider} from "../util/util";
 export class ThemeProvider {
 
   theme: BehaviorSubject<string>;
+  user: User = new User();
 
   constructor(private  util: UtilProvider) {
     console.log('Hello ThemeProvider Provider');
@@ -51,4 +53,9 @@ export class ThemeProvider {
     return selectedTheme;
   }
 
+  getBackgroundImage() {
+    debugger;
+    let orgKod = this.user.getOrgKod();
+    return "../../assets/" + orgKod + "/login/login-background.jpg";
+  }
 }

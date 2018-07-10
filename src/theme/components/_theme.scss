@@ -13,7 +13,7 @@
     .toolbar-ios .segment-ios{
       position: inherit;
     }
-    
+
     .card-content-ios, .card-content-md{
       font-size: 15px;
     }
@@ -21,14 +21,14 @@
     .item-md{
       background: none;
     }
-  
+
     .item-ios .item-button{
       height: 30px;
     }
 
     .text-input-ios {
       width: 100%;
-     
+
     }
 
     .searchbar-ios{
@@ -36,7 +36,7 @@
       .searchbar-input{
         height: 35px;
       }
-      
+
     }
 
     .select-ios {
@@ -110,7 +110,7 @@
       .seg-button{
         height: 30px!important;
       }
-  
+
       .segment-button {
         height: 40px;
         margin-right: 10px;
@@ -127,16 +127,16 @@
       .segment-button:not(:first-of-type){
         border-left-width:1px;
       }
-    
+
       .segment-button:first-of-type, .segment-ios .segment-button:last-of-type {
         border-radius: 5px;
         margin-right: 10px;
       }
-    } 
+    }
     .button-ios {
       height: 35px;
       margin-bottom: 15px;
-    
+
     }
 
     .label-ios {
@@ -350,7 +350,7 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
 //*------- START:CONTENT -----*//
 
 .content-background {
-  background-image: url("../../assets/img/eca/login/login-background.jpg");
+  /*background-image: url("../../assets/eca/login/login-background.jpg");*/
   background-repeat: no-repeat;
 }
 
@@ -403,7 +403,7 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
     .searchbar-ios .searchbar-input, .searchbar-md .searchbar-input {
       height: 35px;
     }
-  
+
   }
 
   .item-md {
@@ -413,7 +413,7 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
       height: 35px;
     }
   }
- 
+
   .fiyat-sorgu .select-md {
     width: 75%;
   }

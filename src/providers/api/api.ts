@@ -9,6 +9,7 @@ import {Tablo} from "../../entities/Tablo";
 import {HttpHeaders} from '@angular/common/http';
 import {Constants} from "../../entities/Constants";
 import {User} from "../../entities/user";
+import {Domain} from "../../entities/domain";
 
 @Injectable()
 export class ApiProvider {
@@ -17,24 +18,26 @@ export class ApiProvider {
   urlPrefixHizmet: string;
   urlPrefixOffline: string;
   urlPrefixKullanici: string;
+  webAppUrl: string;
   pageSize: number;
   first = 0;
   tables: Tablo;
   user: User;
+  activeProfil: Domain;
 
   constructor() {
     this.pageSize = Constants.API_PAGE_SIZE;
     this.ACTIVE_PROFIL = EProfiles.LOCAL_DEV;
-
-    this.urlPrefixHizmet = this.profil.getActiveProfil(this.ACTIVE_PROFIL).domainUrl + '/sos-api/endpointrest/hizmet/';
-    this.urlPrefixOffline = this.profil.getActiveProfil(this.ACTIVE_PROFIL).domainUrl + '/sos-api/endpointrest/offline/';
-    this.urlPrefixKullanici = this.profil.getActiveProfil(this.ACTIVE_PROFIL).domainUrl + '/sos-api/endpointrest/kullanici/';
+    this.activeProfil = this.profil.getActiveProfil(this.ACTIVE_PROFIL);
+    this.urlPrefixHizmet = this.activeProfil.domainUrl + '/sos-api/endpointrest/hizmet/';
+    this.urlPrefixOffline = this.activeProfil.domainUrl + '/sos-api/endpointrest/offline/';
+    this.urlPrefixKullanici = this.activeProfil.domainUrl + '/sos-api/endpointrest/kullanici/';
     this.tables = new Tablo();
     this.user = new User();
   }
 
   getTokenUrl(userCode: String, password: String) {
-    let tokenUrl = this.profil.getActiveProfil(this.ACTIVE_PROFIL).securityUrl + '/sos-security-service/oauth/token?grant_type=password&client_id=sos-api-enduser-mobile-client&client_secret=somesecret&';
+    let tokenUrl = this.activeProfil.securityUrl + '/sos-security-service/oauth/token?grant_type=password&client_id=sos-api-enduser-mobile-client&client_secret=somesecret&';
     return tokenUrl + "username=" + userCode + "&password=" + password;
   }
 
@@ -132,6 +135,9 @@ export class ApiProvider {
     return this.urlPrefixHizmet + this.user.getOrgKod() + "/" + this.user.getUserCode() + "/" + this.user.getDilKod() + "/" + this.user.getPb() + "/UpdateMamAnaGrp"
   }
 
+  getDeepLinkPrintTextUrl(seqNo, tip) {
+    return this.activeProfil.webappurl + "/out/mobileprintdata?print_key=SOS_MOBILE_PRINT_KEY_010720131546&seq_no=" + seqNo + "&dil_kod=" + 'T' + "&tip=" + tip;
+  }
 
   getHeader() {
     return new HttpHeaders({

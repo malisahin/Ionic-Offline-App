@@ -96,7 +96,7 @@ Temporary Items
 .svn/
 
 
-www/build/*
+www/build/
 
 src/*/*.js
 src/*/*.map
@@ -109,3 +109,11 @@ src/*/*/*/*.js
 src/*/*/*/*.map
 
 package-lock.json
+
+platforms/
+
+node_modules/
+
+.vscode/
+.settings/
+.sourcemaps/

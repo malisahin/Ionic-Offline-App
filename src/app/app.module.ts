@@ -78,8 +78,8 @@ import {UpdateUrunAnaGrupComponent} from "../components/update-urun-ana-grup/upd
 import {UrunIscilikSearchComponent} from "../components/urun-iscilik-search/urun-iscilik-search";
 import { TasksProvider } from '../providers/tasks/tasks';
 import { ThemeProvider } from '../providers/theme/theme';
-import { DeeplinkProvider } from '../providers/deeplink/deeplink';
 import {Deeplinks} from "@ionic-native/deeplinks";
+import { DeeplinkPrinterProvider } from '../providers/deeplink-printer/deeplink-printer';
 
 
 @NgModule({
@@ -180,8 +180,8 @@ import {Deeplinks} from "@ionic-native/deeplinks";
     TasksProvider,
     VersiyonProvider,
     ThemeProvider,
-    DeeplinkProvider,
-    Deeplinks
+    Deeplinks,
+    DeeplinkPrinterProvider
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

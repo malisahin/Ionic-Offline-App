@@ -30,6 +30,7 @@ export class LoginPage {
   password: string = "EMAR6464";
   user: User;
   hasLoginPermission = false;
+  backGroundImage: string;
 
   constructor(private nav: NavController,
               private util: UtilProvider,
@@ -41,6 +42,7 @@ export class LoginPage {
               private themeProvider: ThemeProvider) {
     this.themeProvider.setTheme();
     this.user = new User();
+    this.backGroundImage = this.themeProvider.getBackgroundImage();
   }
 
   async login() {
@@ -116,4 +118,5 @@ export class LoginPage {
       this.util.message("Girmiş olduğunuz bilgilere ait bir kullanıcı bulunamadı.");
     }
   }
+
 }

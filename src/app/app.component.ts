@@ -15,6 +15,7 @@ import {ThemeProvider} from "../providers/theme/theme";
 import {LoggerProvider} from "../providers/logger/logger";
 import {Deeplinks} from "@ionic-native/deeplinks";
 import {ZebraPrinterComponent} from "../components/zebra-printer/zebra-printer";
+import {DeeplinkPrinterProvider} from "../providers/deeplink-printer/deeplink-printer";
 
 
 @Component({
@@ -35,6 +36,7 @@ export class MyApp {
               public splashScreen: SplashScreen,
               private logger: LoggerProvider,
               private themeProvider: ThemeProvider,
+              private  deepLinkPrinter: DeeplinkPrinterProvider,
               public db: DatabaseProvider) {
     this.initializeApp();
     this.selectedTheme = this.themeProvider.setTheme();
@@ -73,6 +75,9 @@ export class MyApp {
         '/': ZebraPrinterComponent,
         '/sos.com/Kurumsal/:seqNo': ZebraPrinterComponent
       }).subscribe((match) => {
+        let item = {path: '/KURUMSAL/19527', scheme: 'com.sistek.sosprint'};
+
+        this.deepLinkPrinter.checkUrl(item);
         console.log('Successfully routed', match);
       }, (nomatch) => {
         console.warn('Unmatched Route', nomatch);
