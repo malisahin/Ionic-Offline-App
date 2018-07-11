@@ -59,7 +59,7 @@ export class ThemeProvider {
     if (this.util.isEmpty(orgKod)) {
       orgKod = "ECA";
     }
-    return "../assets/img/" + orgKod + "_login-background.jpg";
+    return "assets/images/login-background.jpg";
     //return "../../../resources/images/" + orgKod + "/login/login-background.jpg";
   }
 }

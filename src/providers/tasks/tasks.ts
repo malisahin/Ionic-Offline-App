@@ -51,7 +51,7 @@ export class TasksProvider {
     this.logger.warn("Task Killed. [" + String(this.interval) + "]");
     clearInterval(this.interval);
     this.init();
-    this.runTasks();
+   // this.runTasks();
   }
 
 

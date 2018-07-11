@@ -111,6 +111,7 @@ src/*/*/*/*.map
 package-lock.json
 
 platforms/
+plugins/
 
 node_modules/
 
