@@ -1,4 +1,5 @@
-<ion-content class="content-background login-content" padding>
+<ion-content class="content-background login-content" [ngStyle]="{ 'background-image': 'url(' + backGroundImage + ')' }"
+             padding>
 
   <ion-row>
     <ion-col></ion-col>
@@ -16,11 +17,13 @@
           <ion-list>
 
             <ion-item>
-              <ion-input type="text" placeholder="Kullanıcı Adı" name="email" [(ngModel)]="userCode" required></ion-input>
+              <ion-input type="text" placeholder="Kullanıcı Adı" name="email" [(ngModel)]="userCode"
+                         required></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-input  [type]="passwordType" placeholder="Şifre" name="password" [(ngModel)]="password" required></ion-input>
+              <ion-input [type]="passwordType" placeholder="Şifre" name="password" [(ngModel)]="password"
+                         required></ion-input>
               <!--<ion-icon item-right [name]="passwordIcon" class="password-icon passIcon" (click)='hideShowPassword()'></ion-icon>-->
             </ion-item>
 

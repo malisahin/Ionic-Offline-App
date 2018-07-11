@@ -75,9 +75,10 @@ export class MyApp {
         '/': ZebraPrinterComponent,
         '/sos.com/Kurumsal/:seqNo': ZebraPrinterComponent
       }).subscribe((match) => {
-        let item = {path: '/KURUMSAL/19527', scheme: 'com.sistek.sosprint'};
 
-        this.deepLinkPrinter.checkUrl(item);
+       // let item = {path: '/KURUMSAL/19527', scheme: 'com.sistek.sosprint'};
+
+        this.deepLinkPrinter.checkUrl(match);
         console.log('Successfully routed', match);
       }, (nomatch) => {
         console.warn('Unmatched Route', nomatch);

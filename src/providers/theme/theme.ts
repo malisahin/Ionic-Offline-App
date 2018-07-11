@@ -56,6 +56,10 @@ export class ThemeProvider {
   getBackgroundImage() {
     debugger;
     let orgKod = this.user.getOrgKod();
-    return "../../assets/" + orgKod + "/login/login-background.jpg";
+    if (this.util.isEmpty(orgKod)) {
+      orgKod = "ECA";
+    }
+    return "../assets/img/" + orgKod + "_login-background.jpg";
+    //return "../../../resources/images/" + orgKod + "/login/login-background.jpg";
   }
 }

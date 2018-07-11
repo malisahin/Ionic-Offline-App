@@ -3,6 +3,7 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {HeaderProvider} from "../../providers/header/header";
 import {MesajlarDao} from "../../providers/mesajlar-dao/mesajlar-dao";
 import {HizmetDao} from "../../providers/hizmet-dao/hizmet-dao";
+import {ThemeProvider} from "../../providers/theme/theme";
 
 /**
  * @author mali.sahin
@@ -21,13 +22,15 @@ export class Anasayfa {
   duyuruSayisi: number = 0;
   uyariSayisi: number = 0;
   guncellemeSayisi: number = 10;
-
+  backGroundImage: string;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private  headerProvider: HeaderProvider,
               private  mesajDao: MesajlarDao,
-              private  hizmetDao: HizmetDao,) {
+              private  hizmetDao: HizmetDao,
+              private  themeProvider: ThemeProvider) {
+    this.backGroundImage = this.themeProvider.getBackgroundImage();
     this.loadGuncellemeSayisi();
     this.loadMesajSayilari();
     this.loadHizmetSayisi();

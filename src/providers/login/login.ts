@@ -16,7 +16,7 @@ import {UtilProvider} from "../util/util";
 export class LoginProvider {
 
   user: User;
-  DEFAULT_SYNC_TIME: number = 2;
+  DEFAULT_SYNC_TIME: number = 10;
 
   constructor(public token: TokenProvider, private  tasks: TasksProvider, private util: UtilProvider) {
     this.user = new User();
