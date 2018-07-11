@@ -82,7 +82,6 @@ export class HizmetProvider {
     let list = [];
     list = obj.message.hizmetDtoList;
     for (let item of list) {
-      debugger;
       let cgr = this.fillHizmet(item);
       hizmetList.push(cgr);
     }

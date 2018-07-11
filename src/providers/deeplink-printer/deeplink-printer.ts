@@ -28,7 +28,6 @@ export class DeeplinkPrinterProvider {
 
   checkUrl(res: any) {
     let isComeFromSosPrint = this.util.isNotEmpty(res) && this.util.isNotEmpty(res.scheme) && res.scheme == "com.sistek.sosprint";
-    debugger;
     if (isComeFromSosPrint) {
       if (this.util.isNotEmpty(res.path)) {
         this.getUrlParameters(res.path);

@@ -40,11 +40,15 @@ export class LoginProvider {
 
   setDefaultSettings() {
 
-    let syncTime = localStorage.getItem(Constants.SYNC_TIME);
+    let syncTime = localStorage.getItem(Constants.SYNC.TIME);
     if (this.util.isEmpty(syncTime)) {
-      localStorage.setItem(Constants.SYNC_TIME, String(this.DEFAULT_SYNC_TIME));
+      localStorage.setItem(Constants.SYNC.TIME, String(this.DEFAULT_SYNC_TIME));
     }
 
+    let syncMoment = localStorage.getItem(Constants.SYNC.MOMENT);
+    if (this.util.isEmpty(syncMoment)) {
+      localStorage.setItem(Constants.SYNC.MOMENT, new Date().getTime());
+    }
 
   }
 

@@ -53,8 +53,8 @@ export class ThemeProvider {
     return selectedTheme;
   }
 
+
   getBackgroundImage() {
-    debugger;
     let orgKod = this.user.getOrgKod();
     if (this.util.isEmpty(orgKod)) {
       orgKod = "ECA";

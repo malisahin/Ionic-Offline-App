@@ -127,16 +127,16 @@ export class AyarlarPage {
   }
 
   onChangeSyncTime(nerden: string) {
-    let permanentSyncTime = Number(localStorage.getItem(Constants.SYNC_TIME));
+    let permanentSyncTime = Number(localStorage.getItem(Constants.SYNC.TIME));
     if (this.util.isEmpty(this.syncTime)) {
       if (this.util.isEmpty(permanentSyncTime)) {
         this.syncTime = this.DEFAULT_SYNC_TIME;
-        localStorage.setItem(Constants.SYNC_TIME, String(this.DEFAULT_SYNC_TIME));
+        localStorage.setItem(Constants.SYNC.TIME, String(this.DEFAULT_SYNC_TIME));
       } else {
         this.syncTime = Number(permanentSyncTime);
       }
     } else {
-      localStorage.setItem(Constants.SYNC_TIME, String(this.syncTime));
+      localStorage.setItem(Constants.SYNC.TIME, String(this.syncTime));
       if (nerden == 'OUT') {
         this.util.message("Senkronize süresi değiştirildi. Atanan değer " + String(this.syncTime) + " dk.");
         this.tasks.killAndStartTasks();

@@ -19,6 +19,13 @@ export class Constants {
 
   public static SYNC_TIME = "SYNC_TIME";
 
+  public static SYNC = {
+     TIME : "SYNC_TIME",
+    MOMENT: 'SYNC_MOMENT'
+  };
+
+
+
   public static SELECTED_THEME = "SELECTED_THEME";
 
   public static DATE_FORMAT = "dd.MM.yyyy hh:mm:ss";

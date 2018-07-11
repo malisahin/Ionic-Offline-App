@@ -46,7 +46,6 @@ export class GarantiSonucComponent {
   }
 
   loadData() {
-    debugger;
     if (this.util.isNotEmpty(this.data.gbastar)) {
 
       this.garantiBasTar = new Date(this.data.gbastar);
