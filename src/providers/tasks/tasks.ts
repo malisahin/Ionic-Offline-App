@@ -37,14 +37,14 @@ export class TasksProvider {
     this.TASK_TIME_INTERVAL = this.TASK_TIME_INTERVAL * 60 * 1000;
   }
 
-   runTasks() {
+  runTasks() {
     this.interval = setInterval(() => {
-      this.logger.warn("Tasks running command is given.");
       let token = localStorage.getItem(Constants.ACCESS_TOKEN);
       if (this.util.isNotEmpty(token) && this.checkInterval()) {
+        this.logger.success("Tasks running command is given.");
         this.versiyonTask();
         this.messageTask();
-        localStorage.setItem(Constants.SYNC.MOMENT, new Date().getTime());
+        localStorage.setItem(Constants.SYNC.MOMENT, String(new Date().getTime()));
       }
 
     }, this.ASYNC_CHECK_INTERVAL);
@@ -70,15 +70,18 @@ export class TasksProvider {
   }
 
   checkInterval() {
+    this.logger.warn("Tasks is checking.");
     let canSync = false;
 
     let lastSyncMoment = localStorage.getItem(Constants.SYNC.MOMENT);
     if (this.util.isEmpty(lastSyncMoment)) {
-      localStorage.setItem(Constants.SYNC.MOMENT, new Date().getTime());
+      localStorage.setItem(Constants.SYNC.MOMENT, String(new Date().getTime()));
     }
 
     let moment = new Date().getTime();
-    if (moment > this.TASK_TIME_INTERVAL + lastSyncMoment) {
+    let nextSyncTime = (Number(this.TASK_TIME_INTERVAL) + Number(lastSyncMoment));
+    this.logger.info("Moment " + moment + " / Next sync time :" + nextSyncTime);
+    if (moment > nextSyncTime) {
       canSync = true;
     }
 

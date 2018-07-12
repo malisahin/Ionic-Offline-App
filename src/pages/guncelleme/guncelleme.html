@@ -32,7 +32,8 @@
           </span>
         </button>
 
-        <button ion-button primary round full [color]="colors.URUN_ANA_GRUP" (click)="downloadUrunAnaGrup();" round full>
+        <button ion-button primary round full [color]="colors.URUN_ANA_GRUP" (click)="downloadUrunAnaGrup();" round
+                full>
           <span item-left style="width: 95%">Ürün Ana Grupları</span>
           <span item-right style="width: 5%">
             <ion-icon [name]="icons.URUN_ANA_GRUP"></ion-icon>
@@ -53,21 +54,24 @@
           </span>
         </button>
 
-        <button ion-button primary round full [color]="colors.ISLEM_ARIZA_ISCILIK" (click)="downloadIslemArizaIscilik();" round full>
+        <button ion-button primary round full [color]="colors.ISLEM_ARIZA_ISCILIK"
+                (click)="downloadIslemArizaIscilik();" round full>
           <span item-left style="width: 95%">İşlem-Arıza-İşçilik</span>
           <span item-right style="width: 5%">
             <ion-icon [name]="icons.ISLEM_ARIZA_ISCILIK"></ion-icon>
           </span>
         </button>
 
-        <button ion-button primary round full [color]="colors.MALZEME_FIYAT" (click)="downloadMalzemeFiyat();" round full>
+        <button ion-button primary round full [color]="colors.MALZEME_FIYAT" (click)="downloadMalzemeFiyat();" round
+                full>
           <span item-left style="width: 95%">Malzeme Fiyatları</span>
           <span item-right style="width: 5%">
             <ion-icon [name]="icons.MALZEME_FIYAT"></ion-icon>
           </span>
         </button>
 
-        <button ion-button primary round full [color]="colors.ISCILIK_FIYAT" (click)="downloadIscilikFiyat();" round full>
+        <button ion-button primary round full [color]="colors.ISCILIK_FIYAT" (click)="downloadIscilikFiyat();" round
+                full>
           <span item-left style="width: 95%">İşçilik Fiyatları</span>
           <span item-right style="width: 5%">
             <ion-icon [name]="icons.ISCILIK_FIYAT"></ion-icon>
@@ -101,13 +105,41 @@
     </div>
 
     <div *ngSwitchCase="'versiyon'">
-      <button ion-button primary round full [color]="light">Ürünler</button>
-      <button ion-button primary round full [color]="light">Ürün Ana Grupları</button>
-      <button ion-button primary round full [color]="light">Ürün İşçilik</button>
-      <button ion-button primary round full [color]="light">Ürün-Malzeme</button>
-      <button ion-button primary round full [color]="light">İşlem-Arıza-İşçilik</button>
-      <button ion-button primary round full [color]="light">Malzeme Fiyatları</button>
-      <button ion-button primary round full [color]="light">İşçilik Fiyatları</button>
+
+      <button ion-button primary round full [color]="light">
+        <span item-left style="width: 80%">Ürünler</span>
+        <span item-right style="width: 20%">{{urunlerVersiyon}}</span>
+      </button>
+
+      <button ion-button primary round full [color]="light">
+        <span item-left style="width: 80%">Ürün Ana Grupları</span>
+        <span item-right style="width: 20%">{{urunAnaGrupVersiyon}}</span>
+      </button>
+
+      <button ion-button primary round full [color]="light">
+        <span item-left style="width: 80%">Ürün İşçilik</span>
+        <span item-right style="width: 20%">{{urunIscilikVersiyon}}</span>
+      </button>
+
+      <button ion-button primary round full [color]="light">
+        <span item-left style="width: 80%">Ürün-Malzeme</span>
+        <span item-right style="width: 20%">{{urunMalzemeVersiyon}}</span>
+      </button>
+
+      <button ion-button primary round full [color]="light">
+        <span item-left style="width: 80%">İşlem-Arıza-İşçilik</span>
+        <span item-right style="width: 20%">{{islemArizaIscilikVersiyon}}</span>
+      </button>
+
+      <button ion-button round full [color]="light">
+        <span item-left style="width: 80%">Malzeme Fiyatları</span>
+        <span item-right style="width: 20%">{{malzemeFiyatVersiyon}}</span>
+      </button>
+
+      <button ion-button primary round full [color]="light">
+        <span item-left style="width: 80%">İşçilik Fiyatları</span>
+        <span item-right style="width: 20%">{{iscilikFiyatVersiyon}}</span>
+      </button>
     </div>
 
   </div>

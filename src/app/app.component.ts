@@ -31,7 +31,6 @@ export class MyApp {
 
   constructor(public platform: Platform,
               public menu: MenuController,
-              private deeplinks: Deeplinks,
               public statusBar: StatusBar,
               public splashScreen: SplashScreen,
               private logger: LoggerProvider,
@@ -68,22 +67,7 @@ export class MyApp {
   }
 
   ngAfterViewInit() {
-    this.platform.ready().then(() => {
-
-      this.logger.warn("Deeplink is Working");
-      this.deeplinks.routeWithNavController(this.nav, {
-        '/': ZebraPrinterComponent,
-        '/sos.com/Kurumsal/:seqNo': ZebraPrinterComponent
-      }).subscribe((match) => {
-
-       // let item = {path: '/KURUMSAL/19527', scheme: 'com.sistek.sosprint'};
-
-        this.deepLinkPrinter.checkUrl(match);
-        console.log('Successfully routed', match);
-      }, (nomatch) => {
-        console.warn('Unmatched Route', nomatch);
-      });
-    })
+    this.platform.ready().then(() => this.deepLinkPrinter.init());
   }
 
 }

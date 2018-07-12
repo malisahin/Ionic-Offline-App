@@ -281,6 +281,15 @@ export class UtilProvider {
       return Constants.NETWORK.NONE;
     }
   }
+
+  getVersiyonClientAndServer(tip) {
+    let res = {client: "", server: ""};
+    res.client = localStorage.getItem(Constants.VERSIYON.CLIENT[tip]);
+    res.server = localStorage.getItem(Constants.VERSIYON.SERVER[tip]);
+
+    return res;
+  }
+
 }
 
 

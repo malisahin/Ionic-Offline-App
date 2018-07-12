@@ -47,7 +47,7 @@ export class LoginProvider {
 
     let syncMoment = localStorage.getItem(Constants.SYNC.MOMENT);
     if (this.util.isEmpty(syncMoment)) {
-      localStorage.setItem(Constants.SYNC.MOMENT, new Date().getTime());
+      localStorage.setItem(Constants.SYNC.MOMENT, String(new Date().getTime()));
     }
 
   }

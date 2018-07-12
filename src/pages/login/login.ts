@@ -14,6 +14,7 @@ import {Anasayfa} from "../anasayfa/anasayfa";
 import {ThemeProvider} from "../../providers/theme/theme";
 import {Constants} from "../../entities/Constants";
 import {UserDao} from "../../providers/user-dao/user-dao";
+import {DeeplinkPrinterProvider} from "../../providers/deeplink-printer/deeplink-printer";
 
 @IonicPage()
 @Component({
@@ -39,6 +40,7 @@ export class LoginPage {
               private loadingCtrl: LoadingController,
               private logger: LoggerProvider,
               private loginProvider: LoginProvider,
+              private deepLinkPrinter: DeeplinkPrinterProvider,
               private themeProvider: ThemeProvider) {
     this.themeProvider.setTheme();
     this.user = new User();
@@ -119,4 +121,8 @@ export class LoginPage {
     }
   }
 
+  goDeeplink() {
+    debugger;
+    this.deepLinkPrinter.init();
+  }
 }

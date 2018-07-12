@@ -37,6 +37,15 @@ export class GuncellemePage {
   firstForMahalleTnm: number;
   colors: any;
   icons: any;
+
+  urunlerVersiyon;
+  urunAnaGrupVersiyon;
+  urunIscilikVersiyon;
+  urunMalzemeVersiyon;
+  islemArizaIscilikVersiyon;
+  malzemeFiyatVersiyon;
+  iscilikFiyatVersiyon;
+
   @ViewChild("header") header: HeaderComponent;
 
   constructor(public navCtrl: NavController,
@@ -283,7 +292,7 @@ export class GuncellemePage {
       await this.adresProvider.downloadMahalleData(this.firstForMahalleTnm).then(res => {
 
         this.logger.warn("downloadMahalleList ==> " + res);
-        if(this.util.isNotEmpty(res)) {
+        if (this.util.isNotEmpty(res)) {
           if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_MAHALLE_TNM)) < Constants.API_PAGE_SIZE) {
             this.doWhenDataDownloaded(Constants.DATA_TYPE.MAHALLE_TNM, "Mahalle Bilgisi Kayıt Edildi.");
 
@@ -305,6 +314,7 @@ export class GuncellemePage {
 
   ionViewDidLoad() {
     this.setButtonsStyle();
+    this.setVersiyon();
   }
 
   setButtonsStyle() {
@@ -362,4 +372,22 @@ export class GuncellemePage {
     this.util.loaderEnd();
     this.updateHeader();
   }
+
+  setVersiyon() {
+    this.urunlerVersiyon = this.getVersiyon(Constants.DATA_TYPE.URUN);
+    this.urunAnaGrupVersiyon = this.getVersiyon(Constants.DATA_TYPE.URUN_ANA_GRUP);
+    this.urunIscilikVersiyon = this.getVersiyon(Constants.DATA_TYPE.URUN_ISCILIK);
+    this.urunMalzemeVersiyon= this.getVersiyon(Constants.DATA_TYPE.URUN_MALZEME);
+    this.islemArizaIscilikVersiyon = this.getVersiyon(Constants.DATA_TYPE.ISLEM_ARIZA_ISCILIK);
+    this.malzemeFiyatVersiyon = this.getVersiyon(Constants.DATA_TYPE.MALZEME_FIYAT);
+    this.iscilikFiyatVersiyon = this.getVersiyon(Constants.DATA_TYPE.ISCILIK_FIYAT);
+
+  }
+
+  getVersiyon(tip): string {
+    let res = this.util.getVersiyonClientAndServer(tip);
+    return res.client + " / " + res.server;
+  }
+
+
 }
