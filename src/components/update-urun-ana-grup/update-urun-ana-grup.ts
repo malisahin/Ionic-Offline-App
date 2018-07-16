@@ -23,8 +23,9 @@ import {Pageable} from "../../entities/Pageable";
 export class UpdateUrunAnaGrupComponent {
 
 
-  urunAnaGrup: UrunAnaGrup;
-  basvuruNedeni: string = "";
+  urunAnaGrup: UrunAnaGrup = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
+  urunAnaGrpList: UrunAnaGrup[] = [];
+  basvuruNedeni: UrunAnaGrup = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.BASVURU_LISTE);
   basvuruNedeniList: UrunAnaGrup[] = [];
   data: any = {};
   hizmet: Hizmet;
@@ -38,23 +39,67 @@ export class UpdateUrunAnaGrupComponent {
               private hizmetService: HizmetService,
               private  hizmetProvider: HizmetProvider,
               private  urunAnaGrupDao: UrunAnaGrupDao) {
-    this.urunAnaGrup = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.BASVURU_LISTE);
     this.logger.dir(this.navParams.data);
     this.hizmet = this.navParams.get("hizmet");
+    this.init();
   }
 
+  async init() {
+    debugger;
+    this.urunAnaGrup.mamAnaGrp = this.hizmet.mamAnaGrp;
+    this.basvuruNedeni.neden = this.hizmet.basvuruNedeni;
+    await this.prepareUrunAnaGrpList();
+    await this.prepareBasvuruList();
+  }
 
-  public urunAnaGrupSorgula() {
-    this.data.type = Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE;
-    let aramaModal = this.modalController.create(UrunAnaGrupSearchComponent, {data: this.data});
-    aramaModal.onDidDismiss(data => {
-      if (this.util.isNotEmpty(data)) {
-        this.urunAnaGrup = data;
+  /*
+    async prepareMamAnaGrp() {
+      if (this.util.isNotEmpty(this.hizmet.mamAnaGrp)) {
+        let filter = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
+        filter.mamAnaGrp = this.hizmet.mamAnaGrp;
+        let res = await  this.urunAnaGrupProvider.findUrunAnaGrp(filter);
+        debugger;
+        if (this.util.isNotEmpty(res)) {
+          this.urunAnaGrup = res;
+        }
       }
+    }
 
-      this.prepareBasvuruList();
-    });
-    aramaModal.present();
+    async prepareBasvuruNedeni() {
+      if (this.util.isNotEmpty(this.hizmet.mamAnaGrp) && this.util.isNotEmpty(this.hizmet.basvuruNedeni)) {
+        let filter = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.BASVURU_LISTE);
+        filter.mamAnaGrp = this.hizmet.mamAnaGrp;
+        filter.neden = this.hizmet.basvuruNedeni;
+        let res = await this.urunAnaGrupProvider.findUrunAnaGrp(filter);
+        debugger;
+        if (this.util.isNotEmpty(res)) {
+          this.basvuruNedeni = res;
+        }
+
+      }
+    }
+  */
+
+  onChangeMamAnaGrp() {
+    this.basvuruNedeni = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.BASVURU_LISTE);
+    this.prepareBasvuruList();
+  }
+
+  async prepareUrunAnaGrpList() {
+    /* this.data.type = Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE;*/
+    let filter = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
+    let res = await this.urunAnaGrupDao.getList(filter, Constants.SEARCH_TYPE.EXACT);
+    this.urunAnaGrpList = this.fillDbList(res, Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
+
+    /*    let aramaModal = this.modalController.create(UrunAnaGrupSearchComponent, {data: this.data});
+        aramaModal.onDidDismiss(data => {
+          if (this.util.isNotEmpty(data)) {
+            this.urunAnaGrup = data;
+          }
+
+          this.prepareBasvuruList();
+        });
+        aramaModal.present();*/
   }
 
   public async prepareBasvuruList() {
@@ -62,23 +107,28 @@ export class UpdateUrunAnaGrupComponent {
     let basvuruNeden: UrunAnaGrup = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.BASVURU_LISTE);
     basvuruNeden.mamAnaGrp = this.urunAnaGrup.mamAnaGrp;
     let res = await this.urunAnaGrupDao.getList(basvuruNeden, Constants.SEARCH_TYPE.EXACT);
+    this.basvuruNedeniList = this.fillDbList(res, Constants.URUN_ANA_GRUP_TYPE.BASVURU_LISTE);
+  }
+
+  fillDbList(res: any, tip): UrunAnaGrup[] {
+    let list: UrunAnaGrup[] = [];
     if (this.util.isNotEmpty(res)) {
       for (let i = 0; i < res.rows.length; i++) {
         let item = res.rows.item(i);
-        let anaGrp = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.BASVURU_LISTE);
+        let anaGrp = new UrunAnaGrup(tip);
         anaGrp.mamAnaGrp = item.mamAnaGrp;
         anaGrp.ad = item.ad;
         anaGrp.neden = item.neden;
-        this.basvuruNedeniList.push(anaGrp);
-
+        list.push(anaGrp);
       }
     }
-
+    return list;
   }
 
   async kaydet() {
+    debugger;
     this.hizmet.mamAnaGrp = this.urunAnaGrup.mamAnaGrp;
-    this.hizmet.basvuruNedeni = this.basvuruNedeni;
+    this.hizmet.basvuruNedeni = this.basvuruNedeni.neden;
     let res = await this.urunAnaGrupProvider.updateMamAnaGrp(this.hizmet);
     this.logger.warn(res);
     if (this.util.isOnline()) {
@@ -90,7 +140,7 @@ export class UpdateUrunAnaGrupComponent {
 
   }
 
-  async  setGarantiDegisimSonuc(res) {
+  async setGarantiDegisimSonuc(res) {
     if (this.util.isNotEmpty(res) && this.util.isNotEmpty(res)) {
       await this.hizmetProvider.updateComingData(res);
       this.logger.log(res);

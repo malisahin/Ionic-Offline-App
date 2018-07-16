@@ -77,7 +77,7 @@ export class UrunBilgileriComponent {
     if (processResult.isErrorMessagesNull()) {
       let anaGrpUpdateModal = this.modalController.create(UpdateUrunAnaGrupComponent, {
         hizmet: this.hizmet
-      });
+      }, {cssClass: this.util.getSelectedTheme()});
       anaGrpUpdateModal.onDidDismiss(res => {
         if (this.util.isNotEmpty(res) && this.util.isNotEmpty(res.hizmet)) {
           this.hizmet = res.hizmet;
@@ -120,6 +120,7 @@ export class UrunBilgileriComponent {
 
     this.hizmet.mamKod = "";
     this.hizmet.mamAdi = "";
+    this.hizmet.mamSeriNo="";
     this.saveHizmet();
   }
 

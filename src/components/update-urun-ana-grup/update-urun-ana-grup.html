@@ -9,15 +9,21 @@
   <ion-list inset>
     <ion-item>
       <ion-label>Ürün Ana Grup</ion-label>
-      <ion-input type="text" [(ngModel)]="urunAnaGrup.ad" (focus)="urunAnaGrupSorgula()">
-      </ion-input>
+
+      <ion-select [(ngModel)]="urunAnaGrup.mamAnaGrp" interface="action-sheet" (ionChange)="onChangeMamAnaGrp()">
+        <ion-option *ngFor="let anaGrp of urunAnaGrpList" [value]="anaGrp.mamAnaGrp" >
+          {{anaGrp.mamAnaGrp }} - {{anaGrp.ad}}
+        </ion-option>
+      </ion-select>
+     <!-- <ion-input type="text" [(ngModel)]="urunAnaGrup.mamAnaGrp" (ionFocus)="urunAnaGrupSorgula()">{{urunAnaGrup.mamAnaGrp}}-{{urunAnaGrup.ad}}
+      </ion-input>-->
     </ion-item>
 
     <ion-item>
       <ion-label>Başvuru Nedeni</ion-label>
-      <ion-select [(ngModel)]="basvuruNedeni">
-        <ion-option *ngFor="let neden of basvuruNedeniList" [value]="neden.neden">
-          {{neden.ad }} ({{neden.neden}})
+      <ion-select [(ngModel)]="basvuruNedeni.neden" interface="action-sheet">
+        <ion-option *ngFor="let neden of basvuruNedeniList" [value]="neden.neden" >
+          {{neden.ad }} - {{neden.neden}}
         </ion-option>
       </ion-select>
     </ion-item>
