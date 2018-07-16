@@ -3,7 +3,7 @@
     <ion-label color="primary">Müşteri</ion-label>
   </ion-col>
   <ion-col col-8 col-md-10>
-    <ion-input [(ngModel)]="hizmet.adi" readonly></ion-input>
+    <ion-input [(ngModel)]="adSoyad" readonly></ion-input>
   </ion-col>
 
   <ion-col col-4 col-md-2>
@@ -38,8 +38,13 @@
     <ion-label color="primary">Şehir</ion-label>
   </ion-col>
   <ion-col col-8 col-md-10>
-    <ion-select [(ngModel)]="hizmet.sehirKod" (ionChange)="getIlceList(sehir)" interface="popover">
-      <ion-option *ngFor="let sehir of sehirler" [value]="sehir.sehirKodu">
+    <ion-select [(ngModel)]="hizmet.sehirKod"
+                (ionChange)="onChangeSehir()"
+                interface="popover">
+
+      <ion-option *ngFor="let sehir of sehirler"
+                  [disabled]="isHizmetDisabled()"
+                  [value]="sehir.sehirKodu">
         {{sehir.sehirKodu}} - {{sehir.sehirAdi}}
       </ion-option>
     </ion-select>
@@ -49,10 +54,13 @@
     <ion-label color="primary">İlçe</ion-label>
   </ion-col>
   <ion-col col-8 col-md-10>
-    <ion-select [(ngModel)]="hizmet.ilceKod" (ionChange)="getMahalleList(ilce)" interface="popover"
-                [disabled]="isHizmetDisabled()"
+    <ion-select [(ngModel)]="hizmet.ilceKod"
+                (ionChange)="onChangeIlce()"
                 interface="popover">
-      <ion-option *ngFor="let ilce of ilceler" [value]="ilce.ilceKodu">
+
+      <ion-option *ngFor="let ilce of ilceler"
+                  [value]="ilce.ilceKodu"
+                  [disabled]="isHizmetDisabled()">
         {{ilce.ilceKodu}} - {{ilce.ilceAdi}}
       </ion-option>
     </ion-select>
@@ -69,7 +77,7 @@
     <ion-label color="primary">Mahalle</ion-label>
   </ion-col>
   <ion-col col-8 col-md-10>
-    <ion-select [(ngModel)]="hizmet.mahalleKodu" (ionChange)="onHizmetChange()" interface="popover">
+    <ion-select [(ngModel)]="hizmet.mahalleKodu" (ionChange)="onChangeMahalle()" interface="popover">
       <ion-option *ngFor="let mahalle of mahalleler" [value]="mahalle.mahalleKodu" [disabled]="isHizmetDisabled()">
         {{mahalle.mahalleKodu}} - {{mahalle.mahalleAdi}}
       </ion-option>
@@ -124,7 +132,8 @@
     <ion-label color="primary">Servis Uyarı Notu</ion-label>
   </ion-col>
   <ion-col col-8 col-md-10>
-    <ion-textarea [(ngModel)]="hizmet.servisNotu" [disabled]="isHizmetDisabled()" (ionBlur)="onHizmetChange()"></ion-textarea>
+    <ion-textarea [(ngModel)]="hizmet.servisNotu" [disabled]="isHizmetDisabled()"
+                  (ionBlur)="onHizmetChange()"></ion-textarea>
   </ion-col>
 
 
@@ -132,7 +141,8 @@
     <ion-label color="primary">Merkez Uyarı Notu</ion-label>
   </ion-col>
   <ion-col col-8 col-md-10>
-    <ion-textarea [(ngModel)]="hizmet.merkezNotu" [disabled]="isHizmetDisabled()" (ionBlur)="onHizmetChange()"></ion-textarea>
+    <ion-textarea [(ngModel)]="hizmet.merkezNotu" [disabled]="isHizmetDisabled()"
+                  (ionBlur)="onHizmetChange()"></ion-textarea>
   </ion-col>
 </ion-row>
 

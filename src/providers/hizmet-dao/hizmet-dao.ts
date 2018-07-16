@@ -7,6 +7,7 @@ import {BaseDao} from "../base-dao/base-dao";
 import {Hizmet} from "../../entities/hizmet/hizmet";
 import {LoggerProvider} from "../logger/logger";
 import {Pageable} from "../../entities/Pageable";
+import {Constants} from "../../entities/Constants";
 
 @Injectable()
 export class HizmetDao {
@@ -24,7 +25,7 @@ export class HizmetDao {
 
   // Listede her bir item kayit edilir ve liste tekrar cagrilir.Cagrilmadan once kayit edilen item listeden silinir.
   insertList(list: Hizmet[]): Promise<any> {
-    let array: Promise<any>[] = new Array();
+    let array: Promise<any>[] = [];
     for (let item of list) {
       array.push(this.insertOne(item));
     }
@@ -51,13 +52,14 @@ export class HizmetDao {
     return this.baseDao.execute(this.UPDATE_QUERY, params);
   }
 
-  find(item: Hizmet, pageable: Pageable): Promise<Hizmet[]> {
+  find(item: Hizmet, orderBy: string, pageable: Pageable): Promise<Hizmet[]> {
     let query = this.prepareSelectQuery(item);
-    return this.search(query, pageable);
+    this.logger.info("Query ==> " + query + "/ ORDER BY ==> " + orderBy);
+    return this.search(query, orderBy, pageable);
   }
 
-  search(query: string, pageable: Pageable): Promise<any> {
-    return this.baseDao.getList(query, "seqNo", "", "EXACT", pageable.first, pageable.pageSize, true);
+  search(query: string, orderBy: string, pageable: Pageable): Promise<any> {
+    return this.baseDao.getList(query, orderBy, "", "EXACT", pageable.first, pageable.pageSize, true);
   }
 
   findWithQuery(query: string): Promise<Hizmet[]> {
@@ -117,6 +119,7 @@ export class HizmetDao {
   }
 
   deleteList(): Promise < any > {
+    localStorage.setItem(Constants.LENGTHS.HIZMET_LIST, String(0));
     return this.baseDao.execute(this.DELETE_QUERY, []);
   }
 

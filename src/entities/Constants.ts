@@ -20,15 +20,23 @@ export class Constants {
   public static SYNC_TIME = "SYNC_TIME";
 
   public static SYNC = {
-     TIME : "SYNC_TIME",
+    TIME: "SYNC_TIME",
     MOMENT: 'SYNC_MOMENT'
   };
 
+  public static LENGTHS = {
+    HIZMET_LIST : "HIZMET_LIST_LENGTH"
+  };
 
+
+  public static ORDER_BY = {
+    RANDEVU_TAR_ASCENDES: " randevuTarihi ASC ",
+    RANDEVU_TAR_DESCENDES: " randevuTarihi DESC "
+  };
 
   public static SELECTED_THEME = "SELECTED_THEME";
 
-  public static DATE_FORMAT = "dd.MM.yyyy hh:mm:ss";
+  public static DATE_FORMAT = "dd.MM.yyyy hh:mm";
 
   public static ACCESS_TOKEN = "ACCESS_TOKEN";
 

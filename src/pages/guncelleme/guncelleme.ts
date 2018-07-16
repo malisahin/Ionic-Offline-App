@@ -17,6 +17,7 @@ import {AdresProvider} from '../../providers/adres/adres';
 import {LoggerProvider} from '../../providers/logger/logger';
 import {UtilProvider} from '../../providers/util/util';
 import {HeaderComponent} from "../../components/header/header";
+import {VersiyonProvider} from "../../providers/versiyon/versiyon";
 
 
 @IonicPage()
@@ -58,6 +59,7 @@ export class GuncellemePage {
               private fiyatProvider: FiyatProvider,
               private adresProvider: AdresProvider,
               private logger: LoggerProvider,
+              private versiyonProvider: VersiyonProvider,
               private util: UtilProvider) {
     this.colors = Constants.COLORS;
     this.icons = Constants.ICONS;
@@ -77,7 +79,7 @@ export class GuncellemePage {
     try {
       this.util.timerStart(Constants.DATA_TYPE.URUN);
       let res = await this.urunProvider.downloadUrunler(this.firstForUrunler);
-      this.logger.warn("downloadUrunler ==> " + res);
+      this.logger.success("downloadUrunler ==> " + res);
       if (this.util.isNotEmpty(res)) {
 
         if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_URUN)) < Constants.API_PAGE_SIZE) {
@@ -120,7 +122,7 @@ export class GuncellemePage {
     try {
       this.util.timerStart(Constants.DATA_TYPE.URUN_ISCILIK);
       let res = await this.urunIscilikProvider.downloadUrunIscilik(this.firstForUrunIscilik);
-      this.logger.warn("downloadUrunIscilik ==> " + res);
+      this.logger.success("downloadUrunIscilik ==> " + res);
       if (this.util.isNotEmpty(res)) {
         if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_URUN_ISCILIK)) < Constants.API_PAGE_SIZE) {
           this.doWhenDataDownloaded(Constants.DATA_TYPE.URUN_ISCILIK, "Ürün İşçilik Kayıt Edildi.");
@@ -143,7 +145,7 @@ export class GuncellemePage {
       this.util.timerStart(Constants.DATA_TYPE.URUN_MALZEME);
 
       this.urunMalzemeProvider.downloadUrunMalzeme(this.firstForUrunMalzeme).then(res => {
-        this.logger.warn("downloadUrunMalzeme ==> " + res);
+        this.logger.success("downloadUrunMalzeme ==> " + res);
         if (this.util.isNotEmpty(res)) {
           if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_URUN_MALZEME)) < Constants.API_PAGE_SIZE) {
             this.doWhenDataDownloaded(Constants.DATA_TYPE.URUN_MALZEME, "Ürün İşçilik Kayıt Edildi.");
@@ -171,7 +173,7 @@ export class GuncellemePage {
       this.util.timerStart(Constants.DATA_TYPE.ISLEM_ARIZA_ISCILIK);
 
       this.islemArizaIscilikProvider.downloadIslemArizaIscilik(this.firstForIslemArizaIscilik).then(res => {
-        this.logger.warn("downloadIslemArizaIscilik ==> " + res);
+        this.logger.success("downloadIslemArizaIscilik ==> " + res);
         if (this.util.isNotEmpty(res)) {
           if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_ISLEM_ARIZA_ISCILIK)) < Constants.API_PAGE_SIZE) {
             this.doWhenDataDownloaded(Constants.DATA_TYPE.ISLEM_ARIZA_ISCILIK, "Islem Ariza Iscilik Kayıt Edildi.");
@@ -198,7 +200,7 @@ export class GuncellemePage {
 
       let res = await this.fiyatProvider.downloadMalzemeFiyat(this.firstForMalzemeFiyat);
 
-      this.logger.warn("downloadMalzemeFiyat ==> " + res);
+      this.logger.success("downloadMalzemeFiyat ==> " + res);
       if (this.util.isNotEmpty(res)) {
         if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_MALZEME_FIYAT)) < Constants.API_PAGE_SIZE) {
           this.doWhenDataDownloaded(Constants.DATA_TYPE.MALZEME_FIYAT, "Malzeme Fiyatı Kayıt Edildi.");
@@ -225,7 +227,7 @@ export class GuncellemePage {
 
       await this.fiyatProvider.downloadIscilikFiyat(this.firstForIscilikFiyat).then(res => {
         if (this.util.isNotEmpty(res)) {
-          this.logger.warn("downloadIscilikFiyat ==> " + res);
+          this.logger.success("downloadIscilikFiyat ==> " + res);
 
           if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_ISCILIK_FIYAT)) < Constants.API_PAGE_SIZE) {
             this.doWhenDataDownloaded(Constants.DATA_TYPE.ISCILIK_FIYAT, "Iscilik Fiyatı Kayıt Edildi.");
@@ -250,7 +252,7 @@ export class GuncellemePage {
     try {
       this.util.timerStart(Constants.DATA_TYPE.SEHIR_TNM);
       await this.adresProvider.downloadSehirData().then(res => {
-        this.logger.warn("downloadSehirList ==> " + res);
+        this.logger.success("downloadSehirList ==> " + res);
         if (this.util.isNotEmpty(res))
           this.doWhenDataDownloaded(Constants.DATA_TYPE.SEHIR_TNM, "Şehir listesi güncellendi.");
         else {
@@ -271,7 +273,7 @@ export class GuncellemePage {
       this.util.timerStart(Constants.DATA_TYPE.ILCE_TNM);
 
       await this.adresProvider.downloadIlceData().then(res => {
-        this.logger.warn("downloadIlceList ==> " + res);
+        this.logger.success("downloadIlceList ==> " + res);
         if (this.util.isNotEmpty(res)) {
           this.doWhenDataDownloaded(Constants.DATA_TYPE.ILCE_TNM, "Ilçe listesi güncellendi.");
         } else {
@@ -291,7 +293,7 @@ export class GuncellemePage {
 
       await this.adresProvider.downloadMahalleData(this.firstForMahalleTnm).then(res => {
 
-        this.logger.warn("downloadMahalleList ==> " + res);
+        this.logger.success("downloadMahalleList ==> " + res);
         if (this.util.isNotEmpty(res)) {
           if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_MAHALLE_TNM)) < Constants.API_PAGE_SIZE) {
             this.doWhenDataDownloaded(Constants.DATA_TYPE.MAHALLE_TNM, "Mahalle Bilgisi Kayıt Edildi.");
@@ -371,13 +373,14 @@ export class GuncellemePage {
   onComplete() {
     this.util.loaderEnd();
     this.updateHeader();
+    this.setVersiyon();
   }
 
   setVersiyon() {
     this.urunlerVersiyon = this.getVersiyon(Constants.DATA_TYPE.URUN);
     this.urunAnaGrupVersiyon = this.getVersiyon(Constants.DATA_TYPE.URUN_ANA_GRUP);
     this.urunIscilikVersiyon = this.getVersiyon(Constants.DATA_TYPE.URUN_ISCILIK);
-    this.urunMalzemeVersiyon= this.getVersiyon(Constants.DATA_TYPE.URUN_MALZEME);
+    this.urunMalzemeVersiyon = this.getVersiyon(Constants.DATA_TYPE.URUN_MALZEME);
     this.islemArizaIscilikVersiyon = this.getVersiyon(Constants.DATA_TYPE.ISLEM_ARIZA_ISCILIK);
     this.malzemeFiyatVersiyon = this.getVersiyon(Constants.DATA_TYPE.MALZEME_FIYAT);
     this.iscilikFiyatVersiyon = this.getVersiyon(Constants.DATA_TYPE.ISCILIK_FIYAT);
@@ -385,8 +388,25 @@ export class GuncellemePage {
   }
 
   getVersiyon(tip): string {
-    let res = this.util.getVersiyonClientAndServer(tip);
-    return res.client + " / " + res.server;
+    let versiyonText = "";
+    let res = this.versiyonProvider.getVersiyonClientAndServer(tip);
+
+    if (this.util.isNotEmpty(res)) {
+
+      if (this.util.isNotEmpty(res.server))
+        versiyonText += res.server;
+      else
+        versiyonText += "-1";
+
+      versiyonText += " / ";
+
+      if (this.util.isNotEmpty(res.client))
+        versiyonText += res.client;
+      else
+        versiyonText += "-1";
+    }
+    this.logger.info("VERSIYON_" + tip + "==> " + versiyonText);
+    return versiyonText;
   }
 
 

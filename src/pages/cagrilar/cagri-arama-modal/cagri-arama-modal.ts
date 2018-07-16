@@ -22,6 +22,8 @@ export class CagriAramaModalPage {
   filter: HizmetSearch;
   query: string;
   searchParams: string [] = [];
+  siralama: boolean = true;
+  orderBy: string = Constants.ORDER_BY.RANDEVU_TAR_ASCENDES;
 
   constructor(public viewCtrl: ViewController,
               private util: UtilProvider) {
@@ -35,7 +37,7 @@ export class CagriAramaModalPage {
   }
 
   closeModal() {
-    let data = {query: this.query, params: this.searchParams};
+    let data = {query: this.query, params: this.searchParams, orderBy: this.orderBy};
     this.viewCtrl.dismiss(data);
   }
 
@@ -87,6 +89,12 @@ export class CagriAramaModalPage {
         "OR gsmNo like '%" + this.filter.telefon + "%' )";
       this.searchParams.push("Telefon: " + this.filter.telefon);
     }
+
+    if (this.siralama)
+      this.orderBy = Constants.ORDER_BY.RANDEVU_TAR_ASCENDES;
+    else
+      this.orderBy = Constants.ORDER_BY.RANDEVU_TAR_DESCENDES;
+
     this.closeModal();
   }
 }

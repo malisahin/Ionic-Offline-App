@@ -13,6 +13,7 @@ import {Hizmet} from "../../entities/hizmet/hizmet";
 import {UtilProvider} from "../../providers/util/util";
 import {Pageable} from "../../entities/Pageable";
 import {HeaderComponent} from "../../components/header/header";
+import {Constants} from "../../entities/Constants";
 
 @IonicPage()
 @Component({
@@ -27,6 +28,8 @@ export class CagrilarPage {
   pageable: Pageable;
   searchType: string = "BEGINNING";
   searchParams: string[] = [];
+  orderBy: string = Constants.ORDER_BY.RANDEVU_TAR_DESCENDES;
+
   @ViewChild("header") header: HeaderComponent;
 
   constructor(public navCtrl: NavController,
@@ -36,12 +39,21 @@ export class CagrilarPage {
               private hizmetService: HizmetService,
               private util: UtilProvider) {
     this.pageable = new Pageable();
+    this.getListLength();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CagrilarPage');
     this.title = 'Çağrılar';
     this.fetchList(this.searchType);
+  }
+
+  private  getListLength() {
+    let length = Number(localStorage.getItem(Constants.LENGTHS.HIZMET_LIST));
+    if (this.util.isEmpty(length))
+      length = 0;
+
+    this.pageable.listLength = length;
   }
 
 
@@ -54,9 +66,10 @@ export class CagrilarPage {
 
   public cagriSorgula() {
 
-    let aramaModal = this.modalController.create(CagriAramaModalPage);
+    let aramaModal = this.modalController.create(CagriAramaModalPage, {}, {cssClass: this.util.getSelectedTheme()});
     aramaModal.onDidDismiss(data => {
 
+      this.orderBy = data.orderBy;
       this.searchQuery = data.query;
       this.searchParams = data.params;
       this.fetchList(this.searchType);
@@ -64,17 +77,17 @@ export class CagrilarPage {
     aramaModal.present();
   }
 
-  async  fetchList(tip) {
+  async fetchList(tip) {
     this.cagrilar = [];
     this.pageable.tip = tip;
     this.pageable = this.pageable.compute();
     let list: any;
     if (this.util.isNotEmpty(this.searchQuery)) {
-      list = await this.hizmetService.fetchHizmetWithQuery(this.searchQuery, this.pageable);
+      list = await this.hizmetService.fetchHizmetWithQuery(this.searchQuery, this.orderBy, this.pageable);
     } else {
       let hizmet = new Hizmet();
       hizmet.durum = 'ACIK';
-      list = await this.hizmetService.fetchHizmetWithPage(hizmet, this.pageable);
+      list = await this.hizmetService.fetchHizmetWithPage(hizmet, Constants.ORDER_BY.RANDEVU_TAR_ASCENDES, this.pageable);
     }
     if (this.util.isNotEmpty(list.res.rows)) {
       this.pageable.listLength = list.listLength;
@@ -82,6 +95,7 @@ export class CagrilarPage {
         let data = JSON.parse(list.res.rows.item(i).data);
         this.cagrilar.push(data);
       }
+      this.formatCagriList();
     }
     this.searchQuery = "";
   }
@@ -96,5 +110,19 @@ export class CagrilarPage {
     this.util.loaderEnd();
     this.header.updateHeader();
   }
+
+
+  formatCagriList() {
+    this.cagrilar.forEach((cagri) => {
+      cagri = this.formatAdres(cagri);
+    });
+  }
+
+  formatAdres(cagri: Hizmet): Hizmet {
+    cagri.adres = this.cagriProvider.getAdres(cagri);
+    cagri.ilIlce = this.cagriProvider.getIlIlce(cagri);
+    return cagri;
+  }
+
 
 }

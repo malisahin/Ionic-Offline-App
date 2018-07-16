@@ -11,12 +11,14 @@ import {UtilProvider} from "../util/util";
 import {Pageable} from "../../entities/Pageable";
 import {HizmetProvider} from "../hizmet/hizmet";
 import {AlertController} from "ionic-angular";
+import {Constants} from "../../entities/Constants";
 
 
 @Injectable()
 export class HizmetService {
 
   hizmet: Hizmet;
+  defaultOrderBy = Constants.ORDER_BY.RANDEVU_TAR_ASCENDES;
 
   constructor(private hizmetDao: HizmetDao,
               private  util: UtilProvider,
@@ -24,16 +26,16 @@ export class HizmetService {
               private hizmetProvider: HizmetProvider) {
   }
 
-  fetchHizmetWithPage(hizmet: Hizmet, pageable: Pageable): Promise<any> {
-    return this.hizmetDao.find(hizmet, pageable);
+  fetchHizmetWithPage(hizmet: Hizmet, orderBy: string, pageable: Pageable): Promise<any> {
+    return this.hizmetDao.find(hizmet, orderBy, pageable);
   }
 
   fetchHizmet(hizmet: Hizmet): Promise<any> {
-    return this.hizmetDao.find(hizmet, new Pageable());
+    return this.hizmetDao.find(hizmet, this.defaultOrderBy, new Pageable());
   }
 
-  fetchHizmetWithQuery(query: string, pageable: Pageable): Promise<any> {
-    return this.hizmetDao.search(query, pageable);
+  fetchHizmetWithQuery(query: string, orderBy: string, pageable: Pageable): Promise<any> {
+    return this.hizmetDao.search(query, orderBy, pageable);
   }
 
 

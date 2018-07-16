@@ -21,6 +21,7 @@ import {Constants} from "../../../entities/Constants";
 export class MusteriBilgileriComponent {
 
   text: string;
+  adSoyad: string = "";
   hizmet: Hizmet = new Hizmet();
   sehirler: Sehir[];
   ilceler: Ilce[];
@@ -48,6 +49,14 @@ export class MusteriBilgileriComponent {
     this.evTel = this.util.phoneMask(this.hizmet.evTel);
     this.isTel = this.util.phoneMask(this.hizmet.isTel);
     this.cepTel = this.util.phoneMask(this.hizmet.gsmNo);
+
+    this.adSoyad = "";
+    if (this.util.isNotEmpty(this.hizmet.adi))
+      this.adSoyad += this.hizmet.adi;
+
+    if (this.util.isNotEmpty(this.hizmet.soyadi))
+      this.adSoyad += " " + this.hizmet.soyadi;
+
   }
 
   ionViewWillLeave() {
@@ -60,16 +69,23 @@ export class MusteriBilgileriComponent {
   }
 
   async getSehirList() {
+    this.sehirler = [];
     await this.adresDao.getSehirList().then(res => {
       for (let i = 0; i < res.rows.length; i++) {
         this.sehirler.push(res.rows.item(i));
       }
       this.logger.dir(res);
     });
+    await this.getIlceList(this.hizmet.sehirKod);
+  }
+
+  async onChangeSehir() {
+    this.hizmet.ilceKod = "";
+    await this.getIlceList(this.hizmet.sehirKod);
   }
 
   async getIlceList(item: any) {
-    this.hizmet.ilceKod = "";
+    this.ilceler = [];
     if (this.util.isNotEmpty(this.hizmet.sehirKod))
       await this.adresDao.getIlceList(this.hizmet.sehirKod).then(res => {
         for (let i = 0; i < res.rows.length; i++) {
@@ -79,14 +95,25 @@ export class MusteriBilgileriComponent {
       });
   }
 
-  async getMahalleList(item: any) {
+  async onChangeIlce() {
     this.hizmet.mahalleKodu = "";
+    await this.getMahalleList(this.hizmet.ilceKod);
+  }
+
+
+  async getMahalleList(item: any) {
+    this.mahalleler = [];
     await this.adresDao.getMahalleList(this.hizmet.ilceKod).then(res => {
       for (let i = 0; i < res.rows.length; i++) {
         this.mahalleler.push(res.rows.item(i));
       }
       this.onHizmetChange();
     });
+  }
+
+
+  async onChangeMahalle() {
+    await  this.onHizmetChange();
   }
 
   async onHizmetChange() {

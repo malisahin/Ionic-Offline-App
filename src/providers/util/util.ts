@@ -29,6 +29,10 @@ export class UtilProvider {
     return !(typeof item == 'undefined' || item == null || item == "")
   }
 
+  isNotEmptyRows(res): boolean {
+    return this.isNotEmpty(res) && this.isNotEmpty(res.rows) && res.rows.length > 0;
+  }
+
   prepareForLike(key: string, value: string): string {
     return key + " LIKE '%" + value.split('').join('%') + "%'";
   }
@@ -282,13 +286,6 @@ export class UtilProvider {
     }
   }
 
-  getVersiyonClientAndServer(tip) {
-    let res = {client: "", server: ""};
-    res.client = localStorage.getItem(Constants.VERSIYON.CLIENT[tip]);
-    res.server = localStorage.getItem(Constants.VERSIYON.SERVER[tip]);
-
-    return res;
-  }
 
 }
 

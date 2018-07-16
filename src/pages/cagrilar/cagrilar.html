@@ -38,25 +38,79 @@
       {{cagri.mamAnaGrpAdi}} | {{cagri.hizmetTipiAdi}} | {{cagri.basvuruNedenAdi}}
     </p>
     <p>
-      <i class="fas fa-phone"></i>{{cagri.gsmNo}} | {{cagri.evTel}} | {{cagri.evTel}}
+      <i class="fas fa-phone"></i>
+      {{cagri.gsmNo}} | {{cagri.evTel}} | {{cagri.evTel}}
     </p>
     <p class="call-date">
-      <i class="far fa-clock"></i> {{cagri.randevuTarihi | date: 'dd-MM-yyyy HH:mm'}} </p>
-    <p>{{cagri.Adres}}</p>
+      <strong>
+        <i class="far fa-clock"></i>
+        {{cagri.randevuTarihi | date: 'dd-MM-yyyy HH:mm'}}
+      </strong>
+    </p>
+    <p>
+      <i class="fas fa-location-arrow adres-box"></i>
+      <ion-label class="adres-box" *ngIf="cagri.semt != null && cagri.semt != ''">
+        <strong>Semt:</strong> {{cagri.semt}}
+      </ion-label>
+
+      <ion-label class="adres-box" *ngIf="cagri.mahalleAdi != null && cagri.mahalleAdi !=''">
+        <strong>Mahalle:</strong> {{cagri.mahalleAdi}}
+      </ion-label>
+
+      <ion-label class="adres-box" *ngIf="cagri.cadde != null && cagri.cadde !=''">
+        <strong>Cadde:</strong> {{cagri.cadde}}
+      </ion-label>
+
+      <ion-label class="adres-box" *ngIf="cagri.sokak != null && cagri.sokak !=''">
+        <strong>Sokak:</strong> {{cagri.sokak}}
+      </ion-label>
+
+      <ion-label class="adres-box" *ngIf="cagri.aparman!= null && cagri.aparman !=''">
+        <strong>Apartman:</strong> {{cagri.aparman}} {{cagri.apartmanNo}}
+      </ion-label>
+
+
+      <ion-label class="adres-box" *ngIf="cagri.apartmanNo!= null && cagri.apartmanNo !=''">
+        {{cagri.apartmanNo}}
+      </ion-label>
+
+      <ion-label class="adres-box" *ngIf="cagri.blok != null && cagri.blok!=''">
+        <strong>Blok:</strong> {{cagri.blok}}
+      </ion-label>
+
+
+      <ion-label class="adres-box" *ngIf="cagri.daireNo != null && cagri.daireNo!=''">
+        <strong>Daire No:</strong> {{cagri.daireNo}}
+      </ion-label>
+
+    </p>
+    <br>
+    <p>
+      <ion-label class="adres-box" *ngIf="cagri.ilceAdi != null && cagri.ilceAdi!=''">
+        {{cagri.ilceAdi}}
+      </ion-label>
+      <ion-label class="adres-box" *ngIf="cagri.sehir != null && cagri.sehir!=''">
+        /{{cagri.sehir}}
+      </ion-label>
+    </p>
   </ion-card>
 </ion-content>
 
 
 <ion-footer>
   <ion-row>
+
     <ion-col col-4 col-md-2>
-      <button ion-button color="light" (click)="fetchList('FIRST')">
+      <button ion-button color="light" (click)="fetchList('FIRST')"
+              *ngIf="!pageable.isFirstPage">
         <ion-icon name="arrow-dropleft"></ion-icon>
       </button>
-      <button ion-button color="light" (click)="fetchList('PREVIOUS')">
+      <button ion-button color="light" (click)="fetchList('PREVIOUS')"
+              *ngIf="!pageable.isFirstPage">
         <ion-icon name="arrow-back"></ion-icon>
       </button>
     </ion-col>
+
     <ion-col col-4 col-md-8>
       <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList('PAGE_NO')" interface="popover">
         <ion-option value="10" selected="true">10</ion-option>
@@ -64,11 +118,15 @@
         <ion-option value="50">50</ion-option>
       </ion-select>
     </ion-col>
+
     <ion-col col-4 col-md-2>
-      <button ion-button color="light" (click)="fetchList('NEXT')">
+      <button ion-button color="light" (click)="fetchList('NEXT')"
+              *ngIf="!pageable.isLastPage">
         <ion-icon name="arrow-forward"></ion-icon>
       </button>
-      <button ion-button color="light" (click)="fetchList('LAST')">
+
+      <button ion-button color="light" (click)="fetchList('LAST')"
+              *ngIf="!pageable.isLastPage">
         <ion-icon name="arrow-dropright"></ion-icon>
       </button>
     </ion-col>

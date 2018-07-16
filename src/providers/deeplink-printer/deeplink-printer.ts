@@ -74,7 +74,6 @@ export class DeeplinkPrinterProvider {
     let url = this.api.getDeepLinkPrintTextUrl(this.seqNo, this.tip);
     this.logger.warn(url);
     let printingText = "";
-    debugger;
     try {
       await this.http.get(url, {headers: this.getHeader(), responseType: "text"}).toPromise().then((res) => {
         printingText = res;

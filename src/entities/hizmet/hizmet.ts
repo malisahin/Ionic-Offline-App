@@ -6,6 +6,7 @@
 import {IslemList} from "./islemList";
 import {Anket} from "./anket";
 import {DetayKayit} from "./DetayKayit";
+import {UtilProvider} from "../../providers/util/util";
 
 
 export class Hizmet {
@@ -78,5 +79,14 @@ export class Hizmet {
   data: any;
   crmNo: string = "";
   seriMetod: string = "1";
+
+
+  /**
+   *
+   * Sunucuya gitmeyecek alanlar
+   */
+  adres = "";
+  ilceAdi  = "";
+  ilIlce = "";
 
 }

@@ -122,7 +122,6 @@ export class LoginPage {
   }
 
   goDeeplink() {
-    debugger;
     this.deepLinkPrinter.init();
   }
 }
