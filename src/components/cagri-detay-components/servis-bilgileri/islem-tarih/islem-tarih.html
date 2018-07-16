@@ -13,7 +13,7 @@
 
   <ion-item *ngIf="sonIslem.basTar != null && sonIslem.bitTar == null">
     <ion-label>Bekleme Nedeni</ion-label>
-    <ion-select [(ngModel)]="sonIslem.beklemeNeden" interface="popover" (ionChange)="checkStatus()">
+    <ion-select [(ngModel)]="sonIslem.beklemeNeden" interface="action-sheet" (ionChange)="checkStatus()">
       <ion-option value="" selected="true"></ion-option>
       <ion-option value="SERVIS">Servis</ion-option>
       <ion-option value="MUSTERI">Müşteri</ion-option>
@@ -21,13 +21,31 @@
     </ion-select>
   </ion-item>
 
-  <ion-item *ngIf="sonIslem.basTar  != null && sonIslem.bitTar == null">
+  <ion-item *ngIf="sonIslem.basTar  != null && sonIslem.bitTar == null && sonIslem.beklemeNeden =='SERVIS'">
     <ion-label>Bekleme Kaynağı</ion-label>
-    <ion-select [(ngModel)]="sonIslem.bekleKaynak" interface="popover" (ionChange)="checkStatus()" [disabled]=isHizmetDisabled()>
+    <ion-select [(ngModel)]="sonIslem.bekleKaynak" interface="action-sheet" (ionChange)="checkStatus()"
+                [disabled]=isHizmetDisabled()>
       <ion-option value="" selected="true"></ion-option>
-      <ion-option value="SERVIS">Servis</ion-option>
-      <ion-option value="MUSTERI">Müşteri</ion-option>
-      <ion-option value="BAYI">Bayi</ion-option>
+      <ion-option value="NEDEN1">Yedek parça bekleniyor.</ion-option>
+
+    </ion-select>
+  </ion-item>
+
+  <ion-item *ngIf="sonIslem.basTar  != null && sonIslem.bitTar == null && sonIslem.beklemeNeden =='MUSTERI'">
+    <ion-label>Bekleme Kaynağı</ion-label>
+    <ion-select [(ngModel)]="sonIslem.bekleKaynak" interface="action-sheet" (ionChange)="checkStatus()"
+                [disabled]=isHizmetDisabled()>
+      <ion-option value="" selected="true"></ion-option>
+      <ion-option value="NEDEN1">Müşteri Uygun Değil</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item *ngIf="sonIslem.basTar  != null && sonIslem.bitTar == null && sonIslem.beklemeNeden == 'BAYI'">
+    <ion-label>Bekleme Kaynağı</ion-label>
+    <ion-select [(ngModel)]="sonIslem.bekleKaynak" interface="action-sheet" (ionChange)="checkStatus()"
+                [disabled]=isHizmetDisabled()>
+      <ion-option value="" selected="true"></ion-option>
+      <ion-option value="NEDEN1">Tesisat Kaynaklı</ion-option>
     </ion-select>
   </ion-item>
 
