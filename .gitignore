@@ -96,7 +96,9 @@ Temporary Items
 .svn/
 
 
-www/build/
+www/build/*.js
+www/build/*.map
+www/build/*.css
 
 src/*/*.js
 src/*/*.map
