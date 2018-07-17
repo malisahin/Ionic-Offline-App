@@ -114,11 +114,10 @@ export class DetayBilgileriComponent {
   }
 
   updateHizmetDetay(item: any) {
-    let detayModal = this.modalCtrl.create(HizmetDetayComponent, {
-      data: {
-        hizmetDetay: item
-      }
-    });
+    let detayModal = this.modalCtrl.create(HizmetDetayComponent,
+      {data: {hizmetDetay: item}},
+      {cssClass: this.util.getSelectedTheme()}
+      );
     detayModal.onDidDismiss(res => {
       this.logger.dir(res);
       this.updateHizmet('NEW');
