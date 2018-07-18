@@ -1,17 +1,17 @@
-import {Component} from '@angular/core';
-import {DetayKayit} from "../../entities/hizmet/DetayKayit";
-import {ViewController, NavParams, ModalController} from "ionic-angular";
-import {UtilProvider} from '../../providers/util/util';
-import {LoggerProvider} from '../../providers/logger/logger';
-import {Constants} from '../../entities/Constants';
-import {DetayPiySearchComponent} from '../detay-piy-search/detay-piy-search';
-import {FiyatDao} from '../../providers/fiyat-dao/fiyat-dao';
-import {Fiyat} from '../../entities/fiyat';
-import {HizmetService} from '../../providers/hizmet-service/hizmet-service';
-import {Hizmet} from '../../entities/hizmet/hizmet';
-import {IslemArizaIscilikDao} from "../../providers/islem-ariza-iscilik-dao/islem-ariza-iscilik-dao";
-import {IslemArizaIscilik} from "../../entities/islem-ariza-iscilik";
-import {ProcessResults} from "../../entities/ProcessResults";
+import { Component } from '@angular/core';
+import { DetayKayit } from "../../entities/hizmet/DetayKayit";
+import { ViewController, NavParams, ModalController } from "ionic-angular";
+import { UtilProvider } from '../../providers/util/util';
+import { LoggerProvider } from '../../providers/logger/logger';
+import { Constants } from '../../entities/Constants';
+import { DetayPiySearchComponent } from '../detay-piy-search/detay-piy-search';
+import { FiyatDao } from '../../providers/fiyat-dao/fiyat-dao';
+import { Fiyat } from '../../entities/fiyat';
+import { HizmetService } from '../../providers/hizmet-service/hizmet-service';
+import { Hizmet } from '../../entities/hizmet/hizmet';
+import { IslemArizaIscilikDao } from "../../providers/islem-ariza-iscilik-dao/islem-ariza-iscilik-dao";
+import { IslemArizaIscilik } from "../../entities/islem-ariza-iscilik";
+import { ProcessResults } from "../../entities/ProcessResults";
 
 
 @Component({
@@ -37,13 +37,13 @@ export class HizmetDetayComponent {
   aciklama: string = "";
 
   constructor(private viewCtrl: ViewController,
-              private params: NavParams,
-              private modalController: ModalController,
-              private util: UtilProvider,
-              private logger: LoggerProvider,
-              private fiyatDao: FiyatDao,
-              private islemArizaIscilikDao: IslemArizaIscilikDao,
-              private hizmetService: HizmetService) {
+    private params: NavParams,
+    private modalController: ModalController,
+    private util: UtilProvider,
+    private logger: LoggerProvider,
+    private fiyatDao: FiyatDao,
+    private islemArizaIscilikDao: IslemArizaIscilikDao,
+    private hizmetService: HizmetService) {
 
     this.hizmet = this.hizmetService.getHizmet();
     this.hizmetDetay = new DetayKayit();
@@ -77,7 +77,7 @@ export class HizmetDetayComponent {
       await this.yeniDetayKaydet();
     }
     else {
-      this.detayGuncelle();
+      await this.detayGuncelle();
     }
 
     if (canModalCloseable) {
@@ -95,8 +95,10 @@ export class HizmetDetayComponent {
         this.hizmet.detayDtoList = [];
 
       this.hizmetDetay.seqNo = this.hizmet.seqNo;
+      //this.satirNoBelirle();
+      this.hizmetDetay.satirNo = this.hizmet.detayDtoList.length;
       this.hizmet.detayDtoList.push(this.hizmetDetay);
-      this.satirNoBelirle();
+
     }
   }
 
@@ -112,9 +114,9 @@ export class HizmetDetayComponent {
 
 
   satirNoBelirle() {
-    for (let i = 0; i < this.hizmet.detayDtoList.length; i++) {
-      this.hizmet.detayDtoList[i].satirNo = i;
-    }
+    debugger;
+    this.hizmetDetay.satirNo = this.hizmet.detayDtoList.length;
+
   }
 
   async fiyatBul() {
@@ -237,6 +239,12 @@ export class HizmetDetayComponent {
     this.hizmetDetay.arizaKod = "";
     this.hizmetDetay.mlzIscKod = "";
     this.hizmetDetay.aciklama = "";
+    this.hizmetDetay.miktar = 1;
+    this.hizmetDetay.garFiyat = "0";
+    this.hizmetDetay.birimFiyat = 0;
+    this.hizmetDetay.tutar = 0;
+    this.hizmetDetay.garTutar = "0";
+
 
     this.islemAdi = "";
     this.arizaAdi = "";

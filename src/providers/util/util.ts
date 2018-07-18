@@ -1,11 +1,11 @@
-import {Constants} from './../../entities/Constants';
-import {Injectable, forwardRef} from '@angular/core';
-import {ToastController, LoadingController, Loading} from 'ionic-angular';
+import { Constants } from './../../entities/Constants';
+import { Injectable, forwardRef } from '@angular/core';
+import { ToastController, LoadingController, Loading } from 'ionic-angular';
 import moment from 'moment';
-import {ProcessResults} from "../../entities/ProcessResults"
-import {Network} from '@ionic-native/network';
-import {LoggerProvider} from "../logger/logger";
-import {User} from "../../entities/user";
+import { ProcessResults } from "../../entities/ProcessResults"
+import { Network } from '@ionic-native/network';
+import { LoggerProvider } from "../logger/logger";
+import { User } from "../../entities/user";
 
 
 @Injectable()
@@ -15,17 +15,22 @@ export class UtilProvider {
   private isLoaderRunning: boolean = false;
 
   constructor(private toast: ToastController,
-              private network: Network,
-              private logger: LoggerProvider,
-              private loadingController: LoadingController) {
+    private network: Network,
+    private logger: LoggerProvider,
+    private loadingController: LoadingController) {
     moment.locale('tr');
   }
 
   isEmpty(item: any): boolean {
+    if (typeof item == "number")
+      item = String(item);
     return (typeof item == 'undefined' || item == null || item == "");
   }
 
   isNotEmpty(item: any): boolean {
+    if (typeof item == "number")
+      item = String(item);
+
     return !(typeof item == 'undefined' || item == null || item == "")
   }
 
@@ -229,7 +234,7 @@ export class UtilProvider {
 
   loaderStart() {
     if (!this.isLoaderRunning) {
-      this.loader = this.loadingController.create({spinner: 'dots'});
+      this.loader = this.loadingController.create({ spinner: 'dots' });
       this.isLoaderRunning = true;
       this.loader.present();
     }

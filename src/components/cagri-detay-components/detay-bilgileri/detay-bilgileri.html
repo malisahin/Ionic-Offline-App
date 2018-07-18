@@ -108,8 +108,7 @@
           </button>
         </ion-col>
         <ion-col col-6 col-md-6 col-sm>
-          <button ion-button round color="secondary" [disabled]="isHizmetDisabled()" (click)="hizmetIptalKontrol()"
-                  full>
+          <button ion-button round color="secondary" [disabled]="isHizmetDisabled()" (click)="hizmetIptalKontrol()" full>
             İptal
           </button>
         </ion-col>
@@ -132,8 +131,7 @@
       </ion-col>
 
       <ion-col col-8 col-md-10>
-        <ion-textarea [(ngModel)]="hizmet.aciklama" [disabled]="isHizmetDisabled()"
-                      (ionBlur)="onHizmetChange()"></ion-textarea>
+        <ion-textarea [(ngModel)]="hizmet.aciklama" [disabled]="isHizmetDisabled()" (ionBlur)="onHizmetChange()"></ion-textarea>
       </ion-col>
 
       <ion-col col-4 col-md-2>
@@ -141,8 +139,7 @@
       </ion-col>
 
       <ion-col col-8 col-md-10>
-        <ion-select [(ngModel)]="hizmet.kapatmaKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"
-                    interface="action-sheet">
+        <ion-select [(ngModel)]="hizmet.kapatmaKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()" interface="action-sheet">
           <ion-option value="NORMAL">Normal Kapatma</ion-option>
           <ion-option value="MESGULIYET">Meşguliyet Kapatma</ion-option>
         </ion-select>
@@ -151,12 +148,10 @@
 
       <ion-col col-4 col-md-2>
         <ion-label color="primary">Ödeme Tipi</ion-label>
-        onChangeIslemTipi
       </ion-col>
 
       <ion-col col-8 col-md-10>
-        <ion-select [(ngModel)]="hizmet.odemeTipi" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"
-                    interface="action-sheet">
+        <ion-select [(ngModel)]="hizmet.odemeTipi" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()" interface="action-sheet">
           <ion-option value="NAKIT">Nakit</ion-option>
           <ion-option value="KREDIKARTI">Kredi Kartı</ion-option>
         </ion-select>
@@ -167,8 +162,7 @@
       </ion-col>
 
       <ion-col col-8 col-md-10>
-        <ion-select [(ngModel)]="hizmet.cozumKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"
-                    interface="action-sheet">
+        <ion-select [(ngModel)]="hizmet.cozumKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()" interface="action-sheet">
           <ion-option *ngFor="let cozum of cozumKoduList" [value]="cozum.kod">{{cozum.ad}}</ion-option>
         </ion-select>
       </ion-col>
@@ -179,15 +173,13 @@
 
       <ion-col col-6 col-md-9>
 
-        <ion-label color="primary" class="radio-btn" style="text-align: end;position: relative;">{{iletisimIstek == true
-          ? 'EVET' : 'HAYIR'}}
+        <ion-label color="primary" class="radio-btn" style="text-align: end;position: relative;">{{iletisimIstek == true ? 'EVET' : 'HAYIR'}}
         </ion-label>
 
       </ion-col>
       <ion-col col-2 col-md-1>
-        <ion-toggle (ionChange)="iletisimIstekChange()" class="toggle-btn" style="text-align: end;"
-                    [disabled]="isHizmetDisabled()"
-                    [(ngModel)]="iletisimIstek"></ion-toggle>
+        <ion-toggle (ionChange)="iletisimIstekChange()" class="toggle-btn" style="text-align: end;" [disabled]="isHizmetDisabled()"
+          [(ngModel)]="iletisimIstek"></ion-toggle>
       </ion-col>
 
     </ion-row>

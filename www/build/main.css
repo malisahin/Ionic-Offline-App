@@ -4503,7 +4503,7 @@ hizmet-bilgileri .item-inner.item-md.item-input.ng-valid.item-input-has-value:no
 }
 
 .content-background {
-  background-image: url("../../assets/img/eca/login/login-background.jpg");
+  /*background-image: url("../../assets/eca/login/login-background.jpg");*/
   background-repeat: no-repeat;
 }
 
@@ -31436,6 +31436,10 @@ page-cagrilar #btnCagriSorgu {
 
 page-cagrilar #btnCagriGuncelle {
   float: right;
+}
+
+page-cagrilar .adres-box {
+  float: left;
 }
 
 page-cagri-arama-modal #btnModalAra {

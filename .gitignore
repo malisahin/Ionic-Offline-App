@@ -114,6 +114,13 @@ src/*/*/*.map
 src/*/*/*/*.js
 src/*/*/*/*.map
 
+"**/*.js"
+"**/*.map"
+
+src/build/*.js
+src/build/*.map
+src/build/*.css
+
 package-lock.json
 
 platforms/
