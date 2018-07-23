@@ -6,6 +6,8 @@ import {UtilProvider} from '../../providers/util/util';
 import {Pageable} from '../../entities/Pageable';
 import {HizmetService} from '../../providers/hizmet-service/hizmet-service';
 import {Hizmet} from '../../entities/hizmet/hizmet';
+import {UrunMalzemeProvider} from "../../providers/urun-malzeme/urun-malzeme";
+import {UrunMalzeme} from "../../entities/urun-malzeme";
 
 
 @Component({
@@ -29,6 +31,7 @@ export class DetayPiySearchComponent {
               private params: NavParams,
               private util: UtilProvider,
               private hizmetService: HizmetService,
+              private urunMalzemeProvider: UrunMalzemeProvider,
               private islemArizaIscilikDao: IslemArizaIscilikDao) {
     this.text = 'Hello World';
     this.pageable = new Pageable();
@@ -52,7 +55,7 @@ export class DetayPiySearchComponent {
     this.list = [];
 
     this.prepareSearchItem();
-
+    debugger;
     if (this.dataType == "ISLEM") {
       this.islemArizaIscilikDao.getIslemGrupPage(this.filter, this.searchText).then(data => {
         this.pageable.listLength = data.listLength;
@@ -68,11 +71,34 @@ export class DetayPiySearchComponent {
     }
 
     if (this.dataType == "PIY") {
-      this.islemArizaIscilikDao.getPIYKoduPage(this.filter, this.hizmet.mamKod, this.searchText).then(data => {
-        this.pageable.listLength = data.listLength;
-        this.fillList(data);
-      });
+
+      if (this.util.isNotEmpty(this.data.filter) && this.util.isNotEmpty(this.data.filter.mlzIsc)) {
+        let mlzIsc = this.data.filter.mlzIsc;
+
+        if (mlzIsc == "MLZ") {
+
+        }
+        else if (mlzIsc == "ISC") {
+          this.getIscilik();
+        }
+
+      }
+
+
     }
+  }
+
+  getIscilik() {
+    this.islemArizaIscilikDao.getPIYKoduPage(this.filter, this.hizmet.mamKod, this.searchText).then(data => {
+      this.pageable.listLength = data.listLength;
+      this.fillList(data);
+    });
+  }
+
+  getMalzeme() {
+    let filter = new UrunMalzeme();
+    //TODO: SEARCH URUN-MALZEME as PAGEABLE
+    this.urunMalzemeProvider.getList()
   }
 
   prepareSearchItem() {

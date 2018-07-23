@@ -6,6 +6,7 @@ import {UrunMalzemeDao} from '../urun-malzeme-dao/urun-malzeme-dao';
 import {TokenProvider} from "../token/token";
 import {Constants} from "../../entities/Constants";
 import {UtilProvider} from "../util/util";
+import {Pageable} from "../../entities/Pageable";
 
 
 @Injectable()
@@ -38,6 +39,10 @@ export class UrunMalzemeProvider {
   async getDataFromApi(first: number, header): Promise<any> {
     let url = this.api.urunMalzemeDownloadUrl(first);
     return this.http.get(url, {headers: header}).toPromise();
+  }
+
+  getList(filter: UrunMalzeme, searchType: string, pageable: Pageable): Promise<any> {
+    return this.urunMalzemeDao.getList(filter, searchType, pageable);
   }
 
 

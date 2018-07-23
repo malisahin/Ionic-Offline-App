@@ -70,8 +70,9 @@ export class FiyatDao {
     if (this.util.isNotEmpty(item.iscMlzKod))
       whereQuery.push(this.util.prepareWhereQuery(searchType, "iscMlzKod", item.iscMlzKod));
 
-    if (this.util.isNotEmpty(item.mamKod))
+    if (this.util.isNotEmpty(item.mamKod)) {
       whereQuery.push(this.util.prepareWhereQuery(searchType, "mamKod", item.mamKod));
+    }
 
     return this.util.prepareQuery(query, whereQuery, searchType);
   }

@@ -1,16 +1,20 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { DatabaseProvider } from '../database/database';
-import { BaseDao } from '../base-dao/base-dao';
-import { UrunMalzeme } from '../../entities/urun-malzeme';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {DatabaseProvider} from '../database/database';
+import {BaseDao} from '../base-dao/base-dao';
+import {UrunMalzeme} from '../../entities/urun-malzeme';
+import {UtilProvider} from "../util/util";
+import {Constants} from "../../entities/Constants";
+import {Pageable} from "../../entities/Pageable";
 
 
 @Injectable()
 export class UrunMalzemeDao {
 
   constructor(public http: HttpClient,
-    private dbProvider: DatabaseProvider,
-    private baseDao: BaseDao) {
+              private dbProvider: DatabaseProvider,
+              private util: UtilProvider,
+              private baseDao: BaseDao) {
     console.log('Hello UrunMalzemeDaoProvider Provider');
   }
 
@@ -48,5 +52,28 @@ export class UrunMalzemeDao {
         });
       });
     });
+  }
+
+  getList(filter: UrunMalzeme, searchType: string, pageable: Pageable): Promise<any> {
+    let query = this.prepareGetListQuery(filter, searchType);
+    return this.baseDao.getList(query, "mamKod", filter, searchType, pageable.first, pageable.pageSize, true);
+
+  }
+
+  prepareGetListQuery(filter: UrunMalzeme, searchType: string): string {
+    let query = " SELECT * FROM OFF_MAM_MLZ_TNM WHERE 1=1 ";
+    let searchQuery = [];
+
+    if (this.util.isNotEmpty(filter.mamKod))
+      searchQuery.push(this.util.prepareWhereQuery(searchType, "mamKod", filter.mamKod));
+
+    if (this.util.isNotEmpty(filter.mlzKod))
+      searchQuery.push(this.util.prepareWhereQuery(searchType, "mlzKod", filter.mamKod));
+
+    if (this.util.isNotEmpty(filter.mlzAdi))
+      searchQuery.push(this.util.prepareWhereQuery(searchType, "mlzAdi", filter.mlzAdi));
+
+    return this.util.prepareQuery(this.util.prepareWhereQuery(query, searchQuery, searchType))
+
   }
 }
