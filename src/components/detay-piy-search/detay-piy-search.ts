@@ -1,25 +1,28 @@
-import {Component} from '@angular/core';
-import {IslemArizaIscilik} from '../../entities/islem-ariza-iscilik';
-import {IslemArizaIscilikDao} from '../../providers/islem-ariza-iscilik-dao/islem-ariza-iscilik-dao';
-import {NavParams, ViewController} from 'ionic-angular';
-import {UtilProvider} from '../../providers/util/util';
-import {Pageable} from '../../entities/Pageable';
-import {HizmetService} from '../../providers/hizmet-service/hizmet-service';
-import {Hizmet} from '../../entities/hizmet/hizmet';
+import {Component} from "@angular/core";
+import {IslemArizaIscilik} from "../../entities/islem-ariza-iscilik";
+import {IslemArizaIscilikDao} from "../../providers/islem-ariza-iscilik-dao/islem-ariza-iscilik-dao";
+import {NavParams, ViewController} from "ionic-angular";
+import {UtilProvider} from "../../providers/util/util";
+import {Pageable} from "../../entities/Pageable";
+import {HizmetService} from "../../providers/hizmet-service/hizmet-service";
+import {Hizmet} from "../../entities/hizmet/hizmet";
 import {UrunMalzemeProvider} from "../../providers/urun-malzeme/urun-malzeme";
 import {UrunMalzeme} from "../../entities/urun-malzeme";
-
+import {Constants} from "../../entities/Constants";
 
 @Component({
-  selector: 'detay-piy-search',
-  templateUrl: 'detay-piy-search.html'
+  selector: "detay-piy-search",
+  templateUrl: "detay-piy-search.html"
 })
 export class DetayPiySearchComponent {
-
   text: string;
   data: any;
   list: { key: "", value: "", data: {} }[] = [];
-  selectedItem: { key: "", value: "", data: {} } = {key: "", value: "", data: {}};
+  selectedItem: { key: "", value: "", data: {} } = {
+    key: "",
+    value: "",
+    data: {}
+  };
   pageable: Pageable;
   searchText: string = "";
   searchType: string;
@@ -33,20 +36,20 @@ export class DetayPiySearchComponent {
               private hizmetService: HizmetService,
               private urunMalzemeProvider: UrunMalzemeProvider,
               private islemArizaIscilikDao: IslemArizaIscilikDao) {
-    this.text = 'Hello World';
+    this.text = "Hello World";
     this.pageable = new Pageable();
-    this.data = params.get('data');
+    this.data = params.get("data");
     this.dataType = this.data.dataType;
     this.hizmet = this.hizmetService.getHizmet();
     this.filter = this.data.filter;
   }
 
   closeModal() {
-    this.ionChange({key: '', value: ''});
+    this.ionChange({key: "", value: ""});
   }
 
   ionViewDidLoad() {
-    this.fetchList('BEGINNING');
+    this.fetchList("BEGINNING");
   }
 
   fetchList(type: string) {
@@ -55,50 +58,73 @@ export class DetayPiySearchComponent {
     this.list = [];
 
     this.prepareSearchItem();
-    debugger;
     if (this.dataType == "ISLEM") {
-      this.islemArizaIscilikDao.getIslemGrupPage(this.filter, this.searchText).then(data => {
-        this.pageable.listLength = data.listLength;
-        this.fillList(data);
-      })
+      this.islemArizaIscilikDao
+        .getIslemGrupPage(this.filter, this.searchText)
+        .then(data => {
+          this.pageable.listLength = data.listLength;
+          this.fillList(data);
+        });
     }
 
     if (this.dataType == "ARIZA") {
-      this.islemArizaIscilikDao.getArizaGrupPage(this.filter, this.searchText).then(data => {
-        this.pageable.listLength = data.listLength;
-        this.fillList(data);
-      })
+      this.islemArizaIscilikDao
+        .getArizaGrupPage(this.filter, this.searchText)
+        .then(data => {
+          this.pageable.listLength = data.listLength;
+          this.fillList(data);
+        });
     }
 
     if (this.dataType == "PIY") {
-
-      if (this.util.isNotEmpty(this.data.filter) && this.util.isNotEmpty(this.data.filter.mlzIsc)) {
+      if (
+        this.util.isNotEmpty(this.data.filter) &&
+        this.util.isNotEmpty(this.data.filter.mlzIsc)
+      ) {
         let mlzIsc = this.data.filter.mlzIsc;
 
-        if (mlzIsc == "MLZ") {
+        if (mlzIsc == Constants.DETAY_TIPI.MALZEME) this.getMalzeme();
 
-        }
-        else if (mlzIsc == "ISC") {
-          this.getIscilik();
-        }
+        if (mlzIsc == Constants.DETAY_TIPI.ISCILIK) this.getIscilik();
 
+        if (mlzIsc == Constants.DETAY_TIPI.YOL) this.getYol();
+
+        if (mlzIsc == Constants.DETAY_TIPI.DIGER) this.getDiger();
       }
-
-
     }
   }
 
   getIscilik() {
-    this.islemArizaIscilikDao.getPIYKoduPage(this.filter, this.hizmet.mamKod, this.searchText).then(data => {
-      this.pageable.listLength = data.listLength;
-      this.fillList(data);
-    });
+    this.islemArizaIscilikDao
+      .getPIYKoduPage(this.filter, this.hizmet.mamKod, this.searchText)
+      .then(data => {
+        this.pageable.listLength = data.listLength;
+        this.fillList(data);
+      });
   }
 
-  getMalzeme() {
+  async getMalzeme() {
     let filter = new UrunMalzeme();
     //TODO: SEARCH URUN-MALZEME as PAGEABLE
-    this.urunMalzemeProvider.getList()
+    filter.mamKod = this.hizmet.mamKod;
+    let searchType = Constants.SEARCH_TYPE.LIKE;
+    filter.mlzAdi = this.searchText;
+    filter.mlzKod = this.searchText;
+    let malzemeList = await this.urunMalzemeProvider.getList(filter, searchType, this.pageable);
+    this.pageable.listLength = malzemeList.listLength;
+    this.fillList(malzemeList.res);
+  }
+
+  getYol() {
+    this.list = [];
+    let yolIsciligi = {key: "999988", value: "Yol İşçiliği"};
+    this.list.push({key: yolIsciligi.key, value: yolIsciligi.value, data: yolIsciligi});
+  }
+
+  getDiger() {
+    this.list = [];
+    let digerIsciligi = {key: "999977", value: "Diğer İşçiliği"};
+    this.list.push({key: digerIsciligi.key, value: digerIsciligi.value, data: digerIsciligi});
   }
 
   prepareSearchItem() {
@@ -118,14 +144,34 @@ export class DetayPiySearchComponent {
 
   fillItemByType(item: any) {
     if (this.dataType == "ISLEM") {
-      this.list.push({key: item.islemGrp, value: item.islemGrpAdi, data: item});
+      this.list.push({
+        key: item.islemGrp,
+        value: item.islemGrpAdi,
+        data: item
+      });
     }
     if (this.dataType == "ARIZA")
-      this.list.push({key: item.arizaGrp, value: item.arizaGrpAdi, data: item});
+      this.list.push({
+        key: item.arizaGrp,
+        value: item.arizaGrpAdi,
+        data: item
+      });
 
-    if (this.dataType == "PIY")
-      this.list.push({key: item.iscKod, value: item.iscAdi, data: item});
+    if (this.dataType == "PIY") {
+      let mlzIsc = this.data.filter.mlzIsc;
 
+      if (mlzIsc == Constants.DETAY_TIPI.ISCILIK)
+        this.list.push({key: item.iscKod, value: item.iscAdi, data: item});
+
+      if (mlzIsc == Constants.DETAY_TIPI.MALZEME)
+        this.list.push({key: item.mlzKod, value: item.mlzAdi, data: item});
+
+      if (mlzIsc == Constants.DETAY_TIPI.DIGER)
+        this.list.push({key: item.mlzKod, value: item.mlzAdi, data: item});
+
+      if (mlzIsc == Constants.DETAY_TIPI.YOL)
+        this.list.push({key: item.mlzKod, value: item.mlzAdi, data: item});
+    }
   }
 
   isUnique(item: any): boolean {
@@ -139,9 +185,6 @@ export class DetayPiySearchComponent {
   }
 
   public ionChange(item: any) {
-
     this.viewCtrl.dismiss({data: item});
   }
-
-
 }

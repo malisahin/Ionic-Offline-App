@@ -35,6 +35,7 @@ export class HizmetDetayComponent {
   mlzIscKod: string = "";
   aciklama: string = "";
   canModalCloseable: boolean = true;
+  satirNo: number;
 
   constructor(private viewCtrl: ViewController,
               private params: NavParams,
@@ -59,6 +60,7 @@ export class HizmetDetayComponent {
       this.mlzIscKod = this.hizmetDetay.mlzIscKod;
       this.birimfiyat = this.hizmetDetay.tutar / this.hizmetDetay.miktar;
       this.aciklama = this.hizmetDetay.aciklama;
+      this.satirNo = this.hizmetDetay.satirNo;
       this.loadHizmetDetay();
     }
   }
@@ -79,9 +81,11 @@ export class HizmetDetayComponent {
     }
 
     if (this.canModalCloseable) {
-      let result = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
-      this.logger.dir(result);
-      this.closeModal();
+      this.hizmetService.saveAndFetchHizmet(this.hizmet).then(res => {
+        this.logger.dir(res);
+        this.closeModal();
+      });
+
     }
   }
 
@@ -101,15 +105,46 @@ export class HizmetDetayComponent {
   }
 
   async detayGuncelle() {
-    await this.fiyatBul();
-    this.hizmet.detayDtoList.filter(det => {
+    //await this.fiyatBul();
+    let silinecekDetayKayit: Hizmet;
+    debugger;
 
-      if (det.satirNo) {
-        det = this.hizmetDetay;
+    this.hizmet.detayDtoList.filter(det => {
+      if (det.satirNo == this.satirNo) {
+        silinecekDetayKayit = det;
+        // det = this.fillHizmetDetay();
       }
     });
+
+    this.deleteHizmetDetay(silinecekDetayKayit);
+    await this.yeniDetayKaydet();
   }
 
+  deleteHizmetDetay(item: any) {
+    let index = this.hizmet.detayDtoList.indexOf(item);
+
+    if (index > -1) {
+      this.hizmet.detayDtoList.splice(index, 1);
+    }
+  }
+
+  fillHizmetDetay(): DetayKayit {
+    let detay = new DetayKayit();
+    detay.satirNo = this.satirNo;
+    detay.birimFiyat = this.hizmetDetay.birimFiyat;
+    detay.garFiyat = this.hizmetDetay.garFiyat;
+    detay.tutar = this.hizmetDetay.tutar;
+    detay.islemKod = this.hizmetDetay.islemKod;
+    detay.arizaKod = this.hizmetDetay.arizaKod;
+    detay.mlzIscKod = this.hizmetDetay.mlzIscKod;
+    detay.aciklama = this.hizmetDetay.aciklama;
+    detay.miktar = this.hizmetDetay.miktar;
+    detay.garFiyat = this.hizmetDetay.garFiyat;
+    detay.birimFiyat = this.hizmetDetay.birimFiyat;
+    detay.tutar = this.hizmetDetay.tutar;
+    detay.garTutar = this.hizmetDetay.garTutar;
+    return detay;
+  }
 
   satirNoBelirle() {
     debugger;
@@ -126,15 +161,16 @@ export class HizmetDetayComponent {
         this.logger.table(item);
         this.hizmetDetay.birimFiyat = item.fiyat;
         this.hizmetDetay.garFiyat = item.gdfiyat;
-        this.hizmetDetay.tutar = this.hizmetDetay.miktar * this.hizmetDetay.birimFiyat;
+        this.hizmetDetay.tutar = Number(this.hizmetDetay.miktar) * Number(this.hizmetDetay.birimFiyat);
 
       } else {
         this.util.message("Fiyat Bulunamadı");
         this.canModalCloseable = false;
       }
     }
-    else
-      this.hizmetDetay.tutar = this.hizmetDetay.miktar * this.birimfiyat;
+    else {
+      this.hizmetDetay.tutar = Number(this.hizmetDetay.miktar) * Number(this.hizmetDetay.birimFiyat);
+    }
   }
 
   fiyatSorguParametreHazirla(): Fiyat {
@@ -247,8 +283,8 @@ export class HizmetDetayComponent {
     this.hizmetDetay.mlzIscKod = "";
     this.hizmetDetay.aciklama = "";
     this.hizmetDetay.miktar = 1;
-    this.hizmetDetay.garFiyat = "0";
-    this.hizmetDetay.birimFiyat = 0;
+    this.hizmetDetay.garFiyat = "1";
+    this.hizmetDetay.birimFiyat = 1;
     this.hizmetDetay.tutar = 0;
     this.hizmetDetay.garTutar = "0";
 

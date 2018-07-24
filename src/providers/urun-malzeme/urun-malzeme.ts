@@ -4,7 +4,6 @@ import {ApiProvider} from '../api/api';
 import {UrunMalzeme} from '../../entities/urun-malzeme';
 import {UrunMalzemeDao} from '../urun-malzeme-dao/urun-malzeme-dao';
 import {TokenProvider} from "../token/token";
-import {Constants} from "../../entities/Constants";
 import {UtilProvider} from "../util/util";
 import {Pageable} from "../../entities/Pageable";
 

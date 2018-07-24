@@ -65,7 +65,7 @@ export class UrunMalzemeDao {
     let searchQuery = [];
 
     if (this.util.isNotEmpty(filter.mamKod))
-      searchQuery.push(this.util.prepareWhereQuery(searchType, "mamKod", filter.mamKod));
+      searchQuery.push(this.util.prepareWhereQuery(Constants.SEARCH_TYPE.EXACT, "mamKod", filter.mamKod));
 
     if (this.util.isNotEmpty(filter.mlzKod))
       searchQuery.push(this.util.prepareWhereQuery(searchType, "mlzKod", filter.mamKod));
@@ -73,7 +73,7 @@ export class UrunMalzemeDao {
     if (this.util.isNotEmpty(filter.mlzAdi))
       searchQuery.push(this.util.prepareWhereQuery(searchType, "mlzAdi", filter.mlzAdi));
 
-    return this.util.prepareQuery(this.util.prepareWhereQuery(query, searchQuery, searchType))
+    return this.util.prepareQuery(query, searchQuery, searchType);
 
   }
 }

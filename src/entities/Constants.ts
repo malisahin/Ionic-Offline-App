@@ -25,7 +25,7 @@ export class Constants {
   };
 
   public static LENGTHS = {
-    HIZMET_LIST : "HIZMET_LIST_LENGTH"
+    HIZMET_LIST: "HIZMET_LIST_LENGTH"
   };
 
 
@@ -53,6 +53,13 @@ export class Constants {
   public static STATUS = {
     SUCCESS: "SUCCESS",
     ERROR: "ERROR"
+  };
+
+  public static DETAY_TIPI = {
+    MALZEME: "MLZ",
+    ISCILIK: "ISC",
+    YOL: "KM",
+    DIGER: "DGR"
   };
 
 
