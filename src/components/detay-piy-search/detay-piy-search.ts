@@ -10,6 +10,12 @@ import {UrunMalzemeProvider} from "../../providers/urun-malzeme/urun-malzeme";
 import {UrunMalzeme} from "../../entities/urun-malzeme";
 import {Constants} from "../../entities/Constants";
 
+class SearchItem {
+  key: string = "";
+  value: string = "";
+  data: any = {};
+}
+
 @Component({
   selector: "detay-piy-search",
   templateUrl: "detay-piy-search.html"
@@ -17,12 +23,8 @@ import {Constants} from "../../entities/Constants";
 export class DetayPiySearchComponent {
   text: string;
   data: any;
-  list: { key: "", value: "", data: {} }[] = [];
-  selectedItem: { key: "", value: "", data: {} } = {
-    key: "",
-    value: "",
-    data: {}
-  };
+  list: SearchItem[] = [];
+  selectedItem: { key: "", value: "", data: {} } = {key: "", value: "", data: {}};
   pageable: Pageable;
   searchText: string = "";
   searchType: string;
@@ -116,9 +118,9 @@ export class DetayPiySearchComponent {
   }
 
   getYol() {
-    this.list = [];
+
     let yolIsciligi = {key: "999988", value: "Yol İşçiliği"};
-    this.list.push({key: yolIsciligi.key, value: yolIsciligi.value, data: yolIsciligi});
+    this.list.push({key: "999988", value: "Yol İşçiliği", data: {}});
   }
 
   getDiger() {

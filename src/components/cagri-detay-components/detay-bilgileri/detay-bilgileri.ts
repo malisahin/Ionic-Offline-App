@@ -117,7 +117,7 @@ export class DetayBilgileriComponent {
     let detayModal = this.modalCtrl.create(HizmetDetayComponent,
       {data: {hizmetDetay: item}},
       {cssClass: this.util.getSelectedTheme()}
-      );
+    );
     detayModal.onDidDismiss(res => {
       this.logger.dir(res);
       this.updateHizmet('NEW');
@@ -143,7 +143,7 @@ export class DetayBilgileriComponent {
   async kapat(durum: string) {
     let result = this.kapatmaKontrol();
     if (result.isErrorMessagesNull()) {
-      let kapatmaHizmet = this.hizmet;
+      let kapatmaHizmet = this.hizmetProvider.fillHizmet(this.hizmet);
 
       if (!this.verilerSunucuyaKayitEdildiMi) {
         kapatmaHizmet = this.sunucuyaKayitIcinHazirla(kapatmaHizmet);
@@ -173,6 +173,8 @@ export class DetayBilgileriComponent {
         this.kapat(DURUM.KAPALI);
     }
     if (this.util.isNotEmpty(res.responseCode) && res.responseCode == "SUCCESS" && this.util.isNotEmpty(res.description) && res.description == "CLOSED") {
+
+      this.fillHizmet(res);
       this.hizmet.durum = DURUM.KAPALI;
       this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
       this.navigate("CagrilarPage", "Çağrı Kayıt Edildi.")
@@ -181,7 +183,9 @@ export class DetayBilgileriComponent {
 
   async siparisOlustur() {
     this.util.loaderStart();
-    let res = await this.hizmetProvider.updateCagri(this.hizmet, "EVET");
+    let siparisHizmet = this.hizmetProvider.fillHizmet(this.hizmet);
+    siparisHizmet = this.sunucuyaKayitIcinHazirla(siparisHizmet);
+    let res = await this.hizmetProvider.updateCagri(siparisHizmet, "EVET");
 
     if (this.util.isOnline()) {
       this.setSiparisOlusturmaSonuc(res);
@@ -195,14 +199,20 @@ export class DetayBilgileriComponent {
     if (this.util.isNotEmpty(res) && this.util.isNotEmpty(res.responseCode)) {
       if (res.responseCode == "FAIL") {
         this.util.error(res.description);
-
+        this.fillHizmet(res);
       } else if (res.responseCode == "SUCCESS") {
         this.util.message(res.description);
+        this.fillHizmet(res);
 
       } else {
         this.util.error("Sipariş oluşturmada bir hata oluştu.");
       }
     }
+  }
+
+  fillHizmet(res) {
+    if (this.util.isNotEmpty(res.message))
+      this.hizmet = this.hizmetProvider.fillHizmet(res.message);
   }
 
   async updateHizmet(nerden: string) {

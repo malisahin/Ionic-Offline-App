@@ -63,8 +63,8 @@ export class UtilProvider {
   message(message: string) {
     let toast = this.toast.create({
       message: message,
-      duration: 2000,
-      position: 'top',
+      duration: 3000,
+      position: 'top'
     });
     toast.present();
   }

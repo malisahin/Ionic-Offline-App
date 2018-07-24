@@ -106,7 +106,7 @@ export class HizmetDetayComponent {
 
   async detayGuncelle() {
     //await this.fiyatBul();
-    let silinecekDetayKayit: Hizmet;
+    let silinecekDetayKayit: DetayKayit = new DetayKayit();
     debugger;
 
     this.hizmet.detayDtoList.filter(det => {
