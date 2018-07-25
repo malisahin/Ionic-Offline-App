@@ -31440,6 +31440,7 @@ page-cagrilar #btnCagriGuncelle {
 
 page-cagrilar .adres-box {
   float: left;
+  margin-right: 10px;
 }
 
 page-cagri-arama-modal #btnModalAra {

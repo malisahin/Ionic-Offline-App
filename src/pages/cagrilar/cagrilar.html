@@ -27,6 +27,12 @@
   </ion-row>
 
   <ion-card *ngFor="let cagri of cagrilar" (click)="cagriDetayinaGit($event, cagri.seqNo)" class="card-box">
+    <p class="call-date">
+      <strong>
+        <i class="far fa-clock"></i>
+        {{cagri.randevuTarihi | date: 'dd-MM-yyyy HH:mm'}}
+      </strong>
+    </p>
     <label>
       <strong>
         <i class="fas fa-user"></i>
@@ -41,57 +47,50 @@
       <i class="fas fa-phone"></i>
       {{cagri.gsmNo}} | {{cagri.evTel}} | {{cagri.evTel}}
     </p>
-    <p class="call-date">
-      <strong>
-        <i class="far fa-clock"></i>
-        {{cagri.randevuTarihi | date: 'dd-MM-yyyy HH:mm'}}
-      </strong>
-    </p>
+
     <p>
       <i class="fas fa-location-arrow adres-box"></i>
-      <ion-label class="adres-box" *ngIf="cagri.semt != null && cagri.semt != ''">
-        <strong>Semt:</strong> {{cagri.semt}}
-      </ion-label>
+      <span class="adres-box" *ngIf="cagri.semt != null && cagri.semt != ''">
+        Semt: {{cagri.semt}}
+      </span>
 
-      <ion-label class="adres-box" *ngIf="cagri.mahalleAdi != null && cagri.mahalleAdi !=''">
-        <strong>Mahalle:</strong> {{cagri.mahalleAdi}}
-      </ion-label>
+      <span class="adres-box" *ngIf="cagri.mahalleAdi != null && cagri.mahalleAdi !=''">
+        Mahalle: {{cagri.mahalleAdi}}
+      </span>
 
-      <ion-label class="adres-box" *ngIf="cagri.cadde != null && cagri.cadde !=''">
-        <strong>Cadde:</strong> {{cagri.cadde}}
-      </ion-label>
+      <span class="adres-box" *ngIf="cagri.cadde != null && cagri.cadde !=''">
+        Cadde: {{cagri.cadde}}
+      </span>
 
-      <ion-label class="adres-box" *ngIf="cagri.sokak != null && cagri.sokak !=''">
-        <strong>Sokak:</strong> {{cagri.sokak}}
-      </ion-label>
+      <span class="adres-box" *ngIf="cagri.sokak != null && cagri.sokak !=''">
+        Sokak: {{cagri.sokak}}
+      </span>
 
-      <ion-label class="adres-box" *ngIf="cagri.aparman!= null && cagri.aparman !=''">
-        <strong>Apartman:</strong> {{cagri.aparman}} {{cagri.apartmanNo}}
-      </ion-label>
+      <span class="adres-box" *ngIf="cagri.aparman!= null && cagri.aparman !=''">
+        Apartman: {{cagri.aparman}} {{cagri.apartmanNo}}
+      </span>
 
 
-      <ion-label class="adres-box" *ngIf="cagri.apartmanNo!= null && cagri.apartmanNo !=''">
+      <span class="adres-box" *ngIf="cagri.apartmanNo!= null && cagri.apartmanNo !=''">
         {{cagri.apartmanNo}}
-      </ion-label>
+      </span>
 
-      <ion-label class="adres-box" *ngIf="cagri.blok != null && cagri.blok!=''">
-        <strong>Blok:</strong> {{cagri.blok}}
-      </ion-label>
+      <span class="adres-box" *ngIf="cagri.blok != null && cagri.blok!=''">
+        Blok: {{cagri.blok}}
+      </span>
 
 
-      <ion-label class="adres-box" *ngIf="cagri.daireNo != null && cagri.daireNo!=''">
-        <strong>Daire No:</strong> {{cagri.daireNo}}
-      </ion-label>
+      <span class="adres-box" *ngIf="cagri.daireNo != null && cagri.daireNo!=''">
+        Daire No: {{cagri.daireNo}}
+      </span>
 
-    </p>
-    <br>
-    <p>
-      <ion-label class="adres-box" *ngIf="cagri.ilceAdi != null && cagri.ilceAdi!=''">
+      <span class="adres-box" *ngIf="cagri.ilceAdi != null && cagri.ilceAdi!=''">
         {{cagri.ilceAdi}}
-      </ion-label>
-      <ion-label class="adres-box" *ngIf="cagri.sehir != null && cagri.sehir!=''">
+      </span>
+
+      <span class="adres-box" *ngIf="cagri.sehir != null && cagri.sehir!=''">
         /{{cagri.sehir}}
-      </ion-label>
+      </span>
     </p>
   </ion-card>
 </ion-content>
@@ -101,12 +100,10 @@
   <ion-row>
 
     <ion-col col-4 col-md-2>
-      <button ion-button color="light" (click)="fetchList('FIRST')"
-              *ngIf="!pageable.isFirstPage">
+      <button ion-button color="light" (click)="fetchList('FIRST')" *ngIf="!pageable.isFirstPage">
         <ion-icon name="arrow-dropleft"></ion-icon>
       </button>
-      <button ion-button color="light" (click)="fetchList('PREVIOUS')"
-              *ngIf="!pageable.isFirstPage">
+      <button ion-button color="light" (click)="fetchList('PREVIOUS')" *ngIf="!pageable.isFirstPage">
         <ion-icon name="arrow-back"></ion-icon>
       </button>
     </ion-col>
@@ -120,13 +117,11 @@
     </ion-col>
 
     <ion-col col-4 col-md-2>
-      <button ion-button color="light" (click)="fetchList('NEXT')"
-              *ngIf="!pageable.isLastPage">
+      <button ion-button color="light" (click)="fetchList('NEXT')" *ngIf="!pageable.isLastPage">
         <ion-icon name="arrow-forward"></ion-icon>
       </button>
 
-      <button ion-button color="light" (click)="fetchList('LAST')"
-              *ngIf="!pageable.isLastPage">
+      <button ion-button color="light" (click)="fetchList('LAST')" *ngIf="!pageable.isLastPage">
         <ion-icon name="arrow-dropright"></ion-icon>
       </button>
     </ion-col>
