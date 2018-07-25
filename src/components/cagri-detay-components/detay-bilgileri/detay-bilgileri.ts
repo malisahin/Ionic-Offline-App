@@ -109,7 +109,7 @@ export class DetayBilgileriComponent {
       });
       detayModal.present();
     } else {
-      this.util.message('Ürün bilgisi seçilmeden detay girilemez.');
+      this.util.warn('Ürün bilgisi seçilmeden detay girilemez.');
     }
   }
 
@@ -201,7 +201,7 @@ export class DetayBilgileriComponent {
         this.util.error(res.description);
         this.fillHizmet(res);
       } else if (res.responseCode == "SUCCESS") {
-        this.util.message(res.description);
+        this.util.success(res.description);
         this.fillHizmet(res);
 
       } else {

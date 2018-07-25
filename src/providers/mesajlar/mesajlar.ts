@@ -19,11 +19,11 @@ export class MesajlarProvider {
   }
 
   setAlertFirst() {
-    this.util.message("Token  is Ok");
+    this.util.success("Token  is Ok");
   }
 
   setAlertLast() {
-    this.util.message("Notifications is Ok");
+    this.util.success("Notifications is Ok");
   }
 
   async getDataFromApi(calledFrom: string): Promise<any> {

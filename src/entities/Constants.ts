@@ -12,6 +12,10 @@ export class Constants {
 
   public static API_PAGE_SIZE = 10000;
 
+  public static  MESSAGE_DURATION = "MESSAGE_DURATION";
+
+  public static  DEFAULT_MESSAGE_DURATION = "3";
+
   public static CALLED_FROM = {
     TASKS: "TASKS",
     BILDIRIMLER_PAGE: "BILDIRIMLER_PAGE"

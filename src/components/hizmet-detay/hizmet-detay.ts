@@ -164,7 +164,7 @@ export class HizmetDetayComponent {
         this.hizmetDetay.tutar = Number(this.hizmetDetay.miktar) * Number(this.hizmetDetay.birimFiyat);
 
       } else {
-        this.util.message("Fiyat Bulunamadı");
+        this.util.info("Fiyat Bulunamadı");
         this.canModalCloseable = false;
       }
     }

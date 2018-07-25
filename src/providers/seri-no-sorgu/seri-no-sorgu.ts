@@ -22,7 +22,6 @@ export class SeriNoSorguProvider {
 
 
   public async fetchData(mamKod: string): Promise<any> {
-    if (this.util.isNotEmpty(mamKod)) {
       let url = this.api.seriNoSorguUrl(mamKod);
       this.logger.warn(url);
       let header = await this.tokenProvider.callTokenAndGetHeader();
@@ -34,9 +33,5 @@ export class SeriNoSorguProvider {
       } else {
         this.util.ifOffline();
       }
-
-    } else {
-      this.util.error("Seri No alanı sorgu için zorunludur.");
-    }
   }
 }

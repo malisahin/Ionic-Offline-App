@@ -1,11 +1,11 @@
-import { Constants } from './../../entities/Constants';
-import { Injectable, forwardRef } from '@angular/core';
-import { ToastController, LoadingController, Loading } from 'ionic-angular';
+import {Constants} from './../../entities/Constants';
+import {Injectable, forwardRef} from '@angular/core';
+import {ToastController, LoadingController, Loading} from 'ionic-angular';
 import moment from 'moment';
-import { ProcessResults } from "../../entities/ProcessResults"
-import { Network } from '@ionic-native/network';
-import { LoggerProvider } from "../logger/logger";
-import { User } from "../../entities/user";
+import {ProcessResults} from "../../entities/ProcessResults"
+import {Network} from '@ionic-native/network';
+import {LoggerProvider} from "../logger/logger";
+import {User} from "../../entities/user";
 
 
 @Injectable()
@@ -15,11 +15,17 @@ export class UtilProvider {
   private isLoaderRunning: boolean = false;
 
   constructor(private toast: ToastController,
-    private network: Network,
-    private logger: LoggerProvider,
-    private loadingController: LoadingController) {
+              private network: Network,
+              private logger: LoggerProvider,
+              private loadingController: LoadingController) {
     moment.locale('tr');
+    this.init();
   }
+
+  init() {
+
+  }
+
 
   isEmpty(item: any): boolean {
     if (typeof item == "number")
@@ -60,11 +66,23 @@ export class UtilProvider {
     return query;
   }
 
-  message(message: string) {
+  getDuration() {
+    let duration = localStorage.getItem(Constants.MESSAGE_DURATION);
+    if (this.isEmpty(duration)) {
+      duration = Constants.DEFAULT_MESSAGE_DURATION;
+      localStorage.setItem(Constants.MESSAGE_DURATION, duration);
+    }
+
+    return Number(duration) * 1000;
+
+  }
+
+  success(message: string) {
     let toast = this.toast.create({
       message: message,
-      duration: 3000,
-      position: 'top'
+      duration: this.getDuration(),
+      position: 'top',
+      cssClass: 'toast-success'
     });
     toast.present();
   }
@@ -73,8 +91,9 @@ export class UtilProvider {
   info(message: string) {
     let toast = this.toast.create({
       message: message,
-      duration: 2000,
+      duration: this.getDuration(),
       position: 'top',
+      cssClass: 'toast-info'
     });
     toast.present();
   }
@@ -82,8 +101,9 @@ export class UtilProvider {
   warn(message: string) {
     let toast = this.toast.create({
       message: message,
-      duration: 3000,
+      duration: this.getDuration(),
       position: 'top',
+      cssClass: 'toast-warn'
     });
     toast.present();
   }
@@ -91,8 +111,9 @@ export class UtilProvider {
   error(message: string) {
     let toast = this.toast.create({
       message: message,
-      duration: 2000,
+      duration: this.getDuration(),
       position: 'top',
+      cssClass: 'toast-error'
     });
     toast.present();
   }
@@ -133,7 +154,6 @@ export class UtilProvider {
   ifOffline() {
     this.error("Bu işlemi yapabilmek için internet bağlantısı gereklidir.");
     this.loaderEnd();
-
   }
 
 
@@ -234,7 +254,7 @@ export class UtilProvider {
 
   loaderStart() {
     if (!this.isLoaderRunning) {
-      this.loader = this.loadingController.create({ spinner: 'dots' });
+      this.loader = this.loadingController.create({spinner: 'dots'});
       this.isLoaderRunning = true;
       this.loader.present();
     }

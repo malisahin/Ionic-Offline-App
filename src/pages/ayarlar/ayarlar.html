@@ -8,20 +8,6 @@
 
 <ion-content class="content">
 
-  <ion-title class="page-title">Ayarlar</ion-title>
-
-  <!--  <ion-toolbar class="main-tabs">
-      <ion-segment [(ngModel)]="activePage">
-        <ion-segment-button value="silme" class="seg-button">
-          Silme Işlemleri
-        </ion-segment-button>
-       &lt;!&ndash; <ion-segment-button value="versiyon" class="seg-button">
-          Versiyon
-        </ion-segment-button>&ndash;&gt;
-      </ion-segment>
-    </ion-toolbar>-->
-  <!--  <div [ngSwitch]="activePage">
-      <div *ngSwitchCase="'silme'">-->
   <ion-row>
     <ion-col col-12 col-md-12>
       <ion-title class="page-title"> Silme Işlemleri</ion-title>
@@ -126,7 +112,7 @@
       <ion-label>Senkronize Süresi(Dakika)</ion-label>
     </ion-col>
     <ion-col col-6 col-md-9>
-      <ion-select [(ngModel)]="syncTime" interface="popover" (ionChange)="onChangeSyncTime('OUT')">
+      <ion-select [(ngModel)]="syncTime" interface="popover" (ionChange)="onChangeSyncTime('HTML')">
         <ion-option value="0.5">0.5</ion-option>
         <ion-option value="1">1</ion-option>
         <ion-option value="2">2</ion-option>
@@ -143,15 +129,38 @@
     </ion-col>
 
 
-    <ion-col col-12 col-md-12>
+    <ion-col col-6 col-md-3>
+      <ion-label>Tema Seçiniz</ion-label>
+    </ion-col>
+    <ion-col col-6 col-md-9>
       <ion-select [(ngModel)]="selectedTheme" interface="popover" (ionChange)="onChangeTheme()">
         <ion-option value="BLUE">Mavi</ion-option>
         <ion-option value="GREEN">Yeşil</ion-option>
       </ion-select>
     </ion-col>
   </ion-row>
- <!-- </div>
--->
+
+  <ion-row>
+    <ion-col col-12 col-md-12>
+      <ion-title class="page-title"> Mesaj Süresi</ion-title>
+    </ion-col>
+
+    <ion-col col-6 col-md-3>
+      <ion-label>Uyarı Süresi(Saniye)</ion-label>
+    </ion-col>
+    <ion-col col-6 col-md-6>
+      <ion-select [(ngModel)]="messageDuration" interface="popover" (ionChange)="onChangeMessageDuration('HTML')">
+        <ion-option value="2">2</ion-option>
+        <ion-option value="3">3</ion-option>
+        <ion-option value="4">4</ion-option>
+        <ion-option value="5">5</ion-option>
+        <ion-option value="10">10</ion-option>
+        <ion-option value="20">20</ion-option>
+      </ion-select>
+    </ion-col>
+  </ion-row>
+  <!-- </div>
+ -->
   <!-- <div *ngSwitchCase="'versiyon'" class="versiyon">
      <button ion-button primary round full>Ürünler</button>
 

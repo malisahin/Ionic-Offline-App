@@ -92,11 +92,11 @@ export class LoginPage {
 
   checkLoginInfo() {
     if (this.util.isEmpty(this.userCode)) {
-      this.util.message("Kullanıcı Adı boş olamaz.");
+      this.util.warn("Kullanıcı Adı boş olamaz.");
       return false;
     }
     if (this.util.isEmpty(this.password)) {
-      this.util.message("Şifre boş olamaz.");
+      this.util.warn("Şifre boş olamaz.");
       return false;
     }
   }
@@ -114,10 +114,10 @@ export class LoginPage {
     let checkAuth = await this.checkAuth();
     if (checkAuth) {
       this.hasLoginPermission = true;
-      this.util.message("Cihazınız offline mod ile çalışmaya devam edecek.");
+      this.util.info("Cihazınız offline mod ile çalışmaya devam edecek.");
     }
     else {
-      this.util.message("Girmiş olduğunuz bilgilere ait bir kullanıcı bulunamadı.");
+      this.util.info("Girmiş olduğunuz bilgilere ait bir kullanıcı bulunamadı.");
     }
   }
 

@@ -365,7 +365,7 @@ export class GuncellemePage {
     this.colors[type] = "downloaded";
     this.icons[type] = "done-all";
     setTimeout(() => {
-      this.util.message(message);
+      this.util.success(message);
     }, 500);
     this.onComplete();
   }

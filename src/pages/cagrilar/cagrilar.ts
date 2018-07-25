@@ -104,7 +104,7 @@ export class CagrilarPage {
     await this.cagriProvider.downloadCagriList().then(res => {
       if (this.util.isNotEmpty(res)) {
         this.fetchList(this.searchType);
-        this.util.message("Çağrılar Güncellendi.");
+        this.util.success("Çağrılar Güncellendi.");
       }
     });
     this.util.loaderEnd();

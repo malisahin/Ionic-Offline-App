@@ -67,7 +67,7 @@ export class FiyatSorguComponent {
   public urunIscilikSorgula() {
     this.fiyat = new Fiyat();
     if (this.util.isEmpty(this.urun.mamKod)) {
-      this.util.message("Önce ürünü seçiniz.");
+      this.util.warn("Önce ürünü seçiniz.");
       return false;
     }
     this.data.type = Constants.DATA_TYPE.URUN_ISCILIK;
@@ -93,7 +93,7 @@ export class FiyatSorguComponent {
 
   private iscilikFiyatSorgula() {
     if (this.util.isEmpty(this.urun.mamKod) || this.util.isEmpty(this.urunIscilik.iscKod)) {
-      this.util.message("Önce İşçilik/Malzeme seçiniz.");
+      this.util.warn("Önce İşçilik/Malzeme seçiniz.");
     } else {
       this.logger.warn("Işçilik Fiyat Bulma");
       this.fiyatBul(this.urun.mamKod, this.urunIscilik.iscKod)
@@ -119,7 +119,7 @@ export class FiyatSorguComponent {
 
   private malzemeFiyatSorgula() {
     if (this.util.isEmpty(this.urun.mamKod)) {
-      this.util.message("Önce Ürün/Kodu seçiniz.");
+      this.util.warn("Önce Ürün/Kodu seçiniz.");
     } else {
       this.fiyatBul("MLZ", this.urun.mamKod);
     }

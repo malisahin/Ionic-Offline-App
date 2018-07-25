@@ -52,7 +52,7 @@ export class TokenProvider {
       localStorage.setItem(Constants.IS_ONLINE, String(false));
       this.logger.error(e);
       if (e.error.error == "invalid_grant") {
-        this.util.message("Giriş bilgileriniz yanlış lütfen kontrol ediniz.");
+        this.util.error("Giriş bilgileriniz yanlış lütfen kontrol ediniz.");
         localStorage.setItem(Constants.LOGGED_IN, String(false));
       } else {
         //this.logger.error("Bağlantı hatası.");

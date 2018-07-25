@@ -50,7 +50,7 @@ export class GarantiSorguProvider {
       );
       aramaModal.present();
     } else {
-      this.util.message(res.description);
+      this.util.error(res.description);
     }
 
   }

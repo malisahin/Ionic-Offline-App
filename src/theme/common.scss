@@ -1,0 +1,32 @@
+$toast-info-color: #2f96b4;
+$toast-success-color: #51a351;
+$toast-error-color: #bd362f;
+$toast-warn-color: #f89406;
+
+.toast-info {
+  .toast-container {
+    background-color: $toast-info-color;
+    text-align: center;
+  }
+}
+
+.toast-success {
+  .toast-container {
+    background-color: $toast-success-color;
+    text-align: center;
+  }
+}
+
+.toast-error {
+  .toast-container {
+    background-color: $toast-error-color;
+    text-align: center;
+  }
+}
+
+.toast-warn {
+  .toast-container {
+    background-color: $toast-warn-color;
+    text-align: center;
+  }
+}

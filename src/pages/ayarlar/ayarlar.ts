@@ -31,6 +31,7 @@ export class AyarlarPage {
   DEFAULT_SYNC_TIME: number = 2;
 
   selectedTheme: string;
+  messageDuration: number;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -41,69 +42,70 @@ export class AyarlarPage {
               private  hizmetDao: HizmetDao,
               private themeProvider: ThemeProvider,
               private logger: LoggerProvider) {
-    this.onChangeSyncTime('IN');
+    this.onChangeSyncTime('TS');
     this.selectedTheme = this.themeProvider.getSelectedTheme();
     this.onChangeTheme();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AyarlarPage');
+    this.onChangeMessageDuration('TS');
   }
 
   async  deleteUrunler() {
     await  this.baseDao.deleteAll(Constants.DATA_TYPE.URUN);
-    this.util.message("Ürün Listesi Silindi");
+    this.util.info("Ürün Listesi Silindi");
   }
 
   async deleteUrunAnaGrup() {
     await  this.baseDao.deleteAll(Constants.DATA_TYPE.URUN_ANA_GRUP);
-    this.util.message("Ürün Ana Grup Listesi Silindi");
+    this.util.info("Ürün Ana Grup Listesi Silindi");
   }
 
   async deleteUrunIscilik() {
     await  this.baseDao.deleteAll(Constants.DATA_TYPE.URUN_ISCILIK);
-    this.util.message("Ürün Ana Grup Listesi Silindi");
+    this.util.info("Ürün Ana Grup Listesi Silindi");
   }
 
   async deleteUrunMalzeme() {
     await this.baseDao.deleteAll(Constants.DATA_TYPE.URUN_MALZEME);
-    this.util.message("Ürün Malzeme Listesi Silindi");
+    this.util.info("Ürün Malzeme Listesi Silindi");
   }
 
   async deleteIslemArizaIscilik() {
     await  this.baseDao.deleteAll(Constants.DATA_TYPE.ISLEM_ARIZA_ISCILIK);
-    this.util.message("Işlem Arıza İşçilik Listesi Silindi");
+    this.util.info("Işlem Arıza İşçilik Listesi Silindi");
   }
 
   async deleteMalzemeFiyat() {
     await this.fiyatDao.deleteAllByTip(Constants.DATA_TYPE.MALZEME_FIYAT);
-    this.util.message("Malzeme Fiyat Listesi Silindi");
+    this.util.info("Malzeme Fiyat Listesi Silindi");
   }
 
   async deleteIscilikFiyat() {
     await this.fiyatDao.deleteAllByTip(Constants.DATA_TYPE.ISCILIK_FIYAT);
-    this.util.message("Işçilik Fiyat Listesi Silindi");
+    this.util.info("Işçilik Fiyat Listesi Silindi");
   }
 
   async deleteSehirList() {
     await  this.baseDao.deleteAll(Constants.DATA_TYPE.SEHIR_TNM);
-    this.util.message("Şehir Listesi Silindi");
+    this.util.info("Şehir Listesi Silindi");
   }
 
   async deleteIlceList() {
     await  this.baseDao.deleteAll(Constants.DATA_TYPE.ILCE_TNM);
-    this.util.message("Ilçe Listesi Silindi");
+    this.util.info("Ilçe Listesi Silindi");
   }
 
   async deleteMahalleList() {
     await  this.baseDao.deleteAll(Constants.DATA_TYPE.MAHALLE_TNM);
-    this.util.message("Mahalle Listesi Silindi");
+    this.util.info("Mahalle Listesi Silindi");
   }
 
   async  deleteAllServices() {
 
     await  this.hizmetDao.deleteList();
-    this.util.message("Çağrı Listesi Silindi");
+    this.util.info("Çağrı Listesi Silindi");
     setTimeout(() => {
       this.navCtrl.push(CagrilarPage)
     }, 500);
@@ -120,7 +122,7 @@ export class AyarlarPage {
     await this.deleteSehirList();
     await this.deleteIlceList();
     await this.deleteMahalleList();
-    this.util.message("Tüm Kayıtlar Silindi.");
+    this.util.info("Tüm Kayıtlar Silindi.");
     setTimeout(() => {
       this.navCtrl.push(GuncellemePage)
     }, 500);
@@ -137,8 +139,8 @@ export class AyarlarPage {
       }
     } else {
       localStorage.setItem(Constants.SYNC.TIME, String(this.syncTime));
-      if (nerden == 'OUT') {
-        this.util.message("Senkronize süresi değiştirildi. Atanan değer " + String(this.syncTime) + " dk.");
+      if (nerden == 'HTML') {
+        this.util.success("Senkronize süresi değiştirildi. Atanan değer " + String(this.syncTime) + " dk.");
         this.tasks.killAndStartTasks();
       }
     }
@@ -153,6 +155,28 @@ export class AyarlarPage {
       this.logger.log("Tema değiştirildi. Yeni tema" + this.selectedTheme);
       this.themeProvider.changeTheme(this.selectedTheme);
     }
+  }
+
+  onChangeMessageDuration(nerden: string) {
+    if (this.util.isEmpty(this.messageDuration)) {
+      let duration = localStorage.getItem(Constants.MESSAGE_DURATION);
+      if (this.util.isEmpty(duration)) {
+        duration = Constants.DEFAULT_MESSAGE_DURATION;
+        localStorage.setItem(Constants.MESSAGE_DURATION, duration);
+      }
+      this.messageDuration = Number(duration);
+    }
+
+    if (nerden == "HTML") {
+
+      localStorage.setItem(Constants.MESSAGE_DURATION, String(this.messageDuration));
+
+      let degisimSonrasiUyari = "Uyarı Süresi Değiştirildi. Atanan Değer : " + this.messageDuration;
+      this.util.success(degisimSonrasiUyari);
+      this.logger.info(degisimSonrasiUyari);
+    }
+
+
   }
 
 }

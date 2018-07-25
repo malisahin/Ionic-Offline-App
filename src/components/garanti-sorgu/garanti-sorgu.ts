@@ -64,14 +64,14 @@ export class GarantiSorguComponent {
 
   garantiSorgula() {
     if (this.util.isEmpty(this.faturaTarihi)) {
-      this.util.message("Fatura tarihi boş bırakılamaz");
+      this.util.error("Fatura tarihi boş bırakılamaz");
       return false;
     }
     if (this.util.isEmpty(this.barkodNo)) {
-      this.util.message("Barkod No Boş bırakılamaz");
+      this.util.error("Barkod No Boş bırakılamaz");
       return false;
     }
-    this.util.message("Garanti Sorgulandı");
+    this.util.success("Garanti Sorgulandı");
     let sorguData = new GarantiSorgu();
     let user = new User();
     sorguData.mamKod = this.urun.mamKod;

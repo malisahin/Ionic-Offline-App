@@ -114,13 +114,13 @@ export class UrunBilgileriComponent {
 
   async urunSil() {
     if (this.util.isNotEmpty(this.hizmet.detayDtoList) && this.hizmet.detayDtoList.length > 0) {
-      this.util.message("Ürüne bağlı Parça/İşçilik/Yol mevcut.Silinemez.");
+      this.util.error("Ürüne bağlı Parça/İşçilik/Yol mevcut.Silinemez.");
       return false;
     }
 
     this.hizmet.mamKod = "";
     this.hizmet.mamAdi = "";
-    this.hizmet.mamSeriNo="";
+    this.hizmet.mamSeriNo = "";
     this.saveHizmet();
   }
 
@@ -137,20 +137,23 @@ export class UrunBilgileriComponent {
   }
 
   async seriNoSorgula() {
-    let res = await this.seriNoSorguProvider.fetchData(this.hizmet.mamSeriNo);
-    this.logger.warn(res);
+    debugger;
+    if (this.util.isNotEmpty(this.hizmet.mamSeriNo)) {
+      let res = await this.seriNoSorguProvider.fetchData(this.hizmet.mamSeriNo);
+      this.logger.warn(res);
 
-    if (this.util.isOnline()) {
-      this.setSeriSorguResult(res);
+      if (this.util.isOnline()) {
+        this.setSeriSorguResult(res);
 
+      } else {
+        this.util.ifOffline();
+      }
     } else {
-      this.util.ifOffline();
+      this.util.error("Seri No alanı sorgu için zorunludur.");
     }
-
   }
 
   async setSeriSorguResult(res) {
-
     if (this.util.isNotEmpty(res) && this.util.isNotEmpty(res.message)) {
       let item = res.message[0];
 

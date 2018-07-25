@@ -47,11 +47,11 @@ export class ZebraPrinterComponent {
   }
 
   fnSuccess() {
-    this.util.message("Hizmet Formu çıktısı başarılı bir şekilde alındı.");
+    this.util.success("Hizmet Formu çıktısı başarılı bir şekilde alındı.");
   }
 
   fnError() {
-    this.util.message("Çıktı alınırken hata oluştu.");
+    this.util.error("Çıktı alınırken hata oluştu.");
   }
 
   androidList() {

@@ -43,7 +43,7 @@ export class BildirimlerPage {
     let res = await this.mesajProvider.getDataFromApi(Constants.CALLED_FROM.BILDIRIMLER_PAGE);
     await this.fetchList(this.searchTip);
     if (this.util.isOnline())
-      this.util.message(this.mesajBaslik + " güncellenmiştir.");
+      this.util.success(this.mesajBaslik + " güncellenmiştir.");
   }
 
   ionViewDidLoad() {

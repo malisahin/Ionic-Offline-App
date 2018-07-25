@@ -1,299 +1,287 @@
-
 $color-darkBlue: #004154;
-$color-blue:#0081db;
+$color-blue: #0081db;
 $color-lightBlue: #9cc0da;
-$color-white:#ffffff;
-$color-red:#ff0000;
-$color-green:#41a85f;
-$color-gray:#f1f1f1;
+$color-white: #ffffff;
+$color-red: #ff0000;
+$color-green: #41a85f;
+$color-gray: #f1f1f1;
 
-.blue-theme{
+.blue-theme {
 
-//*------- START:HEADER -----*//
-    .header{
+  //*------- START:HEADER -----*//
+  .header {
 
-        button.disable-hover.bar-button.bar-button-ios.bar-button-default.bar-button-default-ios{
-            color:$color-white;
-        }
-
-        .toolbar-background-md, .toolbar-background-ios{
-            border-color:$color-darkBlue;
-            background: $color-darkBlue;
-        }
-
-        .modal-title .toolbar-title-ios, .modal-title .close-icon, .modal-title .toolbar-title-md{
-            color:$color-white;
-        }
-
-        .header-title{
-            .toolbar-title.toolbar-title-md{
-                color:red;
-            }
-
-            .toolbar-title-ios{
-                color:$color-darkBlue;
-
-            }
-        }
-
-        .tabs-ios-primary .tabbar, .tabs-md-primary .tabbar{
-            border-color: $color-darkBlue;
-            background-color: $color-darkBlue;
-        } 
-
-        .toolbar-title-md, .toolbar-title-ios{
-            color: $color-darkBlue;
-           
-        }
-
-        .header-title .toolbar-title-ios{
-             color: $color-darkBlue;
-        }
-        
+    button.disable-hover.bar-button.bar-button-ios.bar-button-default.bar-button-default-ios {
+      color: $color-white;
     }
 
-    .ion-page{
-        .header-title .toolbar-title-ios{
-            color: $color-darkBlue;
-       } 
+    .toolbar-background-md, .toolbar-background-ios {
+      border-color: $color-darkBlue;
+      background: $color-darkBlue;
     }
 
-    .header-bar{
-        .bar-button-default-md,.bar-button-default-ios{
-            color:$color-white;
-        }
-       
+    .modal-title .toolbar-title-ios, .modal-title .close-icon, .modal-title .toolbar-title-md {
+      color: $color-white;
     }
 
+    .header-title {
+      .toolbar-title.toolbar-title-md {
+        color: red;
+      }
 
-//*------- END:HEADER -----*//
+      .toolbar-title-ios {
+        color: $color-darkBlue;
 
+      }
+    }
 
-//*------- START:LOGIN-CONTENT -----*//
-.login-content, {
+    .tabs-ios-primary .tabbar, .tabs-md-primary .tabbar {
+      border-color: $color-darkBlue;
+      background-color: $color-darkBlue;
+    }
+
+    .toolbar-title-md, .toolbar-title-ios {
+      color: $color-darkBlue;
+
+    }
+
+    .header-title .toolbar-title-ios {
+      color: $color-darkBlue;
+    }
+
+  }
+
+  .ion-page {
+    .header-title .toolbar-title-ios {
+      color: $color-darkBlue;
+    }
+  }
+
+  .header-bar {
+    .bar-button-default-md, .bar-button-default-ios {
+      color: $color-white;
+    }
+
+  }
+
+  //*------- END:HEADER -----*//
+
+  //*------- START:LOGIN-CONTENT -----*//
+  .login-content {
 
     .submit-btn {
-        background: $color-blue;
-       }
-
-       .button-ios-secondary, .button-md-secondary, .button-md-secondary:hover:not(.disable-hover){
-        background: $color-blue;
-       }
-
-       input{
-        border: 1px solid $color-white;
-        color : $color-white;
-       }
-
-       input::placeholder{
-        color: $color-white;
+      background: $color-blue;
     }
 
-    .password-icon{
-        color: $color-white;
+    .button-ios-secondary, .button-md-secondary, .button-md-secondary:hover:not(.disable-hover) {
+      background: $color-blue;
     }
 
-    .logo ion-icon{
-        color: $color-white;
+    input {
+      border: 1px solid $color-white;
+      color: $color-white;
     }
 
-    .toolbar-background{
-        background:  $color-white;
+    input::placeholder {
+      color: $color-white;
     }
 
-    .text-input{
-        border: 1px solid  $color-white;
-    }
-}
-//*------- END:LOGIN-CONTENT -----*//
-
-
-//*------- START:CONTENT -----*//
-
-
-.content{
-
-    .toolbar-background-ios{
-        background: inherit;
+    .password-icon {
+      color: $color-white;
     }
 
-    .button-ios{
-        background-color:$color-blue; 
+    .logo ion-icon {
+      color: $color-white;
     }
 
-    .text-input-ios{
-        border: 1px solid  $color-lightBlue;
+    .toolbar-background {
+      background: $color-white;
     }
 
-    .searchbar-ios .searchbar-input, .searchbar-md .searchbar-input{
-        border: 1px solid $color-lightBlue;
+    .text-input {
+      border: 1px solid $color-white;
+    }
+  }
+  //*------- END:LOGIN-CONTENT -----*//
+
+  //*------- START:CONTENT -----*//
+
+  .content {
+
+    .toolbar-background-ios {
+      background: inherit;
+    }
+
+    .button-ios {
+      background-color: $color-blue;
+    }
+
+    .text-input-ios {
+      border: 1px solid $color-lightBlue;
+    }
+
+    .searchbar-ios .searchbar-input, .searchbar-md .searchbar-input {
+      border: 1px solid $color-lightBlue;
     }
 
     .button-md-downloaded, .button-ios-downloaded {
-        color:  $color-white;
-        background-color:  $color-green;
-    }
-    
-    .button-md-notDownloaded{
-        background-color:  $color-blue;
+      color: $color-white;
+      background-color: $color-green;
     }
 
-    .text-input-ios, .text-input{
-        border:1px solid  $color-lightBlue;
+    .button-md-notDownloaded {
+      background-color: $color-blue;
     }
 
-    .toolbar-title-md, .toolbar-title-ios{
-        color:  $color-darkBlue;
-       
-    }
-    
-    .searchbar-ios .searchbar-input{
-        border: 1px solid  $color-blue;
+    .text-input-ios, .text-input {
+      border: 1px solid $color-lightBlue;
     }
 
-    .select-md{
-        border: 1px solid  $color-lightBlue;
+    .toolbar-title-md, .toolbar-title-ios {
+      color: $color-darkBlue;
+
     }
 
-  
-    .item-select .label-md{
-        color:$color-blue;
+    .searchbar-ios .searchbar-input {
+      border: 1px solid $color-blue;
     }
 
-    textarea.text-input{
-        border: 1px solid $color-lightBlue;
+    .select-md {
+      border: 1px solid $color-lightBlue;
     }
 
-    .select-ios{
-        border: 1px solid $color-lightBlue;
+    .item-select .label-md {
+      color: $color-blue;
     }
 
-    .segment-ios .segment-button.segment-activated{
-        box-shadow: 5px 2px 15px 0px $color-blue;
-        background-color: $color-blue;
-    }
-     
-    .gray-box{
-        background: $color-gray;
+    textarea.text-input {
+      border: 1px solid $color-lightBlue;
     }
 
-       .button-ios-secondary, .button-md-secondary, .button-md-secondary:hover:not(.disable-hover){
-        background: $color-blue;
-       }
-
-       .card-box{
-        background: $color-gray;
-        border-bottom: 1px solid $color-blue;
-
-        i{
-            color: $color-blue;
-        }
+    .select-ios {
+      border: 1px solid $color-lightBlue;
     }
 
-    .item-input .label-md, .item-datetime .label-md{
-        color:$color-blue;
+    .segment-ios .segment-button.segment-activated {
+      box-shadow: 5px 2px 15px 0px $color-blue;
+      background-color: $color-blue;
     }
 
-    .main-tabs{
-        .toolbar-background-md{
-            background: $color-white;
-        }
-
-        .segment-md .segment-button{
-            border: 1px solid $color-blue;
-            opacity: 1;
-        }
-        
+    .gray-box {
+      background: $color-gray;
     }
-}
-//*------- END:CONTENT -----*//
 
+    .button-ios-secondary, .button-md-secondary, .button-md-secondary:hover:not(.disable-hover) {
+      background: $color-blue;
+    }
 
-//*------- START:HOME-CONTENT -----*//
-.home-content{
+    .card-box {
+      background: $color-gray;
+      border-bottom: 1px solid $color-blue;
 
-    .card{
+      i {
+        color: $color-blue;
+      }
+    }
+
+    .item-input .label-md, .item-datetime .label-md {
+      color: $color-blue;
+    }
+
+    .main-tabs {
+      .toolbar-background-md {
+        background: $color-white;
+      }
+
+      .segment-md .segment-button {
         border: 1px solid $color-blue;
+        opacity: 1;
+      }
+
+    }
+  }
+  //*------- END:CONTENT -----*//
+
+  //*------- START:HOME-CONTENT -----*//
+  .home-content {
+
+    .card {
+      border: 1px solid $color-blue;
     }
 
-    .icon-ios{
-        color:$color-darkBlue;
+    .icon-ios {
+      color: $color-darkBlue;
     }
 
-    .label{
-        color: $color-darkBlue;
+    .label {
+      color: $color-darkBlue;
     }
-}
-//*------- END:HOME-CONTENT -----*//
+  }
+  //*------- END:HOME-CONTENT -----*//
 
-
-.announcements, .bar-announcements{
+  .announcements, .bar-announcements {
     background: $color-red;
     color: $color-white;
-}
+  }
 
-
-.segment-button.activated, .segment-button.segment-activated{
+  .segment-button.activated, .segment-button.segment-activated {
     border-color: $color-blue;
     background: $color-blue;
     color: $color-white;
-}
+  }
 
-  .searchbox  .searchbar-md .searchbar-input{
-        border-radius: 65px;
-        border:1px solid   $color-blue;
-    }
-
+  .searchbox .searchbar-md .searchbar-input {
+    border-radius: 65px;
+    border: 1px solid $color-blue;
+  }
 
 }
 
 //*------- START:FOOTER -----*//
 .footer {
+  background-color: $color-darkBlue;
+  .toolbar-background-ios {
     background-color: $color-darkBlue;
-    .toolbar-background-ios {
-        background-color: $color-darkBlue;
-    }
-   
-    .item-ios, .item-md{
-        background-color:  $color-darkBlue;
-        color: $color-white;
-    }
+  }
 
-    .label{
-        color: $color-white;
-    }
+  .item-ios, .item-md {
+    background-color: $color-darkBlue;
+    color: $color-white;
+  }
 
-    .button-ios-light,.button-md-light{
-        color:  $color-white;
-        background-color:  $color-darkBlue;
-    }
+  .label {
+    color: $color-white;
+  }
 
-    .select-md,.select-ios{
-        color:$color-white;
-    }
+  .button-ios-light, .button-md-light {
+    color: $color-white;
+    background-color: $color-darkBlue;
+  }
 
-    .select-ios .select-text, .select-md .select-text{
-        min-width: 27px;
-        font-size: 18px;
-    }
+  .select-md, .select-ios {
+    color: $color-white;
+  }
+
+  .select-ios .select-text, .select-md .select-text {
+    min-width: 27px;
+    font-size: 18px;
+  }
 }
-
 
 //*------- END:FOOTER -----*//
 
-
-.msj-info{
-    background:blue;
+.msj-info {
+  background: blue;
 }
 
-.msg-success{
-    background: green;
+.msg-success {
+  background: green;
 }
 
-.msj-warn{
-    background: orange;
+.msj-warn {
+  background: orange;
 }
 
-.msj-error{
-    background:red;
+.msj-error {
+  background: red;
 }
