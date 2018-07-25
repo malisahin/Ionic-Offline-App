@@ -100,10 +100,10 @@
   <ion-row>
 
     <ion-col col-4 col-md-2>
-      <button ion-button color="light" (click)="fetchList('FIRST')" *ngIf="!pageable.isFirstPage">
+      <button ion-button color="light" (click)="fetchList('FIRST')">
         <ion-icon name="arrow-dropleft"></ion-icon>
       </button>
-      <button ion-button color="light" (click)="fetchList('PREVIOUS')" *ngIf="!pageable.isFirstPage">
+      <button ion-button color="light" (click)="fetchList('PREVIOUS')">
         <ion-icon name="arrow-back"></ion-icon>
       </button>
     </ion-col>
@@ -117,11 +117,11 @@
     </ion-col>
 
     <ion-col col-4 col-md-2>
-      <button ion-button color="light" (click)="fetchList('NEXT')" *ngIf="!pageable.isLastPage">
+      <button ion-button color="light" (click)="fetchList('NEXT')">
         <ion-icon name="arrow-forward"></ion-icon>
       </button>
 
-      <button ion-button color="light" (click)="fetchList('LAST')" *ngIf="!pageable.isLastPage">
+      <button ion-button color="light" (click)="fetchList('LAST')">
         <ion-icon name="arrow-dropright"></ion-icon>
       </button>
     </ion-col>
