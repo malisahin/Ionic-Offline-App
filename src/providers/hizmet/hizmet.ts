@@ -109,12 +109,21 @@ export class HizmetProvider {
      * @type fromServer
      *  @description Hem Sunucudan gelen veri hem de uygulama içerisindeki veri bu fonksiyon ile dolduruluyor.
      *  Sunucu ile Client verisi hazırlanırken ufak bir farklılık mevcut. Bu farklılığı 'fromServer' ile yönetiyoruz.
-     *  farklılık:
+     */
+    let fromServer: boolean = false;
+    /*  farklılık:
      *    server : detayDtoList : [][]
      *    client : detayDtoList : []
      *
      */
-    let fromServer: boolean = false;
+
+
+    //DeepClone amaçlı önce String'e sonra da JSON Obje'ye dönüşüm olmuştur.
+    //Bu entity içerisinde metod eklenir ise bu dönüşüm ile KAYBOLACAKTIR!!
+    let objString = JSON.stringify(obj);
+    obj = JSON.parse(objString);
+
+
     let item = new Hizmet();
     item.aciklama = obj.aciklama;
     item.adi = obj.adi;
@@ -264,7 +273,7 @@ export class HizmetProvider {
       filter.ilceKodu = hizmet.ilceKod;
       let res = await this.adresDao.getIlce(filter);
 
-            if (this.util.isNotEmptyRows(res)) {
+      if (this.util.isNotEmptyRows(res)) {
         hizmet.ilceAdi = res.rows.item(0).ilceAdi;
       }
     }

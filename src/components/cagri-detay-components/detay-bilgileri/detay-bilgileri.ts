@@ -183,8 +183,8 @@ export class DetayBilgileriComponent {
 
   async siparisOlustur() {
     this.util.loaderStart();
-    let siparisHizmet = this.hizmetProvider.fillHizmet(this.hizmet);
-    siparisHizmet = this.sunucuyaKayitIcinHazirla(siparisHizmet);
+
+    let siparisHizmet = this.sunucuyaKayitIcinHazirla(this.hizmet);
     let res = await this.hizmetProvider.updateCagri(siparisHizmet, "EVET");
 
     if (this.util.isOnline()) {
@@ -277,10 +277,14 @@ export class DetayBilgileriComponent {
   }
 
   sunucuyaKayitIcinHazirla(hizmet: Hizmet) {
+
+    hizmet = this.hizmetProvider.fillHizmet(hizmet);
+
+    let sunucuyaGidecekHizmet = Object.assign({}, hizmet);
     let DATE_FORMAT: string = "dd.MM.yyyy hh:mm:ss";
 
-    if (this.util.isNotEmpty(hizmet.islemList)) {
-      hizmet.islemList.forEach(islem => {
+    if (this.util.isNotEmpty(sunucuyaGidecekHizmet.islemList)) {
+      sunucuyaGidecekHizmet.islemList.forEach(islem => {
 
         if (this.util.isNotEmpty(islem.basTar)) {
           islem.basTar = this.util.dateFormatRegex(islem.basTar, DATE_FORMAT)
@@ -292,11 +296,11 @@ export class DetayBilgileriComponent {
 
       })
     }
-    hizmet.randevuTarihi = this.util.dateFormatRegex(hizmet.randevuTarihi, DATE_FORMAT);
-    hizmet.islemTarihi = this.util.dateFormatRegex(hizmet.islemTarihi, DATE_FORMAT);
-    hizmet.islemBitTarihi = this.util.dateFormatRegex(hizmet.islemBitTarihi, DATE_FORMAT);
+    sunucuyaGidecekHizmet.randevuTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.randevuTarihi, DATE_FORMAT);
+    sunucuyaGidecekHizmet.islemTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.islemTarihi, DATE_FORMAT);
+    sunucuyaGidecekHizmet.islemBitTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.islemBitTarihi, DATE_FORMAT);
 
-    return hizmet;
+    return sunucuyaGidecekHizmet;
   }
 
   hizmetSilKontrol() {
@@ -359,9 +363,9 @@ export class DetayBilgileriComponent {
 
   async hizmetIptal() {
     this.util.loaderStart();
-    let iptalHizmet = this.hizmetProvider.fillHizmet(this.hizmet);
-    iptalHizmet.durum = DURUM.IPTAL;
-    iptalHizmet = this.sunucuyaKayitIcinHazirla(iptalHizmet);
+
+    this.hizmet.durum = DURUM.IPTAL;
+    let iptalHizmet = this.sunucuyaKayitIcinHazirla(this.hizmet);
     let res = await this.hizmetProvider.updateCagri(iptalHizmet, "HAYIR");
     this.logger.dir(res);
 
