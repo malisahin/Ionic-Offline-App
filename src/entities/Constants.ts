@@ -1,4 +1,4 @@
-import {BildirimlerPage} from "../pages/bildirimler/bildirimler";
+import { BildirimlerPage } from "../pages/bildirimler/bildirimler";
 
 /**
  * @author malisahin
@@ -6,15 +6,17 @@ import {BildirimlerPage} from "../pages/bildirimler/bildirimler";
  */
 
 export class Constants {
-  constructor() {
+  constructor() {}
 
-  }
+  public static REMEMBER_ME = "REMEMBER_ME";
+
+  public static USER_INFO = "USER_INFO";
 
   public static API_PAGE_SIZE = 10000;
 
-  public static  MESSAGE_DURATION = "MESSAGE_DURATION";
+  public static MESSAGE_DURATION = "MESSAGE_DURATION";
 
-  public static  DEFAULT_MESSAGE_DURATION = "3";
+  public static DEFAULT_MESSAGE_DURATION = "3";
 
   public static CALLED_FROM = {
     TASKS: "TASKS",
@@ -25,13 +27,12 @@ export class Constants {
 
   public static SYNC = {
     TIME: "SYNC_TIME",
-    MOMENT: 'SYNC_MOMENT'
+    MOMENT: "SYNC_MOMENT"
   };
 
   public static LENGTHS = {
     HIZMET_LIST: "HIZMET_LIST_LENGTH"
   };
-
 
   public static ORDER_BY = {
     RANDEVU_TAR_ASCENDES: " randevuTarihi ASC ",
@@ -66,12 +67,46 @@ export class Constants {
     DIGER: "DGR"
   };
 
-
   public static MASK = {
-    PHONE_NUMBER: ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/],
-    CARD_NUMBER: [/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/],
-    CARD_EXPIRY: [/[0-1]/, /\d/, '/', /[1-2]/, /\d/],
-    ORDER_CODE: [/[a-zA-z]/, ':', /\d/, /\d/, /\d/, /\d/]
+    PHONE_NUMBER: [
+      "(",
+      /[1-9]/,
+      /\d/,
+      /\d/,
+      ")",
+      " ",
+      /\d/,
+      /\d/,
+      /\d/,
+      "-",
+      /\d/,
+      /\d/,
+      /\d/,
+      /\d/
+    ],
+    CARD_NUMBER: [
+      /\d/,
+      /\d/,
+      /\d/,
+      /\d/,
+      "-",
+      /\d/,
+      /\d/,
+      /\d/,
+      /\d/,
+      "-",
+      /\d/,
+      /\d/,
+      /\d/,
+      /\d/,
+      "-",
+      /\d/,
+      /\d/,
+      /\d/,
+      /\d/
+    ],
+    CARD_EXPIRY: [/[0-1]/, /\d/, "/", /[1-2]/, /\d/],
+    ORDER_CODE: [/[a-zA-z]/, ":", /\d/, /\d/, /\d/, /\d/]
   };
 
   public static URUN_ANA_GRUP_TYPE = {
@@ -92,7 +127,7 @@ export class Constants {
     ISLEM_ARIZA_ISCILIK: "OFF_ISC_ISLARZGRP_TNM"
   };
 
-  public static SEARCH_TYPE = {LIKE: "LIKE", EXACT: "EXACT"};
+  public static SEARCH_TYPE = { LIKE: "LIKE", EXACT: "EXACT" };
 
   public static DATA_TYPE = {
     URUN: "URUN",
@@ -121,7 +156,6 @@ export class Constants {
   };
 
   public static VERSIYON = {
-
     CLIENT: {
       URUN: "URUN_CLIENT_VERSIYON",
       URUN_ANA_GRUP: "URUN_ANA_GRUP_CLIENT_VERSIYON",
@@ -135,7 +169,6 @@ export class Constants {
       MAHALLE_TNM: "MAHALLE_TNM_CLIENT_VERSIYON"
     },
     SERVER: {
-
       URUN: "URUN_SERVER_VERSIYON",
       URUN_ANA_GRUP: "URUN_ANA_GRUP_SERVER_VERSIYON",
       URUN_ISCILIK: "URUN_ISCILIK_SERVER_VERSIYON",
@@ -145,9 +178,8 @@ export class Constants {
       ISCILIK_FIYAT: "ISCILIK_FIYAT_SERVER_VERSIYON",
       SEHIR_TNM: "SEHIR_TNM_SERVER_VERSIYON",
       ILCE_TNM: "ILCE_TNM_SERVER_VERSIYON",
-      MAHALLE_TNM: "MAHALLE_TNM_SERVER_VERSIYON",
+      MAHALLE_TNM: "MAHALLE_TNM_SERVER_VERSIYON"
     }
-
   };
   public static COLORS = {
     URUN: "",
@@ -185,9 +217,6 @@ export class Constants {
     OFFLINE_ISC_FIYAT: Constants.VERSIYON.SERVER.ISCILIK_FIYAT,
     SER_SEHIR_TNM: Constants.VERSIYON.SERVER.SEHIR_TNM,
     SER_ILCE_TNM: Constants.VERSIYON.SERVER.ILCE_TNM,
-    SER_MAHALLE_TNM: Constants.VERSIYON.SERVER.MAHALLE_TNM,
-  }
-
+    SER_MAHALLE_TNM: Constants.VERSIYON.SERVER.MAHALLE_TNM
+  };
 }
-
-

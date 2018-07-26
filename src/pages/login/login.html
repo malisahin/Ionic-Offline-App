@@ -33,7 +33,22 @@
         <ion-col class="signup-col">
           <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Login</button>
         </ion-col>
+      </ion-row>
 
+      <ion-row style="text-align: left">
+        <ion-col>
+          <ion-item>
+            <ion-checkbox [(ngModel)]="rememberMe" name="rememberMe" (ionChange)="onChangeRememberMe()"></ion-checkbox>
+            <ion-label>Beni Hatırla</ion-label>
+          </ion-item>
+        </ion-col>
+
+        <ion-col>
+          <ion-item>
+            <ion-label>Şifreyi Göster</ion-label>
+            <ion-checkbox [(ngModel)]="showPassword" name="showPassword" (ionChange)='hideShowPassword()'></ion-checkbox>
+          </ion-item>
+        </ion-col>
       </ion-row>
 
     </form>

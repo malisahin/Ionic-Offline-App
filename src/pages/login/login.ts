@@ -3,12 +3,18 @@
  * @since 2018-02-12
  */
 
-import {Component} from '@angular/core';
-import {NavController, AlertController, LoadingController, Loading, IonicPage} from 'ionic-angular';
-import {LoginProvider} from '../../providers/login/login';
-import {UserProvider} from '../../providers/user/user';
-import {UtilProvider} from '../../providers/util/util';
-import {LoggerProvider} from '../../providers/logger/logger';
+import {Component} from "@angular/core";
+import {
+  NavController,
+  AlertController,
+  LoadingController,
+  Loading,
+  IonicPage
+} from "ionic-angular";
+import {LoginProvider} from "../../providers/login/login";
+import {UserProvider} from "../../providers/user/user";
+import {UtilProvider} from "../../providers/util/util";
+import {LoggerProvider} from "../../providers/logger/logger";
 import {User} from "../../entities/user";
 import {Anasayfa} from "../anasayfa/anasayfa";
 import {ThemeProvider} from "../../providers/theme/theme";
@@ -16,22 +22,27 @@ import {Constants} from "../../entities/Constants";
 import {UserDao} from "../../providers/user-dao/user-dao";
 import {DeeplinkPrinterProvider} from "../../providers/deeplink-printer/deeplink-printer";
 
+class UserInfo {
+  userCode: string = "";
+  password: string = "";
+}
+
 @IonicPage()
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
+  selector: "page-login",
+  templateUrl: "login.html"
 })
 export class LoginPage {
-
-
-  passwordType: string = 'password';
-  passwordIcon: string = 'eye-off';
+  passwordType: string = "password";
+  passwordIcon: string = "eye-off";
   loading: Loading;
-  userCode: string = "ECAMERKEZ";
-  password: string = "EMAR6464";
+  userCode: string = "";
+  password: string = "";
   user: User;
   hasLoginPermission = false;
   backGroundImage: string;
+  rememberMe: boolean = true;
+  showPassword: boolean = false;
 
   constructor(private nav: NavController,
               private util: UtilProvider,
@@ -47,29 +58,38 @@ export class LoginPage {
     this.backGroundImage = this.themeProvider.getBackgroundImage();
   }
 
+
+  ionViewDidLoad() {
+    this.logger.info("Login Page ionViewDidLoad");
+    this.loadSavedUserInfo();
+  }
+
   async login() {
+    this.saveUserInfo();
     this.hasLoginPermission = false;
     this.util.loaderStart();
     localStorage.setItem(this.user.keys.userCode, this.userCode);
     localStorage.setItem(this.user.keys.password, this.password);
     this.checkLoginInfo();
     let token = await this.loginProvider.login(this.userCode, this.password);
-    this.logger.log("Username: " + this.userCode + " Password: " + this.password);
+    this.logger.log(
+      "Username: " + this.userCode + " Password: " + this.password
+    );
 
     let connection = this.util.getConnectionStatus();
 
     if (connection == Constants.NETWORK.ONLINE) {
-
       let token = localStorage.getItem(Constants.ACCESS_TOKEN);
       if (this.util.isNotEmpty(token)) {
-        this.user = await this.userProvider.getUser(this.userCode, this.password);
+        this.user = await this.userProvider.getUser(
+          this.userCode,
+          this.password
+        );
         this.hasLoginPermission = this.user != null;
       }
-    }
-    else if (connection == Constants.NETWORK.OFFLINE) {
+    } else if (connection == Constants.NETWORK.OFFLINE) {
       await this.checkForOfflineConnection();
-    }
-    else {
+    } else {
       this.hasLoginPermission = false;
     }
 
@@ -86,8 +106,8 @@ export class LoginPage {
   }
 
   hideShowPassword() {
-    this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
-    this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
+    this.passwordType = this.showPassword ? "text" : "password";
+
   }
 
   checkLoginInfo() {
@@ -95,6 +115,7 @@ export class LoginPage {
       this.util.warn("Kullanıcı Adı boş olamaz.");
       return false;
     }
+
     if (this.util.isEmpty(this.password)) {
       this.util.warn("Şifre boş olamaz.");
       return false;
@@ -115,13 +136,45 @@ export class LoginPage {
     if (checkAuth) {
       this.hasLoginPermission = true;
       this.util.info("Cihazınız offline mod ile çalışmaya devam edecek.");
-    }
-    else {
+    } else {
       this.util.info("Girmiş olduğunuz bilgilere ait bir kullanıcı bulunamadı.");
     }
   }
 
   goDeeplink() {
     this.deepLinkPrinter.init();
+  }
+
+  loadSavedUserInfo() {
+    debugger;
+    let info = localStorage.getItem(Constants.USER_INFO);
+    if (this.util.isNotEmpty(info)) {
+      let userInfo: UserInfo = JSON.parse(info);
+
+      this.userCode = userInfo.userCode;
+      this.password = userInfo.password;
+    }
+  }
+
+  onChangeRememberMe() {
+    localStorage.setItem(Constants.REMEMBER_ME, String(this.rememberMe));
+    this.saveUserInfo();
+    this.logger.info("Remember Me value is set as " + this.rememberMe);
+  }
+
+  saveUserInfo() {
+    this.rememberMe = localStorage.getItem(Constants.REMEMBER_ME) == "true";
+
+    if (this.rememberMe) {
+      let info: UserInfo = new UserInfo();
+      info.userCode = this.userCode;
+      info.password = this.password;
+
+      this.logger.info(" User Info Saved: " + JSON.stringify(info));
+      localStorage.setItem(Constants.USER_INFO, JSON.stringify(info));
+    } else {
+      this.logger.info(" User Info Deleted. ");
+      localStorage.setItem(Constants.USER_INFO, "");
+    }
   }
 }
