@@ -12,10 +12,10 @@ export class Pageable {
   first: number = 0;
   pageSize: number = 20;
   listLength: number = -1;
-  toPage: number;
+  pageNo: number;
   isFirstPage: boolean = false;
   isLastPage: boolean = false;
-
+  pageList: number[] = [];
 
   compute() {
     let firstItemOfLastPage;
@@ -50,8 +50,8 @@ export class Pageable {
     else if (this.tip == 'LIST_LENGTH') {
       this.first = 0;
     }
-    else if (this.tip == 'PAGENO') {
-      this.first = Number(this.pageSize) * Number(this.pageSize);
+    else if (this.tip == 'TO_PAGE') {
+      this.first = (Number(this.pageNo) - 1) * Number(this.pageSize);
     }
 
 
@@ -73,10 +73,22 @@ export class Pageable {
 
     }
 
+    this.preparePageList();
 
+    this.pageNo = (Number(this.first) / Number(this.pageSize)) + 1;
     return this;
 
   }
+
+  preparePageList() {
+    this.pageList = [];
+    let size = (Number(this.listLength) / Number(this.pageSize));
+    for (let i = 0; i < size; i++) {
+      this.pageList.push(i + 1);
+    }
+
+  }
+
 }
 
 
