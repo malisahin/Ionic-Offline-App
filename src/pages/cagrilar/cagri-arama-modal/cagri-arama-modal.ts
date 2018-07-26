@@ -91,9 +91,9 @@ export class CagriAramaModalPage {
     }
 
     if (this.siralama)
-      this.orderBy = Constants.ORDER_BY.RANDEVU_TAR_ASCENDES;
-    else
       this.orderBy = Constants.ORDER_BY.RANDEVU_TAR_DESCENDES;
+    else
+      this.orderBy = Constants.ORDER_BY.RANDEVU_TAR_ASCENDES;
 
     this.closeModal();
   }

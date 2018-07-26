@@ -15,7 +15,7 @@ export class UrunSearchComponent {
 
   text: string;
   data: any;
-  list: { key: "", value: "" }[] = [];
+  list: { key: "", value: "", data: {} }[] = [];
   selectedItem: { key: "", value: "" } = {key: "", value: ""};
   returnObject: any;
   pageable: Pageable;
@@ -85,7 +85,7 @@ export class UrunSearchComponent {
 
   fillItemByType(item: any) {
 
-    this.list.push({key: item.mamAdi, value: item.mamKod});
+    this.list.push({key: item.mamAdi, value: item.mamKod, data: item});
 
   }
 
@@ -96,6 +96,7 @@ export class UrunSearchComponent {
   }
 
   prepareUrunReturnValue(item) {
+    debugger;
     this.urun.mamAdi = this.util.isEmpty(item.key) ? '' : item.key;
     this.urun.mamKod = this.util.isEmpty(item.value) ? '' : item.value;
     this.returnObject = this.urun;

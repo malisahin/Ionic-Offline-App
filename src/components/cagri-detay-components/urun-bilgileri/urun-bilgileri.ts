@@ -25,6 +25,7 @@ export class UrunBilgileriComponent {
   mamAnaGrpValue: string;
   mesguliyet: boolean;
   garanti: boolean;
+  seriNoSayisi: number = 1;
 
 
   constructor(private modalController: ModalController,
@@ -121,6 +122,7 @@ export class UrunBilgileriComponent {
     this.hizmet.mamKod = "";
     this.hizmet.mamAdi = "";
     this.hizmet.mamSeriNo = "";
+    this.hizmet.mamSeriNo2 = "";
     this.saveHizmet();
   }
 
