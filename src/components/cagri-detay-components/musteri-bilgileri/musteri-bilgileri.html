@@ -78,6 +78,7 @@
   </ion-col>
   <ion-col col-8 col-md-10>
     <ion-select [(ngModel)]="hizmet.mahalleKodu" (ionChange)="onChangeMahalle()" interface="popover">
+
       <ion-option *ngFor="let mahalle of mahalleler" [value]="mahalle.mahalleKodu" [disabled]="isHizmetDisabled()">
         {{mahalle.mahalleKodu}} - {{mahalle.mahalleAdi}}
       </ion-option>

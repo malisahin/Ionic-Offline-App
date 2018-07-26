@@ -85,15 +85,17 @@ export class MusteriBilgileriComponent {
   }
 
   async getIlceList(item: any) {
-    this.ilceler = [];
-    if (this.util.isNotEmpty(this.hizmet.sehirKod))
-      await this.adresDao.getIlceList(this.hizmet.sehirKod).then(res => {
+    if (this.util.isNotEmpty(this.hizmet.sehirKod)) {
+     let res =  await this.adresDao.getIlceList(this.hizmet.sehirKod);
+     this.ilceler = [];
+     this.logger.table(res);
         for (let i = 0; i < res.rows.length; i++) {
           this.ilceler.push(res.rows.item(i));
         }
+
         this.setIlceValues();
         this.onHizmetChange();
-      });
+    }
   }
 
   setIlceValues() {
