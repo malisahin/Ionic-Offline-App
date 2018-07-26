@@ -103,6 +103,8 @@ www/build/*.css
 www/build/*
 
 
+src/*.js
+src/*.map
 
 src/*/*.js
 src/*/*.map

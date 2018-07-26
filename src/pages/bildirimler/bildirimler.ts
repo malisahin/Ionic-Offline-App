@@ -8,9 +8,7 @@ import {MesajlarProvider} from '../../providers/mesajlar/mesajlar';
 import {Mesaj} from "../../entities/mesajlar";
 import {MesajDetailComponent} from "../../components/mesaj-detail/mesaj-detail";
 import {Pageable} from "../../entities/Pageable";
-import {MesajlarDao} from "../../providers/mesajlar-dao/mesajlar-dao";
 import {HeaderComponent} from "../../components/header/header";
-import {timeout} from "rxjs/operators";
 import {Constants} from "../../entities/Constants";
 import {UtilProvider} from "../../providers/util/util";
 

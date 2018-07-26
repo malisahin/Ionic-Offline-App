@@ -67,47 +67,6 @@ export class Constants {
     DIGER: "DGR"
   };
 
-  public static MASK = {
-    PHONE_NUMBER: [
-      "(",
-      /[1-9]/,
-      /\d/,
-      /\d/,
-      ")",
-      " ",
-      /\d/,
-      /\d/,
-      /\d/,
-      "-",
-      /\d/,
-      /\d/,
-      /\d/,
-      /\d/
-    ],
-    CARD_NUMBER: [
-      /\d/,
-      /\d/,
-      /\d/,
-      /\d/,
-      "-",
-      /\d/,
-      /\d/,
-      /\d/,
-      /\d/,
-      "-",
-      /\d/,
-      /\d/,
-      /\d/,
-      /\d/,
-      "-",
-      /\d/,
-      /\d/,
-      /\d/,
-      /\d/
-    ],
-    CARD_EXPIRY: [/[0-1]/, /\d/, "/", /[1-2]/, /\d/],
-    ORDER_CODE: [/[a-zA-z]/, ":", /\d/, /\d/, /\d/, /\d/]
-  };
 
   public static URUN_ANA_GRUP_TYPE = {
     ANA_GRUP_LISTE: "ANA_GRUP_LISTE",

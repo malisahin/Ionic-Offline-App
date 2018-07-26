@@ -33,6 +33,13 @@ export class UtilProvider {
     return (typeof item == 'undefined' || item == null || item == "");
   }
 
+  emptyIfNull(item: any) {
+    if (this.isEmpty(item))
+      item = "";
+
+    return item;
+  }
+
   isNotEmpty(item: any): boolean {
     if (typeof item == "number")
       item = String(item);
@@ -123,6 +130,9 @@ export class UtilProvider {
   }
 
   dateFormatRegex(x, y): string {
+    if (this.isEmpty(x))
+      return "";
+
     x = new Date(x);
     let z = {
       M: x.getMonth() + 1,

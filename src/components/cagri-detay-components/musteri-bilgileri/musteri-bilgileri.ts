@@ -91,12 +91,24 @@ export class MusteriBilgileriComponent {
         for (let i = 0; i < res.rows.length; i++) {
           this.ilceler.push(res.rows.item(i));
         }
+        this.setIlceValues();
         this.onHizmetChange();
       });
   }
 
+  setIlceValues() {
+    if (this.util.isNotEmpty(this.hizmet.ilceKod)) {
+      let res = this.ilceler.filter(res => res.ilceKodu == this.hizmet.ilceKod);
+
+      if (this.util.isNotEmpty(res) && res.length > 0) {
+        this.hizmet.ilceAdi = res[0].ilceAdi;
+      }
+    }
+  }
+
   async onChangeIlce() {
     this.hizmet.mahalleKodu = "";
+    this.setIlceValues();
     await this.getMahalleList(this.hizmet.ilceKod);
   }
 

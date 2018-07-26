@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { UtilProvider } from '../../providers/util/util';
-import { LoggerProvider } from '../../providers/logger/logger';
-import { NavParams } from 'ionic-angular';
-import { Platform } from 'ionic-angular';
-import { ViewController } from 'ionic-angular/navigation/view-controller';
+import {Component} from '@angular/core';
+import {UtilProvider} from '../../providers/util/util';
+import {LoggerProvider} from '../../providers/logger/logger';
+import {NavParams} from 'ionic-angular';
+import {Platform} from 'ionic-angular';
+import {ViewController} from 'ionic-angular/navigation/view-controller';
 declare let window: any;
 
 @Component({
@@ -18,9 +18,9 @@ export class ZebraPrinterComponent {
 
 
   constructor(private util: UtilProvider,
-    private platform: Platform, private viewCtrl: ViewController,
-    private logger: LoggerProvider,
-    private navParams: NavParams) {
+              private platform: Platform, private viewCtrl: ViewController,
+              private logger: LoggerProvider,
+              private navParams: NavParams) {
 
     this.text = navParams.get("text");
     this.logger.log(this.text);
@@ -55,7 +55,13 @@ export class ZebraPrinterComponent {
   }
 
   androidList() {
-    window.printer.list(this.androidSetPrinterList.bind(this), this.fnError.bind(this));
+    if (this.util.isNotEmpty(window.printer))
+      window.printer.list(this.androidSetPrinterList.bind(this), this.fnError.bind(this));
+    else {
+      let errorMes = "Android Zebra Printer plugini implemente edilmemiş. Sistem yetkilisine bildiriniz.";
+      this.logger.error(errorMes);
+      this.util.error(errorMes);
+    }
   }
 
   androidClose() {
@@ -72,7 +78,13 @@ export class ZebraPrinterComponent {
   }
 
   iosList() {
-    window.plugins.CordovaPrinter.getPrinters(this.fnSuccess.bind(this), this.fnError.bind(this));
+    if (this.util.isNotEmpty(window.plugins) && this.util.isNotEmpty(window.plugins.CordovaPrinter))
+      window.plugins.CordovaPrinter.getPrinters(this.fnSuccess.bind(this), this.fnError.bind(this));
+    else {
+      let errorMes = "Ios Zebra Printer plugini implemente edilmemiş. Sistem yetkilisine bildiriniz.";
+      this.logger.error(errorMes);
+      this.util.error(errorMes);
+    }
   }
 
   iosPrint() {

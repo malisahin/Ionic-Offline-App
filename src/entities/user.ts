@@ -67,6 +67,7 @@ export class User {
     user.pb = item.pB;
     user.systemParams = item.systemParams;
     this.saveUserData(user);
+    console.table(user);
     return user;
   }
 
@@ -92,38 +93,42 @@ export class User {
   }
 
   getUserCode(): string {
-    return localStorage.getItem("userCode");
+    return localStorage.getItem(this.keys.userCode);
   }
 
   getUserName(): string {
-    return localStorage.getItem("userName");
+    return localStorage.getItem(this.keys.userName);
   }
 
   getPb(): string {
-    return localStorage.getItem("pb");
+    return localStorage.getItem(this.keys.pb);
   }
 
   getOrgKod(): string {
-    return localStorage.getItem("orgKod");
+    return localStorage.getItem(this.keys.orgKod);
   }
 
   getSerKod(): string {
-    return localStorage.getItem("servis");
+    return localStorage.getItem(this.keys.servis);
   }
 
   getDilKod(): string {
-    return localStorage.getItem("dilKod");
+    return localStorage.getItem(this.keys.dilKod);
   }
 
   getIkAd(): string {
-    return localStorage.getItem("ikAd");
+    return localStorage.getItem(this.keys.ikAd);
   }
 
   getIkKod(): string {
-    return localStorage.getItem("ikKod");
+    return localStorage.getItem(this.keys.ikKod);
   }
 
   getPassword(): string {
-    return localStorage.getItem("password");
+    return localStorage.getItem(this.keys.password);
+  }
+
+  getServisUnvani(): string {
+    return localStorage.getItem(this.keys.servisUnvani);
   }
 }

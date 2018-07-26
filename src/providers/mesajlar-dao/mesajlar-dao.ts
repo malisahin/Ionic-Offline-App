@@ -25,7 +25,7 @@ export class MesajlarDao {
         db.transaction(function (tx) {
           let query = "INSERT OR REPLACE INTO OFF_ALERT (id, bitisTarihi, aciklama, gonderen, basTarihi, status, subject, type, valid) VALUES (?,?,?,?,?,?,?,?,?)";
           for (let item of list) {
-            let params = [item.id, item.bitisTarihi, item.aciklama, item.gonderen, item.basTarihi, item.status, item.subject, item.type, item.valid];
+            let params = [item.id, item.bitisTarihi + " 23:59:59", item.aciklama, item.gonderen, item.basTarihi + " 00:00:00", item.status, item.subject, item.type, item.valid];
             tx.executeSql(query, params, function (tx, res) {
               insertedItems += 1;
               if (list.length == insertedItems) {
@@ -73,6 +73,12 @@ export class MesajlarDao {
     if (this.util.isNotEmpty(mesaj.type)) {
       query += " AND type='" + mesaj.type + "' ";
     }
+
+    let now = "'" + this.util.dateFormatRegex(new Date(), "yyyy-MM-dd hh:mm:ss") + "'";
+
+    query += " AND bitisTarihi > " + now;
+    query += " AND basTarihi < " + now;
+
     return query;
   }
 
