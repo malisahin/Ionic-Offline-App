@@ -20,7 +20,7 @@
     </ion-col>
   </ion-row>
 
-  <ion-row>
+  <ion-row *ngIf="util.isNotEmpty(pageable.pageNo)  && pageable.pageNo > 0">
     <ion-col col-9 col-md-8></ion-col>
 
     <ion-col col-3 col-md-4>

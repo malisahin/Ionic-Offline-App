@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, ViewChild, enableProdMode} from '@angular/core';
 
 import {Platform, MenuController, Nav} from 'ionic-angular';
 import {StatusBar} from '@ionic-native/status-bar';
@@ -37,25 +37,17 @@ export class MyApp {
               private themeProvider: ThemeProvider,
               private  deepLinkPrinter: DeeplinkPrinterProvider,
               public db: DatabaseProvider) {
+
+    this.enableProductionMode();
     this.initializeApp();
     this.selectedTheme = this.themeProvider.setTheme();
     this.logger.warn("SELECTED DEFAULT THEME" + this.selectedTheme);
-
-    this.pages = [
-      {title: 'Çağrılar', component: CagrilarPage, active: true, icon: 'home', param: {}},
-      {title: 'Duyurular', component: BildirimlerPage, active: false, icon: 'map', param: {type: 'WARN'}},
-      {title: 'Uyarılar', component: BildirimlerPage, active: false, icon: 'ionic', param: {type: 'URGENT'}},
-      {title: 'Güncelleme', component: GuncellemePage, active: false, icon: 'ionic', param: {}},
-      {title: 'Bilgi Sorgu', component: BilgiSorguPage, active: false, icon: 'body', param: {}},
-      {title: 'E-Kütüphane', component: KutuphanePage, active: false, icon: 'bookmarks', param: {}},
-      {title: 'Ayarlar', component: AyarlarPage, active: false, icon: 'book', param: {}}
-    ];
-
-
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
+
+
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.db.createDatabase();
@@ -68,6 +60,27 @@ export class MyApp {
 
   ngAfterViewInit() {
     this.platform.ready().then(() => this.deepLinkPrinter.init());
+  }
+
+  sideMenu() {
+    this.pages = [
+      {title: 'Çağrılar', component: CagrilarPage, active: true, icon: 'home', param: {}},
+      {title: 'Duyurular', component: BildirimlerPage, active: false, icon: 'map', param: {type: 'WARN'}},
+      {title: 'Uyarılar', component: BildirimlerPage, active: false, icon: 'ionic', param: {type: 'URGENT'}},
+      {title: 'Güncelleme', component: GuncellemePage, active: false, icon: 'ionic', param: {}},
+      {title: 'Bilgi Sorgu', component: BilgiSorguPage, active: false, icon: 'body', param: {}},
+      {title: 'E-Kütüphane', component: KutuphanePage, active: false, icon: 'bookmarks', param: {}},
+      {title: 'Ayarlar', component: AyarlarPage, active: false, icon: 'book', param: {}}
+    ];
+  }
+
+  enableProductionMode() {
+
+
+
+    if (this.platform.is('ios') || this.platform.is('android') || this.platform.is('windows')) {
+      enableProdMode();
+    }
   }
 
 }

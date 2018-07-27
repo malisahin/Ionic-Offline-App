@@ -107,6 +107,7 @@ src/*.map
 
 src/*/*.js
 src/*/*.map
+src/*/*.css
 
 
 src/*/*/*.js
@@ -135,3 +136,6 @@ node_modules/
 bin/
 gen/
 src/assets/img/
+/www/build/0.js.map
+/www/build/main.css
+/www/build/polyfills.js

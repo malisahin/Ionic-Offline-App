@@ -41,11 +41,12 @@ export class HizmetProvider {
     let header = await this.token.callTokenAndGetHeader();
     if (this.util.isOnline()) {
       this.util.loaderStart();
-      return new Promise((resolve, reject) => {
-        this.fetchDataFromApi(header)
-          .then(res => this.insertComingData(res))
-          .then(res => resolve("SUCCESS"));
-      });
+
+      let res = await this.fetchDataFromApi(header);
+      if (this.util.isNotEmpty(res)) {
+        return await this.insertComingData(res);
+      }
+
     } else {
       this.util.error("Çağrılar yalnızca online durumda güncellenebilir.")
     }
@@ -64,14 +65,21 @@ export class HizmetProvider {
 
   async fetchDataFromApi(header): Promise<any> {
     let url = this.api.getCagriListUrl();
-    return new Promise((resolve, reject) => {
-      this.http.get(url, {headers: header})
-        .timeout(60000)
-        .toPromise()
-        .then(res => {
-          resolve(res);
-        });
-    });
+
+    try {
+      let res = await this.http.get(url, {headers: header},).toPromise();
+
+      return new Promise((resolve, reject) => {
+        resolve(res);
+      });
+
+    }
+    catch (e) {
+      this.logger.error("Çağrı indirme hatası ==> ");
+      this.logger.dir(e);
+      this.util.error("Çağrıları indirirken bir hata oluştu. Lütfen tekrar deneyiniz.");
+      this.util.loaderEnd();
+    }
   }
 
   async insertComingData(res: any): Promise<any> {
@@ -95,10 +103,14 @@ export class HizmetProvider {
   seperateCagri(obj) {
     let hizmetList: Hizmet[] = [];
     let list = [];
-    list = obj.message.hizmetDtoList;
-    for (let item of list) {
-      let cgr = this.fillHizmet(item);
-      hizmetList.push(cgr);
+    if (this.util.isNotEmpty(obj.message) && this.util.isNotEmpty(obj.message.hizmetDtoList)) {
+      list = obj.message.hizmetDtoList;
+      for (let item of list) {
+        let cgr = this.fillHizmet(item);
+        hizmetList.push(cgr);
+      }
+    } else {
+      this.util.info("Gelen Çağrı listesinde veri bulunmamaktadır.")
     }
     return hizmetList;
   }

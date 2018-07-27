@@ -324,7 +324,7 @@ export class UtilProvider {
     }
   }
 
-  loaderContent(): string {
+ private loaderContent(): string {
     return `
     <html>
     
