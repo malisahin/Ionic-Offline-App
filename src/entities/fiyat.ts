@@ -32,11 +32,11 @@ export class Fiyat {
     });
 
     if (tip == "MLZ" || tip == "malzemeFiyatListesi") {
-      localStorage.setItem(Constants.GELEN_VERI.GELEN_MALZEME_FIYAT, fiyatList.length);
+      localStorage.setItem(Constants.GELEN_VERI.MALZEME_FIYAT, fiyatList.length);
       localStorage.setItem(Constants.VERSIYON.SERVER.MALZEME_FIYAT, versiyon);
 
     } else if (tip == 'ISC' || tip == "iscilikFiyatListesi") {
-      localStorage.setItem(Constants.GELEN_VERI.GELEN_ISCILIK_FIYAT, fiyatList.length);
+      localStorage.setItem(Constants.GELEN_VERI.ISCILIK_FIYAT, fiyatList.length);
       localStorage.setItem(Constants.VERSIYON.SERVER.ISCILIK_FIYAT, versiyon);
     }
 

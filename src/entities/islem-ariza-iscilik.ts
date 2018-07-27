@@ -26,7 +26,7 @@ export class IslemArizaIscilik {
      *   Versiyon ve Ne kadar verinin geldiği burdan kontrol edilir
      */
     localStorage.setItem(Constants.VERSIYON.SERVER.ISLEM_ARIZA_ISCILIK, versiyon);
-    localStorage.setItem(Constants.GELEN_VERI.GELEN_ISLEM_ARIZA_ISCILIK, list.length);
+    localStorage.setItem(Constants.GELEN_VERI.ISLEM_ARIZA_ISCILIK, list.length);
 
     list.forEach(obj => {
       let item = new IslemArizaIscilik();

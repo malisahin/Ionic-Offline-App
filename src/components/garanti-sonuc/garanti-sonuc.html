@@ -85,13 +85,13 @@
       <ion-label>{{ekGarantiBitisTar | date: 'dd-MM-yyyy'}}</ion-label>
     </ion-col>
 
-    <ion-card>
+    <ion-card *ngIf="aciklama != null && aciklama != ''">
       <ion-card-content class="card-box">
         {{aciklama}}
       </ion-card-content>
     </ion-card>
 
-    <ion-card>
+    <ion-card *ngIf="sonuc != null && sonuc != ''">
       <ion-card-content class="card-box">
         {{sonuc}}
       </ion-card-content>

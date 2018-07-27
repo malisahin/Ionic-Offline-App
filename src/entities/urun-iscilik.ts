@@ -21,7 +21,7 @@ export class UrunIscilik {
     let urunIscilikList = res.message[0].liste;
     let urunIscilikVersiyon = res.message[0].versiyon;
 
-    localStorage.setItem(Constants.GELEN_VERI.GELEN_URUN_ISCILIK, urunIscilikList.length);
+    localStorage.setItem(Constants.GELEN_VERI.URUN_ISCILIK, urunIscilikList.length);
     localStorage.setItem(Constants.VERSIYON.SERVER.URUN_ISCILIK, urunIscilikVersiyon);
 
     urunIscilikList.forEach(function (item) {

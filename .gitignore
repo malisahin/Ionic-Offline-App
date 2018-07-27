@@ -100,7 +100,6 @@ www/build/*.js
 www/build/*.map
 www/build/*.css
 
-www/build/*
 
 
 src/*.js
@@ -135,3 +134,4 @@ node_modules/
 .sourcemaps/
 bin/
 gen/
+src/assets/img/

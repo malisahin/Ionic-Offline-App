@@ -20,6 +20,19 @@
     </ion-col>
   </ion-row>
 
+  <ion-row>
+    <ion-col col-9 col-md-8></ion-col>
+
+    <ion-col col-3 col-md-4>
+      <ion-select [(ngModel)]="pageable.pageNo" (ionChange)="fetchList('TO_PAGE')" interface="popover">
+
+        <ion-option *ngFor="let page of pageable.pageList" [value]="page">
+          {{page}}
+        </ion-option>
+      </ion-select>
+    </ion-col>
+  </ion-row>
+
   <ion-row *ngIf="this.searchParams != ''">
     <ion-chip *ngFor="let sorgu of searchParams">
       <ion-label>{{sorgu}}</ion-label>
@@ -99,16 +112,8 @@
 <ion-footer>
   <ion-row>
 
-    <ion-col col-3 col-md-4>
-      <ion-select [(ngModel)]="pageable.pageNo" (ionChange)="fetchList('TO_PAGE')" interface="popover">
 
-        <ion-option *ngFor="let page of pageable.pageList" [value]="page">
-          {{page}}
-        </ion-option>
-      </ion-select>
-    </ion-col>
-
-    <ion-col col-3 col-md-2>
+    <ion-col col-4 col-md-4>
       <ion-row>
         <ion-col col-6>
           <button ion-button color="light" (click)="fetchList('FIRST')">
@@ -125,7 +130,7 @@
       </ion-row>
     </ion-col>
 
-    <ion-col col-3 col-md-4>
+    <ion-col col-4 col-md-4>
       <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList('PAGE_NO')" interface="popover">
         <ion-option value="10" selected="true">10</ion-option>
         <ion-option value="20">20</ion-option>
@@ -133,7 +138,7 @@
       </ion-select>
     </ion-col>
 
-    <ion-col col-3 col-md-2>
+    <ion-col col-4 col-md-4>
       <ion-row>
 
         <ion-col col-6>

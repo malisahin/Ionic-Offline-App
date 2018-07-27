@@ -104,7 +104,7 @@ export class AdresProvider {
     let list = item.message.data;
     let versiyon = item.message.versiyon;
     localStorage.setItem(Constants.VERSIYON.SERVER.MAHALLE_TNM, versiyon);
-    localStorage.setItem(Constants.GELEN_VERI.GELEN_MAHALLE_TNM, item.message.data.length.toString());
+    localStorage.setItem(Constants.GELEN_VERI.MAHALLE_TNM, item.message.data.length.toString());
     list.forEach(row => {
       let mahalle = new Mahalle();
       mahalle.sehirKodu = row.sehirKodu;

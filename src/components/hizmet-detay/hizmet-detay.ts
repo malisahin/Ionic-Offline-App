@@ -36,6 +36,7 @@ export class HizmetDetayComponent {
   aciklama: string = "";
   canModalCloseable: boolean = true;
   satirNo: number;
+  islemTipiDegistirmeSayisi: number = 0;
 
   constructor(private viewCtrl: ViewController,
               private params: NavParams,
@@ -54,14 +55,33 @@ export class HizmetDetayComponent {
 
   init() {
     if (this.util.isNotEmpty(this.data.hizmetDetay)) {
-      this.hizmetDetay = this.data.hizmetDetay;
-      this.islemAdi = this.hizmetDetay.islemKod;
-      this.arizaAdi = this.hizmetDetay.arizaKod;
-      this.mlzIscKod = this.hizmetDetay.mlzIscKod;
-      this.birimfiyat = this.hizmetDetay.tutar / this.hizmetDetay.miktar;
-      this.aciklama = this.hizmetDetay.aciklama;
-      this.satirNo = this.hizmetDetay.satirNo;
-      this.loadHizmetDetay();
+      this.prepareFieldsForUpdate();
+    } else {
+      this.prepareFieldsForNewRecord();
+    }
+  }
+
+  prepareFieldsForUpdate() {
+    this.hizmetDetay = this.data.hizmetDetay;
+    this.islemAdi = this.hizmetDetay.islemKod;
+    this.arizaAdi = this.hizmetDetay.arizaKod;
+    this.mlzIscKod = this.hizmetDetay.mlzIscKod;
+    this.birimfiyat = this.hizmetDetay.tutar / this.hizmetDetay.miktar;
+    this.aciklama = this.hizmetDetay.aciklama;
+    this.satirNo = this.hizmetDetay.satirNo;
+    this.loadHizmetDetay();
+  }
+
+  prepareFieldsForNewRecord() {
+    let dtoList = this.hizmet.detayDtoList;
+    if (this.util.isNotEmpty(dtoList) && dtoList.length > 0) {
+      dtoList.forEach((item) => {
+        if (item.mlzIsc == Constants.DETAY_TIPI.ISCILIK) {
+          this.hizmetDetay.islemKod = item.islemKod;
+          this.hizmetDetay.arizaKod = item.arizaKod;
+          this.loadHizmetDetay();
+        }
+      });
     }
   }
 
@@ -97,15 +117,16 @@ export class HizmetDetayComponent {
         this.hizmet.detayDtoList = [];
 
       this.hizmetDetay.seqNo = this.hizmet.seqNo;
-      //this.satirNoBelirle();
-      this.hizmetDetay.satirNo = this.hizmet.detayDtoList.length;
-      this.hizmet.detayDtoList.push(this.hizmetDetay);
+      this.satirNoBelirle();
+
+      if (this.util.isNotEmpty(this.hizmetDetay.birimFiyat) && this.hizmetDetay.birimFiyat > 0)
+        this.hizmet.detayDtoList.push(this.hizmetDetay);
 
     }
   }
 
   async detayGuncelle() {
-    //await this.fiyatBul();
+
     let silinecekDetayKayit: DetayKayit = new DetayKayit();
     debugger;
 
@@ -130,25 +151,34 @@ export class HizmetDetayComponent {
 
   fillHizmetDetay(): DetayKayit {
     let detay = new DetayKayit();
+    let hizmetDetay = JSON.parse(JSON.stringify(this.hizmetDetay));
     detay.satirNo = this.satirNo;
-    detay.birimFiyat = this.hizmetDetay.birimFiyat;
-    detay.garFiyat = this.hizmetDetay.garFiyat;
-    detay.tutar = this.hizmetDetay.tutar;
-    detay.islemKod = this.hizmetDetay.islemKod;
-    detay.arizaKod = this.hizmetDetay.arizaKod;
-    detay.mlzIscKod = this.hizmetDetay.mlzIscKod;
-    detay.aciklama = this.hizmetDetay.aciklama;
-    detay.miktar = this.hizmetDetay.miktar;
-    detay.garFiyat = this.hizmetDetay.garFiyat;
-    detay.birimFiyat = this.hizmetDetay.birimFiyat;
-    detay.tutar = this.hizmetDetay.tutar;
-    detay.garTutar = this.hizmetDetay.garTutar;
+    detay.birimFiyat = hizmetDetay.birimFiyat;
+    detay.garFiyat = hizmetDetay.garFiyat;
+    detay.tutar = hizmetDetay.tutar;
+    detay.islemKod = hizmetDetay.islemKod;
+    detay.arizaKod = hizmetDetay.arizaKod;
+    detay.mlzIscKod = hizmetDetay.mlzIscKod;
+    detay.aciklama = hizmetDetay.aciklama;
+    detay.miktar = hizmetDetay.miktar;
+    detay.garFiyat = hizmetDetay.garFiyat;
+    detay.birimFiyat = hizmetDetay.birimFiyat;
+    detay.tutar = hizmetDetay.tutar;
+    detay.garTutar = hizmetDetay.garTutar;
     return detay;
   }
 
   satirNoBelirle() {
     debugger;
-    this.hizmetDetay.satirNo = this.hizmet.detayDtoList.length;
+    let maxSatirNo = 0;
+    for (let i = 0; i < this.hizmet.detayDtoList.length; i++) {
+      let currentSatirNo = this.hizmet.detayDtoList[i].satirNo;
+      if (currentSatirNo > maxSatirNo)
+        maxSatirNo = currentSatirNo;
+    }
+
+    this.hizmetDetay.satirNo = maxSatirNo + 1;
+
 
   }
 
@@ -278,8 +308,14 @@ export class HizmetDetayComponent {
     this.hizmetDetay.birimFiyat = null;
     this.hizmetDetay.garFiyat = null;
     this.hizmetDetay.tutar = null;
-    this.hizmetDetay.islemKod = "";
-    this.hizmetDetay.arizaKod = "";
+
+    if (this.islemTipiDegistirmeSayisi > 0) {
+      this.hizmetDetay.islemKod = "";
+      this.hizmetDetay.arizaKod = "";
+
+      this.islemAdi = "";
+      this.arizaAdi = "";
+    }
     this.hizmetDetay.mlzIscKod = "";
     this.hizmetDetay.aciklama = "";
     this.hizmetDetay.miktar = 1;
@@ -288,11 +324,9 @@ export class HizmetDetayComponent {
     this.hizmetDetay.tutar = 0;
     this.hizmetDetay.garTutar = "0";
 
-
-    this.islemAdi = "";
-    this.arizaAdi = "";
     this.mlzIscKod = "";
     this.aciklama = "";
+    this.islemTipiDegistirmeSayisi += 1;
   }
 
   onChangeIslemKodu() {

@@ -82,7 +82,7 @@ export class GuncellemePage {
       this.logger.success("downloadUrunler ==> " + res);
       if (this.util.isNotEmpty(res)) {
 
-        if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_URUN)) < Constants.API_PAGE_SIZE) {
+        if (Number(localStorage.getItem(Constants.GELEN_VERI.URUN)) < Constants.API_PAGE_SIZE) {
           this.doWhenDataDownloaded(Constants.DATA_TYPE.URUN, "Ürünler Kayıt Edildi.");
         }
         else {
@@ -124,7 +124,7 @@ export class GuncellemePage {
       let res = await this.urunIscilikProvider.downloadUrunIscilik(this.firstForUrunIscilik);
       this.logger.success("downloadUrunIscilik ==> " + res);
       if (this.util.isNotEmpty(res)) {
-        if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_URUN_ISCILIK)) < Constants.API_PAGE_SIZE) {
+        if (Number(localStorage.getItem(Constants.GELEN_VERI.URUN_ISCILIK)) < Constants.API_PAGE_SIZE) {
           this.doWhenDataDownloaded(Constants.DATA_TYPE.URUN_ISCILIK, "Ürün İşçilik Kayıt Edildi.");
         } else {
           this.firstForUrunIscilik += this.pageSize;
@@ -147,7 +147,7 @@ export class GuncellemePage {
       this.urunMalzemeProvider.downloadUrunMalzeme(this.firstForUrunMalzeme).then(res => {
         this.logger.success("downloadUrunMalzeme ==> " + res);
         if (this.util.isNotEmpty(res)) {
-          if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_URUN_MALZEME)) < Constants.API_PAGE_SIZE) {
+          if (Number(localStorage.getItem(Constants.GELEN_VERI.URUN_MALZEME)) < Constants.API_PAGE_SIZE) {
             this.doWhenDataDownloaded(Constants.DATA_TYPE.URUN_MALZEME, "Ürün İşçilik Kayıt Edildi.");
 
           } else {
@@ -175,7 +175,7 @@ export class GuncellemePage {
       this.islemArizaIscilikProvider.downloadIslemArizaIscilik(this.firstForIslemArizaIscilik).then(res => {
         this.logger.success("downloadIslemArizaIscilik ==> " + res);
         if (this.util.isNotEmpty(res)) {
-          if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_ISLEM_ARIZA_ISCILIK)) < Constants.API_PAGE_SIZE) {
+          if (Number(localStorage.getItem(Constants.GELEN_VERI.ISLEM_ARIZA_ISCILIK)) < Constants.API_PAGE_SIZE) {
             this.doWhenDataDownloaded(Constants.DATA_TYPE.ISLEM_ARIZA_ISCILIK, "Islem Ariza Iscilik Kayıt Edildi.");
           } else {
             this.firstForIslemArizaIscilik += this.pageSize;
@@ -202,7 +202,7 @@ export class GuncellemePage {
 
       this.logger.success("downloadMalzemeFiyat ==> " + res);
       if (this.util.isNotEmpty(res)) {
-        if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_MALZEME_FIYAT)) < Constants.API_PAGE_SIZE) {
+        if (Number(localStorage.getItem(Constants.GELEN_VERI.MALZEME_FIYAT)) < Constants.API_PAGE_SIZE) {
           this.doWhenDataDownloaded(Constants.DATA_TYPE.MALZEME_FIYAT, "Malzeme Fiyatı Kayıt Edildi.");
         }
         else {
@@ -229,7 +229,7 @@ export class GuncellemePage {
         if (this.util.isNotEmpty(res)) {
           this.logger.success("downloadIscilikFiyat ==> " + res);
 
-          if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_ISCILIK_FIYAT)) < Constants.API_PAGE_SIZE) {
+          if (Number(localStorage.getItem(Constants.GELEN_VERI.ISCILIK_FIYAT)) < Constants.API_PAGE_SIZE) {
             this.doWhenDataDownloaded(Constants.DATA_TYPE.ISCILIK_FIYAT, "Iscilik Fiyatı Kayıt Edildi.");
 
           } else {
@@ -295,7 +295,7 @@ export class GuncellemePage {
 
         this.logger.success("downloadMahalleList ==> " + res);
         if (this.util.isNotEmpty(res)) {
-          if (Number(localStorage.getItem(Constants.GELEN_VERI.GELEN_MAHALLE_TNM)) < Constants.API_PAGE_SIZE) {
+          if (Number(localStorage.getItem(Constants.GELEN_VERI.MAHALLE_TNM)) < Constants.API_PAGE_SIZE) {
             this.doWhenDataDownloaded(Constants.DATA_TYPE.MAHALLE_TNM, "Mahalle Bilgisi Kayıt Edildi.");
 
           } else {
@@ -337,7 +337,10 @@ export class GuncellemePage {
     let clientVersiyon = localStorage.getItem(Constants.VERSIYON.CLIENT[type]);
     let serverVersiyon = localStorage.getItem(Constants.VERSIYON.SERVER[type]);
     let gelenVeri = localStorage.getItem(Constants.GELEN_VERI[type]);
-    if (serverVersiyon == '-1' || clientVersiyon != serverVersiyon || (this.util.isNotEmpty(gelenVeri) && gelenVeri != "0")) {
+    this.logger.info("Kayıtlı Miktar ==> " + type + " ==> " + localStorage.getItem(Constants.GELEN_VERI[type]));
+    this.logger.info("type ==> " + type + "; Constants.GELEN_VERI[type] ==> " + Constants.GELEN_VERI[type]);
+    //|| (this.util.isNotEmpty(gelenVeri) && gelenVeri != "0")
+    if (serverVersiyon == '-1' || clientVersiyon != serverVersiyon) {
       Constants.COLORS[type] = "notDownloaded";
       Constants.ICONS[type] = "download";
     } else {
@@ -405,7 +408,7 @@ export class GuncellemePage {
       else
         versiyonText += "-1";
     }
-    this.logger.info("VERSIYON_" + tip + "==> " + versiyonText);
+    // this.logger.info("VERSIYON_" + tip + "==> " + versiyonText);
     return versiyonText;
   }
 

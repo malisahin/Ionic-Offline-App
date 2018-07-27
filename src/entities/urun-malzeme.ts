@@ -23,7 +23,7 @@ export class UrunMalzeme {
     /**
      *   Versiyon ve Ne kadar verinin geldiği burdan kontrol edilir
      */
-    localStorage.setItem(Constants.GELEN_VERI.GELEN_URUN_MALZEME, urunMalzemeList.length);
+    localStorage.setItem(Constants.GELEN_VERI.URUN_MALZEME, urunMalzemeList.length);
     localStorage.setItem(Constants.VERSIYON.SERVER.URUN_MALZEME, urunMalzemeVersiyon);
 
 
