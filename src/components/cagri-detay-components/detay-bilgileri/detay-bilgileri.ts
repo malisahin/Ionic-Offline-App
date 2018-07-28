@@ -278,27 +278,30 @@ export class DetayBilgileriComponent {
 
   sunucuyaKayitIcinHazirla(hizmet: Hizmet) {
 
-    hizmet = this.hizmetProvider.fillHizmet(hizmet);
+    //hizmet = this.hizmetProvider.fillHizmet(hizmet);
 
-    let sunucuyaGidecekHizmet = Object.assign({}, hizmet);
+    //let sunucuyaGidecekHizmet = Object.assign({}, hizmet);
+    let sunucuyaGidecekHizmet = this.util.assign(hizmet);
     let DATE_FORMAT: string = "dd.MM.yyyy hh:mm:ss";
 
-    if (this.util.isNotEmpty(sunucuyaGidecekHizmet.islemList)) {
-      sunucuyaGidecekHizmet.islemList.forEach(islem => {
+    /*if (this.util.isNotEmpty(sunucuyaGidecekHizmet.islemList)) {
+     sunucuyaGidecekHizmet.islemList.forEach(islem => {
 
-        if (this.util.isNotEmpty(islem.basTar)) {
-          islem.basTar = this.util.dateFormatRegex(islem.basTar, DATE_FORMAT)
-        }
+     if (this.util.isNotEmpty(islem.basTar)) {
+     islem.basTar = this.util.dateFormatRegex(islem.basTar, DATE_FORMAT)
+     }
 
-        if (this.util.isNotEmpty(islem.bitTar)) {
-          islem.bitTar = this.util.dateFormatRegex(islem.bitTar, DATE_FORMAT)
-        }
+     if (this.util.isNotEmpty(islem.bitTar)) {
+     islem.bitTar = this.util.dateFormatRegex(islem.bitTar, DATE_FORMAT)
+     }
 
-      })
-    }
+     })
+     }
+     */
     sunucuyaGidecekHizmet.randevuTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.randevuTarihi, DATE_FORMAT);
     sunucuyaGidecekHizmet.islemTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.islemTarihi, DATE_FORMAT);
     sunucuyaGidecekHizmet.islemBitTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.islemBitTarihi, DATE_FORMAT);
+    sunucuyaGidecekHizmet.cagriTarihi = his.util.dateFormatRegex(sunucuyaGidecekHizmet.cagriTarihi, DATE_FORMAT);
 
     return sunucuyaGidecekHizmet;
   }

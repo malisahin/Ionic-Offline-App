@@ -146,7 +146,7 @@
 
       <ion-col col-8 col-md-10>
         <ion-select [(ngModel)]="hizmet.kapatmaKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"
-                    interface="action-sheet">
+                    interface="popover">
           <ion-option value="NORMAL">Normal Kapatma</ion-option>
           <ion-option value="MESGULIYET">Meşguliyet Kapatma</ion-option>
         </ion-select>
@@ -159,7 +159,7 @@
 
       <ion-col col-8 col-md-10>
         <ion-select [(ngModel)]="hizmet.odemeTipi" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"
-                    interface="action-sheet">
+                    interface="popover">
           <ion-option value="NAKIT">Nakit</ion-option>
           <ion-option value="KREDIKARTI">Kredi Kartı</ion-option>
         </ion-select>
@@ -171,7 +171,7 @@
 
       <ion-col col-8 col-md-10>
         <ion-select [(ngModel)]="hizmet.cozumKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"
-                    interface="action-sheet">
+                    interface="popover">
           <ion-option *ngFor="let cozum of cozumKoduList" [value]="cozum.kod">{{cozum.ad}}</ion-option>
         </ion-select>
       </ion-col>

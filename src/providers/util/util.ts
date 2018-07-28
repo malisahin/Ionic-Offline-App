@@ -324,7 +324,7 @@ export class UtilProvider {
     }
   }
 
- private loaderContent(): string {
+  private loaderContent(): string {
     return `
     <html>
     
@@ -345,6 +345,11 @@ export class UtilProvider {
     </body>
     
     </html> `;
+  }
+
+
+  assign(item: any): any {
+    return JSON.parse(JSON.stringify(item));
   }
 
 }

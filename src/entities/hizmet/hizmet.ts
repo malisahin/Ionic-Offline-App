@@ -46,9 +46,9 @@ export class Hizmet {
   ilceKod: string = "";
   iletisimIstek: string = "";
   isTel: string = "";
-  islemBitTarihi: string = "";
+  islemBitTarihi: Date = "";
   islemList: IslemList[];
-  islemTarihi: string = "";
+  islemTarihi: Date = "";
   kapatmaKodu: string = "";
   mahalle: string = "";
   mahalleKodu: string = "";
@@ -86,7 +86,7 @@ export class Hizmet {
    * Sunucuya gitmeyecek alanlar
    */
   adres = "";
-  ilceAdi  = "";
+  ilceAdi = "";
   ilIlce = "";
 
 }
