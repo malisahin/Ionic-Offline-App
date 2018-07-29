@@ -18,6 +18,7 @@ import {PrinterService} from "../../../providers/printer-service/printer-service
 import {HizmetProvider} from "../../../providers/hizmet/hizmet";
 import {ProcessResults} from "../../../entities/ProcessResults";
 import {CagrilarPage} from "../../../pages/cagrilar/cagrilar";
+import {FiyatProvider} from "../../../providers/fiyat/fiyat";
 
 enum DURUM {
   ACIK = 'ACIK',
@@ -52,11 +53,12 @@ export class DetayBilgileriComponent {
               private alertCtrl: AlertController,
               private nav: NavController,
               private hizmetProvider: HizmetProvider,
+              private fiyatProvider: FiyatProvider,
               private printService: PrinterService) {
     this.hizmet = this.hizmetService.getHizmet();
-    this.loadDetayList();
     this.loadCozumKoduList();
     this.loadletisimIstek();
+    this.loadDetayFiyatlari();
   }
 
   getHizmet() {
@@ -143,11 +145,12 @@ export class DetayBilgileriComponent {
   async kapat(durum: string) {
     let result = this.kapatmaKontrol();
     if (result.isErrorMessagesNull()) {
-      let kapatmaHizmet = this.hizmetProvider.fillHizmet(this.hizmet);
+      //let kapatmaHizmet = this.hizmetProvider.fillHizmet(this.hizmet);
+      let kapatmaHizmet = this.util.assign(this.hizmet);
 
-      if (!this.verilerSunucuyaKayitEdildiMi) {
-        kapatmaHizmet = this.sunucuyaKayitIcinHazirla(kapatmaHizmet);
-      }
+
+      kapatmaHizmet = this.sunucuyaKayitIcinHazirla(kapatmaHizmet);
+
       kapatmaHizmet.durum = durum;
       this.util.loaderStart();
       let res = await this.hizmetProvider.updateCagri(kapatmaHizmet, "HAYIR");
@@ -284,24 +287,24 @@ export class DetayBilgileriComponent {
     let sunucuyaGidecekHizmet = this.util.assign(hizmet);
     let DATE_FORMAT: string = "dd.MM.yyyy hh:mm:ss";
 
-    /*if (this.util.isNotEmpty(sunucuyaGidecekHizmet.islemList)) {
-     sunucuyaGidecekHizmet.islemList.forEach(islem => {
+    if (this.util.isNotEmpty(sunucuyaGidecekHizmet.islemList)) {
+      sunucuyaGidecekHizmet.islemList.forEach(islem => {
 
-     if (this.util.isNotEmpty(islem.basTar)) {
-     islem.basTar = this.util.dateFormatRegex(islem.basTar, DATE_FORMAT)
-     }
+        if (this.util.isNotEmpty(islem.basTar)) {
+          islem.basTar = this.util.dateFormatRegex(islem.basTar, DATE_FORMAT)
+        }
 
-     if (this.util.isNotEmpty(islem.bitTar)) {
-     islem.bitTar = this.util.dateFormatRegex(islem.bitTar, DATE_FORMAT)
-     }
+        if (this.util.isNotEmpty(islem.bitTar)) {
+          islem.bitTar = this.util.dateFormatRegex(islem.bitTar, DATE_FORMAT)
+        }
 
-     })
-     }
-     */
+      })
+    }
+
     sunucuyaGidecekHizmet.randevuTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.randevuTarihi, DATE_FORMAT);
     sunucuyaGidecekHizmet.islemTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.islemTarihi, DATE_FORMAT);
     sunucuyaGidecekHizmet.islemBitTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.islemBitTarihi, DATE_FORMAT);
-    sunucuyaGidecekHizmet.cagriTarihi = his.util.dateFormatRegex(sunucuyaGidecekHizmet.cagriTarihi, DATE_FORMAT);
+    sunucuyaGidecekHizmet.cagriTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.cagriTarihi, DATE_FORMAT);
 
     return sunucuyaGidecekHizmet;
   }
@@ -414,6 +417,30 @@ export class DetayBilgileriComponent {
 
   isHizmetDisabled(): boolean {
     return this.hizmet.durum == "KAPALI" || this.hizmet.durum == "IPTAL";
+  }
+
+  async loadDetayFiyatlari() {
+    let dtoList: DetayKayit[] = this.hizmet.detayDtoList;
+    if (this.util.isNotEmpty(dtoList)) {
+      for (let i = 0; i < dtoList.length; i++) {
+        let dto = dtoList[i];
+        await this.findDetayFiyat(dto);
+      }
+
+      this.loadDetayList();
+    }
+  }
+
+  async findDetayFiyat(detay: DetayKayit) {
+    if (this.util.isEmpty(detay.birimFiyat) || detay.birimFiyat == 0) {
+      let res = await this.fiyatProvider.findFiyat(detay, this.hizmet.mamKod);
+      if (this.util.isNotEmpty(res)) {
+        detay.birimFiyat = res.fiyat;
+        detay.garFiyat = res.gdfiyat;
+        detay.tutar = Number(detay.birimFiyat) * detay.miktar;
+        detay.garTutar = String(Number(detay.garFiyat) * detay.miktar);
+      }
+    }
   }
 
 

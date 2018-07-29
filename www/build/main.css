@@ -3820,6 +3820,26 @@ ion-icon::before {
             IONIC THEMES
 
 ---------------------------------*/
+.toast-info .toast-container {
+  background-color: #2f96b4;
+  text-align: center;
+}
+
+.toast-success .toast-container {
+  background-color: #51a351;
+  text-align: center;
+}
+
+.toast-error .toast-container {
+  background-color: #bd362f;
+  text-align: center;
+}
+
+.toast-warn .toast-container {
+  background-color: #f89406;
+  text-align: center;
+}
+
 .green-theme .login-content .submit-btn {
   background: #34b652;
 }

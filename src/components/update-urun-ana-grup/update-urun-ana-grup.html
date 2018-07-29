@@ -10,7 +10,7 @@
     <ion-item>
       <ion-label>Ürün Ana Grup</ion-label>
 
-      <ion-select [(ngModel)]="urunAnaGrup.mamAnaGrp" interface="action-sheet" (ionChange)="onChangeMamAnaGrp()">
+      <ion-select [(ngModel)]="urunAnaGrup.mamAnaGrp" interface="popover" (ionChange)="onChangeMamAnaGrp()">
         <ion-option *ngFor="let anaGrp of urunAnaGrpList" [value]="anaGrp.mamAnaGrp" >
           {{anaGrp.mamAnaGrp }} - {{anaGrp.ad}}
         </ion-option>
@@ -21,9 +21,9 @@
 
     <ion-item>
       <ion-label>Başvuru Nedeni</ion-label>
-      <ion-select [(ngModel)]="basvuruNedeni.neden" interface="action-sheet">
+      <ion-select [(ngModel)]="basvuruNedeni.neden" interface="popover">
         <ion-option *ngFor="let neden of basvuruNedeniList" [value]="neden.neden" >
-          {{neden.ad }} - {{neden.neden}}
+          {{neden.neden}} - {{neden.ad }}
         </ion-option>
       </ion-select>
     </ion-item>

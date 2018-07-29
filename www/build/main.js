@@ -145,7 +145,7 @@ var HeaderComponent = (function () {
     };
     HeaderComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'icon-header',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\header\header.html"*/'<ion-grid>\n\n  <ion-row style=" display: inline-block;">\n\n\n\n    <div float-left class="header-bar">\n\n      <ion-buttons>\n\n        <button ion-button item-left icon-only (click)="sayfayaGit(\'CagrilarPage\',{})">\n\n          <ion-icon name="ios-call"></ion-icon>\n\n          <div class="bar-announcements">{{cagriSayisi}}</div>\n\n        </button>\n\n\n\n        <button ion-button icon-only (click)="sayfayaGit(\'BildirimlerPage\',{type:\'WARN\'})">\n\n          <ion-icon name="volume-up"></ion-icon>\n\n          <div class="bar-announcements">{{duyuruSayisi}}</div>\n\n        </button>\n\n\n\n        <button ion-button icon-only (click)="sayfayaGit(\'BildirimlerPage\',{type:\'URGENT\'})">\n\n          <ion-icon name="notifications"></ion-icon>\n\n          <div class="bar-announcements">{{uyariSayisi}}</div>\n\n        </button>\n\n\n\n        <button ion-button icon-only (click)="sayfayaGit(\'GuncellemePage\',{})">\n\n          <ion-icon name="md-refresh"></ion-icon>\n\n          <div class="bar-announcements">{{guncellemeSayisi}}</div>\n\n        </button>\n\n      </ion-buttons>\n\n    </div>\n\n\n\n    <div float-right class="header-bar">\n\n      <ion-buttons>\n\n        <button ion-button icon-only (click)="sayfayaGit(\'Anasayfa\',{})">\n\n          <ion-icon name="home"></ion-icon>\n\n        </button>\n\n\n\n        <button ion-button icon-only (click)="closeApplicationConfirm()">\n\n          <ion-icon name="exit"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n    </div>\n\n\n\n  </ion-row>\n\n</ion-grid>\n\n\n\n\n\n\n\n<!--\n\n<ion-tabs tabs-only [selectedIndex]="index" color="primary">\n\n\n\n  <ion-tab tabIcon="list-box" [root]="cagrilarPage" tabBadge="{{cagriSayisi}}" tabBadgeStyle="danger"></ion-tab>\n\n\n\n  <ion-tab tabIcon="volume-up" [root]="bildirimlerPage" tabBadge="{{duyuruSayisi}}" tabBadgeStyle="danger"></ion-tab>\n\n\n\n  <ion-tab tabIcon="notifications" [root]="bildirimlerPage" tabBadge="{{uyariSayisi}}" tabBadgeStyle="danger"></ion-tab>\n\n\n\n  <ion-tab tabIcon="md-refresh" [root]="guncellemePage" tabBadge="{{guncellemeSayisi}}"\n\n           tabBadgeStyle="danger"></ion-tab>\n\n\n\n  <div float-right>\n\n    <ion-tab tabIcon="home" [root]="anaSayfa"></ion-tab>\n\n    &lt;!&ndash;<ion-tab tabIcon="exit" [root]="closeApplicationConfirm"></ion-tab>&ndash;&gt;\n\n  </div>\n\n\n\n</ion-tabs>-->'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\header\header.html"*/
+            selector: 'icon-header',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/header/header.html"*/'<ion-grid>\n  <ion-row style=" display: inline-block;">\n\n    <ion-col col-8 col-sm-8 col-lg-8 col-md-8 col-xl-8>\n      <div float-left class="header-bar">\n        <ion-buttons>\n          <button ion-button item-left icon-only (click)="sayfayaGit(\'CagrilarPage\',{})">\n            <ion-icon name="ios-call"></ion-icon>\n            <div class="bar-announcements">{{cagriSayisi}}</div>\n          </button>\n\n          <button ion-button icon-only (click)="sayfayaGit(\'BildirimlerPage\',{type:\'WARN\'})">\n            <ion-icon name="volume-up"></ion-icon>\n            <div class="bar-announcements">{{duyuruSayisi}}</div>\n          </button>\n\n          <button ion-button icon-only (click)="sayfayaGit(\'BildirimlerPage\',{type:\'URGENT\'})">\n            <ion-icon name="notifications"></ion-icon>\n            <div class="bar-announcements">{{uyariSayisi}}</div>\n          </button>\n\n          <button ion-button icon-only (click)="sayfayaGit(\'GuncellemePage\',{})">\n            <ion-icon name="md-refresh"></ion-icon>\n            <div class="bar-announcements">{{guncellemeSayisi}}</div>\n          </button>\n        </ion-buttons>\n      </div>\n    </ion-col>\n\n    <ion-col col-4 col-sm-4 col-lg-4 col-md-4 col-xl-4>\n      <div float-right class="header-bar">\n        <ion-buttons>\n          <button ion-button icon-only (click)="sayfayaGit(\'Anasayfa\',{})">\n            <ion-icon name="home"></ion-icon>\n          </button>\n\n          <button ion-button icon-only (click)="closeApplicationConfirm()">\n            <ion-icon name="exit"></ion-icon>\n          </button>\n        </ion-buttons>\n      </div>\n    </ion-col>\n\n  </ion-row>\n</ion-grid>\n\n\n<!--\n<ion-tabs tabs-only [selectedIndex]="index" color="primary">\n\n  <ion-tab tabIcon="list-box" [root]="cagrilarPage" tabBadge="{{cagriSayisi}}" tabBadgeStyle="danger"></ion-tab>\n\n  <ion-tab tabIcon="volume-up" [root]="bildirimlerPage" tabBadge="{{duyuruSayisi}}" tabBadgeStyle="danger"></ion-tab>\n\n  <ion-tab tabIcon="notifications" [root]="bildirimlerPage" tabBadge="{{uyariSayisi}}" tabBadgeStyle="danger"></ion-tab>\n\n  <ion-tab tabIcon="md-refresh" [root]="guncellemePage" tabBadge="{{guncellemeSayisi}}"\n           tabBadgeStyle="danger"></ion-tab>\n\n  <div float-right>\n    <ion-tab tabIcon="home" [root]="anaSayfa"></ion-tab>\n    &lt;!&ndash;<ion-tab tabIcon="exit" [root]="closeApplicationConfirm"></ion-tab>&ndash;&gt;\n  </div>\n\n</ion-tabs>-->\n'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/header/header.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_controller__["a" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__providers_mesajlar_dao_mesajlar_dao__["a" /* MesajlarDao */],
@@ -411,7 +411,7 @@ var BildirimlerPage = (function () {
                     case 2:
                         _a.sent();
                         if (this.util.isOnline())
-                            this.util.message(this.mesajBaslik + " güncellenmiştir.");
+                            this.util.success(this.mesajBaslik + " güncellenmiştir.");
                         return [2 /*return*/];
                 }
             });
@@ -466,7 +466,7 @@ var BildirimlerPage = (function () {
     ], BildirimlerPage.prototype, "header", void 0);
     BildirimlerPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-bildirimler',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\bildirimler\bildirimler.html"*/'<ion-header>\n\n\n\n  <ion-navbar hideBackButton="true">\n\n    <icon-header #header></icon-header>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content class="content">\n\n  <ion-title class="page-title">{{mesajBaslik}}</ion-title>\n\n\n\n  <ion-row>\n\n    <ion-col col-12 col-sm>\n\n      <button ion-button round full (click)="guncelle();" color="secondary">\n\n        Güncelle\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-card *ngFor="let mesaj of mesajList" class="card-box" (click)="mesajDetayinaGit($event, mesaj.id)">\n\n    <p>\n\n      <label>\n\n        <i class="fas fa-user"></i>\n\n        <strong> {{mesaj.gonderen}} </strong>\n\n      </label>\n\n    </p>\n\n    <p>\n\n      <label>\n\n        <i class="fas fa-envelope"></i>\n\n        <strong>{{mesaj.subject}} </strong>\n\n      </label>\n\n    </p>\n\n  </ion-card>\n\n</ion-content>\n\n\n\n\n\n<ion-footer>\n\n  <ion-grid>\n\n    <ion-row>\n\n\n\n      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>\n\n        <button ion-button color="light" (click)="fetchList(\'FIRST\')">\n\n          <ion-icon name="arrow-dropleft"></ion-icon>\n\n        </button>\n\n      </ion-col>\n\n\n\n      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>\n\n        <button ion-button color="light" (click)="fetchList(\'PREVIOUS\')">\n\n          <ion-icon name="arrow-back"></ion-icon>\n\n        </button>\n\n      </ion-col>\n\n\n\n      <ion-col col-sm-4 col-md-4 col-lg-4 col-xl-4>\n\n        <ion-item>\n\n          <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList(\'PAGE_NO\')" interface="popover">\n\n            <ion-option value="10" selected="true">10</ion-option>\n\n            <ion-option value="20">20</ion-option>\n\n            <ion-option value="50">50</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n      </ion-col>\n\n\n\n      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>\n\n        <button ion-button color="light" (click)="fetchList(\'NEXT\')">\n\n          <ion-icon name="arrow-forward"></ion-icon>\n\n        </button>\n\n      </ion-col>\n\n\n\n      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>\n\n        <button ion-button color="light" (click)="fetchList(\'LAST\')">\n\n          <ion-icon name="arrow-dropright"></ion-icon>\n\n        </button>\n\n      </ion-col>\n\n\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n</ion-footer>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\bildirimler\bildirimler.html"*/,
+            selector: 'page-bildirimler',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/bildirimler/bildirimler.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton="true">\n    <icon-header #header></icon-header>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content class="content">\n  <ion-title class="page-title">{{mesajBaslik}}</ion-title>\n\n  <ion-row>\n    <ion-col col-12 col-sm>\n      <button ion-button round full (click)="guncelle();" color="secondary">\n        Güncelle\n      </button>\n    </ion-col>\n  </ion-row>\n\n  <ion-card *ngFor="let mesaj of mesajList" class="card-box" (click)="mesajDetayinaGit($event, mesaj.id)">\n    <p>\n      <label>\n        <i class="fas fa-user"></i>\n        <strong> {{mesaj.gonderen}} </strong>\n      </label>\n    </p>\n    <p>\n      <label>\n        <i class="fas fa-envelope"></i>\n        <strong>{{mesaj.subject}} </strong>\n      </label>\n    </p>\n  </ion-card>\n</ion-content>\n\n\n<ion-footer>\n  <ion-grid>\n    <ion-row>\n\n      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>\n        <button ion-button color="light" (click)="fetchList(\'FIRST\')">\n          <ion-icon name="arrow-dropleft"></ion-icon>\n        </button>\n      </ion-col>\n\n      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>\n        <button ion-button color="light" (click)="fetchList(\'PREVIOUS\')">\n          <ion-icon name="arrow-back"></ion-icon>\n        </button>\n      </ion-col>\n\n      <ion-col col-sm-4 col-md-4 col-lg-4 col-xl-4>\n        <ion-item>\n          <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList(\'PAGE_NO\')" interface="popover">\n            <ion-option value="10" selected="true">10</ion-option>\n            <ion-option value="20">20</ion-option>\n            <ion-option value="50">50</ion-option>\n          </ion-select>\n        </ion-item>\n      </ion-col>\n\n      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>\n        <button ion-button color="light" (click)="fetchList(\'NEXT\')">\n          <ion-icon name="arrow-forward"></ion-icon>\n        </button>\n      </ion-col>\n\n      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>\n        <button ion-button color="light" (click)="fetchList(\'LAST\')">\n          <ion-icon name="arrow-dropright"></ion-icon>\n        </button>\n      </ion-col>\n\n    </ion-row>\n  </ion-grid>\n\n</ion-footer>'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/bildirimler/bildirimler.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -556,10 +556,10 @@ var MesajlarProvider = (function () {
         console.log('Hello MesajlarProvider Provider');
     }
     MesajlarProvider.prototype.setAlertFirst = function () {
-        this.util.message("Token  is Ok");
+        this.util.success("Token  is Ok");
     };
     MesajlarProvider.prototype.setAlertLast = function () {
-        this.util.message("Notifications is Ok");
+        this.util.success("Notifications is Ok");
     };
     MesajlarProvider.prototype.getDataFromApi = function (calledFrom) {
         return __awaiter(this, void 0, void 0, function () {
@@ -677,7 +677,7 @@ var Urun = (function () {
          *   Versiyon ve Ne kadar verinin geldiği burdan kontrol edilir
          */
         localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].VERSIYON.SERVER.URUN, urunVersiyon);
-        localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].GELEN_VERI.GELEN_URUN, urunList.length);
+        localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].GELEN_VERI.URUN, urunList.length);
         urunList.forEach(function (item) {
             var urun = new Urun();
             urun.mamAnagrp = item.mamAnagrp;
@@ -1059,7 +1059,7 @@ var UrunAnaGrupSearchComponent = (function () {
     };
     UrunAnaGrupSearchComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'urun-ana-grup-search',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\urun-ana-grup-search\urun-ana-grup-search.html"*/'<ion-header>\n\n  <button ion-button round (click)="closeModal()">Iptal</button>\n\n  <ion-navbar no-border-bottom>\n\n    <ion-title>Ürün Ana Grup Ara</ion-title>\n\n  </ion-navbar>\n\n\n\n  <ion-toolbar no-border-top>\n\n    <ion-searchbar placeholder="Ara" [(ngModel)]="searchText" (ionInput)="fetchList()"></ion-searchbar>\n\n  </ion-toolbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n  <ion-list radio-group [(ngModel)]="selectedItem">\n\n    <ion-item *ngFor="let item of list">\n\n      <ion-label>{{item.key}} - {{item.value}}</ion-label>\n\n      <ion-radio (ionSelect)="ionChange(item)"></ion-radio>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n</ion-content>\n\n\n\n\n\n<ion-footer>\n\n\n\n  <ion-toolbar>\n\n    <button ion-button color="light" (click)="fetchList(\'FIRST\')">\n\n      <ion-icon name="arrow-dropleft"></ion-icon>\n\n    </button>\n\n    <button ion-button color="light" (click)="fetchList(\'PREVIOUS\')">\n\n      <ion-icon name="arrow-back"></ion-icon>\n\n    </button>\n\n\n\n    <ion-item>\n\n      <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList(\'PAGE_NO\')" interface="popover">\n\n        <ion-option value="10" selected="true">10</ion-option>\n\n        <ion-option value="20">20</ion-option>\n\n        <ion-option value="50">50</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n\n\n    <button ion-button color="light" (click)="fetchList(\'NEXT\')">\n\n      <ion-icon name="arrow-forward"></ion-icon>\n\n    </button>\n\n    <button ion-button color="light" (click)="fetchList(\'LAST\')">\n\n      <ion-icon name="arrow-dropright"></ion-icon>\n\n    </button>\n\n  </ion-toolbar>\n\n\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\urun-ana-grup-search\urun-ana-grup-search.html"*/
+            selector: 'urun-ana-grup-search',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/urun-ana-grup-search/urun-ana-grup-search.html"*/'<ion-header>\n  <button ion-button round (click)="closeModal()">Iptal</button>\n  <ion-navbar no-border-bottom>\n    <ion-title>Ürün Ana Grup Ara</ion-title>\n  </ion-navbar>\n\n  <ion-toolbar no-border-top>\n    <ion-searchbar placeholder="Ara" [(ngModel)]="searchText" (ionInput)="fetchList()"></ion-searchbar>\n  </ion-toolbar>\n\n</ion-header>\n\n<ion-content>\n\n  <ion-list radio-group [(ngModel)]="selectedItem">\n    <ion-item *ngFor="let item of list">\n      <ion-label>{{item.key}} - {{item.value}}</ion-label>\n      <ion-radio (ionSelect)="ionChange(item)"></ion-radio>\n    </ion-item>\n  </ion-list>\n\n</ion-content>\n\n\n<ion-footer>\n\n  <ion-toolbar>\n    <button ion-button color="light" (click)="fetchList(\'FIRST\')">\n      <ion-icon name="arrow-dropleft"></ion-icon>\n    </button>\n    <button ion-button color="light" (click)="fetchList(\'PREVIOUS\')">\n      <ion-icon name="arrow-back"></ion-icon>\n    </button>\n\n    <ion-item>\n      <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList(\'PAGE_NO\')" interface="popover">\n        <ion-option value="10" selected="true">10</ion-option>\n        <ion-option value="20">20</ion-option>\n        <ion-option value="50">50</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <button ion-button color="light" (click)="fetchList(\'NEXT\')">\n      <ion-icon name="arrow-forward"></ion-icon>\n    </button>\n    <button ion-button color="light" (click)="fetchList(\'LAST\')">\n      <ion-icon name="arrow-dropright"></ion-icon>\n    </button>\n  </ion-toolbar>\n\n</ion-footer>\n'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/urun-ana-grup-search/urun-ana-grup-search.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6_ionic_angular__["n" /* ViewController */], __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_4__providers_util_util__["a" /* UtilProvider */],
@@ -1127,13 +1127,19 @@ var ZebraPrinterComponent = (function () {
             this.printerList = list.split(",");
     };
     ZebraPrinterComponent.prototype.fnSuccess = function () {
-        this.util.message("Hizmet Formu çıktısı başarılı bir şekilde alındı.");
+        this.util.success("Hizmet Formu çıktısı başarılı bir şekilde alındı.");
     };
     ZebraPrinterComponent.prototype.fnError = function () {
-        this.util.message("Çıktı alınırken hata oluştu.");
+        this.util.error("Çıktı alınırken hata oluştu.");
     };
     ZebraPrinterComponent.prototype.androidList = function () {
-        window.printer.list(this.androidSetPrinterList.bind(this), this.fnError.bind(this));
+        if (this.util.isNotEmpty(window.printer))
+            window.printer.list(this.androidSetPrinterList.bind(this), this.fnError.bind(this));
+        else {
+            var errorMes = "Android Zebra Printer plugini implemente edilmemiş. Sistem yetkilisine bildiriniz.";
+            this.logger.error(errorMes);
+            this.util.error(errorMes);
+        }
     };
     ZebraPrinterComponent.prototype.androidClose = function () {
         window.printer.close(this.fnSuccess.bind(this), this.fnError.bind(this));
@@ -1146,7 +1152,13 @@ var ZebraPrinterComponent = (function () {
         window.printer.print(this.fnSuccess.bind(this), this.fnError.bind(this), this.text);
     };
     ZebraPrinterComponent.prototype.iosList = function () {
-        window.plugins.CordovaPrinter.getPrinters(this.fnSuccess.bind(this), this.fnError.bind(this));
+        if (this.util.isNotEmpty(window.plugins) && this.util.isNotEmpty(window.plugins.CordovaPrinter))
+            window.plugins.CordovaPrinter.getPrinters(this.fnSuccess.bind(this), this.fnError.bind(this));
+        else {
+            var errorMes = "Ios Zebra Printer plugini implemente edilmemiş. Sistem yetkilisine bildiriniz.";
+            this.logger.error(errorMes);
+            this.util.error(errorMes);
+        }
     };
     ZebraPrinterComponent.prototype.iosPrint = function () {
         window.plugins.CordovaPrinter.print(this.fnSuccess.bind(this), this.fnError.bind(this), this.selectedPrinter, this.text);
@@ -1163,7 +1175,7 @@ var ZebraPrinterComponent = (function () {
     };
     ZebraPrinterComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'zebra-printer',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\zebra-printer\zebra-printer.html"*/'<ion-header>\n\n  <button ion-button round (click)="closeModal()">Iptal</button>\n\n  <ion-navbar no-border-bottom>\n\n    <ion-title>Yazdırmak için seçiniz.</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <!-- Generated template for the ListComponent component -->\n\n  <div>\n\n    <ion-list>\n\n      <button ion-item *ngFor="let item of printerList" (click)="yazdir(item) ">\n\n        {{ item }}\n\n      </button>\n\n    </ion-list>\n\n  </div>\n\n\n\n</ion-content>\n\n\n\n\n\n<ion-footer>\n\n\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\zebra-printer\zebra-printer.html"*/
+            selector: 'zebra-printer',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/zebra-printer/zebra-printer.html"*/'<ion-header>\n  <button ion-button round (click)="closeModal()">Iptal</button>\n  <ion-navbar no-border-bottom>\n    <ion-title>Yazdırmak için seçiniz.</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n  <!-- Generated template for the ListComponent component -->\n  <div>\n    <ion-list>\n      <button ion-item *ngFor="let item of printerList" (click)="yazdir(item) ">\n        {{ item }}\n      </button>\n    </ion-list>\n  </div>\n\n</ion-content>\n\n\n<ion-footer>\n\n</ion-footer>\n'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/zebra-printer/zebra-printer.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_util_util__["a" /* UtilProvider */],
             __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["l" /* Platform */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular_navigation_view_controller__["a" /* ViewController */],
@@ -1430,7 +1442,7 @@ var CagriDetayPage = (function () {
     };
     CagriDetayPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-cagri-detay',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\cagri-detay\cagri-detay.html"*/'<ion-header>\n\n\n\n  <ion-navbar hideBackButton="true">\n\n\n\n    <icon-header></icon-header>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content class="content blue-theme">\n\n  <ion-row>\n\n    <ion-col col-2 col-md-2>\n\n      <button ion-button>\n\n        <ion-icon name="ios-arrow-back" (click)="goback()" class="pull-right close-icon"></ion-icon>\n\n      </button>\n\n    </ion-col>\n\n    <ion-col col-10 col-md-10>\n\n      <ion-title class="page-title">Çağrı Detay</ion-title>\n\n    </ion-col>\n\n\n\n  </ion-row>\n\n\n\n\n\n  <ion-toolbar no-border-top class="main-tabs">\n\n    <ion-segment [(ngModel)]="activePage">\n\n\n\n      <ion-segment-button value="hizmet" (ionSelect)="whenTabChange()">\n\n        Hizmet Bilgileri\n\n      </ion-segment-button>\n\n\n\n      <ion-segment-button value="musteri" (ionSelect)="whenTabChange()">\n\n        Müşteri Bilgileri\n\n      </ion-segment-button>\n\n\n\n      <ion-segment-button value="urun" (ionSelect)="whenTabChange()">\n\n        Ürün Bilgileri\n\n      </ion-segment-button>\n\n\n\n      <ion-segment-button value="servis" (ionSelect)="whenTabChange()">\n\n        Servis Bilgileri\n\n      </ion-segment-button>\n\n\n\n      <ion-segment-button value="detay" (ionSelect)="whenTabChange()">\n\n        Detaylar\n\n      </ion-segment-button>\n\n\n\n    </ion-segment>\n\n  </ion-toolbar>\n\n\n\n  <div [ngSwitch]="activePage">\n\n\n\n    <div *ngSwitchCase="\'hizmet\'">\n\n      <hizmet-bilgileri></hizmet-bilgileri>\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'musteri\'">\n\n      <musteri-bilgileri></musteri-bilgileri>\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'urun\'">\n\n      <urun-bilgileri></urun-bilgileri>\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'servis\'">\n\n      <servis-bilgileri></servis-bilgileri>\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'detay\'">\n\n      <detay-bilgileri class="blue-theme"></detay-bilgileri>\n\n    </div>\n\n\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\cagri-detay\cagri-detay.html"*/,
+            selector: 'page-cagri-detay',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/cagri-detay/cagri-detay.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton="true">\n\n    <icon-header></icon-header>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content class="content blue-theme">\n  <ion-row>\n    <ion-col col-2 col-md-2>\n      <button ion-button>\n        <ion-icon name="ios-arrow-back" (click)="goback()" class="pull-right close-icon"></ion-icon>\n      </button>\n    </ion-col>\n    <ion-col col-10 col-md-10>\n      <ion-title class="page-title">Çağrı Detay</ion-title>\n    </ion-col>\n\n  </ion-row>\n\n\n  <ion-toolbar no-border-top class="main-tabs">\n    <ion-segment [(ngModel)]="activePage">\n\n      <ion-segment-button value="hizmet" (ionSelect)="whenTabChange()">\n        Hizmet Bilgileri\n      </ion-segment-button>\n\n      <ion-segment-button value="musteri" (ionSelect)="whenTabChange()">\n        Müşteri Bilgileri\n      </ion-segment-button>\n\n      <ion-segment-button value="urun" (ionSelect)="whenTabChange()">\n        Ürün Bilgileri\n      </ion-segment-button>\n\n      <ion-segment-button value="servis" (ionSelect)="whenTabChange()">\n        Servis Bilgileri\n      </ion-segment-button>\n\n      <ion-segment-button value="detay" (ionSelect)="whenTabChange()">\n        Detaylar\n      </ion-segment-button>\n\n    </ion-segment>\n  </ion-toolbar>\n\n  <div [ngSwitch]="activePage">\n\n    <div *ngSwitchCase="\'hizmet\'">\n      <hizmet-bilgileri></hizmet-bilgileri>\n    </div>\n\n    <div *ngSwitchCase="\'musteri\'">\n      <musteri-bilgileri></musteri-bilgileri>\n    </div>\n\n    <div *ngSwitchCase="\'urun\'">\n      <urun-bilgileri></urun-bilgileri>\n    </div>\n\n    <div *ngSwitchCase="\'servis\'">\n      <servis-bilgileri></servis-bilgileri>\n    </div>\n\n    <div *ngSwitchCase="\'detay\'">\n      <detay-bilgileri class="blue-theme"></detay-bilgileri>\n    </div>\n\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/cagri-detay/cagri-detay.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -1534,7 +1546,7 @@ var MesajDetailComponent = (function () {
     };
     MesajDetailComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'mesaj-detail',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\mesaj-detail\mesaj-detail.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-row class="modal-title">\n\n      <ion-col col-11 col-md-11>\n\n        <ion-title>Mesaj Detayı</ion-title>\n\n      </ion-col>\n\n      <ion-col col-1 col-md-1>\n\n        <ion-icon name="close" (click)="closeModal()" class="pull-right close-icon"></ion-icon>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n  <ion-row>\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Gönderen</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-label>{{mesaj.gonderen}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Konu</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-label>{{mesaj.subject}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-card>\n\n      <ion-card-content class="card-box">\n\n        {{mesaj.aciklama}}\n\n      </ion-card-content>\n\n    </ion-card>\n\n  </ion-row>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n\n\n\n\n</ion-footer>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\mesaj-detail\mesaj-detail.html"*/
+            selector: 'mesaj-detail',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/mesaj-detail/mesaj-detail.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-row class="modal-title">\n      <ion-col col-11 col-md-11>\n        <ion-title>Mesaj Detayı</ion-title>\n      </ion-col>\n      <ion-col col-1 col-md-1>\n        <ion-icon name="close" (click)="closeModal()" class="pull-right close-icon"></ion-icon>\n      </ion-col>\n    </ion-row>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <ion-row>\n    <ion-col col-4 col-md-2>\n      <ion-label color="primary">Gönderen</ion-label>\n    </ion-col>\n    <ion-col col-8 col-md-10>\n      <ion-label>{{mesaj.gonderen}}</ion-label>\n    </ion-col>\n\n    <ion-col col-4 col-md-2>\n      <ion-label color="primary">Konu</ion-label>\n    </ion-col>\n    <ion-col col-8 col-md-10>\n      <ion-label>{{mesaj.subject}}</ion-label>\n    </ion-col>\n\n    <ion-card>\n      <ion-card-content class="card-box">\n        {{mesaj.aciklama}}\n      </ion-card-content>\n    </ion-card>\n  </ion-row>\n</ion-content>\n\n<ion-footer>\n\n\n</ion-footer>'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/mesaj-detail/mesaj-detail.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["n" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__providers_util_util__["a" /* UtilProvider */], __WEBPACK_IMPORTED_MODULE_5__providers_mesajlar_mesajlar__["a" /* MesajlarProvider */]])
     ], MesajDetailComponent);
@@ -1571,7 +1583,7 @@ var UrunIscilik = (function () {
         var parsedList = [];
         var urunIscilikList = res.message[0].liste;
         var urunIscilikVersiyon = res.message[0].versiyon;
-        localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].GELEN_VERI.GELEN_URUN_ISCILIK, urunIscilikList.length);
+        localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].GELEN_VERI.URUN_ISCILIK, urunIscilikList.length);
         localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].VERSIYON.SERVER.URUN_ISCILIK, urunIscilikVersiyon);
         urunIscilikList.forEach(function (item) {
             var urunIscilik = new UrunIscilik();
@@ -1674,8 +1686,8 @@ var UrunIscilikDao = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_urun_malzeme__ = __webpack_require__(491);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__urun_malzeme_dao_urun_malzeme_dao__ = __webpack_require__(492);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_urun_malzeme__ = __webpack_require__(492);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__urun_malzeme_dao_urun_malzeme_dao__ = __webpack_require__(493);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__token_token__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__util_util__ = __webpack_require__(5);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1799,6 +1811,187 @@ var UrunMalzemeProvider = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FiyatProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_fiyat__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__fiyat_dao_fiyat_dao__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__token_token__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_Constants__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__util_util__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__logger_logger__ = __webpack_require__(14);
+/**
+ * @author malisahin
+ * @email mehmetalisahinogullari@gmail.com
+ */
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+
+
+
+
+
+var FiyatProvider = (function () {
+    function FiyatProvider(http, api, util, fiyatDao, logger, token) {
+        this.http = http;
+        this.api = api;
+        this.util = util;
+        this.fiyatDao = fiyatDao;
+        this.logger = logger;
+        this.token = token;
+    }
+    FiyatProvider.prototype.downloadMalzemeFiyat = function (first) {
+        var tip = "malzemeFiyatListesi";
+        return this.getDataFromApi(first, tip);
+    };
+    FiyatProvider.prototype.downloadIscilikFiyat = function (first) {
+        var tip = "iscilikFiyatListesi";
+        return this.getDataFromApi(first, tip);
+    };
+    FiyatProvider.prototype.getDataFromApi = function (first, tip) {
+        return __awaiter(this, void 0, void 0, function () {
+            var url, header;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        url = this.api.fiyatlarDownloadUrl(first, tip);
+                        return [4 /*yield*/, this.token.callTokenAndGetHeader()];
+                    case 1:
+                        header = _a.sent();
+                        if (this.util.isOnline()) {
+                            this.util.loaderStart();
+                            return [2 /*return*/, this.getFiyat(url, header, tip)];
+                        }
+                        else {
+                            this.util.ifOffline();
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FiyatProvider.prototype.getFiyat = function (url, header, tip) {
+        return __awaiter(this, void 0, void 0, function () {
+            var data, fiyatlar, list, item;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.http.get(url, { headers: header }).toPromise()];
+                    case 1:
+                        data = _a.sent();
+                        fiyatlar = new __WEBPACK_IMPORTED_MODULE_3__entities_fiyat__["a" /* Fiyat */]();
+                        return [4 /*yield*/, fiyatlar.fillFiyat(data, tip)];
+                    case 2:
+                        list = _a.sent();
+                        if (!(this.util.isNotEmpty(list) && list.length > 0)) return [3 /*break*/, 4];
+                        return [4 /*yield*/, this.fiyatDao.insertList(list)];
+                    case 3:
+                        item = _a.sent();
+                        _a.label = 4;
+                    case 4: return [2 /*return*/, new Promise(function (resolve, reject) {
+                            resolve(__WEBPACK_IMPORTED_MODULE_6__entities_Constants__["a" /* Constants */].STATUS.SUCCESS);
+                            reject(__WEBPACK_IMPORTED_MODULE_6__entities_Constants__["a" /* Constants */].STATUS.ERROR);
+                        })];
+                }
+            });
+        });
+    };
+    FiyatProvider.prototype.getFiyatSorguFilter = function (detay, mamKod) {
+        var item = new __WEBPACK_IMPORTED_MODULE_3__entities_fiyat__["a" /* Fiyat */]();
+        item.mamKod = detay.mlzIsc == 'MLZ' ? 'MLZ' : mamKod;
+        item.iscMlzKod = detay.mlzIscKod;
+        return item;
+    };
+    FiyatProvider.prototype.findFiyat = function (detay, mamKod) {
+        return __awaiter(this, void 0, void 0, function () {
+            var fiyat, res;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        fiyat = this.getFiyatSorguFilter(this.util.assign(detay), mamKod);
+                        if (!(detay.mlzIsc != __WEBPACK_IMPORTED_MODULE_6__entities_Constants__["a" /* Constants */].DETAY_TIPI.DIGER)) return [3 /*break*/, 2];
+                        return [4 /*yield*/, this.fiyatDao.findFiyat(fiyat)];
+                    case 1:
+                        res = _a.sent();
+                        if (this.util.isNotEmptyRows(res)) {
+                            this.logger.dir(res);
+                            return [2 /*return*/, res.rows.item(0)];
+                        }
+                        else {
+                            return [2 /*return*/, null];
+                        }
+                        _a.label = 2;
+                    case 2: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FiyatProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["B" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_2__api_api__["a" /* ApiProvider */],
+            __WEBPACK_IMPORTED_MODULE_7__util_util__["a" /* UtilProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__fiyat_dao_fiyat_dao__["a" /* FiyatDao */],
+            __WEBPACK_IMPORTED_MODULE_8__logger_logger__["a" /* LoggerProvider */],
+            __WEBPACK_IMPORTED_MODULE_5__token_token__["a" /* TokenProvider */]])
+    ], FiyatProvider);
+    return FiyatProvider;
+}());
+
+//# sourceMappingURL=fiyat.js.map
+
+/***/ }),
+
+/***/ 176:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Fiyat; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Constants__ = __webpack_require__(7);
 
@@ -1831,11 +2024,11 @@ var Fiyat = (function () {
             parsedList.push(fiyat);
         });
         if (tip == "MLZ" || tip == "malzemeFiyatListesi") {
-            localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].GELEN_VERI.GELEN_MALZEME_FIYAT, fiyatList.length);
+            localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].GELEN_VERI.MALZEME_FIYAT, fiyatList.length);
             localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].VERSIYON.SERVER.MALZEME_FIYAT, versiyon);
         }
         else if (tip == 'ISC' || tip == "iscilikFiyatListesi") {
-            localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].GELEN_VERI.GELEN_ISCILIK_FIYAT, fiyatList.length);
+            localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].GELEN_VERI.ISCILIK_FIYAT, fiyatList.length);
             localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].VERSIYON.SERVER.ISCILIK_FIYAT, versiyon);
         }
         return new Promise(function (res) { return res(parsedList); });
@@ -1847,7 +2040,7 @@ var Fiyat = (function () {
 
 /***/ }),
 
-/***/ 176:
+/***/ 177:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1986,7 +2179,7 @@ var VersiyonProvider = (function () {
 
 /***/ }),
 
-/***/ 177:
+/***/ 178:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2012,7 +2205,7 @@ var GarantiSorgu = (function () {
 
 /***/ }),
 
-/***/ 178:
+/***/ 179:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2020,7 +2213,7 @@ var GarantiSorgu = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_garanti_sonuc_garanti_sonuc__ = __webpack_require__(179);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_garanti_sonuc_garanti_sonuc__ = __webpack_require__(180);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__token_token__ = __webpack_require__(29);
@@ -2120,7 +2313,7 @@ var GarantiSorguProvider = (function () {
             aramaModal.present();
         }
         else {
-            this.util.message(res.description);
+            this.util.error(res.description);
         }
     };
     GarantiSorguProvider = __decorate([
@@ -2138,14 +2331,14 @@ var GarantiSorguProvider = (function () {
 
 /***/ }),
 
-/***/ 179:
+/***/ 180:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GarantiSonucComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_GarantiSorgu__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_GarantiSorgu__ = __webpack_require__(178);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_urun_dao_urun_dao__ = __webpack_require__(112);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2234,7 +2427,7 @@ var GarantiSonucComponent = (function () {
     };
     GarantiSonucComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'garanti-sonuc',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\garanti-sonuc\garanti-sonuc.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-row class="modal-title">\n\n      <ion-col col-11 col-md-11>\n\n        <ion-title>Garanti Sonucu</ion-title>\n\n      </ion-col>\n\n      <ion-col col-1 col-md-1>\n\n        <ion-icon name="close" (click)="closeModal()" class="pull-right close-icon"></ion-icon>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content class="content">\n\n\n\n  <ion-row>\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Ürün Ana Grubu</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-label>{{mamanaGrp}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Ürün Kodu ve Adı</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-label>{{mamKod}} - {{mamAdi}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Garanti Başlangıç Tarihi</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-label>{{garantiBasTar | date: \'dd-MM-yyyy\'}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Garanti Süresi</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-label>{{garantiSuresi}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Standart Garanti Bitiş Tarihi</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-label>{{stdGarantiBitisTar | date: \'dd-MM-yyyy\'}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Garanti Tipi</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-label>{{garantiTipi}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Ek Garanti</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-label>{{ekGaranti}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Ek Garanti Süresi</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-label>{{ekGarantiSuresi}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Ek Garanti Başlangıç Tarihi</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-label>{{ekGarantiBasTar | date: \'dd-MM-yyyy\'}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Garanti Bitiş Tarihi</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-label>{{ekGarantiBitisTar | date: \'dd-MM-yyyy\'}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-card>\n\n      <ion-card-content class="card-box">\n\n        {{aciklama}}\n\n      </ion-card-content>\n\n    </ion-card>\n\n\n\n    <ion-card>\n\n      <ion-card-content class="card-box">\n\n        {{sonuc}}\n\n      </ion-card-content>\n\n    </ion-card>\n\n  </ion-row>\n\n\n\n</ion-content>\n\n<ion-footer>\n\n</ion-footer>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\garanti-sonuc\garanti-sonuc.html"*/
+            selector: 'garanti-sonuc',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/garanti-sonuc/garanti-sonuc.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-row class="modal-title">\n      <ion-col col-11 col-md-11>\n        <ion-title>Garanti Sonucu</ion-title>\n      </ion-col>\n      <ion-col col-1 col-md-1>\n        <ion-icon name="close" (click)="closeModal()" class="pull-right close-icon"></ion-icon>\n      </ion-col>\n    </ion-row>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content class="content">\n\n  <ion-row>\n    <ion-col col-4 col-md-2>\n      <ion-label color="primary">Ürün Ana Grubu</ion-label>\n    </ion-col>\n    <ion-col col-8 col-md-10>\n      <ion-label>{{mamanaGrp}}</ion-label>\n    </ion-col>\n\n    <ion-col col-4 col-md-2>\n      <ion-label color="primary">Ürün Kodu ve Adı</ion-label>\n    </ion-col>\n    <ion-col col-8 col-md-10>\n      <ion-label>{{mamKod}} - {{mamAdi}}</ion-label>\n    </ion-col>\n\n    <ion-col col-4 col-md-2>\n      <ion-label color="primary">Garanti Başlangıç Tarihi</ion-label>\n    </ion-col>\n    <ion-col col-8 col-md-10>\n      <ion-label>{{garantiBasTar | date: \'dd-MM-yyyy\'}}</ion-label>\n    </ion-col>\n\n    <ion-col col-4 col-md-2>\n      <ion-label color="primary">Garanti Süresi</ion-label>\n    </ion-col>\n    <ion-col col-8 col-md-10>\n      <ion-label>{{garantiSuresi}}</ion-label>\n    </ion-col>\n\n    <ion-col col-4 col-md-2>\n      <ion-label color="primary">Standart Garanti Bitiş Tarihi</ion-label>\n    </ion-col>\n    <ion-col col-8 col-md-10>\n      <ion-label>{{stdGarantiBitisTar | date: \'dd-MM-yyyy\'}}</ion-label>\n    </ion-col>\n\n    <ion-col col-4 col-md-2>\n      <ion-label color="primary">Garanti Tipi</ion-label>\n    </ion-col>\n    <ion-col col-8 col-md-10>\n      <ion-label>{{garantiTipi}}</ion-label>\n    </ion-col>\n\n    <ion-col col-4 col-md-2>\n      <ion-label color="primary">Ek Garanti</ion-label>\n    </ion-col>\n    <ion-col col-8 col-md-10>\n      <ion-label>{{ekGaranti}}</ion-label>\n    </ion-col>\n\n    <ion-col col-4 col-md-2>\n      <ion-label color="primary">Ek Garanti Süresi</ion-label>\n    </ion-col>\n    <ion-col col-8 col-md-10>\n      <ion-label>{{ekGarantiSuresi}}</ion-label>\n    </ion-col>\n\n    <ion-col col-4 col-md-2>\n      <ion-label color="primary">Ek Garanti Başlangıç Tarihi</ion-label>\n    </ion-col>\n    <ion-col col-8 col-md-10>\n      <ion-label>{{ekGarantiBasTar | date: \'dd-MM-yyyy\'}}</ion-label>\n    </ion-col>\n\n    <ion-col col-4 col-md-2>\n      <ion-label color="primary">Garanti Bitiş Tarihi</ion-label>\n    </ion-col>\n    <ion-col col-8 col-md-10>\n      <ion-label>{{ekGarantiBitisTar | date: \'dd-MM-yyyy\'}}</ion-label>\n    </ion-col>\n\n    <ion-card *ngIf="aciklama != null && aciklama != \'\'">\n      <ion-card-content class="card-box">\n        {{aciklama}}\n      </ion-card-content>\n    </ion-card>\n\n    <ion-card *ngIf="sonuc != null && sonuc != \'\'">\n      <ion-card-content class="card-box">\n        {{sonuc}}\n      </ion-card-content>\n    </ion-card>\n  </ion-row>\n\n</ion-content>\n<ion-footer>\n</ion-footer>\n'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/garanti-sonuc/garanti-sonuc.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -2248,7 +2441,7 @@ var GarantiSonucComponent = (function () {
 
 /***/ }),
 
-/***/ 180:
+/***/ 181:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2345,7 +2538,7 @@ var UrunIscilikSearchComponent = (function () {
     };
     UrunIscilikSearchComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'urun-iscilik-search',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\urun-iscilik-search\urun-iscilik-search.html"*/'<ion-header>\n\n  <button ion-button round (click)="closeModal()">Iptal</button>\n\n  <ion-navbar no-border-bottom>\n\n    <ion-title>Ürün Işçilik Ara</ion-title>\n\n  </ion-navbar>\n\n\n\n  <ion-toolbar no-border-top>\n\n    <ion-searchbar placeholder="Ara" [(ngModel)]="searchText" (ionInput)="fetchList()"></ion-searchbar>\n\n  </ion-toolbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n  <ion-list radio-group [(ngModel)]="selectedItem">\n\n    <ion-item *ngFor="let item of list">\n\n      <ion-label>{{item.key}} - {{item.value}}</ion-label>\n\n      <ion-radio (ionSelect)="ionChange(item)"></ion-radio>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n</ion-content>\n\n\n\n\n\n<ion-footer>\n\n\n\n  <ion-toolbar>\n\n    <button ion-button color="light" (click)="fetchList(\'FIRST\')">\n\n      <ion-icon name="arrow-dropleft"></ion-icon>\n\n    </button>\n\n    <button ion-button color="light" (click)="fetchList(\'PREVIOUS\')">\n\n      <ion-icon name="arrow-back"></ion-icon>\n\n    </button>\n\n\n\n    <ion-item>\n\n      <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList(\'PAGE_NO\')" interface="popover">\n\n        <ion-option value="10" selected="true">10</ion-option>\n\n        <ion-option value="20">20</ion-option>\n\n        <ion-option value="50">50</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n\n\n    <button ion-button color="light" (click)="fetchList(\'NEXT\')">\n\n      <ion-icon name="arrow-forward"></ion-icon>\n\n    </button>\n\n    <button ion-button color="light" (click)="fetchList(\'LAST\')">\n\n      <ion-icon name="arrow-dropright"></ion-icon>\n\n    </button>\n\n  </ion-toolbar>\n\n\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\urun-iscilik-search\urun-iscilik-search.html"*/
+            selector: 'urun-iscilik-search',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/urun-iscilik-search/urun-iscilik-search.html"*/'<ion-header>\n  <button ion-button round (click)="closeModal()">Iptal</button>\n  <ion-navbar no-border-bottom>\n    <ion-title>Ürün Işçilik Ara</ion-title>\n  </ion-navbar>\n\n  <ion-toolbar no-border-top>\n    <ion-searchbar placeholder="Ara" [(ngModel)]="searchText" (ionInput)="fetchList()"></ion-searchbar>\n  </ion-toolbar>\n\n</ion-header>\n\n<ion-content>\n\n  <ion-list radio-group [(ngModel)]="selectedItem">\n    <ion-item *ngFor="let item of list">\n      <ion-label>{{item.key}} - {{item.value}}</ion-label>\n      <ion-radio (ionSelect)="ionChange(item)"></ion-radio>\n    </ion-item>\n  </ion-list>\n\n</ion-content>\n\n\n<ion-footer>\n\n  <ion-toolbar>\n    <button ion-button color="light" (click)="fetchList(\'FIRST\')">\n      <ion-icon name="arrow-dropleft"></ion-icon>\n    </button>\n    <button ion-button color="light" (click)="fetchList(\'PREVIOUS\')">\n      <ion-icon name="arrow-back"></ion-icon>\n    </button>\n\n    <ion-item>\n      <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList(\'PAGE_NO\')" interface="popover">\n        <ion-option value="10" selected="true">10</ion-option>\n        <ion-option value="20">20</ion-option>\n        <ion-option value="50">50</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <button ion-button color="light" (click)="fetchList(\'NEXT\')">\n      <ion-icon name="arrow-forward"></ion-icon>\n    </button>\n    <button ion-button color="light" (click)="fetchList(\'LAST\')">\n      <ion-icon name="arrow-dropright"></ion-icon>\n    </button>\n  </ion-toolbar>\n\n</ion-footer>\n'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/urun-iscilik-search/urun-iscilik-search.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["n" /* ViewController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_5__providers_util_util__["a" /* UtilProvider */],
@@ -2358,7 +2551,7 @@ var UrunIscilikSearchComponent = (function () {
 
 /***/ }),
 
-/***/ 181:
+/***/ 182:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2367,7 +2560,7 @@ var UrunIscilikSearchComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logger_logger__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mesajlar_mesajlar__ = __webpack_require__(110);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__versiyon_versiyon__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__versiyon_versiyon__ = __webpack_require__(177);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_Constants__ = __webpack_require__(7);
 /**
  * @author mali.sahin
@@ -2511,7 +2704,51 @@ var TasksProvider = (function () {
 
 /***/ }),
 
-/***/ 182:
+/***/ 183:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BilgiSorguPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(36);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var BilgiSorguPage = (function () {
+    function BilgiSorguPage(navCtrl, navParams, formBuilder) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.formBuilder = formBuilder;
+        this.activePage = "garantiSorguSegment";
+    }
+    BilgiSorguPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad BilgiSorguPage');
+    };
+    BilgiSorguPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'page-bilgi-sorgu',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/bilgi-sorgu/bilgi-sorgu.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton="true">\n    <icon-header></icon-header>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content class="content">\n\n  <ion-title class="page-title">Bilgi Sorgu</ion-title>\n\n  <ion-toolbar class="main-tabs">\n    <ion-segment [(ngModel)]="activePage">\n\n      <ion-segment-button value="garantiSorguSegment" class="seg-button">\n        Garanti Sorgu\n      </ion-segment-button>\n\n      <ion-segment-button value="fiyatSorguSegment" class="seg-button">\n        Fiyat Sorgu\n      </ion-segment-button>\n\n    </ion-segment>\n  </ion-toolbar>\n\n  <div [ngSwitch]="activePage">\n\n    <div *ngSwitchCase="\'garantiSorguSegment\'">\n      <garanti-sorgu></garanti-sorgu>\n    </div>\n\n    <div *ngSwitchCase="\'fiyatSorguSegment\'">\n      <fiyat-sorgu></fiyat-sorgu>\n    </div>\n\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/bilgi-sorgu/bilgi-sorgu.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]])
+    ], BilgiSorguPage);
+    return BilgiSorguPage;
+}());
+
+//# sourceMappingURL=bilgi-sorgu.js.map
+
+/***/ }),
+
+/***/ 184:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2780,7 +3017,7 @@ var UpdateUrunAnaGrupComponent = (function () {
     };
     UpdateUrunAnaGrupComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'update-urun-ana-grup',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\update-urun-ana-grup\update-urun-ana-grup.html"*/'<ion-header>\n\n  <ion-navbar no-border-bottom>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <!-- Generated template for the HizmetBilgileriComponent component -->\n\n  <ion-list inset>\n\n    <ion-item>\n\n      <ion-label>Ürün Ana Grup</ion-label>\n\n\n\n      <ion-select [(ngModel)]="urunAnaGrup.mamAnaGrp" interface="action-sheet" (ionChange)="onChangeMamAnaGrp()">\n\n        <ion-option *ngFor="let anaGrp of urunAnaGrpList" [value]="anaGrp.mamAnaGrp" >\n\n          {{anaGrp.mamAnaGrp }} - {{anaGrp.ad}}\n\n        </ion-option>\n\n      </ion-select>\n\n     <!-- <ion-input type="text" [(ngModel)]="urunAnaGrup.mamAnaGrp" (ionFocus)="urunAnaGrupSorgula()">{{urunAnaGrup.mamAnaGrp}}-{{urunAnaGrup.ad}}\n\n      </ion-input>-->\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Başvuru Nedeni</ion-label>\n\n      <ion-select [(ngModel)]="basvuruNedeni.neden" interface="action-sheet">\n\n        <ion-option *ngFor="let neden of basvuruNedeniList" [value]="neden.neden" >\n\n          {{neden.ad }} - {{neden.neden}}\n\n        </ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n\n\n\n\n    <ion-item>\n\n      <ion-row>\n\n        <ion-col col-12 col-sm>\n\n          <button ion-button round full (click)="kaydet();" color="secondary">\n\n            Kaydet\n\n          </button>\n\n        </ion-col>\n\n        <ion-col col-12 col-sm>\n\n          <button ion-button round full (click)="iptal();" color="secondary">\n\n            Iptal\n\n          </button>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-item>\n\n\n\n  </ion-list>\n\n\n\n</ion-content>\n\n\n\n<ion-footer>\n\n\n\n\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\update-urun-ana-grup\update-urun-ana-grup.html"*/
+            selector: 'update-urun-ana-grup',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/update-urun-ana-grup/update-urun-ana-grup.html"*/'<ion-header>\n  <ion-navbar no-border-bottom>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n  <!-- Generated template for the HizmetBilgileriComponent component -->\n  <ion-list inset>\n    <ion-item>\n      <ion-label>Ürün Ana Grup</ion-label>\n\n      <ion-select [(ngModel)]="urunAnaGrup.mamAnaGrp" interface="popover" (ionChange)="onChangeMamAnaGrp()">\n        <ion-option *ngFor="let anaGrp of urunAnaGrpList" [value]="anaGrp.mamAnaGrp" >\n          {{anaGrp.mamAnaGrp }} - {{anaGrp.ad}}\n        </ion-option>\n      </ion-select>\n     <!-- <ion-input type="text" [(ngModel)]="urunAnaGrup.mamAnaGrp" (ionFocus)="urunAnaGrupSorgula()">{{urunAnaGrup.mamAnaGrp}}-{{urunAnaGrup.ad}}\n      </ion-input>-->\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Başvuru Nedeni</ion-label>\n      <ion-select [(ngModel)]="basvuruNedeni.neden" interface="popover">\n        <ion-option *ngFor="let neden of basvuruNedeniList" [value]="neden.neden" >\n          {{neden.neden}} - {{neden.ad }}\n        </ion-option>\n      </ion-select>\n    </ion-item>\n\n\n    <ion-item>\n      <ion-row>\n        <ion-col col-12 col-sm>\n          <button ion-button round full (click)="kaydet();" color="secondary">\n            Kaydet\n          </button>\n        </ion-col>\n        <ion-col col-12 col-sm>\n          <button ion-button round full (click)="iptal();" color="secondary">\n            Iptal\n          </button>\n        </ion-col>\n      </ion-row>\n    </ion-item>\n\n  </ion-list>\n\n</ion-content>\n\n<ion-footer>\n\n\n</ion-footer>\n'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/update-urun-ana-grup/update-urun-ana-grup.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_util_util__["a" /* UtilProvider */],
             __WEBPACK_IMPORTED_MODULE_3__providers_logger_logger__["a" /* LoggerProvider */],
@@ -2799,23 +3036,24 @@ var UpdateUrunAnaGrupComponent = (function () {
 
 /***/ }),
 
-/***/ 183:
+/***/ 185:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HizmetDetayComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_hizmet_DetayKayit__ = __webpack_require__(487);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_hizmet_DetayKayit__ = __webpack_require__(488);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_logger_logger__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__detay_piy_search_detay_piy_search__ = __webpack_require__(184);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_fiyat_dao_fiyat_dao__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_fiyat__ = __webpack_require__(175);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_hizmet_service_hizmet_service__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_islem_ariza_iscilik_dao_islem_ariza_iscilik_dao__ = __webpack_require__(113);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__entities_islem_ariza_iscilik__ = __webpack_require__(495);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__entities_ProcessResults__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_Constants__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__detay_piy_search_detay_piy_search__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_fiyat_dao_fiyat_dao__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__entities_fiyat__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_hizmet_service_hizmet_service__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_islem_ariza_iscilik_dao_islem_ariza_iscilik_dao__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__entities_islem_ariza_iscilik__ = __webpack_require__(495);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__entities_ProcessResults__ = __webpack_require__(116);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2872,6 +3110,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
 var HizmetDetayComponent = (function () {
     function HizmetDetayComponent(viewCtrl, params, modalController, util, logger, fiyatDao, islemArizaIscilikDao, hizmetService) {
         this.viewCtrl = viewCtrl;
@@ -2888,6 +3127,7 @@ var HizmetDetayComponent = (function () {
         this.mlzIscKod = "";
         this.aciklama = "";
         this.canModalCloseable = true;
+        this.islemTipiDegistirmeSayisi = 0;
         this.hizmet = this.hizmetService.getHizmet();
         this.hizmetDetay = new __WEBPACK_IMPORTED_MODULE_1__entities_hizmet_DetayKayit__["a" /* DetayKayit */]();
         this.data = params.get('data');
@@ -2895,14 +3135,33 @@ var HizmetDetayComponent = (function () {
     }
     HizmetDetayComponent.prototype.init = function () {
         if (this.util.isNotEmpty(this.data.hizmetDetay)) {
-            this.hizmetDetay = this.data.hizmetDetay;
-            this.islemAdi = this.hizmetDetay.islemKod;
-            this.arizaAdi = this.hizmetDetay.arizaKod;
-            this.mlzIscKod = this.hizmetDetay.mlzIscKod;
-            this.birimfiyat = this.hizmetDetay.tutar / this.hizmetDetay.miktar;
-            this.aciklama = this.hizmetDetay.aciklama;
-            this.satirNo = this.hizmetDetay.satirNo;
-            this.loadHizmetDetay();
+            this.prepareFieldsForUpdate();
+        }
+        else {
+            this.prepareFieldsForNewRecord();
+        }
+    };
+    HizmetDetayComponent.prototype.prepareFieldsForUpdate = function () {
+        this.hizmetDetay = this.data.hizmetDetay;
+        this.islemAdi = this.hizmetDetay.islemKod;
+        this.arizaAdi = this.hizmetDetay.arizaKod;
+        this.mlzIscKod = this.hizmetDetay.mlzIscKod;
+        this.birimfiyat = this.hizmetDetay.tutar / this.hizmetDetay.miktar;
+        this.aciklama = this.hizmetDetay.aciklama;
+        this.satirNo = this.hizmetDetay.satirNo;
+        this.loadHizmetDetay();
+    };
+    HizmetDetayComponent.prototype.prepareFieldsForNewRecord = function () {
+        var _this = this;
+        var dtoList = this.hizmet.detayDtoList;
+        if (this.util.isNotEmpty(dtoList) && dtoList.length > 0) {
+            dtoList.forEach(function (item) {
+                if (item.mlzIsc == __WEBPACK_IMPORTED_MODULE_5__entities_Constants__["a" /* Constants */].DETAY_TIPI.ISCILIK) {
+                    _this.hizmetDetay.islemKod = item.islemKod;
+                    _this.hizmetDetay.arizaKod = item.arizaKod;
+                    _this.loadHizmetDetay();
+                }
+            });
         }
     };
     HizmetDetayComponent.prototype.detayKaydet = function () {
@@ -2950,9 +3209,9 @@ var HizmetDetayComponent = (function () {
                             if (this.util.isEmpty(this.hizmet.detayDtoList))
                                 this.hizmet.detayDtoList = [];
                             this.hizmetDetay.seqNo = this.hizmet.seqNo;
-                            //this.satirNoBelirle();
-                            this.hizmetDetay.satirNo = this.hizmet.detayDtoList.length;
-                            this.hizmet.detayDtoList.push(this.hizmetDetay);
+                            this.satirNoBelirle();
+                            if (this.util.isNotEmpty(this.hizmetDetay.birimFiyat) && this.hizmetDetay.birimFiyat > 0)
+                                this.hizmet.detayDtoList.push(this.hizmetDetay);
                         }
                         return [2 /*return*/];
                 }
@@ -2991,24 +3250,31 @@ var HizmetDetayComponent = (function () {
     };
     HizmetDetayComponent.prototype.fillHizmetDetay = function () {
         var detay = new __WEBPACK_IMPORTED_MODULE_1__entities_hizmet_DetayKayit__["a" /* DetayKayit */]();
+        var hizmetDetay = JSON.parse(JSON.stringify(this.hizmetDetay));
         detay.satirNo = this.satirNo;
-        detay.birimFiyat = this.hizmetDetay.birimFiyat;
-        detay.garFiyat = this.hizmetDetay.garFiyat;
-        detay.tutar = this.hizmetDetay.tutar;
-        detay.islemKod = this.hizmetDetay.islemKod;
-        detay.arizaKod = this.hizmetDetay.arizaKod;
-        detay.mlzIscKod = this.hizmetDetay.mlzIscKod;
-        detay.aciklama = this.hizmetDetay.aciklama;
-        detay.miktar = this.hizmetDetay.miktar;
-        detay.garFiyat = this.hizmetDetay.garFiyat;
-        detay.birimFiyat = this.hizmetDetay.birimFiyat;
-        detay.tutar = this.hizmetDetay.tutar;
-        detay.garTutar = this.hizmetDetay.garTutar;
+        detay.birimFiyat = hizmetDetay.birimFiyat;
+        detay.garFiyat = hizmetDetay.garFiyat;
+        detay.tutar = hizmetDetay.tutar;
+        detay.islemKod = hizmetDetay.islemKod;
+        detay.arizaKod = hizmetDetay.arizaKod;
+        detay.mlzIscKod = hizmetDetay.mlzIscKod;
+        detay.aciklama = hizmetDetay.aciklama;
+        detay.miktar = hizmetDetay.miktar;
+        detay.garFiyat = hizmetDetay.garFiyat;
+        detay.birimFiyat = hizmetDetay.birimFiyat;
+        detay.tutar = hizmetDetay.tutar;
+        detay.garTutar = hizmetDetay.garTutar;
         return detay;
     };
     HizmetDetayComponent.prototype.satirNoBelirle = function () {
         debugger;
-        this.hizmetDetay.satirNo = this.hizmet.detayDtoList.length;
+        var maxSatirNo = 0;
+        for (var i = 0; i < this.hizmet.detayDtoList.length; i++) {
+            var currentSatirNo = this.hizmet.detayDtoList[i].satirNo;
+            if (currentSatirNo > maxSatirNo)
+                maxSatirNo = currentSatirNo;
+        }
+        this.hizmetDetay.satirNo = maxSatirNo + 1;
     };
     HizmetDetayComponent.prototype.fiyatBul = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -3029,7 +3295,7 @@ var HizmetDetayComponent = (function () {
                             this.hizmetDetay.tutar = Number(this.hizmetDetay.miktar) * Number(this.hizmetDetay.birimFiyat);
                         }
                         else {
-                            this.util.message("Fiyat Bulunamadı");
+                            this.util.info("Fiyat Bulunamadı");
                             this.canModalCloseable = false;
                         }
                         return [3 /*break*/, 3];
@@ -3042,13 +3308,13 @@ var HizmetDetayComponent = (function () {
         });
     };
     HizmetDetayComponent.prototype.fiyatSorguParametreHazirla = function () {
-        var item = new __WEBPACK_IMPORTED_MODULE_7__entities_fiyat__["a" /* Fiyat */]();
+        var item = new __WEBPACK_IMPORTED_MODULE_8__entities_fiyat__["a" /* Fiyat */]();
         item.mamKod = this.hizmetDetay.mlzIsc == 'MLZ' ? 'MLZ' : this.hizmet.mamKod;
         item.iscMlzKod = this.hizmetDetay.mlzIscKod;
         return item;
     };
     HizmetDetayComponent.prototype.kaydetmeKontrol = function () {
-        var res = new __WEBPACK_IMPORTED_MODULE_11__entities_ProcessResults__["a" /* ProcessResults */]();
+        var res = new __WEBPACK_IMPORTED_MODULE_12__entities_ProcessResults__["a" /* ProcessResults */]();
         if (this.util.isEmpty(this.hizmetDetay.islemKod)) {
             res.addErrorMessage("Lütfen işlem Kodu seçiniz.");
         }
@@ -3062,7 +3328,7 @@ var HizmetDetayComponent = (function () {
     };
     HizmetDetayComponent.prototype.IslemArizaIscilikBul = function (tip) {
         var _this = this;
-        var piyModal = this.modalController.create(__WEBPACK_IMPORTED_MODULE_5__detay_piy_search_detay_piy_search__["a" /* DetayPiySearchComponent */], {
+        var piyModal = this.modalController.create(__WEBPACK_IMPORTED_MODULE_6__detay_piy_search_detay_piy_search__["a" /* DetayPiySearchComponent */], {
             data: {
                 dataType: tip,
                 filter: this.hizmetDetay
@@ -3104,7 +3370,7 @@ var HizmetDetayComponent = (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        islemArizaIscilik = new __WEBPACK_IMPORTED_MODULE_10__entities_islem_ariza_iscilik__["a" /* IslemArizaIscilik */]();
+                        islemArizaIscilik = new __WEBPACK_IMPORTED_MODULE_11__entities_islem_ariza_iscilik__["a" /* IslemArizaIscilik */]();
                         islemArizaIscilik.mamAnaGrp = this.hizmet.mamAnaGrp;
                         islemArizaIscilik.islGrp = this.hizmetDetay.islemKod;
                         islemArizaIscilik.arzGrp = this.hizmetDetay.arizaKod;
@@ -3141,8 +3407,12 @@ var HizmetDetayComponent = (function () {
         this.hizmetDetay.birimFiyat = null;
         this.hizmetDetay.garFiyat = null;
         this.hizmetDetay.tutar = null;
-        this.hizmetDetay.islemKod = "";
-        this.hizmetDetay.arizaKod = "";
+        if (this.islemTipiDegistirmeSayisi > 0) {
+            this.hizmetDetay.islemKod = "";
+            this.hizmetDetay.arizaKod = "";
+            this.islemAdi = "";
+            this.arizaAdi = "";
+        }
         this.hizmetDetay.mlzIscKod = "";
         this.hizmetDetay.aciklama = "";
         this.hizmetDetay.miktar = 1;
@@ -3150,10 +3420,9 @@ var HizmetDetayComponent = (function () {
         this.hizmetDetay.birimFiyat = 1;
         this.hizmetDetay.tutar = 0;
         this.hizmetDetay.garTutar = "0";
-        this.islemAdi = "";
-        this.arizaAdi = "";
         this.mlzIscKod = "";
         this.aciklama = "";
+        this.islemTipiDegistirmeSayisi += 1;
     };
     HizmetDetayComponent.prototype.onChangeIslemKodu = function () {
     };
@@ -3163,16 +3432,16 @@ var HizmetDetayComponent = (function () {
     };
     HizmetDetayComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'hizmet-detay',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\hizmet-detay\hizmet-detay.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-row class="modal-title">\n\n      <ion-col col-11 col-md-11>\n\n        <ion-title>Hizmet detay</ion-title>\n\n      </ion-col>\n\n      <ion-col col-1 col-md-1>\n\n        <ion-icon name="close" (click)="closeModal()" class="pull-right close-icon"></ion-icon>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n<!-- Generated template for the HizmetBilgileriComponent component -->\n\n<ion-content class="content ">\n\n  <ion-row>\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">İşlem Tipi</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-select [(ngModel)]="hizmetDetay.mlzIsc" (ionChange)="onChangeIslemTipi()" interface="popover">\n\n        <ion-option value="" selected="true"></ion-option>\n\n        <ion-option value="ISC">İşçilik</ion-option>\n\n        <ion-option value="MLZ">Malzeme</ion-option>\n\n        <ion-option value="KM">Yol</ion-option>\n\n        <ion-option value="DGR">Diğer</ion-option>\n\n      </ion-select>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">İşlem Kodu</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-input type="text" [(ngModel)]="islemAdi" (ionChange)="onChangeIslemKodu()" (ionFocus)="IslemArizaIscilikBul(\'ISLEM\')"></ion-input>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">Arıza Kodu</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-input type="text" [(ngModel)]="arizaAdi" (ionChange)="onChangeArizaKodu()" (ionFocus)="IslemArizaIscilikBul(\'ARIZA\')"></ion-input>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">P/I/Y Kodu</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-input type="text" [(ngModel)]="mlzIscKod" (ionChange)="onChangeMlzIscKod()" (ionFocus)="IslemArizaIscilikBul(\'PIY\')"></ion-input>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <ion-label color="primary">P/I/Y Açıklama</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10>\n\n      <ion-input type="text" [(ngModel)]="aciklama"></ion-input>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2 *ngIf="hizmetDetay.mlzIsc == \'DGR\' || hizmetDetay.mlzIsc == \'KM\' || hizmetDetay.mlzIsc ==\'MLZ\'">\n\n      <ion-label color="primary">Miktar</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10 *ngIf="hizmetDetay.mlzIsc == \'DGR\' || hizmetDetay.mlzIsc == \'KM\' || hizmetDetay.mlzIsc ==\'MLZ\'">\n\n      <ion-input type="number" [(ngModel)]="hizmetDetay.miktar"></ion-input>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2 *ngIf="hizmetDetay.mlzIsc == \'DGR\'">\n\n      <ion-label color="primary">Birim Fiyat</ion-label>\n\n    </ion-col>\n\n    <ion-col col-8 col-md-10 *ngIf="hizmetDetay.mlzIsc == \'DGR\'">\n\n      <ion-input type="number" [(ngModel)]="hizmetDetay.birimFiyat"></ion-input>\n\n    </ion-col>\n\n\n\n\n\n  </ion-row>\n\n\n\n  <ion-row>\n\n    <ion-col col-12 col-md-12>\n\n      <button ion-button icon-end [color]="primary" (click)="detayKaydet()" round full>\n\n        Kaydet\n\n        <span item-right>\n\n          <ion-icon name="ion-plus-round"></ion-icon>\n\n        </span>\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\hizmet-detay\hizmet-detay.html"*/,
+            selector: 'hizmet-detay',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/hizmet-detay/hizmet-detay.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-row class="modal-title">\n      <ion-col col-11 col-md-11>\n        <ion-title>Hizmet detay</ion-title>\n      </ion-col>\n      <ion-col col-1 col-md-1>\n        <ion-icon name="close" (click)="closeModal()" class="pull-right close-icon"></ion-icon>\n      </ion-col>\n    </ion-row>\n  </ion-navbar>\n\n</ion-header>\n<!-- Generated template for the HizmetBilgileriComponent component -->\n<ion-content class="content ">\n  <ion-row>\n    <ion-col col-4 col-md-2>\n      <ion-label color="primary">İşlem Tipi</ion-label>\n    </ion-col>\n    <ion-col col-8 col-md-10>\n      <ion-select [(ngModel)]="hizmetDetay.mlzIsc" (ionChange)="onChangeIslemTipi()" interface="popover">\n        <ion-option value="" selected="true"></ion-option>\n        <ion-option value="ISC">İşçilik</ion-option>\n        <ion-option value="MLZ">Malzeme</ion-option>\n        <ion-option value="KM">Yol</ion-option>\n        <ion-option value="DGR">Diğer</ion-option>\n      </ion-select>\n    </ion-col>\n\n    <ion-col col-4 col-md-2>\n      <ion-label color="primary">İşlem Kodu</ion-label>\n    </ion-col>\n    <ion-col col-8 col-md-10>\n      <ion-input type="text" [(ngModel)]="islemAdi" (ionChange)="onChangeIslemKodu()" (ionFocus)="IslemArizaIscilikBul(\'ISLEM\')"></ion-input>\n    </ion-col>\n\n    <ion-col col-4 col-md-2>\n      <ion-label color="primary">Arıza Kodu</ion-label>\n    </ion-col>\n    <ion-col col-8 col-md-10>\n      <ion-input type="text" [(ngModel)]="arizaAdi" (ionChange)="onChangeArizaKodu()" (ionFocus)="IslemArizaIscilikBul(\'ARIZA\')"></ion-input>\n    </ion-col>\n\n    <ion-col col-4 col-md-2>\n      <ion-label color="primary">P/I/Y Kodu</ion-label>\n    </ion-col>\n    <ion-col col-8 col-md-10>\n      <ion-input type="text" [(ngModel)]="mlzIscKod" (ionChange)="onChangeMlzIscKod()" (ionFocus)="IslemArizaIscilikBul(\'PIY\')"></ion-input>\n    </ion-col>\n\n    <ion-col col-4 col-md-2>\n      <ion-label color="primary">P/I/Y Açıklama</ion-label>\n    </ion-col>\n    <ion-col col-8 col-md-10>\n      <ion-input type="text" [(ngModel)]="aciklama"></ion-input>\n    </ion-col>\n\n    <ion-col col-4 col-md-2 *ngIf="hizmetDetay.mlzIsc == \'DGR\' || hizmetDetay.mlzIsc == \'KM\' || hizmetDetay.mlzIsc ==\'MLZ\'">\n      <ion-label color="primary">Miktar</ion-label>\n    </ion-col>\n    <ion-col col-8 col-md-10 *ngIf="hizmetDetay.mlzIsc == \'DGR\' || hizmetDetay.mlzIsc == \'KM\' || hizmetDetay.mlzIsc ==\'MLZ\'">\n      <ion-input type="number" [(ngModel)]="hizmetDetay.miktar"></ion-input>\n    </ion-col>\n\n    <ion-col col-4 col-md-2 *ngIf="hizmetDetay.mlzIsc == \'DGR\'">\n      <ion-label color="primary">Birim Fiyat</ion-label>\n    </ion-col>\n    <ion-col col-8 col-md-10 *ngIf="hizmetDetay.mlzIsc == \'DGR\'">\n      <ion-input type="number" [(ngModel)]="hizmetDetay.birimFiyat"></ion-input>\n    </ion-col>\n\n\n  </ion-row>\n\n  <ion-row>\n    <ion-col col-12 col-md-12>\n      <button ion-button icon-end [color]="primary" (click)="detayKaydet()" round full>\n        Kaydet\n        <span item-right>\n          <ion-icon name="ion-plus-round"></ion-icon>\n        </span>\n      </button>\n    </ion-col>\n  </ion-row>\n</ion-content>\n\n<ion-footer>\n\n</ion-footer>\n'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/hizmet-detay/hizmet-detay.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["n" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* ModalController */],
             __WEBPACK_IMPORTED_MODULE_3__providers_util_util__["a" /* UtilProvider */],
             __WEBPACK_IMPORTED_MODULE_4__providers_logger_logger__["a" /* LoggerProvider */],
-            __WEBPACK_IMPORTED_MODULE_6__providers_fiyat_dao_fiyat_dao__["a" /* FiyatDao */],
-            __WEBPACK_IMPORTED_MODULE_9__providers_islem_ariza_iscilik_dao_islem_ariza_iscilik_dao__["a" /* IslemArizaIscilikDao */],
-            __WEBPACK_IMPORTED_MODULE_8__providers_hizmet_service_hizmet_service__["a" /* HizmetService */]])
+            __WEBPACK_IMPORTED_MODULE_7__providers_fiyat_dao_fiyat_dao__["a" /* FiyatDao */],
+            __WEBPACK_IMPORTED_MODULE_10__providers_islem_ariza_iscilik_dao_islem_ariza_iscilik_dao__["a" /* IslemArizaIscilikDao */],
+            __WEBPACK_IMPORTED_MODULE_9__providers_hizmet_service_hizmet_service__["a" /* HizmetService */]])
     ], HizmetDetayComponent);
     return HizmetDetayComponent;
 }());
@@ -3181,7 +3450,7 @@ var HizmetDetayComponent = (function () {
 
 /***/ }),
 
-/***/ 184:
+/***/ 186:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3193,7 +3462,7 @@ var HizmetDetayComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_Pageable__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_hizmet_service_hizmet_service__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_urun_malzeme_urun_malzeme__ = __webpack_require__(174);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_urun_malzeme__ = __webpack_require__(491);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_urun_malzeme__ = __webpack_require__(492);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__entities_Constants__ = __webpack_require__(7);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3410,7 +3679,7 @@ var DetayPiySearchComponent = (function () {
     };
     DetayPiySearchComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: "detay-piy-search",template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\detay-piy-search\detay-piy-search.html"*/'<ion-header>\n\n  <button ion-button round (click)="closeModal()">Iptal</button>\n\n  <ion-navbar no-border-bottom>\n\n    <ion-title>Parça/Işçilik/Yol Ara</ion-title>\n\n  </ion-navbar>\n\n\n\n  <ion-toolbar no-border-top>\n\n    <ion-searchbar placeholder="Ara" [(ngModel)]="searchText" (ionInput)="fetchList()"></ion-searchbar>\n\n  </ion-toolbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n  <ion-list radio-group [(ngModel)]="selectedItem">\n\n    <ion-item *ngFor="let item of list">\n\n      <ion-label>{{item.key}} - {{item.value}}</ion-label>\n\n      <ion-radio (ionSelect)="ionChange(item)"></ion-radio>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n</ion-content>\n\n\n\n\n\n<ion-footer>\n\n\n\n  <!--ion-toolbar>\n\n    <button ion-button color="light" (click)="fetchList(\'FIRST\')">\n\n      <ion-icon name="arrow-dropleft"></ion-icon>\n\n    </button>\n\n    <button ion-button color="light" (click)="fetchList(\'PREVIOUS\')">\n\n      <ion-icon name="arrow-back"></ion-icon>\n\n    </button>\n\n\n\n    <ion-item>\n\n      <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList(\'PAGE_NO\')" interface="popover">\n\n        <ion-option value="10" selected="true">10</ion-option>\n\n        <ion-option value="20">20</ion-option>\n\n        <ion-option value="50">50</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n\n\n    <button ion-button color="light" (click)="fetchList(\'NEXT\')">\n\n      <ion-icon name="arrow-forward"></ion-icon>\n\n    </button>\n\n    <button ion-button color="light" (click)="fetchList(\'LAST\')">\n\n      <ion-icon name="arrow-dropright"></ion-icon>\n\n    </button>\n\n  </ion-toolbar-->\n\n\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\detay-piy-search\detay-piy-search.html"*/
+            selector: "detay-piy-search",template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/detay-piy-search/detay-piy-search.html"*/'<ion-header>\n  <button ion-button round (click)="closeModal()">Iptal</button>\n  <ion-navbar no-border-bottom>\n    <ion-title>Parça/Işçilik/Yol Ara</ion-title>\n  </ion-navbar>\n\n  <ion-toolbar no-border-top>\n    <ion-searchbar placeholder="Ara" [(ngModel)]="searchText" (ionInput)="fetchList()"></ion-searchbar>\n  </ion-toolbar>\n\n</ion-header>\n\n<ion-content>\n\n  <ion-list radio-group [(ngModel)]="selectedItem">\n    <ion-item *ngFor="let item of list">\n      <ion-label>{{item.key}} - {{item.value}}</ion-label>\n      <ion-radio (ionSelect)="ionChange(item)"></ion-radio>\n    </ion-item>\n  </ion-list>\n\n</ion-content>\n\n\n<ion-footer>\n\n  <!--ion-toolbar>\n    <button ion-button color="light" (click)="fetchList(\'FIRST\')">\n      <ion-icon name="arrow-dropleft"></ion-icon>\n    </button>\n    <button ion-button color="light" (click)="fetchList(\'PREVIOUS\')">\n      <ion-icon name="arrow-back"></ion-icon>\n    </button>\n\n    <ion-item>\n      <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList(\'PAGE_NO\')" interface="popover">\n        <ion-option value="10" selected="true">10</ion-option>\n        <ion-option value="20">20</ion-option>\n        <ion-option value="50">50</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <button ion-button color="light" (click)="fetchList(\'NEXT\')">\n      <ion-icon name="arrow-forward"></ion-icon>\n    </button>\n    <button ion-button color="light" (click)="fetchList(\'LAST\')">\n      <ion-icon name="arrow-dropright"></ion-icon>\n    </button>\n  </ion-toolbar-->\n\n</ion-footer>\n'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/detay-piy-search/detay-piy-search.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["n" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */],
@@ -3426,51 +3695,7 @@ var DetayPiySearchComponent = (function () {
 
 /***/ }),
 
-/***/ 185:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BilgiSorguPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(36);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var BilgiSorguPage = (function () {
-    function BilgiSorguPage(navCtrl, navParams, formBuilder) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.formBuilder = formBuilder;
-        this.activePage = "garantiSorguSegment";
-    }
-    BilgiSorguPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad BilgiSorguPage');
-    };
-    BilgiSorguPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-bilgi-sorgu',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\bilgi-sorgu\bilgi-sorgu.html"*/'<ion-header>\n\n\n\n  <ion-navbar hideBackButton="true">\n\n    <icon-header></icon-header>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content class="content">\n\n\n\n  <ion-title class="page-title">Bilgi Sorgu</ion-title>\n\n\n\n  <ion-toolbar class="main-tabs">\n\n    <ion-segment [(ngModel)]="activePage">\n\n\n\n      <ion-segment-button value="garantiSorguSegment" class="seg-button">\n\n        Garanti Sorgu\n\n      </ion-segment-button>\n\n\n\n      <ion-segment-button value="fiyatSorguSegment" class="seg-button">\n\n        Fiyat Sorgu\n\n      </ion-segment-button>\n\n\n\n    </ion-segment>\n\n  </ion-toolbar>\n\n\n\n  <div [ngSwitch]="activePage">\n\n\n\n    <div *ngSwitchCase="\'garantiSorguSegment\'">\n\n      <garanti-sorgu></garanti-sorgu>\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'fiyatSorguSegment\'">\n\n      <fiyat-sorgu></fiyat-sorgu>\n\n    </div>\n\n\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\bilgi-sorgu\bilgi-sorgu.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]])
-    ], BilgiSorguPage);
-    return BilgiSorguPage;
-}());
-
-//# sourceMappingURL=bilgi-sorgu.js.map
-
-/***/ }),
-
-/***/ 186:
+/***/ 187:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3502,7 +3727,7 @@ var KutuphanePage = (function () {
     };
     KutuphanePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-kutuphane',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\kutuphane\kutuphane.html"*/'<!--\n\n  Generated template for the KutuphanePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <button ion-button primary>\n\n      <ion-icon name="list"></ion-icon>\n\n    </button>\n\n    <ion-title class="page-title">E-Kütüphane</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\kutuphane\kutuphane.html"*/,
+            selector: 'page-kutuphane',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/kutuphane/kutuphane.html"*/'<!--\n  Generated template for the KutuphanePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <button ion-button primary>\n      <ion-icon name="list"></ion-icon>\n    </button>\n    <ion-title class="page-title">E-Kütüphane</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/kutuphane/kutuphane.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
     ], KutuphanePage);
@@ -3513,7 +3738,7 @@ var KutuphanePage = (function () {
 
 /***/ }),
 
-/***/ 187:
+/***/ 188:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3525,7 +3750,7 @@ var KutuphanePage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logger_logger__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_zebra_printer_zebra_printer__ = __webpack_require__(115);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_deeplinks__ = __webpack_require__(513);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_deeplinks__ = __webpack_require__(514);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3692,7 +3917,7 @@ var DeeplinkPrinterProvider = (function () {
 
 /***/ }),
 
-/***/ 209:
+/***/ 210:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3776,14 +4001,14 @@ var CagriAramaModalPage = (function () {
             this.searchParams.push("Telefon: " + this.filter.telefon);
         }
         if (this.siralama)
-            this.orderBy = __WEBPACK_IMPORTED_MODULE_4__entities_Constants__["a" /* Constants */].ORDER_BY.RANDEVU_TAR_ASCENDES;
-        else
             this.orderBy = __WEBPACK_IMPORTED_MODULE_4__entities_Constants__["a" /* Constants */].ORDER_BY.RANDEVU_TAR_DESCENDES;
+        else
+            this.orderBy = __WEBPACK_IMPORTED_MODULE_4__entities_Constants__["a" /* Constants */].ORDER_BY.RANDEVU_TAR_ASCENDES;
         this.closeModal();
     };
     CagriAramaModalPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-cagri-arama-modal',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\cagrilar\cagri-arama-modal\cagri-arama-modal.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title class="page-title">Çağrı Arama Paneli</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <ion-row>\n\n    <ion-col col-3>\n\n      <ion-label>Çağrı No</ion-label>\n\n    </ion-col>\n\n    <ion-col col-9>\n\n      <ion-input [(ngModel)]="filter.seqNo"></ion-input>\n\n    </ion-col>\n\n\n\n    <ion-col col-3>\n\n      <ion-label>Çağrı Durumu</ion-label>\n\n    </ion-col>\n\n    <ion-col col-9>\n\n      <ion-select [(ngModel)]="filter.durum">\n\n        <ion-option value="ACIK" checked>Açık</ion-option>\n\n        <ion-option value="KAPALI">Kapalı</ion-option>\n\n      </ion-select>\n\n    </ion-col>\n\n\n\n    <ion-col col-3>\n\n      <ion-label fixed>Randevu Tarihi</ion-label>\n\n    </ion-col>\n\n    <ion-col col-4>\n\n      <ion-datetime [(ngModel)]="filter.randevuTarFirst" displayFormat="DD.MM.YYYY"></ion-datetime>\n\n    </ion-col>\n\n    <ion-col col-4>\n\n      <ion-datetime [(ngModel)]="filter.randevuTarLast" displayFormat="DD.MM.YYYY"></ion-datetime>\n\n    </ion-col>\n\n\n\n    <ion-col col-3>\n\n      <ion-label fixed>Müşteri Adı</ion-label>\n\n    </ion-col>\n\n    <ion-col col-9>\n\n      <ion-input [(ngModel)]="filter.adi"></ion-input>\n\n    </ion-col>\n\n\n\n    <ion-col col-3>\n\n      <ion-label fixed>Müşteri Soyadı</ion-label>\n\n    </ion-col>\n\n    <ion-col col-9>\n\n      <ion-input [(ngModel)]="filter.soyadi"></ion-input>\n\n    </ion-col>\n\n\n\n    <ion-col col-3>\n\n      <ion-label fixed>Müşteri Ünvanı</ion-label>\n\n    </ion-col>\n\n    <ion-col col-9>\n\n      <ion-input [(ngModel)]="filter.unvani"></ion-input>\n\n    </ion-col>\n\n\n\n    <ion-col col-3>\n\n      <ion-label fixed>Telefon No</ion-label>\n\n    </ion-col>\n\n    <ion-col col-9>\n\n      <ion-input [(ngModel)]="filter.telefon"></ion-input>\n\n    </ion-col>\n\n\n\n    <ion-col col-3>\n\n      <ion-label fixed>Tarihe Göre Sırala</ion-label>\n\n    </ion-col>\n\n    <ion-col col-6>\n\n      <ion-label color="primary" class="radio-btn" style="text-align: end;position: relative;">\n\n        {{siralama == true ? \'A-Z\' : \'Z-A\'}}\n\n      </ion-label>\n\n    </ion-col>\n\n    <ion-col col-3>\n\n      <ion-toggle [(ngModel)]="siralama" class="toggle-btn"></ion-toggle>\n\n    </ion-col>\n\n\n\n    <ion-col col-6>\n\n      <button id="btnModalIptal" ion-button full round (click)="closeModal()">Iptal</button>\n\n    </ion-col>\n\n    <ion-col col-6>\n\n      <button id="btnModalAra" ion-button full round (click)="search()">Ara</button>\n\n    </ion-col>\n\n\n\n  </ion-row>\n\n\n\n\n\n</ion-content>\n\n\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\cagrilar\cagri-arama-modal\cagri-arama-modal.html"*/,
+            selector: 'page-cagri-arama-modal',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/cagrilar/cagri-arama-modal/cagri-arama-modal.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title class="page-title">Çağrı Arama Paneli</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-row>\n    <ion-col col-3>\n      <ion-label>Çağrı No</ion-label>\n    </ion-col>\n    <ion-col col-9>\n      <ion-input [(ngModel)]="filter.seqNo"></ion-input>\n    </ion-col>\n\n    <ion-col col-3>\n      <ion-label>Çağrı Durumu</ion-label>\n    </ion-col>\n    <ion-col col-9>\n      <ion-select [(ngModel)]="filter.durum">\n        <ion-option value="ACIK" checked>Açık</ion-option>\n        <ion-option value="KAPALI">Kapalı</ion-option>\n      </ion-select>\n    </ion-col>\n\n    <ion-col col-3>\n      <ion-label fixed>Randevu Tarihi</ion-label>\n    </ion-col>\n    <ion-col col-4>\n      <ion-datetime [(ngModel)]="filter.randevuTarFirst" displayFormat="DD.MM.YYYY"></ion-datetime>\n    </ion-col>\n    <ion-col col-4>\n      <ion-datetime [(ngModel)]="filter.randevuTarLast" displayFormat="DD.MM.YYYY"></ion-datetime>\n    </ion-col>\n\n    <ion-col col-3>\n      <ion-label fixed>Müşteri Adı</ion-label>\n    </ion-col>\n    <ion-col col-9>\n      <ion-input [(ngModel)]="filter.adi"></ion-input>\n    </ion-col>\n\n    <ion-col col-3>\n      <ion-label fixed>Müşteri Soyadı</ion-label>\n    </ion-col>\n    <ion-col col-9>\n      <ion-input [(ngModel)]="filter.soyadi"></ion-input>\n    </ion-col>\n\n    <ion-col col-3>\n      <ion-label fixed>Müşteri Ünvanı</ion-label>\n    </ion-col>\n    <ion-col col-9>\n      <ion-input [(ngModel)]="filter.unvani"></ion-input>\n    </ion-col>\n\n    <ion-col col-3>\n      <ion-label fixed>Telefon No</ion-label>\n    </ion-col>\n    <ion-col col-9>\n      <ion-input [(ngModel)]="filter.telefon"></ion-input>\n    </ion-col>\n\n    <ion-col col-3>\n      <ion-label fixed>Tarihe Göre Sırala</ion-label>\n    </ion-col>\n    <ion-col col-6>\n      <ion-label color="primary" class="radio-btn" style="text-align: end;position: relative;">\n        {{siralama == true ? \'Z-A\' : \'A-Z\'}}\n      </ion-label>\n    </ion-col>\n    <ion-col col-3>\n      <ion-toggle [(ngModel)]="siralama" class="toggle-btn"></ion-toggle>\n    </ion-col>\n\n    <ion-col col-6>\n      <button id="btnModalIptal" ion-button full round (click)="closeModal()">Iptal</button>\n    </ion-col>\n    <ion-col col-6>\n      <button id="btnModalAra" ion-button full round (click)="search()">Ara</button>\n    </ion-col>\n\n  </ion-row>\n\n\n</ion-content>\n\n'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/cagrilar/cagri-arama-modal/cagri-arama-modal.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_view_controller__["a" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_3__providers_util_util__["a" /* UtilProvider */]])
@@ -3795,22 +4020,22 @@ var CagriAramaModalPage = (function () {
 
 /***/ }),
 
-/***/ 210:
+/***/ 211:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_login_login__ = __webpack_require__(510);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_user_user__ = __webpack_require__(511);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_login_login__ = __webpack_require__(511);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_user_user__ = __webpack_require__(512);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_logger_logger__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_user__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__anasayfa_anasayfa__ = __webpack_require__(96);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_theme_theme__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__entities_Constants__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_deeplink_printer_deeplink_printer__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_deeplink_printer_deeplink_printer__ = __webpack_require__(188);
 /**
  * @author malisahin
  * @since 2018-02-12
@@ -3870,6 +4095,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+var UserInfo = (function () {
+    function UserInfo() {
+        this.userCode = "";
+        this.password = "";
+    }
+    return UserInfo;
+}());
 var LoginPage = (function () {
     function LoginPage(nav, util, alertCtrl, userProvider, loadingCtrl, logger, loginProvider, deepLinkPrinter, themeProvider) {
         this.nav = nav;
@@ -3881,21 +4113,28 @@ var LoginPage = (function () {
         this.loginProvider = loginProvider;
         this.deepLinkPrinter = deepLinkPrinter;
         this.themeProvider = themeProvider;
-        this.passwordType = 'password';
-        this.passwordIcon = 'eye-off';
-        this.userCode = "ECAMERKEZ";
-        this.password = "EMAR6464";
+        this.passwordType = "password";
+        this.passwordIcon = "eye-off";
+        this.userCode = "";
+        this.password = "";
         this.hasLoginPermission = false;
+        this.rememberMe = true;
+        this.showPassword = false;
         this.themeProvider.setTheme();
         this.user = new __WEBPACK_IMPORTED_MODULE_6__entities_user__["a" /* User */]();
         this.backGroundImage = this.themeProvider.getBackgroundImage();
     }
+    LoginPage.prototype.ionViewDidLoad = function () {
+        this.logger.info("Login Page ionViewDidLoad");
+        this.loadSavedUserInfo();
+    };
     LoginPage.prototype.login = function () {
         return __awaiter(this, void 0, void 0, function () {
             var token, connection, token_1, _a;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
+                        this.saveUserInfo();
                         this.hasLoginPermission = false;
                         this.util.loaderStart();
                         localStorage.setItem(this.user.keys.userCode, this.userCode);
@@ -3941,16 +4180,15 @@ var LoginPage = (function () {
         this.util.loaderEnd();
     };
     LoginPage.prototype.hideShowPassword = function () {
-        this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
-        this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
+        this.passwordType = this.showPassword ? "text" : "password";
     };
     LoginPage.prototype.checkLoginInfo = function () {
         if (this.util.isEmpty(this.userCode)) {
-            this.util.message("Kullanıcı Adı boş olamaz.");
+            this.util.warn("Kullanıcı Adı boş olamaz.");
             return false;
         }
         if (this.util.isEmpty(this.password)) {
-            this.util.message("Şifre boş olamaz.");
+            this.util.warn("Şifre boş olamaz.");
             return false;
         }
     };
@@ -3981,10 +4219,10 @@ var LoginPage = (function () {
                         checkAuth = _a.sent();
                         if (checkAuth) {
                             this.hasLoginPermission = true;
-                            this.util.message("Cihazınız offline mod ile çalışmaya devam edecek.");
+                            this.util.info("Cihazınız offline mod ile çalışmaya devam edecek.");
                         }
                         else {
-                            this.util.message("Girmiş olduğunuz bilgilere ait bir kullanıcı bulunamadı.");
+                            this.util.info("Girmiş olduğunuz bilgilere ait bir kullanıcı bulunamadı.");
                         }
                         return [2 /*return*/];
                 }
@@ -3994,9 +4232,37 @@ var LoginPage = (function () {
     LoginPage.prototype.goDeeplink = function () {
         this.deepLinkPrinter.init();
     };
+    LoginPage.prototype.loadSavedUserInfo = function () {
+        debugger;
+        var info = localStorage.getItem(__WEBPACK_IMPORTED_MODULE_9__entities_Constants__["a" /* Constants */].USER_INFO);
+        if (this.util.isNotEmpty(info)) {
+            var userInfo = JSON.parse(info);
+            this.userCode = userInfo.userCode;
+            this.password = userInfo.password;
+        }
+    };
+    LoginPage.prototype.onChangeRememberMe = function () {
+        localStorage.setItem(__WEBPACK_IMPORTED_MODULE_9__entities_Constants__["a" /* Constants */].REMEMBER_ME, String(this.rememberMe));
+        this.saveUserInfo();
+        this.logger.info("Remember Me value is set as " + this.rememberMe);
+    };
+    LoginPage.prototype.saveUserInfo = function () {
+        this.rememberMe = localStorage.getItem(__WEBPACK_IMPORTED_MODULE_9__entities_Constants__["a" /* Constants */].REMEMBER_ME) == "true";
+        if (this.rememberMe) {
+            var info = new UserInfo();
+            info.userCode = this.userCode;
+            info.password = this.password;
+            this.logger.info(" User Info Saved: " + JSON.stringify(info));
+            localStorage.setItem(__WEBPACK_IMPORTED_MODULE_9__entities_Constants__["a" /* Constants */].USER_INFO, JSON.stringify(info));
+        }
+        else {
+            this.logger.info(" User Info Deleted. ");
+            localStorage.setItem(__WEBPACK_IMPORTED_MODULE_9__entities_Constants__["a" /* Constants */].USER_INFO, "");
+        }
+    };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\login\login.html"*/'<ion-content class="content-background login-content" [ngStyle]="{ \'background-image\': \'url(\' + backGroundImage + \')\' }"\n\n             padding>\n\n\n\n  <ion-row>\n\n    <ion-col class="logo">\n\n      <ion-icon name="contact"></ion-icon>\n\n    </ion-col>\n\n  </ion-row>\n\n  <div class="login-box">\n\n    <form (ngSubmit)="login()" #registerForm="ngForm">\n\n\n\n      <ion-row>\n\n        <ion-col>\n\n\n\n          <ion-list>\n\n\n\n            <ion-item>\n\n              <ion-input type="text" placeholder="Kullanıcı Adı" name="email" [(ngModel)]="userCode"\n\n                         required></ion-input>\n\n            </ion-item>\n\n\n\n            <ion-item>\n\n              <ion-input [type]="passwordType" placeholder="Şifre" name="password" [(ngModel)]="password"\n\n                         required></ion-input>\n\n              <!--<ion-icon item-right [name]="passwordIcon" class="password-icon passIcon" (click)=\'hideShowPassword()\'></ion-icon>-->\n\n            </ion-item>\n\n\n\n          </ion-list>\n\n        </ion-col>\n\n      </ion-row>\n\n\n\n      <ion-row>\n\n        <ion-col class="signup-col">\n\n          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Login</button>\n\n        </ion-col>\n\n\n\n      </ion-row>\n\n\n\n    </form>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\login\login.html"*/,
+            selector: "page-login",template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/login/login.html"*/'<ion-content class="content-background login-content" [ngStyle]="{ \'background-image\': \'url(\' + backGroundImage + \')\' }"\n  padding>\n\n  <ion-row>\n    <ion-col class="logo">\n      <ion-icon name="contact"></ion-icon>\n    </ion-col>\n  </ion-row>\n  <div class="login-box">\n    <form (ngSubmit)="login()" #registerForm="ngForm">\n\n      <ion-row>\n        <ion-col>\n\n          <ion-list>\n\n            <ion-item>\n              <ion-input type="text" placeholder="Kullanıcı Adı" name="email" [(ngModel)]="userCode" required></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-input [type]="passwordType" placeholder="Şifre" name="password" [(ngModel)]="password" required></ion-input>\n              <!--<ion-icon item-right [name]="passwordIcon" class="password-icon passIcon" (click)=\'hideShowPassword()\'></ion-icon>-->\n            </ion-item>\n\n          </ion-list>\n        </ion-col>\n      </ion-row>\n\n      <ion-row>\n        <ion-col class="signup-col">\n          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Login</button>\n        </ion-col>\n      </ion-row>\n\n\n    </form>\n    <ion-row style="text-align: left">\n      <ion-col>\n        <ion-row>\n          <ion-col>\n            <ion-checkbox [(ngModel)]="rememberMe" name="rememberMe" id="rememberMe" (ionChange)="onChangeRememberMe()"></ion-checkbox>\n          </ion-col>\n\n          <ion-col>\n            <ion-label>Beni Hatırla</ion-label>\n          </ion-col>\n        </ion-row>\n      </ion-col>\n\n      <ion-col>\n        <ion-row>\n\n          <ion-col>\n            <ion-label>Şifreyi Göster</ion-label>\n          </ion-col>\n\n          <ion-col>\n            <ion-checkbox [(ngModel)]="showPassword" name="showPassword" id="showPassword" (ionChange)=\'hideShowPassword()\'></ion-checkbox>\n          </ion-col>\n\n        </ion-row>\n      </ion-col>\n    </ion-row>\n\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/login/login.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_4__providers_util_util__["a" /* UtilProvider */],
@@ -4015,7 +4281,7 @@ var LoginPage = (function () {
 
 /***/ }),
 
-/***/ 222:
+/***/ 223:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -4028,7 +4294,7 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 222;
+webpackEmptyAsyncContext.id = 223;
 
 /***/ }),
 
@@ -4039,7 +4305,7 @@ webpackEmptyAsyncContext.id = 222;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApiProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_profil__ = __webpack_require__(868);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_enums_eProfil__ = __webpack_require__(486);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_enums_eProfil__ = __webpack_require__(487);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_Tablo__ = __webpack_require__(870);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_Constants__ = __webpack_require__(7);
@@ -4180,12 +4446,12 @@ var ApiProvider = (function () {
 
 /***/ }),
 
-/***/ 266:
+/***/ 267:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/anasayfa/anasayfa.module": [
-		267
+		268
 	],
 	"../pages/ayarlar/ayarlar.module": [
 		498
@@ -4194,10 +4460,10 @@ var map = {
 		500
 	],
 	"../pages/bilgi-sorgu/bilgi-sorgu.module": [
-		504
+		501
 	],
 	"../pages/cagri-detay/cagri-detay.module": [
-		501
+		502
 	],
 	"../pages/cagrilar/cagri-arama-modal/cagri-arama-modal.module": [
 		909,
@@ -4216,11 +4482,11 @@ var map = {
 		509
 	],
 	"../pages/list/list.module": [
-		911,
+		910,
 		1
 	],
 	"../pages/login/login.module": [
-		910,
+		911,
 		0
 	],
 	"../pages/shared-module/shared-module.module": [
@@ -4238,12 +4504,12 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 266;
+webpackAsyncContext.id = 267;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 267:
+/***/ 268:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4324,8 +4590,6 @@ var Hizmet = (function () {
         this.ilceKod = "";
         this.iletisimIstek = "";
         this.isTel = "";
-        this.islemBitTarihi = "";
-        this.islemTarihi = "";
         this.kapatmaKodu = "";
         this.mahalle = "";
         this.mahalleKodu = "";
@@ -4482,7 +4746,7 @@ var TokenProvider = (function () {
                         localStorage.setItem(__WEBPACK_IMPORTED_MODULE_9__entities_Constants__["a" /* Constants */].IS_ONLINE, String(false));
                         this.logger.error(e_1);
                         if (e_1.error.error == "invalid_grant") {
-                            this.util.message("Giriş bilgileriniz yanlış lütfen kontrol ediniz.");
+                            this.util.error("Giriş bilgileriniz yanlış lütfen kontrol ediniz.");
                             localStorage.setItem(__WEBPACK_IMPORTED_MODULE_9__entities_Constants__["a" /* Constants */].LOGGED_IN, String(false));
                         }
                         else {
@@ -4931,7 +5195,7 @@ var DatabaseProvider = (function () {
                 tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_BASVURU_NEDEN_TNM (neden, mamAnagrp, durum, ad)', []);
                 tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_TESTO_VALUES(seqNo, name, unit, value, creDate)', []);
                 tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_FIYAT (mamKod TEXT,iscMlz TEXT,iscMlzKod TEXT,fiyat NUM,gdfiyat NUM,versiyon TEXT, PRIMARY KEY(mamKod, iscMlz,iscMlzKod ))', []);
-                tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_ALERT( bitisTarihi, aciklama, gonderen, id, basTarihi, status, subject, type, valid,  PRIMARY KEY (id))', []);
+                tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_ALERT( bitisTarihi DATE, aciklama, gonderen, id, basTarihi NUM, status, subject, type, valid,  PRIMARY KEY (id))', []);
                 tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_HIZ_MST (seqNo PRIMARY KEY,randevuTarihi DATE,hizmetTipiAdi,mamAnaGrpAdi, basvuruNedeni,durum,' +
                     'adi,soyadi, firmaUnvani, evTel,isTel, gsmNo, data)', []);
                 tx.executeSql('CREATE TABLE IF NOT EXISTS  SEHIR_TNM(sehirKodu,sehirAdi, PRIMARY KEY(sehirKodu))');
@@ -5002,11 +5266,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_module__ = __webpack_require__(867);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_header_header__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_garanti_sorgu_garanti_sorgu__ = __webpack_require__(497);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_garanti_sonuc_garanti_sonuc__ = __webpack_require__(179);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_garanti_sonuc_garanti_sonuc__ = __webpack_require__(180);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_fiyat_sorgu_fiyat_sorgu__ = __webpack_require__(875);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_urun_ana_grup_search_urun_ana_grup_search__ = __webpack_require__(114);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_urun_search_urun_search__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_urun_iscilik_search_urun_iscilik_search__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_urun_iscilik_search_urun_iscilik_search__ = __webpack_require__(181);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_zebra_printer_zebra_printer__ = __webpack_require__(115);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5079,6 +5343,7 @@ var Pageable = (function () {
         this.listLength = -1;
         this.isFirstPage = false;
         this.isLastPage = false;
+        this.pageList = [];
     }
     Pageable.prototype.compute = function () {
         var firstItemOfLastPage;
@@ -5111,8 +5376,8 @@ var Pageable = (function () {
         else if (this.tip == 'LIST_LENGTH') {
             this.first = 0;
         }
-        else if (this.tip == 'PAGENO') {
-            this.first = Number(this.pageSize) * Number(this.pageSize);
+        else if (this.tip == 'TO_PAGE') {
+            this.first = (Number(this.pageNo) - 1) * Number(this.pageSize);
         }
         this.isFirstPage = false;
         this.isLastPage = false;
@@ -5129,7 +5394,16 @@ var Pageable = (function () {
         else if (this.listLength > 2 * Number(this.pageSize) + this.first) {
             this.isLastPage = true;
         }
+        this.preparePageList();
+        this.pageNo = (Number(this.first) / Number(this.pageSize)) + 1;
         return this;
+    };
+    Pageable.prototype.preparePageList = function () {
+        this.pageList = [];
+        var size = (Number(this.listLength) / Number(this.pageSize));
+        for (var i = 0; i < size; i++) {
+            this.pageList.push(i + 1);
+        }
     };
     return Pageable;
 }());
@@ -5241,7 +5515,7 @@ var UrunAnaGrupListe = (function () {
 
 /***/ }),
 
-/***/ 486:
+/***/ 487:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5258,7 +5532,7 @@ var EProfiles;
 
 /***/ }),
 
-/***/ 487:
+/***/ 488:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5281,7 +5555,7 @@ var DetayKayit = (function () {
 
 /***/ }),
 
-/***/ 488:
+/***/ 489:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5299,7 +5573,7 @@ var Ilce = (function () {
 
 /***/ }),
 
-/***/ 489:
+/***/ 490:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5435,7 +5709,7 @@ var UrunProvider = (function () {
 
 /***/ }),
 
-/***/ 490:
+/***/ 491:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5443,7 +5717,7 @@ var UrunProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(432);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(433);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_urun_iscilik__ = __webpack_require__(172);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_Constants__ = __webpack_require__(7);
@@ -5572,7 +5846,7 @@ var UrunIscilikProvider = (function () {
 
 /***/ }),
 
-/***/ 491:
+/***/ 492:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5598,7 +5872,7 @@ var UrunMalzeme = (function () {
         /**
          *   Versiyon ve Ne kadar verinin geldiği burdan kontrol edilir
          */
-        localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].GELEN_VERI.GELEN_URUN_MALZEME, urunMalzemeList.length);
+        localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].GELEN_VERI.URUN_MALZEME, urunMalzemeList.length);
         localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].VERSIYON.SERVER.URUN_MALZEME, urunMalzemeVersiyon);
         urunMalzemeList.forEach(function (item) {
             var newItem = new UrunMalzeme();
@@ -5619,7 +5893,7 @@ var UrunMalzeme = (function () {
 
 /***/ }),
 
-/***/ 492:
+/***/ 493:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5629,7 +5903,6 @@ var UrunMalzeme = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__database_database__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__base_dao_base_dao__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_Constants__ = __webpack_require__(7);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5639,7 +5912,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 
@@ -5695,9 +5967,9 @@ var UrunMalzemeDao = (function () {
         var query = " SELECT * FROM OFF_MAM_MLZ_TNM WHERE 1=1 ";
         var searchQuery = [];
         if (this.util.isNotEmpty(filter.mamKod))
-            searchQuery.push(this.util.prepareWhereQuery(__WEBPACK_IMPORTED_MODULE_5__entities_Constants__["a" /* Constants */].SEARCH_TYPE.EXACT, "mamKod", filter.mamKod));
+            query += " AND mamKod = '" + filter.mamKod + "' ";
         if (this.util.isNotEmpty(filter.mlzKod))
-            searchQuery.push(this.util.prepareWhereQuery(searchType, "mlzKod", filter.mamKod));
+            searchQuery.push(this.util.prepareWhereQuery(searchType, "mlzKod", filter.mlzKod));
         if (this.util.isNotEmpty(filter.mlzAdi))
             searchQuery.push(this.util.prepareWhereQuery(searchType, "mlzAdi", filter.mlzAdi));
         return this.util.prepareQuery(query, searchQuery, searchType);
@@ -5713,153 +5985,6 @@ var UrunMalzemeDao = (function () {
 }());
 
 //# sourceMappingURL=urun-malzeme-dao.js.map
-
-/***/ }),
-
-/***/ 493:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FiyatProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_fiyat__ = __webpack_require__(175);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__fiyat_dao_fiyat_dao__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__token_token__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_Constants__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__util_util__ = __webpack_require__(5);
-/**
- * @author malisahin
- * @email mehmetalisahinogullari@gmail.com
- */
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [0, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-
-
-
-
-
-
-
-
-var FiyatProvider = (function () {
-    function FiyatProvider(http, api, util, fiyatDao, token) {
-        this.http = http;
-        this.api = api;
-        this.util = util;
-        this.fiyatDao = fiyatDao;
-        this.token = token;
-    }
-    FiyatProvider.prototype.downloadMalzemeFiyat = function (first) {
-        var tip = "malzemeFiyatListesi";
-        return this.getDataFromApi(first, tip);
-    };
-    FiyatProvider.prototype.downloadIscilikFiyat = function (first) {
-        var tip = "iscilikFiyatListesi";
-        return this.getDataFromApi(first, tip);
-    };
-    FiyatProvider.prototype.getDataFromApi = function (first, tip) {
-        return __awaiter(this, void 0, void 0, function () {
-            var url, header;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        url = this.api.fiyatlarDownloadUrl(first, tip);
-                        return [4 /*yield*/, this.token.callTokenAndGetHeader()];
-                    case 1:
-                        header = _a.sent();
-                        if (this.util.isOnline()) {
-                            this.util.loaderStart();
-                            return [2 /*return*/, this.getFiyat(url, header, tip)];
-                        }
-                        else {
-                            this.util.ifOffline();
-                        }
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    FiyatProvider.prototype.getFiyat = function (url, header, tip) {
-        return __awaiter(this, void 0, void 0, function () {
-            var data, fiyatlar, list, item;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.http.get(url, { headers: header }).toPromise()];
-                    case 1:
-                        data = _a.sent();
-                        fiyatlar = new __WEBPACK_IMPORTED_MODULE_3__entities_fiyat__["a" /* Fiyat */]();
-                        return [4 /*yield*/, fiyatlar.fillFiyat(data, tip)];
-                    case 2:
-                        list = _a.sent();
-                        if (!(this.util.isNotEmpty(list) && list.length > 0)) return [3 /*break*/, 4];
-                        return [4 /*yield*/, this.fiyatDao.insertList(list)];
-                    case 3:
-                        item = _a.sent();
-                        _a.label = 4;
-                    case 4: return [2 /*return*/, new Promise(function (resolve, reject) {
-                            resolve(__WEBPACK_IMPORTED_MODULE_6__entities_Constants__["a" /* Constants */].STATUS.SUCCESS);
-                            reject(__WEBPACK_IMPORTED_MODULE_6__entities_Constants__["a" /* Constants */].STATUS.ERROR);
-                        })];
-                }
-            });
-        });
-    };
-    FiyatProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */],
-            __WEBPACK_IMPORTED_MODULE_2__api_api__["a" /* ApiProvider */],
-            __WEBPACK_IMPORTED_MODULE_7__util_util__["a" /* UtilProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__fiyat_dao_fiyat_dao__["a" /* FiyatDao */],
-            __WEBPACK_IMPORTED_MODULE_5__token_token__["a" /* TokenProvider */]])
-    ], FiyatProvider);
-    return FiyatProvider;
-}());
-
-//# sourceMappingURL=fiyat.js.map
 
 /***/ }),
 
@@ -6016,7 +6141,7 @@ var IslemArizaIscilik = (function () {
          *   Versiyon ve Ne kadar verinin geldiği burdan kontrol edilir
          */
         localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].VERSIYON.SERVER.ISLEM_ARIZA_ISCILIK, versiyon);
-        localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].GELEN_VERI.GELEN_ISLEM_ARIZA_ISCILIK, list.length);
+        localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].GELEN_VERI.ISLEM_ARIZA_ISCILIK, list.length);
         list.forEach(function (obj) {
             var item = new IslemArizaIscilik();
             item.mamAnaGrp = obj.mamAnaGrp;
@@ -6051,7 +6176,7 @@ var IslemArizaIscilik = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__adres_dao_adres_dao__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__logger_logger__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_Sehir__ = __webpack_require__(873);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_Ilce__ = __webpack_require__(488);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_Ilce__ = __webpack_require__(489);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__entities_mahalle__ = __webpack_require__(874);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__token_token__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__util_util__ = __webpack_require__(5);
@@ -6232,7 +6357,7 @@ var AdresProvider = (function () {
         var list = item.message.data;
         var versiyon = item.message.versiyon;
         localStorage.setItem(__WEBPACK_IMPORTED_MODULE_3__entities_Constants__["a" /* Constants */].VERSIYON.SERVER.MAHALLE_TNM, versiyon);
-        localStorage.setItem(__WEBPACK_IMPORTED_MODULE_3__entities_Constants__["a" /* Constants */].GELEN_VERI.GELEN_MAHALLE_TNM, item.message.data.length.toString());
+        localStorage.setItem(__WEBPACK_IMPORTED_MODULE_3__entities_Constants__["a" /* Constants */].GELEN_VERI.MAHALLE_TNM, item.message.data.length.toString());
         list.forEach(function (row) {
             var mahalle = new __WEBPACK_IMPORTED_MODULE_8__entities_mahalle__["a" /* Mahalle */]();
             mahalle.sehirKodu = row.sehirKodu;
@@ -6274,8 +6399,8 @@ var AdresProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__urun_ana_grup_search_urun_ana_grup_search__ = __webpack_require__(114);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__urun_search_urun_search__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_common_http__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__entities_GarantiSorgu__ = __webpack_require__(177);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_garanti_sorgu_garanti_sorgu__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__entities_GarantiSorgu__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_garanti_sorgu_garanti_sorgu__ = __webpack_require__(179);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__entities_user__ = __webpack_require__(53);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -6337,14 +6462,14 @@ var GarantiSorguComponent = (function () {
     };
     GarantiSorguComponent.prototype.garantiSorgula = function () {
         if (this.util.isEmpty(this.faturaTarihi)) {
-            this.util.message("Fatura tarihi boş bırakılamaz");
+            this.util.error("Fatura tarihi boş bırakılamaz");
             return false;
         }
         if (this.util.isEmpty(this.barkodNo)) {
-            this.util.message("Barkod No Boş bırakılamaz");
+            this.util.error("Barkod No Boş bırakılamaz");
             return false;
         }
-        this.util.message("Garanti Sorgulandı");
+        this.util.success("Garanti Sorgulandı");
         var sorguData = new __WEBPACK_IMPORTED_MODULE_10__entities_GarantiSorgu__["a" /* GarantiSorgu */]();
         var user = new __WEBPACK_IMPORTED_MODULE_12__entities_user__["a" /* User */]();
         sorguData.mamKod = this.urun.mamKod;
@@ -6358,7 +6483,7 @@ var GarantiSorguComponent = (function () {
     };
     GarantiSorguComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'garanti-sorgu',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\garanti-sorgu\garanti-sorgu.html"*/'<!-- Generated template for the HizmetBilgileriComponent component -->\n\n\n\n<ion-row>\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Ürün Ana Grubu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input type="text" [(ngModel)]="urunAnaGrup.ad" (focus)="urunAnaGrupSorgula()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Ürün Kodu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input type="text" [(ngModel)]="urun.mamKod" (focus)="urunSorgula()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Barkod Numarası</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input type="text" [(ngModel)]="barkodNo" required></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Fatura Tarihi</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="faturaTarihi" required></ion-datetime>\n\n  </ion-col>\n\n\n\n  <ion-col col-sm-12 col-md-6 col-lg-3 col-xl-3>\n\n    <button ion-button icon-start full round (click)="garantiSorgula();">\n\n      <ion-icon name="md-help"></ion-icon>\n\n      Garanti Sorgula\n\n    </button>\n\n  </ion-col>\n\n</ion-row>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\garanti-sorgu\garanti-sorgu.html"*/
+            selector: 'garanti-sorgu',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/garanti-sorgu/garanti-sorgu.html"*/'<!-- Generated template for the HizmetBilgileriComponent component -->\n\n<ion-row>\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">Ürün Ana Grubu</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input type="text" [(ngModel)]="urunAnaGrup.ad" (focus)="urunAnaGrupSorgula()"></ion-input>\n  </ion-col>\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">Ürün Kodu</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input type="text" [(ngModel)]="urun.mamKod" (focus)="urunSorgula()"></ion-input>\n  </ion-col>\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">Barkod Numarası</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input type="text" [(ngModel)]="barkodNo" required></ion-input>\n  </ion-col>\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">Fatura Tarihi</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="faturaTarihi" required></ion-datetime>\n  </ion-col>\n\n  <ion-col col-sm-12 col-md-6 col-lg-3 col-xl-3>\n    <button ion-button icon-start full round (click)="garantiSorgula();">\n      <ion-icon name="md-help"></ion-icon>\n      Garanti Sorgula\n    </button>\n  </ion-col>\n</ion-row>'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/garanti-sorgu/garanti-sorgu.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_urun_ana_grup_dao_urun_ana_grup_dao__["a" /* UrunAnaGrupDao */],
             __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["h" /* ModalController */],
@@ -6430,7 +6555,7 @@ var AyarlarPageModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_hizmet_dao_hizmet_dao__ = __webpack_require__(61);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__cagrilar_cagrilar__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__guncelleme_guncelleme__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_tasks_tasks__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_tasks_tasks__ = __webpack_require__(182);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_theme_theme__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_logger_logger__ = __webpack_require__(14);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -6507,12 +6632,13 @@ var AyarlarPage = (function () {
         this.activePage = "silme";
         this.deletedVersion = (-1).toString();
         this.DEFAULT_SYNC_TIME = 2;
-        this.onChangeSyncTime('IN');
+        this.onChangeSyncTime('TS');
         this.selectedTheme = this.themeProvider.getSelectedTheme();
         this.onChangeTheme();
     }
     AyarlarPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad AyarlarPage');
+        this.onChangeMessageDuration('TS');
     };
     AyarlarPage.prototype.deleteUrunler = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -6521,7 +6647,7 @@ var AyarlarPage = (function () {
                     case 0: return [4 /*yield*/, this.baseDao.deleteAll(__WEBPACK_IMPORTED_MODULE_3__entities_Constants__["a" /* Constants */].DATA_TYPE.URUN)];
                     case 1:
                         _a.sent();
-                        this.util.message("Ürün Listesi Silindi");
+                        this.util.info("Ürün Listesi Silindi");
                         return [2 /*return*/];
                 }
             });
@@ -6534,7 +6660,7 @@ var AyarlarPage = (function () {
                     case 0: return [4 /*yield*/, this.baseDao.deleteAll(__WEBPACK_IMPORTED_MODULE_3__entities_Constants__["a" /* Constants */].DATA_TYPE.URUN_ANA_GRUP)];
                     case 1:
                         _a.sent();
-                        this.util.message("Ürün Ana Grup Listesi Silindi");
+                        this.util.info("Ürün Ana Grup Listesi Silindi");
                         return [2 /*return*/];
                 }
             });
@@ -6547,7 +6673,7 @@ var AyarlarPage = (function () {
                     case 0: return [4 /*yield*/, this.baseDao.deleteAll(__WEBPACK_IMPORTED_MODULE_3__entities_Constants__["a" /* Constants */].DATA_TYPE.URUN_ISCILIK)];
                     case 1:
                         _a.sent();
-                        this.util.message("Ürün Ana Grup Listesi Silindi");
+                        this.util.info("Ürün Ana Grup Listesi Silindi");
                         return [2 /*return*/];
                 }
             });
@@ -6560,7 +6686,7 @@ var AyarlarPage = (function () {
                     case 0: return [4 /*yield*/, this.baseDao.deleteAll(__WEBPACK_IMPORTED_MODULE_3__entities_Constants__["a" /* Constants */].DATA_TYPE.URUN_MALZEME)];
                     case 1:
                         _a.sent();
-                        this.util.message("Ürün Malzeme Listesi Silindi");
+                        this.util.info("Ürün Malzeme Listesi Silindi");
                         return [2 /*return*/];
                 }
             });
@@ -6573,7 +6699,7 @@ var AyarlarPage = (function () {
                     case 0: return [4 /*yield*/, this.baseDao.deleteAll(__WEBPACK_IMPORTED_MODULE_3__entities_Constants__["a" /* Constants */].DATA_TYPE.ISLEM_ARIZA_ISCILIK)];
                     case 1:
                         _a.sent();
-                        this.util.message("Işlem Arıza İşçilik Listesi Silindi");
+                        this.util.info("Işlem Arıza İşçilik Listesi Silindi");
                         return [2 /*return*/];
                 }
             });
@@ -6586,7 +6712,7 @@ var AyarlarPage = (function () {
                     case 0: return [4 /*yield*/, this.fiyatDao.deleteAllByTip(__WEBPACK_IMPORTED_MODULE_3__entities_Constants__["a" /* Constants */].DATA_TYPE.MALZEME_FIYAT)];
                     case 1:
                         _a.sent();
-                        this.util.message("Malzeme Fiyat Listesi Silindi");
+                        this.util.info("Malzeme Fiyat Listesi Silindi");
                         return [2 /*return*/];
                 }
             });
@@ -6599,7 +6725,7 @@ var AyarlarPage = (function () {
                     case 0: return [4 /*yield*/, this.fiyatDao.deleteAllByTip(__WEBPACK_IMPORTED_MODULE_3__entities_Constants__["a" /* Constants */].DATA_TYPE.ISCILIK_FIYAT)];
                     case 1:
                         _a.sent();
-                        this.util.message("Işçilik Fiyat Listesi Silindi");
+                        this.util.info("Işçilik Fiyat Listesi Silindi");
                         return [2 /*return*/];
                 }
             });
@@ -6612,7 +6738,7 @@ var AyarlarPage = (function () {
                     case 0: return [4 /*yield*/, this.baseDao.deleteAll(__WEBPACK_IMPORTED_MODULE_3__entities_Constants__["a" /* Constants */].DATA_TYPE.SEHIR_TNM)];
                     case 1:
                         _a.sent();
-                        this.util.message("Şehir Listesi Silindi");
+                        this.util.info("Şehir Listesi Silindi");
                         return [2 /*return*/];
                 }
             });
@@ -6625,7 +6751,7 @@ var AyarlarPage = (function () {
                     case 0: return [4 /*yield*/, this.baseDao.deleteAll(__WEBPACK_IMPORTED_MODULE_3__entities_Constants__["a" /* Constants */].DATA_TYPE.ILCE_TNM)];
                     case 1:
                         _a.sent();
-                        this.util.message("Ilçe Listesi Silindi");
+                        this.util.info("Ilçe Listesi Silindi");
                         return [2 /*return*/];
                 }
             });
@@ -6638,7 +6764,7 @@ var AyarlarPage = (function () {
                     case 0: return [4 /*yield*/, this.baseDao.deleteAll(__WEBPACK_IMPORTED_MODULE_3__entities_Constants__["a" /* Constants */].DATA_TYPE.MAHALLE_TNM)];
                     case 1:
                         _a.sent();
-                        this.util.message("Mahalle Listesi Silindi");
+                        this.util.info("Mahalle Listesi Silindi");
                         return [2 /*return*/];
                 }
             });
@@ -6652,7 +6778,7 @@ var AyarlarPage = (function () {
                     case 0: return [4 /*yield*/, this.hizmetDao.deleteList()];
                     case 1:
                         _a.sent();
-                        this.util.message("Çağrı Listesi Silindi");
+                        this.util.info("Çağrı Listesi Silindi");
                         setTimeout(function () {
                             _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__cagrilar_cagrilar__["a" /* CagrilarPage */]);
                         }, 500);
@@ -6696,7 +6822,7 @@ var AyarlarPage = (function () {
                         return [4 /*yield*/, this.deleteMahalleList()];
                     case 10:
                         _a.sent();
-                        this.util.message("Tüm Kayıtlar Silindi.");
+                        this.util.info("Tüm Kayıtlar Silindi.");
                         setTimeout(function () {
                             _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__guncelleme_guncelleme__["a" /* GuncellemePage */]);
                         }, 500);
@@ -6718,8 +6844,8 @@ var AyarlarPage = (function () {
         }
         else {
             localStorage.setItem(__WEBPACK_IMPORTED_MODULE_3__entities_Constants__["a" /* Constants */].SYNC.TIME, String(this.syncTime));
-            if (nerden == 'OUT') {
-                this.util.message("Senkronize süresi değiştirildi. Atanan değer " + String(this.syncTime) + " dk.");
+            if (nerden == 'HTML') {
+                this.util.success("Senkronize süresi değiştirildi. Atanan değer " + String(this.syncTime) + " dk.");
                 this.tasks.killAndStartTasks();
             }
         }
@@ -6734,9 +6860,25 @@ var AyarlarPage = (function () {
             this.themeProvider.changeTheme(this.selectedTheme);
         }
     };
+    AyarlarPage.prototype.onChangeMessageDuration = function (nerden) {
+        if (this.util.isEmpty(this.messageDuration)) {
+            var duration = localStorage.getItem(__WEBPACK_IMPORTED_MODULE_3__entities_Constants__["a" /* Constants */].MESSAGE_DURATION);
+            if (this.util.isEmpty(duration)) {
+                duration = __WEBPACK_IMPORTED_MODULE_3__entities_Constants__["a" /* Constants */].DEFAULT_MESSAGE_DURATION;
+                localStorage.setItem(__WEBPACK_IMPORTED_MODULE_3__entities_Constants__["a" /* Constants */].MESSAGE_DURATION, duration);
+            }
+            this.messageDuration = Number(duration);
+        }
+        if (nerden == "HTML") {
+            localStorage.setItem(__WEBPACK_IMPORTED_MODULE_3__entities_Constants__["a" /* Constants */].MESSAGE_DURATION, String(this.messageDuration));
+            var degisimSonrasiUyari = "Uyarı Süresi Değiştirildi. Atanan Değer : " + this.messageDuration;
+            this.util.success(degisimSonrasiUyari);
+            this.logger.info(degisimSonrasiUyari);
+        }
+    };
     AyarlarPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-ayarlar',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\ayarlar\ayarlar.html"*/'<ion-header>\n\n\n\n  <ion-navbar hideBackButton="true">\n\n    <icon-header #header></icon-header>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content class="content">\n\n\n\n  <ion-title class="page-title">Ayarlar</ion-title>\n\n\n\n  <!--  <ion-toolbar class="main-tabs">\n\n      <ion-segment [(ngModel)]="activePage">\n\n        <ion-segment-button value="silme" class="seg-button">\n\n          Silme Işlemleri\n\n        </ion-segment-button>\n\n       &lt;!&ndash; <ion-segment-button value="versiyon" class="seg-button">\n\n          Versiyon\n\n        </ion-segment-button>&ndash;&gt;\n\n      </ion-segment>\n\n    </ion-toolbar>-->\n\n  <!--  <div [ngSwitch]="activePage">\n\n      <div *ngSwitchCase="\'silme\'">-->\n\n  <ion-row>\n\n    <ion-col col-12 col-md-12>\n\n      <ion-title class="page-title"> Silme Işlemleri</ion-title>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-list>\n\n    <button ion-button primary round full (click)="deleteUrunler();">\n\n      <span item-left style="width: 95%">Ürünler</span>\n\n      <span item-right style="width: 5%">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </span>\n\n    </button>\n\n\n\n    <button ion-button primary round full (click)="deleteUrunAnaGrup();">\n\n      <span item-left style="width: 95%">Ürün Ana Grupları</span>\n\n      <span item-right style="width: 5%">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </span>\n\n    </button>\n\n\n\n    <button ion-button primary round full (click)="deleteUrunIscilik();">\n\n      <span item-left style="width: 95%">Ürün Işçilik</span>\n\n      <span item-right style="width: 5%">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </span>\n\n    </button>\n\n\n\n    <button ion-button primary round full (click)="deleteUrunMalzeme();">\n\n      <span item-left style="width: 95%">Ürün-Malzeme</span>\n\n      <span item-right style="width: 5%">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </span>\n\n    </button>\n\n\n\n    <button ion-button primary round full (click)="deleteIslemArizaIscilik();">\n\n      <span item-left style="width: 95%">Işlem-Arıza-Işçilik</span>\n\n      <span item-right style="width: 5%">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </span>\n\n    </button>\n\n\n\n    <button ion-button primary round full (click)="deleteMalzemeFiyat();">\n\n      <span item-left style="width: 95%">Malzeme Fiyatları</span>\n\n      <span item-right style="width: 5%">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </span>\n\n    </button>\n\n\n\n    <button ion-button primary round full (click)="deleteIscilikFiyat();">\n\n      <span item-left style="width: 95%">Işçilik Fiyatları</span>\n\n      <span item-right style="width: 5%">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </span>\n\n    </button>\n\n\n\n    <button ion-button primary round full (click)="deleteSehirList();">\n\n      <span item-left style="width: 95%">Şehir Listesi</span>\n\n      <span item-right style="width: 5%">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </span>\n\n    </button>\n\n\n\n    <button ion-button primary round full (click)="deleteIlceList();">\n\n      <span item-left style="width: 95%">Ilçe Listesi</span>\n\n      <span item-right style="width: 5%">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </span>\n\n    </button>\n\n\n\n    <button ion-button primary round full (click)="deleteMahalleList();">\n\n      <span item-left style="width: 95%">Mahalle Listesi</span>\n\n      <span item-right style="width: 5%">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </span>\n\n    </button>\n\n  </ion-list>\n\n\n\n  <ion-list>\n\n    <button ion-button round full (click)="deleteAllRecords();" color="danger">\n\n      <span item-left style="width: 95%">Tüm Kayıtlar</span>\n\n      <span item-right style="width: 5%">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </span>\n\n    </button>\n\n\n\n    <button ion-button round full (click)="deleteAllServices();" color="danger">\n\n      <span item-left style="width: 95%">Tüm Çağrılar</span>\n\n      <span item-right style="width: 5%">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </span>\n\n    </button>\n\n\n\n  </ion-list>\n\n\n\n  <ion-row>\n\n    <ion-col col-12 col-md-12>\n\n      <ion-title class="page-title"> Arka Plan Ayarları</ion-title>\n\n    </ion-col>\n\n\n\n    <ion-col col-6 col-md-3>\n\n      <ion-label>Senkronize Süresi(Dakika)</ion-label>\n\n    </ion-col>\n\n    <ion-col col-6 col-md-9>\n\n      <ion-select [(ngModel)]="syncTime" interface="popover" (ionChange)="onChangeSyncTime(\'OUT\')">\n\n        <ion-option value="0.5">0.5</ion-option>\n\n        <ion-option value="1">1</ion-option>\n\n        <ion-option value="2">2</ion-option>\n\n        <ion-option value="3">3</ion-option>\n\n        <ion-option value="5">5</ion-option>\n\n        <ion-option value="10">10</ion-option>\n\n      </ion-select>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row>\n\n    <ion-col col-12 col-md-12>\n\n      <ion-title class="page-title"> Tema Ayarları</ion-title>\n\n    </ion-col>\n\n\n\n\n\n    <ion-col col-12 col-md-12>\n\n      <ion-select [(ngModel)]="selectedTheme" interface="popover" (ionChange)="onChangeTheme()">\n\n        <ion-option value="BLUE">Mavi</ion-option>\n\n        <ion-option value="GREEN">Yeşil</ion-option>\n\n      </ion-select>\n\n    </ion-col>\n\n  </ion-row>\n\n <!-- </div>\n\n-->\n\n  <!-- <div *ngSwitchCase="\'versiyon\'" class="versiyon">\n\n     <button ion-button primary round full>Ürünler</button>\n\n\n\n     <button ion-button primary round full>Ürün Ana Grupları</button>\n\n\n\n     <button ion-button primary round full>Ürün Işçilik</button>\n\n\n\n     <button ion-button primary round full>Ürün-Malzeme</button>\n\n\n\n     <button ion-button primary round full>Işlem-Arıza-Işçilik</button>\n\n\n\n     <button ion-button primary round full>Malzeme Fiyatları</button>\n\n\n\n     <button ion-button primary round full>Işçilik Fiyatları</button>\n\n   </div>-->\n\n  <!--\n\n    </div>-->\n\n</ion-content>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\ayarlar\ayarlar.html"*/,
+            selector: 'page-ayarlar',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/ayarlar/ayarlar.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton="true">\n    <icon-header #header></icon-header>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content class="content">\n\n  <ion-row>\n    <ion-col col-12 col-md-12>\n      <ion-title class="page-title"> Silme Işlemleri</ion-title>\n    </ion-col>\n  </ion-row>\n\n  <ion-list>\n    <button ion-button primary round full (click)="deleteUrunler();">\n      <span item-left style="width: 95%">Ürünler</span>\n      <span item-right style="width: 5%">\n            <ion-icon name="trash"></ion-icon>\n          </span>\n    </button>\n\n    <button ion-button primary round full (click)="deleteUrunAnaGrup();">\n      <span item-left style="width: 95%">Ürün Ana Grupları</span>\n      <span item-right style="width: 5%">\n            <ion-icon name="trash"></ion-icon>\n          </span>\n    </button>\n\n    <button ion-button primary round full (click)="deleteUrunIscilik();">\n      <span item-left style="width: 95%">Ürün Işçilik</span>\n      <span item-right style="width: 5%">\n            <ion-icon name="trash"></ion-icon>\n          </span>\n    </button>\n\n    <button ion-button primary round full (click)="deleteUrunMalzeme();">\n      <span item-left style="width: 95%">Ürün-Malzeme</span>\n      <span item-right style="width: 5%">\n            <ion-icon name="trash"></ion-icon>\n          </span>\n    </button>\n\n    <button ion-button primary round full (click)="deleteIslemArizaIscilik();">\n      <span item-left style="width: 95%">Işlem-Arıza-Işçilik</span>\n      <span item-right style="width: 5%">\n            <ion-icon name="trash"></ion-icon>\n          </span>\n    </button>\n\n    <button ion-button primary round full (click)="deleteMalzemeFiyat();">\n      <span item-left style="width: 95%">Malzeme Fiyatları</span>\n      <span item-right style="width: 5%">\n            <ion-icon name="trash"></ion-icon>\n          </span>\n    </button>\n\n    <button ion-button primary round full (click)="deleteIscilikFiyat();">\n      <span item-left style="width: 95%">Işçilik Fiyatları</span>\n      <span item-right style="width: 5%">\n            <ion-icon name="trash"></ion-icon>\n          </span>\n    </button>\n\n    <button ion-button primary round full (click)="deleteSehirList();">\n      <span item-left style="width: 95%">Şehir Listesi</span>\n      <span item-right style="width: 5%">\n            <ion-icon name="trash"></ion-icon>\n          </span>\n    </button>\n\n    <button ion-button primary round full (click)="deleteIlceList();">\n      <span item-left style="width: 95%">Ilçe Listesi</span>\n      <span item-right style="width: 5%">\n            <ion-icon name="trash"></ion-icon>\n          </span>\n    </button>\n\n    <button ion-button primary round full (click)="deleteMahalleList();">\n      <span item-left style="width: 95%">Mahalle Listesi</span>\n      <span item-right style="width: 5%">\n            <ion-icon name="trash"></ion-icon>\n          </span>\n    </button>\n  </ion-list>\n\n  <ion-list>\n    <button ion-button round full (click)="deleteAllRecords();" color="danger">\n      <span item-left style="width: 95%">Tüm Kayıtlar</span>\n      <span item-right style="width: 5%">\n            <ion-icon name="trash"></ion-icon>\n          </span>\n    </button>\n\n    <button ion-button round full (click)="deleteAllServices();" color="danger">\n      <span item-left style="width: 95%">Tüm Çağrılar</span>\n      <span item-right style="width: 5%">\n            <ion-icon name="trash"></ion-icon>\n          </span>\n    </button>\n\n  </ion-list>\n\n  <ion-row>\n    <ion-col col-12 col-md-12>\n      <ion-title class="page-title"> Arka Plan Ayarları</ion-title>\n    </ion-col>\n\n    <ion-col col-6 col-md-3>\n      <ion-label>Senkronize Süresi(Dakika)</ion-label>\n    </ion-col>\n    <ion-col col-6 col-md-9>\n      <ion-select [(ngModel)]="syncTime" interface="popover" (ionChange)="onChangeSyncTime(\'HTML\')">\n        <ion-option value="0.5">0.5</ion-option>\n        <ion-option value="1">1</ion-option>\n        <ion-option value="2">2</ion-option>\n        <ion-option value="3">3</ion-option>\n        <ion-option value="5">5</ion-option>\n        <ion-option value="10">10</ion-option>\n      </ion-select>\n    </ion-col>\n  </ion-row>\n\n  <ion-row>\n    <ion-col col-12 col-md-12>\n      <ion-title class="page-title"> Tema Ayarları</ion-title>\n    </ion-col>\n\n\n    <ion-col col-6 col-md-3>\n      <ion-label>Tema Seçiniz</ion-label>\n    </ion-col>\n    <ion-col col-6 col-md-9>\n      <ion-select [(ngModel)]="selectedTheme" interface="popover" (ionChange)="onChangeTheme()">\n        <ion-option value="BLUE">Mavi</ion-option>\n        <ion-option value="GREEN">Yeşil</ion-option>\n      </ion-select>\n    </ion-col>\n  </ion-row>\n\n  <ion-row>\n    <ion-col col-12 col-md-12>\n      <ion-title class="page-title"> Mesaj Süresi</ion-title>\n    </ion-col>\n\n    <ion-col col-6 col-md-3>\n      <ion-label>Uyarı Süresi(Saniye)</ion-label>\n    </ion-col>\n    <ion-col col-6 col-md-6>\n      <ion-select [(ngModel)]="messageDuration" interface="popover" (ionChange)="onChangeMessageDuration(\'HTML\')">\n        <ion-option value="2">2</ion-option>\n        <ion-option value="3">3</ion-option>\n        <ion-option value="4">4</ion-option>\n        <ion-option value="5">5</ion-option>\n        <ion-option value="10">10</ion-option>\n        <ion-option value="20">20</ion-option>\n      </ion-select>\n    </ion-col>\n  </ion-row>\n  <!-- </div>\n -->\n  <!-- <div *ngSwitchCase="\'versiyon\'" class="versiyon">\n     <button ion-button primary round full>Ürünler</button>\n\n     <button ion-button primary round full>Ürün Ana Grupları</button>\n\n     <button ion-button primary round full>Ürün Işçilik</button>\n\n     <button ion-button primary round full>Ürün-Malzeme</button>\n\n     <button ion-button primary round full>Işlem-Arıza-Işçilik</button>\n\n     <button ion-button primary round full>Malzeme Fiyatları</button>\n\n     <button ion-button primary round full>Işçilik Fiyatları</button>\n   </div>-->\n  <!--\n    </div>-->\n</ion-content>\n'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/ayarlar/ayarlar.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -6790,11 +6932,19 @@ var UtilProvider = (function () {
         this.loadingController = loadingController;
         this.isLoaderRunning = false;
         __WEBPACK_IMPORTED_MODULE_3_moment___default.a.locale('tr');
+        this.init();
     }
+    UtilProvider.prototype.init = function () {
+    };
     UtilProvider.prototype.isEmpty = function (item) {
         if (typeof item == "number")
             item = String(item);
         return (typeof item == 'undefined' || item == null || item == "");
+    };
+    UtilProvider.prototype.emptyIfNull = function (item) {
+        if (this.isEmpty(item))
+            item = "";
+        return item;
     };
     UtilProvider.prototype.isNotEmpty = function (item) {
         if (typeof item == "number")
@@ -6822,35 +6972,47 @@ var UtilProvider = (function () {
         }
         return query;
     };
-    UtilProvider.prototype.message = function (message) {
+    UtilProvider.prototype.getDuration = function () {
+        var duration = localStorage.getItem(__WEBPACK_IMPORTED_MODULE_0__entities_Constants__["a" /* Constants */].MESSAGE_DURATION);
+        if (this.isEmpty(duration)) {
+            duration = __WEBPACK_IMPORTED_MODULE_0__entities_Constants__["a" /* Constants */].DEFAULT_MESSAGE_DURATION;
+            localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__entities_Constants__["a" /* Constants */].MESSAGE_DURATION, duration);
+        }
+        return Number(duration) * 1000;
+    };
+    UtilProvider.prototype.success = function (message) {
         var toast = this.toast.create({
             message: message,
-            duration: 3000,
-            position: 'top'
+            duration: this.getDuration(),
+            position: 'top',
+            cssClass: 'toast-success'
         });
         toast.present();
     };
     UtilProvider.prototype.info = function (message) {
         var toast = this.toast.create({
             message: message,
-            duration: 2000,
+            duration: this.getDuration(),
             position: 'top',
+            cssClass: 'toast-info'
         });
         toast.present();
     };
     UtilProvider.prototype.warn = function (message) {
         var toast = this.toast.create({
             message: message,
-            duration: 3000,
+            duration: this.getDuration(),
             position: 'top',
+            cssClass: 'toast-warn'
         });
         toast.present();
     };
     UtilProvider.prototype.error = function (message) {
         var toast = this.toast.create({
             message: message,
-            duration: 2000,
+            duration: this.getDuration(),
             position: 'top',
+            cssClass: 'toast-error'
         });
         toast.present();
     };
@@ -6858,6 +7020,8 @@ var UtilProvider = (function () {
         return __WEBPACK_IMPORTED_MODULE_3_moment___default()(dateString).format(format);
     };
     UtilProvider.prototype.dateFormatRegex = function (x, y) {
+        if (this.isEmpty(x))
+            return "";
         x = new Date(x);
         var z = {
             M: x.getMonth() + 1,
@@ -6974,7 +7138,10 @@ var UtilProvider = (function () {
     };
     UtilProvider.prototype.loaderStart = function () {
         if (!this.isLoaderRunning) {
-            this.loader = this.loadingController.create({ spinner: 'dots' });
+            this.loader = this.loadingController.create({
+                spinner: 'hide',
+                content: this.loaderContent()
+            });
             this.isLoaderRunning = true;
             this.loader.present();
         }
@@ -7020,6 +7187,12 @@ var UtilProvider = (function () {
         else {
             return __WEBPACK_IMPORTED_MODULE_0__entities_Constants__["a" /* Constants */].NETWORK.NONE;
         }
+    };
+    UtilProvider.prototype.loaderContent = function () {
+        return "\n    <html>\n    \n    <body style=\"background-color: red\">\n      <svg version=\"1.1\" id=\"L2\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n        viewBox=\"0 0 100 100\" enable-background=\"new 0 0 100 100\" xml:space=\"preserve\">\n        <circle fill=\"none\" stroke=\"#fff\" stroke-width=\"4\" stroke-miterlimit=\"10\" cx=\"50\" cy=\"50\" r=\"48\" />\n        <line fill=\"none\" stroke-linecap=\"round\" stroke=\"#fff\" stroke-width=\"4\" stroke-miterlimit=\"10\" x1=\"50\" y1=\"50\" x2=\"85\" y2=\"50.5\">\n          <animateTransform attributeName=\"transform\" dur=\"2s\" type=\"rotate\" from=\"0 50 50\" to=\"360 50 50\" repeatCount=\"indefinite\"\n          />\n        </line>\n        <line fill=\"none\" stroke-linecap=\"round\" stroke=\"#fff\" stroke-width=\"4\" stroke-miterlimit=\"10\" x1=\"50\" y1=\"50\" x2=\"49.5\"\n          y2=\"74\">\n          <animateTransform attributeName=\"transform\" dur=\"15s\" type=\"rotate\" from=\"0 50 50\" to=\"360 50 50\" repeatCount=\"indefinite\"\n          />\n        </line>\n      </svg>\n    </body>\n    \n    </html> ";
+    };
+    UtilProvider.prototype.assign = function (item) {
+        return JSON.parse(JSON.stringify(item));
     };
     UtilProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["B" /* Injectable */])(),
@@ -7083,6 +7256,47 @@ var BildirimlerPageModule = (function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BilgiSorguPageModule", function() { return BilgiSorguPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bilgi_sorgu__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_module_shared_module_module__ = __webpack_require__(41);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+var BilgiSorguPageModule = (function () {
+    function BilgiSorguPageModule() {
+    }
+    BilgiSorguPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__bilgi_sorgu__["a" /* BilgiSorguPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__bilgi_sorgu__["a" /* BilgiSorguPage */]),
+                __WEBPACK_IMPORTED_MODULE_3__shared_module_shared_module_module__["SharedModule"]
+            ],
+        })
+    ], BilgiSorguPageModule);
+    return BilgiSorguPageModule;
+}());
+
+//# sourceMappingURL=bilgi-sorgu.module.js.map
+
+/***/ }),
+
+/***/ 502:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CagriDetayPageModule", function() { return CagriDetayPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
@@ -7095,9 +7309,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_cagri_detay_components_servis_bilgileri_islem_tarih_islem_tarih__ = __webpack_require__(881);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_cagri_detay_components_servis_bilgileri_servis_islem_tarihce_servis_islem_tarihce__ = __webpack_require__(883);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__shared_module_shared_module_module__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_hizmet_detay_hizmet_detay__ = __webpack_require__(183);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_detay_piy_search_detay_piy_search__ = __webpack_require__(184);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_update_urun_ana_grup_update_urun_ana_grup__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_hizmet_detay_hizmet_detay__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_detay_piy_search_detay_piy_search__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_update_urun_ana_grup_update_urun_ana_grup__ = __webpack_require__(184);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7148,7 +7362,7 @@ var CagriDetayPageModule = (function () {
 
 /***/ }),
 
-/***/ 502:
+/***/ 503:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7227,7 +7441,6 @@ var SeriNoSorguProvider = (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (!this.util.isNotEmpty(mamKod)) return [3 /*break*/, 5];
                         url = this.api.seriNoSorguUrl(mamKod);
                         this.logger.warn(url);
                         return [4 /*yield*/, this.tokenProvider.callTokenAndGetHeader()];
@@ -7243,11 +7456,7 @@ var SeriNoSorguProvider = (function () {
                     case 3:
                         this.util.ifOffline();
                         _a.label = 4;
-                    case 4: return [3 /*break*/, 6];
-                    case 5:
-                        this.util.error("Seri No alanı sorgu için zorunludur.");
-                        _a.label = 6;
-                    case 6: return [2 /*return*/];
+                    case 4: return [2 /*return*/];
                 }
             });
         });
@@ -7267,7 +7476,7 @@ var SeriNoSorguProvider = (function () {
 
 /***/ }),
 
-/***/ 503:
+/***/ 504:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7279,6 +7488,7 @@ var SeriNoSorguProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_hizmet_hizmet__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_zebra_printer_zebra_printer__ = __webpack_require__(115);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_Constants__ = __webpack_require__(7);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7288,6 +7498,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -7321,172 +7532,207 @@ var PrinterService = (function () {
             return this.prepareDataBaymak();
         }
     };
+    PrinterService.prototype.prepareAdres = function () {
+        var adres = [];
+        if (this.util.isNotEmpty(this.hizmet.semt))
+            adres.push(" Semt: " + this.hizmet.semt);
+        if (this.util.isNotEmpty(this.hizmet.mahalle))
+            adres.push(" Mahalle: " + this.hizmet.mahalle);
+        if (this.util.isNotEmpty(this.hizmet.cadde))
+            adres.push(" Cadde: " + this.hizmet.cadde);
+        if (this.util.isNotEmpty(this.hizmet.sokak))
+            adres.push(" Sokak: " + this.hizmet.sokak);
+        if (this.util.isNotEmpty(this.hizmet.aparman))
+            adres.push(" Apartman: " + this.hizmet.aparman);
+        if (this.util.isNotEmpty(this.hizmet.apartmanNo))
+            adres.push(" Apartman No: " + this.hizmet.apartmanNo);
+        if (this.util.isNotEmpty(this.hizmet.blok))
+            adres.push(" Blok: " + this.hizmet.blok);
+        if (this.util.isNotEmpty(this.hizmet.daireNo))
+            adres.push(" Daire No: " + this.hizmet.daireNo);
+        return adres.join("/");
+    };
     PrinterService.prototype.prepareDataEmar = function () {
         var data = "";
         var toplamTutar = 0;
         var kdv = 0;
-        data += '! U1 SETLP 5 0 24';
-        data += '\n! U1 SETBOLD 2';
-        data += '\n      ' + this.util.getSystemLabel("MOBIL_PRINT_HEADER1_LABEL") + '';
-        data += '\n! U1 SETBOLD 0';
-        data += '\n! U1 SETBOLD 2';
-        data += '\n\r    ' + this.util.getSystemLabel("YETKILI_SERVIS_HIZMET_FISI_LABEL") + '';
-        data += '\n! U1 SETBOLD 0';
-        data += '\n! U1 SETLP 7 0 24';
-        data += '\n! U1 SETBOLD 2';
-        data += '\n\r BASVURU BILGILERI ';
-        data += '\n! U1 SETBOLD 0';
-        data += '\n\r  Hizmet Tipi         : ' + this.util.translateTurkishCharacters(this.hizmet.hizmetTipiAdi);
-        data += '\n\r  Mamul Ana Grubu     : ' + this.util.translateTurkishCharacters(this.hizmet.mamAnaGrpAdi);
-        data += '\n\r  Basvuru Nedeni      : ' + this.util.translateTurkishCharacters(this.hizmet.basvuruNedenAdi);
-        data += '\n! U1 SETBOLD 2';
-        data += '\n\r  Hizmet Formu No     : ' + this.hizmet.seqNo;
-        data += '\n! U1 SETBOLD 0';
-        data += '\n\r  Cagri No            : ' + this.hizmet.cmNo;
-        data += '\n\r' + this.seperator;
-        data += '\n! U1 SETBOLD 2';
-        data += '\n\r SERVIS BILGILERI ';
-        data += '\n! U1 SETBOLD 0';
-        data += '\n\r  Servis Kodu / Adi   : ' + this.hizmet.serKod + '-' + this.util.translateTurkishCharacters(this.hizmet.serAd);
-        data += '\n\r  Teknisyen           : ' + this.hizmet.ikKod + '-' + this.util.translateTurkishCharacters(this.user.getIkAd());
-        data += '\n\r  Randevu Tarihi      : ' + this.hizmet.randevuTarihi;
-        data += '\n\r  Islem Bit. Tarihi   : ' + this.hizmet.islemBitTarihi;
-        data += '\n\r' + this.seperator;
-        data += '\n! U1 SETBOLD 2';
-        data += '\n\r MUSTERI BILGILERI ';
-        data += '\n! U1 SETBOLD 0';
-        data += '\n\r  MRK MUSTERI NO      : ' + this.hizmet.crmNo;
-        data += '\n\r  Musteri Adi Soyadi  : ' + this.util.translateTurkishCharacters(this.hizmet.adi) + " " + this.util.translateTurkishCharacters(this.hizmet.soyadi) + this.util.translateTurkishCharacters(this.hizmet.firmaUnvani);
-        data += '\n\r  Musteri Adresi      : ' + this.util.translateTurkishCharacters(this.hizmet.toString());
-        data += '\n\r  Il/Ilce             : ' + this.util.translateTurkishCharacters(this.hizmet.sehir) + "-" + this.util.translateTurkishCharacters(this.hizmet.ilceKod);
-        data += '\n\r  Musteri Telefonu    : ' + this.hizmet.evTel;
-        data += '\n\r  Cep Telefonu        : ' + this.hizmet.gsmNo;
-        data += '\n\r' + this.seperator;
-        data += '\n! U1 SETBOLD 2';
-        data += '\n\r URUN BILGILERI ';
-        data += '\n! U1 SETBOLD 0';
-        data += '\n\r  Urun Kodu           : ' + this.hizmet.mamKod;
-        data += '\n\r  Urun Adi            : ' + this.util.translateTurkishCharacters(this.hizmet.mamAdi);
-        data += '\n\r  Seri                : ' + this.hizmet.mamSeriNo;
-        if (this.hizmet.seriMetod == '2')
-            data += '\n\r  Seri 2              : ' + this.hizmet.mamSeriNo2;
-        data += '\n\r' + this.seperator;
-        data += '\n! U1 SETBOLD 2';
-        data += '\n\r GARANTI DURUMU ';
-        data += '\n! U1 SETBOLD 0';
-        data += '\n\r  Islem                : ' + (this.hizmet.garanti == 'VAR' ? 'Garanti Dahili' : 'Garanti Disi');
-        data += '\n\r' + this.seperator;
-        data += '\n! U1 SETBOLD 2';
-        data += '\n\r VERILEN HIZMETLER ';
-        data += '\n! U1 SETBOLD 0';
-        data += '\n! U1 SETBOLD 2';
-        data += '\n\r  Adi                    Miktar          ' + (this.hizmet.garanti == 'VAR' ? '' : 'Tutar');
-        data += '\n! U1 SETBOLD 0';
+        data += "! U1 SETLP 5 0 24";
+        data += "\n! U1 SETBOLD 2";
+        data += "\n      " + this.util.getSystemLabel("MOBIL_PRINT_HEADER1_LABEL") + "";
+        data += "\n! U1 SETBOLD 0";
+        data += "\n! U1 SETBOLD 2";
+        data += "\n\r    " + this.util.getSystemLabel("YETKILI_SERVIS_HIZMET_FISI_LABEL") + "";
+        data += "\n! U1 SETBOLD 0";
+        data += "\n! U1 SETLP 7 0 24";
+        data += "\n! U1 SETBOLD 2";
+        data += "\n\r BASVURU BILGILERI ";
+        data += "\n! U1 SETBOLD 0";
+        data += "\n\r  Hizmet Tipi         : " + this.util.translateTurkishCharacters(this.hizmet.hizmetTipiAdi);
+        data += "\n\r  Mamul Ana Grubu     : " + this.util.translateTurkishCharacters(this.hizmet.mamAnaGrpAdi);
+        data += "\n\r  Basvuru Nedeni      : " + this.util.translateTurkishCharacters(this.hizmet.basvuruNedenAdi);
+        data += "\n! U1 SETBOLD 2";
+        data += "\n\r  Hizmet Formu No     : " + this.hizmet.seqNo;
+        data += "\n! U1 SETBOLD 0";
+        data += "\n\r  Cagri No            : " + this.util.emptyIfNull(this.hizmet.cmNo);
+        data += "\n\r" + this.seperator;
+        data += "\n! U1 SETBOLD 2";
+        data += "\n\r SERVIS BILGILERI ";
+        data += "\n! U1 SETBOLD 0";
+        data += "\n\r  Servis Kodu / Adi   : " + this.hizmet.serKod + "-" + this.util.translateTurkishCharacters(this.user.getServisUnvani());
+        data += "\n\r  Teknisyen           : " + this.hizmet.ikKod + "-" + this.util.translateTurkishCharacters(this.user.getIkAd());
+        data += "\n\r  Randevu Tarihi      : " + this.util.dateFormatRegex(this.hizmet.randevuTarihi, "dd-MM-yyyy hh:mm");
+        data += "\n\r  Islem Bit. Tarihi   : " + this.util.dateFormatRegex(this.hizmet.islemBitTarihi, "dd-MM-yyyy hh:mm");
+        data += "\n\r" + this.seperator;
+        data += "\n! U1 SETBOLD 2";
+        data += "\n\r MUSTERI BILGILERI ";
+        data += "\n! U1 SETBOLD 0";
+        data += "\n\r  MRK MUSTERI NO      : " + this.hizmet.crmNo;
+        data += "\n\r  Musteri Adi Soyadi  : " + this.util.translateTurkishCharacters(this.hizmet.adi) + " " +
+            this.util.translateTurkishCharacters(this.hizmet.soyadi) +
+            this.util.translateTurkishCharacters(this.hizmet.firmaUnvani);
+        data += "\n\r  Musteri Adresi      : " + this.util.translateTurkishCharacters(this.prepareAdres());
+        data += "\n\r  Il/Ilce             : " + this.util.translateTurkishCharacters(this.hizmet.sehir) + "/"
+            + this.util.translateTurkishCharacters(this.hizmet.ilceAdi);
+        data += "\n\r  Musteri Telefonu    : " + this.util.emptyIfNull(this.hizmet.evTel);
+        data += "\n\r  Cep Telefonu        : " + this.util.emptyIfNull(this.hizmet.gsmNo);
+        data += "\n\r" + this.seperator;
+        data += "\n! U1 SETBOLD 2";
+        data += "\n\r URUN BILGILERI ";
+        data += "\n! U1 SETBOLD 0";
+        data += "\n\r  Urun Kodu           : " + this.hizmet.mamKod;
+        data += "\n\r  Urun Adi            : " + this.util.translateTurkishCharacters(this.hizmet.mamAdi);
+        data += "\n\r  Seri                : " + this.hizmet.mamSeriNo;
+        if (this.hizmet.seriMetod == "2")
+            data += "\n\r  Seri 2              : " + this.hizmet.mamSeriNo2;
+        data += "\n\r" + this.seperator;
+        data += "\n! U1 SETBOLD 2";
+        data += "\n\r GARANTI DURUMU ";
+        data += "\n! U1 SETBOLD 0";
+        data += "\n\r  Islem                : " + (this.hizmet.garanti == "VAR" ? "Garanti Dahili" : "Garanti Disi");
+        data += "\n\r" + this.seperator;
+        data += "\n! U1 SETBOLD 2";
+        data += "\n\r VERILEN HIZMETLER ";
+        data += "\n! U1 SETBOLD 0";
+        data += "\n! U1 SETBOLD 2";
+        data += "\n\r  Adi                    Miktar          " + (this.hizmet.garanti == "VAR" ? "" : "Tutar");
+        data += "\n! U1 SETBOLD 0";
         var iscilik = "";
         var parca = "";
         var yol = "";
         var diger = "";
-        for (var k = 0; this.hizmet.detayDtoList.length > k; k++) {
-            var item = this.hizmet.detayDtoList[k];
-            toplamTutar = toplamTutar + item.tutar;
-            kdv = kdv + (item.tutar / 100 * item.kdvOran);
-            if (item.mlzIsc == "ISC" && item.mlzIscKod != "999977" && item.mlzIscKod != "999988") {
-                iscilik += '\n\r ' + item.mlzIscKod + '-' + this.util.translateTurkishCharacters(item.aciklama.substring(0, 20)) + '   ' + item.miktar + '-' + item.olcuBrm + '    ' + (this.hizmet.garanti != 'VAR' ? (item.tutar) : '');
+        if (this.util.isNotEmpty(this.hizmet.detayDtoList))
+            for (var k = 0; this.hizmet.detayDtoList.length > k; k++) {
+                var item = this.hizmet.detayDtoList[k];
+                toplamTutar = toplamTutar + item.tutar;
+                kdv = kdv + (item.tutar / 100) * item.kdvOran;
+                var detaySatir = "\n\r " + item.mlzIscKod + "-" + this.util.translateTurkishCharacters(item.aciklama.substring(0, 20)) +
+                    "   " + item.miktar + "-" + item.olcuBrm + "    " + (this.hizmet.garanti != "VAR" ? item.tutar : "");
+                var isIscilik = item.mlzIsc == __WEBPACK_IMPORTED_MODULE_7__entities_Constants__["a" /* Constants */].DETAY_TIPI.ISCILIK && item.mlzIscKod != "999977" && item.mlzIscKod != "999988";
+                if (isIscilik) {
+                    iscilik += detaySatir;
+                }
+                if (item.mlzIsc == __WEBPACK_IMPORTED_MODULE_7__entities_Constants__["a" /* Constants */].DETAY_TIPI.MALZEME) {
+                    parca += detaySatir;
+                }
+                if (item.mlzIsc == __WEBPACK_IMPORTED_MODULE_7__entities_Constants__["a" /* Constants */].DETAY_TIPI.YOL &&
+                    item.mlzIscKod == "999988") {
+                    yol += detaySatir;
+                }
+                if (item.mlzIsc == __WEBPACK_IMPORTED_MODULE_7__entities_Constants__["a" /* Constants */].DETAY_TIPI.DIGER &&
+                    item.mlzIscKod == "999977") {
+                    diger += detaySatir;
+                }
             }
-            else if (item.mlzIsc == "MLZ") {
-                parca += '\n\r ' + item.mlzIscKod + '-' + this.util.translateTurkishCharacters(item.aciklama.substring(0, 20)) + '   ' + item.miktar + '-' + item.olcuBrm + '    ' + (this.hizmet.garanti != 'VAR' ? (item.tutar) : '');
-            }
-            else if (item.mlzIsc == "KM" && item.mlzIscKod == "999988") {
-                yol += '\n\r ' + item.mlzIscKod + '-' + this.util.translateTurkishCharacters(item.aciklama.substring(0, 20)) + '   ' + item.miktar + '-' + item.olcuBrm + '    ' + (this.hizmet.garanti != 'VAR' ? (item.tutar) : '');
-            }
-            else if (item.mlzIsc == "DGR" && item.mlzIscKod == "999977") {
-                diger += '\n\r ' + item.mlzIscKod + '-' + this.util.translateTurkishCharacters(item.aciklama.substring(0, 20)) + '   ' + item.miktar + '-' + item.olcuBrm + '    ' + (this.hizmet.garanti != 'VAR' ? (item.tutar) : '');
-            }
-            if (iscilik != "") {
-                data += '\n! U1 SETBOLD 2';
-                data += '\n\r Iscilikler ';
-                data += '\n! U1 SETBOLD 0';
-                data += iscilik;
-            }
-            if (parca != "") {
-                data += '\n! U1 SETBOLD 2';
-                data += '\n\r Parcalar ';
-                data += '\n! U1 SETBOLD 0';
-                data += parca;
-            }
-            if (yol != "") {
-                data += '\n! U1 SETBOLD 2';
-                data += '\n\r Yol ';
-                data += '\n! U1 SETBOLD 0';
-                data += yol;
-            }
-            if (diger != "") {
-                data += '\n! U1 SETBOLD 2';
-                data += '\n\r Diger ';
-                data += '\n! U1 SETBOLD 0';
-                data += diger;
-            }
+        if (iscilik != "") {
+            data += "\n! U1 SETBOLD 2";
+            data += "\n\r Iscilikler ";
+            data += "\n! U1 SETBOLD 0";
+            data += iscilik;
         }
-        data += '\n\r' + this.seperator;
-        if (this.hizmet.garanti == 'VAR') {
-            data += '\n! U1 SETBOLD 2';
-            data += '\n\r Toplam Hizmet Tutari  :   Garanti Dahili Islem ';
-            data += '\n! U1 SETBOLD 0';
+        if (parca != "") {
+            data += "\n! U1 SETBOLD 2";
+            data += "\n\r Parcalar ";
+            data += "\n! U1 SETBOLD 0";
+            data += parca;
+        }
+        if (yol != "") {
+            data += "\n! U1 SETBOLD 2";
+            data += "\n\r Yol ";
+            data += "\n! U1 SETBOLD 0";
+            data += yol;
+        }
+        if (diger != "") {
+            data += "\n! U1 SETBOLD 2";
+            data += "\n\r Diger ";
+            data += "\n! U1 SETBOLD 0";
+            data += diger;
+        }
+        data += "\n\r" + this.seperator;
+        if (this.hizmet.garanti == "VAR") {
+            data += "\n! U1 SETBOLD 2";
+            data += "\n\r Toplam Hizmet Tutari  :   Garanti Dahili Islem ";
+            data += "\n! U1 SETBOLD 0";
         }
         else {
-            data += '\n! U1 SETBOLD 2';
+            data += "\n! U1 SETBOLD 2";
             //data += '\n\r Toplam Hizmet Tutari  :   ' + (toplamTutar).toFixed(2);
-            data += '\n! U1 SETBOLD 0';
+            data += "\n! U1 SETBOLD 0";
         }
-        if (this.hizmet.garanti == 'VAR') {
-            data += '\n! U1 SETBOLD 2';
-            data += '\n\r KDV                   :   Garanti Dahili Islem ';
-            data += '\n! U1 SETBOLD 0';
+        if (this.hizmet.garanti == "VAR") {
+            data += "\n! U1 SETBOLD 2";
+            data += "\n\r KDV                   :   Garanti Dahili Islem ";
+            data += "\n! U1 SETBOLD 0";
         }
         else {
-            data += '\n! U1 SETBOLD 2';
+            data += "\n! U1 SETBOLD 2";
             //data += '\n\r KDV                   :   ' + (kdv).toFixed(2);
-            data += '\n! U1 SETBOLD 0';
+            data += "\n! U1 SETBOLD 0";
         }
-        if (this.hizmet.garanti == 'VAR') {
-            data += '\n! U1 SETBOLD 2';
-            data += '\n\r Genel Toplam          :   Garanti Dahili Islem ';
-            data += '\n! U1 SETBOLD 0';
+        if (this.hizmet.garanti == "VAR") {
+            data += "\n! U1 SETBOLD 2";
+            data += "\n\r Genel Toplam          :   Garanti Dahili Islem ";
+            data += "\n! U1 SETBOLD 0";
         }
         else {
-            data += '\n! U1 SETBOLD 2';
+            data += "\n! U1 SETBOLD 2";
             //  data += '\n\r Genel Toplam          :   ' + (kdv + toplamTutar).toFixed(2);
-            data += '\n! U1 SETBOLD 0';
+            data += "\n! U1 SETBOLD 0";
         }
-        data += '\n\r' + this.seperator;
-        data += '\n! U1 SETBOLD 2';
-        data += '\n\r Aciklama ';
-        data += '\n! U1 SETBOLD 0';
-        data += '\n\r ' + this.util.translateTurkishCharacters(this.hizmet.aciklama);
-        data += '\n\r' + this.seperator;
-        data += '\n! U1 SETBOLD 2';
+        data += "\n\r" + this.seperator;
+        data += "\n! U1 SETBOLD 2";
+        data += "\n\r Aciklama ";
+        data += "\n! U1 SETBOLD 0";
+        data +=
+            "\n\r " + this.util.translateTurkishCharacters(this.hizmet.aciklama);
+        data += "\n\r" + this.seperator;
+        data += "\n! U1 SETBOLD 2";
         // data += '\n\r Iletisim Istek ';
-        data += '\n! U1 SETBOLD 0';
+        data += "\n! U1 SETBOLD 0";
         var note = "Elginkan Toplulugu Sirketleri tarafindan sesli mesaj, sms, e-posta, vb. tum elektronik iletisim vasitalari kullanilarak " +
             "tarafima bilgilendirme ve tanitim yapilmasini kabul ediyorum.";
-        data += '\n! U1 SETBOLD 2';
-        data += '\n\r ' + note;
-        if (this.hizmet.iletisimIstek == 'H')
-            data += '\n\r  EVET []  HAYIR[X] ';
+        data += "\n! U1 SETBOLD 2";
+        data += "\n\r " + note;
+        if (this.hizmet.iletisimIstek == "H")
+            data += "\n\r  EVET []  HAYIR[X] ";
         else
-            data += '\n\r  EVET [X]  HAYIR[] ';
-        data += '\n! U1 SETBOLD 0';
-        data += '\n\r' + this.seperator;
-        data += '\n! U1 SETBOLD 2';
-        data += '\n\r TEKNISYEN ADI/IMZA           MUSTERI ADI/IMZA ';
-        data += '\n! U1 SETBOLD 0';
-        data += '\n\r ' + this.util.translateTurkishCharacters(this.user.getIkAd());
-        data += '\n\r\n\r\n! U1 SETBOLD 2';
-        data += '\n\r ' + this.util.translateTurkishCharacters(this.util.getSystemLabel("MOBIL_PRINT_FOOTER1_LABEL"));
-        data += '\n! U1 SETBOLD 0';
-        data += '\n\r\n\r\n! U1 SETBOLD 2';
-        data += '\n\r ' + this.util.translateTurkishCharacters(this.util.getSystemLabel("MOBIL_PRINT_FOOTER2_LABEL")) + '\n\r ';
-        data += '\n!\ U1 SETBOLD 0';
+            data += "\n\r  EVET [X]  HAYIR[] ";
+        data += "\n! U1 SETBOLD 0";
+        data += "\n\r" + this.seperator;
+        data += "\n! U1 SETBOLD 2";
+        data += "\n\r TEKNISYEN ADI/IMZA           MUSTERI ADI/IMZA ";
+        data += "\n! U1 SETBOLD 0";
+        data += "\n\r " + this.util.translateTurkishCharacters(this.user.getIkAd());
+        data += "\n\r\n\r\n! U1 SETBOLD 2";
+        data +=
+            "\n\r " +
+                this.util.translateTurkishCharacters(this.util.getSystemLabel("MOBIL_PRINT_FOOTER1_LABEL"));
+        data += "\n! U1 SETBOLD 0";
+        data += "\n\r\n\r\n! U1 SETBOLD 2";
+        data +=
+            "\n\r " +
+                this.util.translateTurkishCharacters(this.util.getSystemLabel("MOBIL_PRINT_FOOTER2_LABEL")) +
+                "\n\r ";
+        data += "\n! U1 SETBOLD 0";
         return data;
     };
     PrinterService.prototype.prepareDataBaymak = function () {
@@ -7502,47 +7748,6 @@ var PrinterService = (function () {
 }());
 
 //# sourceMappingURL=printer-service.js.map
-
-/***/ }),
-
-/***/ 504:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BilgiSorguPageModule", function() { return BilgiSorguPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bilgi_sorgu__ = __webpack_require__(185);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_module_shared_module_module__ = __webpack_require__(41);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-var BilgiSorguPageModule = (function () {
-    function BilgiSorguPageModule() {
-    }
-    BilgiSorguPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__bilgi_sorgu__["a" /* BilgiSorguPage */],
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__bilgi_sorgu__["a" /* BilgiSorguPage */]),
-                __WEBPACK_IMPORTED_MODULE_3__shared_module_shared_module_module__["SharedModule"]
-            ],
-        })
-    ], BilgiSorguPageModule);
-    return BilgiSorguPageModule;
-}());
-
-//# sourceMappingURL=bilgi-sorgu.module.js.map
 
 /***/ }),
 
@@ -7701,7 +7906,7 @@ var KampanyalarPage = (function () {
     };
     KampanyalarPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-kampanyalar',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\kampanyalar\kampanyalar.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <button ion-button primary>\n\n      <ion-icon name="list"></ion-icon>\n\n    </button>\n\n    <ion-title class="page-title">Kampanyalar</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\kampanyalar\kampanyalar.html"*/,
+            selector: 'page-kampanyalar',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/kampanyalar/kampanyalar.html"*/'<ion-header>\n\n  <ion-navbar>\n    <button ion-button primary>\n      <ion-icon name="list"></ion-icon>\n    </button>\n    <ion-title class="page-title">Kampanyalar</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/kampanyalar/kampanyalar.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
     ], KampanyalarPage);
@@ -7720,7 +7925,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KutuphanePageModule", function() { return KutuphanePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__kutuphane__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__kutuphane__ = __webpack_require__(187);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7754,11 +7959,28 @@ var KutuphanePageModule = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListItem; });
+var ListItem = (function () {
+    function ListItem(name, code) {
+        this.name = name;
+        this.code = code;
+    }
+    return ListItem;
+}());
+
+//# sourceMappingURL=ListItem.js.map
+
+/***/ }),
+
+/***/ 511:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__token_token__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_user__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tasks_tasks__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tasks_tasks__ = __webpack_require__(182);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_Constants__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util_util__ = __webpack_require__(5);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -7821,7 +8043,7 @@ var LoginProvider = (function () {
 
 /***/ }),
 
-/***/ 511:
+/***/ 512:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7829,7 +8051,7 @@ var LoginProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__user_dao_user_dao__ = __webpack_require__(512);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__user_dao_user_dao__ = __webpack_require__(513);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logger_logger__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_user__ = __webpack_require__(53);
@@ -7970,7 +8192,7 @@ var UserProvider = (function () {
 
 /***/ }),
 
-/***/ 512:
+/***/ 513:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8034,23 +8256,6 @@ var UserDao = (function () {
 }());
 
 //# sourceMappingURL=user-dao.js.map
-
-/***/ }),
-
-/***/ 514:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListItem; });
-var ListItem = (function () {
-    function ListItem(name, code) {
-        this.name = name;
-        this.code = code;
-    }
-    return ListItem;
-}());
-
-//# sourceMappingURL=ListItem.js.map
 
 /***/ }),
 
@@ -8123,6 +8328,7 @@ var User = (function () {
         user.pb = item.pB;
         user.systemParams = item.systemParams;
         this.saveUserData(user);
+        console.table(user);
         return user;
     };
     User.prototype.saveUserData = function (user) {
@@ -8146,31 +8352,34 @@ var User = (function () {
         localStorage.setItem(pattern.keys.systemParams, JSON.stringify(user.systemParams));
     };
     User.prototype.getUserCode = function () {
-        return localStorage.getItem("userCode");
+        return localStorage.getItem(this.keys.userCode);
     };
     User.prototype.getUserName = function () {
-        return localStorage.getItem("userName");
+        return localStorage.getItem(this.keys.userName);
     };
     User.prototype.getPb = function () {
-        return localStorage.getItem("pb");
+        return localStorage.getItem(this.keys.pb);
     };
     User.prototype.getOrgKod = function () {
-        return localStorage.getItem("orgKod");
+        return localStorage.getItem(this.keys.orgKod);
     };
     User.prototype.getSerKod = function () {
-        return localStorage.getItem("servis");
+        return localStorage.getItem(this.keys.servis);
     };
     User.prototype.getDilKod = function () {
-        return localStorage.getItem("dilKod");
+        return localStorage.getItem(this.keys.dilKod);
     };
     User.prototype.getIkAd = function () {
-        return localStorage.getItem("ikAd");
+        return localStorage.getItem(this.keys.ikAd);
     };
     User.prototype.getIkKod = function () {
-        return localStorage.getItem("ikKod");
+        return localStorage.getItem(this.keys.ikKod);
     };
     User.prototype.getPassword = function () {
-        return localStorage.getItem("password");
+        return localStorage.getItem(this.keys.password);
+    };
+    User.prototype.getServisUnvani = function () {
+        return localStorage.getItem(this.keys.servisUnvani);
     };
     return User;
 }());
@@ -8185,7 +8394,7 @@ var User = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_ListItem__ = __webpack_require__(514);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_ListItem__ = __webpack_require__(510);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_view_controller__ = __webpack_require__(12);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8224,7 +8433,7 @@ var ListPage = (function () {
     };
     ListPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-list',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\list\list.html"*/'<!--\n\n  Generated template for the ListPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>list</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <ion-list>\n\n    <button ion-item *ngFor="let item of list" (click)=" itemSelected(item) ">\n\n      {{ item.name }} -- {{ item.code }}\n\n    </button>\n\n  </ion-list>\n\n  <ion-footer>\n\n    <ion-grid>\n\n      <ion-row>\n\n        <ion-col col-12 col-sm>\n\n\n\n          <ion-toolbar>\n\n            <button ion-button round>\n\n              <ion-icon name="skip-backward"></ion-icon>\n\n            </button>\n\n            <button ion-button round>\n\n              <ion-icon name="arrow-dropleft"></ion-icon>\n\n            </button>\n\n            <ion-item>\n\n              <ion-select [(ngModel)]="pageSize">\n\n                <ion-option value="10">10</ion-option>\n\n                <ion-option value="20">20</ion-option>\n\n                <ion-option value="50">50</ion-option>\n\n                <ion-option value="100">100</ion-option>\n\n              </ion-select>\n\n            </ion-item>\n\n            <button ion-button round>\n\n              <ion-icon name="arrow-dropright"></ion-icon>\n\n            </button>\n\n            <button ion-button round>\n\n              <ion-icon name="skip-forward"></ion-icon>\n\n            </button>\n\n          </ion-toolbar>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </ion-footer>\n\n</ion-content>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\list\list.html"*/,
+            selector: 'page-list',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/list/list.html"*/'<!--\n  Generated template for the ListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>list</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-list>\n    <button ion-item *ngFor="let item of list" (click)=" itemSelected(item) ">\n      {{ item.name }} -- {{ item.code }}\n    </button>\n  </ion-list>\n  <ion-footer>\n    <ion-grid>\n      <ion-row>\n        <ion-col col-12 col-sm>\n\n          <ion-toolbar>\n            <button ion-button round>\n              <ion-icon name="skip-backward"></ion-icon>\n            </button>\n            <button ion-button round>\n              <ion-icon name="arrow-dropleft"></ion-icon>\n            </button>\n            <ion-item>\n              <ion-select [(ngModel)]="pageSize">\n                <ion-option value="10">10</ion-option>\n                <ion-option value="20">20</ion-option>\n                <ion-option value="50">50</ion-option>\n                <ion-option value="100">100</ion-option>\n              </ion-select>\n            </ion-item>\n            <button ion-button round>\n              <ion-icon name="arrow-dropright"></ion-icon>\n            </button>\n            <button ion-button round>\n              <ion-icon name="skip-forward"></ion-icon>\n            </button>\n          </ion-toolbar>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </ion-footer>\n</ion-content>'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/list/list.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_view_controller__["a" /* ViewController */]])
     ], ListPage);
@@ -8242,8 +8451,11 @@ var ListPage = (function () {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(557);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(561);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 
 
+
+Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_15" /* enableProdMode */])();
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
 //# sourceMappingURL=main.js.map
 
@@ -8266,21 +8478,21 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_cagrilar_cagrilar__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_guncelleme_guncelleme__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_kampanyalar_kampanyalar__ = __webpack_require__(508);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_kutuphane_kutuphane__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_kutuphane_kutuphane__ = __webpack_require__(187);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_cagri_detay_cagri_detay__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_login_login__ = __webpack_require__(210);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_login_login__ = __webpack_require__(510);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_login_login__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_login_login__ = __webpack_require__(511);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_token_token__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_api_api__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_database_database__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_sqlite__ = __webpack_require__(904);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_urun_urun__ = __webpack_require__(489);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_urun_urun__ = __webpack_require__(490);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_urun_ana_grp_urun_ana_grp__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__providers_urun_iscilik_urun_iscilik__ = __webpack_require__(490);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__providers_urun_iscilik_urun_iscilik__ = __webpack_require__(491);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_urun_malzeme_urun_malzeme__ = __webpack_require__(174);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_islem_ariza_iscilik_islem_ariza_iscilik__ = __webpack_require__(494);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_fiyat_fiyat__ = __webpack_require__(493);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_cagrilar_cagri_arama_modal_cagri_arama_modal__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_fiyat_fiyat__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_cagrilar_cagri_arama_modal_cagri_arama_modal__ = __webpack_require__(210);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__providers_hizmet_hizmet__ = __webpack_require__(80);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_list_list__ = __webpack_require__(905);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_list_list__ = __webpack_require__(555);
@@ -8289,14 +8501,14 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__providers_fiyat_dao_fiyat_dao__ = __webpack_require__(83);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__providers_hizmet_service_hizmet_service__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__ionic_native_sqlite_porter__ = __webpack_require__(906);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__providers_versiyon_versiyon__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__providers_versiyon_versiyon__ = __webpack_require__(177);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__ionic_native_native_storage__ = __webpack_require__(907);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__providers_mesajlar_mesajlar__ = __webpack_require__(110);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__pages_bilgi_sorgu_bilgi_sorgu__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__pages_bilgi_sorgu_bilgi_sorgu__ = __webpack_require__(183);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__providers_urun_ana_grup_dao_urun_ana_grup_dao__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__providers_urun_dao_urun_dao__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__providers_urun_malzeme_dao_urun_malzeme_dao__ = __webpack_require__(492);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__providers_urun_malzeme_dao_urun_malzeme_dao__ = __webpack_require__(493);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__providers_islem_ariza_iscilik_dao_islem_ariza_iscilik_dao__ = __webpack_require__(113);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__ionic_native_toast__ = __webpack_require__(908);
@@ -8304,38 +8516,38 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__providers_mesajlar_dao_mesajlar_dao__ = __webpack_require__(97);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__components_urun_ana_grup_search_urun_ana_grup_search__ = __webpack_require__(114);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__components_urun_search_urun_search__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__providers_garanti_sorgu_garanti_sorgu__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__providers_garanti_sorgu_garanti_sorgu__ = __webpack_require__(179);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__pages_shared_module_shared_module_module__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__pages_cagrilar_cagrilar_module__ = __webpack_require__(505);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__pages_guncelleme_guncelleme_module__ = __webpack_require__(506);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__pages_kampanyalar_kampanyalar_module__ = __webpack_require__(507);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__pages_kutuphane_kutuphane_module__ = __webpack_require__(509);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__pages_cagri_detay_cagri_detay_module__ = __webpack_require__(501);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__pages_bilgi_sorgu_bilgi_sorgu_module__ = __webpack_require__(504);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__pages_cagri_detay_cagri_detay_module__ = __webpack_require__(502);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__pages_bilgi_sorgu_bilgi_sorgu_module__ = __webpack_require__(501);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__pages_bildirimler_bildirimler_module__ = __webpack_require__(500);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__providers_adres_adres__ = __webpack_require__(496);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__providers_adres_dao_adres_dao__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__providers_logger_logger__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__components_garanti_sonuc_garanti_sonuc__ = __webpack_require__(179);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__components_garanti_sonuc_garanti_sonuc__ = __webpack_require__(180);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__components_garanti_sorgu_garanti_sorgu__ = __webpack_require__(497);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__components_hizmet_detay_hizmet_detay__ = __webpack_require__(183);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__components_detay_piy_search_detay_piy_search__ = __webpack_require__(184);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__providers_user_user__ = __webpack_require__(511);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__providers_user_dao_user_dao__ = __webpack_require__(512);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__components_hizmet_detay_hizmet_detay__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__components_detay_piy_search_detay_piy_search__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__providers_user_user__ = __webpack_require__(512);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__providers_user_dao_user_dao__ = __webpack_require__(513);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__ionic_native_network__ = __webpack_require__(155);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__pages_anasayfa_anasayfa__ = __webpack_require__(96);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__pages_anasayfa_anasayfa_module__ = __webpack_require__(267);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__pages_anasayfa_anasayfa_module__ = __webpack_require__(268);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__components_mesaj_detail_mesaj_detail__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__providers_header_header__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__providers_printer_service_printer_service__ = __webpack_require__(503);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__providers_printer_service_printer_service__ = __webpack_require__(504);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__components_zebra_printer_zebra_printer__ = __webpack_require__(115);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__providers_seri_no_sorgu_seri_no_sorgu__ = __webpack_require__(502);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__components_update_urun_ana_grup_update_urun_ana_grup__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__components_urun_iscilik_search_urun_iscilik_search__ = __webpack_require__(180);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_78__providers_tasks_tasks__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__providers_seri_no_sorgu_seri_no_sorgu__ = __webpack_require__(503);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__components_update_urun_ana_grup_update_urun_ana_grup__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__components_urun_iscilik_search_urun_iscilik_search__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_78__providers_tasks_tasks__ = __webpack_require__(182);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_79__providers_theme_theme__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_80__ionic_native_deeplinks__ = __webpack_require__(513);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_81__providers_deeplink_printer_deeplink_printer__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_80__ionic_native_deeplinks__ = __webpack_require__(514);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_81__providers_deeplink_printer_deeplink_printer__ = __webpack_require__(188);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8445,17 +8657,17 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/anasayfa/anasayfa.module#AnasayfaPageModule', name: 'Anasayfa', segment: 'anasayfa', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/bildirimler/bildirimler.module#BildirimlerPageModule', name: 'BildirimlerPage', segment: 'bildirimler', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/ayarlar/ayarlar.module#AyarlarPageModule', name: 'AyarlarPage', segment: 'ayarlar', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/cagri-detay/cagri-detay.module#CagriDetayPageModule', name: 'CagriDetayPage', segment: 'cagri-detay', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/bildirimler/bildirimler.module#BildirimlerPageModule', name: 'BildirimlerPage', segment: 'bildirimler', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/bilgi-sorgu/bilgi-sorgu.module#BilgiSorguPageModule', name: 'BilgiSorguPage', segment: 'bilgi-sorgu', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/cagri-detay/cagri-detay.module#CagriDetayPageModule', name: 'CagriDetayPage', segment: 'cagri-detay', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/cagrilar/cagri-arama-modal/cagri-arama-modal.module#CagriAramaModalPageModule', name: 'CagriAramaModalPage', segment: 'cagri-arama-modal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/cagrilar/cagrilar.module#CagrilarPageModule', name: 'CagrilarPage', segment: 'cagrilar', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/guncelleme/guncelleme.module#GuncellemePageModule', name: 'GuncellemePage', segment: 'guncelleme', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/kampanyalar/kampanyalar.module#KampanyalarPageModule', name: 'KampanyalarPage', segment: 'kampanyalar', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/kutuphane/kutuphane.module#KutuphanePageModule', name: 'KutuphanePage', segment: 'kutuphane', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/list/list.module#ListPageModule', name: 'ListPage', segment: 'list', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/shared-module/shared-module.module#SharedModule', name: 'SharedModulePage', segment: 'shared-module', priority: 'low', defaultHistory: [] }
                     ]
                 }),
@@ -8715,252 +8927,252 @@ var UrunAnaGrupDao = (function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 270,
-	"./af.js": 270,
-	"./ar": 271,
-	"./ar-dz": 272,
-	"./ar-dz.js": 272,
-	"./ar-kw": 273,
-	"./ar-kw.js": 273,
-	"./ar-ly": 274,
-	"./ar-ly.js": 274,
-	"./ar-ma": 275,
-	"./ar-ma.js": 275,
-	"./ar-sa": 276,
-	"./ar-sa.js": 276,
-	"./ar-tn": 277,
-	"./ar-tn.js": 277,
-	"./ar.js": 271,
-	"./az": 278,
-	"./az.js": 278,
-	"./be": 279,
-	"./be.js": 279,
-	"./bg": 280,
-	"./bg.js": 280,
-	"./bm": 281,
-	"./bm.js": 281,
-	"./bn": 282,
-	"./bn.js": 282,
-	"./bo": 283,
-	"./bo.js": 283,
-	"./br": 284,
-	"./br.js": 284,
-	"./bs": 285,
-	"./bs.js": 285,
-	"./ca": 286,
-	"./ca.js": 286,
-	"./cs": 287,
-	"./cs.js": 287,
-	"./cv": 288,
-	"./cv.js": 288,
-	"./cy": 289,
-	"./cy.js": 289,
-	"./da": 290,
-	"./da.js": 290,
-	"./de": 291,
-	"./de-at": 292,
-	"./de-at.js": 292,
-	"./de-ch": 293,
-	"./de-ch.js": 293,
-	"./de.js": 291,
-	"./dv": 294,
-	"./dv.js": 294,
-	"./el": 295,
-	"./el.js": 295,
-	"./en-au": 296,
-	"./en-au.js": 296,
-	"./en-ca": 297,
-	"./en-ca.js": 297,
-	"./en-gb": 298,
-	"./en-gb.js": 298,
-	"./en-ie": 299,
-	"./en-ie.js": 299,
-	"./en-il": 300,
-	"./en-il.js": 300,
-	"./en-nz": 301,
-	"./en-nz.js": 301,
-	"./eo": 302,
-	"./eo.js": 302,
-	"./es": 303,
-	"./es-do": 304,
-	"./es-do.js": 304,
-	"./es-us": 305,
-	"./es-us.js": 305,
-	"./es.js": 303,
-	"./et": 306,
-	"./et.js": 306,
-	"./eu": 307,
-	"./eu.js": 307,
-	"./fa": 308,
-	"./fa.js": 308,
-	"./fi": 309,
-	"./fi.js": 309,
-	"./fo": 310,
-	"./fo.js": 310,
-	"./fr": 311,
-	"./fr-ca": 312,
-	"./fr-ca.js": 312,
-	"./fr-ch": 313,
-	"./fr-ch.js": 313,
-	"./fr.js": 311,
-	"./fy": 314,
-	"./fy.js": 314,
-	"./gd": 315,
-	"./gd.js": 315,
-	"./gl": 316,
-	"./gl.js": 316,
-	"./gom-latn": 317,
-	"./gom-latn.js": 317,
-	"./gu": 318,
-	"./gu.js": 318,
-	"./he": 319,
-	"./he.js": 319,
-	"./hi": 320,
-	"./hi.js": 320,
-	"./hr": 321,
-	"./hr.js": 321,
-	"./hu": 322,
-	"./hu.js": 322,
-	"./hy-am": 323,
-	"./hy-am.js": 323,
-	"./id": 324,
-	"./id.js": 324,
-	"./is": 325,
-	"./is.js": 325,
-	"./it": 326,
-	"./it.js": 326,
-	"./ja": 327,
-	"./ja.js": 327,
-	"./jv": 328,
-	"./jv.js": 328,
-	"./ka": 329,
-	"./ka.js": 329,
-	"./kk": 330,
-	"./kk.js": 330,
-	"./km": 331,
-	"./km.js": 331,
-	"./kn": 332,
-	"./kn.js": 332,
-	"./ko": 333,
-	"./ko.js": 333,
-	"./ky": 334,
-	"./ky.js": 334,
-	"./lb": 335,
-	"./lb.js": 335,
-	"./lo": 336,
-	"./lo.js": 336,
-	"./lt": 337,
-	"./lt.js": 337,
-	"./lv": 338,
-	"./lv.js": 338,
-	"./me": 339,
-	"./me.js": 339,
-	"./mi": 340,
-	"./mi.js": 340,
-	"./mk": 341,
-	"./mk.js": 341,
-	"./ml": 342,
-	"./ml.js": 342,
-	"./mn": 343,
-	"./mn.js": 343,
-	"./mr": 344,
-	"./mr.js": 344,
-	"./ms": 345,
-	"./ms-my": 346,
-	"./ms-my.js": 346,
-	"./ms.js": 345,
-	"./mt": 347,
-	"./mt.js": 347,
-	"./my": 348,
-	"./my.js": 348,
-	"./nb": 349,
-	"./nb.js": 349,
-	"./ne": 350,
-	"./ne.js": 350,
-	"./nl": 351,
-	"./nl-be": 352,
-	"./nl-be.js": 352,
-	"./nl.js": 351,
-	"./nn": 353,
-	"./nn.js": 353,
-	"./pa-in": 354,
-	"./pa-in.js": 354,
-	"./pl": 355,
-	"./pl.js": 355,
-	"./pt": 356,
-	"./pt-br": 357,
-	"./pt-br.js": 357,
-	"./pt.js": 356,
-	"./ro": 358,
-	"./ro.js": 358,
-	"./ru": 359,
-	"./ru.js": 359,
-	"./sd": 360,
-	"./sd.js": 360,
-	"./se": 361,
-	"./se.js": 361,
-	"./si": 362,
-	"./si.js": 362,
-	"./sk": 363,
-	"./sk.js": 363,
-	"./sl": 364,
-	"./sl.js": 364,
-	"./sq": 365,
-	"./sq.js": 365,
-	"./sr": 366,
-	"./sr-cyrl": 367,
-	"./sr-cyrl.js": 367,
-	"./sr.js": 366,
-	"./ss": 368,
-	"./ss.js": 368,
-	"./sv": 369,
-	"./sv.js": 369,
-	"./sw": 370,
-	"./sw.js": 370,
-	"./ta": 371,
-	"./ta.js": 371,
-	"./te": 372,
-	"./te.js": 372,
-	"./tet": 373,
-	"./tet.js": 373,
-	"./tg": 374,
-	"./tg.js": 374,
-	"./th": 375,
-	"./th.js": 375,
-	"./tl-ph": 376,
-	"./tl-ph.js": 376,
-	"./tlh": 377,
-	"./tlh.js": 377,
-	"./tr": 378,
-	"./tr.js": 378,
-	"./tzl": 379,
-	"./tzl.js": 379,
-	"./tzm": 380,
-	"./tzm-latn": 381,
-	"./tzm-latn.js": 381,
-	"./tzm.js": 380,
-	"./ug-cn": 382,
-	"./ug-cn.js": 382,
-	"./uk": 383,
-	"./uk.js": 383,
-	"./ur": 384,
-	"./ur.js": 384,
-	"./uz": 385,
-	"./uz-latn": 386,
-	"./uz-latn.js": 386,
-	"./uz.js": 385,
-	"./vi": 387,
-	"./vi.js": 387,
-	"./x-pseudo": 388,
-	"./x-pseudo.js": 388,
-	"./yo": 389,
-	"./yo.js": 389,
-	"./zh-cn": 390,
-	"./zh-cn.js": 390,
-	"./zh-hk": 391,
-	"./zh-hk.js": 391,
-	"./zh-tw": 392,
-	"./zh-tw.js": 392
+	"./af": 271,
+	"./af.js": 271,
+	"./ar": 272,
+	"./ar-dz": 273,
+	"./ar-dz.js": 273,
+	"./ar-kw": 274,
+	"./ar-kw.js": 274,
+	"./ar-ly": 275,
+	"./ar-ly.js": 275,
+	"./ar-ma": 276,
+	"./ar-ma.js": 276,
+	"./ar-sa": 277,
+	"./ar-sa.js": 277,
+	"./ar-tn": 278,
+	"./ar-tn.js": 278,
+	"./ar.js": 272,
+	"./az": 279,
+	"./az.js": 279,
+	"./be": 280,
+	"./be.js": 280,
+	"./bg": 281,
+	"./bg.js": 281,
+	"./bm": 282,
+	"./bm.js": 282,
+	"./bn": 283,
+	"./bn.js": 283,
+	"./bo": 284,
+	"./bo.js": 284,
+	"./br": 285,
+	"./br.js": 285,
+	"./bs": 286,
+	"./bs.js": 286,
+	"./ca": 287,
+	"./ca.js": 287,
+	"./cs": 288,
+	"./cs.js": 288,
+	"./cv": 289,
+	"./cv.js": 289,
+	"./cy": 290,
+	"./cy.js": 290,
+	"./da": 291,
+	"./da.js": 291,
+	"./de": 292,
+	"./de-at": 293,
+	"./de-at.js": 293,
+	"./de-ch": 294,
+	"./de-ch.js": 294,
+	"./de.js": 292,
+	"./dv": 295,
+	"./dv.js": 295,
+	"./el": 296,
+	"./el.js": 296,
+	"./en-au": 297,
+	"./en-au.js": 297,
+	"./en-ca": 298,
+	"./en-ca.js": 298,
+	"./en-gb": 299,
+	"./en-gb.js": 299,
+	"./en-ie": 300,
+	"./en-ie.js": 300,
+	"./en-il": 301,
+	"./en-il.js": 301,
+	"./en-nz": 302,
+	"./en-nz.js": 302,
+	"./eo": 303,
+	"./eo.js": 303,
+	"./es": 304,
+	"./es-do": 305,
+	"./es-do.js": 305,
+	"./es-us": 306,
+	"./es-us.js": 306,
+	"./es.js": 304,
+	"./et": 307,
+	"./et.js": 307,
+	"./eu": 308,
+	"./eu.js": 308,
+	"./fa": 309,
+	"./fa.js": 309,
+	"./fi": 310,
+	"./fi.js": 310,
+	"./fo": 311,
+	"./fo.js": 311,
+	"./fr": 312,
+	"./fr-ca": 313,
+	"./fr-ca.js": 313,
+	"./fr-ch": 314,
+	"./fr-ch.js": 314,
+	"./fr.js": 312,
+	"./fy": 315,
+	"./fy.js": 315,
+	"./gd": 316,
+	"./gd.js": 316,
+	"./gl": 317,
+	"./gl.js": 317,
+	"./gom-latn": 318,
+	"./gom-latn.js": 318,
+	"./gu": 319,
+	"./gu.js": 319,
+	"./he": 320,
+	"./he.js": 320,
+	"./hi": 321,
+	"./hi.js": 321,
+	"./hr": 322,
+	"./hr.js": 322,
+	"./hu": 323,
+	"./hu.js": 323,
+	"./hy-am": 324,
+	"./hy-am.js": 324,
+	"./id": 325,
+	"./id.js": 325,
+	"./is": 326,
+	"./is.js": 326,
+	"./it": 327,
+	"./it.js": 327,
+	"./ja": 328,
+	"./ja.js": 328,
+	"./jv": 329,
+	"./jv.js": 329,
+	"./ka": 330,
+	"./ka.js": 330,
+	"./kk": 331,
+	"./kk.js": 331,
+	"./km": 332,
+	"./km.js": 332,
+	"./kn": 333,
+	"./kn.js": 333,
+	"./ko": 334,
+	"./ko.js": 334,
+	"./ky": 335,
+	"./ky.js": 335,
+	"./lb": 336,
+	"./lb.js": 336,
+	"./lo": 337,
+	"./lo.js": 337,
+	"./lt": 338,
+	"./lt.js": 338,
+	"./lv": 339,
+	"./lv.js": 339,
+	"./me": 340,
+	"./me.js": 340,
+	"./mi": 341,
+	"./mi.js": 341,
+	"./mk": 342,
+	"./mk.js": 342,
+	"./ml": 343,
+	"./ml.js": 343,
+	"./mn": 344,
+	"./mn.js": 344,
+	"./mr": 345,
+	"./mr.js": 345,
+	"./ms": 346,
+	"./ms-my": 347,
+	"./ms-my.js": 347,
+	"./ms.js": 346,
+	"./mt": 348,
+	"./mt.js": 348,
+	"./my": 349,
+	"./my.js": 349,
+	"./nb": 350,
+	"./nb.js": 350,
+	"./ne": 351,
+	"./ne.js": 351,
+	"./nl": 352,
+	"./nl-be": 353,
+	"./nl-be.js": 353,
+	"./nl.js": 352,
+	"./nn": 354,
+	"./nn.js": 354,
+	"./pa-in": 355,
+	"./pa-in.js": 355,
+	"./pl": 356,
+	"./pl.js": 356,
+	"./pt": 357,
+	"./pt-br": 358,
+	"./pt-br.js": 358,
+	"./pt.js": 357,
+	"./ro": 359,
+	"./ro.js": 359,
+	"./ru": 360,
+	"./ru.js": 360,
+	"./sd": 361,
+	"./sd.js": 361,
+	"./se": 362,
+	"./se.js": 362,
+	"./si": 363,
+	"./si.js": 363,
+	"./sk": 364,
+	"./sk.js": 364,
+	"./sl": 365,
+	"./sl.js": 365,
+	"./sq": 366,
+	"./sq.js": 366,
+	"./sr": 367,
+	"./sr-cyrl": 368,
+	"./sr-cyrl.js": 368,
+	"./sr.js": 367,
+	"./ss": 369,
+	"./ss.js": 369,
+	"./sv": 370,
+	"./sv.js": 370,
+	"./sw": 371,
+	"./sw.js": 371,
+	"./ta": 372,
+	"./ta.js": 372,
+	"./te": 373,
+	"./te.js": 373,
+	"./tet": 374,
+	"./tet.js": 374,
+	"./tg": 375,
+	"./tg.js": 375,
+	"./th": 376,
+	"./th.js": 376,
+	"./tl-ph": 377,
+	"./tl-ph.js": 377,
+	"./tlh": 378,
+	"./tlh.js": 378,
+	"./tr": 379,
+	"./tr.js": 379,
+	"./tzl": 380,
+	"./tzl.js": 380,
+	"./tzm": 381,
+	"./tzm-latn": 382,
+	"./tzm-latn.js": 382,
+	"./tzm.js": 381,
+	"./ug-cn": 383,
+	"./ug-cn.js": 383,
+	"./uk": 384,
+	"./uk.js": 384,
+	"./ur": 385,
+	"./ur.js": 385,
+	"./uz": 386,
+	"./uz-latn": 387,
+	"./uz-latn.js": 387,
+	"./uz.js": 386,
+	"./vi": 388,
+	"./vi.js": 388,
+	"./x-pseudo": 389,
+	"./x-pseudo.js": 389,
+	"./yo": 390,
+	"./yo.js": 390,
+	"./zh-cn": 391,
+	"./zh-cn.js": 391,
+	"./zh-hk": 392,
+	"./zh-hk.js": 392,
+	"./zh-tw": 393,
+	"./zh-tw.js": 393
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -9195,7 +9407,7 @@ var HizmetDao = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cagri_detay_cagri_detay__ = __webpack_require__(169);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular_components_modal_modal_controller__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__cagri_arama_modal_cagri_arama_modal__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__cagri_arama_modal_cagri_arama_modal__ = __webpack_require__(210);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_hizmet_hizmet__ = __webpack_require__(80);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_hizmet_service_hizmet_service__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_hizmet_hizmet__ = __webpack_require__(28);
@@ -9323,7 +9535,7 @@ var CagrilarPage = (function () {
                     case 2:
                         hizmet = new __WEBPACK_IMPORTED_MODULE_7__entities_hizmet_hizmet__["a" /* Hizmet */]();
                         hizmet.durum = 'ACIK';
-                        return [4 /*yield*/, this.hizmetService.fetchHizmetWithPage(hizmet, __WEBPACK_IMPORTED_MODULE_11__entities_Constants__["a" /* Constants */].ORDER_BY.RANDEVU_TAR_ASCENDES, this.pageable)];
+                        return [4 /*yield*/, this.hizmetService.fetchHizmetWithPage(hizmet, __WEBPACK_IMPORTED_MODULE_11__entities_Constants__["a" /* Constants */].ORDER_BY.RANDEVU_TAR_DESCENDES, this.pageable)];
                     case 3:
                         list = _a.sent();
                         _a.label = 4;
@@ -9350,7 +9562,7 @@ var CagrilarPage = (function () {
                     case 0: return [4 /*yield*/, this.cagriProvider.downloadCagriList().then(function (res) {
                             if (_this.util.isNotEmpty(res)) {
                                 _this.fetchList(_this.searchType);
-                                _this.util.message("Çağrılar Güncellendi.");
+                                _this.util.success("Çağrılar Güncellendi.");
                             }
                         })];
                     case 1:
@@ -9379,7 +9591,7 @@ var CagrilarPage = (function () {
     ], CagrilarPage.prototype, "header", void 0);
     CagrilarPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-cagrilar',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\cagrilar\cagrilar.html"*/'<ion-header class="header-content">\n\n  <ion-navbar hideBackButton="true">\n\n    <icon-header #header></icon-header>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="content cagri-content">\n\n\n\n  <ion-title class="page-title">{{title}}</ion-title>\n\n\n\n  <ion-row class="mb-20">\n\n    <ion-col col-6 col-6 col-sm>\n\n      <button ion-button id="btnCagriSorgu" round full cgrArama (click)="cagriSorgula();" color="secondary">Sorgula\n\n      </button>\n\n    </ion-col>\n\n    <ion-col col-6 col-6 col-sm>\n\n      <button ion-button id="btnCagriGuncelle" round full cgrGuncelle (click)="cagriGuncelle();" color="secondary">\n\n        Güncelle\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row *ngIf="this.searchParams != \'\'">\n\n    <ion-chip *ngFor="let sorgu of searchParams">\n\n      <ion-label>{{sorgu}}</ion-label>\n\n    </ion-chip>\n\n  </ion-row>\n\n\n\n  <ion-card *ngFor="let cagri of cagrilar" (click)="cagriDetayinaGit($event, cagri.seqNo)" class="card-box">\n\n    <p class="call-date">\n\n      <strong>\n\n        <i class="far fa-clock"></i>\n\n        {{cagri.randevuTarihi | date: \'dd-MM-yyyy HH:mm\'}}\n\n      </strong>\n\n    </p>\n\n    <label>\n\n      <strong>\n\n        <i class="fas fa-user"></i>\n\n        {{cagri.adi }} {{cagri.soyadi}} ({{cagri.seqNo}}) - ({{cagri.crmNo}})\n\n      </strong>\n\n    </label>\n\n    <p>\n\n      <i class="fas fa-cog"></i>\n\n      {{cagri.mamAnaGrpAdi}} | {{cagri.hizmetTipiAdi}} | {{cagri.basvuruNedenAdi}}\n\n    </p>\n\n    <p>\n\n      <i class="fas fa-phone"></i>\n\n      {{cagri.gsmNo}} | {{cagri.evTel}} | {{cagri.evTel}}\n\n    </p>\n\n\n\n    <p>\n\n      <i class="fas fa-location-arrow adres-box"></i>\n\n      <span class="adres-box" *ngIf="cagri.semt != null && cagri.semt != \'\'">\n\n        Semt: {{cagri.semt}}\n\n      </span>\n\n\n\n      <span class="adres-box" *ngIf="cagri.mahalleAdi != null && cagri.mahalleAdi !=\'\'">\n\n        Mahalle: {{cagri.mahalleAdi}}\n\n      </span>\n\n\n\n      <span class="adres-box" *ngIf="cagri.cadde != null && cagri.cadde !=\'\'">\n\n        Cadde: {{cagri.cadde}}\n\n      </span>\n\n\n\n      <span class="adres-box" *ngIf="cagri.sokak != null && cagri.sokak !=\'\'">\n\n        Sokak: {{cagri.sokak}}\n\n      </span>\n\n\n\n      <span class="adres-box" *ngIf="cagri.aparman!= null && cagri.aparman !=\'\'">\n\n        Apartman: {{cagri.aparman}} {{cagri.apartmanNo}}\n\n      </span>\n\n\n\n\n\n      <span class="adres-box" *ngIf="cagri.apartmanNo!= null && cagri.apartmanNo !=\'\'">\n\n        {{cagri.apartmanNo}}\n\n      </span>\n\n\n\n      <span class="adres-box" *ngIf="cagri.blok != null && cagri.blok!=\'\'">\n\n        Blok: {{cagri.blok}}\n\n      </span>\n\n\n\n\n\n      <span class="adres-box" *ngIf="cagri.daireNo != null && cagri.daireNo!=\'\'">\n\n        Daire No: {{cagri.daireNo}}\n\n      </span>\n\n\n\n      <span class="adres-box" *ngIf="cagri.ilceAdi != null && cagri.ilceAdi!=\'\'">\n\n        {{cagri.ilceAdi}}\n\n      </span>\n\n\n\n      <span class="adres-box" *ngIf="cagri.sehir != null && cagri.sehir!=\'\'">\n\n        /{{cagri.sehir}}\n\n      </span>\n\n    </p>\n\n  </ion-card>\n\n</ion-content>\n\n\n\n\n\n<ion-footer>\n\n  <ion-row>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <button ion-button color="light" (click)="fetchList(\'FIRST\')" *ngIf="!pageable.isFirstPage">\n\n        <ion-icon name="arrow-dropleft"></ion-icon>\n\n      </button>\n\n      <button ion-button color="light" (click)="fetchList(\'PREVIOUS\')" *ngIf="!pageable.isFirstPage">\n\n        <ion-icon name="arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-8>\n\n      <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList(\'PAGE_NO\')" interface="popover">\n\n        <ion-option value="10" selected="true">10</ion-option>\n\n        <ion-option value="20">20</ion-option>\n\n        <ion-option value="50">50</ion-option>\n\n      </ion-select>\n\n    </ion-col>\n\n\n\n    <ion-col col-4 col-md-2>\n\n      <button ion-button color="light" (click)="fetchList(\'NEXT\')" *ngIf="!pageable.isLastPage">\n\n        <ion-icon name="arrow-forward"></ion-icon>\n\n      </button>\n\n\n\n      <button ion-button color="light" (click)="fetchList(\'LAST\')" *ngIf="!pageable.isLastPage">\n\n        <ion-icon name="arrow-dropright"></ion-icon>\n\n      </button>\n\n    </ion-col>\n\n\n\n  </ion-row>\n\n\n\n\n\n</ion-footer>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\cagrilar\cagrilar.html"*/,
+            selector: 'page-cagrilar',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/cagrilar/cagrilar.html"*/'<ion-header class="header-content">\n  <ion-navbar hideBackButton="true">\n    <icon-header #header></icon-header>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="content cagri-content">\n\n  <ion-title class="page-title">{{title}}</ion-title>\n\n  <ion-row class="mb-20">\n    <ion-col col-6 col-6 col-sm>\n      <button ion-button id="btnCagriSorgu" round full cgrArama (click)="cagriSorgula();" color="secondary">Sorgula\n      </button>\n    </ion-col>\n    <ion-col col-6 col-6 col-sm>\n      <button ion-button id="btnCagriGuncelle" round full cgrGuncelle (click)="cagriGuncelle();" color="secondary">\n        Güncelle\n      </button>\n    </ion-col>\n  </ion-row>\n\n  <ion-row *ngIf="util.isNotEmpty(pageable.pageNo)  && pageable.pageNo > 0">\n    <ion-col col-9 col-md-8></ion-col>\n\n    <ion-col col-3 col-md-4>\n      <ion-select [(ngModel)]="pageable.pageNo" (ionChange)="fetchList(\'TO_PAGE\')" interface="popover">\n\n        <ion-option *ngFor="let page of pageable.pageList" [value]="page">\n          {{page}}\n        </ion-option>\n      </ion-select>\n    </ion-col>\n  </ion-row>\n\n  <ion-row *ngIf="this.searchParams != \'\'">\n    <ion-chip *ngFor="let sorgu of searchParams">\n      <ion-label>{{sorgu}}</ion-label>\n    </ion-chip>\n  </ion-row>\n\n  <ion-card *ngFor="let cagri of cagrilar" (click)="cagriDetayinaGit($event, cagri.seqNo)" class="card-box">\n    <p class="call-date">\n      <strong>\n        <i class="far fa-clock"></i>\n        {{cagri.randevuTarihi | date: \'dd-MM-yyyy HH:mm\'}}\n      </strong>\n    </p>\n    <label>\n      <strong>\n        <i class="fas fa-user"></i>\n        {{cagri.adi }} {{cagri.soyadi}} ({{cagri.seqNo}}) - ({{cagri.crmNo}})\n      </strong>\n    </label>\n    <p>\n      <i class="fas fa-cog"></i>\n      {{cagri.mamAnaGrpAdi}} | {{cagri.hizmetTipiAdi}} | {{cagri.basvuruNedenAdi}}\n    </p>\n    <p>\n      <i class="fas fa-phone"></i>\n      {{cagri.gsmNo}} | {{cagri.evTel}} | {{cagri.evTel}}\n    </p>\n\n    <p>\n      <i class="fas fa-location-arrow adres-box"></i>\n      <span class="adres-box" *ngIf="cagri.semt != null && cagri.semt != \'\'">\n        Semt: {{cagri.semt}}\n      </span>\n\n      <span class="adres-box" *ngIf="cagri.mahalleAdi != null && cagri.mahalleAdi !=\'\'">\n        Mahalle: {{cagri.mahalleAdi}}\n      </span>\n\n      <span class="adres-box" *ngIf="cagri.cadde != null && cagri.cadde !=\'\'">\n        Cadde: {{cagri.cadde}}\n      </span>\n\n      <span class="adres-box" *ngIf="cagri.sokak != null && cagri.sokak !=\'\'">\n        Sokak: {{cagri.sokak}}\n      </span>\n\n      <span class="adres-box" *ngIf="cagri.aparman!= null && cagri.aparman !=\'\'">\n        Apartman: {{cagri.aparman}} {{cagri.apartmanNo}}\n      </span>\n\n\n      <span class="adres-box" *ngIf="cagri.apartmanNo!= null && cagri.apartmanNo !=\'\'">\n        {{cagri.apartmanNo}}\n      </span>\n\n      <span class="adres-box" *ngIf="cagri.blok != null && cagri.blok!=\'\'">\n        Blok: {{cagri.blok}}\n      </span>\n\n\n      <span class="adres-box" *ngIf="cagri.daireNo != null && cagri.daireNo!=\'\'">\n        Daire No: {{cagri.daireNo}}\n      </span>\n\n      <span class="adres-box" *ngIf="cagri.ilceAdi != null && cagri.ilceAdi!=\'\'">\n        {{cagri.ilceAdi}}\n      </span>\n\n      <span class="adres-box" *ngIf="cagri.sehir != null && cagri.sehir!=\'\'">\n        /{{cagri.sehir}}\n      </span>\n    </p>\n  </ion-card>\n</ion-content>\n\n\n<ion-footer>\n  <ion-row>\n\n\n    <ion-col col-4 col-md-4>\n      <ion-row>\n        <ion-col col-6>\n          <button ion-button color="light" (click)="fetchList(\'FIRST\')">\n            <ion-label><i class="fas fa-angle-double-left"></i></ion-label>\n          </button>\n        </ion-col>\n\n        <ion-col col-6>\n          <button ion-button color="light" (click)="fetchList(\'PREVIOUS\')">\n            <ion-label><i class="fas fa-angle-left"></i></ion-label>\n          </button>\n        </ion-col>\n\n      </ion-row>\n    </ion-col>\n\n    <ion-col col-4 col-md-4>\n      <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList(\'PAGE_NO\')" interface="popover">\n        <ion-option value="10" selected="true">10</ion-option>\n        <ion-option value="20">20</ion-option>\n        <ion-option value="50">50</ion-option>\n      </ion-select>\n    </ion-col>\n\n    <ion-col col-4 col-md-4>\n      <ion-row>\n\n        <ion-col col-6>\n          <button ion-button color="light" (click)="fetchList(\'NEXT\')">\n            <ion-label><i class="fas fa-angle-right"></i></ion-label>\n          </button>\n        </ion-col>\n\n        <ion-col col-6>\n          <button ion-button color="light" (click)="fetchList(\'LAST\')">\n            <ion-label><i class="fas fa-angle-double-right"></i></ion-label>\n          </button>\n        </ion-col>\n\n      </ion-row>\n\n\n    </ion-col>\n\n  </ion-row>\n\n\n</ion-footer>\n'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/cagrilar/cagrilar.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -9407,7 +9619,11 @@ var CagrilarPage = (function () {
 var Constants = (function () {
     function Constants() {
     }
+    Constants.REMEMBER_ME = "REMEMBER_ME";
+    Constants.USER_INFO = "USER_INFO";
     Constants.API_PAGE_SIZE = 10000;
+    Constants.MESSAGE_DURATION = "MESSAGE_DURATION";
+    Constants.DEFAULT_MESSAGE_DURATION = "3";
     Constants.CALLED_FROM = {
         TASKS: "TASKS",
         BILDIRIMLER_PAGE: "BILDIRIMLER_PAGE"
@@ -9415,7 +9631,7 @@ var Constants = (function () {
     Constants.SYNC_TIME = "SYNC_TIME";
     Constants.SYNC = {
         TIME: "SYNC_TIME",
-        MOMENT: 'SYNC_MOMENT'
+        MOMENT: "SYNC_MOMENT"
     };
     Constants.LENGTHS = {
         HIZMET_LIST: "HIZMET_LIST_LENGTH"
@@ -9443,12 +9659,6 @@ var Constants = (function () {
         ISCILIK: "ISC",
         YOL: "KM",
         DIGER: "DGR"
-    };
-    Constants.MASK = {
-        PHONE_NUMBER: ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/],
-        CARD_NUMBER: [/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/],
-        CARD_EXPIRY: [/[0-1]/, /\d/, '/', /[1-2]/, /\d/],
-        ORDER_CODE: [/[a-zA-z]/, ':', /\d/, /\d/, /\d/, /\d/]
     };
     Constants.URUN_ANA_GRUP_TYPE = {
         ANA_GRUP_LISTE: "ANA_GRUP_LISTE",
@@ -9480,16 +9690,16 @@ var Constants = (function () {
         ISLEM_ARIZA_ISCILIK: "ISLEM_ARIZA_ISCILIK"
     };
     Constants.GELEN_VERI = {
-        GELEN_URUN: "GELEN_URUN",
-        GELEN_URUN_ANA_GRUP: "GELEN_URUN_ANA_GRUP",
-        GELEN_URUN_ISCILIK: "GELEN_URUN_ISCILIK",
-        GELEN_URUN_MALZEME: "GELEN_URUN_MALZEME",
-        GELEN_ISLEM_ARIZA_ISCILIK: "GELEN_ISLEM_ARIZA_ISCILIK",
-        GELEN_MALZEME_FIYAT: "GELEN_MALZEME_FIYAT",
-        GELEN_ISCILIK_FIYAT: "GELEN_ISCILIK_FIYAT",
-        GELEN_SEHIR_TNM: "GELEN_SEHIR_TNM",
-        GELEN_ILCE_TNM: "GELEN_ILCE_TNM",
-        GELEN_MAHALLE_TNM: "GELEN_MAHALLE_TNM"
+        URUN: "GELEN_URUN",
+        URUN_ANA_GRUP: "GELEN_URUN_ANA_GRUP",
+        URUN_ISCILIK: "GELEN_URUN_ISCILIK",
+        URUN_MALZEME: "GELEN_URUN_MALZEME",
+        ISLEM_ARIZA_ISCILIK: "GELEN_ISLEM_ARIZA_ISCILIK",
+        MALZEME_FIYAT: "GELEN_MALZEME_FIYAT",
+        ISCILIK_FIYAT: "GELEN_ISCILIK_FIYAT",
+        SEHIR_TNM: "GELEN_SEHIR_TNM",
+        ILCE_TNM: "GELEN_ILCE_TNM",
+        MAHALLE_TNM: "GELEN_MAHALLE_TNM"
     };
     Constants.VERSIYON = {
         CLIENT: {
@@ -9514,7 +9724,7 @@ var Constants = (function () {
             ISCILIK_FIYAT: "ISCILIK_FIYAT_SERVER_VERSIYON",
             SEHIR_TNM: "SEHIR_TNM_SERVER_VERSIYON",
             ILCE_TNM: "ILCE_TNM_SERVER_VERSIYON",
-            MAHALLE_TNM: "MAHALLE_TNM_SERVER_VERSIYON",
+            MAHALLE_TNM: "MAHALLE_TNM_SERVER_VERSIYON"
         }
     };
     Constants.COLORS = {
@@ -9551,7 +9761,7 @@ var Constants = (function () {
         OFFLINE_ISC_FIYAT: Constants.VERSIYON.SERVER.ISCILIK_FIYAT,
         SER_SEHIR_TNM: Constants.VERSIYON.SERVER.SEHIR_TNM,
         SER_ILCE_TNM: Constants.VERSIYON.SERVER.ILCE_TNM,
-        SER_MAHALLE_TNM: Constants.VERSIYON.SERVER.MAHALLE_TNM,
+        SER_MAHALLE_TNM: Constants.VERSIYON.SERVER.MAHALLE_TNM
     };
     return Constants;
 }());
@@ -9654,13 +9864,13 @@ var ThemeProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__token_token__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__api_api__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_hizmet_DetayKayit__ = __webpack_require__(487);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_hizmet_DetayKayit__ = __webpack_require__(488);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__urun_ana_grp_urun_ana_grp__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__entities_urunAnaGrup__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__entities_Constants__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__logger_logger__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__entities_Ilce__ = __webpack_require__(488);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__entities_Ilce__ = __webpack_require__(489);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__adres_dao_adres_dao__ = __webpack_require__(108);
 /**
  * @author malisahin
@@ -9738,25 +9948,25 @@ var HizmetProvider = (function () {
     }
     HizmetProvider.prototype.downloadCagriList = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var header;
+            var header, res;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.token.callTokenAndGetHeader()];
                     case 1:
                         header = _a.sent();
-                        if (this.util.isOnline()) {
-                            this.util.loaderStart();
-                            return [2 /*return*/, new Promise(function (resolve, reject) {
-                                    _this.fetchDataFromApi(header)
-                                        .then(function (res) { return _this.insertComingData(res); })
-                                        .then(function (res) { return resolve("SUCCESS"); });
-                                })];
-                        }
-                        else {
-                            this.util.error("Çağrılar yalnızca online durumda güncellenebilir.");
-                        }
-                        return [2 /*return*/];
+                        if (!this.util.isOnline()) return [3 /*break*/, 5];
+                        this.util.loaderStart();
+                        return [4 /*yield*/, this.fetchDataFromApi(header)];
+                    case 2:
+                        res = _a.sent();
+                        if (!this.util.isNotEmpty(res)) return [3 /*break*/, 4];
+                        return [4 /*yield*/, this.insertComingData(res)];
+                    case 3: return [2 /*return*/, _a.sent()];
+                    case 4: return [3 /*break*/, 6];
+                    case 5:
+                        this.util.error("Çağrılar yalnızca online durumda güncellenebilir.");
+                        _a.label = 6;
+                    case 6: return [2 /*return*/];
                 }
             });
         });
@@ -9784,18 +9994,29 @@ var HizmetProvider = (function () {
     };
     HizmetProvider.prototype.fetchDataFromApi = function (header) {
         return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var url;
+            var url, res_1, e_1;
             return __generator(this, function (_a) {
-                url = this.api.getCagriListUrl();
-                return [2 /*return*/, new Promise(function (resolve, reject) {
-                        _this.http.get(url, { headers: header })
-                            .timeout(60000)
-                            .toPromise()
-                            .then(function (res) {
-                            resolve(res);
-                        });
-                    })];
+                switch (_a.label) {
+                    case 0:
+                        url = this.api.getCagriListUrl();
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 4]);
+                        return [4 /*yield*/, this.http.get(url, { headers: header }).toPromise()];
+                    case 2:
+                        res_1 = _a.sent();
+                        return [2 /*return*/, new Promise(function (resolve, reject) {
+                                resolve(res_1);
+                            })];
+                    case 3:
+                        e_1 = _a.sent();
+                        this.logger.error("Çağrı indirme hatası ==> ");
+                        this.logger.dir(e_1);
+                        this.util.error("Çağrıları indirirken bir hata oluştu. Lütfen tekrar deneyiniz.");
+                        this.util.loaderEnd();
+                        return [3 /*break*/, 4];
+                    case 4: return [2 /*return*/];
+                }
             });
         });
     };
@@ -9836,11 +10057,16 @@ var HizmetProvider = (function () {
     HizmetProvider.prototype.seperateCagri = function (obj) {
         var hizmetList = [];
         var list = [];
-        list = obj.message.hizmetDtoList;
-        for (var _i = 0, list_1 = list; _i < list_1.length; _i++) {
-            var item = list_1[_i];
-            var cgr = this.fillHizmet(item);
-            hizmetList.push(cgr);
+        if (this.util.isNotEmpty(obj.message) && this.util.isNotEmpty(obj.message.hizmetDtoList)) {
+            list = obj.message.hizmetDtoList;
+            for (var _i = 0, list_1 = list; _i < list_1.length; _i++) {
+                var item = list_1[_i];
+                var cgr = this.fillHizmet(item);
+                hizmetList.push(cgr);
+            }
+        }
+        else {
+            this.util.info("Gelen Çağrı listesinde veri bulunmamaktadır.");
         }
         return hizmetList;
     };
@@ -10269,18 +10495,18 @@ var UrunAnaGrpProvider = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GuncellemePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_urun_urun__ = __webpack_require__(489);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_urun_urun__ = __webpack_require__(490);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_urun_ana_grp_urun_ana_grp__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_urun_iscilik_urun_iscilik__ = __webpack_require__(490);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_urun_iscilik_urun_iscilik__ = __webpack_require__(491);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_urun_malzeme_urun_malzeme__ = __webpack_require__(174);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_fiyat_fiyat__ = __webpack_require__(493);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_fiyat_fiyat__ = __webpack_require__(175);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_islem_ariza_iscilik_islem_ariza_iscilik__ = __webpack_require__(494);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__entities_Constants__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_adres_adres__ = __webpack_require__(496);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_logger_logger__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_header_header__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_versiyon_versiyon__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_versiyon_versiyon__ = __webpack_require__(177);
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
@@ -10384,7 +10610,7 @@ var GuncellemePage = (function () {
                         res = _a.sent();
                         this.logger.success("downloadUrunler ==> " + res);
                         if (this.util.isNotEmpty(res)) {
-                            if (Number(localStorage.getItem(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].GELEN_VERI.GELEN_URUN)) < __WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].API_PAGE_SIZE) {
+                            if (Number(localStorage.getItem(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].GELEN_VERI.URUN)) < __WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].API_PAGE_SIZE) {
                                 this.doWhenDataDownloaded(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].DATA_TYPE.URUN, "Ürünler Kayıt Edildi.");
                             }
                             else {
@@ -10436,7 +10662,7 @@ var GuncellemePage = (function () {
                         res = _a.sent();
                         this.logger.success("downloadUrunIscilik ==> " + res);
                         if (this.util.isNotEmpty(res)) {
-                            if (Number(localStorage.getItem(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].GELEN_VERI.GELEN_URUN_ISCILIK)) < __WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].API_PAGE_SIZE) {
+                            if (Number(localStorage.getItem(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].GELEN_VERI.URUN_ISCILIK)) < __WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].API_PAGE_SIZE) {
                                 this.doWhenDataDownloaded(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].DATA_TYPE.URUN_ISCILIK, "Ürün İşçilik Kayıt Edildi.");
                             }
                             else {
@@ -10465,7 +10691,7 @@ var GuncellemePage = (function () {
             this.urunMalzemeProvider.downloadUrunMalzeme(this.firstForUrunMalzeme).then(function (res) {
                 _this.logger.success("downloadUrunMalzeme ==> " + res);
                 if (_this.util.isNotEmpty(res)) {
-                    if (Number(localStorage.getItem(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].GELEN_VERI.GELEN_URUN_MALZEME)) < __WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].API_PAGE_SIZE) {
+                    if (Number(localStorage.getItem(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].GELEN_VERI.URUN_MALZEME)) < __WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].API_PAGE_SIZE) {
                         _this.doWhenDataDownloaded(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].DATA_TYPE.URUN_MALZEME, "Ürün İşçilik Kayıt Edildi.");
                     }
                     else {
@@ -10490,7 +10716,7 @@ var GuncellemePage = (function () {
             this.islemArizaIscilikProvider.downloadIslemArizaIscilik(this.firstForIslemArizaIscilik).then(function (res) {
                 _this.logger.success("downloadIslemArizaIscilik ==> " + res);
                 if (_this.util.isNotEmpty(res)) {
-                    if (Number(localStorage.getItem(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].GELEN_VERI.GELEN_ISLEM_ARIZA_ISCILIK)) < __WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].API_PAGE_SIZE) {
+                    if (Number(localStorage.getItem(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].GELEN_VERI.ISLEM_ARIZA_ISCILIK)) < __WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].API_PAGE_SIZE) {
                         _this.doWhenDataDownloaded(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].DATA_TYPE.ISLEM_ARIZA_ISCILIK, "Islem Ariza Iscilik Kayıt Edildi.");
                     }
                     else {
@@ -10521,7 +10747,7 @@ var GuncellemePage = (function () {
                         res = _a.sent();
                         this.logger.success("downloadMalzemeFiyat ==> " + res);
                         if (this.util.isNotEmpty(res)) {
-                            if (Number(localStorage.getItem(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].GELEN_VERI.GELEN_MALZEME_FIYAT)) < __WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].API_PAGE_SIZE) {
+                            if (Number(localStorage.getItem(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].GELEN_VERI.MALZEME_FIYAT)) < __WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].API_PAGE_SIZE) {
                                 this.doWhenDataDownloaded(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].DATA_TYPE.MALZEME_FIYAT, "Malzeme Fiyatı Kayıt Edildi.");
                             }
                             else {
@@ -10556,7 +10782,7 @@ var GuncellemePage = (function () {
                         return [4 /*yield*/, this.fiyatProvider.downloadIscilikFiyat(this.firstForIscilikFiyat).then(function (res) {
                                 if (_this.util.isNotEmpty(res)) {
                                     _this.logger.success("downloadIscilikFiyat ==> " + res);
-                                    if (Number(localStorage.getItem(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].GELEN_VERI.GELEN_ISCILIK_FIYAT)) < __WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].API_PAGE_SIZE) {
+                                    if (Number(localStorage.getItem(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].GELEN_VERI.ISCILIK_FIYAT)) < __WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].API_PAGE_SIZE) {
                                         _this.doWhenDataDownloaded(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].DATA_TYPE.ISCILIK_FIYAT, "Iscilik Fiyatı Kayıt Edildi.");
                                     }
                                     else {
@@ -10654,7 +10880,7 @@ var GuncellemePage = (function () {
                         return [4 /*yield*/, this.adresProvider.downloadMahalleData(this.firstForMahalleTnm).then(function (res) {
                                 _this.logger.success("downloadMahalleList ==> " + res);
                                 if (_this.util.isNotEmpty(res)) {
-                                    if (Number(localStorage.getItem(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].GELEN_VERI.GELEN_MAHALLE_TNM)) < __WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].API_PAGE_SIZE) {
+                                    if (Number(localStorage.getItem(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].GELEN_VERI.MAHALLE_TNM)) < __WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].API_PAGE_SIZE) {
                                         _this.doWhenDataDownloaded(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].DATA_TYPE.MAHALLE_TNM, "Mahalle Bilgisi Kayıt Edildi.");
                                     }
                                     else {
@@ -10699,7 +10925,10 @@ var GuncellemePage = (function () {
         var clientVersiyon = localStorage.getItem(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].VERSIYON.CLIENT[type]);
         var serverVersiyon = localStorage.getItem(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].VERSIYON.SERVER[type]);
         var gelenVeri = localStorage.getItem(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].GELEN_VERI[type]);
-        if (serverVersiyon == '-1' || clientVersiyon != serverVersiyon || (this.util.isNotEmpty(gelenVeri) && gelenVeri != "0")) {
+        this.logger.info("Kayıtlı Miktar ==> " + type + " ==> " + localStorage.getItem(__WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].GELEN_VERI[type]));
+        this.logger.info("type ==> " + type + "; Constants.GELEN_VERI[type] ==> " + __WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].GELEN_VERI[type]);
+        //|| (this.util.isNotEmpty(gelenVeri) && gelenVeri != "0")
+        if (serverVersiyon == '-1' || clientVersiyon != serverVersiyon) {
             __WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].COLORS[type] = "notDownloaded";
             __WEBPACK_IMPORTED_MODULE_8__entities_Constants__["a" /* Constants */].ICONS[type] = "download";
         }
@@ -10726,7 +10955,7 @@ var GuncellemePage = (function () {
         this.colors[type] = "downloaded";
         this.icons[type] = "done-all";
         setTimeout(function () {
-            _this.util.message(message);
+            _this.util.success(message);
         }, 500);
         this.onComplete();
     };
@@ -10758,7 +10987,7 @@ var GuncellemePage = (function () {
             else
                 versiyonText += "-1";
         }
-        this.logger.info("VERSIYON_" + tip + "==> " + versiyonText);
+        // this.logger.info("VERSIYON_" + tip + "==> " + versiyonText);
         return versiyonText;
     };
     __decorate([
@@ -10767,7 +10996,7 @@ var GuncellemePage = (function () {
     ], GuncellemePage.prototype, "header", void 0);
     GuncellemePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-guncelleme',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\guncelleme\guncelleme.html"*/'<ion-header>\n\n\n\n  <ion-navbar hideBackButton="true">\n\n    <icon-header #header></icon-header>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content class="content">\n\n\n\n  <ion-title class="page-title">Güncelleme</ion-title>\n\n\n\n  <ion-toolbar class="main-tabs">\n\n    <ion-segment [(ngModel)]="activePage">\n\n      <ion-segment-button value="guncelleme" class="seg-button">\n\n        Güncelleme\n\n      </ion-segment-button>\n\n      <ion-segment-button value="versiyon" class="seg-button">\n\n        Versiyon\n\n      </ion-segment-button>\n\n    </ion-segment>\n\n  </ion-toolbar>\n\n\n\n  <div [ngSwitch]="activePage">\n\n    <div *ngSwitchCase="\'guncelleme\'">\n\n\n\n      <ion-list>\n\n        <button ion-button primary round full [color]="colors.URUN" (click)="downloadUrunler();" round full>\n\n          <span item-left style="width: 95%">Ürünler</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.URUN"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.URUN_ANA_GRUP" (click)="downloadUrunAnaGrup();" round\n\n                full>\n\n          <span item-left style="width: 95%">Ürün Ana Grupları</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.URUN_ANA_GRUP"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.URUN_ISCILIK" (click)="downloadUrunIscilik();" round full>\n\n          <span item-left style="width: 95%">Ürün Işçilik</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.URUN_ISCILIK"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.URUN_MALZEME" (click)="downloadUrunMalzeme();" round full>\n\n          <span item-left style="width: 95%">Ürün-Malzeme</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.URUN_MALZEME"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.ISLEM_ARIZA_ISCILIK"\n\n                (click)="downloadIslemArizaIscilik();" round full>\n\n          <span item-left style="width: 95%">İşlem-Arıza-İşçilik</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.ISLEM_ARIZA_ISCILIK"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.MALZEME_FIYAT" (click)="downloadMalzemeFiyat();" round\n\n                full>\n\n          <span item-left style="width: 95%">Malzeme Fiyatları</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.MALZEME_FIYAT"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.ISCILIK_FIYAT" (click)="downloadIscilikFiyat();" round\n\n                full>\n\n          <span item-left style="width: 95%">İşçilik Fiyatları</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.ISCILIK_FIYAT"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.SEHIR_TNM" (click)="downloadSehirList();" round full>\n\n          <span item-left style="width: 95%">Şehir Listesi</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.SEHIR_TNM"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.ILCE_TNM" (click)="downloadIlceList();" round full>\n\n          <span item-left style="width: 95%">İİlçe Listesi</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.ILCE_TNM"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.MAHALLE_TNM" (click)="downloadMahalleList();" round full>\n\n          <span item-left style="width: 95%"> Mahalle Listesi</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.MAHALLE_TNM" class="mr-icon"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n      </ion-list>\n\n\n\n\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'versiyon\'">\n\n\n\n      <button ion-button primary round full [color]="light">\n\n        <span item-left style="width: 80%">Ürünler</span>\n\n        <span item-right style="width: 20%">{{urunlerVersiyon}}</span>\n\n      </button>\n\n\n\n      <button ion-button primary round full [color]="light">\n\n        <span item-left style="width: 80%">Ürün Ana Grupları</span>\n\n        <span item-right style="width: 20%">{{urunAnaGrupVersiyon}}</span>\n\n      </button>\n\n\n\n      <button ion-button primary round full [color]="light">\n\n        <span item-left style="width: 80%">Ürün İşçilik</span>\n\n        <span item-right style="width: 20%">{{urunIscilikVersiyon}}</span>\n\n      </button>\n\n\n\n      <button ion-button primary round full [color]="light">\n\n        <span item-left style="width: 80%">Ürün-Malzeme</span>\n\n        <span item-right style="width: 20%">{{urunMalzemeVersiyon}}</span>\n\n      </button>\n\n\n\n      <button ion-button primary round full [color]="light">\n\n        <span item-left style="width: 80%">İşlem-Arıza-İşçilik</span>\n\n        <span item-right style="width: 20%">{{islemArizaIscilikVersiyon}}</span>\n\n      </button>\n\n\n\n      <button ion-button round full [color]="light">\n\n        <span item-left style="width: 80%">Malzeme Fiyatları</span>\n\n        <span item-right style="width: 20%">{{malzemeFiyatVersiyon}}</span>\n\n      </button>\n\n\n\n      <button ion-button primary round full [color]="light">\n\n        <span item-left style="width: 80%">İşçilik Fiyatları</span>\n\n        <span item-right style="width: 20%">{{iscilikFiyatVersiyon}}</span>\n\n      </button>\n\n    </div>\n\n\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\guncelleme\guncelleme.html"*/,
+            selector: 'page-guncelleme',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/guncelleme/guncelleme.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton="true">\n    <icon-header #header></icon-header>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content class="content">\n\n  <ion-title class="page-title">Güncelleme</ion-title>\n\n  <ion-toolbar class="main-tabs">\n    <ion-segment [(ngModel)]="activePage">\n      <ion-segment-button value="guncelleme" class="seg-button">\n        Güncelleme\n      </ion-segment-button>\n      <ion-segment-button value="versiyon" class="seg-button">\n        Versiyon\n      </ion-segment-button>\n    </ion-segment>\n  </ion-toolbar>\n\n  <div [ngSwitch]="activePage">\n    <div *ngSwitchCase="\'guncelleme\'">\n\n      <ion-list>\n        <button ion-button primary round full [color]="colors.URUN" (click)="downloadUrunler();" round full>\n          <span item-left style="width: 95%">Ürünler</span>\n          <span item-right style="width: 5%">\n            <ion-icon [name]="icons.URUN"></ion-icon>\n          </span>\n        </button>\n\n        <button ion-button primary round full [color]="colors.URUN_ANA_GRUP" (click)="downloadUrunAnaGrup();" round\n                full>\n          <span item-left style="width: 95%">Ürün Ana Grupları</span>\n          <span item-right style="width: 5%">\n            <ion-icon [name]="icons.URUN_ANA_GRUP"></ion-icon>\n          </span>\n        </button>\n\n        <button ion-button primary round full [color]="colors.URUN_ISCILIK" (click)="downloadUrunIscilik();" round full>\n          <span item-left style="width: 95%">Ürün Işçilik</span>\n          <span item-right style="width: 5%">\n            <ion-icon [name]="icons.URUN_ISCILIK"></ion-icon>\n          </span>\n        </button>\n\n        <button ion-button primary round full [color]="colors.URUN_MALZEME" (click)="downloadUrunMalzeme();" round full>\n          <span item-left style="width: 95%">Ürün-Malzeme</span>\n          <span item-right style="width: 5%">\n            <ion-icon [name]="icons.URUN_MALZEME"></ion-icon>\n          </span>\n        </button>\n\n        <button ion-button primary round full [color]="colors.ISLEM_ARIZA_ISCILIK"\n                (click)="downloadIslemArizaIscilik();" round full>\n          <span item-left style="width: 95%">İşlem-Arıza-İşçilik</span>\n          <span item-right style="width: 5%">\n            <ion-icon [name]="icons.ISLEM_ARIZA_ISCILIK"></ion-icon>\n          </span>\n        </button>\n\n        <button ion-button primary round full [color]="colors.MALZEME_FIYAT" (click)="downloadMalzemeFiyat();" round\n                full>\n          <span item-left style="width: 95%">Malzeme Fiyatları</span>\n          <span item-right style="width: 5%">\n            <ion-icon [name]="icons.MALZEME_FIYAT"></ion-icon>\n          </span>\n        </button>\n\n        <button ion-button primary round full [color]="colors.ISCILIK_FIYAT" (click)="downloadIscilikFiyat();" round\n                full>\n          <span item-left style="width: 95%">İşçilik Fiyatları</span>\n          <span item-right style="width: 5%">\n            <ion-icon [name]="icons.ISCILIK_FIYAT"></ion-icon>\n          </span>\n        </button>\n\n        <button ion-button primary round full [color]="colors.SEHIR_TNM" (click)="downloadSehirList();" round full>\n          <span item-left style="width: 95%">Şehir Listesi</span>\n          <span item-right style="width: 5%">\n            <ion-icon [name]="icons.SEHIR_TNM"></ion-icon>\n          </span>\n        </button>\n\n        <button ion-button primary round full [color]="colors.ILCE_TNM" (click)="downloadIlceList();" round full>\n          <span item-left style="width: 95%">İİlçe Listesi</span>\n          <span item-right style="width: 5%">\n            <ion-icon [name]="icons.ILCE_TNM"></ion-icon>\n          </span>\n        </button>\n\n        <button ion-button primary round full [color]="colors.MAHALLE_TNM" (click)="downloadMahalleList();" round full>\n          <span item-left style="width: 95%"> Mahalle Listesi</span>\n          <span item-right style="width: 5%">\n            <ion-icon [name]="icons.MAHALLE_TNM" class="mr-icon"></ion-icon>\n          </span>\n        </button>\n\n      </ion-list>\n\n\n    </div>\n\n    <div *ngSwitchCase="\'versiyon\'">\n\n      <button ion-button primary round full [color]="light">\n        <span item-left style="width: 80%">Ürünler</span>\n        <span item-right style="width: 20%">{{urunlerVersiyon}}</span>\n      </button>\n\n      <button ion-button primary round full [color]="light">\n        <span item-left style="width: 80%">Ürün Ana Grupları</span>\n        <span item-right style="width: 20%">{{urunAnaGrupVersiyon}}</span>\n      </button>\n\n      <button ion-button primary round full [color]="light">\n        <span item-left style="width: 80%">Ürün İşçilik</span>\n        <span item-right style="width: 20%">{{urunIscilikVersiyon}}</span>\n      </button>\n\n      <button ion-button primary round full [color]="light">\n        <span item-left style="width: 80%">Ürün-Malzeme</span>\n        <span item-right style="width: 20%">{{urunMalzemeVersiyon}}</span>\n      </button>\n\n      <button ion-button primary round full [color]="light">\n        <span item-left style="width: 80%">İşlem-Arıza-İşçilik</span>\n        <span item-right style="width: 20%">{{islemArizaIscilikVersiyon}}</span>\n      </button>\n\n      <button ion-button round full [color]="light">\n        <span item-left style="width: 80%">Malzeme Fiyatları</span>\n        <span item-right style="width: 20%">{{malzemeFiyatVersiyon}}</span>\n      </button>\n\n      <button ion-button primary round full [color]="light">\n        <span item-left style="width: 80%">İşçilik Fiyatları</span>\n        <span item-right style="width: 20%">{{iscilikFiyatVersiyon}}</span>\n      </button>\n    </div>\n\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/guncelleme/guncelleme.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -11024,20 +11253,21 @@ var UrunSearchComponent = (function () {
         console.dir(res);
     };
     UrunSearchComponent.prototype.fillItemByType = function (item) {
-        this.list.push({ key: item.mamAdi, value: item.mamKod });
+        this.list.push({ key: item.mamAdi, value: item.mamKod, data: item });
     };
     UrunSearchComponent.prototype.ionChange = function (item) {
         this.prepareUrunReturnValue(item);
         this.viewCtrl.dismiss(this.returnObject);
     };
     UrunSearchComponent.prototype.prepareUrunReturnValue = function (item) {
+        debugger;
         this.urun.mamAdi = this.util.isEmpty(item.key) ? '' : item.key;
         this.urun.mamKod = this.util.isEmpty(item.value) ? '' : item.value;
         this.returnObject = this.urun;
     };
     UrunSearchComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'urun-search',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\urun-search\urun-search.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-row class="modal-title">\n\n      <ion-col col-11 col-md-11>\n\n        <ion-title>Ürün Arama</ion-title>\n\n      </ion-col>\n\n      <ion-col col-1 col-md-1>\n\n        <ion-icon name="close" (click)="closeModal()" class="pull-right close-icon"></ion-icon>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content class="content">\n\n\n\n  <ion-searchbar placeholder="Ara" [(ngModel)]="searchText" (ionInput)="fetchList()"></ion-searchbar>\n\n\n\n  <ion-list radio-group [(ngModel)]="selectedItem">\n\n    <ion-item *ngFor="let item of list">\n\n      <ion-label>{{item.key}} - {{item.value}}</ion-label>\n\n      <ion-radio (ionSelect)="ionChange(item)"></ion-radio>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n\n\n</ion-content>\n\n\n\n\n\n<ion-footer>\n\n\n\n\n\n  <ion-row>\n\n    <ion-col col-4 col-md-2>\n\n      <button ion-button color="light" (click)="fetchList(\'FIRST\')">\n\n        <ion-icon name="arrow-dropleft"></ion-icon>\n\n      </button>\n\n      <button ion-button color="light" (click)="fetchList(\'PREVIOUS\')">\n\n        <ion-icon name="arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-col>\n\n    <ion-col col-4 col-md-8>\n\n      <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList(\'PAGE_NO\')" interface="popover">\n\n        <ion-option value="10" selected="true">10</ion-option>\n\n        <ion-option value="20">20</ion-option>\n\n        <ion-option value="50">50</ion-option>\n\n      </ion-select>\n\n    </ion-col>\n\n    <ion-col col-4 col-md-2>\n\n      <button ion-button color="light" (click)="fetchList(\'NEXT\')">\n\n        <ion-icon name="arrow-forward"></ion-icon>\n\n      </button>\n\n      <button ion-button color="light" (click)="fetchList(\'LAST\')">\n\n        <ion-icon name="arrow-dropright"></ion-icon>\n\n      </button>\n\n    </ion-col>\n\n\n\n  </ion-row>\n\n\n\n</ion-footer>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\urun-search\urun-search.html"*/
+            selector: 'urun-search',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/urun-search/urun-search.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-row class="modal-title">\n      <ion-col col-11 col-md-11>\n        <ion-title>Ürün Arama</ion-title>\n      </ion-col>\n      <ion-col col-1 col-md-1>\n        <ion-icon name="close" (click)="closeModal()" class="pull-right close-icon"></ion-icon>\n      </ion-col>\n    </ion-row>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content class="content">\n\n  <ion-searchbar placeholder="Ara" [(ngModel)]="searchText" (ionInput)="fetchList()"></ion-searchbar>\n\n  <ion-list radio-group [(ngModel)]="selectedItem">\n    <ion-item *ngFor="let item of list">\n      <ion-label>{{item.key}} - {{item.value}}</ion-label>\n      <ion-radio (ionSelect)="ionChange(item)"></ion-radio>\n    </ion-item>\n  </ion-list>\n\n\n</ion-content>\n\n\n<ion-footer>\n\n\n  <ion-row>\n    <ion-col col-4 col-md-2>\n      <button ion-button color="light" (click)="fetchList(\'FIRST\')">\n        <ion-icon name="arrow-dropleft"></ion-icon>\n      </button>\n      <button ion-button color="light" (click)="fetchList(\'PREVIOUS\')">\n        <ion-icon name="arrow-back"></ion-icon>\n      </button>\n    </ion-col>\n    <ion-col col-4 col-md-8>\n      <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList(\'PAGE_NO\')" interface="popover">\n        <ion-option value="10" selected="true">10</ion-option>\n        <ion-option value="20">20</ion-option>\n        <ion-option value="50">50</ion-option>\n      </ion-select>\n    </ion-col>\n    <ion-col col-4 col-md-2>\n      <button ion-button color="light" (click)="fetchList(\'NEXT\')">\n        <ion-icon name="arrow-forward"></ion-icon>\n      </button>\n      <button ion-button color="light" (click)="fetchList(\'LAST\')">\n        <ion-icon name="arrow-dropright"></ion-icon>\n      </button>\n    </ion-col>\n\n  </ion-row>\n\n</ion-footer>'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/urun-search/urun-search.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["n" /* ViewController */], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_4__providers_urun_dao_urun_dao__["a" /* UrunDao */],
@@ -11078,7 +11308,7 @@ var SharedModulePage = (function () {
     };
     SharedModulePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-shared-module',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\shared-module\shared-module.html"*/'<!--\n\n  Generated template for the SharedModulePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>SharedModule</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\shared-module\shared-module.html"*/,
+            selector: 'page-shared-module',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/shared-module/shared-module.html"*/'<!--\n  Generated template for the SharedModulePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>SharedModule</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/shared-module/shared-module.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
     ], SharedModulePage);
@@ -11095,7 +11325,7 @@ var SharedModulePage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Profil; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__domain__ = __webpack_require__(869);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__enums_eProfil__ = __webpack_require__(486);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__enums_eProfil__ = __webpack_require__(487);
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
@@ -11362,10 +11592,10 @@ var Mahalle = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_urun_iscilik__ = __webpack_require__(172);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__urun_ana_grup_search_urun_ana_grup_search__ = __webpack_require__(114);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__urun_search_urun_search__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__urun_iscilik_search_urun_iscilik_search__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__urun_iscilik_search_urun_iscilik_search__ = __webpack_require__(181);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_logger_logger__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_fiyat_dao_fiyat_dao__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__entities_fiyat__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__entities_fiyat__ = __webpack_require__(176);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -11464,7 +11694,7 @@ var FiyatSorguComponent = (function () {
         var _this = this;
         this.fiyat = new __WEBPACK_IMPORTED_MODULE_12__entities_fiyat__["a" /* Fiyat */]();
         if (this.util.isEmpty(this.urun.mamKod)) {
-            this.util.message("Önce ürünü seçiniz.");
+            this.util.warn("Önce ürünü seçiniz.");
             return false;
         }
         this.data.type = __WEBPACK_IMPORTED_MODULE_2__entities_Constants__["a" /* Constants */].DATA_TYPE.URUN_ISCILIK;
@@ -11487,7 +11717,7 @@ var FiyatSorguComponent = (function () {
     };
     FiyatSorguComponent.prototype.iscilikFiyatSorgula = function () {
         if (this.util.isEmpty(this.urun.mamKod) || this.util.isEmpty(this.urunIscilik.iscKod)) {
-            this.util.message("Önce İşçilik/Malzeme seçiniz.");
+            this.util.warn("Önce İşçilik/Malzeme seçiniz.");
         }
         else {
             this.logger.warn("Işçilik Fiyat Bulma");
@@ -11523,7 +11753,7 @@ var FiyatSorguComponent = (function () {
     };
     FiyatSorguComponent.prototype.malzemeFiyatSorgula = function () {
         if (this.util.isEmpty(this.urun.mamKod)) {
-            this.util.message("Önce Ürün/Kodu seçiniz.");
+            this.util.warn("Önce Ürün/Kodu seçiniz.");
         }
         else {
             this.fiyatBul("MLZ", this.urun.mamKod);
@@ -11531,7 +11761,7 @@ var FiyatSorguComponent = (function () {
     };
     FiyatSorguComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'fiyat-sorgu',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\fiyat-sorgu\fiyat-sorgu.html"*/'<!-- Generated template for the HizmetBilgileriComponent component -->\n\n\n\n<ion-row>\n\n  <ion-col col-6 col-md-2>\n\n    <ion-label color="primary">Önce işlem tipini seçiniz</ion-label>\n\n  </ion-col>\n\n  <ion-col col-6 col-md-10>\n\n    <ion-select [(ngModel)]="islemTipi" interface="popover" (ionChange)="IslemTipiChange()">\n\n      <ion-option value="" selected="true"></ion-option>\n\n      <ion-option value="ISC">İşçilik</ion-option>\n\n      <ion-option value="MLZ">Malzeme</ion-option>\n\n    </ion-select>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2 *ngIf="islemTipi != \'\' && islemTipi==\'ISC\'">\n\n    <ion-label color="primary">Ürün ana Grubu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10 *ngIf="islemTipi != \'\' && islemTipi==\'ISC\'">\n\n    <ion-input type="text" [(ngModel)]="urunAnaGrup.ad" (focus)="urunAnaGrupSorgula()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2 *ngIf="islemTipi == \'ISC\' || islemTipi == \'MLZ\'">\n\n    <ion-label color="primary">Ürün Kodu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10 *ngIf="islemTipi == \'ISC\' || islemTipi == \'MLZ\'">\n\n    <ion-input type="text" [(ngModel)]="urun.mamKod" (focus)="urunSorgula()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2 *ngIf="islemTipi != \'\' && islemTipi==\'ISC\'">\n\n    <ion-label color="primary">Ürün İşçilik</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10 *ngIf="islemTipi != \'\' && islemTipi==\'ISC\'">\n\n    <ion-input type="text" [(ngModel)]="urunIscilik.iscAdi" (focus)="urunIscilikSorgula()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2 *ngIf="islemTipi != \'\' && islemTipi==\'ISC\'">\n\n    <ion-label color="primary">Ürün İşçilik</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10 *ngIf="islemTipi != \'\' && islemTipi==\'ISC\'">\n\n    <ion-input type="text" [(ngModel)]="urunIscilik.iscAdi" (focus)="urunIscilikSorgula()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-sm-12 col-md-6 col-lg-3 col-xl-3>\n\n    <button ion-button icon-start full round (click)="fiyatSorgula();">\n\n      <ion-icon name="md-help"></ion-icon>\n\n      Fiyat Sorgula\n\n    </button>\n\n  </ion-col>\n\n</ion-row>\n\n\n\n<ion-row *ngIf="fiyat.fiyat != null">\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">(KDV Dahil) Garanti Fiyat</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-label>{{fiyat.fiyat}}</ion-label>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">(KDV Dahil) Garanti Dışı Fiyat</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-label>{{fiyat.gdFiyat}}</ion-label>\n\n  </ion-col>\n\n\n\n</ion-row>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\fiyat-sorgu\fiyat-sorgu.html"*/
+            selector: 'fiyat-sorgu',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/fiyat-sorgu/fiyat-sorgu.html"*/'<!-- Generated template for the HizmetBilgileriComponent component -->\n\n<ion-row>\n  <ion-col col-12 *ngIf="islemTipi==\'\' || islemTipi==null ">\n    <ion-label color="primary">Önce işlem tipini seçiniz</ion-label>\n  </ion-col>\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">Işlem Tipi</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-select [(ngModel)]="islemTipi" interface="popover" (ionChange)="IslemTipiChange()">\n      <ion-option value="" selected="true"></ion-option>\n      <ion-option value="ISC">İşçilik</ion-option>\n      <ion-option value="MLZ">Malzeme</ion-option>\n    </ion-select>\n  </ion-col>\n\n  <ion-col col-4 col-md-2 *ngIf="islemTipi != \'\' && islemTipi==\'ISC\'">\n    <ion-label color="primary">Ürün ana Grubu</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10 *ngIf="islemTipi != \'\' && islemTipi==\'ISC\'">\n    <ion-input type="text" [(ngModel)]="urunAnaGrup.ad" (focus)="urunAnaGrupSorgula()"></ion-input>\n  </ion-col>\n\n  <ion-col col-4 col-md-2 *ngIf="islemTipi == \'ISC\' || islemTipi == \'MLZ\'">\n    <ion-label color="primary">Ürün Kodu</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10 *ngIf="islemTipi == \'ISC\' || islemTipi == \'MLZ\'">\n    <ion-input type="text" [(ngModel)]="urun.mamKod" (focus)="urunSorgula()"></ion-input>\n  </ion-col>\n\n  <ion-col col-4 col-md-2 *ngIf="islemTipi != \'\' && islemTipi==\'ISC\'">\n    <ion-label color="primary">Ürün İşçilik</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10 *ngIf="islemTipi != \'\' && islemTipi==\'ISC\'">\n    <ion-input type="text" [(ngModel)]="urunIscilik.iscAdi" (focus)="urunIscilikSorgula()"></ion-input>\n  </ion-col>\n\n  <ion-col col-4 col-md-2 *ngIf="islemTipi != \'\' && islemTipi==\'ISC\'">\n    <ion-label color="primary">Ürün İşçilik</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10 *ngIf="islemTipi != \'\' && islemTipi==\'ISC\'">\n    <ion-input type="text" [(ngModel)]="urunIscilik.iscAdi" (focus)="urunIscilikSorgula()"></ion-input>\n  </ion-col>\n\n  <ion-col col-sm-12 col-md-6 col-lg-3 col-xl-3>\n    <button ion-button icon-start full round (click)="fiyatSorgula();">\n      <ion-icon name="md-help"></ion-icon>\n      Fiyat Sorgula\n    </button>\n  </ion-col>\n</ion-row>\n\n<ion-row *ngIf="fiyat.fiyat != null">\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">(KDV Dahil) Garanti Fiyat</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-label>{{fiyat.fiyat}}</ion-label>\n  </ion-col>\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">(KDV Dahil) Garanti Dışı Fiyat</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-label>{{fiyat.gdFiyat}}</ion-label>\n  </ion-col>\n\n</ion-row>\n'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/fiyat-sorgu/fiyat-sorgu.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["h" /* ModalController */],
             __WEBPACK_IMPORTED_MODULE_4__providers_util_util__["a" /* UtilProvider */],
@@ -11709,7 +11939,7 @@ var HizmetBilgileriComponent = (function () {
     };
     HizmetBilgileriComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'hizmet-bilgileri',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-Components\hizmet-bilgileri\hizmet-bilgileri.html"*/'<ion-row>\n\n  <ion-col col col-4 col-md-2>\n\n    <ion-label color="primary">Randevu Tarihi</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="randevuTarihi" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col col-4 col-md-2>\n\n    <ion-label color="primary">Çağrı Açılış Tarihi</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="cagriTarihi" [disabled]="hizmet.durum != \'ACIK\'" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col col-4 col-md-2>\n\n    <ion-label color="primary">Hizmet Tipi</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.hizmetTipiAdi" [disabled]="hizmet.durum != \'ACIK\'" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col col-4 col-md-2>\n\n    <ion-label color="primary">Ürün Ana Grubu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.mamAnaGrpAdi" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col col-4 col-md-2>\n\n    <ion-label color="primary">Başvuru Nedeni</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.basvuruNedenAdi" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col col-4 col-md-2>\n\n    <ion-label color="primary">Hizmet Formu No</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.seqNo" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col col-4 col-md-2>\n\n    <ion-label color="primary">Durum</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.durum" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col col-4 col-md-2>\n\n    <ion-label color="primary">Çağrı No</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.cmNo" readonly></ion-input>\n\n  </ion-col>\n\n\n\n</ion-row>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-Components\hizmet-bilgileri\hizmet-bilgileri.html"*/
+            selector: 'hizmet-bilgileri',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/cagri-detay-Components/hizmet-bilgileri/hizmet-bilgileri.html"*/'<ion-row>\n  <ion-col col col-4 col-md-2>\n    <ion-label color="primary">Randevu Tarihi</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input [(ngModel)]="randevuTarihi" readonly></ion-input>\n  </ion-col>\n\n  <ion-col col col-4 col-md-2>\n    <ion-label color="primary">Çağrı Açılış Tarihi</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input [(ngModel)]="cagriTarihi" [disabled]="hizmet.durum != \'ACIK\'" readonly></ion-input>\n  </ion-col>\n\n  <ion-col col col-4 col-md-2>\n    <ion-label color="primary">Hizmet Tipi</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input [(ngModel)]="hizmet.hizmetTipiAdi" [disabled]="hizmet.durum != \'ACIK\'" readonly></ion-input>\n  </ion-col>\n\n  <ion-col col col-4 col-md-2>\n    <ion-label color="primary">Ürün Ana Grubu</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input [(ngModel)]="hizmet.mamAnaGrpAdi" readonly></ion-input>\n  </ion-col>\n\n  <ion-col col col-4 col-md-2>\n    <ion-label color="primary">Başvuru Nedeni</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input [(ngModel)]="hizmet.basvuruNedenAdi" readonly></ion-input>\n  </ion-col>\n\n  <ion-col col col-4 col-md-2>\n    <ion-label color="primary">Hizmet Formu No</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input [(ngModel)]="hizmet.seqNo" readonly></ion-input>\n  </ion-col>\n\n  <ion-col col col-4 col-md-2>\n    <ion-label color="primary">Durum</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input [(ngModel)]="hizmet.durum" readonly></ion-input>\n  </ion-col>\n\n  <ion-col col col-4 col-md-2>\n    <ion-label color="primary">Çağrı No</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input [(ngModel)]="hizmet.cmNo" readonly></ion-input>\n  </ion-col>\n\n</ion-row>\n'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/cagri-detay-Components/hizmet-bilgileri/hizmet-bilgileri.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_hizmet_service_hizmet_service__["a" /* HizmetService */],
             __WEBPACK_IMPORTED_MODULE_6__providers_urun_ana_grp_urun_ana_grp__["a" /* UrunAnaGrpProvider */],
@@ -11861,25 +12091,35 @@ var MusteriBilgileriComponent = (function () {
     };
     MusteriBilgileriComponent.prototype.getIlceList = function (item) {
         return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
+            var res, i;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        this.ilceler = [];
                         if (!this.util.isNotEmpty(this.hizmet.sehirKod)) return [3 /*break*/, 2];
-                        return [4 /*yield*/, this.adresDao.getIlceList(this.hizmet.sehirKod).then(function (res) {
-                                for (var i = 0; i < res.rows.length; i++) {
-                                    _this.ilceler.push(res.rows.item(i));
-                                }
-                                _this.onHizmetChange();
-                            })];
+                        return [4 /*yield*/, this.adresDao.getIlceList(this.hizmet.sehirKod)];
                     case 1:
-                        _a.sent();
+                        res = _a.sent();
+                        this.ilceler = [];
+                        this.logger.table(res);
+                        for (i = 0; i < res.rows.length; i++) {
+                            this.ilceler.push(res.rows.item(i));
+                        }
+                        this.setIlceValues();
+                        this.onHizmetChange();
                         _a.label = 2;
                     case 2: return [2 /*return*/];
                 }
             });
         });
+    };
+    MusteriBilgileriComponent.prototype.setIlceValues = function () {
+        var _this = this;
+        if (this.util.isNotEmpty(this.hizmet.ilceKod)) {
+            var res = this.ilceler.filter(function (res) { return res.ilceKodu == _this.hizmet.ilceKod; });
+            if (this.util.isNotEmpty(res) && res.length > 0) {
+                this.hizmet.ilceAdi = res[0].ilceAdi;
+            }
+        }
     };
     MusteriBilgileriComponent.prototype.onChangeIlce = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -11887,6 +12127,7 @@ var MusteriBilgileriComponent = (function () {
                 switch (_a.label) {
                     case 0:
                         this.hizmet.mahalleKodu = "";
+                        this.setIlceValues();
                         return [4 /*yield*/, this.getMahalleList(this.hizmet.ilceKod)];
                     case 1:
                         _a.sent();
@@ -11947,7 +12188,7 @@ var MusteriBilgileriComponent = (function () {
     };
     MusteriBilgileriComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'musteri-bilgileri',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-Components\musteri-bilgileri\musteri-bilgileri.html"*/'<ion-row>\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Müşteri</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="adSoyad" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Ev Telefonu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input type="tel" [(ngModel)]="evTel" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">İş Telefonu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input type="tel" [(ngModel)]="isTel" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Cep Telefonu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input type="tel" [(ngModel)]="cepTel" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">E-Posta</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.eposta" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Şehir</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-select [(ngModel)]="hizmet.sehirKod"\n\n                (ionChange)="onChangeSehir()"\n\n                interface="popover">\n\n\n\n      <ion-option *ngFor="let sehir of sehirler"\n\n                  [disabled]="isHizmetDisabled()"\n\n                  [value]="sehir.sehirKodu">\n\n        {{sehir.sehirKodu}} - {{sehir.sehirAdi}}\n\n      </ion-option>\n\n    </ion-select>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">İlçe</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-select [(ngModel)]="hizmet.ilceKod"\n\n                (ionChange)="onChangeIlce()"\n\n                interface="popover">\n\n\n\n      <ion-option *ngFor="let ilce of ilceler"\n\n                  [value]="ilce.ilceKodu"\n\n                  [disabled]="isHizmetDisabled()">\n\n        {{ilce.ilceKodu}} - {{ilce.ilceAdi}}\n\n      </ion-option>\n\n    </ion-select>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Semt/Köy</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.semt" [disabled]="hizmet.durum != \'ACIK\'" (ionBlur)="onHizmetChange()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Mahalle</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-select [(ngModel)]="hizmet.mahalleKodu" (ionChange)="onChangeMahalle()" interface="popover">\n\n      <ion-option *ngFor="let mahalle of mahalleler" [value]="mahalle.mahalleKodu" [disabled]="isHizmetDisabled()">\n\n        {{mahalle.mahalleKodu}} - {{mahalle.mahalleAdi}}\n\n      </ion-option>\n\n    </ion-select>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Cadde</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.cadde" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Sokak</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.sokak" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Apartman/Site</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.aparman" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Apartman No</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.apartmanNo" [disabled]="isHizmetDisabled()"\n\n               (ionChange)="onHizmetChange()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Blok</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.blok" [disabled]="isHizmetDisabled()" (ionBlur)="onHizmetChange()"></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Daire No</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.daireNo" [disabled]="isHizmetDisabled()" (ionBlur)="onHizmetChange()"></ion-input>\n\n  </ion-col>\n\n\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Servis Uyarı Notu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-textarea [(ngModel)]="hizmet.servisNotu" [disabled]="isHizmetDisabled()"\n\n                  (ionBlur)="onHizmetChange()"></ion-textarea>\n\n  </ion-col>\n\n\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Merkez Uyarı Notu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-textarea [(ngModel)]="hizmet.merkezNotu" [disabled]="isHizmetDisabled()"\n\n                  (ionBlur)="onHizmetChange()"></ion-textarea>\n\n  </ion-col>\n\n</ion-row>\n\n\n\n\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-Components\musteri-bilgileri\musteri-bilgileri.html"*/,
+            selector: 'musteri-bilgileri',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/cagri-detay-Components/musteri-bilgileri/musteri-bilgileri.html"*/'<ion-row>\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">Müşteri</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input [(ngModel)]="adSoyad" readonly></ion-input>\n  </ion-col>\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">Ev Telefonu</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input type="tel" [(ngModel)]="evTel" readonly></ion-input>\n  </ion-col>\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">İş Telefonu</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input type="tel" [(ngModel)]="isTel" readonly></ion-input>\n  </ion-col>\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">Cep Telefonu</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input type="tel" [(ngModel)]="cepTel" readonly></ion-input>\n  </ion-col>\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">E-Posta</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input [(ngModel)]="hizmet.eposta" readonly></ion-input>\n  </ion-col>\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">Şehir</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-select [(ngModel)]="hizmet.sehirKod"\n                (ionChange)="onChangeSehir()"\n                interface="popover">\n\n      <ion-option *ngFor="let sehir of sehirler"\n                  [disabled]="isHizmetDisabled()"\n                  [value]="sehir.sehirKodu">\n        {{sehir.sehirKodu}} - {{sehir.sehirAdi}}\n      </ion-option>\n    </ion-select>\n  </ion-col>\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">İlçe</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-select [(ngModel)]="hizmet.ilceKod"\n                (ionChange)="onChangeIlce()"\n                interface="popover">\n\n      <ion-option *ngFor="let ilce of ilceler"\n                  [value]="ilce.ilceKodu"\n                  [disabled]="isHizmetDisabled()">\n        {{ilce.ilceKodu}} - {{ilce.ilceAdi}}\n      </ion-option>\n    </ion-select>\n  </ion-col>\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">Semt/Köy</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input [(ngModel)]="hizmet.semt" [disabled]="hizmet.durum != \'ACIK\'" (ionBlur)="onHizmetChange()"></ion-input>\n  </ion-col>\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">Mahalle</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-select [(ngModel)]="hizmet.mahalleKodu" (ionChange)="onChangeMahalle()" interface="popover">\n\n      <ion-option *ngFor="let mahalle of mahalleler" [value]="mahalle.mahalleKodu" [disabled]="isHizmetDisabled()">\n        {{mahalle.mahalleKodu}} - {{mahalle.mahalleAdi}}\n      </ion-option>\n    </ion-select>\n  </ion-col>\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">Cadde</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input [(ngModel)]="hizmet.cadde" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"></ion-input>\n  </ion-col>\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">Sokak</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input [(ngModel)]="hizmet.sokak" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"></ion-input>\n  </ion-col>\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">Apartman/Site</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input [(ngModel)]="hizmet.aparman" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"></ion-input>\n  </ion-col>\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">Apartman No</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input [(ngModel)]="hizmet.apartmanNo" [disabled]="isHizmetDisabled()"\n               (ionChange)="onHizmetChange()"></ion-input>\n  </ion-col>\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">Blok</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input [(ngModel)]="hizmet.blok" [disabled]="isHizmetDisabled()" (ionBlur)="onHizmetChange()"></ion-input>\n  </ion-col>\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">Daire No</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input [(ngModel)]="hizmet.daireNo" [disabled]="isHizmetDisabled()" (ionBlur)="onHizmetChange()"></ion-input>\n  </ion-col>\n\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">Servis Uyarı Notu</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-textarea [(ngModel)]="hizmet.servisNotu" [disabled]="isHizmetDisabled()"\n                  (ionBlur)="onHizmetChange()"></ion-textarea>\n  </ion-col>\n\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">Merkez Uyarı Notu</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-textarea [(ngModel)]="hizmet.merkezNotu" [disabled]="isHizmetDisabled()"\n                  (ionBlur)="onHizmetChange()"></ion-textarea>\n  </ion-col>\n</ion-row>\n\n\n'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/cagri-detay-Components/musteri-bilgileri/musteri-bilgileri.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_hizmet_service_hizmet_service__["a" /* HizmetService */],
             __WEBPACK_IMPORTED_MODULE_3__providers_adres_dao_adres_dao__["a" /* AdresDao */],
@@ -11995,7 +12236,7 @@ var ServisBilgileriComponent = (function () {
     }
     ServisBilgileriComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'servis-bilgileri',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-components\servis-bilgileri\servis-bilgileri.html"*/'<ion-toolbar class="main-tabs">\n\n  <ion-segment [(ngModel)]="activePage" style="padding-top: 10px;">\n\n    <ion-segment-button value="servis">\n\n      İşlem Tarihleri\n\n    </ion-segment-button>\n\n\n\n    <ion-segment-button value="tarihce">\n\n      Tarihçe Bilgisi\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n\n\n\n\n  <div [ngSwitch]="activePage">\n\n    <div *ngSwitchCase="\'servis\'">\n\n      <islem-tarih></islem-tarih>\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'tarihce\'">\n\n      <servis-islem-tarihce></servis-islem-tarihce>\n\n    </div>\n\n  </div>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-components\servis-bilgileri\servis-bilgileri.html"*/
+            selector: 'servis-bilgileri',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/cagri-detay-components/servis-bilgileri/servis-bilgileri.html"*/'<ion-toolbar class="main-tabs">\n  <ion-segment [(ngModel)]="activePage" style="padding-top: 10px;">\n    <ion-segment-button value="servis">\n      İşlem Tarihleri\n    </ion-segment-button>\n\n    <ion-segment-button value="tarihce">\n      Tarihçe Bilgisi\n    </ion-segment-button>\n  </ion-segment>\n\n\n  <div [ngSwitch]="activePage">\n    <div *ngSwitchCase="\'servis\'">\n      <islem-tarih></islem-tarih>\n    </div>\n\n    <div *ngSwitchCase="\'tarihce\'">\n      <servis-islem-tarihce></servis-islem-tarihce>\n    </div>\n  </div>'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/cagri-detay-components/servis-bilgileri/servis-bilgileri.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_hizmet_service_hizmet_service__["a" /* HizmetService */]])
     ], ServisBilgileriComponent);
@@ -12021,10 +12262,10 @@ var ServisBilgileriComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_logger_logger__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_urun_ana_grup_dao_urun_ana_grup_dao__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__entities_urunAnaGrup__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_garanti_sorgu_garanti_sorgu__ = __webpack_require__(178);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__entities_GarantiSorgu__ = __webpack_require__(177);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_seri_no_sorgu_seri_no_sorgu__ = __webpack_require__(502);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__update_urun_ana_grup_update_urun_ana_grup__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_garanti_sorgu_garanti_sorgu__ = __webpack_require__(179);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__entities_GarantiSorgu__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_seri_no_sorgu_seri_no_sorgu__ = __webpack_require__(503);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__update_urun_ana_grup_update_urun_ana_grup__ = __webpack_require__(184);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__entities_ProcessResults__ = __webpack_require__(116);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -12095,6 +12336,7 @@ var UrunBilgileriComponent = (function () {
         this.seriNoSorguProvider = seriNoSorguProvider;
         this.urunAnaGrpDao = urunAnaGrpDao;
         this.hizmet = new __WEBPACK_IMPORTED_MODULE_2__entities_hizmet_hizmet__["a" /* Hizmet */]();
+        this.seriNoSayisi = 1;
         this.hizmet = this.hizmetService.getHizmet();
         this.init();
         this.findUrunAnaGrp();
@@ -12180,12 +12422,13 @@ var UrunBilgileriComponent = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 if (this.util.isNotEmpty(this.hizmet.detayDtoList) && this.hizmet.detayDtoList.length > 0) {
-                    this.util.message("Ürüne bağlı Parça/İşçilik/Yol mevcut.Silinemez.");
+                    this.util.error("Ürüne bağlı Parça/İşçilik/Yol mevcut.Silinemez.");
                     return [2 /*return*/, false];
                 }
                 this.hizmet.mamKod = "";
                 this.hizmet.mamAdi = "";
                 this.hizmet.mamSeriNo = "";
+                this.hizmet.mamSeriNo2 = "";
                 this.saveHizmet();
                 return [2 /*return*/];
             });
@@ -12207,7 +12450,10 @@ var UrunBilgileriComponent = (function () {
             var res;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.seriNoSorguProvider.fetchData(this.hizmet.mamSeriNo)];
+                    case 0:
+                        debugger;
+                        if (!this.util.isNotEmpty(this.hizmet.mamSeriNo)) return [3 /*break*/, 2];
+                        return [4 /*yield*/, this.seriNoSorguProvider.fetchData(this.hizmet.mamSeriNo)];
                     case 1:
                         res = _a.sent();
                         this.logger.warn(res);
@@ -12217,7 +12463,11 @@ var UrunBilgileriComponent = (function () {
                         else {
                             this.util.ifOffline();
                         }
-                        return [2 /*return*/];
+                        return [3 /*break*/, 3];
+                    case 2:
+                        this.util.error("Seri No alanı sorgu için zorunludur.");
+                        _a.label = 3;
+                    case 3: return [2 /*return*/];
                 }
             });
         });
@@ -12304,7 +12554,7 @@ var UrunBilgileriComponent = (function () {
     };
     UrunBilgileriComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'urun-bilgileri',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-Components\urun-bilgileri\urun-bilgileri.html"*/'<!-- Generated template for the UrunBilgileriComponent component -->\n\n<ion-grid>\n\n  <ion-row>\n\n    <ion-col col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3>\n\n      <button ion-button icon-start full round (click)="urunListesiniGetir()" [disabled]="isHizmetDisabled()">\n\n        <ion-icon name="list"></ion-icon>\n\n        Ürün Seç\n\n      </button>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3>\n\n      <button ion-button icon-start full round (click)="urunSil()" [disabled]="isHizmetDisabled()">\n\n        <ion-icon name="trash"></ion-icon>\n\n        Ürün Sil\n\n      </button>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3>\n\n      <button ion-button icon-start full round (click)="urunAnaGrupDegistir()" [disabled]="isHizmetDisabled()">\n\n        <ion-icon name="md-refresh"></ion-icon>\n\n        Ürün Ana Grup Değiştir\n\n      </button>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3>\n\n      <button ion-button icon-start full round (click)="garantiSorgula()">\n\n        <ion-icon style="width: 5%" name="md-help"></ion-icon>\n\n        Garanti Sorgula\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>\n\n\n\n\n\n<ion-row class="urun-bilgileri">\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Ürün Ana Grubu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="mamAnaGrpValue" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Ürün Kodu</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.mamKod" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Ürün Adı</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-input [(ngModel)]="hizmet.mamAdi" readonly></ion-input>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Seri No</ion-label>\n\n  </ion-col>\n\n  <ion-col col-5 col-md-8>\n\n    <ion-input [(ngModel)]="hizmet.mamSeriNo" (ionBlur)="saveHizmet()"  [disabled]="isHizmetDisabled()"></ion-input>\n\n  </ion-col>\n\n  <ion-col col-3 col-md-2>\n\n    <button ion-button icon-start full round (click)="seriNoSorgula()" [disabled]="isHizmetDisabled()" style="margin-top:13px;">\n\n      <ion-icon name="search"></ion-icon>\n\n    </button>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-2>\n\n    <ion-label color="primary">Fatura Tarihi</ion-label>\n\n  </ion-col>\n\n  <ion-col col-8 col-md-10>\n\n    <ion-datetime [(ngModel)]="hizmet.sattar" [disabled]="isHizmetDisabled()" (ionChange)="faturaTarihiChange()" displayFormat="DD/MM/YYYY"></ion-datetime>\n\n  </ion-col>\n\n\n\n  <ion-col col-4 col-md-4>\n\n    <ion-label color="primary">Garanti</ion-label>\n\n  </ion-col>\n\n  <ion-col col-6 col-md-6>\n\n    <ion-label color="primary" class="radio-btn" style="text-align: end;position: relative;">{{garanti == true ? \'VAR\' : \'YOK\'}}</ion-label>\n\n  </ion-col>\n\n  <ion-col col-2 col-md-2>\n\n    <ion-toggle [(ngModel)]="garanti" (ionChange)="garantiChange()" class="toggle-btn"></ion-toggle>\n\n  </ion-col>\n\n\n\n\n\n  <ion-col col-4 col-md-4>\n\n    <ion-label color="primary">Meşguliyet</ion-label>\n\n  </ion-col>\n\n  <ion-col col-6 col-md-6>\n\n    <ion-label color="primary" class="radio-btn" style="text-align: end;position: relative;">{{mesguliyet == true ? \'VAR\' : \'YOK\'}}</ion-label>\n\n  </ion-col>\n\n  <ion-col col-2 col-md-2>\n\n    <ion-toggle [(ngModel)]="mesguliyet" (ionChange)="mesguliyetChange()" class="toggle-btn"></ion-toggle>\n\n  </ion-col>\n\n</ion-row>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-Components\urun-bilgileri\urun-bilgileri.html"*/
+            selector: 'urun-bilgileri',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/cagri-detay-Components/urun-bilgileri/urun-bilgileri.html"*/'<!-- Generated template for the UrunBilgileriComponent component -->\n<ion-grid>\n  <ion-row>\n    <ion-col col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3>\n      <button ion-button icon-start full round (click)="urunListesiniGetir()" [disabled]="isHizmetDisabled()">\n        <ion-icon name="list"></ion-icon>\n        Ürün Seç\n      </button>\n    </ion-col>\n    <ion-col col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3>\n      <button ion-button icon-start full round (click)="urunSil()" [disabled]="isHizmetDisabled()">\n        <ion-icon name="trash"></ion-icon>\n        Ürün Sil\n      </button>\n    </ion-col>\n    <ion-col col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3>\n      <button ion-button icon-start full round (click)="urunAnaGrupDegistir()" [disabled]="isHizmetDisabled()">\n        <ion-icon name="md-refresh"></ion-icon>\n        Ürün Ana Grup Değiştir\n      </button>\n    </ion-col>\n    <ion-col col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3>\n      <button ion-button icon-start full round (click)="garantiSorgula()">\n        <ion-icon style="width: 5%" name="md-help"></ion-icon>\n        Garanti Sorgula\n      </button>\n    </ion-col>\n  </ion-row>\n</ion-grid>\n\n\n<ion-row class="urun-bilgileri">\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">Ürün Ana Grubu</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input [(ngModel)]="mamAnaGrpValue" readonly></ion-input>\n  </ion-col>\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">Ürün Kodu</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input [(ngModel)]="hizmet.mamKod" readonly></ion-input>\n  </ion-col>\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">Ürün Adı</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-input [(ngModel)]="hizmet.mamAdi" readonly></ion-input>\n  </ion-col>\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">Seri No</ion-label>\n  </ion-col>\n  <ion-col col-5 col-md-8>\n    <ion-input [(ngModel)]="hizmet.mamSeriNo" (ionBlur)="saveHizmet()" [disabled]="isHizmetDisabled()"></ion-input>\n  </ion-col>\n  <ion-col col-3 col-md-2>\n    <button ion-button icon-start full round (click)="seriNoSorgula()" [disabled]="isHizmetDisabled()"\n            style="margin-top:13px;">\n      <ion-icon name="search"></ion-icon>\n    </button>\n  </ion-col>\n\n  <ion-col col-4 col-md-2 *ngIf="seriNoSayisi==2">\n    <ion-label color="primary">Seri No2</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10 *ngIf="seriNoSayisi==2">\n    <ion-input [(ngModel)]="hizmet.mamSeriNo2" (ionBlur)="saveHizmet()" [disabled]="isHizmetDisabled()"></ion-input>\n  </ion-col>\n\n  <ion-col col-4 col-md-2>\n    <ion-label color="primary">Fatura Tarihi</ion-label>\n  </ion-col>\n  <ion-col col-8 col-md-10>\n    <ion-datetime [(ngModel)]="hizmet.sattar" [disabled]="isHizmetDisabled()" (ionChange)="faturaTarihiChange()"\n                  displayFormat="DD/MM/YYYY"></ion-datetime>\n  </ion-col>\n\n  <ion-col col-4 col-md-4>\n    <ion-label color="primary">Garanti</ion-label>\n  </ion-col>\n  <ion-col col-6 col-md-6>\n    <ion-label color="primary" class="radio-btn" style="text-align: end;position: relative;">{{garanti == true ? \'VAR\' :\n      \'YOK\'}}\n    </ion-label>\n  </ion-col>\n  <ion-col col-2 col-md-2>\n    <ion-toggle [(ngModel)]="garanti" (ionChange)="garantiChange()" class="toggle-btn"></ion-toggle>\n  </ion-col>\n\n\n  <ion-col col-4 col-md-4>\n    <ion-label color="primary">Meşguliyet</ion-label>\n  </ion-col>\n  <ion-col col-6 col-md-6>\n    <ion-label color="primary" class="radio-btn" style="text-align: end;position: relative;">{{mesguliyet == true ?\n      \'VAR\' : \'YOK\'}}\n    </ion-label>\n  </ion-col>\n  <ion-col col-2 col-md-2>\n    <ion-toggle [(ngModel)]="mesguliyet" (ionChange)="mesguliyetChange()" class="toggle-btn"></ion-toggle>\n  </ion-col>\n</ion-row>\n'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/cagri-detay-Components/urun-bilgileri/urun-bilgileri.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */],
             __WEBPACK_IMPORTED_MODULE_3__providers_hizmet_service_hizmet_service__["a" /* HizmetService */],
@@ -12335,10 +12585,11 @@ var UrunBilgileriComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_urun_ana_grup_dao_urun_ana_grup_dao__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_Constants__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__hizmet_detay_hizmet_detay__ = __webpack_require__(183);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_printer_service_printer_service__ = __webpack_require__(503);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__hizmet_detay_hizmet_detay__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_printer_service_printer_service__ = __webpack_require__(504);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_hizmet_hizmet__ = __webpack_require__(80);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__entities_ProcessResults__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_fiyat_fiyat__ = __webpack_require__(175);
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
@@ -12400,6 +12651,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
 var DURUM;
 (function (DURUM) {
     DURUM["ACIK"] = "ACIK";
@@ -12412,7 +12664,7 @@ var ISTEK;
     ISTEK["HAYIR"] = "H";
 })(ISTEK || (ISTEK = {}));
 var DetayBilgileriComponent = (function () {
-    function DetayBilgileriComponent(hizmetService, urunAnaGrupDao, modalCtrl, util, logger, alertCtrl, nav, hizmetProvider, printService) {
+    function DetayBilgileriComponent(hizmetService, urunAnaGrupDao, modalCtrl, util, logger, alertCtrl, nav, hizmetProvider, fiyatProvider, printService) {
         this.hizmetService = hizmetService;
         this.urunAnaGrupDao = urunAnaGrupDao;
         this.modalCtrl = modalCtrl;
@@ -12421,6 +12673,7 @@ var DetayBilgileriComponent = (function () {
         this.alertCtrl = alertCtrl;
         this.nav = nav;
         this.hizmetProvider = hizmetProvider;
+        this.fiyatProvider = fiyatProvider;
         this.printService = printService;
         this.showDetails = 1;
         this.hizmet = new __WEBPACK_IMPORTED_MODULE_1__entities_hizmet_hizmet__["a" /* Hizmet */]();
@@ -12428,9 +12681,9 @@ var DetayBilgileriComponent = (function () {
         this.verilerSunucuyaKayitEdildiMi = false;
         this.toplamTutar = 0;
         this.hizmet = this.hizmetService.getHizmet();
-        this.loadDetayList();
         this.loadCozumKoduList();
         this.loadletisimIstek();
+        this.loadDetayFiyatlari();
     }
     DetayBilgileriComponent.prototype.getHizmet = function () {
         this.hizmet = this.hizmetService.getHizmet();
@@ -12479,7 +12732,7 @@ var DetayBilgileriComponent = (function () {
             detayModal.present();
         }
         else {
-            this.util.message('Ürün bilgisi seçilmeden detay girilemez.');
+            this.util.warn('Ürün bilgisi seçilmeden detay girilemez.');
         }
     };
     DetayBilgileriComponent.prototype.updateHizmetDetay = function (item) {
@@ -12510,10 +12763,8 @@ var DetayBilgileriComponent = (function () {
                     case 0:
                         result = this.kapatmaKontrol();
                         if (!result.isErrorMessagesNull()) return [3 /*break*/, 2];
-                        kapatmaHizmet = this.hizmetProvider.fillHizmet(this.hizmet);
-                        if (!this.verilerSunucuyaKayitEdildiMi) {
-                            kapatmaHizmet = this.sunucuyaKayitIcinHazirla(kapatmaHizmet);
-                        }
+                        kapatmaHizmet = this.util.assign(this.hizmet);
+                        kapatmaHizmet = this.sunucuyaKayitIcinHazirla(kapatmaHizmet);
                         kapatmaHizmet.durum = durum;
                         this.util.loaderStart();
                         return [4 /*yield*/, this.hizmetProvider.updateCagri(kapatmaHizmet, "HAYIR")];
@@ -12590,7 +12841,7 @@ var DetayBilgileriComponent = (function () {
                 this.fillHizmet(res);
             }
             else if (res.responseCode == "SUCCESS") {
-                this.util.message(res.description);
+                this.util.success(res.description);
                 this.fillHizmet(res);
             }
             else {
@@ -12668,9 +12919,10 @@ var DetayBilgileriComponent = (function () {
         }
     };
     DetayBilgileriComponent.prototype.sunucuyaKayitIcinHazirla = function (hizmet) {
+        //hizmet = this.hizmetProvider.fillHizmet(hizmet);
         var _this = this;
-        hizmet = this.hizmetProvider.fillHizmet(hizmet);
-        var sunucuyaGidecekHizmet = Object.assign({}, hizmet);
+        //let sunucuyaGidecekHizmet = Object.assign({}, hizmet);
+        var sunucuyaGidecekHizmet = this.util.assign(hizmet);
         var DATE_FORMAT = "dd.MM.yyyy hh:mm:ss";
         if (this.util.isNotEmpty(sunucuyaGidecekHizmet.islemList)) {
             sunucuyaGidecekHizmet.islemList.forEach(function (islem) {
@@ -12685,6 +12937,7 @@ var DetayBilgileriComponent = (function () {
         sunucuyaGidecekHizmet.randevuTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.randevuTarihi, DATE_FORMAT);
         sunucuyaGidecekHizmet.islemTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.islemTarihi, DATE_FORMAT);
         sunucuyaGidecekHizmet.islemBitTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.islemBitTarihi, DATE_FORMAT);
+        sunucuyaGidecekHizmet.cagriTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.cagriTarihi, DATE_FORMAT);
         return sunucuyaGidecekHizmet;
     };
     DetayBilgileriComponent.prototype.hizmetSilKontrol = function () {
@@ -12833,9 +13086,59 @@ var DetayBilgileriComponent = (function () {
     DetayBilgileriComponent.prototype.isHizmetDisabled = function () {
         return this.hizmet.durum == "KAPALI" || this.hizmet.durum == "IPTAL";
     };
+    DetayBilgileriComponent.prototype.loadDetayFiyatlari = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var dtoList, i, dto;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        dtoList = this.hizmet.detayDtoList;
+                        if (!this.util.isNotEmpty(dtoList)) return [3 /*break*/, 5];
+                        i = 0;
+                        _a.label = 1;
+                    case 1:
+                        if (!(i < dtoList.length)) return [3 /*break*/, 4];
+                        dto = dtoList[i];
+                        return [4 /*yield*/, this.findDetayFiyat(dto)];
+                    case 2:
+                        _a.sent();
+                        _a.label = 3;
+                    case 3:
+                        i++;
+                        return [3 /*break*/, 1];
+                    case 4:
+                        this.loadDetayList();
+                        _a.label = 5;
+                    case 5: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    DetayBilgileriComponent.prototype.findDetayFiyat = function (detay) {
+        return __awaiter(this, void 0, void 0, function () {
+            var res;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (!(this.util.isEmpty(detay.birimFiyat) || detay.birimFiyat == 0)) return [3 /*break*/, 2];
+                        return [4 /*yield*/, this.fiyatProvider.findFiyat(detay, this.hizmet.mamKod)];
+                    case 1:
+                        res = _a.sent();
+                        if (this.util.isNotEmpty(res)) {
+                            detay.birimFiyat = res.fiyat;
+                            detay.garFiyat = res.gdfiyat;
+                            detay.tutar = Number(detay.birimFiyat) * detay.miktar;
+                            detay.garTutar = String(Number(detay.garFiyat) * detay.miktar);
+                        }
+                        _a.label = 2;
+                    case 2: return [2 /*return*/];
+                }
+            });
+        });
+    };
     DetayBilgileriComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'detay-bilgileri',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-components\detay-bilgileri\detay-bilgileri.html"*/'<ion-grid class="detay">\n\n  <ion-row>\n\n    <ion-col col-6 col-md-6 col-sm>\n\n      <button ion-button primary round full (click)="hizmetDetayaGit()" [disabled]="isHizmetDisabled()">\n\n        <ion-label>\n\n          <ion-icon name="add-circle" class="mr-icon"></ion-icon>\n\n          Yeni\n\n        </ion-label>\n\n      </button>\n\n    </ion-col>\n\n\n\n    <ion-col col-6 col-sm>\n\n      <button ion-button primary round full [disabled]="isHizmetDisabled()" (click)="siparisOlustur()">\n\n        <ion-label>\n\n          <ion-icon class="mr-icon" name="basket"></ion-icon>\n\n          Sipariş Oluştur\n\n        </ion-label>\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>\n\n\n\n<ion-grid *ngIf="detayList != null && detayList.length > 0">\n\n  <ion-row>\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n\n      <ion-label>İşlem Tipi</ion-label>\n\n    </ion-col>\n\n    <ion-col col-md-4 col-lg-4 col-xl-4 col-sm-4>\n\n      <ion-label>İşlem Kodu</ion-label>\n\n    </ion-col>\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n\n      <ion-label>Miktar</ion-label>\n\n    </ion-col>\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n\n      <ion-label>Tutar</ion-label>\n\n    </ion-col>\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n\n\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row *ngFor="let detay of detayList">\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n\n      <ion-label>{{detay.mlzIsc}}</ion-label>\n\n    </ion-col>\n\n    <ion-col col-md-4 col-lg-4 col-xl-4 col-sm-4>\n\n      <ion-label>{{detay.mlzIscKod}} - {{detay.aciklama}}</ion-label>\n\n    </ion-col>\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n\n      <ion-label>{{detay.miktar}}</ion-label>\n\n    </ion-col>\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n\n      <ion-label>{{detay.tutar}}</ion-label>\n\n    </ion-col>\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n\n      <ion-row>\n\n        <ion-col col-6>\n\n          <button ion-button icon-only (click)="updateHizmetDetay(detay)" [disabled]="isHizmetDisabled()">\n\n            <ion-icon name="create" small></ion-icon>\n\n          </button>\n\n        </ion-col>\n\n        <ion-col col-6>\n\n          <button ion-button icon-only (click)="deleteHizmetDetay(detay)" [disabled]="isHizmetDisabled()">\n\n            <ion-icon name="close-circle" small></ion-icon>\n\n          </button>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label></ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label></ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>KDV\'li Toplam Tutar</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>{{toplamTutar}}</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>\n\n\n\n<ion-list>\n\n\n\n  <ion-row>\n\n    <ion-col col-12 col-sm class="detay">\n\n      <button ion-button primary round full (click)="toggleDetails()">\n\n        <ion-label>\n\n          <ion-icon name="arrow-down" class="mr-icon"></ion-icon>\n\n          Kapatma İşlemleri\n\n        </ion-label>\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <div id="divKapatmaIslemleri" class="gray-box" *ngIf="showDetails == -1">\n\n    <ion-grid>\n\n      <ion-row>\n\n        <ion-col col-6 col-md-6 col-sm>\n\n          <button ion-button round color="secondary" (click)="kapat(\'ACIK\')" [disabled]="isHizmetDisabled()" full>Kapat\n\n          </button>\n\n        </ion-col>\n\n        <ion-col col-6 col-md-6 col-sm>\n\n          <button ion-button round color="secondary" [disabled]="isHizmetDisabled()" (click)="hizmetIptalKontrol()" full>\n\n            İptal\n\n          </button>\n\n        </ion-col>\n\n        <ion-col col-6 col-md-6 col-sm>\n\n          <button ion-button round color="secondary" (click)="yazdir()" full>Yazdır</button>\n\n        </ion-col>\n\n        <ion-col col-6 col-md-6 col-sm>\n\n          <button ion-button round color="secondary" [disabled]="isHizmetDisabled()" (click)="hizmetSilKontrol()" full>\n\n            Sil\n\n          </button>\n\n        </ion-col>\n\n      </ion-row>\n\n\n\n\n\n    </ion-grid>\n\n\n\n    <ion-row>\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">Açıklama</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-textarea [(ngModel)]="hizmet.aciklama" [disabled]="isHizmetDisabled()" (ionBlur)="onHizmetChange()"></ion-textarea>\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">Kapatma Şekli</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-select [(ngModel)]="hizmet.kapatmaKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()" interface="action-sheet">\n\n          <ion-option value="NORMAL">Normal Kapatma</ion-option>\n\n          <ion-option value="MESGULIYET">Meşguliyet Kapatma</ion-option>\n\n        </ion-select>\n\n\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">Ödeme Tipi</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-select [(ngModel)]="hizmet.odemeTipi" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()" interface="action-sheet">\n\n          <ion-option value="NAKIT">Nakit</ion-option>\n\n          <ion-option value="KREDIKARTI">Kredi Kartı</ion-option>\n\n        </ion-select>\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">Çözüm Kodu</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-select [(ngModel)]="hizmet.cozumKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()" interface="action-sheet">\n\n          <ion-option *ngFor="let cozum of cozumKoduList" [value]="cozum.kod">{{cozum.ad}}</ion-option>\n\n        </ion-select>\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">İletişim Istek</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-6 col-md-9>\n\n\n\n        <ion-label color="primary" class="radio-btn" style="text-align: end;position: relative;">{{iletisimIstek == true ? \'EVET\' : \'HAYIR\'}}\n\n        </ion-label>\n\n\n\n      </ion-col>\n\n      <ion-col col-2 col-md-1>\n\n        <ion-toggle (ionChange)="iletisimIstekChange()" class="toggle-btn" style="text-align: end;" [disabled]="isHizmetDisabled()"\n\n          [(ngModel)]="iletisimIstek"></ion-toggle>\n\n      </ion-col>\n\n\n\n    </ion-row>\n\n  </div>\n\n</ion-list>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-components\detay-bilgileri\detay-bilgileri.html"*/
+            selector: 'detay-bilgileri',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/cagri-detay-components/detay-bilgileri/detay-bilgileri.html"*/'<ion-grid class="detay">\n  <ion-row>\n    <ion-col col-6 col-md-6 col-sm>\n      <button ion-button primary round full (click)="hizmetDetayaGit()" [disabled]="isHizmetDisabled()">\n        <ion-label>\n          <ion-icon name="add-circle" class="mr-icon"></ion-icon>\n          Yeni\n        </ion-label>\n      </button>\n    </ion-col>\n\n    <ion-col col-6 col-sm>\n      <button ion-button primary round full [disabled]="isHizmetDisabled()" (click)="siparisOlustur()">\n        <ion-label>\n          <ion-icon class="mr-icon" name="basket"></ion-icon>\n          Sipariş Oluştur\n        </ion-label>\n      </button>\n    </ion-col>\n  </ion-row>\n</ion-grid>\n\n<ion-grid *ngIf="detayList != null && detayList.length > 0">\n  <ion-row style="font-weight: bold">\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n      <ion-label>İşlem Tipi</ion-label>\n    </ion-col>\n    <ion-col col-md-4 col-lg-4 col-xl-4 col-sm-4>\n      <ion-label>İşlem Kodu</ion-label>\n    </ion-col>\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n      <ion-label>Miktar</ion-label>\n    </ion-col>\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n      <ion-label>Tutar</ion-label>\n    </ion-col>\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n\n    </ion-col>\n  </ion-row>\n\n  <ion-row *ngFor="let detay of detayList">\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n      <ion-label>{{detay.mlzIsc}}</ion-label>\n    </ion-col>\n\n    <ion-col col-md-4 col-lg-4 col-xl-4 col-sm-4 style="overflow: overlay">\n      <ion-label>{{detay.mlzIscKod}} - {{detay.aciklama}}</ion-label>\n    </ion-col>\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n      <ion-label>{{detay.miktar}}</ion-label>\n    </ion-col>\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n      <ion-label>{{detay.tutar}}</ion-label>\n    </ion-col>\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n      <ion-row>\n\n        <ion-col col-6>\n          <button ion-button icon-only (click)="updateHizmetDetay(detay)" [disabled]="isHizmetDisabled()">\n            <ion-icon name="create" small></ion-icon>\n          </button>\n        </ion-col>\n\n        <ion-col col-6>\n          <button ion-button icon-only (click)="deleteHizmetDetay(detay)" [disabled]="isHizmetDisabled()">\n            <ion-icon name="close-circle" small></ion-icon>\n          </button>\n        </ion-col>\n\n      </ion-row>\n    </ion-col>\n  </ion-row>\n\n  <ion-row>\n\n    <ion-col col-md-8 col-lg-8 col-xl-8 col-sm-8 style="text-align: right">\n      <ion-label>KDV\'li Toplam Tutar</ion-label>\n    </ion-col>\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n      <ion-label>{{toplamTutar}}</ion-label>\n    </ion-col>\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n    </ion-col>\n\n  </ion-row>\n</ion-grid>\n\n<ion-list>\n\n  <ion-row>\n    <ion-col col-12 col-sm class="detay">\n      <button ion-button primary round full (click)="toggleDetails()">\n        <ion-label>\n          <ion-icon name="arrow-down" class="mr-icon"></ion-icon>\n          Kapatma İşlemleri\n        </ion-label>\n      </button>\n    </ion-col>\n  </ion-row>\n\n  <div id="divKapatmaIslemleri" class="gray-box" *ngIf="showDetails == -1">\n    <ion-grid>\n      <ion-row>\n        <ion-col col-6 col-md-6 col-sm>\n          <button ion-button round color="secondary" (click)="kapat(\'ACIK\')" [disabled]="isHizmetDisabled()" full>Kapat\n          </button>\n        </ion-col>\n        <ion-col col-6 col-md-6 col-sm>\n          <button ion-button round color="secondary" [disabled]="isHizmetDisabled()" (click)="hizmetIptalKontrol()"\n                  full>\n            İptal\n          </button>\n        </ion-col>\n        <ion-col col-6 col-md-6 col-sm>\n          <button ion-button round color="secondary" (click)="yazdir()" full>Yazdır</button>\n        </ion-col>\n        <ion-col col-6 col-md-6 col-sm>\n          <button ion-button round color="secondary" [disabled]="isHizmetDisabled()" (click)="hizmetSilKontrol()" full>\n            Sil\n          </button>\n        </ion-col>\n      </ion-row>\n\n\n    </ion-grid>\n\n    <ion-row>\n      <ion-col col-4 col-md-2>\n        <ion-label color="primary">Açıklama</ion-label>\n      </ion-col>\n\n      <ion-col col-8 col-md-10>\n        <ion-textarea [(ngModel)]="hizmet.aciklama" [disabled]="isHizmetDisabled()"\n                      (ionBlur)="onHizmetChange()"></ion-textarea>\n      </ion-col>\n\n      <ion-col col-4 col-md-2>\n        <ion-label color="primary">Kapatma Şekli</ion-label>\n      </ion-col>\n\n      <ion-col col-8 col-md-10>\n        <ion-select [(ngModel)]="hizmet.kapatmaKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"\n                    interface="popover">\n          <ion-option value="NORMAL">Normal Kapatma</ion-option>\n          <ion-option value="MESGULIYET">Meşguliyet Kapatma</ion-option>\n        </ion-select>\n\n      </ion-col>\n\n      <ion-col col-4 col-md-2>\n        <ion-label color="primary">Ödeme Tipi</ion-label>\n      </ion-col>\n\n      <ion-col col-8 col-md-10>\n        <ion-select [(ngModel)]="hizmet.odemeTipi" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"\n                    interface="popover">\n          <ion-option value="NAKIT">Nakit</ion-option>\n          <ion-option value="KREDIKARTI">Kredi Kartı</ion-option>\n        </ion-select>\n      </ion-col>\n\n      <ion-col col-4 col-md-2>\n        <ion-label color="primary">Çözüm Kodu</ion-label>\n      </ion-col>\n\n      <ion-col col-8 col-md-10>\n        <ion-select [(ngModel)]="hizmet.cozumKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"\n                    interface="popover">\n          <ion-option *ngFor="let cozum of cozumKoduList" [value]="cozum.kod">{{cozum.ad}}</ion-option>\n        </ion-select>\n      </ion-col>\n\n      <ion-col col-4 col-md-2>\n        <ion-label color="primary">İletişim Istek</ion-label>\n      </ion-col>\n\n      <ion-col col-6 col-md-9>\n\n        <ion-label color="primary" class="radio-btn" style="text-align: end;position: relative;">{{iletisimIstek == true\n          ? \'EVET\' : \'HAYIR\'}}\n        </ion-label>\n\n      </ion-col>\n      <ion-col col-2 col-md-1>\n        <ion-toggle (ionChange)="iletisimIstekChange()" class="toggle-btn" style="text-align: end;"\n                    [disabled]="isHizmetDisabled()"\n                    [(ngModel)]="iletisimIstek"></ion-toggle>\n      </ion-col>\n\n    </ion-row>\n  </div>\n</ion-list>\n'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/cagri-detay-components/detay-bilgileri/detay-bilgileri.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_hizmet_service_hizmet_service__["a" /* HizmetService */],
             __WEBPACK_IMPORTED_MODULE_6__providers_urun_ana_grup_dao_urun_ana_grup_dao__["a" /* UrunAnaGrupDao */],
@@ -12845,6 +13148,7 @@ var DetayBilgileriComponent = (function () {
             __WEBPACK_IMPORTED_MODULE_8_ionic_angular__["a" /* AlertController */],
             __WEBPACK_IMPORTED_MODULE_8_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_11__providers_hizmet_hizmet__["a" /* HizmetProvider */],
+            __WEBPACK_IMPORTED_MODULE_13__providers_fiyat_fiyat__["a" /* FiyatProvider */],
             __WEBPACK_IMPORTED_MODULE_10__providers_printer_service_printer_service__["a" /* PrinterService */]])
     ], DetayBilgileriComponent);
     return DetayBilgileriComponent;
@@ -12933,7 +13237,7 @@ var IslemTarihComponent = (function () {
         this.hizmetService = hizmetService;
         this.logger = logger;
         this.util = util;
-        this.DATE_FORMAT = "yyyy-MM-dd hh:mm:ss";
+        this.DATE_FORMAT = "dd.MM.yyyy hh:mm";
         this.hizmet = new __WEBPACK_IMPORTED_MODULE_2__entities_hizmet_hizmet__["a" /* Hizmet */]();
         this.isenabled = true;
         this.islemBitmisMi = "";
@@ -12951,7 +13255,8 @@ var IslemTarihComponent = (function () {
         this.loadTarihce();
     };
     IslemTarihComponent.prototype.islemBaslat = function () {
-        this.sonIslem.basTar = this.util.dateFormatRegex(new Date(), this.DATE_FORMAT);
+        //this.sonIslem.basTar = this.util.dateFormatRegex(new Date(), this.DATE_FORMAT);
+        this.sonIslem.basTar = new Date();
         this.hizmet.islemTarihi = this.sonIslem.basTar;
         this.checkStatus();
         this.setButtonStatus();
@@ -12963,7 +13268,8 @@ var IslemTarihComponent = (function () {
             this.util.pushErrorMessages(res);
         }
         else {
-            this.sonIslem.bitTar = this.util.dateFormatRegex(this.util.addMinutes(new Date, 1), this.DATE_FORMAT);
+            //this.sonIslem.bitTar = this.util.dateFormatRegex(this.util.addMinutes(new Date, 1), this.DATE_FORMAT);
+            this.sonIslem.bitTar = this.util.addMinutes(new Date, 1);
             this.sonIslem.durum = Durum.BEKLE;
             this.checkStatus();
             this.sonIslem = new __WEBPACK_IMPORTED_MODULE_4__entities_hizmet_islemList__["a" /* IslemList */]();
@@ -12982,7 +13288,8 @@ var IslemTarihComponent = (function () {
         return res;
     };
     IslemTarihComponent.prototype.islemBitir = function () {
-        this.sonIslem.bitTar = this.util.dateFormatRegex(this.util.addMinutes(new Date, 1), this.DATE_FORMAT);
+        //this.sonIslem.bitTar = this.util.dateFormatRegex(this.util.addMinutes(new Date, 1), this.DATE_FORMAT);
+        this.sonIslem.bitTar = this.util.addMinutes(new Date, 1);
         this.sonIslem.durum = Durum.BITIR;
         this.hizmet.islemBitTarihi = this.sonIslem.bitTar;
         this.checkStatus();
@@ -13093,10 +13400,10 @@ var IslemTarihComponent = (function () {
         if (this.util.isNotEmpty(this.hizmet.islemList)) {
             this.hizmet.islemList.forEach(function (item) {
                 if (_this.util.isNotEmpty(item.basTar)) {
-                    item.basTar = _this.util.dateFormatRegex(new Date(item.basTar), _this.DATE_FORMAT);
+                    //item.basTar = this.util.dateFormatRegex(new Date(item.basTar), this.DATE_FORMAT);
                 }
                 if (_this.util.isNotEmpty(item.bitTar)) {
-                    item.bitTar = _this.util.dateFormatRegex(new Date(item.bitTar), _this.DATE_FORMAT);
+                    //item.bitTar = this.util.dateFormatRegex(new Date(item.bitTar), this.DATE_FORMAT);
                 }
             });
         }
@@ -13106,7 +13413,7 @@ var IslemTarihComponent = (function () {
     };
     IslemTarihComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'islem-tarih',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-components\servis-bilgileri\islem-tarih\islem-tarih.html"*/'<ion-list inset>\n\n\n\n  <ion-item>\n\n    <ion-label>İşlem Başlangıç Tarihi</ion-label>\n\n    <ion-label>{{sonIslem.basTar}}</ion-label>\n\n  </ion-item>\n\n\n\n\n\n  <ion-item>\n\n    <ion-label>İşlem Bitiş Tarihi</ion-label>\n\n    <ion-label>{{sonIslem.bitTar}}</ion-label>\n\n  </ion-item>\n\n\n\n  <ion-item *ngIf="sonIslem.basTar != null && sonIslem.bitTar == null">\n\n    <ion-label>Bekleme Nedeni</ion-label>\n\n    <ion-select [(ngModel)]="sonIslem.beklemeNeden" interface="action-sheet" (ionChange)="checkStatus()">\n\n      <ion-option value="" selected="true"></ion-option>\n\n      <ion-option value="SERVIS">Servis</ion-option>\n\n      <ion-option value="MUSTERI">Müşteri</ion-option>\n\n      <ion-option value="BAYI">Bayi</ion-option>\n\n    </ion-select>\n\n  </ion-item>\n\n\n\n  <ion-item *ngIf="sonIslem.basTar  != null && sonIslem.bitTar == null && sonIslem.beklemeNeden ==\'SERVIS\'">\n\n    <ion-label>Bekleme Kaynağı</ion-label>\n\n    <ion-select [(ngModel)]="sonIslem.bekleKaynak" interface="action-sheet" (ionChange)="checkStatus()"\n\n                [disabled]=isHizmetDisabled()>\n\n      <ion-option value="" selected="true"></ion-option>\n\n      <ion-option value="NEDEN1">Yedek parça bekleniyor.</ion-option>\n\n\n\n    </ion-select>\n\n  </ion-item>\n\n\n\n  <ion-item *ngIf="sonIslem.basTar  != null && sonIslem.bitTar == null && sonIslem.beklemeNeden ==\'MUSTERI\'">\n\n    <ion-label>Bekleme Kaynağı</ion-label>\n\n    <ion-select [(ngModel)]="sonIslem.bekleKaynak" interface="action-sheet" (ionChange)="checkStatus()"\n\n                [disabled]=isHizmetDisabled()>\n\n      <ion-option value="" selected="true"></ion-option>\n\n      <ion-option value="NEDEN1">Müşteri Uygun Değil</ion-option>\n\n    </ion-select>\n\n  </ion-item>\n\n\n\n  <ion-item *ngIf="sonIslem.basTar  != null && sonIslem.bitTar == null && sonIslem.beklemeNeden == \'BAYI\'">\n\n    <ion-label>Bekleme Kaynağı</ion-label>\n\n    <ion-select [(ngModel)]="sonIslem.bekleKaynak" interface="action-sheet" (ionChange)="checkStatus()"\n\n                [disabled]=isHizmetDisabled()>\n\n      <ion-option value="" selected="true"></ion-option>\n\n      <ion-option value="NEDEN1">Tesisat Kaynaklı</ion-option>\n\n    </ion-select>\n\n  </ion-item>\n\n\n\n\n\n  <ion-item *ngIf="buttonStatus == \'BASLA\'">\n\n    <button ion-button primary round full (click)="islemBaslat()" [disabled]=isHizmetDisabled()>İşlem Başlat\n\n    </button>\n\n  </ion-item>\n\n\n\n  <ion-item *ngIf="buttonStatus == \'BEKLE\'">\n\n    <button ion-button primary round full (click)="islemBeklet()" [disabled]=isHizmetDisabled()>Bekleme Başlat\n\n    </button>\n\n  </ion-item>\n\n\n\n  <ion-item *ngIf="buttonStatus == \'BITIR\'">\n\n    <button ion-button primary round full (click)="islemBitir()" [disabled]=isHizmetDisabled()>Bitir\n\n    </button>\n\n  </ion-item>\n\n\n\n\n\n</ion-list>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-components\servis-bilgileri\islem-tarih\islem-tarih.html"*/
+            selector: 'islem-tarih',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/cagri-detay-components/servis-bilgileri/islem-tarih/islem-tarih.html"*/'<ion-list inset>\n\n  <ion-item>\n    <ion-label>İşlem Başlangıç Tarihi</ion-label>\n    <ion-label>{{sonIslem.basTar |date: \'dd-MM-yyyy HH:mm\'}}</ion-label>\n  </ion-item>\n\n\n  <ion-item>\n    <ion-label>İşlem Bitiş Tarihi</ion-label>\n    <ion-label>{{sonIslem.bitTar | date: \'dd-MM-yyyy HH:mm\'}}</ion-label>\n  </ion-item>\n\n  <ion-item *ngIf="sonIslem.basTar != null && sonIslem.bitTar == null">\n    <ion-label>Bekleme Nedeni</ion-label>\n    <ion-select [(ngModel)]="sonIslem.beklemeNeden" interface="popover" (ionChange)="checkStatus()">\n      <ion-option value="" selected="true"></ion-option>\n      <ion-option value="SERVIS">Servis</ion-option>\n      <ion-option value="MUSTERI">Müşteri</ion-option>\n      <ion-option value="BAYI">Bayi</ion-option>\n    </ion-select>\n  </ion-item>\n\n  <ion-item *ngIf="sonIslem.basTar  != null && sonIslem.bitTar == null && sonIslem.beklemeNeden ==\'SERVIS\'">\n    <ion-label>Bekleme Kaynağı</ion-label>\n    <ion-select [(ngModel)]="sonIslem.bekleKaynak" interface="popover" (ionChange)="checkStatus()"\n                [disabled]=isHizmetDisabled()>\n      <ion-option value="" selected="true"></ion-option>\n      <ion-option value="NEDEN1">Yedek parça bekleniyor.</ion-option>\n\n    </ion-select>\n  </ion-item>\n\n  <ion-item *ngIf="sonIslem.basTar  != null && sonIslem.bitTar == null && sonIslem.beklemeNeden ==\'MUSTERI\'">\n    <ion-label>Bekleme Kaynağı</ion-label>\n    <ion-select [(ngModel)]="sonIslem.bekleKaynak" interface="popover" (ionChange)="checkStatus()"\n                [disabled]=isHizmetDisabled()>\n      <ion-option value="" selected="true"></ion-option>\n      <ion-option value="NEDEN1">Müşteri Uygun Değil</ion-option>\n    </ion-select>\n  </ion-item>\n\n  <ion-item *ngIf="sonIslem.basTar  != null && sonIslem.bitTar == null && sonIslem.beklemeNeden == \'BAYI\'">\n    <ion-label>Bekleme Kaynağı</ion-label>\n    <ion-select [(ngModel)]="sonIslem.bekleKaynak" interface="popover" (ionChange)="checkStatus()"\n                [disabled]=isHizmetDisabled()>\n      <ion-option value="" selected="true"></ion-option>\n      <ion-option value="NEDEN1">Tesisat Kaynaklı</ion-option>\n    </ion-select>\n  </ion-item>\n\n\n  <ion-item *ngIf="buttonStatus == \'BASLA\'">\n    <button ion-button primary round full (click)="islemBaslat()" [disabled]=isHizmetDisabled()>İşlem Başlat\n    </button>\n  </ion-item>\n\n  <ion-item *ngIf="buttonStatus == \'BEKLE\'">\n    <button ion-button primary round full (click)="islemBeklet()" [disabled]=isHizmetDisabled()>Bekleme Başlat\n    </button>\n  </ion-item>\n\n  <ion-item *ngIf="buttonStatus == \'BITIR\'">\n    <button ion-button primary round full (click)="islemBitir()" [disabled]=isHizmetDisabled()>Bitir\n    </button>\n  </ion-item>\n\n\n</ion-list>\n'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/cagri-detay-components/servis-bilgileri/islem-tarih/islem-tarih.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_hizmet_service_hizmet_service__["a" /* HizmetService */],
             __WEBPACK_IMPORTED_MODULE_6__providers_logger_logger__["a" /* LoggerProvider */],
@@ -13182,7 +13489,7 @@ var ServisIslemTarihceComponent = (function () {
     };
     ServisIslemTarihceComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'servis-islem-tarihce',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-components\servis-bilgileri\servis-islem-tarihce\servis-islem-tarihce.html"*/'<ion-grid>\n\n  <ion-row>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>Sıra No</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>Durum</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>İşlem Tarihi</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>İşlem Bitiş Tarihi</ion-label>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row *ngFor="let tarihce of tarihceList">\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>{{tarihce.islSira}}</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>{{tarihce.durum}}</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>{{tarihce.basTar | date : \'dd-MM-yyyy HH:mm\'}}</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 col-sm>\n\n      <ion-label>{{tarihce.bitTar | date : \'dd-MM-yyyy HH:mm\'}}</ion-label>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n\n\n</ion-grid>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-components\servis-bilgileri\servis-islem-tarihce\servis-islem-tarihce.html"*/
+            selector: 'servis-islem-tarihce',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/cagri-detay-components/servis-bilgileri/servis-islem-tarihce/servis-islem-tarihce.html"*/'<ion-grid>\n  <ion-row>\n    <ion-col col-12 col-sm>\n      <ion-label>Sıra No</ion-label>\n    </ion-col>\n    <ion-col col-12 col-sm>\n      <ion-label>Durum</ion-label>\n    </ion-col>\n    <ion-col col-12 col-sm>\n      <ion-label>İşlem Tarihi</ion-label>\n    </ion-col>\n    <ion-col col-12 col-sm>\n      <ion-label>İşlem Bitiş Tarihi</ion-label>\n    </ion-col>\n  </ion-row>\n\n  <ion-row *ngFor="let tarihce of tarihceList">\n    <ion-col col-12 col-sm>\n      <ion-label>{{tarihce.islSira}}</ion-label>\n    </ion-col>\n    <ion-col col-12 col-sm>\n      <ion-label>{{tarihce.durum}}</ion-label>\n    </ion-col>\n    <ion-col col-12 col-sm>\n      <ion-label>{{tarihce.basTar |date: \'dd-MM-yyyy HH:mm\'}}</ion-label>\n    </ion-col>\n    <ion-col col-12 col-sm>\n      <ion-label>{{tarihce.bitTar | date: \'dd-MM-yyyy HH:mm\'}}</ion-label>\n    </ion-col>\n  </ion-row>\n\n\n</ion-grid>\n'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/cagri-detay-components/servis-bilgileri/servis-islem-tarihce/servis-islem-tarihce.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_hizmet_service_hizmet_service__["a" /* HizmetService */],
             __WEBPACK_IMPORTED_MODULE_3__providers_util_util__["a" /* UtilProvider */]])
@@ -13206,14 +13513,14 @@ var ServisIslemTarihceComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_cagrilar_cagrilar__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_bildirimler_bildirimler__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_guncelleme_guncelleme__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_kutuphane_kutuphane__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_kutuphane_kutuphane__ = __webpack_require__(187);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_ayarlar_ayarlar__ = __webpack_require__(499);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_login_login__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_login_login__ = __webpack_require__(211);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_database_database__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_bilgi_sorgu_bilgi_sorgu__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_bilgi_sorgu_bilgi_sorgu__ = __webpack_require__(183);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_theme_theme__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_logger_logger__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_deeplink_printer_deeplink_printer__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_deeplink_printer_deeplink_printer__ = __webpack_require__(188);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13249,18 +13556,10 @@ var MyApp = (function () {
         this.deepLinkPrinter = deepLinkPrinter;
         this.db = db;
         this.rootPage = __WEBPACK_IMPORTED_MODULE_9__pages_login_login__["a" /* LoginPage */];
+        this.enableProductionMode();
         this.initializeApp();
         this.selectedTheme = this.themeProvider.setTheme();
         this.logger.warn("SELECTED DEFAULT THEME" + this.selectedTheme);
-        this.pages = [
-            { title: 'Çağrılar', component: __WEBPACK_IMPORTED_MODULE_4__pages_cagrilar_cagrilar__["a" /* CagrilarPage */], active: true, icon: 'home', param: {} },
-            { title: 'Duyurular', component: __WEBPACK_IMPORTED_MODULE_5__pages_bildirimler_bildirimler__["a" /* BildirimlerPage */], active: false, icon: 'map', param: { type: 'WARN' } },
-            { title: 'Uyarılar', component: __WEBPACK_IMPORTED_MODULE_5__pages_bildirimler_bildirimler__["a" /* BildirimlerPage */], active: false, icon: 'ionic', param: { type: 'URGENT' } },
-            { title: 'Güncelleme', component: __WEBPACK_IMPORTED_MODULE_6__pages_guncelleme_guncelleme__["a" /* GuncellemePage */], active: false, icon: 'ionic', param: {} },
-            { title: 'Bilgi Sorgu', component: __WEBPACK_IMPORTED_MODULE_11__pages_bilgi_sorgu_bilgi_sorgu__["a" /* BilgiSorguPage */], active: false, icon: 'body', param: {} },
-            { title: 'E-Kütüphane', component: __WEBPACK_IMPORTED_MODULE_7__pages_kutuphane_kutuphane__["a" /* KutuphanePage */], active: false, icon: 'bookmarks', param: {} },
-            { title: 'Ayarlar', component: __WEBPACK_IMPORTED_MODULE_8__pages_ayarlar_ayarlar__["a" /* AyarlarPage */], active: false, icon: 'book', param: {} }
-        ];
     }
     MyApp.prototype.initializeApp = function () {
         var _this = this;
@@ -13277,12 +13576,28 @@ var MyApp = (function () {
         var _this = this;
         this.platform.ready().then(function () { return _this.deepLinkPrinter.init(); });
     };
+    MyApp.prototype.sideMenu = function () {
+        this.pages = [
+            { title: 'Çağrılar', component: __WEBPACK_IMPORTED_MODULE_4__pages_cagrilar_cagrilar__["a" /* CagrilarPage */], active: true, icon: 'home', param: {} },
+            { title: 'Duyurular', component: __WEBPACK_IMPORTED_MODULE_5__pages_bildirimler_bildirimler__["a" /* BildirimlerPage */], active: false, icon: 'map', param: { type: 'WARN' } },
+            { title: 'Uyarılar', component: __WEBPACK_IMPORTED_MODULE_5__pages_bildirimler_bildirimler__["a" /* BildirimlerPage */], active: false, icon: 'ionic', param: { type: 'URGENT' } },
+            { title: 'Güncelleme', component: __WEBPACK_IMPORTED_MODULE_6__pages_guncelleme_guncelleme__["a" /* GuncellemePage */], active: false, icon: 'ionic', param: {} },
+            { title: 'Bilgi Sorgu', component: __WEBPACK_IMPORTED_MODULE_11__pages_bilgi_sorgu_bilgi_sorgu__["a" /* BilgiSorguPage */], active: false, icon: 'body', param: {} },
+            { title: 'E-Kütüphane', component: __WEBPACK_IMPORTED_MODULE_7__pages_kutuphane_kutuphane__["a" /* KutuphanePage */], active: false, icon: 'bookmarks', param: {} },
+            { title: 'Ayarlar', component: __WEBPACK_IMPORTED_MODULE_8__pages_ayarlar_ayarlar__["a" /* AyarlarPage */], active: false, icon: 'book', param: {} }
+        ];
+    };
+    MyApp.prototype.enableProductionMode = function () {
+        if (this.platform.is('ios') || this.platform.is('android') || this.platform.is('windows')) {
+            Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_15" /* enableProdMode */])();
+        }
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */]),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\app\app.html"*/'<ion-menu [content]="content">\n\n\n\n  <!--\n\n    <ion-header>\n\n      <ion-toolbar>\n\n        <ion-title>Pages</ion-title>\n\n      </ion-toolbar>\n\n    </ion-header>\n\n\n\n    <ion-content>\n\n      <ion-list>\n\n        <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </ion-list>\n\n    </ion-content>\n\n  -->\n\n\n\n</ion-menu>\n\n\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="true" [class]="selectedTheme"></ion-nav>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/app/app.html"*/'<ion-menu [content]="content">\n\n  <!--\n    <ion-header>\n      <ion-toolbar>\n        <ion-title>Pages</ion-title>\n      </ion-toolbar>\n    </ion-header>\n\n    <ion-content>\n      <ion-list>\n        <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n          {{p.title}}\n        </button>\n      </ion-list>\n    </ion-content>\n  -->\n\n</ion-menu>\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="true" [class]="selectedTheme"></ion-nav>'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */],
@@ -13404,7 +13719,7 @@ var CagrilarComponent = (function () {
     }
     CagrilarComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'cagrilar',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagrilar\cagrilar.html"*/'<!-- Generated template for the CagrilarComponent component -->\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Social Card</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="cards-bg social-cards">\n\n\n\n<ion-card>\n\n\n\n  <ion-item>\n\n    <ion-avatar item-start>\n\n      <img src="assets/img/marty-avatar.png">\n\n    </ion-avatar>\n\n    <h2>Marty McFly</h2>\n\n    <p>November 5, 1955</p>\n\n  </ion-item>\n\n\n\n  <img src="assets/img/advance-card-bttf.png">\n\n\n\n  <ion-card-content>\n\n    <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>\n\n  </ion-card-content>\n\n\n\n  <ion-row>\n\n    <ion-col>\n\n      <button ion-button color="primary" clear small icon-start>\n\n        <ion-icon name=\'thumbs-up\'></ion-icon>\n\n        12 Likes\n\n      </button>\n\n    </ion-col>\n\n    <ion-col>\n\n      <button ion-button color="primary" clear small icon-start>\n\n        <ion-icon name=\'text\'></ion-icon>\n\n        4 Comments\n\n      </button>\n\n    </ion-col>\n\n    <ion-col align-self-center text-center>\n\n      <ion-note>\n\n        11h ago\n\n      </ion-note>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n</ion-card>\n\n\n\n\n\n<ion-card>\n\n\n\n  <ion-item>\n\n    <ion-avatar item-start>\n\n      <img src="assets/img/sarah-avatar.png.jpeg">\n\n    </ion-avatar>\n\n    <h2>Sarah Connor</h2>\n\n    <p>May 12, 1984</p>\n\n  </ion-item>\n\n\n\n  <img src="assets/img/advance-card-tmntr.jpg">\n\n\n\n  <ion-card-content>\n\n    <p>I face the unknown future, with a sense of hope. Because if a machine, a Terminator, can learn the value of human life, maybe we can too.</p>\n\n  </ion-card-content>\n\n\n\n  <ion-row>\n\n    <ion-col>\n\n      <button ion-button color="primary" clear small icon-start>\n\n        <ion-icon name=\'thumbs-up\'></ion-icon>\n\n        30 Likes\n\n      </button>\n\n    </ion-col>\n\n    <ion-col>\n\n      <button ion-button color="primary" clear small icon-start>\n\n        <ion-icon name=\'text\'></ion-icon>\n\n        64 Comments\n\n      </button>\n\n    </ion-col>\n\n    <ion-col align-self-center text-center>\n\n      <ion-note>\n\n        30yr ago\n\n      </ion-note>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n</ion-card>\n\n\n\n\n\n<ion-card>\n\n\n\n  <ion-item>\n\n    <ion-avatar item-start>\n\n      <img src="assets/img/ian-avatar.png">\n\n    </ion-avatar>\n\n    <h2>Dr. Ian Malcolm</h2>\n\n    <p>June 28, 1990</p>\n\n  </ion-item>\n\n\n\n  <img src="assets/img/advance-card-jp.jpg">\n\n\n\n  <ion-card-content>\n\n    <p>Your scientists were so preoccupied with whether or not they could, that they didn\'t stop to think if they should.</p>\n\n  </ion-card-content>\n\n\n\n  <ion-row>\n\n    <ion-col>\n\n      <button ion-button color="primary" clear small icon-start>\n\n        <ion-icon name=\'thumbs-up\'></ion-icon>\n\n        46 Likes\n\n      </button>\n\n    </ion-col>\n\n    <ion-col>\n\n      <button ion-button color="primary" clear small icon-start>\n\n        <ion-icon name=\'text\'></ion-icon>\n\n        66 Comments\n\n      </button>\n\n    </ion-col>\n\n    <ion-col align-self-center text-center>\n\n      <ion-note>\n\n        2d ago\n\n      </ion-note>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n</ion-card>\n\n\n\n\n\n</ion-content>\n\n\n\n<style>\n\n  .social-cards ion-col {\n\n    padding: 0;\n\n  }\n\n</style>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagrilar\cagrilar.html"*/
+            selector: 'cagrilar',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/cagrilar/cagrilar.html"*/'<!-- Generated template for the CagrilarComponent component -->\n<ion-header>\n  <ion-navbar>\n    <ion-title>Social Card</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="cards-bg social-cards">\n\n<ion-card>\n\n  <ion-item>\n    <ion-avatar item-start>\n      <img src="assets/img/marty-avatar.png">\n    </ion-avatar>\n    <h2>Marty McFly</h2>\n    <p>November 5, 1955</p>\n  </ion-item>\n\n  <img src="assets/img/advance-card-bttf.png">\n\n  <ion-card-content>\n    <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>\n  </ion-card-content>\n\n  <ion-row>\n    <ion-col>\n      <button ion-button color="primary" clear small icon-start>\n        <ion-icon name=\'thumbs-up\'></ion-icon>\n        12 Likes\n      </button>\n    </ion-col>\n    <ion-col>\n      <button ion-button color="primary" clear small icon-start>\n        <ion-icon name=\'text\'></ion-icon>\n        4 Comments\n      </button>\n    </ion-col>\n    <ion-col align-self-center text-center>\n      <ion-note>\n        11h ago\n      </ion-note>\n    </ion-col>\n  </ion-row>\n\n</ion-card>\n\n\n<ion-card>\n\n  <ion-item>\n    <ion-avatar item-start>\n      <img src="assets/img/sarah-avatar.png.jpeg">\n    </ion-avatar>\n    <h2>Sarah Connor</h2>\n    <p>May 12, 1984</p>\n  </ion-item>\n\n  <img src="assets/img/advance-card-tmntr.jpg">\n\n  <ion-card-content>\n    <p>I face the unknown future, with a sense of hope. Because if a machine, a Terminator, can learn the value of human life, maybe we can too.</p>\n  </ion-card-content>\n\n  <ion-row>\n    <ion-col>\n      <button ion-button color="primary" clear small icon-start>\n        <ion-icon name=\'thumbs-up\'></ion-icon>\n        30 Likes\n      </button>\n    </ion-col>\n    <ion-col>\n      <button ion-button color="primary" clear small icon-start>\n        <ion-icon name=\'text\'></ion-icon>\n        64 Comments\n      </button>\n    </ion-col>\n    <ion-col align-self-center text-center>\n      <ion-note>\n        30yr ago\n      </ion-note>\n    </ion-col>\n  </ion-row>\n\n</ion-card>\n\n\n<ion-card>\n\n  <ion-item>\n    <ion-avatar item-start>\n      <img src="assets/img/ian-avatar.png">\n    </ion-avatar>\n    <h2>Dr. Ian Malcolm</h2>\n    <p>June 28, 1990</p>\n  </ion-item>\n\n  <img src="assets/img/advance-card-jp.jpg">\n\n  <ion-card-content>\n    <p>Your scientists were so preoccupied with whether or not they could, that they didn\'t stop to think if they should.</p>\n  </ion-card-content>\n\n  <ion-row>\n    <ion-col>\n      <button ion-button color="primary" clear small icon-start>\n        <ion-icon name=\'thumbs-up\'></ion-icon>\n        46 Likes\n      </button>\n    </ion-col>\n    <ion-col>\n      <button ion-button color="primary" clear small icon-start>\n        <ion-icon name=\'text\'></ion-icon>\n        66 Comments\n      </button>\n    </ion-col>\n    <ion-col align-self-center text-center>\n      <ion-note>\n        2d ago\n      </ion-note>\n    </ion-col>\n  </ion-row>\n\n</ion-card>\n\n\n</ion-content>\n\n<style>\n  .social-cards ion-col {\n    padding: 0;\n  }\n</style>'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/cagrilar/cagrilar.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], CagrilarComponent);
@@ -13421,7 +13736,7 @@ var CagrilarComponent = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_ListItem__ = __webpack_require__(514);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_ListItem__ = __webpack_require__(510);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13449,7 +13764,7 @@ var ListComponent = (function () {
     };
     ListComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'list',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\list\list.html"*/'<!-- Generated template for the ListComponent component -->\n\n<div>\n\n  <ion-list>\n\n    <button ion-item *ngFor="let item of list" (click)=" itemSelected(item) ">\n\n      {{ item.name }} -- {{ item.code }}\n\n    </button>\n\n  </ion-list>\n\n</div>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\list\list.html"*/
+            selector: 'list',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/list/list.html"*/'<!-- Generated template for the ListComponent component -->\n<div>\n  <ion-list>\n    <button ion-item *ngFor="let item of list" (click)=" itemSelected(item) ">\n      {{ item.name }} -- {{ item.code }}\n    </button>\n  </ion-list>\n</div>'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/components/list/list.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], ListComponent);
@@ -13587,7 +13902,7 @@ var Anasayfa = (function () {
     };
     Anasayfa = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-anasayfa',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\anasayfa\anasayfa.html"*/'<ion-header>\n\n\n\n  <ion-navbar hideBackButton="true">\n\n    <icon-header #header></icon-header>\n\n\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content class="content-background home-content" [ngStyle]="{ \'background-image\': \'url(\' + backGroundImage + \')\' }">\n\n\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n\n        <ion-card (click)="sayfayaGit(\'CagrilarPage\',{})">\n\n\n\n          <ion-item>\n\n            <div class="icon-box">\n\n              <ion-icon name="ios-call" item-start xlarge></ion-icon>\n\n            </div>\n\n            <div class="text-box">\n\n              <span>Çağrılar</span>\n\n            </div>\n\n          </ion-item>\n\n          <div class="announcements">\n\n            {{cagriSayisi}}\n\n          </div>\n\n\n\n        </ion-card>\n\n      </ion-col>\n\n\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n\n        <ion-card (click)="sayfayaGit(\'BildirimlerPage\', {type:\'WARN\'})">\n\n\n\n          <ion-item>\n\n            <div class="icon-box">\n\n              <ion-icon name="notifications" item-start xlarge></ion-icon>\n\n            </div>\n\n            <div class="text-box">\n\n              <span>Duyurular</span>\n\n            </div>\n\n          </ion-item>\n\n\n\n\n\n          <div class="announcements">\n\n            {{duyuruSayisi}}\n\n          </div>\n\n\n\n        </ion-card>\n\n      </ion-col>\n\n\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n\n        <ion-card (click)="sayfayaGit(\'BildirimlerPage\',{type:\'URGENT\'})">\n\n\n\n          <ion-item>\n\n            <div class="icon-box">\n\n              <ion-icon name="notifications" item-start xlarge></ion-icon>\n\n            </div>\n\n            <div class="text-box">\n\n              <span>Uyarılar</span>\n\n            </div>\n\n          </ion-item>\n\n\n\n          <div class="announcements">\n\n            {{uyariSayisi}}\n\n          </div>\n\n\n\n        </ion-card>\n\n      </ion-col>\n\n\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n\n        <ion-card (click)="sayfayaGit(\'GuncellemePage\',{})">\n\n\n\n          <ion-item>\n\n            <div class="icon-box">\n\n              <ion-icon name="md-refresh" item-start xlarge></ion-icon>\n\n            </div>\n\n            <div class="text-box">\n\n              <span>Güncelleme </span>\n\n            </div>\n\n          </ion-item>\n\n\n\n          <div class="announcements">\n\n            {{guncellemeSayisi}}\n\n          </div>\n\n\n\n\n\n        </ion-card>\n\n      </ion-col>\n\n\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n\n        <ion-card (click)="sayfayaGit(\'BilgiSorguPage\', {})">\n\n\n\n          <ion-item>\n\n            <div class="icon-box">\n\n              <ion-icon name="md-help" item-start xlarge></ion-icon>\n\n            </div>\n\n            <div class="text-box">\n\n              <span> Bilgi Sorgu</span>\n\n            </div>\n\n          </ion-item>\n\n        </ion-card>\n\n      </ion-col>\n\n\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n\n        <ion-card (click)="sayfayaGit(\'AyarlarPage\',{})">\n\n\n\n          <ion-item>\n\n            <div class="icon-box">\n\n              <ion-icon name="settings" item-start xlarge></ion-icon>\n\n            </div>\n\n            <div class="text-box">\n\n              <span>Ayarlar</span>\n\n            </div>\n\n          </ion-item>\n\n\n\n        </ion-card>\n\n      </ion-col>\n\n\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n</ion-content>\n\n\n\n\n\n<ion-footer>\n\n  <ion-item float-left style="width: 40%">\n\n    <ion-label class="pull-left">SISTEK© 2018</ion-label>\n\n  </ion-item>\n\n  <ion-item float-right style="width: 60%">\n\n    <ion-label class="pull-right">Servis Otomasyon Sistemi</ion-label>\n\n  </ion-item>\n\n</ion-footer>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\pages\anasayfa\anasayfa.html"*/,
+            selector: 'page-anasayfa',template:/*ion-inline-start:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/anasayfa/anasayfa.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton="true">\n    <icon-header #header></icon-header>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content class="content-background home-content" [ngStyle]="{ \'background-image\': \'url(\' + backGroundImage + \')\' }">\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n        <ion-card (click)="sayfayaGit(\'CagrilarPage\',{})">\n\n          <ion-item>\n            <div class="icon-box">\n              <ion-icon name="ios-call" item-start xlarge></ion-icon>\n            </div>\n            <div class="text-box">\n              <span>Çağrılar</span>\n            </div>\n          </ion-item>\n          <div class="announcements">\n            {{cagriSayisi}}\n          </div>\n\n        </ion-card>\n      </ion-col>\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n        <ion-card (click)="sayfayaGit(\'BildirimlerPage\', {type:\'WARN\'})">\n\n          <ion-item>\n            <div class="icon-box">\n              <ion-icon name="notifications" item-start xlarge></ion-icon>\n            </div>\n            <div class="text-box">\n              <span>Duyurular</span>\n            </div>\n          </ion-item>\n\n\n          <div class="announcements">\n            {{duyuruSayisi}}\n          </div>\n\n        </ion-card>\n      </ion-col>\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n        <ion-card (click)="sayfayaGit(\'BildirimlerPage\',{type:\'URGENT\'})">\n\n          <ion-item>\n            <div class="icon-box">\n              <ion-icon name="notifications" item-start xlarge></ion-icon>\n            </div>\n            <div class="text-box">\n              <span>Uyarılar</span>\n            </div>\n          </ion-item>\n\n          <div class="announcements">\n            {{uyariSayisi}}\n          </div>\n\n        </ion-card>\n      </ion-col>\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n        <ion-card (click)="sayfayaGit(\'GuncellemePage\',{})">\n\n          <ion-item>\n            <div class="icon-box">\n              <ion-icon name="md-refresh" item-start xlarge></ion-icon>\n            </div>\n            <div class="text-box">\n              <span>Güncelleme </span>\n            </div>\n          </ion-item>\n\n          <div class="announcements">\n            {{guncellemeSayisi}}\n          </div>\n\n\n        </ion-card>\n      </ion-col>\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n        <ion-card (click)="sayfayaGit(\'BilgiSorguPage\', {})">\n\n          <ion-item>\n            <div class="icon-box">\n              <ion-icon name="md-help" item-start xlarge></ion-icon>\n            </div>\n            <div class="text-box">\n              <span> Bilgi Sorgu</span>\n            </div>\n          </ion-item>\n        </ion-card>\n      </ion-col>\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n        <ion-card (click)="sayfayaGit(\'AyarlarPage\',{})">\n\n          <ion-item>\n            <div class="icon-box">\n              <ion-icon name="settings" item-start xlarge></ion-icon>\n            </div>\n            <div class="text-box">\n              <span>Ayarlar</span>\n            </div>\n          </ion-item>\n\n        </ion-card>\n      </ion-col>\n\n    </ion-row>\n  </ion-grid>\n\n</ion-content>\n\n\n<ion-footer>\n  <ion-item float-left style="width: 40%">\n    <ion-label class="pull-left">SISTEK© 2018</ion-label>\n  </ion-item>\n  <ion-item float-right style="width: 60%">\n    <ion-label class="pull-right">Servis Otomasyon Sistemi</ion-label>\n  </ion-item>\n</ion-footer>\n'/*ion-inline-end:"/Users/mehmetalisahinogullari/Documents/WORKS/Ionic/Ionic-Offline-App/src/pages/anasayfa/anasayfa.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -13685,7 +14000,7 @@ var MesajlarDao = (function () {
                     var query = "INSERT OR REPLACE INTO OFF_ALERT (id, bitisTarihi, aciklama, gonderen, basTarihi, status, subject, type, valid) VALUES (?,?,?,?,?,?,?,?,?)";
                     for (var _i = 0, list_1 = list; _i < list_1.length; _i++) {
                         var item = list_1[_i];
-                        var params = [item.id, item.bitisTarihi, item.aciklama, item.gonderen, item.basTarihi, item.status, item.subject, item.type, item.valid];
+                        var params = [item.id, item.bitisTarihi + " 23:59:59", item.aciklama, item.gonderen, item.basTarihi + " 00:00:00", item.status, item.subject, item.type, item.valid];
                         tx.executeSql(query, params, function (tx, res) {
                             insertedItems += 1;
                             if (list.length == insertedItems) {
@@ -13736,6 +14051,9 @@ var MesajlarDao = (function () {
         if (this.util.isNotEmpty(mesaj.type)) {
             query += " AND type='" + mesaj.type + "' ";
         }
+        var now = "'" + this.util.dateFormatRegex(new Date(), "yyyy-MM-dd hh:mm:ss") + "'";
+        query += " AND bitisTarihi > " + now;
+        query += " AND basTarihi < " + now;
         return query;
     };
     MesajlarDao = __decorate([

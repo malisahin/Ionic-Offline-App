@@ -1,10 +1,14 @@
 <!-- Generated template for the HizmetBilgileriComponent component -->
 
 <ion-row>
-  <ion-col col-6 col-md-2>
+  <ion-col col-12 *ngIf="islemTipi=='' || islemTipi==null ">
     <ion-label color="primary">Önce işlem tipini seçiniz</ion-label>
   </ion-col>
-  <ion-col col-6 col-md-10>
+
+  <ion-col col-4 col-md-2>
+    <ion-label color="primary">Işlem Tipi</ion-label>
+  </ion-col>
+  <ion-col col-8 col-md-10>
     <ion-select [(ngModel)]="islemTipi" interface="popover" (ionChange)="IslemTipiChange()">
       <ion-option value="" selected="true"></ion-option>
       <ion-option value="ISC">İşçilik</ion-option>

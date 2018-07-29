@@ -46,9 +46,9 @@ export class Hizmet {
   ilceKod: string = "";
   iletisimIstek: string = "";
   isTel: string = "";
-  islemBitTarihi: Date = "";
+  islemBitTarihi: Date;
   islemList: IslemList[];
-  islemTarihi: Date = "";
+  islemTarihi: Date ;
   kapatmaKodu: string = "";
   mahalle: string = "";
   mahalleKodu: string = "";

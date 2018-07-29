@@ -11,6 +11,8 @@ import {FiyatDao} from '../fiyat-dao/fiyat-dao';
 import {TokenProvider} from "../token/token";
 import {Constants} from "../../entities/Constants";
 import {UtilProvider} from "../util/util";
+import {DetayKayit} from "../../entities/hizmet/DetayKayit";
+import {LoggerProvider} from "../logger/logger";
 
 
 @Injectable()
@@ -20,6 +22,7 @@ export class FiyatProvider {
               private api: ApiProvider,
               private util: UtilProvider,
               private fiyatDao: FiyatDao,
+              private logger: LoggerProvider,
               private  token: TokenProvider) {
 
   }
@@ -60,7 +63,46 @@ export class FiyatProvider {
       resolve(Constants.STATUS.SUCCESS);
       reject(Constants.STATUS.ERROR);
     });
-
   }
+
+  getFiyatSorguFilter(detay: DetayKayit, mamKod: string): Fiyat {
+    let item = new Fiyat();
+    item.mamKod = detay.mlzIsc == 'MLZ' ? 'MLZ' : mamKod;
+    item.iscMlzKod = detay.mlzIscKod;
+    return item;
+  }
+
+  async findFiyat(detay: DetayKayit, mamKod: string) {
+    let fiyat = this.getFiyatSorguFilter(this.util.assign(detay), mamKod);
+
+    if (detay.mlzIsc != Constants.DETAY_TIPI.DIGER) {
+
+      let res = await this.fiyatDao.findFiyat(fiyat);
+      if (this.util.isNotEmptyRows(res)) {
+        this.logger.dir(res);
+        return res.rows.item(0);
+      } else {
+        return null;
+      }
+    }
+  }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
