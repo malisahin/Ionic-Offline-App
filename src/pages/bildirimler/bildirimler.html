@@ -20,16 +20,16 @@
 
   <ion-card *ngFor="let mesaj of mesajList" class="card-box" (click)="mesajDetayinaGit($event, mesaj.id)">
     <p>
-      <label>
+      <ion-label>
         <i class="fas fa-user"></i>
         <strong> {{mesaj.gonderen}} </strong>
-      </label>
+      </ion-label>
     </p>
     <p>
-      <label>
+      <ion-label>
         <i class="fas fa-envelope"></i>
         <strong>{{mesaj.subject}} </strong>
-      </label>
+      </ion-label>
     </p>
   </ion-card>
 </ion-content>

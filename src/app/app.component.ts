@@ -51,6 +51,7 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.db.createDatabase();
+
     });
   }
 
@@ -75,7 +76,6 @@ export class MyApp {
   }
 
   enableProductionMode() {
-
 
 
     if (this.platform.is('ios') || this.platform.is('android') || this.platform.is('windows')) {

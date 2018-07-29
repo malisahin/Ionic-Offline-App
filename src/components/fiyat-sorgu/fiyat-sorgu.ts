@@ -46,7 +46,7 @@ export class FiyatSorguComponent {
     this.fiyat = new Fiyat();
     this.urun = new Urun();
     this.data.type = Constants.DATA_TYPE.URUN_ANA_GRUP;
-    let aramaModal = this.modalController.create(UrunAnaGrupSearchComponent, {data: this.data});
+    let aramaModal = this.modalController.create(UrunAnaGrupSearchComponent, {data: this.data}, {cssClass: this.util.getSelectedTheme()});
     aramaModal.onDidDismiss(data => {
       this.urunAnaGrup = data;
     });

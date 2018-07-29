@@ -5,7 +5,6 @@ import {MyApp} from "./app.component";
 import {StatusBar} from "@ionic-native/status-bar";
 import {SplashScreen} from "@ionic-native/splash-screen";
 import {AuthService} from "../providers/auth-service/auth-service";
-import {CagrilarComponent} from "../components/cagrilar/cagrilar";
 import {BildirimlerPage} from "../pages/bildirimler/bildirimler";
 import {CagrilarPage} from "../pages/cagrilar/cagrilar";
 import {GuncellemePage} from "../pages/guncelleme/guncelleme";
@@ -27,7 +26,6 @@ import {FiyatProvider} from "../providers/fiyat/fiyat";
 import {CagriAramaModalPage} from "../pages/cagrilar/cagri-arama-modal/cagri-arama-modal";
 import {HizmetProvider} from "../providers/hizmet/hizmet";
 import {ListComponent} from "../components/list/list";
-import {ListPage} from "../pages/list/list";
 import {HizmetDao} from "../providers/hizmet-dao/hizmet-dao";
 import {BaseDao} from "../providers/base-dao/base-dao";
 import {FiyatDao} from "../providers/fiyat-dao/fiyat-dao";
@@ -80,16 +78,14 @@ import { TasksProvider } from '../providers/tasks/tasks';
 import { ThemeProvider } from '../providers/theme/theme';
 import {Deeplinks} from "@ionic-native/deeplinks";
 import { DeeplinkPrinterProvider } from '../providers/deeplink-printer/deeplink-printer';
+import {LoginPageModule} from "../pages/login/login.module";
+import {CagriAramaModalPageModule} from "../pages/cagrilar/cagri-arama-modal/cagri-arama-modal.module";
 
 
 @NgModule({
   declarations: [
     MyApp,
-    CagrilarComponent,
-    LoginPage,
-    CagriAramaModalPage,
-    ListComponent,
-    ListPage,
+    ListComponent
   ],
   imports: [
     BrowserModule,
@@ -102,13 +98,14 @@ import { DeeplinkPrinterProvider } from '../providers/deeplink-printer/deeplink-
     CagriDetayPageModule,
     BilgiSorguPageModule,
     BildirimlerPageModule,
-    AnasayfaPageModule
+    AnasayfaPageModule,
+    LoginPageModule,
+    CagriAramaModalPageModule
   ],
   exports: [],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    CagrilarComponent,
     BildirimlerPage,
     CagrilarPage,
     GuncellemePage,
@@ -118,7 +115,6 @@ import { DeeplinkPrinterProvider } from '../providers/deeplink-printer/deeplink-
     LoginPage,
     CagriAramaModalPage,
     ListComponent,
-    ListPage,
     BilgiSorguPage,
     UrunSearchComponent,
     UrunAnaGrupSearchComponent,

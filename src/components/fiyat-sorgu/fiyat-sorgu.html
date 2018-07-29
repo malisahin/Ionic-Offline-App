@@ -1,7 +1,7 @@
 <!-- Generated template for the HizmetBilgileriComponent component -->
 
 <ion-row>
-  <ion-col col-12 *ngIf="islemTipi=='' || islemTipi==null ">
+  <ion-col col-12 *ngIf="islemTipi=='' || islemTipi==null " style="text-align: center; color: red">
     <ion-label color="primary">Önce işlem tipini seçiniz</ion-label>
   </ion-col>
 
@@ -20,28 +20,21 @@
     <ion-label color="primary">Ürün ana Grubu</ion-label>
   </ion-col>
   <ion-col col-8 col-md-10 *ngIf="islemTipi != '' && islemTipi=='ISC'">
-    <ion-input type="text" [(ngModel)]="urunAnaGrup.ad" (focus)="urunAnaGrupSorgula()"></ion-input>
+    <ion-input type="text" [(ngModel)]="urunAnaGrup.ad" (ionFocus)="urunAnaGrupSorgula()"></ion-input>
   </ion-col>
 
   <ion-col col-4 col-md-2 *ngIf="islemTipi == 'ISC' || islemTipi == 'MLZ'">
     <ion-label color="primary">Ürün Kodu</ion-label>
   </ion-col>
   <ion-col col-8 col-md-10 *ngIf="islemTipi == 'ISC' || islemTipi == 'MLZ'">
-    <ion-input type="text" [(ngModel)]="urun.mamKod" (focus)="urunSorgula()"></ion-input>
+    <ion-input type="text" [(ngModel)]="urun.mamKod" (ionFocus)="urunSorgula()"></ion-input>
   </ion-col>
 
   <ion-col col-4 col-md-2 *ngIf="islemTipi != '' && islemTipi=='ISC'">
     <ion-label color="primary">Ürün İşçilik</ion-label>
   </ion-col>
   <ion-col col-8 col-md-10 *ngIf="islemTipi != '' && islemTipi=='ISC'">
-    <ion-input type="text" [(ngModel)]="urunIscilik.iscAdi" (focus)="urunIscilikSorgula()"></ion-input>
-  </ion-col>
-
-  <ion-col col-4 col-md-2 *ngIf="islemTipi != '' && islemTipi=='ISC'">
-    <ion-label color="primary">Ürün İşçilik</ion-label>
-  </ion-col>
-  <ion-col col-8 col-md-10 *ngIf="islemTipi != '' && islemTipi=='ISC'">
-    <ion-input type="text" [(ngModel)]="urunIscilik.iscAdi" (focus)="urunIscilikSorgula()"></ion-input>
+    <ion-input type="text" [(ngModel)]="urunIscilik.iscAdi" (ionFocus)="urunIscilikSorgula()"></ion-input>
   </ion-col>
 
   <ion-col col-sm-12 col-md-6 col-lg-3 col-xl-3>
