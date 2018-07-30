@@ -69,10 +69,12 @@ export class CagrilarPage {
     let aramaModal = this.modalController.create(CagriAramaModalPage, {}, {cssClass: this.util.getSelectedTheme()});
     aramaModal.onDidDismiss(data => {
 
-      this.orderBy = data.orderBy;
-      this.searchQuery = data.query;
-      this.searchParams = data.params;
-      this.fetchList(this.searchType);
+      if (this.util.isNotEmpty(data) && this.util.isNotEmpty(data.orderBy)) {
+        this.orderBy = data.orderBy;
+        this.searchQuery = data.query;
+        this.searchParams = data.params;
+        this.fetchList(this.searchType);
+      }
     });
     aramaModal.present();
   }
@@ -82,7 +84,7 @@ export class CagrilarPage {
     this.pageable.tip = tip;
     this.pageable = this.pageable.compute();
     let list: any;
-    if (this.util.isNotEmpty(this.searchQuery)) {
+    if (this.util.isNotEmpty(this.searchQuery) && this.util.isNotEmpty(this.orderBy)) {
       list = await this.hizmetService.fetchHizmetWithQuery(this.searchQuery, this.orderBy, this.pageable);
     } else {
       let hizmet = new Hizmet();

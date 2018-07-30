@@ -1,17 +1,18 @@
 import {Component} from '@angular/core';
-import {Pageable} from '../../entities/Pageable';
-import {Constants} from '../../entities/Constants';
-import {UtilProvider} from '../../providers/util/util';
-import {UrunDao} from '../../providers/urun-dao/urun-dao';
-import {ViewController, NavParams} from 'ionic-angular';
-import {Urun} from '../../entities/urun';
+import {Pageable} from "../../entities/Pageable";
+import {UrunMalzeme} from "../../entities/urun-malzeme";
+import {ViewController, NavParams} from "ionic-angular";
+import {UrunMalzemeProvider} from "../../providers/urun-malzeme/urun-malzeme";
+import {UtilProvider} from "../../providers/util/util";
+import {Constants} from "../../entities/Constants";
+import {LoggerProvider} from "../../providers/logger/logger";
 
 
 @Component({
-  selector: 'urun-search',
-  templateUrl: 'urun-search.html'
+  selector: 'malzeme-search',
+  templateUrl: 'malzeme-search.html'
 })
-export class UrunSearchComponent {
+export class MalzemeSearchComponent {
 
   text: string;
   data: any;
@@ -20,15 +21,17 @@ export class UrunSearchComponent {
   returnObject: any;
   pageable: Pageable;
   searchText: string = "";
-  urun: Urun;
+  malzeme: UrunMalzeme;
   searchType: string;
 
   constructor(public viewCtrl: ViewController, params: NavParams,
-              private urunDao: UrunDao,
+              private malzemeProvider: UrunMalzemeProvider,
+              private logger: LoggerProvider,
               private util: UtilProvider) {
     this.pageable = new Pageable();
     this.data = params.get('data');
-    this.urun = new Urun();
+    debugger;
+    this.malzeme = new UrunMalzeme();
     this.searchType = Constants.SEARCH_TYPE.LIKE;
     this.ionViewDidLoad();
   }
@@ -48,22 +51,18 @@ export class UrunSearchComponent {
     this.fetchUrunList();
   }
 
-  fetchUrunList() {
-    let urunSearch = this.prepareSearchUrun();
-    this.urunDao.getList(urunSearch, Constants.SEARCH_TYPE.LIKE, this.pageable.first, this.pageable.pageSize).then(data => {
-      this.fillList(data);
-    });
+  async fetchUrunList() {
+    let filter = this.prepareSearchMalzeme();
+    let data = await this.malzemeProvider.getList(filter, Constants.SEARCH_TYPE.LIKE, this.pageable);
+    this.fillList(data);
+
 
   }
 
-  prepareSearchUrun(): Urun {
-    let filter = new Urun();
-    filter.mamAdi = this.searchText;
-    filter.mamKod = this.searchText;
-
-    if (this.util.isNotEmpty(this.data.mamAnagrp)) {
-      filter.mamAnagrp = this.data.mamAnagrp;
-    }
+  prepareSearchMalzeme(): UrunMalzeme {
+    let filter = new UrunMalzeme();
+    filter.mlzAdi = this.searchText;
+    filter.mlzKod = this.searchText;
 
     if (this.util.isNotEmpty(this.data.searchType)) {
       this.searchType = this.data.searchType;
@@ -78,12 +77,12 @@ export class UrunSearchComponent {
     for (let i = 0; i < res.length; i++) {
       this.fillItemByType(res.item(i));
     }
-    console.dir(res);
+    this.logger.dir(res);
   }
 
   fillItemByType(item: any) {
 
-    this.list.push({key: item.mamAdi, value: item.mamKod, data: item});
+    this.list.push({key: item.mlzKod, value: item.mlzAdi, data: item});
 
   }
 
@@ -94,9 +93,9 @@ export class UrunSearchComponent {
   }
 
   prepareUrunReturnValue(item) {
-    this.urun.mamAdi = this.util.isEmpty(item.key) ? '' : item.key;
-    this.urun.mamKod = this.util.isEmpty(item.value) ? '' : item.value;
-    this.returnObject = this.urun;
+    this.malzeme.mlzKod = this.util.isEmpty(item.key) ? '' : item.key;
+    this.malzeme.mlzAdi = this.util.isEmpty(item.value) ? '' : item.value;
+    this.returnObject = this.malzeme;
   }
 
 

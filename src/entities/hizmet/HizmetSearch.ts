@@ -8,7 +8,7 @@ export class HizmetSearch {
   constructor() {
   }
 
-  seqNo: string = "";
+  seqNo: number;
   durum: string = "";
   randevuTarFirst: Date;
   randevuTarLast: Date;

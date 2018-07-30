@@ -204,7 +204,7 @@ export class DetayBilgileriComponent {
         this.util.error(res.description);
         this.fillHizmet(res);
       } else if (res.responseCode == "SUCCESS") {
-        this.util.success(res.description);
+        this.util.success("Siparişiniz başarıyla oluşturuldu.");
         this.fillHizmet(res);
 
       } else {

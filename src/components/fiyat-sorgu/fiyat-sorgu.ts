@@ -12,6 +12,7 @@ import {UrunIscilikSearchComponent} from '../urun-iscilik-search/urun-iscilik-se
 import {LoggerProvider} from "../../providers/logger/logger";
 import {FiyatDao} from "../../providers/fiyat-dao/fiyat-dao";
 import {Fiyat} from "../../entities/fiyat";
+import {MalzemeSearchComponent} from "../malzeme-search/malzeme-search";
 
 
 @Component({
@@ -28,6 +29,7 @@ export class FiyatSorguComponent {
   islemTipi: string;
   data: any;
   fiyat: Fiyat = new Fiyat();
+  malzeme: UrunMalzeme;
 
   constructor(private modalController: ModalController,
               private util: UtilProvider,
@@ -39,6 +41,7 @@ export class FiyatSorguComponent {
     this.urun = new Urun();
     this.urunIscilik = new UrunIscilik();
     this.islemTipi = '';
+    this.malzeme = new UrunMalzeme();
   }
 
   public urunAnaGrupSorgula() {
@@ -62,6 +65,26 @@ export class FiyatSorguComponent {
       this.urun = data;
     });
     aramaModal.present();
+  }
+
+  public malzemeSorgula() {
+    let aramaModal = this.modalController.create(MalzemeSearchComponent, {data: this.malzeme});
+    aramaModal.onDidDismiss(data => {
+      this.fillMalzemeSorguFilter(data);
+    });
+    aramaModal.present();
+  }
+
+  fillMalzemeSorguFilter(data) {
+    if (this.util.isNotEmpty(data)) {
+
+      if (this.util.isNotEmpty(data.mlzKod))
+        this.malzeme.mlzKod = data.mlzKod;
+
+      if (this.util.isNotEmpty(data.mlzAdi)) {
+        this.malzeme.mlzAdi = data.mlzAdi;
+      }
+    }
   }
 
   public urunIscilikSorgula() {
@@ -118,10 +141,10 @@ export class FiyatSorguComponent {
   }
 
   private malzemeFiyatSorgula() {
-    if (this.util.isEmpty(this.urun.mamKod)) {
+    if (this.util.isEmpty(this.malzeme.mlzKod)) {
       this.util.warn("Önce Ürün/Kodu seçiniz.");
     } else {
-      this.fiyatBul("MLZ", this.urun.mamKod);
+      this.fiyatBul("MLZ", this.malzeme.mlzKod);
     }
   }
 

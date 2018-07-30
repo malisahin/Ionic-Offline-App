@@ -1,14 +1,14 @@
-import {Component} from "@angular/core";
-import {IslemArizaIscilik} from "../../entities/islem-ariza-iscilik";
-import {IslemArizaIscilikDao} from "../../providers/islem-ariza-iscilik-dao/islem-ariza-iscilik-dao";
-import {NavParams, ViewController} from "ionic-angular";
-import {UtilProvider} from "../../providers/util/util";
-import {Pageable} from "../../entities/Pageable";
-import {HizmetService} from "../../providers/hizmet-service/hizmet-service";
-import {Hizmet} from "../../entities/hizmet/hizmet";
-import {UrunMalzemeProvider} from "../../providers/urun-malzeme/urun-malzeme";
-import {UrunMalzeme} from "../../entities/urun-malzeme";
-import {Constants} from "../../entities/Constants";
+import { Component } from "@angular/core";
+import { IslemArizaIscilik } from "../../entities/islem-ariza-iscilik";
+import { IslemArizaIscilikDao } from "../../providers/islem-ariza-iscilik-dao/islem-ariza-iscilik-dao";
+import { NavParams, ViewController } from "ionic-angular";
+import { UtilProvider } from "../../providers/util/util";
+import { Pageable } from "../../entities/Pageable";
+import { HizmetService } from "../../providers/hizmet-service/hizmet-service";
+import { Hizmet } from "../../entities/hizmet/hizmet";
+import { UrunMalzemeProvider } from "../../providers/urun-malzeme/urun-malzeme";
+import { UrunMalzeme } from "../../entities/urun-malzeme";
+import { Constants } from "../../entities/Constants";
 
 class SearchItem {
   key: string = "";
@@ -24,7 +24,11 @@ export class DetayPiySearchComponent {
   text: string;
   data: any;
   list: SearchItem[] = [];
-  selectedItem: { key: "", value: "", data: {} } = {key: "", value: "", data: {}};
+  selectedItem: { key: ""; value: ""; data: {} } = {
+    key: "",
+    value: "",
+    data: {}
+  };
   pageable: Pageable;
   searchText: string = "";
   searchType: string;
@@ -32,12 +36,14 @@ export class DetayPiySearchComponent {
   dataType: string;
   filter: IslemArizaIscilik;
 
-  constructor(public viewCtrl: ViewController,
-              private params: NavParams,
-              private util: UtilProvider,
-              private hizmetService: HizmetService,
-              private urunMalzemeProvider: UrunMalzemeProvider,
-              private islemArizaIscilikDao: IslemArizaIscilikDao) {
+  constructor(
+    public viewCtrl: ViewController,
+    private params: NavParams,
+    private util: UtilProvider,
+    private hizmetService: HizmetService,
+    private urunMalzemeProvider: UrunMalzemeProvider,
+    private islemArizaIscilikDao: IslemArizaIscilikDao
+  ) {
     this.text = "Hello World";
     this.pageable = new Pageable();
     this.data = params.get("data");
@@ -47,7 +53,7 @@ export class DetayPiySearchComponent {
   }
 
   closeModal() {
-    this.ionChange({key: "", value: ""});
+    this.ionChange({ key: "", value: "" });
   }
 
   ionViewDidLoad() {
@@ -112,32 +118,46 @@ export class DetayPiySearchComponent {
     let searchType = Constants.SEARCH_TYPE.LIKE;
     filter.mlzAdi = this.searchText;
     filter.mlzKod = this.searchText;
-    let malzemeList = await this.urunMalzemeProvider.getList(filter, searchType, this.pageable);
+    let malzemeList = await this.urunMalzemeProvider.getList(
+      filter,
+      searchType,
+      this.pageable
+    );
     this.pageable.listLength = malzemeList.listLength;
     this.fillList(malzemeList.res);
   }
 
   getYol() {
-
-    let yolIsciligi = {key: "999988", value: "Yol İşçiliği"};
-    this.list.push({key: "999988", value: "Yol İşçiliği", data: {}});
+    let yolIsciligi = { key: "999988", value: "Yol İşçiliği" };
+    this.list.push({ key: "999988", value: "Yol İşçiliği", data: {} });
   }
 
   getDiger() {
     this.list = [];
-    let digerIsciligi = {key: "999977", value: "Diğer İşçiliği"};
-    this.list.push({key: digerIsciligi.key, value: digerIsciligi.value, data: digerIsciligi});
+    let digerIsciligi = { key: "999977", value: "Diğer İşçiliği" };
+    this.list.push({
+      key: digerIsciligi.key,
+      value: digerIsciligi.value,
+      data: digerIsciligi
+    });
   }
 
   prepareSearchItem() {
     this.filter.mamAnaGrp = this.hizmet.mamAnaGrp;
-    this.filter.islGrp = this.util.isNotEmpty(this.data.filter.islemKod) ? this.data.filter.islemKod : "";
-    this.filter.arzGrp = this.util.isNotEmpty(this.data.filter.arizaKod) ? this.data.filter.arizaKod : "";
+    this.filter.islGrp = this.util.isNotEmpty(this.data.filter.islemKod)
+      ? this.data.filter.islemKod
+      : "";
+    this.filter.arzGrp = this.util.isNotEmpty(this.data.filter.arizaKod)
+      ? this.data.filter.arizaKod
+      : "";
   }
 
   fillList(data: any) {
     let res = data.rows;
-    this.pageable.listLength = this.pageable.listLength == -1 ? data.listLength : this.pageable.listLength;
+    this.pageable.listLength =
+      this.pageable.listLength == -1
+        ? data.listLength
+        : this.pageable.listLength;
     for (let i = 0; i < res.length; i++) {
       this.fillItemByType(res.item(i));
     }
@@ -163,16 +183,16 @@ export class DetayPiySearchComponent {
       let mlzIsc = this.data.filter.mlzIsc;
 
       if (mlzIsc == Constants.DETAY_TIPI.ISCILIK)
-        this.list.push({key: item.iscKod, value: item.iscAdi, data: item});
+        this.list.push({ key: item.iscKod, value: item.iscAdi, data: item });
 
       if (mlzIsc == Constants.DETAY_TIPI.MALZEME)
-        this.list.push({key: item.mlzKod, value: item.mlzAdi, data: item});
+        this.list.push({ key: item.mlzKod, value: item.mlzAdi, data: item });
 
       if (mlzIsc == Constants.DETAY_TIPI.DIGER)
-        this.list.push({key: item.mlzKod, value: item.mlzAdi, data: item});
+        this.list.push({ key: item.mlzKod, value: item.mlzAdi, data: item });
 
       if (mlzIsc == Constants.DETAY_TIPI.YOL)
-        this.list.push({key: item.mlzKod, value: item.mlzAdi, data: item});
+        this.list.push({ key: item.mlzKod, value: item.mlzAdi, data: item });
     }
   }
 
@@ -187,6 +207,6 @@ export class DetayPiySearchComponent {
   }
 
   public ionChange(item: any) {
-    this.viewCtrl.dismiss({data: item});
+    this.viewCtrl.dismiss({ data: item });
   }
 }

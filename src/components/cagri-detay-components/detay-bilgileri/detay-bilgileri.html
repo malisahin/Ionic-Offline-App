@@ -60,14 +60,16 @@
       <ion-row>
 
         <ion-col col-6>
-          <button ion-button icon-only (click)="updateHizmetDetay(detay)" [disabled]="isHizmetDisabled()">
-            <ion-icon name="create" small></ion-icon>
+          <button ion-button icon-only (click)="updateHizmetDetay(detay)"
+                  [disabled]="isHizmetDisabled()" [color]="info">
+            <i class="fas fa-edit"></i>
           </button>
         </ion-col>
 
         <ion-col col-6>
-          <button ion-button icon-only (click)="deleteHizmetDetay(detay)" [disabled]="isHizmetDisabled()">
-            <ion-icon name="close-circle" small></ion-icon>
+          <button ion-button icon-only (click)="deleteHizmetDetay(detay)"
+                  [color]="error" [disabled]="isHizmetDisabled()">
+            <i class="fas fa-trash-alt"></i>
           </button>
         </ion-col>
 
