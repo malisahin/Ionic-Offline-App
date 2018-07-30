@@ -46,10 +46,8 @@ export class MyApp {
 
   initializeApp() {
     this.platform.ready().then(() => {
-
-
-      this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.statusBar.styleDefault();
       this.db.createDatabase();
 
     });
@@ -78,9 +76,9 @@ export class MyApp {
   enableProductionMode() {
 
 
-    if (this.platform.is('ios') || this.platform.is('android') || this.platform.is('windows')) {
-      enableProdMode();
-    }
+    /* if (this.platform.is('ios') || this.platform.is('android') || this.platform.is('windows')) {
+     enableProdMode();
+     }*/
   }
 
 }

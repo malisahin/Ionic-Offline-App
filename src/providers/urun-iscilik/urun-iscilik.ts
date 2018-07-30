@@ -31,7 +31,6 @@ export class UrunIscilikProvider {
   async downloadUrunIscilik(first: number): Promise<any> {
     let header = await this.token.callTokenAndGetHeader();
     if (this.util.isOnline()) {
-      this.util.loaderStart();
       let item = await this.getDataFromApi(first, header);
       let urunIscilik = new UrunIscilik();
       let list = await urunIscilik.fillUrunIscilik(item);

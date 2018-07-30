@@ -27,7 +27,6 @@ export class UrunProvider {
   async downloadUrunler(first: number): Promise<any> {
     let header = await this.token.callTokenAndGetHeader();
     if (this.util.isOnline()) {
-      this.util.loaderStart();
       let data = await this.getDataFromApi(first, header);
       let urun = new Urun();
       let list = await urun.fillUrun(data);

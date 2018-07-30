@@ -19,6 +19,7 @@ import {Constants} from "../../entities/Constants";
 export class TasksProvider {
 
 
+  INTERVAL_NAME = "INTERVAL_NAME";
   TASK_TIME_INTERVAL: number;
 
   ASYNC_CHECK_INTERVAL = 30000;
@@ -48,14 +49,24 @@ export class TasksProvider {
       }
 
     }, this.ASYNC_CHECK_INTERVAL);
-
+    localStorage.setItem(this.INTERVAL_NAME, String(this.interval));
   }
 
   public killAndStartTasks() {
-    this.logger.warn("Task Killed. [" + String(this.interval) + "]");
-    clearInterval(this.interval);
-    this.init();
+    this.killTasks();
+    this.startTasks();
     // this.runTasks();
+  }
+
+  public killTasks() {
+    let interval = Number(localStorage.getItem(this.INTERVAL_NAME));
+    this.logger.warn("Task Killed. [" + String(this.interval) + "]");
+    clearInterval(interval);
+  }
+
+  public  startTasks() {
+    this.logger.info("Task Started.");
+    this.runTasks();
   }
 
 

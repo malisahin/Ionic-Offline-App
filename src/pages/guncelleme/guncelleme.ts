@@ -18,6 +18,7 @@ import {LoggerProvider} from '../../providers/logger/logger';
 import {UtilProvider} from '../../providers/util/util';
 import {HeaderComponent} from "../../components/header/header";
 import {VersiyonProvider} from "../../providers/versiyon/versiyon";
+import {TasksProvider} from "../../providers/tasks/tasks";
 
 
 @IonicPage()
@@ -47,6 +48,7 @@ export class GuncellemePage {
   malzemeFiyatVersiyon;
   iscilikFiyatVersiyon;
 
+  counter: number;
   @ViewChild("header") header: HeaderComponent;
 
   constructor(public navCtrl: NavController,
@@ -60,7 +62,9 @@ export class GuncellemePage {
               private adresProvider: AdresProvider,
               private logger: LoggerProvider,
               private versiyonProvider: VersiyonProvider,
+              private tasks: TasksProvider,
               private util: UtilProvider) {
+
     this.colors = Constants.COLORS;
     this.icons = Constants.ICONS;
     this.firstForUrunIscilik = 0;
@@ -70,6 +74,7 @@ export class GuncellemePage {
     this.firstForIscilikFiyat = 0;
     this.firstForMalzemeFiyat = 0;
     this.firstForMahalleTnm = 0;
+    this.counter = 0;
     this.ionViewDidLoad();
 
   }
@@ -77,6 +82,7 @@ export class GuncellemePage {
 
   async downloadUrunler() {
     try {
+      this.onDownloadStart();
       this.util.timerStart(Constants.DATA_TYPE.URUN);
       let res = await this.urunProvider.downloadUrunler(this.firstForUrunler);
       this.logger.success("downloadUrunler ==> " + res);
@@ -101,7 +107,7 @@ export class GuncellemePage {
   downloadUrunAnaGrup() {
     try {
       this.util.timerStart(Constants.DATA_TYPE.URUN_ANA_GRUP);
-      this.util.loaderStart();
+      this.onDownloadStart();
       this.urunAnaGrpProvider.downloadUrunAnaGrup().then(res => {
         if (this.util.isNotEmpty(res))
           this.doWhenDataDownloaded(Constants.DATA_TYPE.URUN_ANA_GRUP, "Ürün Ana grup Kayıt Edildi.");
@@ -121,6 +127,7 @@ export class GuncellemePage {
   async downloadUrunIscilik() {
     try {
       this.util.timerStart(Constants.DATA_TYPE.URUN_ISCILIK);
+      this.onDownloadStart();
       let res = await this.urunIscilikProvider.downloadUrunIscilik(this.firstForUrunIscilik);
       this.logger.success("downloadUrunIscilik ==> " + res);
       if (this.util.isNotEmpty(res)) {
@@ -143,7 +150,7 @@ export class GuncellemePage {
   downloadUrunMalzeme() {
     try {
       this.util.timerStart(Constants.DATA_TYPE.URUN_MALZEME);
-
+      this.onDownloadStart();
       this.urunMalzemeProvider.downloadUrunMalzeme(this.firstForUrunMalzeme).then(res => {
         this.logger.success("downloadUrunMalzeme ==> " + res);
         if (this.util.isNotEmpty(res)) {
@@ -158,20 +165,19 @@ export class GuncellemePage {
         } else {
           this.onComplete();
         }
-
       });
       this.util.timerEnd(Constants.DATA_TYPE.URUN_MALZEME);
 
     } catch (e) {
       this.catchException(e, Constants.DATA_TYPE.URUN_MALZEME);
-
+      this.onComplete();
     }
   }
 
   downloadIslemArizaIscilik() {
     try {
       this.util.timerStart(Constants.DATA_TYPE.ISLEM_ARIZA_ISCILIK);
-
+      this.onDownloadStart();
       this.islemArizaIscilikProvider.downloadIslemArizaIscilik(this.firstForIslemArizaIscilik).then(res => {
         this.logger.success("downloadIslemArizaIscilik ==> " + res);
         if (this.util.isNotEmpty(res)) {
@@ -185,8 +191,8 @@ export class GuncellemePage {
         } else {
           this.onComplete();
         }
-
       });
+
       this.util.timerEnd(Constants.DATA_TYPE.ISLEM_ARIZA_ISCILIK);
 
     } catch (e) {
@@ -197,7 +203,7 @@ export class GuncellemePage {
   async downloadMalzemeFiyat() {
     try {
       this.util.timerStart(Constants.DATA_TYPE.MALZEME_FIYAT);
-
+      this.onDownloadStart();
       let res = await this.fiyatProvider.downloadMalzemeFiyat(this.firstForMalzemeFiyat);
 
       this.logger.success("downloadMalzemeFiyat ==> " + res);
@@ -217,14 +223,13 @@ export class GuncellemePage {
     }
     catch (e) {
       this.catchException(e, Constants.DATA_TYPE.MALZEME_FIYAT);
-      this.onComplete();
     }
   }
 
   async downloadIscilikFiyat() {
     try {
       this.util.timerStart(Constants.DATA_TYPE.ISCILIK_FIYAT);
-
+      this.onDownloadStart();
       await this.fiyatProvider.downloadIscilikFiyat(this.firstForIscilikFiyat).then(res => {
         if (this.util.isNotEmpty(res)) {
           this.logger.success("downloadIscilikFiyat ==> " + res);
@@ -251,6 +256,8 @@ export class GuncellemePage {
   async downloadSehirList() {
     try {
       this.util.timerStart(Constants.DATA_TYPE.SEHIR_TNM);
+      this.onDownloadStart();
+
       await this.adresProvider.downloadSehirData().then(res => {
         this.logger.success("downloadSehirList ==> " + res);
         if (this.util.isNotEmpty(res))
@@ -258,20 +265,19 @@ export class GuncellemePage {
         else {
           this.onComplete();
         }
-
       });
+
       this.util.timerEnd(Constants.DATA_TYPE.SEHIR_TNM);
 
     } catch (e) {
       this.catchException(e, Constants.DATA_TYPE.SEHIR_TNM);
-
     }
   }
 
   async downloadIlceList() {
     try {
       this.util.timerStart(Constants.DATA_TYPE.ILCE_TNM);
-
+      this.onDownloadStart();
       await this.adresProvider.downloadIlceData().then(res => {
         this.logger.success("downloadIlceList ==> " + res);
         if (this.util.isNotEmpty(res)) {
@@ -290,7 +296,7 @@ export class GuncellemePage {
   async downloadMahalleList() {
     try {
       this.util.timerStart(Constants.DATA_TYPE.MAHALLE_TNM);
-
+      this.onDownloadStart();
       await this.adresProvider.downloadMahalleData(this.firstForMahalleTnm).then(res => {
 
         this.logger.success("downloadMahalleList ==> " + res);
@@ -358,9 +364,8 @@ export class GuncellemePage {
 
   catchException(e, place) {
     this.logger.error(e);
-    this.updateHeader();
     this.util.error("Indirme işleminde Hata oluştu lütfen tekrar deneyiniz." + place);
-    this.util.loaderEnd();
+    this.onComplete();
   }
 
   doWhenDataDownloaded(type: string, message: string) {
@@ -377,6 +382,16 @@ export class GuncellemePage {
     this.util.loaderEnd();
     this.updateHeader();
     this.setVersiyon();
+    this.tasks.startTasks();
+    this.counter = 0;
+  }
+
+  onDownloadStart() {
+    if (this.counter == 0) {
+      this.tasks.killTasks();
+      this.util.loaderStart();
+    }
+    this.counter += 1;
   }
 
   setVersiyon() {
