@@ -87,6 +87,8 @@ import { DeeplinkPrinterProvider } from "../providers/deeplink-printer/deeplink-
 import { LoginPageModule } from "../pages/login/login.module";
 import { CagriAramaModalPageModule } from "../pages/cagrilar/cagri-arama-modal/cagri-arama-modal.module";
 import {MalzemeSearchComponent} from "../components/malzeme-search/malzeme-search";
+import { BransProvider } from '../providers/brans/brans';
+import { BransDao } from '../providers/brans-dao/brans-dao';
 
 @NgModule({
   declarations: [MyApp, ListComponent],
@@ -183,7 +185,9 @@ import {MalzemeSearchComponent} from "../components/malzeme-search/malzeme-searc
     VersiyonProvider,
     ThemeProvider,
     Deeplinks,
-    DeeplinkPrinterProvider
+    DeeplinkPrinterProvider,
+    BransProvider,
+    BransDao
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

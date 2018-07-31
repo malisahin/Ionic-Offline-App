@@ -70,6 +70,9 @@ export class DatabaseProvider {
 
         tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_USER_DEF (user TEXT,userCode TEXT, pass TEXT,servis TEXT ,hatirla TEXT, ikKod TEXT, ikAd ,durum TEXT,userType TEXT,userName TEXT,orgKod Text,dilKod TEXT, pB TEXT, dilObjeDetaylari , PRIMARY KEY(user))');
 
+        tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_BRANS_LIST (hizmetTipi TEXT, mamAnaGrp TEXT, exp TEXT, PRIMARY KEY(hizmetTipi, mamAnaGrp))');
+
+
 
       });
     }).then(() => {

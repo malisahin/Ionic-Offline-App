@@ -10,19 +10,18 @@
     <ion-item>
       <ion-label>Ürün Ana Grup</ion-label>
 
-      <ion-select [(ngModel)]="urunAnaGrup.mamAnaGrp" interface="popover" (ionChange)="onChangeMamAnaGrp()">
-        <ion-option *ngFor="let anaGrp of urunAnaGrpList" [value]="anaGrp.mamAnaGrp" >
-          {{anaGrp.mamAnaGrp }} - {{anaGrp.ad}}
+      <ion-select [(ngModel)]="selectedBrans.mamAnaGrp" interface="popover" (ionChange)="onChangeMamAnaGrp()">
+        <ion-option *ngFor="let brans of bransListesi" [value]="brans.mamAnaGrp">
+          {{brans.exp}}
         </ion-option>
       </ion-select>
-     <!-- <ion-input type="text" [(ngModel)]="urunAnaGrup.mamAnaGrp" (ionFocus)="urunAnaGrupSorgula()">{{urunAnaGrup.mamAnaGrp}}-{{urunAnaGrup.ad}}
-      </ion-input>-->
+
     </ion-item>
 
     <ion-item>
       <ion-label>Başvuru Nedeni</ion-label>
       <ion-select [(ngModel)]="basvuruNedeni.neden" interface="popover">
-        <ion-option *ngFor="let neden of basvuruNedeniList" [value]="neden.neden" >
+        <ion-option *ngFor="let neden of basvuruNedeniList" [value]="neden.neden">
           {{neden.neden}} - {{neden.ad }}
         </ion-option>
       </ion-select>

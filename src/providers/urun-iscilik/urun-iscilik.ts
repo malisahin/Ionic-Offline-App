@@ -12,6 +12,7 @@ import {Constants} from '../../entities/Constants';
 import {UrunIscilikDao} from '../urun-iscilik-dao/urun-iscilik-dao';
 import {TokenProvider} from "../token/token";
 import {UtilProvider} from "../util/util";
+import {Pageable} from "../../entities/Pageable";
 
 
 @Injectable()
@@ -50,5 +51,10 @@ export class UrunIscilikProvider {
     let url = this.api.urunIscilikDownloadUrl(first);
     return this.http.get(url, {headers: header}).toPromise();
   }
+
+  getList(filter: UrunIscilik, searchType: string, pageable: Pageable): Promise<any> {
+    return this.urunIscilikDao.getList(filter, searchType, pageable.first, pageable.pageSize);
+  }
+
 
 }

@@ -1,13 +1,16 @@
-import { Injectable } from '@angular/core';
-import { UrunIscilik } from '../../entities/urun-iscilik';
-import { DatabaseProvider } from '../database/database';
-import { BaseDao } from '../base-dao/base-dao';
+import {Injectable} from '@angular/core';
+import {UrunIscilik} from '../../entities/urun-iscilik';
+import {DatabaseProvider} from '../database/database';
+import {BaseDao} from '../base-dao/base-dao';
+import {UtilProvider} from "../util/util";
 
 
 @Injectable()
 export class UrunIscilikDao {
 
-  constructor(private dbProvider: DatabaseProvider, private baseDao: BaseDao) {
+  constructor(private dbProvider: DatabaseProvider,
+              private baseDao: BaseDao,
+              private util: UtilProvider) {
     console.log('Hello UrunIscilikDaoProvider Provider');
   }
 
@@ -42,7 +45,25 @@ export class UrunIscilikDao {
   }
 
   getList(item: UrunIscilik, type: string, first: number, pageSize: number): Promise<any> {
-    return this.baseDao.getList("OFF_MAM_ISC_TNM", "iscKod", item, type, first, pageSize, false);
+    let query = this.prepareGetListQuery(item, type);
+    return this.baseDao.getList(query, "iscKod", item, type, first, pageSize, true);
+  }
+
+  prepareGetListQuery(filter: UrunIscilik, searchType: string): string {
+    let query = " SELECT * FROM OFF_MAM_ISC_TNM WHERE 1=1 ";
+    let searchQuery = [];
+
+    if (this.util.isNotEmpty(filter.mamKod))
+      query += " AND mamKod = '" + filter.mamKod + "' ";
+
+    if (this.util.isNotEmpty(filter.iscKod))
+      searchQuery.push(this.util.prepareWhereQuery(searchType, "iscKod", filter.iscKod));
+
+    if (this.util.isNotEmpty(filter.iscAdi))
+      searchQuery.push(this.util.prepareWhereQuery(searchType, "iscAdi", filter.iscAdi));
+
+    return this.util.prepareQuery(query, searchQuery, searchType);
+
   }
 
 

@@ -10,6 +10,7 @@ import {UserDao} from '../user-dao/user-dao';
 import {LoggerProvider} from '../logger/logger';
 import {UtilProvider} from '../util/util';
 import {User} from '../../entities/user';
+import {BransProvider} from "../brans/brans";
 
 @Injectable()
 export class UserProvider {
@@ -20,6 +21,7 @@ export class UserProvider {
               private logger: LoggerProvider,
               private util: UtilProvider,
               private api: ApiProvider,
+              private bransProvider: BransProvider,
               private userDao: UserDao) {
     this.user = new User();
   }
@@ -37,7 +39,10 @@ export class UserProvider {
     if (this.util.isOnline()) {
       let userApi = await this.getDataFromApi();
       userApi.message.password = password;
+
       this.user = this.user.fillUser(userApi);
+      await this.bransProvider.insertList(this.user.ikBrans);
+
       await this.userDao.insertOne(this.user);
       return await this.getUserFromDB(this.user);
     } else {

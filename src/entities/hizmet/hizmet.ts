@@ -66,7 +66,7 @@ export class Hizmet {
   nobet: string = "";
   odemeTipi: string = "";
   randevuTarihi: string = "";
-  sattar: string = "";
+  sattar: Date;
   sehir: string = "";
   sehirKod: string = "";
   semt: string = "";

@@ -5,6 +5,7 @@ import {UrunIscilikDao} from '../../providers/urun-iscilik-dao/urun-iscilik-dao'
 import {ViewController, NavParams} from 'ionic-angular';
 import {UtilProvider} from '../../providers/util/util';
 import {Constants} from '../../entities/Constants';
+import {UrunIscilikProvider} from "../../providers/urun-iscilik/urun-iscilik";
 
 
 @Component({
@@ -25,7 +26,8 @@ export class UrunIscilikSearchComponent {
 
   constructor(public viewCtrl: ViewController, params: NavParams,
               private util: UtilProvider,
-              private urunIscilikDao: UrunIscilikDao) {
+              private urunIscilikDao: UrunIscilikDao,
+              private urunIscilikProvider: UrunIscilikProvider) {
     this.pageable = new Pageable();
     this.data = params.get('data');
     this.ionViewDidLoad();
@@ -54,10 +56,10 @@ export class UrunIscilikSearchComponent {
     urunSearch.iscKod = this.searchText;
     urunSearch.iscAdi = this.searchText;
     urunSearch.mamKod = this.data.mamKod;
-    this.urunIscilikDao.getList(urunSearch, Constants.SEARCH_TYPE.LIKE, this.pageable.first, this.pageable.pageSize).then(data => {
+    this.urunIscilikProvider.getList(urunSearch, Constants.SEARCH_TYPE.LIKE, this.pageable).then(data => {
       this.fillList(data);
     });
-    ;
+
   }
 
   fillList(data: any) {

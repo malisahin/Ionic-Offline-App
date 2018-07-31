@@ -24,28 +24,52 @@
 
 <ion-footer>
 
-  <ion-toolbar>
-    <button ion-button color="light" (click)="fetchList('FIRST')">
-      <ion-label><i class="fas fa-angle-double-left"></i></ion-label>
-    </button>
-    <button ion-button color="light" (click)="fetchList('PREVIOUS')">
-      <ion-label><i class="fas fa-angle-left"></i></ion-label>
-    </button>
 
-    <ion-item>
-      <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList('PAGE_NO')" interface="popover">
-        <ion-option value="10" selected="true">10</ion-option>
-        <ion-option value="20">20</ion-option>
-        <ion-option value="50">50</ion-option>
-      </ion-select>
-    </ion-item>
+  <ion-row>
 
-    <button ion-button color="light" (click)="fetchList('NEXT')">
-      <ion-label><i class="fas fa-angle-right"></i></ion-label>
-    </button>
-    <button ion-button color="light" (click)="fetchList('LAST')">
-      <ion-label><i class="fas fa-angle-double-right"></i></ion-label>
-    </button>
-  </ion-toolbar>
+    <ion-col col-4>
+      <ion-row>
+        <ion-col col-6>
+          <button ion-button color="light" (click)="fetchList('FIRST')">
+            <ion-label><i class="fas fa-angle-double-left"></i></ion-label>
+          </button>
+        </ion-col>
+
+        <ion-col col-6>
+          <button ion-button color="light" (click)="fetchList('PREVIOUS')">
+            <ion-label><i class="fas fa-angle-left"></i></ion-label>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+
+    <ion-col col-4>
+      <ion-item>
+        <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList('PAGE_NO')" interface="popover">
+          <ion-option value="10" selected="true">10</ion-option>
+          <ion-option value="20">20</ion-option>
+          <ion-option value="50">50</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+
+    <ion-col col-4>
+      <ion-row>
+
+        <ion-col col-6>
+          <button ion-button color="light" (click)="fetchList('NEXT')">
+            <ion-label><i class="fas fa-angle-right"></i></ion-label>
+          </button>
+        </ion-col>
+
+        <ion-col col-6>
+          <button ion-button color="light" (click)="fetchList('LAST')">
+            <ion-label><i class="fas fa-angle-double-right"></i></ion-label>
+          </button>
+        </ion-col>
+
+      </ion-row>
+    </ion-col>
+  </ion-row>
 
 </ion-footer>
