@@ -145,13 +145,13 @@ export class DetayBilgileriComponent {
   async kapat(durum: string) {
     let result = this.kapatmaKontrol();
     if (result.isErrorMessagesNull()) {
-      //let kapatmaHizmet = this.hizmetProvider.fillHizmet(this.hizmet);
       let kapatmaHizmet = this.util.assign(this.hizmet);
 
-
+      debugger;
       kapatmaHizmet = this.sunucuyaKayitIcinHazirla(kapatmaHizmet);
 
       kapatmaHizmet.durum = durum;
+      this.verilerSunucuyaKayitEdildiMi = durum != DURUM.ACIK;
       this.util.loaderStart();
       let res = await this.hizmetProvider.updateCagri(kapatmaHizmet, "HAYIR");
       this.util.loaderEnd();
@@ -171,12 +171,16 @@ export class DetayBilgileriComponent {
       this.util.error(res.description);
       this.hizmet.durum = DURUM.ACIK;
     } else {
-      this.verilerSunucuyaKayitEdildiMi = true;
       if (kapatmaHizmet.durum != DURUM.KAPALI)
         this.kapat(DURUM.KAPALI);
     }
-    if (this.util.isNotEmpty(res.responseCode) && res.responseCode == "SUCCESS" && this.util.isNotEmpty(res.description) && res.description == "CLOSED") {
 
+    let hizmetFormuKapatildiMi = this.verilerSunucuyaKayitEdildiMi
+      && this.util.isNotEmpty(res.responseCode)
+      && res.responseCode == "SUCCESS"
+      && res.description == "CLOSED";
+
+    if (hizmetFormuKapatildiMi) {
       this.fillHizmet(res);
       this.hizmet.durum = DURUM.KAPALI;
       this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
@@ -201,8 +205,13 @@ export class DetayBilgileriComponent {
   setSiparisOlusturmaSonuc(res) {
     if (this.util.isNotEmpty(res) && this.util.isNotEmpty(res.responseCode)) {
       if (res.responseCode == "FAIL") {
+
+        if (this.util.isEmpty(res.description) || res.description == "null")
+          res.description = "Sipariş oluşturma da hata oluştu.";
+
         this.util.error(res.description);
         this.fillHizmet(res);
+
       } else if (res.responseCode == "SUCCESS") {
         this.util.success("Siparişiniz başarıyla oluşturuldu.");
         this.fillHizmet(res);
@@ -281,30 +290,32 @@ export class DetayBilgileriComponent {
 
   sunucuyaKayitIcinHazirla(hizmet: Hizmet) {
 
-    //hizmet = this.hizmetProvider.fillHizmet(hizmet);
-
-    //let sunucuyaGidecekHizmet = Object.assign({}, hizmet);
     let sunucuyaGidecekHizmet = this.util.assign(hizmet);
-    let DATE_FORMAT: string = "dd.MM.yyyy hh:mm:ss";
+    let DATE_TIME_FORMAT: string = "dd.MM.yyyy hh:mm:ss.s";
+    let DATE_TIME_FORMAT_WITHOUT_SPLIT_SECOND: string = "dd.MM.yyyy hh:mm:ss";
+    let DATE_FORMAT: string = "yyyy-MM-dd";
 
     if (this.util.isNotEmpty(sunucuyaGidecekHizmet.islemList)) {
       sunucuyaGidecekHizmet.islemList.forEach(islem => {
 
         if (this.util.isNotEmpty(islem.basTar)) {
-          islem.basTar = this.util.dateFormatRegex(islem.basTar, DATE_FORMAT)
+          islem.basTar = this.util.dateFormatRegex(islem.basTar, DATE_TIME_FORMAT_WITHOUT_SPLIT_SECOND)
         }
 
         if (this.util.isNotEmpty(islem.bitTar)) {
-          islem.bitTar = this.util.dateFormatRegex(islem.bitTar, DATE_FORMAT)
+          islem.bitTar = this.util.dateFormatRegex(islem.bitTar, DATE_TIME_FORMAT_WITHOUT_SPLIT_SECOND)
         }
 
       })
     }
 
-    sunucuyaGidecekHizmet.randevuTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.randevuTarihi, DATE_FORMAT);
-    sunucuyaGidecekHizmet.islemTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.islemTarihi, DATE_FORMAT);
-    sunucuyaGidecekHizmet.islemBitTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.islemBitTarihi, DATE_FORMAT);
-    sunucuyaGidecekHizmet.cagriTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.cagriTarihi, DATE_FORMAT);
+    sunucuyaGidecekHizmet.sattar = this.util.dateFormatRegex(sunucuyaGidecekHizmet.sattar, DATE_FORMAT);
+
+    sunucuyaGidecekHizmet.randevuTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.randevuTarihi, DATE_TIME_FORMAT);
+    sunucuyaGidecekHizmet.cagriTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.cagriTarihi, DATE_TIME_FORMAT);
+
+    sunucuyaGidecekHizmet.islemTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.islemTarihi, DATE_TIME_FORMAT_WITHOUT_SPLIT_SECOND);
+    sunucuyaGidecekHizmet.islemBitTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.islemBitTarihi, DATE_TIME_FORMAT_WITHOUT_SPLIT_SECOND);
 
     return sunucuyaGidecekHizmet;
   }

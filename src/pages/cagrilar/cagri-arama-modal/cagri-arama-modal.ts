@@ -2,14 +2,14 @@
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
-import { ViewController } from "ionic-angular/navigation/view-controller";
-import { Hizmet } from "../../../entities/hizmet/hizmet";
-import { HizmetSearch } from "../../../entities/hizmet/HizmetSearch";
-import { UtilProvider } from "../../../providers/util/util";
-import { Constants } from "../../../entities/Constants";
-import { query } from "@angular/core/src/animation/dsl";
+import {Component} from "@angular/core";
+import {IonicPage, NavController, NavParams} from "ionic-angular";
+import {ViewController} from "ionic-angular/navigation/view-controller";
+import {Hizmet} from "../../../entities/hizmet/hizmet";
+import {HizmetSearch} from "../../../entities/hizmet/HizmetSearch";
+import {UtilProvider} from "../../../providers/util/util";
+import {Constants} from "../../../entities/Constants";
+import {query} from "@angular/core/src/animation/dsl";
 
 @IonicPage()
 @Component({
@@ -25,6 +25,7 @@ export class CagriAramaModalPage {
 
   constructor(public viewCtrl: ViewController, private util: UtilProvider) {
     this.filter = new HizmetSearch();
+    this.filter.durum = "ACIK";
   }
 
   ionViewDidLoad() {
@@ -46,61 +47,38 @@ export class CagriAramaModalPage {
     let searchType = Constants.SEARCH_TYPE.LIKE;
 
     if (this.util.isNotEmpty(this.filter.randevuTarFirst)) {
-      this.query +=
-        " AND randevuTarihi > '" +
-        this.util.dateFormatRegex(this.filter.randevuTarFirst, "yyyy-MM-dd") +
-        " 00:00:00' ";
+      this.query += " AND randevuTarihi > '" + this.util.dateFormatRegex(this.filter.randevuTarFirst, "yyyy-MM-dd") + " 00:00:00' ";
       this.searchParams.push(String(this.filter.randevuTarFirst));
     }
 
     if (this.util.isNotEmpty(this.filter.randevuTarLast)) {
-      this.query +=
-        " AND randevuTarihi < '" +
-        this.util.dateFormatRegex(this.filter.randevuTarLast, "yyyy-MM-dd") +
-        " 23:59:59' ";
+      this.query += " AND randevuTarihi < '" + this.util.dateFormatRegex(this.filter.randevuTarLast, "yyyy-MM-dd") + " 23:59:59' ";
       this.searchParams.push(String(this.filter.randevuTarLast));
     }
 
-    if (this.util.isNotEmpty(this.filter.seqNo)) {
-      whereQuery.push(
-        this.util.prepareWhereQuery(
-          searchType,
-          "seqNo",
-          String(this.filter.seqNo)
-        )
-      );
-      this.searchParams.push(String(this.filter.seqNo));
-    }
-
     if (this.util.isNotEmpty(this.filter.durum)) {
-      whereQuery.push(
-        this.util.prepareWhereQuery(searchType, "durum", this.filter.durum)
-      );
+      this.query += " AND durum ='" + this.filter.durum + "' ";
       this.searchParams.push(this.filter.durum);
     }
 
+    if (this.util.isNotEmpty(this.filter.seqNo)) {
+      whereQuery.push(this.util.prepareWhereQuery(searchType, "seqNo", String(this.filter.seqNo)));
+      this.searchParams.push(String(this.filter.seqNo));
+    }
+
+
     if (this.util.isNotEmpty(this.filter.adi)) {
-      whereQuery.push(
-        this.util.prepareWhereQuery(searchType, "adi", this.filter.adi)
-      );
+      whereQuery.push(this.util.prepareWhereQuery(searchType, "adi", this.filter.adi));
       this.searchParams.push(this.filter.adi);
     }
 
     if (this.util.isNotEmpty(this.filter.soyadi)) {
-      whereQuery.push(
-        this.util.prepareWhereQuery(searchType, "soyadi", this.filter.soyadi)
-      );
+      whereQuery.push(this.util.prepareWhereQuery(searchType, "soyadi", this.filter.soyadi));
       this.searchParams.push(this.filter.soyadi);
     }
 
     if (this.util.isNotEmpty(this.filter.unvani)) {
-      whereQuery.push(
-        this.util.prepareWhereQuery(
-          searchType,
-          "firmaUnvani",
-          this.filter.unvani
-        )
-      );
+      whereQuery.push(this.util.prepareWhereQuery(searchType, "firmaUnvani", this.filter.unvani));
       this.searchParams.push(this.filter.unvani);
     }
 
@@ -108,16 +86,10 @@ export class CagriAramaModalPage {
 
     if (this.util.isNotEmpty(this.filter.telefon)) {
       let tel = String(this.filter.telefon);
-      this.query +=
-        " AND ( evTel like '%" +
-        tel +
-        "%' " +
-        "OR isTel like '%" +
-        tel +
-        "%' " +
-        "OR gsmNo like '%" +
-        tel +
-        "%' )";
+      this.query
+        += " AND ( evTel like '%" + tel + "%' "
+        + "OR isTel like '%" + tel + "%' "
+        + "OR gsmNo like '%" + tel + "%' )";
       this.searchParams.push(tel);
     }
 

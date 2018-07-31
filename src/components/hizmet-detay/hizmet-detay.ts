@@ -122,6 +122,7 @@ export class HizmetDetayComponent {
       if (this.util.isNotEmpty(this.hizmetDetay.birimFiyat) && this.hizmetDetay.birimFiyat > 0)
         this.hizmet.detayDtoList.push(this.hizmetDetay);
 
+      this.canModalCloseable = true;
     }
   }
 

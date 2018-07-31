@@ -13,6 +13,9 @@ import {GarantiSorgu} from "../../../entities/GarantiSorgu";
 import {SeriNoSorguProvider} from "../../../providers/seri-no-sorgu/seri-no-sorgu";
 import {UpdateUrunAnaGrupComponent} from "../../update-urun-ana-grup/update-urun-ana-grup";
 import {ProcessResults} from "../../../entities/ProcessResults";
+import {UrunProvider} from "../../../providers/urun/urun";
+import {Urun} from "../../../entities/urun";
+import {Pageable} from "../../../entities/Pageable";
 
 
 @Component({
@@ -34,11 +37,13 @@ export class UrunBilgileriComponent {
               private garantiSorguProvider: GarantiSorguProvider,
               private util: UtilProvider,
               private seriNoSorguProvider: SeriNoSorguProvider,
+              private urunProvider: UrunProvider,
               private urunAnaGrpDao: UrunAnaGrupDao) {
 
     this.hizmet = this.hizmetService.getHizmet();
     this.init();
     this.findUrunAnaGrp();
+    this.loadSeriNo2();
   }
 
   init() {
@@ -51,23 +56,27 @@ export class UrunBilgileriComponent {
   async urunListesiniGetir() {
     let mamAnagrp = this.hizmet.mamAnaGrp;
     let searchType = Constants.SEARCH_TYPE.EXACT;
-    let aramaModal = this.modalController.create(UrunSearchComponent, {
-        data: {
-          mamAnagrp: mamAnagrp,
-          searchType: searchType
-        }
-      },
-      {
-        cssClass: this.util.getSelectedTheme()
-      }
+    let aramaModal = this.modalController.create(UrunSearchComponent,
+      {data: {mamAnagrp: mamAnagrp, searchType: searchType}},
+      {cssClass: this.util.getSelectedTheme()}
     );
     aramaModal.onDidDismiss(data => {
-      if (this.util.isNotEmpty(data) && this.util.isNotEmpty(data.mamKod))
-        this.hizmet.mamKod = data.mamKod;
-      if (this.util.isNotEmpty(data.mamAdi))
-        this.hizmet.mamAdi = data.mamAdi;
+      if (this.util.isNotEmpty(data)) {
 
-      this.saveHizmet();
+        if (this.util.isNotEmpty(data.mamKod))
+          this.hizmet.mamKod = data.mamKod;
+
+        if (this.util.isNotEmpty(data.mamAdi))
+          this.hizmet.mamAdi = data.mamAdi;
+
+        if (this.util.isNotEmpty(data.seriMetod)) {
+          this.seriNoSayisi = Number(data.seriMetod);
+          this.hizmet.seriMetod = data.seriMetod;
+        }
+
+        debugger;
+        this.saveHizmet();
+      }
     });
     aramaModal.present();
   }
@@ -123,6 +132,8 @@ export class UrunBilgileriComponent {
     this.hizmet.mamAdi = "";
     this.hizmet.mamSeriNo = "";
     this.hizmet.mamSeriNo2 = "";
+    this.hizmet.seriMetod = null;
+    this.seriNoSayisi = 1;
     this.saveHizmet();
   }
 
@@ -210,6 +221,32 @@ export class UrunBilgileriComponent {
 
   isHizmetDisabled(): boolean {
     return this.hizmet.durum == "KAPALI" || this.hizmet.durum == "IPTAL";
+  }
+
+  async loadSeriNo2() {
+    if (this.util.isNotEmpty(this.hizmet.seriMetod)) {
+      this.seriNoSayisi = Number(this.hizmet.seriMetod);
+    }
+    else if (this.util.isNotEmpty(this.hizmet.mamKod)) {
+      await this.findUrunBilgileri();
+    }
+
+  }
+
+  async findUrunBilgileri() {
+    let filter = new Urun();
+    filter.mamKod = this.hizmet.mamKod;
+    let result = await this.urunProvider.getList(filter, Constants.SEARCH_TYPE.EXACT, new Pageable());
+    if (this.util.isNotEmptyRows(result.res)) {
+      debugger;
+      this.logger.dir(result.res);
+      let item = result.res.rows.item(0);
+      if (this.util.isNotEmpty(item.seriMetod)) {
+        this.hizmet.seriMetod = item.seriMetod;
+        this.seriNoSayisi = Number(item.seriMetod);
+      }
+    }
+
   }
 }
 

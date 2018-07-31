@@ -11,6 +11,7 @@ import {UrunDao} from '../urun-dao/urun-dao';
 import {TokenProvider} from "../token/token";
 import {UtilProvider} from "../util/util";
 import {Constants} from "../../entities/Constants";
+import {Pageable} from "../../entities/Pageable";
 
 
 @Injectable()
@@ -47,6 +48,10 @@ export class UrunProvider {
   async getDataFromApi(first, header): Promise<any> {
     let url = this.api.downloadUrunUrl(first);
     return this.http.get(url, {headers: header}).toPromise();
+  }
 
+
+  getList(urun: Urun, searchType: string, pageable: Pageable): Promise<any> {
+    return this.urunDao.getList(urun, searchType, pageable.first, pageable.pageSize);
   }
 }

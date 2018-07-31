@@ -30,9 +30,20 @@ export class ServisIslemTarihceComponent {
 
   }
 
-  loadTarihce() {
-    if (this.util.isNotEmpty(this.hizmet.islemList) )
-      this.tarihceList = this.hizmet.islemList;
+  async loadTarihce() {
+    let tempIslemList: IslemList[] = this.util.assign(this.hizmet.islemList);
+
+    if (this.util.isNotEmpty(tempIslemList)) {
+      tempIslemList
+        .filter(islem => this.util.isNotEmpty(islem.basTar))
+        .forEach(islem => this.tarihceList.push(islem));
+
+      this.hizmet.islemList = this.util.assign(this.tarihceList);
+
+      await this.hizmetService.saveAndFetchHizmet(this.hizmet);
+
+    }
+
   }
 
 

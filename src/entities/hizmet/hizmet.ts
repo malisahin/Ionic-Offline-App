@@ -48,7 +48,7 @@ export class Hizmet {
   isTel: string = "";
   islemBitTarihi: Date;
   islemList: IslemList[];
-  islemTarihi: Date ;
+  islemTarihi: Date;
   kapatmaKodu: string = "";
   mahalle: string = "";
   mahalleKodu: string = "";
@@ -78,7 +78,7 @@ export class Hizmet {
   soyadi: string = "";
   data: any;
   crmNo: string = "";
-  seriMetod: string = "1";
+  seriMetod: string;
 
 
   /**

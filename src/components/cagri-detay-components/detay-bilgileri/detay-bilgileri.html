@@ -60,15 +60,15 @@
       <ion-row>
 
         <ion-col col-6>
-          <button ion-button icon-only (click)="updateHizmetDetay(detay)"
-                  [disabled]="isHizmetDisabled()" [color]="info">
+          <button ion-button icon-only (click)="updateHizmetDetay(detay)" table-button style="width: 100%"
+                  [disabled]="isHizmetDisabled()" color="colorinfo">
             <i class="fas fa-edit"></i>
           </button>
         </ion-col>
 
         <ion-col col-6>
-          <button ion-button icon-only (click)="deleteHizmetDetay(detay)"
-                  [color]="error" [disabled]="isHizmetDisabled()">
+          <button ion-button icon-only (click)="deleteHizmetDetay(detay)" table-button style="width: 100%"
+                  color="colorerror" [disabled]="isHizmetDisabled()">
             <i class="fas fa-trash-alt"></i>
           </button>
         </ion-col>

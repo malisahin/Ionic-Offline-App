@@ -64,10 +64,10 @@
     </button>
   </ion-col>
 
-  <ion-col col-4 col-md-2 *ngIf="seriNoSayisi==2">
+  <ion-col col-4 col-md-2 *ngIf="seriNoSayisi != null && seriNoSayisi != 1">
     <ion-label color="primary">Seri No2</ion-label>
   </ion-col>
-  <ion-col col-8 col-md-10 *ngIf="seriNoSayisi==2">
+  <ion-col col-8 col-md-10 *ngIf="seriNoSayisi != null && seriNoSayisi != 1">
     <ion-input [(ngModel)]="hizmet.mamSeriNo2" (ionBlur)="saveHizmet()" [disabled]="isHizmetDisabled()"></ion-input>
   </ion-col>
 

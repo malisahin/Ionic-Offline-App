@@ -6,8 +6,8 @@
 
 export class IslemList {
   basTar: Date;
-  bekleKaynak: string;
-  beklemeNeden: string;
+  bekleKaynak: string = "";
+  beklemeNeden: string = "";
   bitTar: Date;
   durum: string = "BASLA";
   islSira: string;

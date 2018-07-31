@@ -96,6 +96,10 @@ export class UrunSearchComponent {
   prepareUrunReturnValue(item) {
     this.urun.mamAdi = this.util.isEmpty(item.key) ? '' : item.key;
     this.urun.mamKod = this.util.isEmpty(item.value) ? '' : item.value;
+
+    if (this.util.isNotEmpty(item.data) && this.util.isNotEmpty(item.data.seriMetod))
+      this.urun.seriMetod = item.data.seriMetod;
+
     this.returnObject = this.urun;
   }
 
