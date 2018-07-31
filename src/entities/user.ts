@@ -87,7 +87,6 @@ export class User {
     localStorage.setItem(pattern.keys.orgKod, user.orgKod);
     localStorage.setItem(pattern.keys.dilKod, user.dilKod);
     localStorage.setItem(pattern.keys.pb, user.pb);
-    localStorage.setItem(pattern.keys.ikBrans, JSON.stringify(user.ikBrans));
     localStorage.setItem(pattern.keys.labels, JSON.stringify(user.labels));
     localStorage.setItem(pattern.keys.systemParams, JSON.stringify(user.systemParams));
   }
