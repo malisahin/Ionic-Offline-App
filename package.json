@@ -20,6 +20,7 @@
     "@angular/http": "5.0.1",
     "@angular/platform-browser": "5.0.1",
     "@angular/platform-browser-dynamic": "5.0.1",
+    "@ionic-native/call-number": "^4.11.0",
     "@ionic-native/core": "4.4.0",
     "@ionic-native/deeplinks": "^4.9.0",
     "@ionic-native/http": "^4.5.3",
@@ -33,6 +34,7 @@
     "@ionic/storage": "2.1.3",
     "android-versions": "^1.3.0",
     "bootstrap": "^3.3.7",
+    "call-number": "^1.0.1",
     "com.silverchip.cordovaprinter": "./resources/printer-plugins/ios-zebra-printer",
     "cordova-android": "6.4.0",
     "cordova-bluetooth-printer-plugin-master": "file:resources/printer-plugins/Cordova-Bluetooth-Printer-Plugin-master",
@@ -104,7 +106,8 @@
         "DEEPLINK_4_HOST": " ",
         "DEEPLINK_5_SCHEME": " ",
         "DEEPLINK_5_HOST": " "
-      }
+      },
+      "mx.ferreyra.callnumber": {}
     },
     "platforms": [
       "android",

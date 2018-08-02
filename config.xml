@@ -113,4 +113,5 @@
         <variable name="DEEPLINK_5_HOST" value=" " />
     </plugin>
     <engine name="ios" spec="~4.5.5" />
+    <plugin name="mx.ferreyra.callnumber" spec="~0.0.2" />
 </widget>

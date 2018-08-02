@@ -89,6 +89,7 @@ import { CagriAramaModalPageModule } from "../pages/cagrilar/cagri-arama-modal/c
 import {MalzemeSearchComponent} from "../components/malzeme-search/malzeme-search";
 import { BransProvider } from '../providers/brans/brans';
 import { BransDao } from '../providers/brans-dao/brans-dao';
+import {CallNumber} from "@ionic-native/call-number";
 
 @NgModule({
   declarations: [MyApp, ListComponent],
@@ -187,7 +188,8 @@ import { BransDao } from '../providers/brans-dao/brans-dao';
     Deeplinks,
     DeeplinkPrinterProvider,
     BransProvider,
-    BransDao
+    BransDao,
+    CallNumber
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

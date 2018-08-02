@@ -13,6 +13,7 @@ import {AdresDao} from "../../../providers/adres-dao/adres-dao";
 import {LoggerProvider} from "../../../providers/logger/logger";
 import {UtilProvider} from "../../../providers/util/util";
 import {Constants} from "../../../entities/Constants";
+import {CallNumber} from "@ionic-native/call-number";
 
 @Component({
   selector: 'musteri-bilgileri',
@@ -34,6 +35,7 @@ export class MusteriBilgileriComponent {
   constructor(private hizmetService: HizmetService,
               private adresDao: AdresDao,
               private logger: LoggerProvider,
+              private  callNumber: CallNumber,
               private util: UtilProvider) {
     this.sehirler = [];
     this.ilceler = [];
@@ -86,15 +88,15 @@ export class MusteriBilgileriComponent {
 
   async getIlceList(item: any) {
     if (this.util.isNotEmpty(this.hizmet.sehirKod)) {
-     let res =  await this.adresDao.getIlceList(this.hizmet.sehirKod);
-     this.ilceler = [];
-     this.logger.table(res);
-        for (let i = 0; i < res.rows.length; i++) {
-          this.ilceler.push(res.rows.item(i));
-        }
+      let res = await this.adresDao.getIlceList(this.hizmet.sehirKod);
+      this.ilceler = [];
+      this.logger.table(res);
+      for (let i = 0; i < res.rows.length; i++) {
+        this.ilceler.push(res.rows.item(i));
+      }
 
-        this.setIlceValues();
-        this.onHizmetChange();
+      this.setIlceValues();
+      this.onHizmetChange();
     }
   }
 
@@ -138,5 +140,15 @@ export class MusteriBilgileriComponent {
     return this.hizmet.durum == "KAPALI" || this.hizmet.durum == "IPTAL";
   }
 
+
+  callPhoneNumber(tel: any) {
+    if (this.util.isNotEmpty(tel)) {
+      let phone = "'" + tel + "'";
+      this.logger.info("Phone Called ==>" + tel);
+      this.callNumber.callNumber(phone, true)
+        .then(res => console.log('Launched dialer!', res))
+        .catch(err => console.log('Error launching dialer', err));
+    }
+  }
 
 }

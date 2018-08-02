@@ -150,7 +150,6 @@ export class UrunBilgileriComponent {
   }
 
   async seriNoSorgula() {
-    debugger;
     if (this.util.isNotEmpty(this.hizmet.mamSeriNo)) {
       let res = await this.seriNoSorguProvider.fetchData(this.hizmet.mamSeriNo);
       this.logger.warn(res);
