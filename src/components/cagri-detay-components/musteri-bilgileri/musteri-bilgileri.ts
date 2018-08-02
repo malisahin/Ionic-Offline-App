@@ -12,9 +12,8 @@ import {Mahalle} from "../../../entities/mahalle";
 import {AdresDao} from "../../../providers/adres-dao/adres-dao";
 import {LoggerProvider} from "../../../providers/logger/logger";
 import {UtilProvider} from "../../../providers/util/util";
-import {Constants} from "../../../entities/Constants";
-import {CallNumber} from "@ionic-native/call-number";
-import {PluginProvider} from "../../../providers/plugin/plugin";
+import {UtilPlugin} from "../../../providers/util-plugin/util-plugin";
+
 
 @Component({
   selector: 'musteri-bilgileri',
@@ -36,7 +35,7 @@ export class MusteriBilgileriComponent {
   constructor(private hizmetService: HizmetService,
               private adresDao: AdresDao,
               private logger: LoggerProvider,
-              private plugins: PluginProvider,
+              private plugins: UtilPlugin,
               private util: UtilProvider) {
     this.sehirler = [];
     this.ilceler = [];

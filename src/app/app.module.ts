@@ -86,11 +86,13 @@ import { Deeplinks } from "@ionic-native/deeplinks";
 import { DeeplinkPrinterProvider } from "../providers/deeplink-printer/deeplink-printer";
 import { LoginPageModule } from "../pages/login/login.module";
 import { CagriAramaModalPageModule } from "../pages/cagrilar/cagri-arama-modal/cagri-arama-modal.module";
-import {MalzemeSearchComponent} from "../components/malzeme-search/malzeme-search";
-import { BransProvider } from '../providers/brans/brans';
-import { BransDao } from '../providers/brans-dao/brans-dao';
-import {CallNumber} from "@ionic-native/call-number";
-import { PluginProvider } from '../providers/plugin/plugin';
+import { MalzemeSearchComponent } from "../components/malzeme-search/malzeme-search";
+import { BransProvider } from "../providers/brans/brans";
+import { BransDao } from "../providers/brans-dao/brans-dao";
+import { CallNumber } from "@ionic-native/call-number";
+import { Calendar } from "@ionic-native/calendar";
+import { UtilPlugin } from "../providers/util-plugin/util-plugin";
+import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 
 @NgModule({
   declarations: [MyApp, ListComponent],
@@ -191,7 +193,9 @@ import { PluginProvider } from '../providers/plugin/plugin';
     BransProvider,
     BransDao,
     CallNumber,
-    PluginProvider
+    Calendar,
+    UtilPlugin,
+    BarcodeScanner
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

@@ -3,30 +3,27 @@
  * @date 2018-04-14
  */
 
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
 
 @Injectable()
 export class LoggerProvider {
-
-  constructor() {
-
-
-  }
-
+  constructor() {}
 
   info(res) {
-    console.log("%c " + res, 'color: #0096ff');
+    console.log("%c " + res, "color: #0096ff");
   }
 
-
   success(res) {
-    console.log("%c " + res, 'color: #00ff4b');
+    console.log("%c " + res, "color: #00ff4b");
   }
 
   log(res) {
     console.log(res);
+  }
+
+  log2(mes, res) {
+    console.log(mes, res);
   }
 
   dir(res) {
@@ -37,6 +34,10 @@ export class LoggerProvider {
     console.error(res);
   }
 
+  error2(mes, res) {
+    console.error(mes, res);
+  }
+
   warn(res) {
     console.warn(res);
   }
@@ -44,5 +45,4 @@ export class LoggerProvider {
   table(res) {
     console.table(res);
   }
-
 }

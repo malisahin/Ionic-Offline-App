@@ -58,7 +58,7 @@
     <ion-input [(ngModel)]="hizmet.mamSeriNo" (ionBlur)="saveHizmet()" [disabled]="isHizmetDisabled()"></ion-input>
   </ion-col>
   <ion-col col-3 col-md-2>
-    <button ion-button icon-start full round (click)="seriNoSorgula()" [disabled]="isHizmetDisabled()"
+    <button ion-button icon-start full round (click)="scanBarcode()" [disabled]="isHizmetDisabled()"
             style="margin-top:13px;">
       <ion-icon name="search"></ion-icon>
     </button>
