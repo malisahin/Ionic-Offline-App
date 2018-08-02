@@ -174,7 +174,12 @@ export class UrunBilgileriComponent {
 
 
   async scanBarcode() {
-    this.plugins.scanBarcode();
+    let result = await this.plugins.scanBarcode();
+    if (this.util.isNotEmpty(result) && this.util.isNotEmpty(result.text)) {
+      this.util.success(" Barcode Alındı: " + result.text);
+      this.hizmet.mamSeriNo = result.text;
+    }
+
   }
 
   async setSeriSorguResult(res) {
