@@ -14,6 +14,7 @@ import {UtilProvider} from "../../providers/util/util";
 import {Pageable} from "../../entities/Pageable";
 import {HeaderComponent} from "../../components/header/header";
 import {Constants} from "../../entities/Constants";
+import {PluginProvider} from "../../providers/plugin/plugin";
 
 @IonicPage()
 @Component({
@@ -37,7 +38,8 @@ export class CagrilarPage {
               private modalController: ModalController,
               private cagriProvider: HizmetProvider,
               private hizmetService: HizmetService,
-              private util: UtilProvider) {
+              private plugin: PluginProvider,
+              private util: UtilProvider,) {
     this.pageable = new Pageable();
     this.getListLength();
   }
@@ -126,5 +128,8 @@ export class CagrilarPage {
     return cagri;
   }
 
+  callPhoneNumber(tel: any) {
+    this.plugin.callPhoneNumber(tel);
+  }
 
 }

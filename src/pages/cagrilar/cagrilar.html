@@ -58,9 +58,31 @@
     </p>
     <p>
       <i class="fas fa-phone"></i>
-      {{cagri.gsmNo}} | {{cagri.evTel}} | {{cagri.evTel}}
+      <!--{{cagri.gsmNo}} | {{cagri.evTel}} | {{cagri.evTel}}-->
+      <ion-row>
+        <ion-col col-4>
+          <button ion-button icon-start full round (click)="callPhoneNumber(isTel)">
+            {{cagri.gsmNo}}
+          </button>
+        </ion-col>
+
+        <ion-col col-4>
+          <button ion-button icon-start full round (click)="callPhoneNumber(isTel)">
+            {{cagri.evTel}}
+          </button>
+        </ion-col>
+
+        <ion-col col-4>
+          <button ion-button icon-start full round (click)="callPhoneNumber(isTel)">
+            {{cagri.isTel}}
+          </button>
+        </ion-col>
+      </ion-row>
     </p>
 
+    <!--<button ion-button icon-start full round (click)="callPhoneNumber(isTel)">
+      {{isTel}}
+    </button>-->
     <p>
       <i class="fas fa-location-arrow adres-box"></i>
       <span class="adres-box" *ngIf="cagri.semt != null && cagri.semt != ''">

@@ -14,6 +14,7 @@ import {LoggerProvider} from "../../../providers/logger/logger";
 import {UtilProvider} from "../../../providers/util/util";
 import {Constants} from "../../../entities/Constants";
 import {CallNumber} from "@ionic-native/call-number";
+import {PluginProvider} from "../../../providers/plugin/plugin";
 
 @Component({
   selector: 'musteri-bilgileri',
@@ -35,7 +36,7 @@ export class MusteriBilgileriComponent {
   constructor(private hizmetService: HizmetService,
               private adresDao: AdresDao,
               private logger: LoggerProvider,
-              private  callNumber: CallNumber,
+              private plugins: PluginProvider,
               private util: UtilProvider) {
     this.sehirler = [];
     this.ilceler = [];
@@ -48,9 +49,9 @@ export class MusteriBilgileriComponent {
   }
 
   init() {
-    this.evTel = this.util.phoneMask(this.hizmet.evTel);
-    this.isTel = this.util.phoneMask(this.hizmet.isTel);
-    this.cepTel = this.util.phoneMask(this.hizmet.gsmNo);
+    this.evTel = this.hizmet.evTel;
+    this.isTel = this.hizmet.isTel;
+    this.cepTel = this.hizmet.gsmNo;
 
     this.adSoyad = "";
     if (this.util.isNotEmpty(this.hizmet.adi))
@@ -142,13 +143,7 @@ export class MusteriBilgileriComponent {
 
 
   callPhoneNumber(tel: any) {
-    if (this.util.isNotEmpty(tel)) {
-      let phone = "'" + tel + "'";
-      this.logger.info("Phone Called ==>" + tel);
-      this.callNumber.callNumber(phone, true)
-        .then(res => console.log('Launched dialer!', res))
-        .catch(err => console.log('Error launching dialer', err));
-    }
+    this.plugins.callPhoneNumber(tel);
   }
 
 }

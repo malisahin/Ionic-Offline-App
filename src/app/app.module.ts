@@ -90,6 +90,7 @@ import {MalzemeSearchComponent} from "../components/malzeme-search/malzeme-searc
 import { BransProvider } from '../providers/brans/brans';
 import { BransDao } from '../providers/brans-dao/brans-dao';
 import {CallNumber} from "@ionic-native/call-number";
+import { PluginProvider } from '../providers/plugin/plugin';
 
 @NgModule({
   declarations: [MyApp, ListComponent],
@@ -189,7 +190,8 @@ import {CallNumber} from "@ionic-native/call-number";
     DeeplinkPrinterProvider,
     BransProvider,
     BransDao,
-    CallNumber
+    CallNumber,
+    PluginProvider
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
