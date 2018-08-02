@@ -57,23 +57,31 @@
       {{cagri.mamAnaGrpAdi}} | {{cagri.hizmetTipiAdi}} | {{cagri.basvuruNedenAdi}}
     </p>
     <p>
-      <i class="fas fa-phone"></i>
+
       <!--{{cagri.gsmNo}} | {{cagri.evTel}} | {{cagri.evTel}}-->
       <ion-row>
-        <ion-col col-4>
-          <button ion-button icon-start full round (click)="callPhoneNumber(isTel)">
+
+
+        <i class="fas fa-phone"></i>
+
+
+        <ion-col col-3 *ngIf="cagri.gsmNo  != null && cagri.gsmNo != '' ">
+          <button ion-button icon-start color="light" style="color: blue" round
+                  (click)="callPhoneNumber($event,cagri.gsmNo)">
             {{cagri.gsmNo}}
           </button>
         </ion-col>
 
-        <ion-col col-4>
-          <button ion-button icon-start full round (click)="callPhoneNumber(isTel)">
+        <ion-col col-3 *ngIf="cagri.evTel  != null && cagri.evTel != '' ">
+          <button ion-button icon-start color="light" style="color: blue" round
+                  (click)="callPhoneNumber($event,cagri.evTel)">
             {{cagri.evTel}}
           </button>
         </ion-col>
 
-        <ion-col col-4>
-          <button ion-button icon-start full round (click)="callPhoneNumber(isTel)">
+        <ion-col col-3 *ngIf="cagri.isTel  != null && cagri.isTel != '' ">
+          <button ion-button icon-start color="light" style="color: blue" round
+                  (click)="callPhoneNumber($event,cagri.isTel)">
             {{cagri.isTel}}
           </button>
         </ion-col>

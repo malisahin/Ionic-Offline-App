@@ -128,8 +128,9 @@ export class CagrilarPage {
     return cagri;
   }
 
-  callPhoneNumber(tel: any) {
+  callPhoneNumber(event: any, tel: any) {
     this.plugin.callPhoneNumber(tel);
+    event.stopPropagation();
   }
 
 }
