@@ -24,9 +24,11 @@ import {MesajDetailComponent} from './mesaj-detail/mesaj-detail';
 import {ZebraPrinterComponent} from "./zebra-printer/zebra-printer";
 import { UpdateUrunAnaGrupComponent } from './update-urun-ana-grup/update-urun-ana-grup';
 import { MalzemeSearchComponent } from './malzeme-search/malzeme-search';
+import { AnketComponent } from './anket/anket';
 
 @NgModule({
-  declarations: [MalzemeSearchComponent
+  declarations: [MalzemeSearchComponent,
+    AnketComponent
     /*HeaderComponent,
     MusteriBilgileriComponent,
     HizmetBilgileriComponent,
@@ -49,7 +51,8 @@ import { MalzemeSearchComponent } from './malzeme-search/malzeme-search';
     UpdateUrunAnaGrupComponent,*/
   ],
   imports: [],
-  exports: [MalzemeSearchComponent
+  exports: [MalzemeSearchComponent,
+    AnketComponent
  /*   HeaderComponent,
     MusteriBilgileriComponent,
     HizmetBilgileriComponent,

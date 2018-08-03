@@ -109,22 +109,54 @@
   <div id="divKapatmaIslemleri" class="gray-box" *ngIf="showDetails == -1">
     <ion-grid>
       <ion-row>
-        <ion-col col-6 col-md-6 col-sm>
-          <button ion-button round color="secondary" (click)="kapat('ACIK')" [disabled]="isHizmetDisabled()" full>Kapat
+        <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2>
+          <button ion-button round color="secondary" (click)="kapat('ACIK')" [disabled]="isHizmetDisabled()" full>
+            <span item-left style="width: 80%">Kapat</span>
+            <span item-right style="width: 20%">
+    <i class="fas fa-window-close"></i>
+          </span>
           </button>
         </ion-col>
-        <ion-col col-6 col-md-6 col-sm>
+
+        <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2>
           <button ion-button round color="secondary" [disabled]="isHizmetDisabled()" (click)="hizmetIptalKontrol()"
                   full>
-            İptal
+            <span item-left style="width: 80%">Iptal</span>
+            <span item-right style="width: 20%">
+    <i class="fas fa-ban"></i>
+          </span>
           </button>
         </ion-col>
-        <ion-col col-6 col-md-6 col-sm>
-          <button ion-button round color="secondary" (click)="yazdir()" full>Yazdır</button>
+
+        <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2>
+          <button ion-button round color="secondary" (click)="yazdir()" full>
+            <span item-left style="width: 80%">Yazdır</span>
+            <span item-right style="width: 20%">
+    <i class="fas fa-print"></i>
+          </span>
+          </button>
         </ion-col>
-        <ion-col col-6 col-md-6 col-sm>
+
+        <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2>
           <button ion-button round color="secondary" [disabled]="isHizmetDisabled()" (click)="hizmetSilKontrol()" full>
-            Sil
+            <span item-left style="width: 80%">Sil</span>
+            <span item-right style="width: 20%">
+
+    <i class="fas fa-trash-alt"></i>
+          </span>
+
+          </button>
+        </ion-col>
+
+        <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 *ngIf="isAnketExist" >
+          <button ion-button round color="secondary" [disabled]="isHizmetDisabled()" (click)="goToAnketPage()" full>
+            <span item-left style="width: 80%">Anket</span>
+            <span item-right style="width: 20%">
+
+            <i class="fas fa-question-circle"></i>
+          </span>
+
+
           </button>
         </ion-col>
       </ion-row>

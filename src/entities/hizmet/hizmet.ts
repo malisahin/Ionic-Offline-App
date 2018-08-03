@@ -4,7 +4,7 @@
  */
 
 import {IslemList} from "./islemList";
-import {Anket} from "./anket";
+import {Anket} from "./Ankets/Anket";
 import {DetayKayit} from "./DetayKayit";
 import {UtilProvider} from "../../providers/util/util";
 
@@ -20,7 +20,7 @@ export class Hizmet {
 
   aciklama: string = "";
   adi: string = "";
-  anket: Anket[];
+  anket: Anket;
   aparman: string;
   apartmanNo: string;
   basvuruNedenAdi: string = "";

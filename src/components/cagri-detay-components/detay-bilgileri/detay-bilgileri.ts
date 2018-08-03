@@ -19,6 +19,7 @@ import {HizmetProvider} from "../../../providers/hizmet/hizmet";
 import {ProcessResults} from "../../../entities/ProcessResults";
 import {CagrilarPage} from "../../../pages/cagrilar/cagrilar";
 import {FiyatProvider} from "../../../providers/fiyat/fiyat";
+import {AnketComponent} from "../../anket/anket";
 
 enum DURUM {
   ACIK = 'ACIK',
@@ -44,6 +45,7 @@ export class DetayBilgileriComponent {
   iletisimIstek: boolean;
   verilerSunucuyaKayitEdildiMi: boolean = false;
   toplamTutar: number = 0;
+  isAnketExist: boolean = false;
 
   constructor(private hizmetService: HizmetService,
               private urunAnaGrupDao: UrunAnaGrupDao,
@@ -59,6 +61,7 @@ export class DetayBilgileriComponent {
     this.loadCozumKoduList();
     this.loadletisimIstek();
     this.loadDetayFiyatlari();
+    this.loadAnketBilgileri();
   }
 
   getHizmet() {
@@ -270,6 +273,18 @@ export class DetayBilgileriComponent {
       result.addErrorMessage("Işlem bitiş tarihi boş bırakılamaz.");
     }
 
+    result = this.checkAnketIsFull(result);
+
+    return result;
+  }
+
+  checkAnketIsFull(result: ProcessResults): ProcessResults {
+    let anket = this.hizmet.anket;
+    if (this.isAnketExist) {
+      if (this.util.isEmpty(anket.anketCevaplar) || anket.anketCevaplar.length != anket.anketSorular.length) {
+        result.addErrorMessage("Anket Sorularının tamamı cevaplanması gerekiyor!")
+      }
+    }
     return result;
   }
 
@@ -454,5 +469,16 @@ export class DetayBilgileriComponent {
     }
   }
 
+  loadAnketBilgileri() {
+    if (this.util.isNotEmpty(this.hizmet.anket) && this.util.isNotEmpty(this.hizmet.anket.anketMst)) {
+      this.isAnketExist = true;
+    }
+  }
+
+  goToAnketPage() {
+
+    let modal = this.modalCtrl.create(AnketComponent, {data: {hizmet: this.hizmet}},);
+    modal.present();
+  }
 
 }

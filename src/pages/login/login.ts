@@ -65,7 +65,7 @@ export class LoginPage {
   }
 
   async login() {
-    this.saveUserInfo();
+    await this.saveUserInfo();
     this.hasLoginPermission = false;
     this.util.loaderStart();
     localStorage.setItem(this.user.keys.userCode, this.userCode);
@@ -156,15 +156,16 @@ export class LoginPage {
     }
   }
 
-  onChangeRememberMe() {
+  async  onChangeRememberMe() {
     localStorage.setItem(Constants.REMEMBER_ME, String(this.rememberMe));
-    this.saveUserInfo();
+    await this.saveUserInfo();
     this.logger.info("Remember Me value is set as " + this.rememberMe);
   }
 
-  saveUserInfo() {
+  async saveUserInfo(): Promise<any> {
     this.rememberMe = localStorage.getItem(Constants.REMEMBER_ME) == "true";
 
+    debugger;
     if (this.rememberMe) {
       let info: UserInfo = new UserInfo();
       info.userCode = this.userCode;
@@ -176,5 +177,7 @@ export class LoginPage {
       this.logger.info(" User Info Deleted. ");
       localStorage.setItem(Constants.USER_INFO, "");
     }
+
+    return new Promise<any>(res => res());
   }
 }

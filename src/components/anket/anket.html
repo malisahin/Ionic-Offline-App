@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <ion-row class="modal-title">
+      <ion-col col-11 col-md-11>
+        <ion-title>Anket</ion-title>
+      </ion-col>
+      <ion-col col-1 col-md-1>
+        <ion-icon name="close" (click)="closeModal()" class="pull-right close-icon"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="content">
+
+  <ion-list>
+
+    <ion-item *ngFor="let item of qAList">
+      <ion-label>{{item.soru.serSoruTnm.soruText}}</ion-label>
+      <ion-input [(ngModel)]="item.cevap.cevapText"></ion-input>
+    </ion-item>
+
+
+    <ion-row>
+
+
+      <ion-col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6>
+        <button ion-button round (click)="closeModal()" full>
+          <span item-left style="width: 80%">Iptal</span>
+          <span item-right style="width: 20%">    <i class="fas fa-window-close"></i></span>
+        </button>
+      </ion-col>
+
+      <ion-col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6>
+        <button ion-button round (click)="kaydet()" full>
+          <span item-left style="width: 80%">Kaydet</span>
+          <span item-right style="width: 20%">   <i class="fas fa-save"></i>          </span>
+        </button>
+
+      </ion-col>
+
+    </ion-row>
+  </ion-list>
+
+</ion-content>
+<ion-footer>
+</ion-footer>

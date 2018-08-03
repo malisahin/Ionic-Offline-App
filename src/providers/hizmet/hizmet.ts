@@ -19,6 +19,8 @@ import {LoggerProvider} from "../logger/logger";
 import {async} from "@angular/core/testing";
 import {Ilce} from "../../entities/Ilce";
 import {AdresDao} from "../adres-dao/adres-dao";
+import {Anket} from "../../entities/hizmet/Ankets/Anket";
+import {AnketService} from "../anket-service/anket-service";
 
 @Injectable()
 export class HizmetProvider {
@@ -32,6 +34,7 @@ export class HizmetProvider {
               private urunAnaGrpProvider: UrunAnaGrpProvider,
               private  logger: LoggerProvider,
               private  adresDao: AdresDao,
+              private anketService: AnketService,
               private util: UtilProvider) {
     console.log('Hello CagriProvider Provider');
 
@@ -139,7 +142,8 @@ export class HizmetProvider {
     let item = new Hizmet();
     item.aciklama = obj.aciklama;
     item.adi = obj.adi;
-    //item.anket = Anket[];
+    item.anket = this.anketService.fillAnket(obj.anket);
+
     item.aparman = obj.aparman;
     item.apartmanNo = obj.apartmanNo;
     item.basvuruNedenAdi = obj.basvuruNedenAdi;
@@ -275,6 +279,10 @@ export class HizmetProvider {
       }
     }
     return hizmet;
+  }
+
+  async fillAnket() {
+
   }
 
   async ilceDoldur(hizmet: Hizmet): Promise<Hizmet> {
