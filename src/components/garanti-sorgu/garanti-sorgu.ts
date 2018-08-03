@@ -11,6 +11,7 @@ import {HttpClient} from '@angular/common/http';
 import {GarantiSorgu} from '../../entities/GarantiSorgu';
 import {GarantiSorguProvider} from '../../providers/garanti-sorgu/garanti-sorgu';
 import {User} from '../../entities/user';
+import {UtilPlugin} from "../../providers/util-plugin/util-plugin";
 
 
 @Component({
@@ -30,6 +31,7 @@ export class GarantiSorguComponent {
               private modalController: ModalController,
               private util: UtilProvider,
               private garantiSorguProvider: GarantiSorguProvider,
+              private plugins: UtilPlugin,
               public http: HttpClient) {
     this.urunAnaGrup = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
     this.urun = new Urun();
@@ -84,5 +86,13 @@ export class GarantiSorguComponent {
     this.garantiSorguProvider.fetchDataFromApi(sorguData);
   }
 
+  async scanBarcode() {
+    let result = await this.plugins.scanBarcode();
+    if (this.util.isNotEmpty(result) && this.util.isNotEmpty(result.text)) {
+      this.util.success(" Barcode Alındı: " + result.text);
+      this.barkodNo = result.text;
+    }
+
+  }
 
 }
