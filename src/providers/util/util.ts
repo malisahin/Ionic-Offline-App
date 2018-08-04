@@ -275,7 +275,7 @@ export class UtilProvider {
      }
      */
     if (!this.isSpinnerRunning) {
-      this.spinner = this.modalCtrl.create(SpinnerComponent);
+      this.spinner = this.modalCtrl.create(SpinnerComponent, {}, {enableBackdropDismiss: false});
       this.spinner.present();
     }
     this.isSpinnerRunning = true;
@@ -283,8 +283,8 @@ export class UtilProvider {
 
   loaderEnd() {
     /*if (this.isLoaderRunning) this.loader.dismissAll();
-    this.isLoaderRunning = false;
-    */
+     this.isLoaderRunning = false;
+     */
     if (this.isSpinnerRunning)
       this.spinner.dismiss();
     this.isSpinnerRunning = false;

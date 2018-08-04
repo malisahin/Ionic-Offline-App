@@ -182,4 +182,12 @@ export class LoginPage {
 
     return new Promise<any>(res => res());
   }
+
+  startLoader(){
+    this.util.loaderStart();
+  }
+
+  endLoader(){
+    this.util.loaderEnd();
+  }
 }
