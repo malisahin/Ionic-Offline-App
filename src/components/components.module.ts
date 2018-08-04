@@ -22,57 +22,20 @@ import {HizmetDetayComponent} from './hizmet-detay/hizmet-detay';
 import {DetayPiySearchComponent} from './detay-piy-search/detay-piy-search';
 import {MesajDetailComponent} from './mesaj-detail/mesaj-detail';
 import {ZebraPrinterComponent} from "./zebra-printer/zebra-printer";
-import { UpdateUrunAnaGrupComponent } from './update-urun-ana-grup/update-urun-ana-grup';
-import { MalzemeSearchComponent } from './malzeme-search/malzeme-search';
-import { AnketComponent } from './anket/anket';
+import {UpdateUrunAnaGrupComponent} from './update-urun-ana-grup/update-urun-ana-grup';
+import {MalzemeSearchComponent} from './malzeme-search/malzeme-search';
+import {AnketComponent} from './anket/anket';
+import {SpinnerComponent} from './spinner/spinner';
 
 @NgModule({
-  declarations: [MalzemeSearchComponent,
+  declarations: [
+    MalzemeSearchComponent,
     AnketComponent
-    /*HeaderComponent,
-    MusteriBilgileriComponent,
-    HizmetBilgileriComponent,
-    UrunBilgileriComponent,
-    ServisBilgileriComponent,
-    DetayBilgileriComponent,
-    ServisIslemTarihceComponent,
-    IslemTarihComponent,
-    ListComponent,
-    GarantiSorguComponent,
-    FiyatSorguComponent,
-    UrunAnaGrupSearchComponent,
-    UrunSearchComponent,
-    UrunIscilikSearchComponent,
-    GarantiSonucComponent,
-    HizmetDetayComponent,
-    DetayPiySearchComponent,
-    MesajDetailComponent,
-    ZebraPrinterComponent,
-    UpdateUrunAnaGrupComponent,*/
   ],
   imports: [],
-  exports: [MalzemeSearchComponent,
+  exports: [
+    MalzemeSearchComponent,
     AnketComponent
- /*   HeaderComponent,
-    MusteriBilgileriComponent,
-    HizmetBilgileriComponent,
-    UrunBilgileriComponent,
-    ServisBilgileriComponent,
-    DetayBilgileriComponent,
-    ServisIslemTarihceComponent,
-    IslemTarihComponent,
-    ListComponent,
-    GarantiSorguComponent,
-    FiyatSorguComponent,
-    UrunAnaGrupSearchComponent,
-    UrunSearchComponent,
-    UrunIscilikSearchComponent,
-    GarantiSonucComponent,
-    HizmetDetayComponent,
-    DetayPiySearchComponent,
-    MesajDetailComponent,
-    ZebraPrinterComponent,
-    UpdateUrunAnaGrupComponent*/
   ]
 })
 export class ComponentsModule {

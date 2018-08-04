@@ -62,4 +62,8 @@ export class ThemeProvider {
     return "assets/images/login-background.jpg";
     //return "../../../resources/images/" + orgKod + "/login/login-background.jpg";
   }
+
+  getLoaderPath(): string{
+    return "assets/imgs/loader.jpg";
+  }
 }

@@ -43,6 +43,7 @@ export class LoginPage {
   backGroundImage: string;
   rememberMe: boolean = true;
   showPassword: boolean = false;
+  spinner: any;
 
   constructor(private nav: NavController,
               private util: UtilProvider,
@@ -56,6 +57,7 @@ export class LoginPage {
     this.themeProvider.setTheme();
     this.user = new User();
     this.backGroundImage = this.themeProvider.getBackgroundImage();
+    this.spinner = this.util.loaderContent();
   }
 
 

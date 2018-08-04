@@ -11,6 +11,7 @@ import {UrunIscilikSearchComponent} from '../../components/urun-iscilik-search/u
 import {ZebraPrinterComponent} from "../../components/zebra-printer/zebra-printer";
 import {MalzemeSearchComponent} from "../../components/malzeme-search/malzeme-search";
 import {AnketComponent} from "../../components/anket/anket";
+import {SpinnerComponent} from "../../components/spinner/spinner";
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {AnketComponent} from "../../components/anket/anket";
     UrunIscilikSearchComponent,
     ZebraPrinterComponent,
     MalzemeSearchComponent,
-    AnketComponent
+    AnketComponent,
+    SpinnerComponent
   ],
   imports: [
     IonicPageModule.forChild(HeaderComponent),
@@ -40,7 +42,8 @@ import {AnketComponent} from "../../components/anket/anket";
     UrunIscilikSearchComponent,
     ZebraPrinterComponent,
     MalzemeSearchComponent,
-    AnketComponent
+    AnketComponent,
+    SpinnerComponent
 
   ]
 })

@@ -89,9 +89,15 @@ import {UtilPlugin} from "../providers/util-plugin/util-plugin";
 import {BarcodeScanner} from "@ionic-native/barcode-scanner";
 import {AnketService} from '../providers/anket-service/anket-service';
 import {AnketComponent} from "../components/anket/anket";
+import {SafeHtmlPipe} from "../pipes/safe-html/safe-html";
+import {SpinnerComponent} from "../components/spinner/spinner";
 
 @NgModule({
-  declarations: [MyApp, ListComponent],
+  declarations: [
+    MyApp,
+    ListComponent,
+    SafeHtmlPipe
+  ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
@@ -134,7 +140,8 @@ import {AnketComponent} from "../components/anket/anket";
     UpdateUrunAnaGrupComponent,
     UrunIscilikSearchComponent,
     MalzemeSearchComponent,
-    AnketComponent
+    AnketComponent,
+    SpinnerComponent
   ],
   providers: [
     Network,
