@@ -8,7 +8,7 @@ import { Injectable } from "@angular/core";
 
 @Injectable()
 export class LoggerProvider {
-  constructor() {}
+  constructor() { }
 
   info(res) {
     console.log("%c " + res, "color: #0096ff");
@@ -28,6 +28,10 @@ export class LoggerProvider {
 
   dir(res) {
     console.dir(res);
+  }
+
+  dir2(mes, res) {
+    console.dir(mes, res);
   }
 
   error(res) {

@@ -3,7 +3,7 @@
  * @since 2018-02-12
  */
 
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
 import {
   NavController,
   AlertController,
@@ -11,16 +11,17 @@ import {
   Loading,
   IonicPage
 } from "ionic-angular";
-import {LoginProvider} from "../../providers/login/login";
-import {UserProvider} from "../../providers/user/user";
-import {UtilProvider} from "../../providers/util/util";
-import {LoggerProvider} from "../../providers/logger/logger";
-import {User} from "../../entities/user";
-import {Anasayfa} from "../anasayfa/anasayfa";
-import {ThemeProvider} from "../../providers/theme/theme";
-import {Constants} from "../../entities/Constants";
-import {UserDao} from "../../providers/user-dao/user-dao";
-import {DeeplinkPrinterProvider} from "../../providers/deeplink-printer/deeplink-printer";
+import { LoginProvider } from "../../providers/login/login";
+import { UserProvider } from "../../providers/user/user";
+import { UtilProvider } from "../../providers/util/util";
+import { LoggerProvider } from "../../providers/logger/logger";
+import { User } from "../../entities/user";
+import { Anasayfa } from "../anasayfa/anasayfa";
+import { ThemeProvider } from "../../providers/theme/theme";
+import { Constants } from "../../entities/Constants";
+import { UserDao } from "../../providers/user-dao/user-dao";
+import { DeeplinkPrinterProvider } from "../../providers/deeplink-printer/deeplink-printer";
+import { TableTotalElementsProvider } from "../../providers/table-total-elements/table-total-elements";
 
 class UserInfo {
   userCode: string = "";
@@ -46,14 +47,15 @@ export class LoginPage {
   spinner: any;
 
   constructor(private nav: NavController,
-              private util: UtilProvider,
-              private alertCtrl: AlertController,
-              private userProvider: UserProvider,
-              private loadingCtrl: LoadingController,
-              private logger: LoggerProvider,
-              private loginProvider: LoginProvider,
-              private deepLinkPrinter: DeeplinkPrinterProvider,
-              private themeProvider: ThemeProvider) {
+    private util: UtilProvider,
+    private alertCtrl: AlertController,
+    private userProvider: UserProvider,
+    private loadingCtrl: LoadingController,
+    private logger: LoggerProvider,
+    private loginProvider: LoginProvider,
+    private deepLinkPrinter: DeeplinkPrinterProvider,
+    private totalElementsProvider: TableTotalElementsProvider,
+    private themeProvider: ThemeProvider) {
     this.themeProvider.setTheme();
     this.user = new User();
     this.backGroundImage = this.themeProvider.getBackgroundImage();
@@ -72,6 +74,7 @@ export class LoginPage {
     this.util.loaderStart();
     localStorage.setItem(this.user.keys.userCode, this.userCode);
     localStorage.setItem(this.user.keys.password, this.password);
+
     this.checkLoginInfo();
     let token = await this.loginProvider.login(this.userCode, this.password);
     this.logger.log(
@@ -83,10 +86,7 @@ export class LoginPage {
     if (connection == Constants.NETWORK.ONLINE) {
       let token = localStorage.getItem(Constants.ACCESS_TOKEN);
       if (this.util.isNotEmpty(token)) {
-        this.user = await this.userProvider.getUser(
-          this.userCode,
-          this.password
-        );
+        this.user = await this.userProvider.getUser(this.userCode, this.password);
         this.hasLoginPermission = this.user != null;
       }
     } else if (connection == Constants.NETWORK.OFFLINE) {
@@ -103,8 +103,13 @@ export class LoginPage {
   route() {
     if (this.hasLoginPermission) {
       this.nav.push(Anasayfa);
+      this.checkTablesTotalElements();
     }
     this.util.loaderEnd();
+  }
+
+  checkTablesTotalElements() {
+    this.totalElementsProvider.init();
   }
 
   hideShowPassword() {
@@ -148,7 +153,7 @@ export class LoginPage {
   }
 
   loadSavedUserInfo() {
-    debugger;
+
     let info = localStorage.getItem(Constants.USER_INFO);
     if (this.util.isNotEmpty(info)) {
       let userInfo: UserInfo = JSON.parse(info);
@@ -167,7 +172,6 @@ export class LoginPage {
   async saveUserInfo(): Promise<any> {
     this.rememberMe = localStorage.getItem(Constants.REMEMBER_ME) == "true";
 
-    debugger;
     if (this.rememberMe) {
       let info: UserInfo = new UserInfo();
       info.userCode = this.userCode;
@@ -183,11 +187,11 @@ export class LoginPage {
     return new Promise<any>(res => res());
   }
 
-  startLoader(){
+  startLoader() {
     this.util.loaderStart();
   }
 
-  endLoader(){
+  endLoader() {
     this.util.loaderEnd();
   }
 }

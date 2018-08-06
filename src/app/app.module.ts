@@ -91,6 +91,7 @@ import {AnketService} from '../providers/anket-service/anket-service';
 import {AnketComponent} from "../components/anket/anket";
 import {SafeHtmlPipe} from "../pipes/safe-html/safe-html";
 import {SpinnerComponent} from "../components/spinner/spinner";
+import { TableTotalElementsProvider } from '../providers/table-total-elements/table-total-elements';
 
 @NgModule({
   declarations: [
@@ -200,7 +201,8 @@ import {SpinnerComponent} from "../components/spinner/spinner";
     Calendar,
     UtilPlugin,
     BarcodeScanner,
-    AnketService
+    AnketService,
+    TableTotalElementsProvider
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

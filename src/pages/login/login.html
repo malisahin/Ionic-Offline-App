@@ -20,7 +20,8 @@
 
             <ion-item>
               <ion-input [type]="passwordType" placeholder="Şifre" name="password" [(ngModel)]="password" required></ion-input>
-              <!--<ion-icon item-right [name]="passwordIcon" class="password-icon passIcon" (click)='hideShowPassword()'></ion-icon>--><ion-icon name="calendar"></ion-icon>
+              <!--<ion-icon item-right [name]="passwordIcon" class="password-icon passIcon" (click)='hideShowPassword()'></ion-icon>-->
+              <ion-icon name="calendar"></ion-icon>
             </ion-item>
 
           </ion-list>
@@ -62,18 +63,6 @@
         </ion-row>
       </ion-col>
     </ion-row>
-
-
-    <ion-row>
-      <ion-col class="signup-col">
-        <button ion-button class="submit-btn" (click)="startLoader()"  full >Spinner Başlat</button>
-      </ion-col>
-
-      <ion-col class="signup-col">
-        <button ion-button class="submit-btn" (click)="endLoader()"  full >Spinner Bitir</button>
-      </ion-col>
-    </ion-row>
-
 
   </div>
 </ion-content>

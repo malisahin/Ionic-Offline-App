@@ -2,14 +2,14 @@
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-import {Injectable} from "@angular/core";
-import {Profil} from "../../entities/profil";
-import {EProfiles} from "../../entities/enums/eProfil";
-import {Tablo} from "../../entities/Tablo";
-import {HttpHeaders} from '@angular/common/http';
-import {Constants} from "../../entities/Constants";
-import {User} from "../../entities/user";
-import {Domain} from "../../entities/domain";
+import { Injectable } from "@angular/core";
+import { Profil } from "../../entities/profil";
+import { EProfiles } from "../../entities/enums/eProfil";
+import { Tablo } from "../../entities/Tablo";
+import { HttpHeaders } from '@angular/common/http';
+import { Constants } from "../../entities/Constants";
+import { User } from "../../entities/user";
+import { Domain } from "../../entities/domain";
 
 @Injectable()
 export class ApiProvider {
@@ -138,6 +138,11 @@ export class ApiProvider {
   getDeepLinkPrintTextUrl(seqNo, tip) {
     return this.activeProfil.webappurl + "/out/mobileprintdata?print_key=SOS_MOBILE_PRINT_KEY_010720131546&seq_no=" + seqNo + "&dil_kod=" + 'T' + "&tip=" + tip;
   }
+
+  getTotalTableElementsUrl(): string {
+    return this.urlPrefixOffline + "/total-table-elements";
+  }
+
 
   getHeader() {
     return new HttpHeaders({

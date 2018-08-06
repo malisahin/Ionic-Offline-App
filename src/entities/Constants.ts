@@ -6,7 +6,7 @@ import { BildirimlerPage } from "../pages/bildirimler/bildirimler";
  */
 
 export class Constants {
-  constructor() {}
+  constructor() { }
 
   public static REMEMBER_ME = "REMEMBER_ME";
 
@@ -140,6 +140,24 @@ export class Constants {
       MAHALLE_TNM: "MAHALLE_TNM_SERVER_VERSIYON"
     }
   };
+
+  public static TABLE_TOTAL_ELEMENTS = {
+    ALL_DATA: "TABLE_TOTAL_ELEMENTS_DATA",
+    URUN: "serMamTnm",
+    URUN_ANA_GRUP: "serMamAnaGrpTnm",
+    URUN_ISCILIK: "serMamIscTnm",
+    URUN_MALZEME: "serMamMlzTnm",
+    ISLEM_ARIZA_ISCILIK: "serIscIslArzGrpTnm",
+    MALZEME_FIYAT: "mlzFiyat",
+    ISCILIK_FIYAT: "iscFiyat",
+    SEHIR_TNM: "serSehirTnm",
+    ILCE_TNM: "serIlceTnm",
+    MAHALLE_TNM: "serMahalleTnm",
+    SYNC_DAY: "SYNC_TABLES_TOTAL_ELEMENTS"
+  };
+
+
+
   public static COLORS = {
     URUN: "",
     URUN_ANA_GRUP: "",
