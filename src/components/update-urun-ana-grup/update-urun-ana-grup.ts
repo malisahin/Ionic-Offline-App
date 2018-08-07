@@ -1,18 +1,18 @@
-import {Component} from '@angular/core';
-import {UrunAnaGrup} from "../../entities/urunAnaGrup";
-import {UrunAnaGrupSearchComponent} from "../urun-ana-grup-search/urun-ana-grup-search";
-import {UtilProvider} from "../../providers/util/util";
-import {LoggerProvider} from "../../providers/logger/logger";
-import {ModalController, ViewController, NavParams} from "ionic-angular";
-import {Constants} from "../../entities/Constants";
-import {UrunAnaGrupDao} from "../../providers/urun-ana-grup-dao/urun-ana-grup-dao";
-import {UrunAnaGrpProvider} from "../../providers/urun-ana-grp/urun-ana-grp";
-import {Hizmet} from "../../entities/hizmet/hizmet";
-import {HizmetProvider} from "../../providers/hizmet/hizmet";
-import {HizmetService} from "../../providers/hizmet-service/hizmet-service";
-import {Pageable} from "../../entities/Pageable";
-import {BransProvider} from "../../providers/brans/brans";
-import {Brans} from "../../entities/Brans";
+import { Component } from '@angular/core';
+import { UrunAnaGrup } from "../../entities/urunAnaGrup";
+import { UrunAnaGrupSearchComponent } from "../urun-ana-grup-search/urun-ana-grup-search";
+import { UtilProvider } from "../../providers/util/util";
+import { LoggerProvider } from "../../providers/logger/logger";
+import { ModalController, ViewController, NavParams } from "ionic-angular";
+import { Constants } from "../../entities/Constants";
+import { UrunAnaGrupDao } from "../../providers/urun-ana-grup-dao/urun-ana-grup-dao";
+import { UrunAnaGrpProvider } from "../../providers/urun-ana-grp/urun-ana-grp";
+import { Hizmet } from "../../entities/hizmet/hizmet";
+import { HizmetProvider } from "../../providers/hizmet/hizmet";
+import { HizmetService } from "../../providers/hizmet-service/hizmet-service";
+import { Pageable } from "../../entities/Pageable";
+import { BransProvider } from "../../providers/brans/brans";
+import { Brans } from "../../entities/Brans";
 
 /**
  * @author mali.sahin
@@ -32,15 +32,15 @@ export class UpdateUrunAnaGrupComponent {
   selectedBrans: Brans = new Brans();
 
   constructor(private util: UtilProvider,
-              private logger: LoggerProvider,
-              private viewCtrl: ViewController,
-              private modalController: ModalController,
-              private bransProvider: BransProvider,
-              private urunAnaGrupProvider: UrunAnaGrpProvider,
-              private navParams: NavParams,
-              private hizmetService: HizmetService,
-              private  hizmetProvider: HizmetProvider,
-              private  urunAnaGrupDao: UrunAnaGrupDao) {
+    private logger: LoggerProvider,
+    private viewCtrl: ViewController,
+    private modalController: ModalController,
+    private bransProvider: BransProvider,
+    private urunAnaGrupProvider: UrunAnaGrpProvider,
+    private navParams: NavParams,
+    private hizmetService: HizmetService,
+    private hizmetProvider: HizmetProvider,
+    private urunAnaGrupDao: UrunAnaGrupDao) {
     this.logger.dir(this.navParams.data);
     this.hizmet = this.navParams.get("hizmet");
     this.init();
@@ -84,7 +84,6 @@ export class UpdateUrunAnaGrupComponent {
   }
 
   async kaydet() {
-    debugger;
     this.hizmet.mamAnaGrp = this.selectedBrans.mamAnaGrp;
     this.hizmet.basvuruNedeni = this.basvuruNedeni.neden;
     let res = await this.urunAnaGrupProvider.updateMamAnaGrp(this.hizmet);
@@ -118,7 +117,7 @@ export class UpdateUrunAnaGrupComponent {
     if (this.util.isNotEmpty(fetchedData) && this.util.isNotEmpty(fetchedData.res.rows) && fetchedData.res.rows.length > 0) {
       this.hizmet = JSON.parse(fetchedData.res.rows.item(0).data);
       this.logger.log(this.hizmet);
-      this.viewCtrl.dismiss({hizmet: this.hizmet});
+      this.viewCtrl.dismiss({ hizmet: this.hizmet });
     } else {
       this.util.error("Ürün Ana Grup Değiştirirken hata oluştu.")
     }

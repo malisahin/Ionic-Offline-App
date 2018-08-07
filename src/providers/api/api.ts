@@ -18,6 +18,7 @@ export class ApiProvider {
   urlPrefixHizmet: string;
   urlPrefixOffline: string;
   urlPrefixKullanici: string;
+  urlPrefixSonKullanici: string;
   webAppUrl: string;
   pageSize: number;
   first = 0;
@@ -32,6 +33,7 @@ export class ApiProvider {
     this.urlPrefixHizmet = this.activeProfil.domainUrl + '/sos-api/endpointrest/hizmet/';
     this.urlPrefixOffline = this.activeProfil.domainUrl + '/sos-api/endpointrest/offline/';
     this.urlPrefixKullanici = this.activeProfil.domainUrl + '/sos-api/endpointrest/kullanici/';
+    this.urlPrefixSonKullanici = this.activeProfil.domainUrl + '/sos-api/endpointrest/sonkullanici/';
     this.tables = new Tablo();
     this.user = new User();
   }
@@ -141,6 +143,10 @@ export class ApiProvider {
 
   getTotalTableElementsUrl(): string {
     return this.urlPrefixOffline + "/total-table-elements";
+  }
+
+  getAnketKayitUrl() {
+    return this.urlPrefixSonKullanici + "onay/anketCevap";
   }
 
 

@@ -1,12 +1,13 @@
-import {Component} from '@angular/core';
-import {NavParams, ViewController} from "ionic-angular";
-import {Anket} from "../../entities/hizmet/Ankets/Anket";
-import {AnketCevap} from "../../entities/hizmet/Ankets/AnketCevap";
-import {AnketSoru} from "../../entities/hizmet/Ankets/AnketSoru";
-import {UtilProvider} from "../../providers/util/util";
-import {LoggerProvider} from "../../providers/logger/logger";
-import {Hizmet} from "../../entities/hizmet/hizmet";
-import {HizmetService} from "../../providers/hizmet-service/hizmet-service";
+import { Component } from '@angular/core';
+import { NavParams, ViewController } from "ionic-angular";
+import { Anket } from "../../entities/hizmet/Ankets/Anket";
+import { AnketCevap } from "../../entities/hizmet/Ankets/AnketCevap";
+import { AnketSoru } from "../../entities/hizmet/Ankets/AnketSoru";
+import { UtilProvider } from "../../providers/util/util";
+import { LoggerProvider } from "../../providers/logger/logger";
+import { Hizmet } from "../../entities/hizmet/hizmet";
+import { HizmetService } from "../../providers/hizmet-service/hizmet-service";
+import { User } from '../../entities/user';
 
 export class QA {
   soru: AnketSoru;
@@ -26,21 +27,23 @@ export class AnketComponent {
 
   qAList: QA[];
   hizmet: Hizmet;
-
+  user: User = new User();
+  isHizmetDisabled: Boolean;
   constructor(private params: NavParams,
-              private  viewCtrl: ViewController,
-              private  util: UtilProvider,
-              private  hizmetService: HizmetService,
-              private  logger: LoggerProvider) {
+    private viewCtrl: ViewController,
+    private util: UtilProvider,
+    private hizmetService: HizmetService,
+    private logger: LoggerProvider) {
 
     this.data = params.get('data');
     this.hizmet = this.data.hizmet;
     this.anket = this.data.hizmet.anket;
     this.qAList = [];
 
-    debugger;
+
     this.loadAnket();
 
+    this.isHizmetDisabled = this.hizmetService.isHizmetDisabled(this.hizmet);
   };
 
   loadAnket() {
@@ -61,7 +64,6 @@ export class AnketComponent {
 
   kaydet() {
 
-    debugger;
     let cevapList: AnketCevap[] = [];
     this.qAList
       .filter(qa => this.util.isNotEmpty(qa.cevap.cevapText))
@@ -98,8 +100,8 @@ export class AnketComponent {
     cevap.anketId = this.anket.anketMst.anketId;
     cevap.anketSeq = this.anket.anketMst.anketSeq;
     cevap.soruId = soru.serSoruTnm.soruId;
-    cevap.zorunlu = soru.zorunlu;
-    cevap.cevapText = "";
+    cevap.orgKod = this.user.getOrgKod();
+    cevap.cevapId = 0;
     return cevap;
   }
 

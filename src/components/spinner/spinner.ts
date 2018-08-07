@@ -47,7 +47,7 @@ export class SpinnerComponent {
 
     if (this.util.isNotEmpty(veri) && this.util.isNotEmpty(tableTotalElements)) {
 
-      debugger;
+
       tableTotalElements = JSON.parse(tableTotalElements);
 
       veriTipi = Constants.TABLE_TOTAL_ELEMENTS[veri.tipi];

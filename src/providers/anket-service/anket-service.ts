@@ -1,24 +1,31 @@
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {UtilProvider} from "../util/util";
-import {LoggerProvider} from "../logger/logger";
-import {Anket} from "../../entities/hizmet/Ankets/Anket";
-import {AnketSoru, SerSoruTnm} from "../../entities/hizmet/Ankets/AnketSoru";
-import {AnketCevap} from "../../entities/hizmet/Ankets/AnketCevap";
-import {AnketMst} from "../../entities/hizmet/Ankets/AnketMst";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { UtilProvider } from "../util/util";
+import { LoggerProvider } from "../logger/logger";
+import { Anket } from "../../entities/hizmet/Ankets/Anket";
+import { AnketSoru, SerSoruTnm } from "../../entities/hizmet/Ankets/AnketSoru";
+import { AnketCevap } from "../../entities/hizmet/Ankets/AnketCevap";
+import { AnketMst } from "../../entities/hizmet/Ankets/AnketMst";
+import { ApiProvider } from '../api/api';
+import { TokenProvider } from '../token/token';
+import { Hizmet } from '../../entities/hizmet/hizmet';
+import { resolveDefinition } from '../../../node_modules/@angular/core/src/view/util';
+import { Constants } from '../../entities/Constants';
 
 
 @Injectable()
 export class AnketService {
 
 
-  constructor(private  util: UtilProvider,
-              private  logger: LoggerProvider) {
+  constructor(private util: UtilProvider,
+    private http: HttpClient,
+    private token: TokenProvider,
+    private logger: LoggerProvider,
+    private api: ApiProvider) {
 
   }
 
   fillAnket(obj) {
-    debugger;
     if (this.util.isNotEmpty(obj) && this.util.isNotEmpty(obj.anketMst)) {
       let anket = new Anket();
       anket.anketMst = this.fillAnketMst(obj.anketMst);
@@ -75,5 +82,44 @@ export class AnketService {
     let orderedList: AnketCevap[] = [];
     return orderedList;
   }
+
+
+  async saveDataToApi(hizmet: Hizmet) {
+
+    let anketCevapList: AnketCevap[] = this.getAnketCevapList(hizmet);
+
+    if (this.util.isNotEmpty(anketCevapList) && anketCevapList.length > 0) {
+
+      let header = await this.token.callTokenAndGetHeader();
+      let url = this.api.getAnketKayitUrl();
+      let result = await this.http.post(url, anketCevapList, { headers: header }).toPromise();
+      return this.setResult(result);
+    }
+    else {
+      return new Promise(res => res(Constants.STATUS.SUCCESS));
+    }
+  }
+
+  setResult(result: any): Promise<any> {
+
+    let status = Constants.STATUS.ERROR;
+
+    if (this.util.isNotEmpty(result) && this.util.isNotEmpty(result.responseCode) && result.responseCode == Constants.STATUS.SUCCESS) {
+      status = Constants.STATUS.SUCCESS;
+    }
+
+    return new Promise((resolve, reject) => {
+      resolve(status);
+      reject(status);
+    })
+
+  }
+
+  getAnketCevapList(hizmet: Hizmet): AnketCevap[] {
+    let list = hizmet.anket.anketCevaplar;
+    return list;
+  }
+
+
 
 }

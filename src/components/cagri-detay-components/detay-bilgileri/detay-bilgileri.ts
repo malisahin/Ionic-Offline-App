@@ -3,23 +3,24 @@
  * @email mehmetalisahinogullari@gmail.com
  */
 
-import {Component} from "@angular/core";
-import {Hizmet} from "../../../entities/hizmet/hizmet";
-import {HizmetService} from "../../../providers/hizmet-service/hizmet-service";
-import {DetayKayit} from "../../../entities/hizmet/DetayKayit";
-import {UtilProvider} from "../../../providers/util/util";
-import {LoggerProvider} from "../../../providers/logger/logger";
-import {UrunAnaGrup} from "../../../entities/urunAnaGrup";
-import {UrunAnaGrupDao} from "../../../providers/urun-ana-grup-dao/urun-ana-grup-dao";
-import {Constants} from "../../../entities/Constants";
-import {ModalController, AlertController, NavController} from "ionic-angular";
-import {HizmetDetayComponent} from "../../hizmet-detay/hizmet-detay";
-import {PrinterService} from "../../../providers/printer-service/printer-service";
-import {HizmetProvider} from "../../../providers/hizmet/hizmet";
-import {ProcessResults} from "../../../entities/ProcessResults";
-import {CagrilarPage} from "../../../pages/cagrilar/cagrilar";
-import {FiyatProvider} from "../../../providers/fiyat/fiyat";
-import {AnketComponent} from "../../anket/anket";
+import { Component } from "@angular/core";
+import { Hizmet } from "../../../entities/hizmet/hizmet";
+import { HizmetService } from "../../../providers/hizmet-service/hizmet-service";
+import { DetayKayit } from "../../../entities/hizmet/DetayKayit";
+import { UtilProvider } from "../../../providers/util/util";
+import { LoggerProvider } from "../../../providers/logger/logger";
+import { UrunAnaGrup } from "../../../entities/urunAnaGrup";
+import { UrunAnaGrupDao } from "../../../providers/urun-ana-grup-dao/urun-ana-grup-dao";
+import { Constants } from "../../../entities/Constants";
+import { ModalController, AlertController, NavController } from "ionic-angular";
+import { HizmetDetayComponent } from "../../hizmet-detay/hizmet-detay";
+import { PrinterService } from "../../../providers/printer-service/printer-service";
+import { HizmetProvider } from "../../../providers/hizmet/hizmet";
+import { ProcessResults } from "../../../entities/ProcessResults";
+import { CagrilarPage } from "../../../pages/cagrilar/cagrilar";
+import { FiyatProvider } from "../../../providers/fiyat/fiyat";
+import { AnketComponent } from "../../anket/anket";
+import { AnketService } from "../../../providers/anket-service/anket-service";
 
 enum DURUM {
   ACIK = 'ACIK',
@@ -48,15 +49,16 @@ export class DetayBilgileriComponent {
   isAnketExist: boolean = false;
 
   constructor(private hizmetService: HizmetService,
-              private urunAnaGrupDao: UrunAnaGrupDao,
-              private modalCtrl: ModalController,
-              private util: UtilProvider,
-              private logger: LoggerProvider,
-              private alertCtrl: AlertController,
-              private nav: NavController,
-              private hizmetProvider: HizmetProvider,
-              private fiyatProvider: FiyatProvider,
-              private printService: PrinterService) {
+    private urunAnaGrupDao: UrunAnaGrupDao,
+    private modalCtrl: ModalController,
+    private util: UtilProvider,
+    private logger: LoggerProvider,
+    private alertCtrl: AlertController,
+    private nav: NavController,
+    private hizmetProvider: HizmetProvider,
+    private fiyatProvider: FiyatProvider,
+    private anketService: AnketService,
+    private printService: PrinterService) {
     this.hizmet = this.hizmetService.getHizmet();
     this.loadCozumKoduList();
     this.loadletisimIstek();
@@ -99,14 +101,9 @@ export class DetayBilgileriComponent {
 
   hizmetDetayaGit() {
     if (this.util.isNotEmpty(this.hizmet.mamKod)) {
-      let detayModal = this.modalCtrl.create(HizmetDetayComponent, {
-          data: {
-            detay: ""
-          }
-        },
-        {
-          cssClass: this.util.getSelectedTheme()
-        });
+      let detayModal = this.modalCtrl.create(HizmetDetayComponent,
+        { data: { detay: "" } },
+        { cssClass: this.util.getSelectedTheme() });
 
       detayModal.onDidDismiss(res => {
         this.logger.dir(res);
@@ -120,8 +117,8 @@ export class DetayBilgileriComponent {
 
   updateHizmetDetay(item: any) {
     let detayModal = this.modalCtrl.create(HizmetDetayComponent,
-      {data: {hizmetDetay: item}},
-      {cssClass: this.util.getSelectedTheme()}
+      { data: { hizmetDetay: item } },
+      { cssClass: this.util.getSelectedTheme() }
     );
     detayModal.onDidDismiss(res => {
       this.logger.dir(res);
@@ -150,23 +147,50 @@ export class DetayBilgileriComponent {
     if (result.isErrorMessagesNull()) {
       let kapatmaHizmet = this.util.assign(this.hizmet);
 
-      debugger;
-      kapatmaHizmet = this.sunucuyaKayitIcinHazirla(kapatmaHizmet);
+      let isAnketKayitOK = await this.anketVerileriniKaydet(kapatmaHizmet);
 
-      kapatmaHizmet.durum = durum;
-      this.verilerSunucuyaKayitEdildiMi = durum != DURUM.ACIK;
-      this.util.loaderStart();
-      let res = await this.hizmetProvider.updateCagri(kapatmaHizmet, "HAYIR");
-      this.util.loaderEnd();
-      this.logger.dir(res);
-
-      if (this.util.isOnline()) {
-        this.setCagriKapatSonuc(res, kapatmaHizmet);
+      if (isAnketKayitOK) {
+        debugger;
+        await this.hizmetiSunucuyaKaydet(durum, kapatmaHizmet);
+      } else {
+        this.logger.error("Anket Kayıt Sırasında hata oluştu.");
       }
+
     }
     else {
       this.util.pushAllMessages(result);
     }
+  }
+
+  async hizmetiSunucuyaKaydet(durum: string, kapatmaHizmet) {
+    kapatmaHizmet = this.sunucuyaKayitIcinHazirla(kapatmaHizmet);
+
+    kapatmaHizmet.durum = durum;
+    this.verilerSunucuyaKayitEdildiMi = durum != DURUM.ACIK;
+    this.util.loaderStart();
+    let res = await this.hizmetProvider.updateCagri(kapatmaHizmet, "HAYIR");
+    this.util.loaderEnd();
+    this.logger.dir(res);
+
+    if (this.util.isOnline()) {
+      this.setCagriKapatSonuc(res, kapatmaHizmet);
+    }
+  }
+
+  async anketVerileriniKaydet(hizmetData) {
+    let anketKayitSonuc = await this.anketService.saveDataToApi(hizmetData);
+
+    let status = Constants.STATUS.ERROR;
+    if (this.util.isNotEmpty(anketKayitSonuc) && anketKayitSonuc == Constants.STATUS.SUCCESS) {
+      this.logger.success("Anket Kayıt Edildi");
+      status = Constants.STATUS.SUCCESS;
+
+    } else {
+      this.logger.error("Anket kayıt edilirken hata alındı.");
+    }
+
+    return new Promise(res => res(status));
+
   }
 
   async setCagriKapatSonuc(res, kapatmaHizmet) {
@@ -184,9 +208,7 @@ export class DetayBilgileriComponent {
       && res.description == "CLOSED";
 
     if (hizmetFormuKapatildiMi) {
-      this.fillHizmet(res);
-      this.hizmet.durum = DURUM.KAPALI;
-      this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
+      await this.fillHizmet(res);
       this.navigate("CagrilarPage", "Çağrı Kayıt Edildi.")
     }
   }
@@ -225,9 +247,11 @@ export class DetayBilgileriComponent {
     }
   }
 
-  fillHizmet(res) {
-    if (this.util.isNotEmpty(res.message))
-      this.hizmet = this.hizmetProvider.fillHizmet(res.message);
+  async fillHizmet(res) {
+    if (this.util.isNotEmpty(res.message)) {
+      this.hizmet.durum = res.message.durum;
+      this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
+    }
   }
 
   async updateHizmet(nerden: string) {
@@ -305,6 +329,7 @@ export class DetayBilgileriComponent {
 
   sunucuyaKayitIcinHazirla(hizmet: Hizmet) {
 
+    debugger;
     let sunucuyaGidecekHizmet = this.util.assign(hizmet);
     let DATE_TIME_FORMAT: string = "dd.MM.yyyy hh:mm:ss.s";
     let DATE_TIME_FORMAT_WITHOUT_SPLIT_SECOND: string = "dd.MM.yyyy hh:mm:ss";
@@ -331,6 +356,8 @@ export class DetayBilgileriComponent {
 
     sunucuyaGidecekHizmet.islemTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.islemTarihi, DATE_TIME_FORMAT_WITHOUT_SPLIT_SECOND);
     sunucuyaGidecekHizmet.islemBitTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.islemBitTarihi, DATE_TIME_FORMAT_WITHOUT_SPLIT_SECOND);
+
+    delete sunucuyaGidecekHizmet.anket;
 
     return sunucuyaGidecekHizmet;
   }
@@ -477,7 +504,7 @@ export class DetayBilgileriComponent {
 
   goToAnketPage() {
 
-    let modal = this.modalCtrl.create(AnketComponent, {data: {hizmet: this.hizmet}},);
+    let modal = this.modalCtrl.create(AnketComponent, { data: { hizmet: this.hizmet } }, );
     modal.present();
   }
 

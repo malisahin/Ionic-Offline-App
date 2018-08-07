@@ -1,11 +1,11 @@
-import {Component} from '@angular/core';
-import {Pageable} from "../../entities/Pageable";
-import {UrunMalzeme} from "../../entities/urun-malzeme";
-import {ViewController, NavParams} from "ionic-angular";
-import {UrunMalzemeProvider} from "../../providers/urun-malzeme/urun-malzeme";
-import {UtilProvider} from "../../providers/util/util";
-import {Constants} from "../../entities/Constants";
-import {LoggerProvider} from "../../providers/logger/logger";
+import { Component } from '@angular/core';
+import { Pageable } from "../../entities/Pageable";
+import { UrunMalzeme } from "../../entities/urun-malzeme";
+import { ViewController, NavParams } from "ionic-angular";
+import { UrunMalzemeProvider } from "../../providers/urun-malzeme/urun-malzeme";
+import { UtilProvider } from "../../providers/util/util";
+import { Constants } from "../../entities/Constants";
+import { LoggerProvider } from "../../providers/logger/logger";
 
 
 @Component({
@@ -17,7 +17,7 @@ export class MalzemeSearchComponent {
   text: string;
   data: any;
   list: { key: "", value: "", data: {} }[] = [];
-  selectedItem: { key: "", value: "" } = {key: "", value: ""};
+  selectedItem: { key: "", value: "" } = { key: "", value: "" };
   returnObject: any;
   pageable: Pageable;
   searchText: string = "";
@@ -25,19 +25,19 @@ export class MalzemeSearchComponent {
   searchType: string;
 
   constructor(public viewCtrl: ViewController, params: NavParams,
-              private malzemeProvider: UrunMalzemeProvider,
-              private logger: LoggerProvider,
-              private util: UtilProvider) {
+    private malzemeProvider: UrunMalzemeProvider,
+    private logger: LoggerProvider,
+    private util: UtilProvider) {
     this.pageable = new Pageable();
     this.data = params.get('data');
-    debugger;
+
     this.malzeme = new UrunMalzeme();
     this.searchType = Constants.SEARCH_TYPE.LIKE;
     this.ionViewDidLoad();
   }
 
   closeModal() {
-    this.ionChange({key: '', value: ''});
+    this.ionChange({ key: '', value: '' });
   }
 
   ionViewDidLoad() {
@@ -82,7 +82,7 @@ export class MalzemeSearchComponent {
 
   fillItemByType(item: any) {
 
-    this.list.push({key: item.mlzKod, value: item.mlzAdi, data: item});
+    this.list.push({ key: item.mlzKod, value: item.mlzAdi, data: item });
 
   }
 

@@ -1,12 +1,13 @@
-import {HttpClient} from "@angular/common/http";
-import {Injectable} from "@angular/core";
-import {User} from "../../entities/user";
-import {ModalController} from "ionic-angular";
-import {Hizmet} from "../../entities/hizmet/hizmet";
-import {UtilProvider} from "../util/util";
-import {ZebraPrinterComponent} from "../../components/zebra-printer/zebra-printer";
-import {DetayKayit} from "../../entities/hizmet/DetayKayit";
-import {Constants} from "../../entities/Constants";
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { User } from "../../entities/user";
+import { ModalController } from "ionic-angular";
+import { Hizmet } from "../../entities/hizmet/hizmet";
+import { UtilProvider } from "../util/util";
+import { ZebraPrinterComponent } from "../../components/zebra-printer/zebra-printer";
+import { DetayKayit } from "../../entities/hizmet/DetayKayit";
+import { Constants } from "../../entities/Constants";
+import { Anket } from "../../entities/hizmet/Ankets/Anket";
 
 @Injectable()
 export class PrinterService {
@@ -15,8 +16,8 @@ export class PrinterService {
   user: User;
 
   constructor(public http: HttpClient,
-              private modalCtrl: ModalController,
-              private util: UtilProvider) {
+    private modalCtrl: ModalController,
+    private util: UtilProvider) {
     this.hizmet = new Hizmet();
     this.user = new User();
     this.init();
@@ -28,7 +29,7 @@ export class PrinterService {
   showPrinterList(hizmet: Hizmet) {
     this.hizmet = hizmet;
     let text = this.getPrintText();
-    let modal = this.modalCtrl.create(ZebraPrinterComponent, {text: text});
+    let modal = this.modalCtrl.create(ZebraPrinterComponent, { text: text });
     modal.present();
   }
 
@@ -38,6 +39,28 @@ export class PrinterService {
     } else if (this.user.getOrgKod() == "BAY") {
       return this.prepareDataBaymak();
     }
+  }
+
+  prepareAnketData(): string {
+    let anketPrintText = "";
+    let anket: Anket = this.hizmet.anket;
+    if (this.util.isNotEmpty(anket)) {
+
+      anket.anketSorular.forEach(soru => {
+
+        anketPrintText += soru.serSoruTnm.soruText + " : ";
+
+        anket.anketCevaplar
+          .filter(filter => soru.soruId == filter.soruId)
+          .forEach(cevap => {
+            anketPrintText += cevap.cevapText;
+          });
+        anketPrintText += "\n\r";
+
+      });
+
+    }
+    return anketPrintText;
   }
 
   prepareAdres(): string {
@@ -133,6 +156,16 @@ export class PrinterService {
     if (this.hizmet.seriMetod == "2")
       data += "\n\r  Seri 2              : " + this.hizmet.mamSeriNo2;
     data += "\n\r" + this.seperator;
+
+
+
+    data += '\n! U1 SETBOLD 2';
+    data += '\n\r TEKNIK DEGERLER';
+    data += '\n! U1 SETBOLD 0';
+    // Anket Cevapları
+    data += '\n\r' + this.util.translateTurkishCharacters(this.prepareAnketData());
+    data += '\n\r' + this.seperator;
+
 
     data += "\n! U1 SETBOLD 2";
     data += "\n\r GARANTI DURUMU ";

@@ -3,15 +3,15 @@
  * @email mehmetalisahinogullari@gmail.com
  */
 
-import {Injectable} from "@angular/core";
-import {Hizmet} from "../../entities/hizmet/hizmet";
-import {HizmetDao} from "../hizmet-dao/hizmet-dao";
-import {BaseDao} from "../base-dao/base-dao";
-import {UtilProvider} from "../util/util";
-import {Pageable} from "../../entities/Pageable";
-import {HizmetProvider} from "../hizmet/hizmet";
-import {AlertController} from "ionic-angular";
-import {Constants} from "../../entities/Constants";
+import { Injectable } from "@angular/core";
+import { Hizmet } from "../../entities/hizmet/hizmet";
+import { HizmetDao } from "../hizmet-dao/hizmet-dao";
+import { BaseDao } from "../base-dao/base-dao";
+import { UtilProvider } from "../util/util";
+import { Pageable } from "../../entities/Pageable";
+import { HizmetProvider } from "../hizmet/hizmet";
+import { AlertController } from "ionic-angular";
+import { Constants } from "../../entities/Constants";
 
 
 @Injectable()
@@ -21,9 +21,9 @@ export class HizmetService {
   defaultOrderBy = Constants.ORDER_BY.RANDEVU_TAR_ASCENDES;
 
   constructor(private hizmetDao: HizmetDao,
-              private  util: UtilProvider,
-              private  alertCtrl: AlertController,
-              private hizmetProvider: HizmetProvider) {
+    private util: UtilProvider,
+    private alertCtrl: AlertController,
+    private hizmetProvider: HizmetProvider) {
   }
 
   fetchHizmetWithPage(hizmet: Hizmet, orderBy: string, pageable: Pageable): Promise<any> {
@@ -78,6 +78,10 @@ export class HizmetService {
 
   deleteHizmet(seqNo: string): Promise<any> {
     return this.hizmetDao.deleteHizmet(seqNo);
+  }
+
+  isHizmetDisabled(hizmet: Hizmet): Boolean {
+    return hizmet.durum == "KAPALI" || hizmet.durum == "IPTAL";
   }
 
 }

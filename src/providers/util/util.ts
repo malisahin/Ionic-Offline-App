@@ -363,6 +363,6 @@ export class UtilProvider {
   assign(item: any): any {
     if (this.isEmpty(item)) return null;
 
-    return JSON.parse(JSON.stringify(item));
+    return Object.assign({}, item);
   }
 }

@@ -60,15 +60,14 @@
       <ion-row>
 
         <ion-col col-6>
-          <button ion-button icon-only (click)="updateHizmetDetay(detay)" table-button style="width: 100%"
-                  [disabled]="isHizmetDisabled()" color="colorinfo">
+          <button ion-button icon-only (click)="updateHizmetDetay(detay)" table-button style="width: 100%" [disabled]="isHizmetDisabled()"
+            color="colorinfo">
             <i class="fas fa-edit"></i>
           </button>
         </ion-col>
 
         <ion-col col-6>
-          <button ion-button icon-only (click)="deleteHizmetDetay(detay)" table-button style="width: 100%"
-                  color="colorerror" [disabled]="isHizmetDisabled()">
+          <button ion-button icon-only (click)="deleteHizmetDetay(detay)" table-button style="width: 100%" color="colorerror" [disabled]="isHizmetDisabled()">
             <i class="fas fa-trash-alt"></i>
           </button>
         </ion-col>
@@ -109,22 +108,22 @@
   <div id="divKapatmaIslemleri" class="gray-box" *ngIf="showDetails == -1">
     <ion-grid>
       <ion-row>
+
         <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2>
           <button ion-button round color="secondary" (click)="kapat('ACIK')" [disabled]="isHizmetDisabled()" full>
             <span item-left style="width: 80%">Kapat</span>
             <span item-right style="width: 20%">
-    <i class="fas fa-window-close"></i>
-          </span>
+              <i class="fas fa-window-close"></i>
+            </span>
           </button>
         </ion-col>
 
         <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2>
-          <button ion-button round color="secondary" [disabled]="isHizmetDisabled()" (click)="hizmetIptalKontrol()"
-                  full>
+          <button ion-button round color="secondary" [disabled]="isHizmetDisabled()" (click)="hizmetIptalKontrol()" full>
             <span item-left style="width: 80%">Iptal</span>
             <span item-right style="width: 20%">
-    <i class="fas fa-ban"></i>
-          </span>
+              <i class="fas fa-ban"></i>
+            </span>
           </button>
         </ion-col>
 
@@ -132,8 +131,8 @@
           <button ion-button round color="secondary" (click)="yazdir()" full>
             <span item-left style="width: 80%">Yazdır</span>
             <span item-right style="width: 20%">
-    <i class="fas fa-print"></i>
-          </span>
+              <i class="fas fa-print"></i>
+            </span>
           </button>
         </ion-col>
 
@@ -141,26 +140,21 @@
           <button ion-button round color="secondary" [disabled]="isHizmetDisabled()" (click)="hizmetSilKontrol()" full>
             <span item-left style="width: 80%">Sil</span>
             <span item-right style="width: 20%">
-
-    <i class="fas fa-trash-alt"></i>
-          </span>
-
+              <i class="fas fa-trash-alt"></i>
+            </span>
           </button>
         </ion-col>
 
-        <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 *ngIf="isAnketExist" >
-          <button ion-button round color="secondary" [disabled]="isHizmetDisabled()" (click)="goToAnketPage()" full>
+        <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 *ngIf="isAnketExist">
+          <button ion-button round color="secondary" (click)="goToAnketPage()" full>
             <span item-left style="width: 80%">Anket</span>
             <span item-right style="width: 20%">
-
-            <i class="fas fa-question-circle"></i>
-          </span>
-
-
+              <i class="fas fa-question-circle"></i>
+            </span>
           </button>
         </ion-col>
-      </ion-row>
 
+      </ion-row>
 
     </ion-grid>
 
@@ -170,8 +164,7 @@
       </ion-col>
 
       <ion-col col-8 col-md-10>
-        <ion-textarea [(ngModel)]="hizmet.aciklama" [disabled]="isHizmetDisabled()"
-                      (ionBlur)="onHizmetChange()"></ion-textarea>
+        <ion-textarea [(ngModel)]="hizmet.aciklama" [disabled]="isHizmetDisabled()" (ionBlur)="onHizmetChange()"></ion-textarea>
       </ion-col>
 
       <ion-col col-4 col-md-2>
@@ -179,8 +172,7 @@
       </ion-col>
 
       <ion-col col-8 col-md-10>
-        <ion-select [(ngModel)]="hizmet.kapatmaKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"
-                    interface="popover">
+        <ion-select [(ngModel)]="hizmet.kapatmaKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()" interface="popover">
           <ion-option value="NORMAL">Normal Kapatma</ion-option>
           <ion-option value="MESGULIYET">Meşguliyet Kapatma</ion-option>
         </ion-select>
@@ -192,8 +184,7 @@
       </ion-col>
 
       <ion-col col-8 col-md-10>
-        <ion-select [(ngModel)]="hizmet.odemeTipi" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"
-                    interface="popover">
+        <ion-select [(ngModel)]="hizmet.odemeTipi" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()" interface="popover">
           <ion-option value="NAKIT">Nakit</ion-option>
           <ion-option value="KREDIKARTI">Kredi Kartı</ion-option>
         </ion-select>
@@ -204,8 +195,7 @@
       </ion-col>
 
       <ion-col col-8 col-md-10>
-        <ion-select [(ngModel)]="hizmet.cozumKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"
-                    interface="popover">
+        <ion-select [(ngModel)]="hizmet.cozumKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()" interface="popover">
           <ion-option *ngFor="let cozum of cozumKoduList" [value]="cozum.kod">{{cozum.ad}}</ion-option>
         </ion-select>
       </ion-col>
@@ -216,15 +206,13 @@
 
       <ion-col col-6 col-md-9>
 
-        <ion-label color="primary" class="radio-btn" style="text-align: end;position: relative;">{{iletisimIstek == true
-          ? 'EVET' : 'HAYIR'}}
+        <ion-label color="primary" class="radio-btn" style="text-align: end;position: relative;">{{iletisimIstek == true ? 'EVET' : 'HAYIR'}}
         </ion-label>
 
       </ion-col>
       <ion-col col-2 col-md-1>
-        <ion-toggle (ionChange)="iletisimIstekChange()" class="toggle-btn" style="text-align: end;"
-                    [disabled]="isHizmetDisabled()"
-                    [(ngModel)]="iletisimIstek"></ion-toggle>
+        <ion-toggle (ionChange)="iletisimIstekChange()" class="toggle-btn" style="text-align: end;" [disabled]="isHizmetDisabled()"
+          [(ngModel)]="iletisimIstek"></ion-toggle>
       </ion-col>
 
     </ion-row>

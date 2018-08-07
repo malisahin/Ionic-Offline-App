@@ -13,5 +13,5 @@ export class AnketCevap {
   deger: string;
   soruId: number;
   hizmetSeq: number;
-  zorunlu: string;
+  orgKod: string;
 }

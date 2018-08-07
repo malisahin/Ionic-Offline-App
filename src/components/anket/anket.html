@@ -18,26 +18,27 @@
 
     <ion-item *ngFor="let item of qAList">
       <ion-label>{{item.soru.serSoruTnm.soruText}}</ion-label>
-      <ion-input [(ngModel)]="item.cevap.cevapText"></ion-input>
+      <ion-input [(ngModel)]="item.cevap.cevapText" [disabled]="isHizmetDisabled"></ion-input>
     </ion-item>
 
-
     <ion-row>
-
 
       <ion-col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6>
         <button ion-button round (click)="closeModal()" full>
           <span item-left style="width: 80%">Iptal</span>
-          <span item-right style="width: 20%">    <i class="fas fa-window-close"></i></span>
+          <span item-right style="width: 20%">
+            <i class="fas fa-window-close"></i>
+          </span>
         </button>
       </ion-col>
 
       <ion-col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6>
-        <button ion-button round (click)="kaydet()" full>
+        <button ion-button round (click)="kaydet()" full [disabled]="isHizmetDisabled">
           <span item-left style="width: 80%">Kaydet</span>
-          <span item-right style="width: 20%">   <i class="fas fa-save"></i>          </span>
+          <span item-right style="width: 20%">
+            <i class="fas fa-save"></i>
+          </span>
         </button>
-
       </ion-col>
 
     </ion-row>

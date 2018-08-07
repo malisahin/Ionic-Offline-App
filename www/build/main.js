@@ -1,6 +1,222 @@
 webpackJsonp([0],{
 
+/***/ 10:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoggerProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/**
+ * @author malisahin
+ * @date 2018-04-14
+ */
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var LoggerProvider = (function () {
+    function LoggerProvider() {
+    }
+    LoggerProvider.prototype.info = function (res) {
+        console.log("%c " + res, "color: #0096ff");
+    };
+    LoggerProvider.prototype.success = function (res) {
+        console.log("%c " + res, "color: #00ff4b");
+    };
+    LoggerProvider.prototype.log = function (res) {
+        console.log(res);
+    };
+    LoggerProvider.prototype.log2 = function (mes, res) {
+        console.log(mes, res);
+    };
+    LoggerProvider.prototype.dir = function (res) {
+        console.dir(res);
+    };
+    LoggerProvider.prototype.dir2 = function (mes, res) {
+        console.dir(mes, res);
+    };
+    LoggerProvider.prototype.error = function (res) {
+        console.error(res);
+    };
+    LoggerProvider.prototype.error2 = function (mes, res) {
+        console.error(mes, res);
+    };
+    LoggerProvider.prototype.warn = function (res) {
+        console.warn(res);
+    };
+    LoggerProvider.prototype.table = function (res) {
+        console.table(res);
+    };
+    LoggerProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+        __metadata("design:paramtypes", [])
+    ], LoggerProvider);
+    return LoggerProvider;
+}());
+
+//# sourceMappingURL=logger.js.map
+
+/***/ }),
+
 /***/ 100:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MesajlarDao; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_mesajlar__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__database_database__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__util_util__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__base_dao_base_dao__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_Pageable__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_Constants__ = __webpack_require__(6);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+
+
+
+
+var MesajlarDao = (function () {
+    function MesajlarDao(http, dbProvider, util, baseDao) {
+        this.http = http;
+        this.dbProvider = dbProvider;
+        this.util = util;
+        this.baseDao = baseDao;
+    }
+    MesajlarDao.prototype.insertList = function (list) {
+        var _this = this;
+        var response;
+        var insertedItems = 0;
+        return new Promise(function (resolve, reject) {
+            _this.dbProvider.transaction().then(function (db) {
+                db.transaction(function (tx) {
+                    var query = "INSERT OR REPLACE INTO OFF_ALERT (id, bitisTarihi, aciklama, gonderen, basTarihi, status, subject, type, valid) VALUES (?,?,?,?,?,?,?,?,?)";
+                    for (var _i = 0, list_1 = list; _i < list_1.length; _i++) {
+                        var item = list_1[_i];
+                        var params = [item.id, item.bitisTarihi + " 23:59:59", item.aciklama, item.gonderen, item.basTarihi + " 00:00:00", item.status, item.subject, item.type, item.valid];
+                        tx.executeSql(query, params, function (tx, res) {
+                            insertedItems += 1;
+                            if (list.length == insertedItems) {
+                                resolve(res);
+                            }
+                        }, function (err, mes) {
+                            console.error("Error" + mes.message + " Code: " + mes.code);
+                            reject(err);
+                        });
+                    }
+                });
+            });
+        });
+    };
+    MesajlarDao.prototype.loadDuyuruSayisi = function () {
+        return this.loadMesajSayisi("WARN");
+    };
+    MesajlarDao.prototype.loadUyariSayisi = function () {
+        return this.loadMesajSayisi("URGENT");
+    };
+    MesajlarDao.prototype.loadMesajSayisi = function (type) {
+        return __awaiter(this, void 0, void 0, function () {
+            var mes, result;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        mes = new __WEBPACK_IMPORTED_MODULE_2__entities_mesajlar__["a" /* Mesaj */]();
+                        mes.type = type;
+                        return [4 /*yield*/, this.getList(mes, new __WEBPACK_IMPORTED_MODULE_6__entities_Pageable__["a" /* Pageable */]())];
+                    case 1:
+                        result = _a.sent();
+                        return [2 /*return*/, new Promise(function (resolve, reject) {
+                                resolve(result.res.rows.length);
+                            })];
+                }
+            });
+        });
+    };
+    MesajlarDao.prototype.getList = function (mesaj, pageable) {
+        var query = this.prepareSearchQery(mesaj);
+        return this.baseDao.getList(query, "id", "", __WEBPACK_IMPORTED_MODULE_7__entities_Constants__["a" /* Constants */].SEARCH_TYPE.EXACT, pageable.first, pageable.pageSize, true);
+    };
+    MesajlarDao.prototype.prepareSearchQery = function (mesaj) {
+        var query = "SELECT * FROM OFF_ALERT WHERE 1=1";
+        if (this.util.isNotEmpty(mesaj.id)) {
+            query += " AND id=" + mesaj.id + " ";
+        }
+        if (this.util.isNotEmpty(mesaj.type)) {
+            query += " AND type='" + mesaj.type + "' ";
+        }
+        var now = "'" + this.util.dateFormatRegex(new Date(), "yyyy-MM-dd hh:mm:ss") + "'";
+        query += " AND bitisTarihi > " + now;
+        query += " AND basTarihi < " + now;
+        return query;
+    };
+    MesajlarDao = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["B" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_3__database_database__["a" /* DatabaseProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__util_util__["a" /* UtilProvider */],
+            __WEBPACK_IMPORTED_MODULE_5__base_dao_base_dao__["a" /* BaseDao */]])
+    ], MesajlarDao);
+    return MesajlarDao;
+}());
+
+//# sourceMappingURL=mesajlar-dao.js.map
+
+/***/ }),
+
+/***/ 101:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -41,21 +257,21 @@ var Mesaj = (function () {
 
 /***/ }),
 
-/***/ 109:
+/***/ 110:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HeaderComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_controller__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_mesajlar_dao_mesajlar_dao__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_hizmet_dao_hizmet_dao__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_mesajlar_dao_mesajlar_dao__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_hizmet_dao_hizmet_dao__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_header_header__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_cagrilar_cagrilar__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_bildirimler_bildirimler__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_guncelleme_guncelleme__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_anasayfa_anasayfa__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_logger_logger__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_cagrilar_cagrilar__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_bildirimler_bildirimler__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_guncelleme_guncelleme__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_anasayfa_anasayfa__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_logger_logger__ = __webpack_require__(10);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -200,7 +416,7 @@ var HeaderComponent = (function () {
 
 /***/ }),
 
-/***/ 110:
+/***/ 111:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -356,18 +572,18 @@ var AdresDao = (function () {
 
 /***/ }),
 
-/***/ 111:
+/***/ 112:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BildirimlerPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_mesajlar_mesajlar__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_mesajlar__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_mesaj_detail_mesaj_detail__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_mesajlar_mesajlar__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_mesajlar__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_mesaj_detail_mesaj_detail__ = __webpack_require__(179);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_Pageable__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_header_header__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_header_header__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_Constants__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_util_util__ = __webpack_require__(5);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -522,17 +738,17 @@ var BildirimlerPage = (function () {
 
 /***/ }),
 
-/***/ 112:
+/***/ 113:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MesajlarProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_mesajlar__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mesajlar_dao_mesajlar_dao__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__token_token__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_mesajlar__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mesajlar_dao_mesajlar_dao__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__token_token__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_Constants__ = __webpack_require__(6);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -690,70 +906,6 @@ var MesajlarProvider = (function () {
 
 /***/ }),
 
-/***/ 113:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export IndirilenVeri */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EntityUtil; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__BaseEntity__ = __webpack_require__(888);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-
-var IndirilenVeri = (function () {
-    function IndirilenVeri() {
-    }
-    return IndirilenVeri;
-}());
-
-var EntityUtil = (function (_super) {
-    __extends(EntityUtil, _super);
-    function EntityUtil() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    EntityUtil.prototype.indirilenVeriyiHesapla = function (tip, miktar) {
-        var saklananVeriString = localStorage.getItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].INDIRILEN_VERI);
-        var saklananVeri;
-        if (this.isNotEmpty(saklananVeriString)) {
-            saklananVeri = JSON.parse(saklananVeriString);
-        }
-        else {
-            saklananVeri = new IndirilenVeri();
-            saklananVeri.miktari = 0;
-        }
-        saklananVeri.miktari += miktar;
-        saklananVeri.tipi = tip;
-        localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].INDIRILEN_VERI, JSON.stringify(saklananVeri));
-    };
-    EntityUtil.prototype.indirilenVeriyiSifirla = function () {
-        localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].INDIRILEN_VERI, "");
-    };
-    EntityUtil.prototype.getIndirilenVeri = function () {
-        var veri = localStorage.getItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].INDIRILEN_VERI);
-        if (this.isNotEmpty(veri)) {
-            return JSON.parse(veri);
-        }
-        else {
-            return null;
-        }
-    };
-    return EntityUtil;
-}(__WEBPACK_IMPORTED_MODULE_1__BaseEntity__["a" /* BaseEntity */]));
-
-//# sourceMappingURL=EntityUtil.js.map
-
-/***/ }),
-
 /***/ 114:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -874,10 +1026,10 @@ var UrunDao = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UrunMalzemeProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_urun_malzeme__ = __webpack_require__(116);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__urun_malzeme_dao_urun_malzeme_dao__ = __webpack_require__(502);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__token_token__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__token_token__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__util_util__ = __webpack_require__(5);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1002,7 +1154,7 @@ var UrunMalzemeProvider = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UrunMalzeme; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__EntityUtil__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__EntityUtil__ = __webpack_require__(55);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1067,7 +1219,7 @@ var UrunMalzeme = (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__database_database__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logger_logger__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logger_logger__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__base_dao_base_dao__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_Constants__ = __webpack_require__(6);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1216,9 +1368,9 @@ var IslemArizaIscilikDao = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TasksProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logger_logger__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mesajlar_mesajlar__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__versiyon_versiyon__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logger_logger__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mesajlar_mesajlar__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__versiyon_versiyon__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_Constants__ = __webpack_require__(6);
 /**
  * @author mali.sahin
@@ -1380,9 +1532,9 @@ var TasksProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_Pageable__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_urunAnaGrup__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_urunAnaGrup__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_urun_ana_grup_dao_urun_ana_grup_dao__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_urun_ana_grup_dao_urun_ana_grup_dao__ = __webpack_require__(60);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(8);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1492,7 +1644,7 @@ var UrunAnaGrupSearchComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ZebraPrinterComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_logger_logger__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_logger_logger__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular_navigation_view_controller__ = __webpack_require__(14);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1709,7 +1861,7 @@ var HeaderProvider = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SpinnerComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_EntityUtil__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_EntityUtil__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_Constants__ = __webpack_require__(6);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1749,7 +1901,6 @@ var SpinnerComponent = (function () {
         var veri = this.util.getIndirilenVeri();
         var tableTotalElements = localStorage.getItem(__WEBPACK_IMPORTED_MODULE_2__entities_Constants__["a" /* Constants */].TABLE_TOTAL_ELEMENTS.ALL_DATA);
         if (this.util.isNotEmpty(veri) && this.util.isNotEmpty(tableTotalElements)) {
-            debugger;
             tableTotalElements = JSON.parse(tableTotalElements);
             veriTipi = __WEBPACK_IMPORTED_MODULE_2__entities_Constants__["a" /* Constants */].TABLE_TOTAL_ELEMENTS[veri.tipi];
             totalMiktar = tableTotalElements[veriTipi];
@@ -1761,7 +1912,7 @@ var SpinnerComponent = (function () {
     };
     SpinnerComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'spinner',template:/*ion-inline-start:"D:\WORKS\IONIC\Ionic-Offline-App\src\components\spinner\spinner.html"*/'<!--<ion-header>\n  <ion-navbar>\n    <ion-row class="modal-title">\n      <ion-col col-11 col-md-11>\n        <ion-title></ion-title>\n      </ion-col>\n      <ion-col col-1 col-md-1>\n      </ion-col>\n    </ion-row>\n  </ion-navbar>\n\n</ion-header>-->\n\n\n<ion-content class="" no-bounce>\n  <div>\n    <svg version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n      viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">\n      <path fill="#CD3333" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3\n            c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">\n        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform>\n      </path>\n\n      <path fill="#CD3333" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7\n            c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">\n        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="-360 50 50" repeatCount="indefinite"></animateTransform>\n      </path>\n\n      <path fill="#CD3333" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5\n            L82,35.7z">\n        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform>\n      </path>\n    </svg>\n  </div>\n  <div>\n    <ion-row>\n      <ion-col>\n        <ion-label>Lütfen Bekleyiniz</ion-label>\n        <ion-label>{{downloadPercentage}}</ion-label>\n      </ion-col>\n    </ion-row>\n\n  </div>\n</ion-content>\n\n<!--\n<ion-footer>\n</ion-footer>\n-->\n'/*ion-inline-end:"D:\WORKS\IONIC\Ionic-Offline-App\src\components\spinner\spinner.html"*/
+            selector: 'spinner',template:/*ion-inline-start:"D:\WORKS\IONIC\Ionic-Offline-App\src\components\spinner\spinner.html"*/'<!--<ion-header>\n  <ion-navbar>\n    <ion-row class="modal-title">\n      <ion-col col-11 col-md-11>\n        <ion-title></ion-title>\n      </ion-col>\n      <ion-col col-1 col-md-1>\n      </ion-col>\n    </ion-row>\n  </ion-navbar>\n\n</ion-header>-->\n\n\n<ion-content class="" no-bounce>\n  <div>\n    <svg version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n      viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">\n      <path fill="#CD3333" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3\n            c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">\n        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform>\n      </path>\n\n      <path fill="#006400" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7\n            c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">\n        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="-360 50 50" repeatCount="indefinite"></animateTransform>\n      </path>\n\n      <path fill="#ffff00" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5\n            L82,35.7z">\n        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform>\n      </path>\n    </svg>\n  </div>\n  <div>\n    <ion-row>\n      <ion-col>\n        <ion-label>Lütfen Bekleyiniz</ion-label>\n        <ion-label>{{downloadPercentage}}</ion-label>\n      </ion-col>\n    </ion-row>\n\n  </div>\n</ion-content>\n\n<!--\n<ion-footer>\n</ion-footer>\n-->\n'/*ion-inline-end:"D:\WORKS\IONIC\Ionic-Offline-App\src\components\spinner\spinner.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], SpinnerComponent);
@@ -1781,7 +1932,7 @@ var SpinnerComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_hizmet_hizmet__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_hizmet_service_hizmet_service__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__cagrilar_cagrilar__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__cagrilar_cagrilar__ = __webpack_require__(63);
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
@@ -1882,14 +2033,189 @@ var CagriDetayPage = (function () {
 
 /***/ }),
 
-/***/ 177:
+/***/ 176:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnketService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util_util__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logger_logger__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_hizmet_Ankets_Anket__ = __webpack_require__(885);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_hizmet_Ankets_AnketSoru__ = __webpack_require__(886);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_hizmet_Ankets_AnketMst__ = __webpack_require__(887);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__api_api__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__token_token__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__entities_Constants__ = __webpack_require__(6);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+
+
+
+
+
+
+var AnketService = (function () {
+    function AnketService(util, http, token, logger, api) {
+        this.util = util;
+        this.http = http;
+        this.token = token;
+        this.logger = logger;
+        this.api = api;
+    }
+    AnketService.prototype.fillAnket = function (obj) {
+        if (this.util.isNotEmpty(obj) && this.util.isNotEmpty(obj.anketMst)) {
+            var anket = new __WEBPACK_IMPORTED_MODULE_4__entities_hizmet_Ankets_Anket__["a" /* Anket */]();
+            anket.anketMst = this.fillAnketMst(obj.anketMst);
+            anket.anketSorular = this.fillAnketSoru(obj.anketSorular);
+            anket.anketCevaplar = this.fillAnketCevap();
+            return anket;
+        }
+        return null;
+    };
+    AnketService.prototype.fillAnketMst = function (anketMst) {
+        var mst = new __WEBPACK_IMPORTED_MODULE_6__entities_hizmet_Ankets_AnketMst__["a" /* AnketMst */]();
+        mst.anketId = anketMst.anketId;
+        mst.anketSeq = anketMst.anketSeq;
+        mst.durum = anketMst.durum;
+        mst.hedefGrp = anketMst.hedefGrp;
+        mst.hedefKod = anketMst.hedefKod;
+        mst.orgKod = anketMst.orgKod;
+        mst.refKod = anketMst.refKod;
+        mst.refNo = anketMst.refNo;
+        mst.sorumlu = anketMst.sorumlu;
+        mst.anketAdi = anketMst.anketAdi;
+        return mst;
+    };
+    AnketService.prototype.fillAnketSoru = function (soruList) {
+        var orderedList = [];
+        soruList.forEach(function (item) {
+            var soru = new __WEBPACK_IMPORTED_MODULE_5__entities_hizmet_Ankets_AnketSoru__["a" /* AnketSoru */]();
+            soru.anketId = item.anketId;
+            soru.orgKod = item.orgKod;
+            soru.soruId = item.soruId;
+            soru.zorunlu = item.zorunlu;
+            var tanim = new __WEBPACK_IMPORTED_MODULE_5__entities_hizmet_Ankets_AnketSoru__["b" /* SerSoruTnm */]();
+            tanim.iptal = item.serSoruTnm.iptal;
+            tanim.orgKod = item.serSoruTnm.orgKod;
+            tanim.soruId = item.serSoruTnm.soruId;
+            tanim.soruMethod = item.serSoruTnm.soruMethod;
+            tanim.soruText = item.serSoruTnm.soruText;
+            tanim.grpKod = item.serSoruTnm.grpKod;
+            soru.serSoruTnm = tanim;
+            orderedList.push(soru);
+        });
+        return orderedList;
+    };
+    AnketService.prototype.fillAnketCevap = function () {
+        var orderedList = [];
+        return orderedList;
+    };
+    AnketService.prototype.saveDataToApi = function (hizmet) {
+        return __awaiter(this, void 0, void 0, function () {
+            var anketCevapList, header, url, result;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        anketCevapList = this.getAnketCevapList(hizmet);
+                        if (!(this.util.isNotEmpty(anketCevapList) && anketCevapList.length > 0)) return [3 /*break*/, 3];
+                        return [4 /*yield*/, this.token.callTokenAndGetHeader()];
+                    case 1:
+                        header = _a.sent();
+                        url = this.api.getAnketKayitUrl();
+                        return [4 /*yield*/, this.http.post(url, anketCevapList, { headers: header }).toPromise()];
+                    case 2:
+                        result = _a.sent();
+                        return [2 /*return*/, this.setResult(result)];
+                    case 3: return [2 /*return*/, new Promise(function (res) { return res(__WEBPACK_IMPORTED_MODULE_9__entities_Constants__["a" /* Constants */].STATUS.SUCCESS); })];
+                }
+            });
+        });
+    };
+    AnketService.prototype.setResult = function (result) {
+        var status = __WEBPACK_IMPORTED_MODULE_9__entities_Constants__["a" /* Constants */].STATUS.ERROR;
+        if (this.util.isNotEmpty(result) && this.util.isNotEmpty(result.responseCode) && result.responseCode == __WEBPACK_IMPORTED_MODULE_9__entities_Constants__["a" /* Constants */].STATUS.SUCCESS) {
+            status = __WEBPACK_IMPORTED_MODULE_9__entities_Constants__["a" /* Constants */].STATUS.SUCCESS;
+        }
+        return new Promise(function (resolve, reject) {
+            resolve(status);
+            reject(status);
+        });
+    };
+    AnketService.prototype.getAnketCevapList = function (hizmet) {
+        var list = hizmet.anket.anketCevaplar;
+        return list;
+    };
+    AnketService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["B" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__util_util__["a" /* UtilProvider */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_8__token_token__["a" /* TokenProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__logger_logger__["a" /* LoggerProvider */],
+            __WEBPACK_IMPORTED_MODULE_7__api_api__["a" /* ApiProvider */]])
+    ], AnketService);
+    return AnketService;
+}());
+
+//# sourceMappingURL=anket-service.js.map
+
+/***/ }),
+
+/***/ 178:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CagriAramaModalPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_view_controller__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_hizmet_HizmetSearch__ = __webpack_require__(887);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_hizmet_HizmetSearch__ = __webpack_require__(888);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_Constants__ = __webpack_require__(6);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1991,17 +2317,17 @@ var CagriAramaModalPage = (function () {
 
 /***/ }),
 
-/***/ 178:
+/***/ 179:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MesajDetailComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_mesajlar__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_mesajlar__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_Pageable__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_mesajlar_mesajlar__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_mesajlar_mesajlar__ = __webpack_require__(113);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2093,17 +2419,17 @@ var MesajDetailComponent = (function () {
 
 /***/ }),
 
-/***/ 179:
+/***/ 180:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UrunProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_urun__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_urun__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__urun_dao_urun_dao__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__token_token__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__token_token__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_Constants__ = __webpack_require__(6);
 /**
@@ -2231,20 +2557,20 @@ var UrunProvider = (function () {
 
 /***/ }),
 
-/***/ 180:
+/***/ 181:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UrunIscilikProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(442);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(443);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_urun_iscilik__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_urun_iscilik__ = __webpack_require__(182);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__urun_iscilik_dao_urun_iscilik_dao__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__token_token__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__urun_iscilik_dao_urun_iscilik_dao__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__token_token__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__util_util__ = __webpack_require__(5);
 /**
  * @author malisahin
@@ -2370,13 +2696,13 @@ var UrunIscilikProvider = (function () {
 
 /***/ }),
 
-/***/ 181:
+/***/ 182:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UrunIscilik; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__EntityUtil__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__EntityUtil__ = __webpack_require__(55);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -2433,7 +2759,7 @@ var UrunIscilik = (function (_super) {
 
 /***/ }),
 
-/***/ 182:
+/***/ 183:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2524,20 +2850,20 @@ var UrunIscilikDao = (function () {
 
 /***/ }),
 
-/***/ 183:
+/***/ 184:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FiyatProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_fiyat__ = __webpack_require__(184);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__fiyat_dao_fiyat_dao__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__token_token__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_fiyat__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__fiyat_dao_fiyat_dao__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__token_token__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_Constants__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__logger_logger__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__logger_logger__ = __webpack_require__(10);
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
@@ -2691,23 +3017,27 @@ var FiyatProvider = (function () {
     };
     FiyatProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__api_api__["a" /* ApiProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__api_api__["a" /* ApiProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_7__util_util__["a" /* UtilProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__util_util__["a" /* UtilProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__fiyat_dao_fiyat_dao__["a" /* FiyatDao */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__fiyat_dao_fiyat_dao__["a" /* FiyatDao */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_8__logger_logger__["a" /* LoggerProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__logger_logger__["a" /* LoggerProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__token_token__["a" /* TokenProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__token_token__["a" /* TokenProvider */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_2__api_api__["a" /* ApiProvider */],
+            __WEBPACK_IMPORTED_MODULE_7__util_util__["a" /* UtilProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__fiyat_dao_fiyat_dao__["a" /* FiyatDao */],
+            __WEBPACK_IMPORTED_MODULE_8__logger_logger__["a" /* LoggerProvider */],
+            __WEBPACK_IMPORTED_MODULE_5__token_token__["a" /* TokenProvider */]])
     ], FiyatProvider);
     return FiyatProvider;
-    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=fiyat.js.map
 
 /***/ }),
 
-/***/ 184:
+/***/ 185:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Fiyat; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__EntityUtil__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__EntityUtil__ = __webpack_require__(55);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -2770,16 +3100,16 @@ var Fiyat = (function (_super) {
 
 /***/ }),
 
-/***/ 185:
+/***/ 186:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VersiyonProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__token_token__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_api__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logger_logger__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__token_token__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_api__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logger_logger__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_Constants__ = __webpack_require__(6);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2909,7 +3239,7 @@ var VersiyonProvider = (function () {
 
 /***/ }),
 
-/***/ 186:
+/***/ 187:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2935,18 +3265,18 @@ var GarantiSorgu = (function () {
 
 /***/ }),
 
-/***/ 187:
+/***/ 188:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GarantiSorguProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_garanti_sonuc_garanti_sonuc__ = __webpack_require__(188);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_garanti_sonuc_garanti_sonuc__ = __webpack_require__(189);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__token_token__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__token_token__ = __webpack_require__(26);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3061,14 +3391,14 @@ var GarantiSorguProvider = (function () {
 
 /***/ }),
 
-/***/ 188:
+/***/ 189:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GarantiSonucComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_GarantiSorgu__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_GarantiSorgu__ = __webpack_require__(187);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_urun_dao_urun_dao__ = __webpack_require__(114);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -3171,19 +3501,19 @@ var GarantiSonucComponent = (function () {
 
 /***/ }),
 
-/***/ 189:
+/***/ 190:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UrunIscilikSearchComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_urun_iscilik__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_urun_iscilik__ = __webpack_require__(182);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_Pageable__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_urun_iscilik_dao_urun_iscilik_dao__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_urun_iscilik_dao_urun_iscilik_dao__ = __webpack_require__(183);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_urun_iscilik_urun_iscilik__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_urun_iscilik_urun_iscilik__ = __webpack_require__(181);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3284,7 +3614,7 @@ var UrunIscilikSearchComponent = (function () {
 
 /***/ }),
 
-/***/ 190:
+/***/ 191:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3296,7 +3626,7 @@ var UrunIscilikSearchComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_urun_malzeme_urun_malzeme__ = __webpack_require__(115);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_logger_logger__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_logger_logger__ = __webpack_require__(10);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3360,7 +3690,6 @@ var MalzemeSearchComponent = (function () {
         this.searchText = "";
         this.pageable = new __WEBPACK_IMPORTED_MODULE_1__entities_Pageable__["a" /* Pageable */]();
         this.data = params.get('data');
-        debugger;
         this.malzeme = new __WEBPACK_IMPORTED_MODULE_2__entities_urun_malzeme__["a" /* UrunMalzeme */]();
         this.searchType = __WEBPACK_IMPORTED_MODULE_6__entities_Constants__["a" /* Constants */].SEARCH_TYPE.LIKE;
         this.ionViewDidLoad();
@@ -3438,7 +3767,7 @@ var MalzemeSearchComponent = (function () {
 
 /***/ }),
 
-/***/ 191:
+/***/ 192:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3448,8 +3777,9 @@ var MalzemeSearchComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_hizmet_Ankets_AnketCevap__ = __webpack_require__(892);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_logger_logger__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_logger_logger__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_hizmet_service_hizmet_service__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_user__ = __webpack_require__(47);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3500,6 +3830,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
 var QA = (function () {
     function QA() {
     }
@@ -3513,12 +3844,13 @@ var AnketComponent = (function () {
         this.util = util;
         this.hizmetService = hizmetService;
         this.logger = logger;
+        this.user = new __WEBPACK_IMPORTED_MODULE_6__entities_user__["a" /* User */]();
         this.data = params.get('data');
         this.hizmet = this.data.hizmet;
         this.anket = this.data.hizmet.anket;
         this.qAList = [];
-        debugger;
         this.loadAnket();
+        this.isHizmetDisabled = this.hizmetService.isHizmetDisabled(this.hizmet);
     }
     ;
     AnketComponent.prototype.loadAnket = function () {
@@ -3535,7 +3867,6 @@ var AnketComponent = (function () {
     };
     AnketComponent.prototype.kaydet = function () {
         var _this = this;
-        debugger;
         var cevapList = [];
         this.qAList
             .filter(function (qa) { return _this.util.isNotEmpty(qa.cevap.cevapText); })
@@ -3573,13 +3904,13 @@ var AnketComponent = (function () {
         cevap.anketId = this.anket.anketMst.anketId;
         cevap.anketSeq = this.anket.anketMst.anketSeq;
         cevap.soruId = soru.serSoruTnm.soruId;
-        cevap.zorunlu = soru.zorunlu;
-        cevap.cevapText = "";
+        cevap.orgKod = this.user.getOrgKod();
+        cevap.cevapId = 0;
         return cevap;
     };
     AnketComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'anket',template:/*ion-inline-start:"D:\WORKS\IONIC\Ionic-Offline-App\src\components\anket\anket.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-row class="modal-title">\n      <ion-col col-11 col-md-11>\n        <ion-title>Anket</ion-title>\n      </ion-col>\n      <ion-col col-1 col-md-1>\n        <ion-icon name="close" (click)="closeModal()" class="pull-right close-icon"></ion-icon>\n      </ion-col>\n    </ion-row>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content class="content">\n\n  <ion-list>\n\n    <ion-item *ngFor="let item of qAList">\n      <ion-label>{{item.soru.serSoruTnm.soruText}}</ion-label>\n      <ion-input [(ngModel)]="item.cevap.cevapText"></ion-input>\n    </ion-item>\n\n\n    <ion-row>\n\n\n      <ion-col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6>\n        <button ion-button round (click)="closeModal()" full>\n          <span item-left style="width: 80%">Iptal</span>\n          <span item-right style="width: 20%">    <i class="fas fa-window-close"></i></span>\n        </button>\n      </ion-col>\n\n      <ion-col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6>\n        <button ion-button round (click)="kaydet()" full>\n          <span item-left style="width: 80%">Kaydet</span>\n          <span item-right style="width: 20%">   <i class="fas fa-save"></i>          </span>\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n  </ion-list>\n\n</ion-content>\n<ion-footer>\n</ion-footer>\n'/*ion-inline-end:"D:\WORKS\IONIC\Ionic-Offline-App\src\components\anket\anket.html"*/,
+            selector: 'anket',template:/*ion-inline-start:"D:\WORKS\IONIC\Ionic-Offline-App\src\components\anket\anket.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-row class="modal-title">\n      <ion-col col-11 col-md-11>\n        <ion-title>Anket</ion-title>\n      </ion-col>\n      <ion-col col-1 col-md-1>\n        <ion-icon name="close" (click)="closeModal()" class="pull-right close-icon"></ion-icon>\n      </ion-col>\n    </ion-row>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content class="content">\n\n  <ion-list>\n\n    <ion-item *ngFor="let item of qAList">\n      <ion-label>{{item.soru.serSoruTnm.soruText}}</ion-label>\n      <ion-input [(ngModel)]="item.cevap.cevapText" [disabled]="isHizmetDisabled"></ion-input>\n    </ion-item>\n\n    <ion-row>\n\n      <ion-col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6>\n        <button ion-button round (click)="closeModal()" full>\n          <span item-left style="width: 80%">Iptal</span>\n          <span item-right style="width: 20%">\n            <i class="fas fa-window-close"></i>\n          </span>\n        </button>\n      </ion-col>\n\n      <ion-col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6>\n        <button ion-button round (click)="kaydet()" full [disabled]="isHizmetDisabled">\n          <span item-left style="width: 80%">Kaydet</span>\n          <span item-right style="width: 20%">\n            <i class="fas fa-save"></i>\n          </span>\n        </button>\n      </ion-col>\n\n    </ion-row>\n  </ion-list>\n\n</ion-content>\n<ion-footer>\n</ion-footer>\n'/*ion-inline-end:"D:\WORKS\IONIC\Ionic-Offline-App\src\components\anket\anket.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
@@ -3594,7 +3925,7 @@ var AnketComponent = (function () {
 
 /***/ }),
 
-/***/ 192:
+/***/ 193:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3638,23 +3969,23 @@ var BilgiSorguPage = (function () {
 
 /***/ }),
 
-/***/ 193:
+/***/ 194:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UpdateUrunAnaGrupComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_urunAnaGrup__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_urunAnaGrup__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_logger_logger__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_logger_logger__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_urun_ana_grup_dao_urun_ana_grup_dao__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_urun_ana_grp_urun_ana_grp__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_urun_ana_grup_dao_urun_ana_grup_dao__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_urun_ana_grp_urun_ana_grp__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__entities_hizmet_hizmet__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_hizmet_hizmet__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_hizmet_hizmet__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_hizmet_service_hizmet_service__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_brans_brans__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_brans_brans__ = __webpack_require__(195);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__entities_Brans__ = __webpack_require__(514);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3798,7 +4129,6 @@ var UpdateUrunAnaGrupComponent = (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        debugger;
                         this.hizmet.mamAnaGrp = this.selectedBrans.mamAnaGrp;
                         this.hizmet.basvuruNedeni = this.basvuruNedeni.neden;
                         return [4 /*yield*/, this.urunAnaGrupProvider.updateMamAnaGrp(this.hizmet)];
@@ -3908,7 +4238,7 @@ var UpdateUrunAnaGrupComponent = (function () {
 
 /***/ }),
 
-/***/ 194:
+/***/ 195:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3917,7 +4247,7 @@ var UpdateUrunAnaGrupComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__brans_dao_brans_dao__ = __webpack_require__(513);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_Brans__ = __webpack_require__(514);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logger_logger__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logger_logger__ = __webpack_require__(10);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4026,20 +4356,20 @@ var BransProvider = (function () {
 
 /***/ }),
 
-/***/ 195:
+/***/ 196:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HizmetDetayComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_hizmet_DetayKayit__ = __webpack_require__(497);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_hizmet_DetayKayit__ = __webpack_require__(498);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_logger_logger__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_logger_logger__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__detay_piy_search_detay_piy_search__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_fiyat_dao_fiyat_dao__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__entities_fiyat__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__detay_piy_search_detay_piy_search__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_fiyat_dao_fiyat_dao__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__entities_fiyat__ = __webpack_require__(185);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_hizmet_service_hizmet_service__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_islem_ariza_iscilik_dao_islem_ariza_iscilik_dao__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__entities_islem_ariza_iscilik__ = __webpack_require__(504);
@@ -4217,7 +4547,6 @@ var HizmetDetayComponent = (function () {
                 switch (_a.label) {
                     case 0:
                         silinecekDetayKayit = new __WEBPACK_IMPORTED_MODULE_1__entities_hizmet_DetayKayit__["a" /* DetayKayit */]();
-                        debugger;
                         this.hizmet.detayDtoList.filter(function (det) {
                             if (det.satirNo == _this.satirNo) {
                                 silinecekDetayKayit = det;
@@ -4258,7 +4587,6 @@ var HizmetDetayComponent = (function () {
         return detay;
     };
     HizmetDetayComponent.prototype.satirNoBelirle = function () {
-        debugger;
         var maxSatirNo = 0;
         for (var i = 0; i < this.hizmet.detayDtoList.length; i++) {
             var currentSatirNo = this.hizmet.detayDtoList[i].satirNo;
@@ -4441,7 +4769,7 @@ var HizmetDetayComponent = (function () {
 
 /***/ }),
 
-/***/ 196:
+/***/ 197:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4701,7 +5029,7 @@ var DetayPiySearchComponent = (function () {
 
 /***/ }),
 
-/***/ 197:
+/***/ 198:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4744,7 +5072,7 @@ var KutuphanePage = (function () {
 
 /***/ }),
 
-/***/ 198:
+/***/ 199:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4754,12 +5082,12 @@ var KutuphanePage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_login_login__ = __webpack_require__(523);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_user_user__ = __webpack_require__(524);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_logger_logger__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_user__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__anasayfa_anasayfa__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_theme_theme__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_logger_logger__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_user__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__anasayfa_anasayfa__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_theme_theme__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__entities_Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_deeplink_printer_deeplink_printer__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_deeplink_printer_deeplink_printer__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_table_total_elements_table_total_elements__ = __webpack_require__(527);
 /**
  * @author malisahin
@@ -5036,16 +5364,16 @@ var LoginPage = (function () {
 
 /***/ }),
 
-/***/ 199:
+/***/ 200:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DeeplinkPrinterProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logger_logger__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logger_logger__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_zebra_printer_zebra_printer__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_deeplinks__ = __webpack_require__(526);
@@ -5215,18 +5543,18 @@ var DeeplinkPrinterProvider = (function () {
 
 /***/ }),
 
-/***/ 23:
+/***/ 22:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApiProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_profil__ = __webpack_require__(880);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_enums_eProfil__ = __webpack_require__(496);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_Tablo__ = __webpack_require__(882);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_profil__ = __webpack_require__(881);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_enums_eProfil__ = __webpack_require__(497);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_Tablo__ = __webpack_require__(883);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_user__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_user__ = __webpack_require__(47);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5258,6 +5586,7 @@ var ApiProvider = (function () {
         this.urlPrefixHizmet = this.activeProfil.domainUrl + '/sos-api/endpointrest/hizmet/';
         this.urlPrefixOffline = this.activeProfil.domainUrl + '/sos-api/endpointrest/offline/';
         this.urlPrefixKullanici = this.activeProfil.domainUrl + '/sos-api/endpointrest/kullanici/';
+        this.urlPrefixSonKullanici = this.activeProfil.domainUrl + '/sos-api/endpointrest/sonkullanici/';
         this.tables = new __WEBPACK_IMPORTED_MODULE_3__entities_Tablo__["a" /* Tablo */]();
         this.user = new __WEBPACK_IMPORTED_MODULE_6__entities_user__["a" /* User */]();
     }
@@ -5349,6 +5678,9 @@ var ApiProvider = (function () {
     ApiProvider.prototype.getTotalTableElementsUrl = function () {
         return this.urlPrefixOffline + "/total-table-elements";
     };
+    ApiProvider.prototype.getAnketKayitUrl = function () {
+        return this.urlPrefixSonKullanici + "onay/anketCevap";
+    };
     ApiProvider.prototype.getHeader = function () {
         return new __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["c" /* HttpHeaders */]({
             'Content-Type': 'application/json',
@@ -5366,7 +5698,7 @@ var ApiProvider = (function () {
 
 /***/ }),
 
-/***/ 232:
+/***/ 233:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -5379,24 +5711,24 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 232;
+webpackEmptyAsyncContext.id = 233;
 
 /***/ }),
 
-/***/ 27:
+/***/ 26:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TokenProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_token__ = __webpack_require__(883);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_token__ = __webpack_require__(884);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_network__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__logger_logger__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__logger_logger__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__entities_user__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__entities_user__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__entities_Constants__ = __webpack_require__(6);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5562,12 +5894,12 @@ var TokenProvider = (function () {
 
 /***/ }),
 
-/***/ 276:
+/***/ 277:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/anasayfa/anasayfa.module": [
-		277
+		278
 	],
 	"../pages/ayarlar/ayarlar.module": [
 		507
@@ -5614,12 +5946,12 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 276;
+webpackAsyncContext.id = 277;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 277:
+/***/ 278:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5627,7 +5959,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AnasayfaPageModule", function() { return AnasayfaPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__anasayfa__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__anasayfa__ = __webpack_require__(99);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_module_shared_module_module__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ayarlar_ayarlar_module__ = __webpack_require__(507);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -5749,10 +6081,10 @@ var Hizmet = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HizmetService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_hizmet_hizmet__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__hizmet_dao_hizmet_dao__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__hizmet_dao_hizmet_dao__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_Pageable__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__hizmet_hizmet__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__hizmet_hizmet__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_Constants__ = __webpack_require__(6);
 /**
@@ -5884,6 +6216,9 @@ var HizmetService = (function () {
     HizmetService.prototype.deleteHizmet = function (seqNo) {
         return this.hizmetDao.deleteHizmet(seqNo);
     };
+    HizmetService.prototype.isHizmetDisabled = function (hizmet) {
+        return hizmet.durum == "KAPALI" || hizmet.durum == "IPTAL";
+    };
     HizmetService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__hizmet_dao_hizmet_dao__["a" /* HizmetDao */],
@@ -5906,7 +6241,7 @@ var HizmetService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__database_database__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logger_logger__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logger_logger__ = __webpack_require__(10);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6069,7 +6404,7 @@ var BaseDao = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DatabaseProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular_platform_platform__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular_platform_platform__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_Constants__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util_util__ = __webpack_require__(5);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -6278,17 +6613,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SharedModule", function() { return SharedModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_module__ = __webpack_require__(879);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_header_header__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_module__ = __webpack_require__(880);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_header_header__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_garanti_sorgu_garanti_sorgu__ = __webpack_require__(506);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_garanti_sonuc_garanti_sonuc__ = __webpack_require__(188);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_garanti_sonuc_garanti_sonuc__ = __webpack_require__(189);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_fiyat_sorgu_fiyat_sorgu__ = __webpack_require__(891);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_urun_ana_grup_search_urun_ana_grup_search__ = __webpack_require__(119);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_urun_search_urun_search__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_urun_iscilik_search_urun_iscilik_search__ = __webpack_require__(189);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_urun_search_urun_search__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_urun_iscilik_search_urun_iscilik_search__ = __webpack_require__(190);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_zebra_printer_zebra_printer__ = __webpack_require__(120);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_malzeme_search_malzeme_search__ = __webpack_require__(190);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_anket_anket__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_malzeme_search_malzeme_search__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_anket_anket__ = __webpack_require__(192);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_spinner_spinner__ = __webpack_require__(162);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -6355,6 +6690,134 @@ var SharedModule = (function () {
 /***/ }),
 
 /***/ 47:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return User; });
+/**
+ * @author malisahin
+ * @email mehmetalisahinogullari@gmail.com
+ */
+var User = (function () {
+    function User() {
+        this.userCode = "";
+        this.userName = "";
+        this.password = "";
+        this.servis = "";
+        this.servisUnvani = "";
+        this.ikKod = "";
+        this.ikAd = "";
+        this.durum = "";
+        this.userType = "";
+        this.adi = "";
+        this.soyadi = "";
+        this.orgKod = "";
+        this.dilKod = "";
+        this.pb = "";
+        this.ikBrans = "";
+        this.hatirla = "";
+        this.labels = {};
+        this.systemParams = {};
+        this.keys = {
+            userCode: "userCode",
+            userName: "userName",
+            password: "password",
+            servis: "servis",
+            servisUnvani: "servisUnvani",
+            ikKod: "ikKod",
+            ikAd: "ikAd",
+            durum: "durum",
+            userType: "userType",
+            adi: "adi",
+            soyadi: "soyadi",
+            orgKod: "orgKod",
+            dilKod: "dilKod",
+            pb: "pb",
+            ikBrans: "ikBrans",
+            labels: "labels",
+            systemParams: "systemParams"
+        };
+    }
+    User.prototype.fillUser = function (item) {
+        item = item.message;
+        var user = new User();
+        user.dilKod = item.dilKod;
+        user.durum = item.durum;
+        user.ikAd = item.ikAdSoyad;
+        user.ikKod = item.ikKod;
+        user.orgKod = item.orgKod;
+        user.servis = item.service;
+        user.servisUnvani = item.serviceUnvani;
+        user.userCode = item.userCode;
+        user.password = item.password;
+        user.userName = item.userName;
+        user.userType = item.userType;
+        user.eLibsDokuman = item.eLibsDokuman;
+        user.ikBrans = item.ikBrans;
+        user.labels = item.obj;
+        user.pb = item.pB;
+        user.systemParams = item.systemParams;
+        this.saveUserData(user);
+        console.table(user);
+        return user;
+    };
+    User.prototype.saveUserData = function (user) {
+        var pattern = new User();
+        localStorage.setItem(pattern.keys.userCode, user.userCode);
+        localStorage.setItem(pattern.keys.userName, user.userName);
+        localStorage.setItem(pattern.keys.password, user.password);
+        localStorage.setItem(pattern.keys.servis, user.servis);
+        localStorage.setItem(pattern.keys.servisUnvani, user.servisUnvani);
+        localStorage.setItem(pattern.keys.ikKod, user.ikKod);
+        localStorage.setItem(pattern.keys.ikAd, user.ikAd);
+        localStorage.setItem(pattern.keys.durum, user.durum);
+        localStorage.setItem(pattern.keys.userType, user.userType);
+        localStorage.setItem(pattern.keys.adi, user.adi);
+        localStorage.setItem(pattern.keys.soyadi, user.soyadi);
+        localStorage.setItem(pattern.keys.orgKod, user.orgKod);
+        localStorage.setItem(pattern.keys.dilKod, user.dilKod);
+        localStorage.setItem(pattern.keys.pb, user.pb);
+        localStorage.setItem(pattern.keys.labels, JSON.stringify(user.labels));
+        localStorage.setItem(pattern.keys.systemParams, JSON.stringify(user.systemParams));
+    };
+    User.prototype.getUserCode = function () {
+        return localStorage.getItem(this.keys.userCode);
+    };
+    User.prototype.getUserName = function () {
+        return localStorage.getItem(this.keys.userName);
+    };
+    User.prototype.getPb = function () {
+        return localStorage.getItem(this.keys.pb);
+    };
+    User.prototype.getOrgKod = function () {
+        return localStorage.getItem(this.keys.orgKod);
+    };
+    User.prototype.getSerKod = function () {
+        return localStorage.getItem(this.keys.servis);
+    };
+    User.prototype.getDilKod = function () {
+        return localStorage.getItem(this.keys.dilKod);
+    };
+    User.prototype.getIkAd = function () {
+        return localStorage.getItem(this.keys.ikAd);
+    };
+    User.prototype.getIkKod = function () {
+        return localStorage.getItem(this.keys.ikKod);
+    };
+    User.prototype.getPassword = function () {
+        return localStorage.getItem(this.keys.password);
+    };
+    User.prototype.getServisUnvani = function () {
+        return localStorage.getItem(this.keys.servisUnvani);
+    };
+    return User;
+}());
+
+//# sourceMappingURL=user.js.map
+
+/***/ }),
+
+/***/ 48:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6457,7 +6920,7 @@ var UrunAnaGrupListe = (function () {
 
 /***/ }),
 
-/***/ 496:
+/***/ 497:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6474,7 +6937,7 @@ var EProfiles;
 
 /***/ }),
 
-/***/ 497:
+/***/ 498:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6497,7 +6960,7 @@ var DetayKayit = (function () {
 
 /***/ }),
 
-/***/ 498:
+/***/ 499:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6515,98 +6978,6 @@ var Ilce = (function () {
 
 /***/ }),
 
-/***/ 499:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnketService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logger_logger__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_hizmet_Ankets_Anket__ = __webpack_require__(884);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_hizmet_Ankets_AnketSoru__ = __webpack_require__(885);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_hizmet_Ankets_AnketMst__ = __webpack_require__(886);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-var AnketService = (function () {
-    function AnketService(util, logger) {
-        this.util = util;
-        this.logger = logger;
-    }
-    AnketService.prototype.fillAnket = function (obj) {
-        debugger;
-        if (this.util.isNotEmpty(obj) && this.util.isNotEmpty(obj.anketMst)) {
-            var anket = new __WEBPACK_IMPORTED_MODULE_3__entities_hizmet_Ankets_Anket__["a" /* Anket */]();
-            anket.anketMst = this.fillAnketMst(obj.anketMst);
-            anket.anketSorular = this.fillAnketSoru(obj.anketSorular);
-            anket.anketCevaplar = this.fillAnketCevap();
-            return anket;
-        }
-        return null;
-    };
-    AnketService.prototype.fillAnketMst = function (anketMst) {
-        var mst = new __WEBPACK_IMPORTED_MODULE_5__entities_hizmet_Ankets_AnketMst__["a" /* AnketMst */]();
-        mst.anketId = anketMst.anketId;
-        mst.anketSeq = anketMst.anketSeq;
-        mst.durum = anketMst.durum;
-        mst.hedefGrp = anketMst.hedefGrp;
-        mst.hedefKod = anketMst.hedefKod;
-        mst.orgKod = anketMst.orgKod;
-        mst.refKod = anketMst.refKod;
-        mst.refNo = anketMst.refNo;
-        mst.sorumlu = anketMst.sorumlu;
-        mst.anketAdi = anketMst.anketAdi;
-        return mst;
-    };
-    AnketService.prototype.fillAnketSoru = function (soruList) {
-        var orderedList = [];
-        soruList.forEach(function (item) {
-            var soru = new __WEBPACK_IMPORTED_MODULE_4__entities_hizmet_Ankets_AnketSoru__["a" /* AnketSoru */]();
-            soru.anketId = item.anketId;
-            soru.orgKod = item.orgKod;
-            soru.soruId = item.soruId;
-            soru.zorunlu = item.zorunlu;
-            var tanim = new __WEBPACK_IMPORTED_MODULE_4__entities_hizmet_Ankets_AnketSoru__["b" /* SerSoruTnm */]();
-            tanim.iptal = item.serSoruTnm.iptal;
-            tanim.orgKod = item.serSoruTnm.orgKod;
-            tanim.soruId = item.serSoruTnm.soruId;
-            tanim.soruMethod = item.serSoruTnm.soruMethod;
-            tanim.soruText = item.serSoruTnm.soruText;
-            tanim.grpKod = item.serSoruTnm.grpKod;
-            soru.serSoruTnm = tanim;
-            orderedList.push(soru);
-        });
-        return orderedList;
-    };
-    AnketService.prototype.fillAnketCevap = function () {
-        var orderedList = [];
-        return orderedList;
-    };
-    AnketService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__util_util__["a" /* UtilProvider */],
-            __WEBPACK_IMPORTED_MODULE_2__logger_logger__["a" /* LoggerProvider */]])
-    ], AnketService);
-    return AnketService;
-}());
-
-//# sourceMappingURL=anket-service.js.map
-
-/***/ }),
-
 /***/ 5:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -6618,8 +6989,8 @@ var AnketService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_network__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__logger_logger__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__logger_logger__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_spinner_spinner__ = __webpack_require__(162);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -6933,7 +7304,7 @@ var UtilProvider = (function () {
     UtilProvider.prototype.assign = function (item) {
         if (this.isEmpty(item))
             return null;
-        return JSON.parse(JSON.stringify(item));
+        return Object.assign({}, item);
     };
     UtilProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["B" /* Injectable */])(),
@@ -7053,10 +7424,10 @@ var UrunMalzemeDao = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IslemArizaIscilikProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_islem_ariza_iscilik__ = __webpack_require__(504);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__islem_ariza_iscilik_dao_islem_ariza_iscilik_dao__ = __webpack_require__(117);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__token_token__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__token_token__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__util_util__ = __webpack_require__(5);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7183,7 +7554,7 @@ var IslemArizaIscilikProvider = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IslemArizaIscilik; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__EntityUtil__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__EntityUtil__ = __webpack_require__(55);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -7244,16 +7615,16 @@ var IslemArizaIscilik = (function (_super) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdresProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__adres_dao_adres_dao__ = __webpack_require__(110);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__logger_logger__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__adres_dao_adres_dao__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__logger_logger__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_Sehir__ = __webpack_require__(889);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_Ilce__ = __webpack_require__(498);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_Ilce__ = __webpack_require__(499);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__entities_mahalle__ = __webpack_require__(890);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__token_token__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__token_token__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__entities_EntityUtil__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__entities_EntityUtil__ = __webpack_require__(55);
 /**
  * @author malisahin
  * @since 2018-04-14
@@ -7447,10 +7818,14 @@ var AdresProvider = (function () {
     };
     AdresProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__api_api__["a" /* ApiProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__api_api__["a" /* ApiProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_9__token_token__["a" /* TokenProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__token_token__["a" /* TokenProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__adres_dao_adres_dao__["a" /* AdresDao */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__adres_dao_adres_dao__["a" /* AdresDao */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_10__util_util__["a" /* UtilProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__util_util__["a" /* UtilProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__logger_logger__["a" /* LoggerProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__logger_logger__["a" /* LoggerProvider */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_2__api_api__["a" /* ApiProvider */],
+            __WEBPACK_IMPORTED_MODULE_9__token_token__["a" /* TokenProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__adres_dao_adres_dao__["a" /* AdresDao */],
+            __WEBPACK_IMPORTED_MODULE_10__util_util__["a" /* UtilProvider */],
+            __WEBPACK_IMPORTED_MODULE_5__logger_logger__["a" /* LoggerProvider */]])
     ], AdresProvider);
     return AdresProvider;
-    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=adres.js.map
@@ -7463,19 +7838,19 @@ var AdresProvider = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GarantiSorguComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_urunAnaGrup__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_urun_ana_grup_dao_urun_ana_grup_dao__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_urun__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_urunAnaGrup__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_urun_ana_grup_dao_urun_ana_grup_dao__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_urun__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_Constants__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__urun_ana_grup_search_urun_ana_grup_search__ = __webpack_require__(119);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__urun_search_urun_search__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__urun_search_urun_search__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_common_http__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__entities_GarantiSorgu__ = __webpack_require__(186);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_garanti_sorgu_garanti_sorgu__ = __webpack_require__(187);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__entities_user__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_util_plugin_util_plugin__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__entities_GarantiSorgu__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_garanti_sorgu_garanti_sorgu__ = __webpack_require__(188);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__entities_user__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_util_plugin_util_plugin__ = __webpack_require__(83);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7680,13 +8055,13 @@ var AyarlarPageModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_Constants__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_base_dao_base_dao__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_fiyat_dao_fiyat_dao__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_hizmet_dao_hizmet_dao__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__cagrilar_cagrilar__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__guncelleme_guncelleme__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_fiyat_dao_fiyat_dao__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_hizmet_dao_hizmet_dao__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__cagrilar_cagrilar__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__guncelleme_guncelleme__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_tasks_tasks__ = __webpack_require__(118);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_theme_theme__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_logger_logger__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_theme_theme__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_logger_logger__ = __webpack_require__(10);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8034,9 +8409,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BildirimlerPageModule", function() { return BildirimlerPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bildirimler__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bildirimler__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_module_shared_module_module__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_mesaj_detail_mesaj_detail__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_mesaj_detail_mesaj_detail__ = __webpack_require__(179);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8077,7 +8452,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BilgiSorguPageModule", function() { return BilgiSorguPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bilgi_sorgu__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bilgi_sorgu__ = __webpack_require__(193);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_module_shared_module_module__ = __webpack_require__(43);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8127,9 +8502,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_cagri_detay_components_servis_bilgileri_islem_tarih_islem_tarih__ = __webpack_require__(898);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_cagri_detay_components_servis_bilgileri_servis_islem_tarihce_servis_islem_tarihce__ = __webpack_require__(900);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__shared_module_shared_module_module__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_hizmet_detay_hizmet_detay__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_detay_piy_search_detay_piy_search__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_update_urun_ana_grup_update_urun_ana_grup__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_hizmet_detay_hizmet_detay__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_detay_piy_search_detay_piy_search__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_update_urun_ana_grup_update_urun_ana_grup__ = __webpack_require__(194);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8187,10 +8562,10 @@ var CagriDetayPageModule = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SeriNoSorguProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__token_token__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__logger_logger__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__token_token__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__logger_logger__ = __webpack_require__(10);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8302,7 +8677,7 @@ var SeriNoSorguProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__base_dao_base_dao__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logger_logger__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logger_logger__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__database_database__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_Constants__ = __webpack_require__(6);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -8412,7 +8787,7 @@ var Brans = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PrinterService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_user__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_user__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_hizmet_hizmet__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util_util__ = __webpack_require__(5);
@@ -8460,6 +8835,22 @@ var PrinterService = (function () {
         else if (this.user.getOrgKod() == "BAY") {
             return this.prepareDataBaymak();
         }
+    };
+    PrinterService.prototype.prepareAnketData = function () {
+        var anketPrintText = "";
+        var anket = this.hizmet.anket;
+        if (this.util.isNotEmpty(anket)) {
+            anket.anketSorular.forEach(function (soru) {
+                anketPrintText += soru.serSoruTnm.soruText + " : ";
+                anket.anketCevaplar
+                    .filter(function (filter) { return soru.soruId == filter.soruId; })
+                    .forEach(function (cevap) {
+                    anketPrintText += cevap.cevapText;
+                });
+                anketPrintText += "\n\r";
+            });
+        }
+        return anketPrintText;
     };
     PrinterService.prototype.prepareAdres = function () {
         var adres = [];
@@ -8534,6 +8925,12 @@ var PrinterService = (function () {
         if (this.hizmet.seriMetod == "2")
             data += "\n\r  Seri 2              : " + this.hizmet.mamSeriNo2;
         data += "\n\r" + this.seperator;
+        data += '\n! U1 SETBOLD 2';
+        data += '\n\r TEKNIK DEGERLER';
+        data += '\n! U1 SETBOLD 0';
+        // Anket Cevapları
+        data += '\n\r' + this.util.translateTurkishCharacters(this.prepareAnketData());
+        data += '\n\r' + this.seperator;
         data += "\n! U1 SETBOLD 2";
         data += "\n\r GARANTI DURUMU ";
         data += "\n! U1 SETBOLD 0";
@@ -8688,7 +9085,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CagriAramaModalPageModule", function() { return CagriAramaModalPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cagri_arama_modal__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cagri_arama_modal__ = __webpack_require__(178);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8726,7 +9123,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CagrilarPageModule", function() { return CagrilarPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cagrilar__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cagrilar__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_module_shared_module_module__ = __webpack_require__(43);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8767,7 +9164,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GuncellemePageModule", function() { return GuncellemePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__guncelleme__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__guncelleme__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_module_shared_module_module__ = __webpack_require__(43);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8892,7 +9289,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KutuphanePageModule", function() { return KutuphanePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__kutuphane__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__kutuphane__ = __webpack_require__(198);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8930,7 +9327,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(199);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8966,8 +9363,8 @@ var LoginPageModule = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__token_token__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_user__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__token_token__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_user__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tasks_tasks__ = __webpack_require__(118);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_Constants__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util_util__ = __webpack_require__(5);
@@ -9038,12 +9435,12 @@ var LoginProvider = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__user_dao_user_dao__ = __webpack_require__(525);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logger_logger__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logger_logger__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_user__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__brans_brans__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_user__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__brans_brans__ = __webpack_require__(195);
 /**
  * @author mali.sahin
  * @since 2018/04/25
@@ -9262,9 +9659,9 @@ var UserDao = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logger_logger__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__api_api__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__token_token__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logger_logger__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__api_api__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__token_token__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_Constants__ = __webpack_require__(6);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9402,131 +9799,67 @@ var TableTotalElementsProvider = (function () {
 
 /***/ }),
 
-/***/ 54:
+/***/ 55:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return User; });
-/**
- * @author malisahin
- * @email mehmetalisahinogullari@gmail.com
- */
-var User = (function () {
-    function User() {
-        this.userCode = "";
-        this.userName = "";
-        this.password = "";
-        this.servis = "";
-        this.servisUnvani = "";
-        this.ikKod = "";
-        this.ikAd = "";
-        this.durum = "";
-        this.userType = "";
-        this.adi = "";
-        this.soyadi = "";
-        this.orgKod = "";
-        this.dilKod = "";
-        this.pb = "";
-        this.ikBrans = "";
-        this.hatirla = "";
-        this.labels = {};
-        this.systemParams = {};
-        this.keys = {
-            userCode: "userCode",
-            userName: "userName",
-            password: "password",
-            servis: "servis",
-            servisUnvani: "servisUnvani",
-            ikKod: "ikKod",
-            ikAd: "ikAd",
-            durum: "durum",
-            userType: "userType",
-            adi: "adi",
-            soyadi: "soyadi",
-            orgKod: "orgKod",
-            dilKod: "dilKod",
-            pb: "pb",
-            ikBrans: "ikBrans",
-            labels: "labels",
-            systemParams: "systemParams"
-        };
+/* unused harmony export IndirilenVeri */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EntityUtil; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Constants__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__BaseEntity__ = __webpack_require__(601);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+var IndirilenVeri = (function () {
+    function IndirilenVeri() {
     }
-    User.prototype.fillUser = function (item) {
-        item = item.message;
-        var user = new User();
-        user.dilKod = item.dilKod;
-        user.durum = item.durum;
-        user.ikAd = item.ikAdSoyad;
-        user.ikKod = item.ikKod;
-        user.orgKod = item.orgKod;
-        user.servis = item.service;
-        user.servisUnvani = item.serviceUnvani;
-        user.userCode = item.userCode;
-        user.password = item.password;
-        user.userName = item.userName;
-        user.userType = item.userType;
-        user.eLibsDokuman = item.eLibsDokuman;
-        user.ikBrans = item.ikBrans;
-        user.labels = item.obj;
-        user.pb = item.pB;
-        user.systemParams = item.systemParams;
-        this.saveUserData(user);
-        console.table(user);
-        return user;
-    };
-    User.prototype.saveUserData = function (user) {
-        var pattern = new User();
-        localStorage.setItem(pattern.keys.userCode, user.userCode);
-        localStorage.setItem(pattern.keys.userName, user.userName);
-        localStorage.setItem(pattern.keys.password, user.password);
-        localStorage.setItem(pattern.keys.servis, user.servis);
-        localStorage.setItem(pattern.keys.servisUnvani, user.servisUnvani);
-        localStorage.setItem(pattern.keys.ikKod, user.ikKod);
-        localStorage.setItem(pattern.keys.ikAd, user.ikAd);
-        localStorage.setItem(pattern.keys.durum, user.durum);
-        localStorage.setItem(pattern.keys.userType, user.userType);
-        localStorage.setItem(pattern.keys.adi, user.adi);
-        localStorage.setItem(pattern.keys.soyadi, user.soyadi);
-        localStorage.setItem(pattern.keys.orgKod, user.orgKod);
-        localStorage.setItem(pattern.keys.dilKod, user.dilKod);
-        localStorage.setItem(pattern.keys.pb, user.pb);
-        localStorage.setItem(pattern.keys.labels, JSON.stringify(user.labels));
-        localStorage.setItem(pattern.keys.systemParams, JSON.stringify(user.systemParams));
-    };
-    User.prototype.getUserCode = function () {
-        return localStorage.getItem(this.keys.userCode);
-    };
-    User.prototype.getUserName = function () {
-        return localStorage.getItem(this.keys.userName);
-    };
-    User.prototype.getPb = function () {
-        return localStorage.getItem(this.keys.pb);
-    };
-    User.prototype.getOrgKod = function () {
-        return localStorage.getItem(this.keys.orgKod);
-    };
-    User.prototype.getSerKod = function () {
-        return localStorage.getItem(this.keys.servis);
-    };
-    User.prototype.getDilKod = function () {
-        return localStorage.getItem(this.keys.dilKod);
-    };
-    User.prototype.getIkAd = function () {
-        return localStorage.getItem(this.keys.ikAd);
-    };
-    User.prototype.getIkKod = function () {
-        return localStorage.getItem(this.keys.ikKod);
-    };
-    User.prototype.getPassword = function () {
-        return localStorage.getItem(this.keys.password);
-    };
-    User.prototype.getServisUnvani = function () {
-        return localStorage.getItem(this.keys.servisUnvani);
-    };
-    return User;
+    return IndirilenVeri;
 }());
 
-//# sourceMappingURL=user.js.map
+var EntityUtil = (function (_super) {
+    __extends(EntityUtil, _super);
+    function EntityUtil() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    EntityUtil.prototype.indirilenVeriyiHesapla = function (tip, miktar) {
+        var saklananVeriString = localStorage.getItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].INDIRILEN_VERI);
+        var saklananVeri;
+        if (this.isNotEmpty(saklananVeriString)) {
+            saklananVeri = JSON.parse(saklananVeriString);
+        }
+        else {
+            saklananVeri = new IndirilenVeri();
+            saklananVeri.miktari = 0;
+        }
+        saklananVeri.miktari += miktar;
+        saklananVeri.tipi = tip;
+        localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].INDIRILEN_VERI, JSON.stringify(saklananVeri));
+    };
+    EntityUtil.prototype.indirilenVeriyiSifirla = function () {
+        localStorage.setItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].INDIRILEN_VERI, "");
+    };
+    EntityUtil.prototype.getIndirilenVeri = function () {
+        var veri = localStorage.getItem(__WEBPACK_IMPORTED_MODULE_0__Constants__["a" /* Constants */].INDIRILEN_VERI);
+        if (this.isNotEmpty(veri)) {
+            return JSON.parse(veri);
+        }
+        else {
+            return null;
+        }
+    };
+    return EntityUtil;
+}(__WEBPACK_IMPORTED_MODULE_1__BaseEntity__["a" /* BaseEntity */]));
+
+//# sourceMappingURL=EntityUtil.js.map
 
 /***/ }),
 
@@ -9552,55 +9885,55 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(918);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(566);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_splash_screen__ = __webpack_require__(567);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_service_auth_service__ = __webpack_require__(919);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_bildirimler_bildirimler__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_cagrilar_cagrilar__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_guncelleme_guncelleme__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_bildirimler_bildirimler__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_cagrilar_cagrilar__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_guncelleme_guncelleme__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_kampanyalar_kampanyalar__ = __webpack_require__(520);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_kutuphane_kutuphane__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_kutuphane_kutuphane__ = __webpack_require__(198);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_cagri_detay_cagri_detay__ = __webpack_require__(175);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_login_login__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_login_login__ = __webpack_require__(199);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_login_login__ = __webpack_require__(523);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_token_token__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_api_api__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_token_token__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_api_api__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_database_database__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_sqlite__ = __webpack_require__(920);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_urun_urun__ = __webpack_require__(179);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_urun_ana_grp_urun_ana_grp__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_urun_iscilik_urun_iscilik__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_urun_urun__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_urun_ana_grp_urun_ana_grp__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_urun_iscilik_urun_iscilik__ = __webpack_require__(181);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__providers_urun_malzeme_urun_malzeme__ = __webpack_require__(115);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_islem_ariza_iscilik_islem_ariza_iscilik__ = __webpack_require__(503);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_fiyat_fiyat__ = __webpack_require__(183);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_cagrilar_cagri_arama_modal_cagri_arama_modal__ = __webpack_require__(177);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__providers_hizmet_hizmet__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_fiyat_fiyat__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_cagrilar_cagri_arama_modal_cagri_arama_modal__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__providers_hizmet_hizmet__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_list_list__ = __webpack_require__(921);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__providers_hizmet_dao_hizmet_dao__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__providers_hizmet_dao_hizmet_dao__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__providers_base_dao_base_dao__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__providers_fiyat_dao_fiyat_dao__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__providers_fiyat_dao_fiyat_dao__ = __webpack_require__(86);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__providers_hizmet_service_hizmet_service__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__ionic_native_sqlite_porter__ = __webpack_require__(923);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__providers_versiyon_versiyon__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__providers_versiyon_versiyon__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__ionic_native_native_storage__ = __webpack_require__(924);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__angular_common_http__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__providers_mesajlar_mesajlar__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_bilgi_sorgu_bilgi_sorgu__ = __webpack_require__(192);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__providers_urun_ana_grup_dao_urun_ana_grup_dao__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__providers_mesajlar_mesajlar__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_bilgi_sorgu_bilgi_sorgu__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__providers_urun_ana_grup_dao_urun_ana_grup_dao__ = __webpack_require__(60);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__providers_urun_dao_urun_dao__ = __webpack_require__(114);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__providers_urun_malzeme_dao_urun_malzeme_dao__ = __webpack_require__(502);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__providers_islem_ariza_iscilik_dao_islem_ariza_iscilik_dao__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__ionic_native_toast__ = __webpack_require__(925);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__providers_urun_iscilik_dao_urun_iscilik_dao__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__providers_mesajlar_dao_mesajlar_dao__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__providers_urun_iscilik_dao_urun_iscilik_dao__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__providers_mesajlar_dao_mesajlar_dao__ = __webpack_require__(100);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__components_urun_ana_grup_search_urun_ana_grup_search__ = __webpack_require__(119);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__components_urun_search_urun_search__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__providers_garanti_sorgu_garanti_sorgu__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__components_urun_search_urun_search__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__providers_garanti_sorgu_garanti_sorgu__ = __webpack_require__(188);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__pages_shared_module_shared_module_module__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__pages_cagrilar_cagrilar_module__ = __webpack_require__(517);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__pages_guncelleme_guncelleme_module__ = __webpack_require__(518);
@@ -9610,39 +9943,39 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__pages_bilgi_sorgu_bilgi_sorgu_module__ = __webpack_require__(510);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__pages_bildirimler_bildirimler_module__ = __webpack_require__(509);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__providers_adres_adres__ = __webpack_require__(505);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__providers_adres_dao_adres_dao__ = __webpack_require__(110);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__providers_logger_logger__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__components_garanti_sonuc_garanti_sonuc__ = __webpack_require__(188);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__providers_adres_dao_adres_dao__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__providers_logger_logger__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__components_garanti_sonuc_garanti_sonuc__ = __webpack_require__(189);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__components_garanti_sorgu_garanti_sorgu__ = __webpack_require__(506);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__components_hizmet_detay_hizmet_detay__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__components_detay_piy_search_detay_piy_search__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__components_hizmet_detay_hizmet_detay__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__components_detay_piy_search_detay_piy_search__ = __webpack_require__(197);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__providers_user_user__ = __webpack_require__(524);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__providers_user_dao_user_dao__ = __webpack_require__(525);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__ionic_native_network__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__pages_anasayfa_anasayfa__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__pages_anasayfa_anasayfa_module__ = __webpack_require__(277);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__components_mesaj_detail_mesaj_detail__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__pages_anasayfa_anasayfa__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__pages_anasayfa_anasayfa_module__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__components_mesaj_detail_mesaj_detail__ = __webpack_require__(179);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__providers_header_header__ = __webpack_require__(156);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__providers_printer_service_printer_service__ = __webpack_require__(515);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__components_zebra_printer_zebra_printer__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__providers_seri_no_sorgu_seri_no_sorgu__ = __webpack_require__(512);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__components_update_urun_ana_grup_update_urun_ana_grup__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__components_urun_iscilik_search_urun_iscilik_search__ = __webpack_require__(189);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__components_update_urun_ana_grup_update_urun_ana_grup__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__components_urun_iscilik_search_urun_iscilik_search__ = __webpack_require__(190);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__providers_tasks_tasks__ = __webpack_require__(118);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__providers_theme_theme__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__providers_theme_theme__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_78__ionic_native_deeplinks__ = __webpack_require__(526);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_79__providers_deeplink_printer_deeplink_printer__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_79__providers_deeplink_printer_deeplink_printer__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_80__pages_login_login_module__ = __webpack_require__(522);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_81__pages_cagrilar_cagri_arama_modal_cagri_arama_modal_module__ = __webpack_require__(516);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_82__components_malzeme_search_malzeme_search__ = __webpack_require__(190);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_83__providers_brans_brans__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_82__components_malzeme_search_malzeme_search__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_83__providers_brans_brans__ = __webpack_require__(195);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_84__providers_brans_dao_brans_dao__ = __webpack_require__(513);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_85__ionic_native_call_number__ = __webpack_require__(500);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_86__ionic_native_calendar__ = __webpack_require__(926);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_87__providers_util_plugin_util_plugin__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_87__providers_util_plugin_util_plugin__ = __webpack_require__(83);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_88__ionic_native_barcode_scanner__ = __webpack_require__(501);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_89__providers_anket_service_anket_service__ = __webpack_require__(499);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_90__components_anket_anket__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_89__providers_anket_service_anket_service__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_90__components_anket_anket__ = __webpack_require__(192);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_91__pipes_safe_html_safe_html__ = __webpack_require__(927);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_92__components_spinner_spinner__ = __webpack_require__(162);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_93__providers_table_total_elements_table_total_elements__ = __webpack_require__(527);
@@ -9890,409 +10223,256 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 59:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UrunAnaGrupDao; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__database_database__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__base_dao_base_dao__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logger_logger__ = __webpack_require__(9);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [0, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-
-
-
-
-
-var UrunAnaGrupDao = (function () {
-    function UrunAnaGrupDao(dbProvider, util, logger, baseDao) {
-        this.dbProvider = dbProvider;
-        this.util = util;
-        this.logger = logger;
-        this.baseDao = baseDao;
-        this.logger.log("Urun Ana Grup Constractor");
-    }
-    UrunAnaGrupDao.prototype.insertOne = function (item) {
-        var query = 'INSERT OR REPLACE INTO OFF_MAM_ANAGRP_TNM (tip,mamAnaGrp,ad,durum,kod, neden) VALUES (?,?,?,?,?,?)';
-        var params = [item.tip, item.mamAnaGrp, item.ad, item.durum, item.kod, item.neden];
-        return this.baseDao.execute(query, params);
-    };
-    UrunAnaGrupDao.prototype.getPage = function (item, searchType, first, pageSize) {
-        var query = this.prepareQuery(item, searchType);
-        return this.baseDao.getList(query, "mamAnaGrp", item, searchType, first, pageSize, true);
-    };
-    UrunAnaGrupDao.prototype.getList = function (item, searchType) {
-        var query = this.prepareQuery(item, searchType);
-        return this.baseDao.execute(query, []);
-    };
-    UrunAnaGrupDao.prototype.insertList = function (list) {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var insertedItems;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        insertedItems = 0;
-                        return [4 /*yield*/, this.deleteAll()];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                _this.dbProvider.transaction().then(function (db) {
-                                    db.transaction(function (tx) {
-                                        var query = 'INSERT OR REPLACE INTO OFF_MAM_ANAGRP_TNM (tip,mamAnaGrp,ad,durum,kod, neden) VALUES (?,?,?,?,?,?)';
-                                        for (var _i = 0, list_1 = list; _i < list_1.length; _i++) {
-                                            var item = list_1[_i];
-                                            var params = [item.tip, item.mamAnaGrp, item.ad, item.durum, item.kod, item.neden];
-                                            tx.executeSql(query, params, function (tx, res) {
-                                                insertedItems += 1;
-                                                if (list.length == insertedItems) {
-                                                    resolve(res);
-                                                }
-                                            }, function (err, mes) {
-                                                console.error("Error" + mes.message + " Code: " + mes.code);
-                                                reject(err);
-                                            });
-                                        }
-                                    });
-                                });
-                            })];
-                }
-            });
-        });
-    };
-    UrunAnaGrupDao.prototype.prepareQuery = function (item, searchType) {
-        var query = "SELECT * FROM OFF_MAM_ANAGRP_TNM WHERE tip = '" + item.tip + "'";
-        var whereQuery = [];
-        if (this.util.isNotEmpty(item.ad)) {
-            whereQuery.push(this.util.prepareWhereQuery(searchType, 'ad', item.ad));
-        }
-        if (this.util.isNotEmpty(item.neden)) {
-            whereQuery.push(this.util.prepareWhereQuery(searchType, 'neden', item.neden));
-        }
-        if (this.util.isNotEmpty(item.mamAnaGrp)) {
-            whereQuery.push(this.util.prepareWhereQuery(searchType, 'mamAnaGrp', item.mamAnaGrp));
-        }
-        if (this.util.isNotEmpty(item.kod)) {
-            whereQuery.push(this.util.prepareWhereQuery(searchType, 'kod', item.kod));
-        }
-        if (this.util.isNotEmpty(item.durum)) {
-            whereQuery.push(this.util.prepareWhereQuery(searchType, 'durum', item.durum));
-        }
-        console.warn("Ürün Ana Grup Sorgu " + query);
-        return this.util.prepareQuery(query, whereQuery, searchType);
-    };
-    UrunAnaGrupDao.prototype.deleteAll = function () {
-        var query = "DELETE FROM OFF_MAM_ANAGRP_TNM ";
-        return this.baseDao.execute(query, []);
-    };
-    UrunAnaGrupDao = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__database_database__["a" /* DatabaseProvider */], __WEBPACK_IMPORTED_MODULE_3__util_util__["a" /* UtilProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__logger_logger__["a" /* LoggerProvider */],
-            __WEBPACK_IMPORTED_MODULE_2__base_dao_base_dao__["a" /* BaseDao */]])
-    ], UrunAnaGrupDao);
-    return UrunAnaGrupDao;
-}());
-
-//# sourceMappingURL=urun-ana-grup-dao.js.map
-
-/***/ }),
-
 /***/ 594:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 280,
-	"./af.js": 280,
-	"./ar": 281,
-	"./ar-dz": 282,
-	"./ar-dz.js": 282,
-	"./ar-kw": 283,
-	"./ar-kw.js": 283,
-	"./ar-ly": 284,
-	"./ar-ly.js": 284,
-	"./ar-ma": 285,
-	"./ar-ma.js": 285,
-	"./ar-sa": 286,
-	"./ar-sa.js": 286,
-	"./ar-tn": 287,
-	"./ar-tn.js": 287,
-	"./ar.js": 281,
-	"./az": 288,
-	"./az.js": 288,
-	"./be": 289,
-	"./be.js": 289,
-	"./bg": 290,
-	"./bg.js": 290,
-	"./bm": 291,
-	"./bm.js": 291,
-	"./bn": 292,
-	"./bn.js": 292,
-	"./bo": 293,
-	"./bo.js": 293,
-	"./br": 294,
-	"./br.js": 294,
-	"./bs": 295,
-	"./bs.js": 295,
-	"./ca": 296,
-	"./ca.js": 296,
-	"./cs": 297,
-	"./cs.js": 297,
-	"./cv": 298,
-	"./cv.js": 298,
-	"./cy": 299,
-	"./cy.js": 299,
-	"./da": 300,
-	"./da.js": 300,
-	"./de": 301,
-	"./de-at": 302,
-	"./de-at.js": 302,
-	"./de-ch": 303,
-	"./de-ch.js": 303,
-	"./de.js": 301,
-	"./dv": 304,
-	"./dv.js": 304,
-	"./el": 305,
-	"./el.js": 305,
-	"./en-au": 306,
-	"./en-au.js": 306,
-	"./en-ca": 307,
-	"./en-ca.js": 307,
-	"./en-gb": 308,
-	"./en-gb.js": 308,
-	"./en-ie": 309,
-	"./en-ie.js": 309,
-	"./en-il": 310,
-	"./en-il.js": 310,
-	"./en-nz": 311,
-	"./en-nz.js": 311,
-	"./eo": 312,
-	"./eo.js": 312,
-	"./es": 313,
-	"./es-do": 314,
-	"./es-do.js": 314,
-	"./es-us": 315,
-	"./es-us.js": 315,
-	"./es.js": 313,
-	"./et": 316,
-	"./et.js": 316,
-	"./eu": 317,
-	"./eu.js": 317,
-	"./fa": 318,
-	"./fa.js": 318,
-	"./fi": 319,
-	"./fi.js": 319,
-	"./fo": 320,
-	"./fo.js": 320,
-	"./fr": 321,
-	"./fr-ca": 322,
-	"./fr-ca.js": 322,
-	"./fr-ch": 323,
-	"./fr-ch.js": 323,
-	"./fr.js": 321,
-	"./fy": 324,
-	"./fy.js": 324,
-	"./gd": 325,
-	"./gd.js": 325,
-	"./gl": 326,
-	"./gl.js": 326,
-	"./gom-latn": 327,
-	"./gom-latn.js": 327,
-	"./gu": 328,
-	"./gu.js": 328,
-	"./he": 329,
-	"./he.js": 329,
-	"./hi": 330,
-	"./hi.js": 330,
-	"./hr": 331,
-	"./hr.js": 331,
-	"./hu": 332,
-	"./hu.js": 332,
-	"./hy-am": 333,
-	"./hy-am.js": 333,
-	"./id": 334,
-	"./id.js": 334,
-	"./is": 335,
-	"./is.js": 335,
-	"./it": 336,
-	"./it.js": 336,
-	"./ja": 337,
-	"./ja.js": 337,
-	"./jv": 338,
-	"./jv.js": 338,
-	"./ka": 339,
-	"./ka.js": 339,
-	"./kk": 340,
-	"./kk.js": 340,
-	"./km": 341,
-	"./km.js": 341,
-	"./kn": 342,
-	"./kn.js": 342,
-	"./ko": 343,
-	"./ko.js": 343,
-	"./ky": 344,
-	"./ky.js": 344,
-	"./lb": 345,
-	"./lb.js": 345,
-	"./lo": 346,
-	"./lo.js": 346,
-	"./lt": 347,
-	"./lt.js": 347,
-	"./lv": 348,
-	"./lv.js": 348,
-	"./me": 349,
-	"./me.js": 349,
-	"./mi": 350,
-	"./mi.js": 350,
-	"./mk": 351,
-	"./mk.js": 351,
-	"./ml": 352,
-	"./ml.js": 352,
-	"./mn": 353,
-	"./mn.js": 353,
-	"./mr": 354,
-	"./mr.js": 354,
-	"./ms": 355,
-	"./ms-my": 356,
-	"./ms-my.js": 356,
-	"./ms.js": 355,
-	"./mt": 357,
-	"./mt.js": 357,
-	"./my": 358,
-	"./my.js": 358,
-	"./nb": 359,
-	"./nb.js": 359,
-	"./ne": 360,
-	"./ne.js": 360,
-	"./nl": 361,
-	"./nl-be": 362,
-	"./nl-be.js": 362,
-	"./nl.js": 361,
-	"./nn": 363,
-	"./nn.js": 363,
-	"./pa-in": 364,
-	"./pa-in.js": 364,
-	"./pl": 365,
-	"./pl.js": 365,
-	"./pt": 366,
-	"./pt-br": 367,
-	"./pt-br.js": 367,
-	"./pt.js": 366,
-	"./ro": 368,
-	"./ro.js": 368,
-	"./ru": 369,
-	"./ru.js": 369,
-	"./sd": 370,
-	"./sd.js": 370,
-	"./se": 371,
-	"./se.js": 371,
-	"./si": 372,
-	"./si.js": 372,
-	"./sk": 373,
-	"./sk.js": 373,
-	"./sl": 374,
-	"./sl.js": 374,
-	"./sq": 375,
-	"./sq.js": 375,
-	"./sr": 376,
-	"./sr-cyrl": 377,
-	"./sr-cyrl.js": 377,
-	"./sr.js": 376,
-	"./ss": 378,
-	"./ss.js": 378,
-	"./sv": 379,
-	"./sv.js": 379,
-	"./sw": 380,
-	"./sw.js": 380,
-	"./ta": 381,
-	"./ta.js": 381,
-	"./te": 382,
-	"./te.js": 382,
-	"./tet": 383,
-	"./tet.js": 383,
-	"./tg": 384,
-	"./tg.js": 384,
-	"./th": 385,
-	"./th.js": 385,
-	"./tl-ph": 386,
-	"./tl-ph.js": 386,
-	"./tlh": 387,
-	"./tlh.js": 387,
-	"./tr": 388,
-	"./tr.js": 388,
-	"./tzl": 389,
-	"./tzl.js": 389,
-	"./tzm": 390,
-	"./tzm-latn": 391,
-	"./tzm-latn.js": 391,
-	"./tzm.js": 390,
-	"./ug-cn": 392,
-	"./ug-cn.js": 392,
-	"./uk": 393,
-	"./uk.js": 393,
-	"./ur": 394,
-	"./ur.js": 394,
-	"./uz": 395,
-	"./uz-latn": 396,
-	"./uz-latn.js": 396,
-	"./uz.js": 395,
-	"./vi": 397,
-	"./vi.js": 397,
-	"./x-pseudo": 398,
-	"./x-pseudo.js": 398,
-	"./yo": 399,
-	"./yo.js": 399,
-	"./zh-cn": 400,
-	"./zh-cn.js": 400,
-	"./zh-hk": 401,
-	"./zh-hk.js": 401,
-	"./zh-tw": 402,
-	"./zh-tw.js": 402
+	"./af": 281,
+	"./af.js": 281,
+	"./ar": 282,
+	"./ar-dz": 283,
+	"./ar-dz.js": 283,
+	"./ar-kw": 284,
+	"./ar-kw.js": 284,
+	"./ar-ly": 285,
+	"./ar-ly.js": 285,
+	"./ar-ma": 286,
+	"./ar-ma.js": 286,
+	"./ar-sa": 287,
+	"./ar-sa.js": 287,
+	"./ar-tn": 288,
+	"./ar-tn.js": 288,
+	"./ar.js": 282,
+	"./az": 289,
+	"./az.js": 289,
+	"./be": 290,
+	"./be.js": 290,
+	"./bg": 291,
+	"./bg.js": 291,
+	"./bm": 292,
+	"./bm.js": 292,
+	"./bn": 293,
+	"./bn.js": 293,
+	"./bo": 294,
+	"./bo.js": 294,
+	"./br": 295,
+	"./br.js": 295,
+	"./bs": 296,
+	"./bs.js": 296,
+	"./ca": 297,
+	"./ca.js": 297,
+	"./cs": 298,
+	"./cs.js": 298,
+	"./cv": 299,
+	"./cv.js": 299,
+	"./cy": 300,
+	"./cy.js": 300,
+	"./da": 301,
+	"./da.js": 301,
+	"./de": 302,
+	"./de-at": 303,
+	"./de-at.js": 303,
+	"./de-ch": 304,
+	"./de-ch.js": 304,
+	"./de.js": 302,
+	"./dv": 305,
+	"./dv.js": 305,
+	"./el": 306,
+	"./el.js": 306,
+	"./en-au": 307,
+	"./en-au.js": 307,
+	"./en-ca": 308,
+	"./en-ca.js": 308,
+	"./en-gb": 309,
+	"./en-gb.js": 309,
+	"./en-ie": 310,
+	"./en-ie.js": 310,
+	"./en-il": 311,
+	"./en-il.js": 311,
+	"./en-nz": 312,
+	"./en-nz.js": 312,
+	"./eo": 313,
+	"./eo.js": 313,
+	"./es": 314,
+	"./es-do": 315,
+	"./es-do.js": 315,
+	"./es-us": 316,
+	"./es-us.js": 316,
+	"./es.js": 314,
+	"./et": 317,
+	"./et.js": 317,
+	"./eu": 318,
+	"./eu.js": 318,
+	"./fa": 319,
+	"./fa.js": 319,
+	"./fi": 320,
+	"./fi.js": 320,
+	"./fo": 321,
+	"./fo.js": 321,
+	"./fr": 322,
+	"./fr-ca": 323,
+	"./fr-ca.js": 323,
+	"./fr-ch": 324,
+	"./fr-ch.js": 324,
+	"./fr.js": 322,
+	"./fy": 325,
+	"./fy.js": 325,
+	"./gd": 326,
+	"./gd.js": 326,
+	"./gl": 327,
+	"./gl.js": 327,
+	"./gom-latn": 328,
+	"./gom-latn.js": 328,
+	"./gu": 329,
+	"./gu.js": 329,
+	"./he": 330,
+	"./he.js": 330,
+	"./hi": 331,
+	"./hi.js": 331,
+	"./hr": 332,
+	"./hr.js": 332,
+	"./hu": 333,
+	"./hu.js": 333,
+	"./hy-am": 334,
+	"./hy-am.js": 334,
+	"./id": 335,
+	"./id.js": 335,
+	"./is": 336,
+	"./is.js": 336,
+	"./it": 337,
+	"./it.js": 337,
+	"./ja": 338,
+	"./ja.js": 338,
+	"./jv": 339,
+	"./jv.js": 339,
+	"./ka": 340,
+	"./ka.js": 340,
+	"./kk": 341,
+	"./kk.js": 341,
+	"./km": 342,
+	"./km.js": 342,
+	"./kn": 343,
+	"./kn.js": 343,
+	"./ko": 344,
+	"./ko.js": 344,
+	"./ky": 345,
+	"./ky.js": 345,
+	"./lb": 346,
+	"./lb.js": 346,
+	"./lo": 347,
+	"./lo.js": 347,
+	"./lt": 348,
+	"./lt.js": 348,
+	"./lv": 349,
+	"./lv.js": 349,
+	"./me": 350,
+	"./me.js": 350,
+	"./mi": 351,
+	"./mi.js": 351,
+	"./mk": 352,
+	"./mk.js": 352,
+	"./ml": 353,
+	"./ml.js": 353,
+	"./mn": 354,
+	"./mn.js": 354,
+	"./mr": 355,
+	"./mr.js": 355,
+	"./ms": 356,
+	"./ms-my": 357,
+	"./ms-my.js": 357,
+	"./ms.js": 356,
+	"./mt": 358,
+	"./mt.js": 358,
+	"./my": 359,
+	"./my.js": 359,
+	"./nb": 360,
+	"./nb.js": 360,
+	"./ne": 361,
+	"./ne.js": 361,
+	"./nl": 362,
+	"./nl-be": 363,
+	"./nl-be.js": 363,
+	"./nl.js": 362,
+	"./nn": 364,
+	"./nn.js": 364,
+	"./pa-in": 365,
+	"./pa-in.js": 365,
+	"./pl": 366,
+	"./pl.js": 366,
+	"./pt": 367,
+	"./pt-br": 368,
+	"./pt-br.js": 368,
+	"./pt.js": 367,
+	"./ro": 369,
+	"./ro.js": 369,
+	"./ru": 370,
+	"./ru.js": 370,
+	"./sd": 371,
+	"./sd.js": 371,
+	"./se": 372,
+	"./se.js": 372,
+	"./si": 373,
+	"./si.js": 373,
+	"./sk": 374,
+	"./sk.js": 374,
+	"./sl": 375,
+	"./sl.js": 375,
+	"./sq": 376,
+	"./sq.js": 376,
+	"./sr": 377,
+	"./sr-cyrl": 378,
+	"./sr-cyrl.js": 378,
+	"./sr.js": 377,
+	"./ss": 379,
+	"./ss.js": 379,
+	"./sv": 380,
+	"./sv.js": 380,
+	"./sw": 381,
+	"./sw.js": 381,
+	"./ta": 382,
+	"./ta.js": 382,
+	"./te": 383,
+	"./te.js": 383,
+	"./tet": 384,
+	"./tet.js": 384,
+	"./tg": 385,
+	"./tg.js": 385,
+	"./th": 386,
+	"./th.js": 386,
+	"./tl-ph": 387,
+	"./tl-ph.js": 387,
+	"./tlh": 388,
+	"./tlh.js": 388,
+	"./tr": 389,
+	"./tr.js": 389,
+	"./tzl": 390,
+	"./tzl.js": 390,
+	"./tzm": 391,
+	"./tzm-latn": 392,
+	"./tzm-latn.js": 392,
+	"./tzm.js": 391,
+	"./ug-cn": 393,
+	"./ug-cn.js": 393,
+	"./uk": 394,
+	"./uk.js": 394,
+	"./ur": 395,
+	"./ur.js": 395,
+	"./uz": 396,
+	"./uz-latn": 397,
+	"./uz-latn.js": 397,
+	"./uz.js": 396,
+	"./vi": 398,
+	"./vi.js": 398,
+	"./x-pseudo": 399,
+	"./x-pseudo.js": 399,
+	"./yo": 400,
+	"./yo.js": 400,
+	"./zh-cn": 401,
+	"./zh-cn.js": 401,
+	"./zh-hk": 402,
+	"./zh-hk.js": 402,
+	"./zh-tw": 403,
+	"./zh-tw.js": 403
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -10490,7 +10670,190 @@ var Constants = (function () {
 
 /***/ }),
 
-/***/ 61:
+/***/ 60:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UrunAnaGrupDao; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__database_database__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__base_dao_base_dao__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util_util__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logger_logger__ = __webpack_require__(10);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+
+var UrunAnaGrupDao = (function () {
+    function UrunAnaGrupDao(dbProvider, util, logger, baseDao) {
+        this.dbProvider = dbProvider;
+        this.util = util;
+        this.logger = logger;
+        this.baseDao = baseDao;
+        this.logger.log("Urun Ana Grup Constractor");
+    }
+    UrunAnaGrupDao.prototype.insertOne = function (item) {
+        var query = 'INSERT OR REPLACE INTO OFF_MAM_ANAGRP_TNM (tip,mamAnaGrp,ad,durum,kod, neden) VALUES (?,?,?,?,?,?)';
+        var params = [item.tip, item.mamAnaGrp, item.ad, item.durum, item.kod, item.neden];
+        return this.baseDao.execute(query, params);
+    };
+    UrunAnaGrupDao.prototype.getPage = function (item, searchType, first, pageSize) {
+        var query = this.prepareQuery(item, searchType);
+        return this.baseDao.getList(query, "mamAnaGrp", item, searchType, first, pageSize, true);
+    };
+    UrunAnaGrupDao.prototype.getList = function (item, searchType) {
+        var query = this.prepareQuery(item, searchType);
+        return this.baseDao.execute(query, []);
+    };
+    UrunAnaGrupDao.prototype.insertList = function (list) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            var insertedItems;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        insertedItems = 0;
+                        return [4 /*yield*/, this.deleteAll()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/, new Promise(function (resolve, reject) {
+                                _this.dbProvider.transaction().then(function (db) {
+                                    db.transaction(function (tx) {
+                                        var query = 'INSERT OR REPLACE INTO OFF_MAM_ANAGRP_TNM (tip,mamAnaGrp,ad,durum,kod, neden) VALUES (?,?,?,?,?,?)';
+                                        for (var _i = 0, list_1 = list; _i < list_1.length; _i++) {
+                                            var item = list_1[_i];
+                                            var params = [item.tip, item.mamAnaGrp, item.ad, item.durum, item.kod, item.neden];
+                                            tx.executeSql(query, params, function (tx, res) {
+                                                insertedItems += 1;
+                                                if (list.length == insertedItems) {
+                                                    resolve(res);
+                                                }
+                                            }, function (err, mes) {
+                                                console.error("Error" + mes.message + " Code: " + mes.code);
+                                                reject(err);
+                                            });
+                                        }
+                                    });
+                                });
+                            })];
+                }
+            });
+        });
+    };
+    UrunAnaGrupDao.prototype.prepareQuery = function (item, searchType) {
+        var query = "SELECT * FROM OFF_MAM_ANAGRP_TNM WHERE tip = '" + item.tip + "'";
+        var whereQuery = [];
+        if (this.util.isNotEmpty(item.ad)) {
+            whereQuery.push(this.util.prepareWhereQuery(searchType, 'ad', item.ad));
+        }
+        if (this.util.isNotEmpty(item.neden)) {
+            whereQuery.push(this.util.prepareWhereQuery(searchType, 'neden', item.neden));
+        }
+        if (this.util.isNotEmpty(item.mamAnaGrp)) {
+            whereQuery.push(this.util.prepareWhereQuery(searchType, 'mamAnaGrp', item.mamAnaGrp));
+        }
+        if (this.util.isNotEmpty(item.kod)) {
+            whereQuery.push(this.util.prepareWhereQuery(searchType, 'kod', item.kod));
+        }
+        if (this.util.isNotEmpty(item.durum)) {
+            whereQuery.push(this.util.prepareWhereQuery(searchType, 'durum', item.durum));
+        }
+        console.warn("Ürün Ana Grup Sorgu " + query);
+        return this.util.prepareQuery(query, whereQuery, searchType);
+    };
+    UrunAnaGrupDao.prototype.deleteAll = function () {
+        var query = "DELETE FROM OFF_MAM_ANAGRP_TNM ";
+        return this.baseDao.execute(query, []);
+    };
+    UrunAnaGrupDao = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__database_database__["a" /* DatabaseProvider */], __WEBPACK_IMPORTED_MODULE_3__util_util__["a" /* UtilProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__logger_logger__["a" /* LoggerProvider */],
+            __WEBPACK_IMPORTED_MODULE_2__base_dao_base_dao__["a" /* BaseDao */]])
+    ], UrunAnaGrupDao);
+    return UrunAnaGrupDao;
+}());
+
+//# sourceMappingURL=urun-ana-grup-dao.js.map
+
+/***/ }),
+
+/***/ 601:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BaseEntity; });
+var BaseEntity = (function () {
+    function BaseEntity() {
+    }
+    BaseEntity.prototype.isEmpty = function (item) {
+        if (typeof item == "number")
+            item = String(item);
+        return typeof item == "undefined" || item == null || item == "";
+    };
+    BaseEntity.prototype.emptyIfNull = function (item) {
+        if (this.isEmpty(item))
+            item = "";
+        return item;
+    };
+    BaseEntity.prototype.isNotEmpty = function (item) {
+        if (typeof item == "number")
+            item = String(item);
+        return !(typeof item == "undefined" || item == null || item == "");
+    };
+    return BaseEntity;
+}());
+
+//# sourceMappingURL=BaseEntity.js.map
+
+/***/ }),
+
+/***/ 62:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10498,7 +10861,7 @@ var Constants = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__base_dao_base_dao__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_hizmet_hizmet__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logger_logger__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logger_logger__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_Constants__ = __webpack_require__(6);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10696,7 +11059,7 @@ var HizmetDao = (function () {
 
 /***/ }),
 
-/***/ 62:
+/***/ 63:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10704,16 +11067,16 @@ var HizmetDao = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cagri_detay_cagri_detay__ = __webpack_require__(175);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular_components_modal_modal_controller__ = __webpack_require__(176);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__cagri_arama_modal_cagri_arama_modal__ = __webpack_require__(177);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_hizmet_hizmet__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular_components_modal_modal_controller__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__cagri_arama_modal_cagri_arama_modal__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_hizmet_hizmet__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_hizmet_service_hizmet_service__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_hizmet_hizmet__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__entities_Pageable__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_header_header__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_header_header__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__entities_Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_util_plugin_util_plugin__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_util_plugin_util_plugin__ = __webpack_require__(83);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10916,17 +11279,17 @@ var CagrilarPage = (function () {
 
 /***/ }),
 
-/***/ 73:
+/***/ 74:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ThemeProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs__ = __webpack_require__(601);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs__ = __webpack_require__(602);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_Constants__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_user__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_user__ = __webpack_require__(47);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -11002,26 +11365,26 @@ var ThemeProvider = (function () {
 
 /***/ }),
 
-/***/ 80:
+/***/ 81:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HizmetProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hizmet_dao_hizmet_dao__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hizmet_dao_hizmet_dao__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_hizmet_hizmet__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__token_token__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__token_token__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__api_api__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_hizmet_DetayKayit__ = __webpack_require__(497);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__api_api__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_hizmet_DetayKayit__ = __webpack_require__(498);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__urun_ana_grp_urun_ana_grp__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__entities_urunAnaGrup__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__urun_ana_grp_urun_ana_grp__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__entities_urunAnaGrup__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__entities_Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__logger_logger__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__entities_Ilce__ = __webpack_require__(498);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__adres_dao_adres_dao__ = __webpack_require__(110);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__anket_service_anket_service__ = __webpack_require__(499);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__logger_logger__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__entities_Ilce__ = __webpack_require__(499);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__adres_dao_adres_dao__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__anket_service_anket_service__ = __webpack_require__(176);
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
@@ -11480,17 +11843,17 @@ var HizmetProvider = (function () {
 
 /***/ }),
 
-/***/ 81:
+/***/ 82:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UrunAnaGrpProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_urunAnaGrup__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__urun_ana_grup_dao_urun_ana_grup_dao__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__token_token__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_urunAnaGrup__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__urun_ana_grup_dao_urun_ana_grup_dao__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__token_token__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_Constants__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__util_util__ = __webpack_require__(5);
 /**
@@ -11648,14 +12011,14 @@ var UrunAnaGrpProvider = (function () {
 
 /***/ }),
 
-/***/ 82:
+/***/ 83:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UtilPlugin; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logger_logger__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logger_logger__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_call_number__ = __webpack_require__(500);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_barcode_scanner__ = __webpack_require__(501);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -11717,27 +12080,27 @@ var UtilPlugin = (function () {
 
 /***/ }),
 
-/***/ 83:
+/***/ 84:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GuncellemePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_urun_urun__ = __webpack_require__(179);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_urun_ana_grp_urun_ana_grp__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_urun_iscilik_urun_iscilik__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_urun_urun__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_urun_ana_grp_urun_ana_grp__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_urun_iscilik_urun_iscilik__ = __webpack_require__(181);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_urun_malzeme_urun_malzeme__ = __webpack_require__(115);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_fiyat_fiyat__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_fiyat_fiyat__ = __webpack_require__(184);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_islem_ariza_iscilik_islem_ariza_iscilik__ = __webpack_require__(503);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__entities_Constants__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_adres_adres__ = __webpack_require__(505);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_logger_logger__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_logger_logger__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_header_header__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_versiyon_versiyon__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_header_header__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_versiyon_versiyon__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_tasks_tasks__ = __webpack_require__(118);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__entities_EntityUtil__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__entities_EntityUtil__ = __webpack_require__(55);
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
@@ -12244,29 +12607,40 @@ var GuncellemePage = (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])("header"),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_12__components_header_header__["a" /* HeaderComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_12__components_header_header__["a" /* HeaderComponent */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_12__components_header_header__["a" /* HeaderComponent */])
     ], GuncellemePage.prototype, "header", void 0);
     GuncellemePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'page-guncelleme',template:/*ion-inline-start:"D:\WORKS\IONIC\Ionic-Offline-App\src\pages\guncelleme\guncelleme.html"*/'<ion-header>\n\n\n\n  <ion-navbar hideBackButton="true">\n\n    <icon-header #header></icon-header>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content class="content">\n\n\n\n  <ion-title class="page-title">Güncelleme</ion-title>\n\n\n\n  <ion-toolbar class="main-tabs">\n\n    <ion-segment [(ngModel)]="activePage">\n\n      <ion-segment-button value="guncelleme" class="seg-button">\n\n        Güncelleme\n\n      </ion-segment-button>\n\n      <ion-segment-button value="versiyon" class="seg-button">\n\n        Versiyon\n\n      </ion-segment-button>\n\n    </ion-segment>\n\n  </ion-toolbar>\n\n\n\n  <div [ngSwitch]="activePage">\n\n    <div *ngSwitchCase="\'guncelleme\'">\n\n\n\n      <ion-list>\n\n        <button ion-button primary round full [color]="colors.URUN" (click)="downloadUrunler();" round full>\n\n          <span item-left style="width: 95%">Ürünler</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.URUN"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.URUN_ANA_GRUP" (click)="downloadUrunAnaGrup();" round\n\n                full>\n\n          <span item-left style="width: 95%">Ürün Ana Grupları</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.URUN_ANA_GRUP"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.URUN_ISCILIK" (click)="downloadUrunIscilik();" round full>\n\n          <span item-left style="width: 95%">Ürün Işçilik</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.URUN_ISCILIK"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.URUN_MALZEME" (click)="downloadUrunMalzeme();" round full>\n\n          <span item-left style="width: 95%">Ürün-Malzeme</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.URUN_MALZEME"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.ISLEM_ARIZA_ISCILIK"\n\n                (click)="downloadIslemArizaIscilik();" round full>\n\n          <span item-left style="width: 95%">İşlem-Arıza-İşçilik</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.ISLEM_ARIZA_ISCILIK"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.MALZEME_FIYAT" (click)="downloadMalzemeFiyat();" round\n\n                full>\n\n          <span item-left style="width: 95%">Malzeme Fiyatları</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.MALZEME_FIYAT"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.ISCILIK_FIYAT" (click)="downloadIscilikFiyat();" round\n\n                full>\n\n          <span item-left style="width: 95%">İşçilik Fiyatları</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.ISCILIK_FIYAT"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.SEHIR_TNM" (click)="downloadSehirList();" round full>\n\n          <span item-left style="width: 95%">Şehir Listesi</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.SEHIR_TNM"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.ILCE_TNM" (click)="downloadIlceList();" round full>\n\n          <span item-left style="width: 95%">İİlçe Listesi</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.ILCE_TNM"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n        <button ion-button primary round full [color]="colors.MAHALLE_TNM" (click)="downloadMahalleList();" round full>\n\n          <span item-left style="width: 95%"> Mahalle Listesi</span>\n\n          <span item-right style="width: 5%">\n\n            <ion-icon [name]="icons.MAHALLE_TNM" class="mr-icon"></ion-icon>\n\n          </span>\n\n        </button>\n\n\n\n      </ion-list>\n\n\n\n\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'versiyon\'">\n\n\n\n      <button ion-button primary round full [color]="light">\n\n        <span item-left style="width: 80%">Ürünler</span>\n\n        <span item-right style="width: 20%">{{urunlerVersiyon}}</span>\n\n      </button>\n\n\n\n      <button ion-button primary round full [color]="light">\n\n        <span item-left style="width: 80%">Ürün Ana Grupları</span>\n\n        <span item-right style="width: 20%">{{urunAnaGrupVersiyon}}</span>\n\n      </button>\n\n\n\n      <button ion-button primary round full [color]="light">\n\n        <span item-left style="width: 80%">Ürün İşçilik</span>\n\n        <span item-right style="width: 20%">{{urunIscilikVersiyon}}</span>\n\n      </button>\n\n\n\n      <button ion-button primary round full [color]="light">\n\n        <span item-left style="width: 80%">Ürün-Malzeme</span>\n\n        <span item-right style="width: 20%">{{urunMalzemeVersiyon}}</span>\n\n      </button>\n\n\n\n      <button ion-button primary round full [color]="light">\n\n        <span item-left style="width: 80%">İşlem-Arıza-İşçilik</span>\n\n        <span item-right style="width: 20%">{{islemArizaIscilikVersiyon}}</span>\n\n      </button>\n\n\n\n      <button ion-button round full [color]="light">\n\n        <span item-left style="width: 80%">Malzeme Fiyatları</span>\n\n        <span item-right style="width: 20%">{{malzemeFiyatVersiyon}}</span>\n\n      </button>\n\n\n\n      <button ion-button primary round full [color]="light">\n\n        <span item-left style="width: 80%">İşçilik Fiyatları</span>\n\n        <span item-right style="width: 20%">{{iscilikFiyatVersiyon}}</span>\n\n      </button>\n\n    </div>\n\n\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\WORKS\IONIC\Ionic-Offline-App\src\pages\guncelleme\guncelleme.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_urun_urun__["a" /* UrunProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_urun_urun__["a" /* UrunProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__providers_urun_ana_grp_urun_ana_grp__["a" /* UrunAnaGrpProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_urun_ana_grp_urun_ana_grp__["a" /* UrunAnaGrpProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__providers_urun_iscilik_urun_iscilik__["a" /* UrunIscilikProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_urun_iscilik_urun_iscilik__["a" /* UrunIscilikProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_5__providers_urun_malzeme_urun_malzeme__["a" /* UrunMalzemeProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_urun_malzeme_urun_malzeme__["a" /* UrunMalzemeProvider */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_7__providers_islem_ariza_iscilik_islem_ariza_iscilik__["a" /* IslemArizaIscilikProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__providers_islem_ariza_iscilik_islem_ariza_iscilik__["a" /* IslemArizaIscilikProvider */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_6__providers_fiyat_fiyat__["a" /* FiyatProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__providers_fiyat_fiyat__["a" /* FiyatProvider */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_9__providers_adres_adres__["a" /* AdresProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__providers_adres_adres__["a" /* AdresProvider */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_10__providers_logger_logger__["a" /* LoggerProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__providers_logger_logger__["a" /* LoggerProvider */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_13__providers_versiyon_versiyon__["a" /* VersiyonProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_13__providers_versiyon_versiyon__["a" /* VersiyonProvider */]) === "function" && _m || Object, typeof (_o = typeof __WEBPACK_IMPORTED_MODULE_14__providers_tasks_tasks__["a" /* TasksProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_14__providers_tasks_tasks__["a" /* TasksProvider */]) === "function" && _o || Object, typeof (_p = typeof __WEBPACK_IMPORTED_MODULE_11__providers_util_util__["a" /* UtilProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__providers_util_util__["a" /* UtilProvider */]) === "function" && _p || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_urun_urun__["a" /* UrunProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_urun_ana_grp_urun_ana_grp__["a" /* UrunAnaGrpProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_urun_iscilik_urun_iscilik__["a" /* UrunIscilikProvider */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_urun_malzeme_urun_malzeme__["a" /* UrunMalzemeProvider */],
+            __WEBPACK_IMPORTED_MODULE_7__providers_islem_ariza_iscilik_islem_ariza_iscilik__["a" /* IslemArizaIscilikProvider */],
+            __WEBPACK_IMPORTED_MODULE_6__providers_fiyat_fiyat__["a" /* FiyatProvider */],
+            __WEBPACK_IMPORTED_MODULE_9__providers_adres_adres__["a" /* AdresProvider */],
+            __WEBPACK_IMPORTED_MODULE_10__providers_logger_logger__["a" /* LoggerProvider */],
+            __WEBPACK_IMPORTED_MODULE_13__providers_versiyon_versiyon__["a" /* VersiyonProvider */],
+            __WEBPACK_IMPORTED_MODULE_14__providers_tasks_tasks__["a" /* TasksProvider */],
+            __WEBPACK_IMPORTED_MODULE_11__providers_util_util__["a" /* UtilProvider */]])
     ], GuncellemePage);
     return GuncellemePage;
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
 }());
 
 //# sourceMappingURL=guncelleme.js.map
 
 /***/ }),
 
-/***/ 84:
+/***/ 85:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Urun; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__EntityUtil__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__EntityUtil__ = __webpack_require__(55);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -12323,7 +12697,7 @@ var Urun = (function (_super) {
 
 /***/ }),
 
-/***/ 85:
+/***/ 86:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12476,7 +12850,7 @@ var FiyatDao = (function () {
 
 /***/ }),
 
-/***/ 86:
+/***/ 87:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12487,7 +12861,7 @@ var FiyatDao = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_urun_dao_urun_dao__ = __webpack_require__(114);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_urun__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_urun__ = __webpack_require__(85);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -12586,7 +12960,7 @@ var UrunSearchComponent = (function () {
 
 /***/ }),
 
-/***/ 879:
+/***/ 880:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12625,13 +12999,13 @@ var SharedModulePage = (function () {
 
 /***/ }),
 
-/***/ 880:
+/***/ 881:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Profil; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__domain__ = __webpack_require__(881);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__enums_eProfil__ = __webpack_require__(496);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__domain__ = __webpack_require__(882);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__enums_eProfil__ = __webpack_require__(497);
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
@@ -12712,7 +13086,7 @@ var Profil = (function () {
 
 /***/ }),
 
-/***/ 881:
+/***/ 882:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12731,7 +13105,7 @@ var Domain = (function () {
 
 /***/ }),
 
-/***/ 882:
+/***/ 883:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12794,7 +13168,7 @@ var Tablo = (function () {
 
 /***/ }),
 
-/***/ 883:
+/***/ 884:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12822,7 +13196,7 @@ var Token = (function () {
 
 /***/ }),
 
-/***/ 884:
+/***/ 885:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12841,7 +13215,7 @@ var Anket = (function () {
 
 /***/ }),
 
-/***/ 885:
+/***/ 886:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12867,7 +13241,7 @@ var SerSoruTnm = (function () {
 
 /***/ }),
 
-/***/ 886:
+/***/ 887:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12894,7 +13268,7 @@ var AnketMst = (function () {
 
 /***/ }),
 
-/***/ 887:
+/***/ 888:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12916,36 +13290,6 @@ var HizmetSearch = (function () {
 }());
 
 //# sourceMappingURL=HizmetSearch.js.map
-
-/***/ }),
-
-/***/ 888:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BaseEntity; });
-var BaseEntity = (function () {
-    function BaseEntity() {
-    }
-    BaseEntity.prototype.isEmpty = function (item) {
-        if (typeof item == "number")
-            item = String(item);
-        return typeof item == "undefined" || item == null || item == "";
-    };
-    BaseEntity.prototype.emptyIfNull = function (item) {
-        if (this.isEmpty(item))
-            item = "";
-        return item;
-    };
-    BaseEntity.prototype.isNotEmpty = function (item) {
-        if (typeof item == "number")
-            item = String(item);
-        return !(typeof item == "undefined" || item == null || item == "");
-    };
-    return BaseEntity;
-}());
-
-//# sourceMappingURL=BaseEntity.js.map
 
 /***/ }),
 
@@ -12991,20 +13335,20 @@ var Mahalle = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FiyatSorguComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_urunAnaGrup__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_urunAnaGrup__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_urun__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_urun__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_urun_malzeme__ = __webpack_require__(116);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_urun_iscilik__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_urun_iscilik__ = __webpack_require__(182);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__urun_ana_grup_search_urun_ana_grup_search__ = __webpack_require__(119);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__urun_search_urun_search__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__urun_iscilik_search_urun_iscilik_search__ = __webpack_require__(189);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_logger_logger__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_fiyat_dao_fiyat_dao__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__entities_fiyat__ = __webpack_require__(184);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__malzeme_search_malzeme_search__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__urun_search_urun_search__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__urun_iscilik_search_urun_iscilik_search__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_logger_logger__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_fiyat_dao_fiyat_dao__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__entities_fiyat__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__malzeme_search_malzeme_search__ = __webpack_require__(191);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13233,9 +13577,9 @@ var AnketCevap = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_hizmet_service_hizmet_service__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_urunAnaGrup__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_urun_ana_grp_urun_ana_grp__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_logger_logger__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_urunAnaGrup__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_urun_ana_grp_urun_ana_grp__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_logger_logger__ = __webpack_require__(10);
 /**
  * @author [malisahin]
  * @email [mehmetalisahinogullari@gmail.com]
@@ -13409,10 +13753,10 @@ var HizmetBilgileriComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_hizmet_hizmet__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_hizmet_service_hizmet_service__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_adres_dao_adres_dao__ = __webpack_require__(110);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_logger_logger__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_adres_dao_adres_dao__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_logger_logger__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_util_plugin_util_plugin__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_util_plugin_util_plugin__ = __webpack_require__(83);
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
@@ -13711,21 +14055,21 @@ var ServisBilgileriComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_hizmet_hizmet__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_hizmet_service_hizmet_service__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__urun_search_urun_search__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__urun_search_urun_search__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_logger_logger__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_urun_ana_grup_dao_urun_ana_grup_dao__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__entities_urunAnaGrup__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_garanti_sorgu_garanti_sorgu__ = __webpack_require__(187);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__entities_GarantiSorgu__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_logger_logger__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_urun_ana_grup_dao_urun_ana_grup_dao__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__entities_urunAnaGrup__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_garanti_sorgu_garanti_sorgu__ = __webpack_require__(188);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__entities_GarantiSorgu__ = __webpack_require__(187);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_seri_no_sorgu_seri_no_sorgu__ = __webpack_require__(512);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__update_urun_ana_grup_update_urun_ana_grup__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__update_urun_ana_grup_update_urun_ana_grup__ = __webpack_require__(194);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__entities_ProcessResults__ = __webpack_require__(121);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_urun_urun__ = __webpack_require__(179);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__entities_urun__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_urun_urun__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__entities_urun__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__entities_Pageable__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_util_plugin_util_plugin__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_util_plugin_util_plugin__ = __webpack_require__(83);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13831,7 +14175,6 @@ var UrunBilgileriComponent = (function () {
                             _this.seriNoSayisi = Number(data.seriMetod);
                             _this.hizmet.seriMetod = data.seriMetod;
                         }
-                        debugger;
                         _this.saveHizmet();
                     }
                 });
@@ -14069,7 +14412,6 @@ var UrunBilgileriComponent = (function () {
                     case 1:
                         result = _a.sent();
                         if (this.util.isNotEmptyRows(result.res)) {
-                            debugger;
                             this.logger.dir(result.res);
                             item = result.res.rows.item(0);
                             if (this.util.isNotEmpty(item.seriMetod)) {
@@ -14112,17 +14454,18 @@ var UrunBilgileriComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_hizmet_hizmet__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_hizmet_service_hizmet_service__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_logger_logger__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_urunAnaGrup__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_urun_ana_grup_dao_urun_ana_grup_dao__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_logger_logger__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_urunAnaGrup__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_urun_ana_grup_dao_urun_ana_grup_dao__ = __webpack_require__(60);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_Constants__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__hizmet_detay_hizmet_detay__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__hizmet_detay_hizmet_detay__ = __webpack_require__(196);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_printer_service_printer_service__ = __webpack_require__(515);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_hizmet_hizmet__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_hizmet_hizmet__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__entities_ProcessResults__ = __webpack_require__(121);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_fiyat_fiyat__ = __webpack_require__(183);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__anket_anket__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_fiyat_fiyat__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__anket_anket__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_anket_service_anket_service__ = __webpack_require__(176);
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
@@ -14186,6 +14529,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
 var DURUM;
 (function (DURUM) {
     DURUM["ACIK"] = "ACIK";
@@ -14198,7 +14542,7 @@ var ISTEK;
     ISTEK["HAYIR"] = "H";
 })(ISTEK || (ISTEK = {}));
 var DetayBilgileriComponent = (function () {
-    function DetayBilgileriComponent(hizmetService, urunAnaGrupDao, modalCtrl, util, logger, alertCtrl, nav, hizmetProvider, fiyatProvider, printService) {
+    function DetayBilgileriComponent(hizmetService, urunAnaGrupDao, modalCtrl, util, logger, alertCtrl, nav, hizmetProvider, fiyatProvider, anketService, printService) {
         this.hizmetService = hizmetService;
         this.urunAnaGrupDao = urunAnaGrupDao;
         this.modalCtrl = modalCtrl;
@@ -14208,6 +14552,7 @@ var DetayBilgileriComponent = (function () {
         this.nav = nav;
         this.hizmetProvider = hizmetProvider;
         this.fiyatProvider = fiyatProvider;
+        this.anketService = anketService;
         this.printService = printService;
         this.showDetails = 1;
         this.hizmet = new __WEBPACK_IMPORTED_MODULE_1__entities_hizmet_hizmet__["a" /* Hizmet */]();
@@ -14254,13 +14599,7 @@ var DetayBilgileriComponent = (function () {
     DetayBilgileriComponent.prototype.hizmetDetayaGit = function () {
         var _this = this;
         if (this.util.isNotEmpty(this.hizmet.mamKod)) {
-            var detayModal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_9__hizmet_detay_hizmet_detay__["a" /* HizmetDetayComponent */], {
-                data: {
-                    detay: ""
-                }
-            }, {
-                cssClass: this.util.getSelectedTheme()
-            });
+            var detayModal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_9__hizmet_detay_hizmet_detay__["a" /* HizmetDetayComponent */], { data: { detay: "" } }, { cssClass: this.util.getSelectedTheme() });
             detayModal.onDidDismiss(function (res) {
                 _this.logger.dir(res);
                 _this.updateHizmet('INSERT');
@@ -14293,14 +14632,40 @@ var DetayBilgileriComponent = (function () {
     };
     DetayBilgileriComponent.prototype.kapat = function (durum) {
         return __awaiter(this, void 0, void 0, function () {
-            var result, kapatmaHizmet, res;
+            var result, kapatmaHizmet, isAnketKayitOK;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         result = this.kapatmaKontrol();
-                        if (!result.isErrorMessagesNull()) return [3 /*break*/, 2];
+                        if (!result.isErrorMessagesNull()) return [3 /*break*/, 5];
                         kapatmaHizmet = this.util.assign(this.hizmet);
+                        return [4 /*yield*/, this.anketVerileriniKaydet(kapatmaHizmet)];
+                    case 1:
+                        isAnketKayitOK = _a.sent();
+                        if (!isAnketKayitOK) return [3 /*break*/, 3];
                         debugger;
+                        return [4 /*yield*/, this.hizmetiSunucuyaKaydet(durum, kapatmaHizmet)];
+                    case 2:
+                        _a.sent();
+                        return [3 /*break*/, 4];
+                    case 3:
+                        this.logger.error("Anket Kayıt Sırasında hata oluştu.");
+                        _a.label = 4;
+                    case 4: return [3 /*break*/, 6];
+                    case 5:
+                        this.util.pushAllMessages(result);
+                        _a.label = 6;
+                    case 6: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    DetayBilgileriComponent.prototype.hizmetiSunucuyaKaydet = function (durum, kapatmaHizmet) {
+        return __awaiter(this, void 0, void 0, function () {
+            var res;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
                         kapatmaHizmet = this.sunucuyaKayitIcinHazirla(kapatmaHizmet);
                         kapatmaHizmet.durum = durum;
                         this.verilerSunucuyaKayitEdildiMi = durum != DURUM.ACIK;
@@ -14313,20 +14678,37 @@ var DetayBilgileriComponent = (function () {
                         if (this.util.isOnline()) {
                             this.setCagriKapatSonuc(res, kapatmaHizmet);
                         }
-                        return [3 /*break*/, 3];
-                    case 2:
-                        this.util.pushAllMessages(result);
-                        _a.label = 3;
-                    case 3: return [2 /*return*/];
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    DetayBilgileriComponent.prototype.anketVerileriniKaydet = function (hizmetData) {
+        return __awaiter(this, void 0, void 0, function () {
+            var anketKayitSonuc, status;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.anketService.saveDataToApi(hizmetData)];
+                    case 1:
+                        anketKayitSonuc = _a.sent();
+                        status = __WEBPACK_IMPORTED_MODULE_7__entities_Constants__["a" /* Constants */].STATUS.ERROR;
+                        if (this.util.isNotEmpty(anketKayitSonuc) && anketKayitSonuc == __WEBPACK_IMPORTED_MODULE_7__entities_Constants__["a" /* Constants */].STATUS.SUCCESS) {
+                            this.logger.success("Anket Kayıt Edildi");
+                            status = __WEBPACK_IMPORTED_MODULE_7__entities_Constants__["a" /* Constants */].STATUS.SUCCESS;
+                        }
+                        else {
+                            this.logger.error("Anket kayıt edilirken hata alındı.");
+                        }
+                        return [2 /*return*/, new Promise(function (res) { return res(status); })];
                 }
             });
         });
     };
     DetayBilgileriComponent.prototype.setCagriKapatSonuc = function (res, kapatmaHizmet) {
         return __awaiter(this, void 0, void 0, function () {
-            var hizmetFormuKapatildiMi, _a;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
+            var hizmetFormuKapatildiMi;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
                     case 0:
                         if (res.responseCode == "FAIL") {
                             this.util.error(res.description);
@@ -14341,14 +14723,11 @@ var DetayBilgileriComponent = (function () {
                             && res.responseCode == "SUCCESS"
                             && res.description == "CLOSED";
                         if (!hizmetFormuKapatildiMi) return [3 /*break*/, 2];
-                        this.fillHizmet(res);
-                        this.hizmet.durum = DURUM.KAPALI;
-                        _a = this;
-                        return [4 /*yield*/, this.hizmetService.saveAndFetchHizmet(this.hizmet)];
+                        return [4 /*yield*/, this.fillHizmet(res)];
                     case 1:
-                        _a.hizmet = _b.sent();
+                        _a.sent();
                         this.navigate("CagrilarPage", "Çağrı Kayıt Edildi.");
-                        _b.label = 2;
+                        _a.label = 2;
                     case 2: return [2 /*return*/];
                 }
             });
@@ -14393,8 +14772,22 @@ var DetayBilgileriComponent = (function () {
         }
     };
     DetayBilgileriComponent.prototype.fillHizmet = function (res) {
-        if (this.util.isNotEmpty(res.message))
-            this.hizmet = this.hizmetProvider.fillHizmet(res.message);
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        if (!this.util.isNotEmpty(res.message)) return [3 /*break*/, 2];
+                        this.hizmet.durum = res.message.durum;
+                        _a = this;
+                        return [4 /*yield*/, this.hizmetService.saveAndFetchHizmet(this.hizmet)];
+                    case 1:
+                        _a.hizmet = _b.sent();
+                        _b.label = 2;
+                    case 2: return [2 /*return*/];
+                }
+            });
+        });
     };
     DetayBilgileriComponent.prototype.updateHizmet = function (nerden) {
         return __awaiter(this, void 0, void 0, function () {
@@ -14473,6 +14866,7 @@ var DetayBilgileriComponent = (function () {
     };
     DetayBilgileriComponent.prototype.sunucuyaKayitIcinHazirla = function (hizmet) {
         var _this = this;
+        debugger;
         var sunucuyaGidecekHizmet = this.util.assign(hizmet);
         var DATE_TIME_FORMAT = "dd.MM.yyyy hh:mm:ss.s";
         var DATE_TIME_FORMAT_WITHOUT_SPLIT_SECOND = "dd.MM.yyyy hh:mm:ss";
@@ -14492,6 +14886,7 @@ var DetayBilgileriComponent = (function () {
         sunucuyaGidecekHizmet.cagriTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.cagriTarihi, DATE_TIME_FORMAT);
         sunucuyaGidecekHizmet.islemTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.islemTarihi, DATE_TIME_FORMAT_WITHOUT_SPLIT_SECOND);
         sunucuyaGidecekHizmet.islemBitTarihi = this.util.dateFormatRegex(sunucuyaGidecekHizmet.islemBitTarihi, DATE_TIME_FORMAT_WITHOUT_SPLIT_SECOND);
+        delete sunucuyaGidecekHizmet.anket;
         return sunucuyaGidecekHizmet;
     };
     DetayBilgileriComponent.prototype.hizmetSilKontrol = function () {
@@ -14701,7 +15096,7 @@ var DetayBilgileriComponent = (function () {
     };
     DetayBilgileriComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'detay-bilgileri',template:/*ion-inline-start:"D:\WORKS\IONIC\Ionic-Offline-App\src\components\cagri-detay-components\detay-bilgileri\detay-bilgileri.html"*/'<ion-grid class="detay">\n\n  <ion-row>\n\n    <ion-col col-6 col-md-6 col-sm>\n\n      <button ion-button primary round full (click)="hizmetDetayaGit()" [disabled]="isHizmetDisabled()">\n\n        <ion-label>\n\n          <ion-icon name="add-circle" class="mr-icon"></ion-icon>\n\n          Yeni\n\n        </ion-label>\n\n      </button>\n\n    </ion-col>\n\n\n\n    <ion-col col-6 col-sm>\n\n      <button ion-button primary round full [disabled]="isHizmetDisabled()" (click)="siparisOlustur()">\n\n        <ion-label>\n\n          <ion-icon class="mr-icon" name="basket"></ion-icon>\n\n          Sipariş Oluştur\n\n        </ion-label>\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>\n\n\n\n<ion-grid *ngIf="detayList != null && detayList.length > 0">\n\n  <ion-row style="font-weight: bold">\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n\n      <ion-label>İşlem Tipi</ion-label>\n\n    </ion-col>\n\n    <ion-col col-md-4 col-lg-4 col-xl-4 col-sm-4>\n\n      <ion-label>İşlem Kodu</ion-label>\n\n    </ion-col>\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n\n      <ion-label>Miktar</ion-label>\n\n    </ion-col>\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n\n      <ion-label>Tutar</ion-label>\n\n    </ion-col>\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n\n\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row *ngFor="let detay of detayList">\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n\n      <ion-label>{{detay.mlzIsc}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-md-4 col-lg-4 col-xl-4 col-sm-4 style="overflow: overlay">\n\n      <ion-label>{{detay.mlzIscKod}} - {{detay.aciklama}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n\n      <ion-label>{{detay.miktar}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n\n      <ion-label>{{detay.tutar}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n\n      <ion-row>\n\n\n\n        <ion-col col-6>\n\n          <button ion-button icon-only (click)="updateHizmetDetay(detay)" table-button style="width: 100%"\n\n                  [disabled]="isHizmetDisabled()" color="colorinfo">\n\n            <i class="fas fa-edit"></i>\n\n          </button>\n\n        </ion-col>\n\n\n\n        <ion-col col-6>\n\n          <button ion-button icon-only (click)="deleteHizmetDetay(detay)" table-button style="width: 100%"\n\n                  color="colorerror" [disabled]="isHizmetDisabled()">\n\n            <i class="fas fa-trash-alt"></i>\n\n          </button>\n\n        </ion-col>\n\n\n\n      </ion-row>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row>\n\n\n\n    <ion-col col-md-8 col-lg-8 col-xl-8 col-sm-8 style="text-align: right">\n\n      <ion-label>KDV\'li Toplam Tutar</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n\n      <ion-label>{{toplamTutar}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n\n    </ion-col>\n\n\n\n  </ion-row>\n\n</ion-grid>\n\n\n\n<ion-list>\n\n\n\n  <ion-row>\n\n    <ion-col col-12 col-sm class="detay">\n\n      <button ion-button primary round full (click)="toggleDetails()">\n\n        <ion-label>\n\n          <ion-icon name="arrow-down" class="mr-icon"></ion-icon>\n\n          Kapatma İşlemleri\n\n        </ion-label>\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <div id="divKapatmaIslemleri" class="gray-box" *ngIf="showDetails == -1">\n\n    <ion-grid>\n\n      <ion-row>\n\n        <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2>\n\n          <button ion-button round color="secondary" (click)="kapat(\'ACIK\')" [disabled]="isHizmetDisabled()" full>\n\n            <span item-left style="width: 80%">Kapat</span>\n\n            <span item-right style="width: 20%">\n\n    <i class="fas fa-window-close"></i>\n\n          </span>\n\n          </button>\n\n        </ion-col>\n\n\n\n        <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2>\n\n          <button ion-button round color="secondary" [disabled]="isHizmetDisabled()" (click)="hizmetIptalKontrol()"\n\n                  full>\n\n            <span item-left style="width: 80%">Iptal</span>\n\n            <span item-right style="width: 20%">\n\n    <i class="fas fa-ban"></i>\n\n          </span>\n\n          </button>\n\n        </ion-col>\n\n\n\n        <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2>\n\n          <button ion-button round color="secondary" (click)="yazdir()" full>\n\n            <span item-left style="width: 80%">Yazdır</span>\n\n            <span item-right style="width: 20%">\n\n    <i class="fas fa-print"></i>\n\n          </span>\n\n          </button>\n\n        </ion-col>\n\n\n\n        <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2>\n\n          <button ion-button round color="secondary" [disabled]="isHizmetDisabled()" (click)="hizmetSilKontrol()" full>\n\n            <span item-left style="width: 80%">Sil</span>\n\n            <span item-right style="width: 20%">\n\n\n\n    <i class="fas fa-trash-alt"></i>\n\n          </span>\n\n\n\n          </button>\n\n        </ion-col>\n\n\n\n        <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 *ngIf="isAnketExist" >\n\n          <button ion-button round color="secondary" [disabled]="isHizmetDisabled()" (click)="goToAnketPage()" full>\n\n            <span item-left style="width: 80%">Anket</span>\n\n            <span item-right style="width: 20%">\n\n\n\n            <i class="fas fa-question-circle"></i>\n\n          </span>\n\n\n\n\n\n          </button>\n\n        </ion-col>\n\n      </ion-row>\n\n\n\n\n\n    </ion-grid>\n\n\n\n    <ion-row>\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">Açıklama</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-textarea [(ngModel)]="hizmet.aciklama" [disabled]="isHizmetDisabled()"\n\n                      (ionBlur)="onHizmetChange()"></ion-textarea>\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">Kapatma Şekli</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-select [(ngModel)]="hizmet.kapatmaKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"\n\n                    interface="popover">\n\n          <ion-option value="NORMAL">Normal Kapatma</ion-option>\n\n          <ion-option value="MESGULIYET">Meşguliyet Kapatma</ion-option>\n\n        </ion-select>\n\n\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">Ödeme Tipi</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-select [(ngModel)]="hizmet.odemeTipi" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"\n\n                    interface="popover">\n\n          <ion-option value="NAKIT">Nakit</ion-option>\n\n          <ion-option value="KREDIKARTI">Kredi Kartı</ion-option>\n\n        </ion-select>\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">Çözüm Kodu</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-select [(ngModel)]="hizmet.cozumKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"\n\n                    interface="popover">\n\n          <ion-option *ngFor="let cozum of cozumKoduList" [value]="cozum.kod">{{cozum.ad}}</ion-option>\n\n        </ion-select>\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">İletişim Istek</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-6 col-md-9>\n\n\n\n        <ion-label color="primary" class="radio-btn" style="text-align: end;position: relative;">{{iletisimIstek == true\n\n          ? \'EVET\' : \'HAYIR\'}}\n\n        </ion-label>\n\n\n\n      </ion-col>\n\n      <ion-col col-2 col-md-1>\n\n        <ion-toggle (ionChange)="iletisimIstekChange()" class="toggle-btn" style="text-align: end;"\n\n                    [disabled]="isHizmetDisabled()"\n\n                    [(ngModel)]="iletisimIstek"></ion-toggle>\n\n      </ion-col>\n\n\n\n    </ion-row>\n\n  </div>\n\n</ion-list>\n\n'/*ion-inline-end:"D:\WORKS\IONIC\Ionic-Offline-App\src\components\cagri-detay-components\detay-bilgileri\detay-bilgileri.html"*/
+            selector: 'detay-bilgileri',template:/*ion-inline-start:"D:\WORKS\IONIC\Ionic-Offline-App\src\components\cagri-detay-components\detay-bilgileri\detay-bilgileri.html"*/'<ion-grid class="detay">\n\n  <ion-row>\n\n    <ion-col col-6 col-md-6 col-sm>\n\n      <button ion-button primary round full (click)="hizmetDetayaGit()" [disabled]="isHizmetDisabled()">\n\n        <ion-label>\n\n          <ion-icon name="add-circle" class="mr-icon"></ion-icon>\n\n          Yeni\n\n        </ion-label>\n\n      </button>\n\n    </ion-col>\n\n\n\n    <ion-col col-6 col-sm>\n\n      <button ion-button primary round full [disabled]="isHizmetDisabled()" (click)="siparisOlustur()">\n\n        <ion-label>\n\n          <ion-icon class="mr-icon" name="basket"></ion-icon>\n\n          Sipariş Oluştur\n\n        </ion-label>\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>\n\n\n\n<ion-grid *ngIf="detayList != null && detayList.length > 0">\n\n  <ion-row style="font-weight: bold">\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n\n      <ion-label>İşlem Tipi</ion-label>\n\n    </ion-col>\n\n    <ion-col col-md-4 col-lg-4 col-xl-4 col-sm-4>\n\n      <ion-label>İşlem Kodu</ion-label>\n\n    </ion-col>\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n\n      <ion-label>Miktar</ion-label>\n\n    </ion-col>\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n\n      <ion-label>Tutar</ion-label>\n\n    </ion-col>\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n\n\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row *ngFor="let detay of detayList">\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n\n      <ion-label>{{detay.mlzIsc}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-md-4 col-lg-4 col-xl-4 col-sm-4 style="overflow: overlay">\n\n      <ion-label>{{detay.mlzIscKod}} - {{detay.aciklama}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n\n      <ion-label>{{detay.miktar}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n\n      <ion-label>{{detay.tutar}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n\n      <ion-row>\n\n\n\n        <ion-col col-6>\n\n          <button ion-button icon-only (click)="updateHizmetDetay(detay)" table-button style="width: 100%" [disabled]="isHizmetDisabled()"\n\n            color="colorinfo">\n\n            <i class="fas fa-edit"></i>\n\n          </button>\n\n        </ion-col>\n\n\n\n        <ion-col col-6>\n\n          <button ion-button icon-only (click)="deleteHizmetDetay(detay)" table-button style="width: 100%" color="colorerror" [disabled]="isHizmetDisabled()">\n\n            <i class="fas fa-trash-alt"></i>\n\n          </button>\n\n        </ion-col>\n\n\n\n      </ion-row>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row>\n\n\n\n    <ion-col col-md-8 col-lg-8 col-xl-8 col-sm-8 style="text-align: right">\n\n      <ion-label>KDV\'li Toplam Tutar</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n\n      <ion-label>{{toplamTutar}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n\n    </ion-col>\n\n\n\n  </ion-row>\n\n</ion-grid>\n\n\n\n<ion-list>\n\n\n\n  <ion-row>\n\n    <ion-col col-12 col-sm class="detay">\n\n      <button ion-button primary round full (click)="toggleDetails()">\n\n        <ion-label>\n\n          <ion-icon name="arrow-down" class="mr-icon"></ion-icon>\n\n          Kapatma İşlemleri\n\n        </ion-label>\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <div id="divKapatmaIslemleri" class="gray-box" *ngIf="showDetails == -1">\n\n    <ion-grid>\n\n      <ion-row>\n\n\n\n        <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2>\n\n          <button ion-button round color="secondary" (click)="kapat(\'ACIK\')" [disabled]="isHizmetDisabled()" full>\n\n            <span item-left style="width: 80%">Kapat</span>\n\n            <span item-right style="width: 20%">\n\n              <i class="fas fa-window-close"></i>\n\n            </span>\n\n          </button>\n\n        </ion-col>\n\n\n\n        <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2>\n\n          <button ion-button round color="secondary" [disabled]="isHizmetDisabled()" (click)="hizmetIptalKontrol()" full>\n\n            <span item-left style="width: 80%">Iptal</span>\n\n            <span item-right style="width: 20%">\n\n              <i class="fas fa-ban"></i>\n\n            </span>\n\n          </button>\n\n        </ion-col>\n\n\n\n        <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2>\n\n          <button ion-button round color="secondary" (click)="yazdir()" full>\n\n            <span item-left style="width: 80%">Yazdır</span>\n\n            <span item-right style="width: 20%">\n\n              <i class="fas fa-print"></i>\n\n            </span>\n\n          </button>\n\n        </ion-col>\n\n\n\n        <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2>\n\n          <button ion-button round color="secondary" [disabled]="isHizmetDisabled()" (click)="hizmetSilKontrol()" full>\n\n            <span item-left style="width: 80%">Sil</span>\n\n            <span item-right style="width: 20%">\n\n              <i class="fas fa-trash-alt"></i>\n\n            </span>\n\n          </button>\n\n        </ion-col>\n\n\n\n        <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 *ngIf="isAnketExist">\n\n          <button ion-button round color="secondary" (click)="goToAnketPage()" full>\n\n            <span item-left style="width: 80%">Anket</span>\n\n            <span item-right style="width: 20%">\n\n              <i class="fas fa-question-circle"></i>\n\n            </span>\n\n          </button>\n\n        </ion-col>\n\n\n\n      </ion-row>\n\n\n\n    </ion-grid>\n\n\n\n    <ion-row>\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">Açıklama</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-textarea [(ngModel)]="hizmet.aciklama" [disabled]="isHizmetDisabled()" (ionBlur)="onHizmetChange()"></ion-textarea>\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">Kapatma Şekli</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-select [(ngModel)]="hizmet.kapatmaKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()" interface="popover">\n\n          <ion-option value="NORMAL">Normal Kapatma</ion-option>\n\n          <ion-option value="MESGULIYET">Meşguliyet Kapatma</ion-option>\n\n        </ion-select>\n\n\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">Ödeme Tipi</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-select [(ngModel)]="hizmet.odemeTipi" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()" interface="popover">\n\n          <ion-option value="NAKIT">Nakit</ion-option>\n\n          <ion-option value="KREDIKARTI">Kredi Kartı</ion-option>\n\n        </ion-select>\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">Çözüm Kodu</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-select [(ngModel)]="hizmet.cozumKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()" interface="popover">\n\n          <ion-option *ngFor="let cozum of cozumKoduList" [value]="cozum.kod">{{cozum.ad}}</ion-option>\n\n        </ion-select>\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label color="primary">İletişim Istek</ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-6 col-md-9>\n\n\n\n        <ion-label color="primary" class="radio-btn" style="text-align: end;position: relative;">{{iletisimIstek == true ? \'EVET\' : \'HAYIR\'}}\n\n        </ion-label>\n\n\n\n      </ion-col>\n\n      <ion-col col-2 col-md-1>\n\n        <ion-toggle (ionChange)="iletisimIstekChange()" class="toggle-btn" style="text-align: end;" [disabled]="isHizmetDisabled()"\n\n          [(ngModel)]="iletisimIstek"></ion-toggle>\n\n      </ion-col>\n\n\n\n    </ion-row>\n\n  </div>\n\n</ion-list>\n\n'/*ion-inline-end:"D:\WORKS\IONIC\Ionic-Offline-App\src\components\cagri-detay-components\detay-bilgileri\detay-bilgileri.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_hizmet_service_hizmet_service__["a" /* HizmetService */],
             __WEBPACK_IMPORTED_MODULE_6__providers_urun_ana_grup_dao_urun_ana_grup_dao__["a" /* UrunAnaGrupDao */],
@@ -14712,6 +15107,7 @@ var DetayBilgileriComponent = (function () {
             __WEBPACK_IMPORTED_MODULE_8_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_11__providers_hizmet_hizmet__["a" /* HizmetProvider */],
             __WEBPACK_IMPORTED_MODULE_13__providers_fiyat_fiyat__["a" /* FiyatProvider */],
+            __WEBPACK_IMPORTED_MODULE_15__providers_anket_service_anket_service__["a" /* AnketService */],
             __WEBPACK_IMPORTED_MODULE_10__providers_printer_service_printer_service__["a" /* PrinterService */]])
     ], DetayBilgileriComponent);
     return DetayBilgileriComponent;
@@ -14732,7 +15128,7 @@ var DetayBilgileriComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_hizmet_islemList__ = __webpack_require__(899);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_ProcessResults__ = __webpack_require__(121);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_logger_logger__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_logger_logger__ = __webpack_require__(10);
 /**
  * @author malisahin
  * @since 17.04.2018
@@ -15011,70 +15407,6 @@ var IslemList = (function () {
 
 /***/ }),
 
-/***/ 9:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoggerProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/**
- * @author malisahin
- * @date 2018-04-14
- */
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var LoggerProvider = (function () {
-    function LoggerProvider() {
-    }
-    LoggerProvider.prototype.info = function (res) {
-        console.log("%c " + res, "color: #0096ff");
-    };
-    LoggerProvider.prototype.success = function (res) {
-        console.log("%c " + res, "color: #00ff4b");
-    };
-    LoggerProvider.prototype.log = function (res) {
-        console.log(res);
-    };
-    LoggerProvider.prototype.log2 = function (mes, res) {
-        console.log(mes, res);
-    };
-    LoggerProvider.prototype.dir = function (res) {
-        console.dir(res);
-    };
-    LoggerProvider.prototype.dir2 = function (mes, res) {
-        console.dir(mes, res);
-    };
-    LoggerProvider.prototype.error = function (res) {
-        console.error(res);
-    };
-    LoggerProvider.prototype.error2 = function (mes, res) {
-        console.error(mes, res);
-    };
-    LoggerProvider.prototype.warn = function (res) {
-        console.warn(res);
-    };
-    LoggerProvider.prototype.table = function (res) {
-        console.table(res);
-    };
-    LoggerProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [])
-    ], LoggerProvider);
-    return LoggerProvider;
-}());
-
-//# sourceMappingURL=logger.js.map
-
-/***/ }),
-
 /***/ 900:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -15192,17 +15524,17 @@ var ServisIslemTarihceComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(566);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(567);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_cagrilar_cagrilar__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_bildirimler_bildirimler__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_guncelleme_guncelleme__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_kutuphane_kutuphane__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_cagrilar_cagrilar__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_bildirimler_bildirimler__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_guncelleme_guncelleme__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_kutuphane_kutuphane__ = __webpack_require__(198);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_ayarlar_ayarlar__ = __webpack_require__(508);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_login_login__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_login_login__ = __webpack_require__(199);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_database_database__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_bilgi_sorgu_bilgi_sorgu__ = __webpack_require__(192);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_theme_theme__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_logger_logger__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_deeplink_printer_deeplink_printer__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_bilgi_sorgu_bilgi_sorgu__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_theme_theme__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_logger_logger__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_deeplink_printer_deeplink_printer__ = __webpack_require__(200);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -15440,7 +15772,7 @@ var ListItem = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SafeHtmlPipe; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(51);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -15473,7 +15805,7 @@ var SafeHtmlPipe = (function () {
 
 /***/ }),
 
-/***/ 98:
+/***/ 99:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15481,9 +15813,9 @@ var SafeHtmlPipe = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_header_header__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_mesajlar_dao_mesajlar_dao__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_hizmet_dao_hizmet_dao__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_theme_theme__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_mesajlar_dao_mesajlar_dao__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_hizmet_dao_hizmet_dao__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_theme_theme__ = __webpack_require__(74);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -15600,7 +15932,7 @@ var Anasayfa = (function () {
     };
     Anasayfa = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-anasayfa',template:/*ion-inline-start:"D:\WORKS\IONIC\Ionic-Offline-App\src\pages\anasayfa\anasayfa.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton="true">\n    <icon-header #header></icon-header>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content class="content-background home-content" [ngStyle]="{ \'background-image\': \'url(\' + backGroundImage + \')\' }">\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n        <ion-card (click)="sayfayaGit(\'CagrilarPage\',{})">\n\n          <ion-item>\n            <div class="icon-box">\n              <ion-icon name="ios-call" item-start xlarge></ion-icon>\n            </div>\n            <div class="text-box">\n              <span>Çağrılar</span>\n            </div>\n          </ion-item>\n          <div class="announcements">\n            {{cagriSayisi}}\n          </div>\n\n        </ion-card>\n      </ion-col>\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n        <ion-card (click)="sayfayaGit(\'BildirimlerPage\', {type:\'WARN\'})">\n\n          <ion-item>\n            <div class="icon-box">\n              <ion-icon name="notifications" item-start xlarge></ion-icon>\n            </div>\n            <div class="text-box">\n              <span>Duyurular</span>\n            </div>\n          </ion-item>\n\n\n          <div class="announcements">\n            {{duyuruSayisi}}\n          </div>\n\n        </ion-card>\n      </ion-col>\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n        <ion-card (click)="sayfayaGit(\'BildirimlerPage\',{type:\'URGENT\'})">\n\n          <ion-item>\n            <div class="icon-box">\n              <ion-icon name="notifications" item-start xlarge></ion-icon>\n            </div>\n            <div class="text-box">\n              <span>Uyarılar</span>\n            </div>\n          </ion-item>\n\n          <div class="announcements">\n            {{uyariSayisi}}\n          </div>\n\n        </ion-card>\n      </ion-col>\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n        <ion-card (click)="sayfayaGit(\'GuncellemePage\',{})">\n\n          <ion-item>\n            <div class="icon-box">\n              <ion-icon name="md-refresh" item-start xlarge></ion-icon>\n            </div>\n            <div class="text-box">\n              <span>Güncelleme </span>\n            </div>\n          </ion-item>\n\n          <div class="announcements">\n            {{guncellemeSayisi}}\n          </div>\n\n\n        </ion-card>\n      </ion-col>\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n        <ion-card (click)="sayfayaGit(\'BilgiSorguPage\', {})">\n\n          <ion-item>\n            <div class="icon-box">\n              <ion-icon name="md-help" item-start xlarge></ion-icon>\n            </div>\n            <div class="text-box">\n              <span> Bilgi Sorgu</span>\n            </div>\n          </ion-item>\n        </ion-card>\n      </ion-col>\n\n      <ion-col col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n        <ion-card (click)="sayfayaGit(\'AyarlarPage\',{})">\n\n          <ion-item>\n            <div class="icon-box">\n              <ion-icon name="settings" item-start xlarge></ion-icon>\n            </div>\n            <div class="text-box">\n              <span>Ayarlar</span>\n            </div>\n          </ion-item>\n\n        </ion-card>\n      </ion-col>\n\n    </ion-row>\n  </ion-grid>\n\n</ion-content>\n\n\n<ion-footer>\n  <ion-item float-left style="width: 40%">\n    <ion-label class="pull-left">SISTEK© 2018</ion-label>\n  </ion-item>\n  <ion-item float-right style="width: 60%">\n    <ion-label class="pull-right">Servis Otomasyon Sistemi</ion-label>\n  </ion-item>\n</ion-footer>\n'/*ion-inline-end:"D:\WORKS\IONIC\Ionic-Offline-App\src\pages\anasayfa\anasayfa.html"*/,
+            selector: 'page-anasayfa',template:/*ion-inline-start:"D:\WORKS\IONIC\Ionic-Offline-App\src\pages\anasayfa\anasayfa.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton="true">\n    <icon-header #header></icon-header>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content class="content-background home-content" [ngStyle]="{ \'background-image\': \'url(\' + backGroundImage + \')\' }">\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-xs-12 col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n        <ion-card (click)="sayfayaGit(\'CagrilarPage\',{})">\n\n          <ion-item>\n            <div class="icon-box">\n              <ion-icon name="ios-call" item-start xlarge></ion-icon>\n            </div>\n            <div class="text-box">\n              <span>Çağrılar</span>\n            </div>\n          </ion-item>\n          <div class="announcements">\n            {{cagriSayisi}}\n          </div>\n\n        </ion-card>\n      </ion-col>\n\n      <ion-col col-xs-12 col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n        <ion-card (click)="sayfayaGit(\'BildirimlerPage\', {type:\'WARN\'})">\n\n          <ion-item>\n            <div class="icon-box">\n              <ion-icon name="notifications" item-start xlarge></ion-icon>\n            </div>\n            <div class="text-box">\n              <span>Duyurular</span>\n            </div>\n          </ion-item>\n\n\n          <div class="announcements">\n            {{duyuruSayisi}}\n          </div>\n\n        </ion-card>\n      </ion-col>\n\n      <ion-col col-xs-12 col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n        <ion-card (click)="sayfayaGit(\'BildirimlerPage\',{type:\'URGENT\'})">\n\n          <ion-item>\n            <div class="icon-box">\n              <ion-icon name="notifications" item-start xlarge></ion-icon>\n            </div>\n            <div class="text-box">\n              <span>Uyarılar</span>\n            </div>\n          </ion-item>\n\n          <div class="announcements">\n            {{uyariSayisi}}\n          </div>\n\n        </ion-card>\n      </ion-col>\n\n      <ion-col col-xs-12 col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n        <ion-card (click)="sayfayaGit(\'GuncellemePage\',{})">\n\n          <ion-item>\n            <div class="icon-box">\n              <ion-icon name="md-refresh" item-start xlarge></ion-icon>\n            </div>\n            <div class="text-box">\n              <span>Güncelleme </span>\n            </div>\n          </ion-item>\n\n          <div class="announcements">\n            {{guncellemeSayisi}}\n          </div>\n\n\n        </ion-card>\n      </ion-col>\n\n      <ion-col col-xs-12 col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n        <ion-card (click)="sayfayaGit(\'BilgiSorguPage\', {})">\n\n          <ion-item>\n            <div class="icon-box">\n              <ion-icon name="md-help" item-start xlarge></ion-icon>\n            </div>\n            <div class="text-box">\n              <span> Bilgi Sorgu</span>\n            </div>\n          </ion-item>\n        </ion-card>\n      </ion-col>\n\n      <ion-col col-xs-12 col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3>\n        <ion-card (click)="sayfayaGit(\'AyarlarPage\',{})">\n\n          <ion-item>\n            <div class="icon-box">\n              <ion-icon name="settings" item-start xlarge></ion-icon>\n            </div>\n            <div class="text-box">\n              <span>Ayarlar</span>\n            </div>\n          </ion-item>\n\n        </ion-card>\n      </ion-col>\n\n    </ion-row>\n  </ion-grid>\n\n</ion-content>\n\n\n<ion-footer>\n  <ion-item float-left style="width: 40%">\n    <ion-label class="pull-left">SISTEK© 2018</ion-label>\n  </ion-item>\n  <ion-item float-right style="width: 60%">\n    <ion-label class="pull-right">Servis Otomasyon Sistemi</ion-label>\n  </ion-item>\n</ion-footer>\n'/*ion-inline-end:"D:\WORKS\IONIC\Ionic-Offline-App\src\pages\anasayfa\anasayfa.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -15613,158 +15945,6 @@ var Anasayfa = (function () {
 }());
 
 //# sourceMappingURL=anasayfa.js.map
-
-/***/ }),
-
-/***/ 99:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MesajlarDao; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_mesajlar__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__database_database__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__base_dao_base_dao__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_Pageable__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_Constants__ = __webpack_require__(6);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [0, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-
-
-
-
-
-
-
-
-var MesajlarDao = (function () {
-    function MesajlarDao(http, dbProvider, util, baseDao) {
-        this.http = http;
-        this.dbProvider = dbProvider;
-        this.util = util;
-        this.baseDao = baseDao;
-    }
-    MesajlarDao.prototype.insertList = function (list) {
-        var _this = this;
-        var response;
-        var insertedItems = 0;
-        return new Promise(function (resolve, reject) {
-            _this.dbProvider.transaction().then(function (db) {
-                db.transaction(function (tx) {
-                    var query = "INSERT OR REPLACE INTO OFF_ALERT (id, bitisTarihi, aciklama, gonderen, basTarihi, status, subject, type, valid) VALUES (?,?,?,?,?,?,?,?,?)";
-                    for (var _i = 0, list_1 = list; _i < list_1.length; _i++) {
-                        var item = list_1[_i];
-                        var params = [item.id, item.bitisTarihi + " 23:59:59", item.aciklama, item.gonderen, item.basTarihi + " 00:00:00", item.status, item.subject, item.type, item.valid];
-                        tx.executeSql(query, params, function (tx, res) {
-                            insertedItems += 1;
-                            if (list.length == insertedItems) {
-                                resolve(res);
-                            }
-                        }, function (err, mes) {
-                            console.error("Error" + mes.message + " Code: " + mes.code);
-                            reject(err);
-                        });
-                    }
-                });
-            });
-        });
-    };
-    MesajlarDao.prototype.loadDuyuruSayisi = function () {
-        return this.loadMesajSayisi("WARN");
-    };
-    MesajlarDao.prototype.loadUyariSayisi = function () {
-        return this.loadMesajSayisi("URGENT");
-    };
-    MesajlarDao.prototype.loadMesajSayisi = function (type) {
-        return __awaiter(this, void 0, void 0, function () {
-            var mes, result;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        mes = new __WEBPACK_IMPORTED_MODULE_2__entities_mesajlar__["a" /* Mesaj */]();
-                        mes.type = type;
-                        return [4 /*yield*/, this.getList(mes, new __WEBPACK_IMPORTED_MODULE_6__entities_Pageable__["a" /* Pageable */]())];
-                    case 1:
-                        result = _a.sent();
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                resolve(result.res.rows.length);
-                            })];
-                }
-            });
-        });
-    };
-    MesajlarDao.prototype.getList = function (mesaj, pageable) {
-        var query = this.prepareSearchQery(mesaj);
-        return this.baseDao.getList(query, "id", "", __WEBPACK_IMPORTED_MODULE_7__entities_Constants__["a" /* Constants */].SEARCH_TYPE.EXACT, pageable.first, pageable.pageSize, true);
-    };
-    MesajlarDao.prototype.prepareSearchQery = function (mesaj) {
-        var query = "SELECT * FROM OFF_ALERT WHERE 1=1";
-        if (this.util.isNotEmpty(mesaj.id)) {
-            query += " AND id=" + mesaj.id + " ";
-        }
-        if (this.util.isNotEmpty(mesaj.type)) {
-            query += " AND type='" + mesaj.type + "' ";
-        }
-        var now = "'" + this.util.dateFormatRegex(new Date(), "yyyy-MM-dd hh:mm:ss") + "'";
-        query += " AND bitisTarihi > " + now;
-        query += " AND basTarihi < " + now;
-        return query;
-    };
-    MesajlarDao = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */],
-            __WEBPACK_IMPORTED_MODULE_3__database_database__["a" /* DatabaseProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__util_util__["a" /* UtilProvider */],
-            __WEBPACK_IMPORTED_MODULE_5__base_dao_base_dao__["a" /* BaseDao */]])
-    ], MesajlarDao);
-    return MesajlarDao;
-}());
-
-//# sourceMappingURL=mesajlar-dao.js.map
 
 /***/ })
 
