@@ -1,21 +1,22 @@
-import {HttpClient} from "@angular/common/http";
-import {Injectable} from "@angular/core";
-import {UtilProvider} from "../util/util";
-import {LoggerProvider} from "../logger/logger";
-import {CallNumber} from "@ionic-native/call-number";
-import {BarcodeScanner} from "@ionic-native/barcode-scanner";
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { UtilProvider } from "../util/util";
+import { LoggerProvider } from "../logger/logger";
+import { CallNumber } from "@ionic-native/call-number";
+import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 
 @Injectable()
 export class UtilPlugin {
   constructor(private util: UtilProvider,
-              private logger: LoggerProvider,
-              private callNumber: CallNumber,
-              private barcodeScanner: BarcodeScanner) {
+    private logger: LoggerProvider,
+    private callNumber: CallNumber,
+    private barcodeScanner: BarcodeScanner) {
     console.log("Hello PluginProvider Provider");
   }
 
   callPhoneNumber(tel: any) {
     if (this.util.isNotEmpty(tel)) {
+      tel += "0";
       this.callNumber
         .callNumber(tel, true)
         .then(res => this.logger.info("Launched dialer! " + res))

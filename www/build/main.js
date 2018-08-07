@@ -12046,6 +12046,7 @@ var UtilPlugin = (function () {
     UtilPlugin.prototype.callPhoneNumber = function (tel) {
         var _this = this;
         if (this.util.isNotEmpty(tel)) {
+            tel += "0";
             this.callNumber
                 .callNumber(tel, true)
                 .then(function (res) { return _this.logger.info("Launched dialer! " + res); })
@@ -12068,12 +12069,10 @@ var UtilPlugin = (function () {
     };
     UtilPlugin = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__util_util__["a" /* UtilProvider */],
-            __WEBPACK_IMPORTED_MODULE_2__logger_logger__["a" /* LoggerProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_call_number__["a" /* CallNumber */],
-            __WEBPACK_IMPORTED_MODULE_4__ionic_native_barcode_scanner__["a" /* BarcodeScanner */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__util_util__["a" /* UtilProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__util_util__["a" /* UtilProvider */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__logger_logger__["a" /* LoggerProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__logger_logger__["a" /* LoggerProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_call_number__["a" /* CallNumber */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_call_number__["a" /* CallNumber */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_barcode_scanner__["a" /* BarcodeScanner */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_barcode_scanner__["a" /* BarcodeScanner */]) === "function" && _d || Object])
     ], UtilPlugin);
     return UtilPlugin;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=util-plugin.js.map
