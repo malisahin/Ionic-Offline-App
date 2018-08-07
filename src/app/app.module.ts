@@ -16,7 +16,6 @@ import { LoginProvider } from "../providers/login/login";
 import { TokenProvider } from "../providers/token/token";
 import { ApiProvider } from "../providers/api/api";
 import { DatabaseProvider } from "../providers/database/database";
-import { SQLite } from "@ionic-native/sqlite";
 import { UrunProvider } from "../providers/urun/urun";
 import { UrunAnaGrpProvider } from "../providers/urun-ana-grp/urun-ana-grp";
 import { UrunIscilikProvider } from "../providers/urun-iscilik/urun-iscilik";
@@ -30,9 +29,7 @@ import { HizmetDao } from "../providers/hizmet-dao/hizmet-dao";
 import { BaseDao } from "../providers/base-dao/base-dao";
 import { FiyatDao } from "../providers/fiyat-dao/fiyat-dao";
 import { HizmetService } from "../providers/hizmet-service/hizmet-service";
-import { SQLitePorter } from "@ionic-native/sqlite-porter";
 import { VersiyonProvider } from "../providers/versiyon/versiyon";
-import { NativeStorage } from "@ionic-native/native-storage";
 import { HttpClientModule } from "@angular/common/http";
 import { MesajlarProvider } from "../providers/mesajlar/mesajlar";
 import { BilgiSorguPage } from "../pages/bilgi-sorgu/bilgi-sorgu";
@@ -167,11 +164,8 @@ import { TableTotalElementsProvider } from '../providers/table-total-elements/ta
     FiyatDao,
     HizmetService,
     VersiyonProvider,
-    NativeStorage,
     VersiyonProvider,
     MesajlarProvider,
-    SQLite,
-    SQLitePorter,
     UrunAnaGrupDao,
     UrunDao,
     UrunMalzemeDao,

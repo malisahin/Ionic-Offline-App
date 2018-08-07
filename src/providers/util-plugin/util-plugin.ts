@@ -24,7 +24,7 @@ export class UtilPlugin {
     }
   }
 
-  scanBarcode(): Promise<any> {
+  async scanBarcode(): Promise<any> {
     return this.barcodeScanner.scan(
       {
         preferFrontCamera: false, // iOS and Android

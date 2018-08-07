@@ -91,6 +91,8 @@ export class GarantiSorguComponent {
     if (this.util.isNotEmpty(result) && this.util.isNotEmpty(result.text)) {
       this.util.success(" Barcode Alındı: " + result.text);
       this.barkodNo = result.text;
+    } else {
+      this.util.error(result)
     }
 
   }
