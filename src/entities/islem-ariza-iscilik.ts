@@ -1,4 +1,5 @@
-import {Constants} from "./Constants";
+import { Constants } from "./Constants";
+import { EntityUtil } from "./EntityUtil";
 
 /**
  * @author malisahin
@@ -6,7 +7,7 @@ import {Constants} from "./Constants";
  */
 
 
-export class IslemArizaIscilik {
+export class IslemArizaIscilik extends EntityUtil {
   mamAnaGrp: string;
   islGrp: string;
   islGrpAd: string;
@@ -27,6 +28,8 @@ export class IslemArizaIscilik {
      */
     localStorage.setItem(Constants.VERSIYON.SERVER.ISLEM_ARIZA_ISCILIK, versiyon);
     localStorage.setItem(Constants.GELEN_VERI.ISLEM_ARIZA_ISCILIK, list.length);
+
+    this.indirilenVeriyiHesapla(Constants.DATA_TYPE.ISLEM_ARIZA_ISCILIK, list.length);
 
     list.forEach(obj => {
       let item = new IslemArizaIscilik();

@@ -1,4 +1,5 @@
-import {Constants} from "./Constants";
+import { Constants } from "./Constants";
+import { EntityUtil } from "./EntityUtil";
 
 /**
  * @author malisahin
@@ -6,7 +7,7 @@ import {Constants} from "./Constants";
  */
 
 
-export class UrunIscilik {
+export class UrunIscilik extends EntityUtil {
   mamKod: string = '';
   iscKod: string = '';
   iscAdi: string = '';
@@ -23,6 +24,8 @@ export class UrunIscilik {
 
     localStorage.setItem(Constants.GELEN_VERI.URUN_ISCILIK, urunIscilikList.length);
     localStorage.setItem(Constants.VERSIYON.SERVER.URUN_ISCILIK, urunIscilikVersiyon);
+
+    this.indirilenVeriyiHesapla(Constants.DATA_TYPE.URUN_ISCILIK, urunIscilikList.length);
 
     urunIscilikList.forEach(function (item) {
       let urunIscilik = new UrunIscilik();

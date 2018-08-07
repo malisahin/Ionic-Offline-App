@@ -3,28 +3,29 @@
  * @since 2018-04-14
  */
 
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {ApiProvider} from '../api/api';
-import {Constants} from '../../entities/Constants';
-import {AdresDao} from '../adres-dao/adres-dao';
-import {LoggerProvider} from '../logger/logger';
-import {Sehir} from "../../entities/Sehir";
-import {Ilce} from "../../entities/Ilce";
-import {Mahalle} from "../../entities/mahalle";
-import {TokenProvider} from "../token/token";
-import {UtilProvider} from "../util/util";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { ApiProvider } from '../api/api';
+import { Constants } from '../../entities/Constants';
+import { AdresDao } from '../adres-dao/adres-dao';
+import { LoggerProvider } from '../logger/logger';
+import { Sehir } from "../../entities/Sehir";
+import { Ilce } from "../../entities/Ilce";
+import { Mahalle } from "../../entities/mahalle";
+import { TokenProvider } from "../token/token";
+import { UtilProvider } from "../util/util";
+import { EntityUtil } from '../../entities/EntityUtil';
 
 
 @Injectable()
 export class AdresProvider {
 
   constructor(public http: HttpClient,
-              private api: ApiProvider,
-              private token: TokenProvider,
-              private adresDao: AdresDao,
-              private util: UtilProvider,
-              private logger: LoggerProvider) {
+    private api: ApiProvider,
+    private token: TokenProvider,
+    private adresDao: AdresDao,
+    private util: UtilProvider,
+    private logger: LoggerProvider) {
 
     console.log('Hello AdresProvider Provider');
   }
@@ -34,7 +35,7 @@ export class AdresProvider {
     let header = await this.token.callTokenAndGetHeader();
     if (this.util.isOnline()) {
       this.util.loaderStart();
-      let apiData = await this.http.get(url, {headers: header}).toPromise();
+      let apiData = await this.http.get(url, { headers: header }).toPromise();
       let sehirList = this.fillSehirList(apiData);
       this.logger.dir(apiData);
       return this.adresDao.insertSehirList(sehirList);
@@ -49,7 +50,7 @@ export class AdresProvider {
     let header = await this.token.callTokenAndGetHeader();
     if (this.util.isOnline()) {
       this.util.loaderStart();
-      let apiData = await this.http.get(url, {headers: header}).toPromise();
+      let apiData = await this.http.get(url, { headers: header }).toPromise();
       let ilceList = this.fillIlceList(apiData);
       return this.adresDao.insertIlceList(ilceList);
     } else {
@@ -62,7 +63,7 @@ export class AdresProvider {
     let header = await this.token.callTokenAndGetHeader();
     if (this.util.isOnline()) {
       this.util.loaderStart();
-      let apiData = await this.http.get(url, {headers: header}).toPromise();
+      let apiData = await this.http.get(url, { headers: header }).toPromise();
       let mahalleList = this.fillMahalleList(apiData);
       return this.adresDao.insertMahalleList(mahalleList);
     } else {
@@ -105,6 +106,10 @@ export class AdresProvider {
     let versiyon = item.message.versiyon;
     localStorage.setItem(Constants.VERSIYON.SERVER.MAHALLE_TNM, versiyon);
     localStorage.setItem(Constants.GELEN_VERI.MAHALLE_TNM, item.message.data.length.toString());
+
+    let entityUtil = new EntityUtil();
+    entityUtil.indirilenVeriyiHesapla(Constants.DATA_TYPE.MAHALLE_TNM, item.message.data.length);
+
     list.forEach(row => {
       let mahalle = new Mahalle();
       mahalle.sehirKodu = row.sehirKodu;

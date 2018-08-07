@@ -1,4 +1,5 @@
-import {Constants} from "./Constants";
+import { Constants } from "./Constants";
+import { EntityUtil } from "./EntityUtil";
 
 /**
  * @author malisahin
@@ -6,7 +7,7 @@ import {Constants} from "./Constants";
  */
 
 
-export class Fiyat {
+export class Fiyat extends EntityUtil {
   mamKod: string = null;
   iscMlz: string = null;
   iscMlzKod: string = null;
@@ -35,9 +36,13 @@ export class Fiyat {
       localStorage.setItem(Constants.GELEN_VERI.MALZEME_FIYAT, fiyatList.length);
       localStorage.setItem(Constants.VERSIYON.SERVER.MALZEME_FIYAT, versiyon);
 
+      this.indirilenVeriyiHesapla(Constants.DATA_TYPE.MALZEME_FIYAT, fiyatList.length);
+
     } else if (tip == 'ISC' || tip == "iscilikFiyatListesi") {
       localStorage.setItem(Constants.GELEN_VERI.ISCILIK_FIYAT, fiyatList.length);
       localStorage.setItem(Constants.VERSIYON.SERVER.ISCILIK_FIYAT, versiyon);
+
+      this.indirilenVeriyiHesapla(Constants.DATA_TYPE.ISCILIK_FIYAT, fiyatList.length);
     }
 
     return new Promise(res => res(parsedList));

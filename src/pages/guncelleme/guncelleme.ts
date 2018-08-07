@@ -19,6 +19,7 @@ import { UtilProvider } from '../../providers/util/util';
 import { HeaderComponent } from "../../components/header/header";
 import { VersiyonProvider } from "../../providers/versiyon/versiyon";
 import { TasksProvider } from "../../providers/tasks/tasks";
+import { EntityUtil } from '../../entities/EntityUtil';
 
 
 @IonicPage()
@@ -345,7 +346,7 @@ export class GuncellemePage {
     let gelenVeri = localStorage.getItem(Constants.GELEN_VERI[type]);
     this.logger.info("Kayıtlı Miktar ==> " + type + " ==> " + localStorage.getItem(Constants.GELEN_VERI[type]));
     this.logger.info("type ==> " + type + "; Constants.GELEN_VERI[type] ==> " + Constants.GELEN_VERI[type]);
-    //|| (this.util.isNotEmpty(gelenVeri) && gelenVeri != "0")
+
     if (serverVersiyon == '-1' || clientVersiyon != serverVersiyon) {
       Constants.COLORS[type] = "notDownloaded";
       Constants.ICONS[type] = "download";
@@ -379,11 +380,15 @@ export class GuncellemePage {
   }
 
   onComplete() {
+
     this.util.loaderEnd();
     this.updateHeader();
     this.setVersiyon();
     this.tasks.startTasks();
     this.counter = 0;
+
+    let entityUtil = new EntityUtil();
+    entityUtil.indirilenVeriyiSifirla();
   }
 
   onDownloadStart() {
@@ -423,7 +428,7 @@ export class GuncellemePage {
       else
         versiyonText += "-1";
     }
-    // this.logger.info("VERSIYON_" + tip + "==> " + versiyonText);
+
     return versiyonText;
   }
 }

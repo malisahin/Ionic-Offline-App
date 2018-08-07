@@ -1,4 +1,5 @@
-import {Constants} from "./Constants";
+import { Constants } from "./Constants";
+import { EntityUtil } from "./EntityUtil";
 
 /**
  * @author malisahin
@@ -6,7 +7,7 @@ import {Constants} from "./Constants";
  */
 
 
-export class UrunMalzeme {
+export class UrunMalzeme extends EntityUtil {
   mamKod: string = null;
   mlzKod: string = null;
   mlzAdi: string = null;
@@ -26,6 +27,7 @@ export class UrunMalzeme {
     localStorage.setItem(Constants.GELEN_VERI.URUN_MALZEME, urunMalzemeList.length);
     localStorage.setItem(Constants.VERSIYON.SERVER.URUN_MALZEME, urunMalzemeVersiyon);
 
+    this.indirilenVeriyiHesapla(Constants.DATA_TYPE.URUN_MALZEME, urunMalzemeList.length);
 
     urunMalzemeList.forEach(item => {
       let newItem: UrunMalzeme = new UrunMalzeme();

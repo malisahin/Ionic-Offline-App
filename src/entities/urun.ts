@@ -1,11 +1,12 @@
-import {Constants} from "./Constants";
+import { Constants } from "./Constants";
+import { EntityUtil } from "./EntityUtil";
 
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
 */
 
-export class Urun {
+export class Urun extends EntityUtil {
   mamAnagrp: string = "";
   mamKod: string = "";
   mamAdi: string = "";
@@ -24,6 +25,9 @@ export class Urun {
      */
     localStorage.setItem(Constants.VERSIYON.SERVER.URUN, urunVersiyon);
     localStorage.setItem(Constants.GELEN_VERI.URUN, urunList.length);
+
+    this.indirilenVeriyiHesapla(Constants.DATA_TYPE.URUN, urunList.length);
+
 
     urunList.forEach(function (item) {
       let urun: Urun = new Urun();
