@@ -90,6 +90,10 @@ import { SafeHtmlPipe } from "../pipes/safe-html/safe-html";
 import { SpinnerComponent } from "../components/spinner/spinner";
 import { TableTotalElementsProvider } from '../providers/table-total-elements/table-total-elements';
 
+import 'intl';
+import 'intl/locale-data/jsonp/en';
+import {MomentModule} from "angular2-moment";
+
 @NgModule({
   declarations: [
     MyApp,
@@ -110,7 +114,9 @@ import { TableTotalElementsProvider } from '../providers/table-total-elements/ta
     BildirimlerPageModule,
     AnasayfaPageModule,
     LoginPageModule,
-    CagriAramaModalPageModule
+    CagriAramaModalPageModule,
+    MomentModule
+
   ],
   exports: [],
   bootstrap: [IonicApp],
