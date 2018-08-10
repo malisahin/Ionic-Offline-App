@@ -1,13 +1,13 @@
 <!-- Generated template for the UrunBilgileriComponent component -->
 <ion-grid>
   <ion-row>
-    <ion-col col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3>
+    <ion-col col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3>
       <button ion-button icon-start full round (click)="urunListesiniGetir()" [disabled]="isHizmetDisabled()">
         <ion-icon name="list"></ion-icon>
         Ürün Seç
       </button>
     </ion-col>
-    <ion-col col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3>
+    <ion-col col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3>
       <button ion-button icon-start full round (click)="urunSil()" [disabled]="isHizmetDisabled()">
         <ion-icon name="trash"></ion-icon>
         Ürün Sil
@@ -21,7 +21,7 @@
     </ion-col>
     <ion-col col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3>
       <button ion-button icon-start full round (click)="garantiSorgula()">
-        <ion-icon style="width: 5%" name="md-help"></ion-icon>
+        <ion-icon name="md-search"></ion-icon>
         Garanti Sorgula
       </button>
     </ion-col>
@@ -31,92 +31,105 @@
 
 <ion-row class="urun-bilgileri">
   <ion-col col-4 col-md-2>
-    <ion-label color="primary">Ürün Ana Grubu</ion-label>
+    <ion-label>
+      <strong>Ürün Ana Grubu:</strong>
+    </ion-label>
   </ion-col>
   <ion-col col-8 col-md-10>
     <ion-input [(ngModel)]="mamAnaGrpValue" readonly></ion-input>
   </ion-col>
 
   <ion-col col-4 col-md-2>
-    <ion-label color="primary">Ürün Kodu</ion-label>
+    <ion-label>
+      <strong>Ürün Kodu:</strong>
+    </ion-label>
   </ion-col>
   <ion-col col-8 col-md-10>
     <ion-input [(ngModel)]="hizmet.mamKod" readonly></ion-input>
   </ion-col>
 
   <ion-col col-4 col-md-2>
-    <ion-label color="primary">Ürün Adı</ion-label>
+    <ion-label>
+      <strong>Ürün Adı:</strong>
+    </ion-label>
   </ion-col>
   <ion-col col-8 col-md-10>
     <ion-input [(ngModel)]="hizmet.mamAdi" readonly></ion-input>
   </ion-col>
 
   <ion-col col-4 col-md-2>
-    <ion-label color="primary">Seri No</ion-label>
+    <ion-label>
+      <strong>Seri No:</strong>
+    </ion-label>
   </ion-col>
   <ion-col col-8 col-md-10>
-    <ion-input [(ngModel)]="hizmet.mamSeriNo" (ionBlur)="saveHizmet()"
-               [disabled]="isHizmetDisabled()"></ion-input>
+    <ion-input [(ngModel)]="hizmet.mamSeriNo" (ionBlur)="saveHizmet()" [disabled]="isHizmetDisabled()"></ion-input>
   </ion-col>
 
 
 
-  <ion-col col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4>
-    <ion-label color="primary"></ion-label>
-  </ion-col>
-  <ion-col col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4>
-    <button item-left ion-button icon-start full round (click)="seriNoSorgula()"
-            [disabled]="isHizmetDisabled()" style="margin-top:13px;">
-      <span item-right style="width: 20%"><i item-right class="fas fa-search"></i></span>
-      <span item-left style="width: 80%">Seri No Sorgula</span>
+
+  <ion-col col-6 col-sm-12 col-md-6 col-lg-6 col-xl-6>
+    <button item-left ion-button icon-start full round (click)="seriNoSorgula()" [disabled]="isHizmetDisabled()" style="margin-top:13px;">
+      <span class="icon-right">
+        <i item-right class="fas fa-search"></i>
+      </span>
+      Seri No Sorgula
     </button>
   </ion-col>
-  <ion-col col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4>
-    <button item-left ion-button icon-start full round (click)="scanBarcode()"
-            [disabled]="isHizmetDisabled()" style="margin-top:13px;">
-      <span item-right style="width: 20%"><i item-right class="fas fa-barcode"></i></span>
-      <span item-left style="width: 80%">Barkod Oku</span>
+  <ion-col col-6 col-sm-12 col-md-6 col-lg-6 col-xl-6>
+    <button item-left ion-button icon-start full round (click)="scanBarcode()" [disabled]="isHizmetDisabled()" style="margin-top:13px;">
+      <span class="icon-right">
+        <i item-right class="fas fa-barcode"></i>
+      </span>Barkod Oku
     </button>
   </ion-col>
 
 
   <ion-col col-4 col-md-2 *ngIf="seriNoSayisi != null && seriNoSayisi != 1">
-    <ion-label color="primary">Seri No2</ion-label>
+    <ion-label>
+      <strong>Seri No2:</strong>
+    </ion-label>
   </ion-col>
   <ion-col col-8 col-md-10 *ngIf="seriNoSayisi != null && seriNoSayisi != 1">
     <ion-input [(ngModel)]="hizmet.mamSeriNo2" (ionBlur)="saveHizmet()" [disabled]="isHizmetDisabled()"></ion-input>
   </ion-col>
 
   <ion-col col-4 col-md-2>
-    <ion-label color="primary">Fatura Tarihi</ion-label>
+    <ion-label>
+      <strong>Fatura Tarihi:</strong>
+    </ion-label>
   </ion-col>
   <ion-col col-8 col-md-10>
-    <ion-datetime [(ngModel)]="hizmet.sattar" (ionChange)="faturaTarihiChange()"
-                  [disabled]="isHizmetDisabled()" displayFormat="DD/MM/YYYY"></ion-datetime>
+    <ion-datetime [(ngModel)]="hizmet.sattar" (ionChange)="faturaTarihiChange()" [disabled]="isHizmetDisabled()" displayFormat="DD/MM/YYYY"></ion-datetime>
   </ion-col>
 
   <ion-col col-4 col-md-4>
-    <ion-label color="primary">Garanti</ion-label>
+    <ion-label>
+      <strong>Garanti:</strong>
+    </ion-label>
   </ion-col>
   <ion-col col-6 col-md-6>
-    <ion-label color="primary" class="radio-btn" style="text-align: end;position: relative;">
+    <ion-label class="radio-btn" style="text-align: end;position: relative;">
       {{garanti == true ? 'VAR' : 'YOK'}}
     </ion-label>
   </ion-col>
-  <ion-col col-2 col-md-2>
+  <ion-col col-1 col-md-2>
     <ion-toggle [(ngModel)]="garanti" (ionChange)="garantiChange()" class="toggle-btn"></ion-toggle>
   </ion-col>
 
   <ion-col col-4 col-md-4>
-    <ion-label color="primary">Meşguliyet</ion-label>
+    <ion-label>
+      <strong>Meşguliyet:</strong>
+    </ion-label>
   </ion-col>
   <ion-col col-6 col-md-6>
-    <ion-label color="primary" class="radio-btn" style="text-align: end;position: relative;">
+    <ion-label class="radio-btn" style="text-align: end;position: relative;">
       {{mesguliyet == true ? 'VAR' : 'YOK'}}
     </ion-label>
   </ion-col>
 
-  <ion-col col-2 col-md-2>
+  <ion-col col-1 col-md-2>
     <ion-toggle [(ngModel)]="mesguliyet" (ionChange)="mesguliyetChange()" class="toggle-btn"></ion-toggle>
   </ion-col>
 

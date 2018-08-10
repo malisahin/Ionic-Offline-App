@@ -1,18 +1,18 @@
-import {Component} from '@angular/core';
-import {UrunAnaGrup} from '../../entities/urunAnaGrup';
-import {Constants} from '../../entities/Constants';
-import {Urun} from '../../entities/urun';
-import {UrunMalzeme} from '../../entities/urun-malzeme';
-import {UtilProvider} from '../../providers/util/util';
-import {ModalController} from 'ionic-angular';
-import {UrunIscilik} from '../../entities/urun-iscilik';
-import {UrunAnaGrupSearchComponent} from '../urun-ana-grup-search/urun-ana-grup-search';
-import {UrunSearchComponent} from '../urun-search/urun-search';
-import {UrunIscilikSearchComponent} from '../urun-iscilik-search/urun-iscilik-search';
-import {LoggerProvider} from "../../providers/logger/logger";
-import {FiyatDao} from "../../providers/fiyat-dao/fiyat-dao";
-import {Fiyat} from "../../entities/fiyat";
-import {MalzemeSearchComponent} from "../malzeme-search/malzeme-search";
+import { Component } from '@angular/core';
+import { UrunAnaGrup } from '../../entities/urunAnaGrup';
+import { Constants } from '../../entities/Constants';
+import { Urun } from '../../entities/urun';
+import { UrunMalzeme } from '../../entities/urun-malzeme';
+import { UtilProvider } from '../../providers/util/util';
+import { ModalController } from 'ionic-angular';
+import { UrunIscilik } from '../../entities/urun-iscilik';
+import { UrunAnaGrupSearchComponent } from '../urun-ana-grup-search/urun-ana-grup-search';
+import { UrunSearchComponent } from '../urun-search/urun-search';
+import { UrunIscilikSearchComponent } from '../urun-iscilik-search/urun-iscilik-search';
+import { LoggerProvider } from "../../providers/logger/logger";
+import { FiyatDao } from "../../providers/fiyat-dao/fiyat-dao";
+import { Fiyat } from "../../entities/fiyat";
+import { MalzemeSearchComponent } from "../malzeme-search/malzeme-search";
 
 
 @Component({
@@ -32,9 +32,9 @@ export class FiyatSorguComponent {
   malzeme: UrunMalzeme;
 
   constructor(private modalController: ModalController,
-              private util: UtilProvider,
-              private fiyatDao: FiyatDao,
-              private logger: LoggerProvider) {
+    private util: UtilProvider,
+    private fiyatDao: FiyatDao,
+    private logger: LoggerProvider) {
     console.log('Hello FiyatSorguComponent Component');
     this.data = {};
     this.urunAnaGrup = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
@@ -49,7 +49,7 @@ export class FiyatSorguComponent {
     this.fiyat = new Fiyat();
     this.urun = new Urun();
     this.data.type = Constants.DATA_TYPE.URUN_ANA_GRUP;
-    let aramaModal = this.modalController.create(UrunAnaGrupSearchComponent, {data: this.data}, {cssClass: this.util.getSelectedTheme()});
+    let aramaModal = this.modalController.create(UrunAnaGrupSearchComponent, { data: this.data }, { cssClass: this.util.getSelectedTheme() });
     aramaModal.onDidDismiss(data => {
       this.urunAnaGrup = data;
     });
@@ -60,7 +60,7 @@ export class FiyatSorguComponent {
     this.urunIscilik = new UrunIscilik();
     this.fiyat = new Fiyat();
     this.data.type = Constants.DATA_TYPE.URUN;
-    let aramaModal = this.modalController.create(UrunSearchComponent, {data: this.data});
+    let aramaModal = this.modalController.create(UrunSearchComponent, { data: this.data }, { cssClass: this.util.getSelectedTheme() });
     aramaModal.onDidDismiss(data => {
       this.urun = data;
     });
@@ -68,7 +68,7 @@ export class FiyatSorguComponent {
   }
 
   public malzemeSorgula() {
-    let aramaModal = this.modalController.create(MalzemeSearchComponent, {data: this.malzeme});
+    let aramaModal = this.modalController.create(MalzemeSearchComponent, { data: this.malzeme }, { cssClass: this.util.getSelectedTheme() });
     aramaModal.onDidDismiss(data => {
       this.fillMalzemeSorguFilter(data);
     });
@@ -95,7 +95,7 @@ export class FiyatSorguComponent {
     }
     this.data.type = Constants.DATA_TYPE.URUN_ISCILIK;
     this.data.mamKod = this.urun.mamKod;
-    let aramaModal = this.modalController.create(UrunIscilikSearchComponent, {data: this.data});
+    let aramaModal = this.modalController.create(UrunIscilikSearchComponent, { data: this.data }, { cssClass: this.util.getSelectedTheme() });
     aramaModal.onDidDismiss(data => {
       this.urunIscilik = data;
     });

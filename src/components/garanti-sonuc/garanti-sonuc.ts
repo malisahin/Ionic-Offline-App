@@ -1,9 +1,10 @@
-import {Component} from '@angular/core';
-import {ViewController, NavParams} from 'ionic-angular';
-import {GarantiSorgu} from '../../entities/GarantiSorgu';
-import {UtilProvider} from '../../providers/util/util';
-import {UrunDao} from '../../providers/urun-dao/urun-dao';
-import {UrunAnaGrupDao} from '../../providers/urun-ana-grup-dao/urun-ana-grup-dao';
+import { Component } from '@angular/core';
+import { ViewController, NavParams } from 'ionic-angular';
+import { GarantiSorgu } from '../../entities/GarantiSorgu';
+import { UtilProvider } from '../../providers/util/util';
+import { UrunDao } from '../../providers/urun-dao/urun-dao';
+import { UrunAnaGrupDao } from '../../providers/urun-ana-grup-dao/urun-ana-grup-dao';
+import { ThemeProvider } from '../../providers/theme/theme';
 
 
 @Component({
@@ -29,13 +30,16 @@ export class GarantiSonucComponent {
   ekGarantiBitisTar: any;
   aciklama: string = "";
   sonuc: string = "";
+  backGroundImage: string;
 
   constructor(private viewCtrl: ViewController,
-              private params: NavParams,
-              private util: UtilProvider,
-              private urunDao: UrunDao) {
+    private params: NavParams,
+    private util: UtilProvider,
+    private urunDao: UrunDao,
+    private themeProvider: ThemeProvider) {
     console.log('Hello GarantiSonucComponent Component');
     this.garanti = new GarantiSorgu();
+    this.backGroundImage = this.themeProvider.getBackgroundImage();
     this.data = params.get('data');
     this.loadData();
 

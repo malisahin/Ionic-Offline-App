@@ -1,12 +1,21 @@
 
 @import "common";
 $color-darkBlue: #004154;
-$color-blue: #0081db;
+$color-blue:  rgba(0, 82, 121, 0.56);
 $color-lightBlue: #9cc0da;
 $color-white: #ffffff;
-$color-red: #ff0000;
+$color-red:rgba(204, 0, 0, 0.80);
 $color-green: #41a85f;
 $color-gray: #f1f1f1;
+$color-button:#195884;
+$color-input:rgba(47, 138, 182, 0.40);
+$color-border-input:#327caf;
+$color-label:#001e33;
+$color-item:rgba(47, 138, 182, 0);
+$color-row-border:#4497ad;
+$color-downloaded:#188aaf;
+
+
 
 .blue-theme {
 
@@ -18,8 +27,8 @@ $color-gray: #f1f1f1;
     }
 
     .toolbar-background-md, .toolbar-background-ios {
-      border-color: $color-darkBlue;
-      background: $color-darkBlue;
+      border-color: $color-button;
+      background: $color-button;
     }
 
     .modal-title .toolbar-title-ios, .modal-title .close-icon, .modal-title .toolbar-title-md {
@@ -28,7 +37,7 @@ $color-gray: #f1f1f1;
 
     .header-title {
       .toolbar-title.toolbar-title-md {
-        color: red;
+        color: $color-red;
       }
 
       .toolbar-title-ios {
@@ -76,12 +85,13 @@ $color-gray: #f1f1f1;
     }
 
     .button-ios-secondary, .button-md-secondary, .button-md-secondary:hover:not(.disable-hover) {
-      background: $color-blue;
+      background: $color-button;
     }
 
     input {
       border: 1px solid $color-white;
       color: $color-white;
+      background: $color-input;
     }
 
     input::placeholder {
@@ -101,7 +111,13 @@ $color-gray: #f1f1f1;
     }
 
     .text-input {
-      border: 1px solid $color-white;
+      border: 1px solid $color-border-input;
+      background:$color-input;
+      color:$color-white;
+    }
+
+    .label-ios{
+      color: $color-label;
     }
   }
   //*------- END:LOGIN-CONTENT -----*//
@@ -110,25 +126,98 @@ $color-gray: #f1f1f1;
 
   .content {
 
+    .border-right{
+      border-right: 1px solid $color-row-border;
+    }
+
+    .datetime-ios{
+      background: $color-input;
+      border:1px solid $color-border-input;
+      color:$color-white;
+    }
+
+    .radio-ios{
+
+      .radio-icon{
+        border-color: $color-white;
+      }
+    } 
+
+    .label-ios{
+      color:$color-white;
+    }
+
+    .item-ios{
+      background:$color-blue;
+      color:$color-white;
+    }
+
+    .select-icon {
+      .select-icon-inner{
+        color:$color-white;
+      }
+    }
+  
+    .toggle-ios.toggle-checked .toggle-icon{
+      background: $color-button;
+    }
+
+    musteri-bilgileri{
+      .button-ios{
+        background: $color-input;
+        border: 1px solid $color-border-input;
+        color:$color-white;
+      }
+    }
+
+    .segment-button{
+      border: 1px solid $color-white;
+      color:$color-white;
+    }
+
+    .label-ios-primary{
+      color:$color-white;
+    }
+
+    .text-color a, .adres-box{
+      color:$color-white;
+    }
+
+    .row-border{
+      border-bottom: 1px solid $color-row-border;
+    }
+
+    .card-ios{
+      background-color:$color-blue;
+
+      p{
+        color:$color-white;
+      }
+    }
     .toolbar-background-ios {
       background: inherit;
     }
 
     .button-ios {
-      background-color: $color-blue;
+      background-color:$color-button;
     }
 
     .text-input-ios {
-      border: 1px solid $color-lightBlue;
+      border: 1px solid $color-border-input;
+      background: $color-input;
+      color:$color-white;
     }
 
     .searchbar-ios .searchbar-input, .searchbar-md .searchbar-input {
       border: 1px solid $color-lightBlue;
+      background: $color-input;
+      color:$color-white;
     }
 
     .button-md-downloaded, .button-ios-downloaded {
       color: $color-white;
-      background-color: $color-green;
+      background-color: $color-downloaded;
+      border:1px solid $color-border-input;
     }
 
     .button-md-notDownloaded {
@@ -136,7 +225,9 @@ $color-gray: #f1f1f1;
     }
 
     .text-input-ios, .text-input {
-      border: 1px solid $color-lightBlue;
+      border: 1px solid $color-border-input;
+      background: $color-input;
+      color:$color-white;
     }
 
     .toolbar-title-md, .toolbar-title-ios {
@@ -146,6 +237,8 @@ $color-gray: #f1f1f1;
 
     .searchbar-ios .searchbar-input {
       border: 1px solid $color-blue;
+      background: $color-input;
+      color:$color-white;
     }
 
     .select-md {
@@ -157,16 +250,18 @@ $color-gray: #f1f1f1;
     }
 
     textarea.text-input {
-      border: 1px solid $color-lightBlue;
+      border: 1px solid $color-border-input;
     }
 
     .select-ios {
-      border: 1px solid $color-lightBlue;
+      border: 1px solid $color-border-input;
+      background: $color-input;
+      color:$color-white;
     }
 
     .segment-ios .segment-button.segment-activated {
       box-shadow: 5px 2px 15px 0px $color-blue;
-      background-color: $color-blue;
+      background-color: $color-button;
     }
 
     .gray-box {
@@ -174,15 +269,18 @@ $color-gray: #f1f1f1;
     }
 
     .button-ios-secondary, .button-md-secondary, .button-md-secondary:hover:not(.disable-hover) {
-      background: $color-blue;
+      background: $color-button;
     }
 
     .card-box {
-      background: $color-gray;
-      border-bottom: 1px solid $color-blue;
+      background: $color-blue;
+      border: 1px solid $color-lightBlue;
 
       i {
-        color: $color-blue;
+        color: $color-white;
+      }
+      label{
+        color:$color-white;
       }
     }
 
@@ -196,7 +294,8 @@ $color-gray: #f1f1f1;
       }
 
       .segment-md .segment-button {
-        border: 1px solid $color-blue;
+        border: 1px solid $color-white;
+        color:$color-white;
         opacity: 1;
       }
 
@@ -207,16 +306,16 @@ $color-gray: #f1f1f1;
   //*------- START:HOME-CONTENT -----*//
   .home-content {
 
-    .card {
-      border: 1px solid $color-blue;
+    .item-ios{
+      background-color: $color-item;
     }
 
     .icon-ios {
-      color: $color-darkBlue;
+      color: $color-white;
     }
 
     .label {
-      color: $color-darkBlue;
+      color: $color-white;
     }
   }
   //*------- END:HOME-CONTENT -----*//
@@ -228,26 +327,30 @@ $color-gray: #f1f1f1;
 
   .segment-button.activated, .segment-button.segment-activated {
     border-color: $color-blue;
-    background: $color-blue;
+    background: $color-button;
     color: $color-white;
   }
 
   .searchbox .searchbar-md .searchbar-input {
     border-radius: 65px;
     border: 1px solid $color-blue;
+    background: $color-input;
+    color:$color-white;
   }
 
 }
 
 //*------- START:FOOTER -----*//
 .footer {
-  background-color: $color-darkBlue;
+
+  background:$color-button;
+  
   .toolbar-background-ios {
-    background-color: $color-darkBlue;
+    background-color: $color-button;
   }
 
   .item-ios, .item-md {
-    background-color: $color-darkBlue;
+    background-color: $color-button;
     color: $color-white;
   }
 
@@ -257,7 +360,7 @@ $color-gray: #f1f1f1;
 
   .button-ios-light, .button-md-light {
     color: $color-white;
-    background-color: $color-darkBlue;
+    background-color: $color-button;
   }
 
   .select-md, .select-ios {

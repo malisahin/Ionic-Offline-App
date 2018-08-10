@@ -15,10 +15,13 @@
     margin: 13px 0px;
    }
 
+   .text-input-ios, .label-ios{
+    margin: 0 8px 11px 0;
+   }
 }
 
 .content{
-    .text-input{
+    .text-input,  .datetime-ios{
         border-radius: 25px;
         padding: 8px;
         padding-left: 15px;

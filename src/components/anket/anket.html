@@ -12,37 +12,29 @@
 
 </ion-header>
 
-<ion-content class="content">
+<ion-content class="content" [ngStyle]="{ 'background-image': 'url(' + backGroundImage + ')' }">
 
-  <ion-list>
-
-    <ion-item *ngFor="let item of qAList">
-      <ion-label>{{item.soru.serSoruTnm.soruText}}</ion-label>
+  <ion-row *ngFor="let item of qAList">
+    <ion-col col-4>
+      <ion-label>
+        <strong>{{item.soru.serSoruTnm.soruText}}:</strong>
+      </ion-label>
+    </ion-col>
+    <ion-col col-8>
       <ion-input [(ngModel)]="item.cevap.cevapText" [disabled]="isHizmetDisabled"></ion-input>
-    </ion-item>
+    </ion-col>
+  </ion-row>
 
-    <ion-row>
+  <ion-row>
+    <ion-col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6>
+      <button ion-button round (click)="kaydet()" full [disabled]="isHizmetDisabled">
+        <span class="icon-right">
+          <i class="fas fa-save"></i>
+        </span>Kaydet
+      </button>
+    </ion-col>
 
-      <ion-col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6>
-        <button ion-button round (click)="closeModal()" full>
-          <span item-left style="width: 80%">Iptal</span>
-          <span item-right style="width: 20%">
-            <i class="fas fa-window-close"></i>
-          </span>
-        </button>
-      </ion-col>
-
-      <ion-col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6>
-        <button ion-button round (click)="kaydet()" full [disabled]="isHizmetDisabled">
-          <span item-left style="width: 80%">Kaydet</span>
-          <span item-right style="width: 20%">
-            <i class="fas fa-save"></i>
-          </span>
-        </button>
-      </ion-col>
-
-    </ion-row>
-  </ion-list>
+  </ion-row>
 
 </ion-content>
 <ion-footer>

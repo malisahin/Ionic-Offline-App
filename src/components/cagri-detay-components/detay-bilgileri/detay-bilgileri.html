@@ -1,15 +1,17 @@
 <ion-grid class="detay">
   <ion-row>
-    <ion-col col-6 col-md-6 col-sm>
+    <ion-col col-5 col-md-5 col-sm>
       <button ion-button primary round full (click)="hizmetDetayaGit()" [disabled]="isHizmetDisabled()">
         <ion-label>
-          <ion-icon name="add-circle" class="mr-icon"></ion-icon>
+          <span class="icon-right">
+            <i class="fas fa-plus"></i>
+          </span>
           Yeni
         </ion-label>
       </button>
     </ion-col>
 
-    <ion-col col-6 col-sm>
+    <ion-col col-7 col-sm>
       <button ion-button primary round full [disabled]="isHizmetDisabled()" (click)="siparisOlustur()">
         <ion-label>
           <ion-icon class="mr-icon" name="basket"></ion-icon>
@@ -105,52 +107,49 @@
     </ion-col>
   </ion-row>
 
-  <div id="divKapatmaIslemleri" class="gray-box" *ngIf="showDetails == -1">
+  <div id="divKapatmaIslemleri" class="card-box" *ngIf="showDetails == -1">
     <ion-grid>
       <ion-row>
 
-        <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2>
-          <button ion-button round color="secondary" (click)="kapat('ACIK')" [disabled]="isHizmetDisabled()" full>
-            <span item-left style="width: 80%">Kapat</span>
-            <span item-right style="width: 20%">
-              <i class="fas fa-window-close"></i>
+        <ion-col col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2>
+          <button ion-button round (click)="kapat('ACIK')" [disabled]="isHizmetDisabled()" full>
+            <span class="icon-right">
+              <i class="fas fa-times"></i>
             </span>
+            Kapat
           </button>
         </ion-col>
 
-        <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2>
-          <button ion-button round color="secondary" [disabled]="isHizmetDisabled()" (click)="hizmetIptalKontrol()" full>
-            <span item-left style="width: 80%">Iptal</span>
-            <span item-right style="width: 20%">
+        <ion-col col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2>
+          <button ion-button round [disabled]="isHizmetDisabled()" (click)="hizmetIptalKontrol()" full>
+            <span class="icon-right">
               <i class="fas fa-ban"></i>
-            </span>
+            </span>İptal
           </button>
         </ion-col>
 
-        <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2>
-          <button ion-button round color="secondary" (click)="yazdir()" full>
-            <span item-left style="width: 80%">Yazdır</span>
-            <span item-right style="width: 20%">
+        <ion-col col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2>
+          <button ion-button round (click)="yazdir()" full>
+            <span class="icon-right">
               <i class="fas fa-print"></i>
-            </span>
+            </span>Yazdır
           </button>
         </ion-col>
 
-        <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2>
-          <button ion-button round color="secondary" [disabled]="isHizmetDisabled()" (click)="hizmetSilKontrol()" full>
-            <span item-left style="width: 80%">Sil</span>
-            <span item-right style="width: 20%">
+        <ion-col col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2>
+          <button ion-button round [disabled]="isHizmetDisabled()" (click)="hizmetSilKontrol()" full>
+            <span class="icon-right">
               <i class="fas fa-trash-alt"></i>
             </span>
+            <span item-left style="width: 80%">Sil</span>
           </button>
         </ion-col>
 
-        <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 *ngIf="isAnketExist">
-          <button ion-button round color="secondary" (click)="goToAnketPage()" full>
-            <span item-left style="width: 80%">Anket</span>
-            <span item-right style="width: 20%">
-              <i class="fas fa-question-circle"></i>
-            </span>
+        <ion-col col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 *ngIf="isAnketExist">
+          <button ion-button round (click)="goToAnketPage()" full>
+            <span class="icon-right">
+              <i class="fas fa-clipboard-list"></i>
+            </span> Anket
           </button>
         </ion-col>
 
@@ -160,7 +159,9 @@
 
     <ion-row>
       <ion-col col-4 col-md-2>
-        <ion-label color="primary">Açıklama</ion-label>
+        <ion-label>
+          <strong>Açıklama:</strong>
+        </ion-label>
       </ion-col>
 
       <ion-col col-8 col-md-10>
@@ -168,7 +169,9 @@
       </ion-col>
 
       <ion-col col-4 col-md-2>
-        <ion-label color="primary">Kapatma Şekli</ion-label>
+        <ion-label>
+          <strong>Kapatma Şekli:</strong>
+        </ion-label>
       </ion-col>
 
       <ion-col col-8 col-md-10>
@@ -180,7 +183,9 @@
       </ion-col>
 
       <ion-col col-4 col-md-2>
-        <ion-label color="primary">Ödeme Tipi</ion-label>
+        <ion-label>
+          <strong>Ödeme Tipi:</strong>
+        </ion-label>
       </ion-col>
 
       <ion-col col-8 col-md-10>
@@ -191,7 +196,9 @@
       </ion-col>
 
       <ion-col col-4 col-md-2>
-        <ion-label color="primary">Çözüm Kodu</ion-label>
+        <ion-label>
+          <strong>Çözüm Kodu:</strong>
+        </ion-label>
       </ion-col>
 
       <ion-col col-8 col-md-10>
@@ -201,7 +208,9 @@
       </ion-col>
 
       <ion-col col-4 col-md-2>
-        <ion-label color="primary">İletişim Istek</ion-label>
+        <ion-label>
+          <strong>İletişim Istek:</strong>
+        </ion-label>
       </ion-col>
 
       <ion-col col-6 col-md-9>

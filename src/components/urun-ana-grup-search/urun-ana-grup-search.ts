@@ -1,10 +1,11 @@
-import {Component} from '@angular/core';
-import {Pageable} from '../../entities/Pageable';
-import {Constants} from '../../entities/Constants';
-import {UrunAnaGrup} from '../../entities/urunAnaGrup';
-import {UtilProvider} from '../../providers/util/util';
-import {UrunAnaGrupDao} from '../../providers/urun-ana-grup-dao/urun-ana-grup-dao';
-import {ViewController, NavParams} from 'ionic-angular';
+import { Component } from '@angular/core';
+import { Pageable } from '../../entities/Pageable';
+import { Constants } from '../../entities/Constants';
+import { UrunAnaGrup } from '../../entities/urunAnaGrup';
+import { UtilProvider } from '../../providers/util/util';
+import { UrunAnaGrupDao } from '../../providers/urun-ana-grup-dao/urun-ana-grup-dao';
+import { ViewController, NavParams } from 'ionic-angular';
+import { ThemeProvider } from '../../providers/theme/theme';
 
 
 @Component({
@@ -15,24 +16,26 @@ export class UrunAnaGrupSearchComponent {
   text: string;
   data: any;
   list: { key: "", value: "" }[] = [];
-  selectedItem: { key: "", value: "" } = {key: "", value: ""};
+  selectedItem: { key: "", value: "" } = { key: "", value: "" };
   returnObject: any;
   pageable: Pageable;
   searchText: string = "";
   urunAnaGrup: UrunAnaGrup;
   searchType: string;
+  backGroundImage: string;
+
 
   constructor(public viewCtrl: ViewController, params: NavParams,
-              private util: UtilProvider,
-              private urunAnaGrupDao: UrunAnaGrupDao) {
-
+    private util: UtilProvider,
+    private urunAnaGrupDao: UrunAnaGrupDao, private themeProvider: ThemeProvider) {
+    this.backGroundImage = this.themeProvider.getBackgroundImage();
     this.pageable = new Pageable();
     this.urunAnaGrup = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
     this.data = params.get('data');
   }
 
   closeModal() {
-    this.ionChange({key: '', value: ''});
+    this.ionChange({ key: '', value: '' });
   }
 
   ionViewDidLoad() {
@@ -78,14 +81,14 @@ export class UrunAnaGrupSearchComponent {
   }
 
   fillItemByType(item: any) {
- /*   if (this.util.isNotEmpty(this.data) && this.util.isNotEmpty(this.data.nerden) && this.data.nerden == "BILGI_SORGU") {
-      let uniqueList = new Set(this.list);
-      this.list = [];
-      uniqueList.forEach(val => {
-        this.list.push(val);
-      });
-    } else {*/
-    this.list.push({key: item.mamAnaGrp, value: item.ad});
+    /*   if (this.util.isNotEmpty(this.data) && this.util.isNotEmpty(this.data.nerden) && this.data.nerden == "BILGI_SORGU") {
+         let uniqueList = new Set(this.list);
+         this.list = [];
+         uniqueList.forEach(val => {
+           this.list.push(val);
+         });
+       } else {*/
+    this.list.push({ key: item.mamAnaGrp, value: item.ad });
 
 
   }

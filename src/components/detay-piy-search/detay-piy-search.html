@@ -1,19 +1,21 @@
 <ion-header>
-  <button ion-button round (click)="closeModal()">Iptal</button>
-  <ion-navbar no-border-bottom>
-    <ion-title>Parça/Işçilik/Yol Ara</ion-title>
+  <ion-navbar>
+    <ion-row class="modal-title">
+      <ion-col col-11 col-md-11>
+        <ion-title>Parça/İşçilik/Yol Ara</ion-title>
+      </ion-col>
+      <ion-col col-1 col-md-1>
+        <ion-icon name="close" (click)="closeModal()" class="pull-right close-icon"></ion-icon>
+      </ion-col>
+    </ion-row>
   </ion-navbar>
-
-  <ion-toolbar no-border-top>
-    <ion-searchbar placeholder="Ara" [(ngModel)]="searchText" (ionInput)="fetchList()"></ion-searchbar>
-  </ion-toolbar>
 
 </ion-header>
 
-<ion-content>
+<ion-content class="content" [ngStyle]="{ 'background-image': 'url(' + backGroundImage + ')' }">
 
   <ion-list radio-group [(ngModel)]="selectedItem">
-    <ion-item *ngFor="let item of list">
+    <ion-item *ngFor="let item of list" class="row-border">
       <ion-label>{{item.key}} - {{item.value}}</ion-label>
       <ion-radio (ionSelect)="ionChange(item)"></ion-radio>
     </ion-item>

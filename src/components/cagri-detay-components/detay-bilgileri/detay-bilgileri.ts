@@ -504,7 +504,7 @@ export class DetayBilgileriComponent {
 
   goToAnketPage() {
 
-    let modal = this.modalCtrl.create(AnketComponent, { data: { hizmet: this.hizmet } }, );
+    let modal = this.modalCtrl.create(AnketComponent, { data: { hizmet: this.hizmet } }, { cssClass: this.util.getSelectedTheme() });
     modal.present();
   }
 

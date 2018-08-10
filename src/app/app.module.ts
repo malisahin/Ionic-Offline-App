@@ -1,3 +1,4 @@
+import { MomentModule } from 'angular2-moment';
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, ErrorHandler, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { IonicApp, IonicModule, IonicErrorHandler, ToastController, NavController } from "ionic-angular";
@@ -92,7 +93,6 @@ import { TableTotalElementsProvider } from '../providers/table-total-elements/ta
 
 import 'intl';
 import 'intl/locale-data/jsonp/en';
-import {MomentModule} from "angular2-moment";
 
 @NgModule({
   declarations: [

@@ -20,6 +20,7 @@ import { HeaderComponent } from "../../components/header/header";
 import { VersiyonProvider } from "../../providers/versiyon/versiyon";
 import { TasksProvider } from "../../providers/tasks/tasks";
 import { EntityUtil } from '../../entities/EntityUtil';
+import { ThemeProvider } from '../../providers/theme/theme';
 
 
 @IonicPage()
@@ -40,6 +41,7 @@ export class GuncellemePage {
   firstForMahalleTnm: number;
   colors: any;
   icons: any;
+  backGroundImage: string;
 
   urunlerVersiyon;
   urunAnaGrupVersiyon;
@@ -64,7 +66,8 @@ export class GuncellemePage {
     private logger: LoggerProvider,
     private versiyonProvider: VersiyonProvider,
     private tasks: TasksProvider,
-    private util: UtilProvider) {
+    private util: UtilProvider,
+    private themeProvider: ThemeProvider) {
 
     this.colors = Constants.COLORS;
     this.icons = Constants.ICONS;
@@ -77,6 +80,7 @@ export class GuncellemePage {
     this.firstForMahalleTnm = 0;
     this.counter = 0;
     this.ionViewDidLoad();
+    this.backGroundImage = this.themeProvider.getBackgroundImage();
 
   }
 

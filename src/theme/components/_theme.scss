@@ -1,11 +1,31 @@
 //*--------------------- START:IOS CSS ---------------------*//
 @media only screen and (max-width: 500px) {
+
+  .login-box{
+
+    .label-ios{
+      padding-top: 0px!important;
+    }
+  }
   .content {
+
+    .label-ios {
+      padding: 10px 0 0 10px;
+    }
+
+    musteri-bilgileri{
+      .button-inner{
+        text-decoration: underline;
+      }
+    }
 
     ion-label.radio-btn{
       margin-top: 10px;
     }
 
+    .label-ios{
+      white-space: inherit;
+    }
     .toggle-btn{
       margin-top: 10px;
     }
@@ -49,9 +69,7 @@
       margin-top: 10px;
       width: 100%;
 
-      .select-icon {
-        margin-right: 10px;
-      }
+    
     }
 
     .detay .button-ios{
@@ -139,10 +157,6 @@
 
     }
 
-    .label-ios {
-      padding-top: 10px;
-    }
-
   }
 
   .header-bar .bar-announcements{
@@ -152,19 +166,31 @@
 }
 
 .header {
+
+  .toolbar-title-ios{
+    font-weight: normal;
+  }
+
   .tabs-ios .tab-button.icon-only {
     min-height: 43px;
   }
 
   .toolbar-ios ion-title {
-    padding: 0px;
+    padding: 0;
+  }
+
+  .toolbar-background{
+    height:100%;
   }
 
 }
 
 .footer {
-
   bottom:-1px;
+
+  .button-ios{
+    height: 30px;
+  }
 
   .toolbar-background-ios {
     bottom:-1px;
@@ -225,15 +251,15 @@
 
 .bar-announcements {
   border-radius: 100%;
-  font-size: 15px;
-  top: -10px;
-  position: relative;
+  font-size: 12px;
   z-index: 999;
+  width: 25px;
+  height: 25px;
   text-align: center;
-  line-height: 18px;
-  right: 0px;
-  padding: 3px 8px;
-  display: inline-block;
+  line-height: 25px;
+  right: -5px;
+  top: -12px;
+  position: absolute
 }
 
 
@@ -276,11 +302,10 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
 
   button.disable-hover.bar-button.bar-button-ios.bar-button-default.bar-button-default-ios {
     border-radius: 100%;
-    font-size: 12px;
+    font-size: 15px;
     width:50px;
     height: 35px;
     text-align: center;
-    margin-left: 7px;
   }
 
   .close-icon {
@@ -300,6 +325,10 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
 //*------- START:HOME-CONTENT -----*//
 .home-content {
 
+  .item-ios{
+    margin: 8px 0px 8px 0;
+  }
+
   .label-ios, .label-md{
     margin-bottom: 15px;
   }
@@ -309,12 +338,11 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
   }
 
   .grid {
-    margin-top: 15%;
     padding: 15px;
   }
 
   .card {
-    border-radius: 5px;
+    border-radius: 30px;
     padding: 5px;
   }
 
@@ -340,7 +368,7 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
     }
 
     span {
-      font-size: 20px;
+      font-size: 18px;
     }
   }
 }
@@ -354,7 +382,33 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
   background-repeat: no-repeat;
 }
 
+.garanti-sorgu .row-border{
+  padding: 0!important;
+}
+
+mesaj-detail .content .row-border{
+  padding: 0px;
+}
+
+
 .content {
+
+  .logo{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .icon-right{
+    margin-right: 5px;
+  }
+
+  .scroll-content{
+    margin-bottom: 0px;
+  }
+
+  .row-border{
+    padding: 7px;
+  }
 
   .radio-btn{
     margin-top: 22px;
@@ -396,7 +450,9 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
   }
 
   .toolbar-title-md, .toolbar-title-ios {
-    font-weight: 600;
+     font-size: 18px;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
   }
 
   .toolbar {
@@ -440,9 +496,10 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
 
 
   .card-box {
-    padding: 15px;
+    padding: 5px;
     margin: 0px;
     width: 100%;
+    margin-bottom: 10px;
 
     i {
       font-size: 15px;
@@ -461,6 +518,16 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
 
   .gray-box {
     padding: 10px;
+  }
+
+  .text-input, .datatime-ios{
+    padding: 10px;
+    padding-left: 20px;
+    font-size: 15px;
+  }
+
+  .datetime-ios{
+    margin: 11px 8px 11px 0;
   }
 
 }
@@ -485,6 +552,10 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
 
   .login-box {
     margin-top: 5%;
+
+    .checkbox-ios{
+      float: left;
+    }
   }
 
   .password-icon {
@@ -510,6 +581,15 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
   .logo {
     font-size: 80px;
     text-align: center;
+    margin-top: 20%;
+
+    ion-icon{
+      border: 2px solid;
+      border-radius: 100%;
+      padding: 15px;
+      line-height: 55px;
+      font-size: 60px;
+    }
   }
 
 }

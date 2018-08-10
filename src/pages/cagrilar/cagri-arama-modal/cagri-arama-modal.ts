@@ -2,14 +2,15 @@
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-import {Component} from "@angular/core";
-import {IonicPage, NavController, NavParams} from "ionic-angular";
-import {ViewController} from "ionic-angular/navigation/view-controller";
-import {Hizmet} from "../../../entities/hizmet/hizmet";
-import {HizmetSearch} from "../../../entities/hizmet/HizmetSearch";
-import {UtilProvider} from "../../../providers/util/util";
-import {Constants} from "../../../entities/Constants";
-import {query} from "@angular/core/src/animation/dsl";
+import { Component } from "@angular/core";
+import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { ViewController } from "ionic-angular/navigation/view-controller";
+import { Hizmet } from "../../../entities/hizmet/hizmet";
+import { HizmetSearch } from "../../../entities/hizmet/HizmetSearch";
+import { UtilProvider } from "../../../providers/util/util";
+import { Constants } from "../../../entities/Constants";
+import { query } from "@angular/core/src/animation/dsl";
+import { ThemeProvider } from "../../../providers/theme/theme";
 
 @IonicPage()
 @Component({
@@ -22,10 +23,12 @@ export class CagriAramaModalPage {
   searchParams: string[] = [];
   siralama: boolean = true;
   orderBy: string = Constants.ORDER_BY.RANDEVU_TAR_ASCENDES;
+  backGroundImage: string;
 
-  constructor(public viewCtrl: ViewController, private util: UtilProvider) {
+  constructor(public viewCtrl: ViewController, private util: UtilProvider, private themeProvider: ThemeProvider) {
     this.filter = new HizmetSearch();
     this.filter.durum = "ACIK";
+    this.backGroundImage = this.themeProvider.getBackgroundImage();
   }
 
   ionViewDidLoad() {

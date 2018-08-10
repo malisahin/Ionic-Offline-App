@@ -7,13 +7,14 @@
 </ion-header>
 
 
-<ion-content class="content">
+<ion-content class="content" [ngStyle]="{ 'background-image': 'url(' + backGroundImage + ')' }">
   <ion-title class="page-title">{{mesajBaslik}}</ion-title>
 
   <ion-row>
     <ion-col col-12 col-sm>
       <button ion-button round full (click)="guncelle();" color="secondary">
-        Güncelle
+        <span class="icon-right">
+          <i class="fas fa-sync-alt"></i> Güncelle</span>
       </button>
     </ion-col>
   </ion-row>
@@ -28,7 +29,7 @@
     <p>
       <ion-label>
         <i class="fas fa-envelope"></i>
-        <strong>{{mesaj.subject}} </strong>
+        {{mesaj.subject}}
       </ion-label>
     </p>
   </ion-card>
@@ -36,44 +37,63 @@
 
 
 <ion-footer>
-  <ion-grid>
-    <ion-row>
+  <ion-row>
 
-      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>
-        <button ion-button color="light" (click)="fetchList('FIRST')">
-          <ion-label><i class="fas fa-angle-double-left"></i></ion-label>
-        </button>
-      </ion-col>
 
-      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>
-        <button ion-button color="light" (click)="fetchList('PREVIOUS')">
-          <ion-label><i class="fas fa-angle-left"></i></ion-label>
-        </button>
-      </ion-col>
+    <ion-col col-4 col-md-4>
+      <ion-row>
+        <ion-col col-6>
+          <button ion-button color="light" (click)="fetchList('FIRST')">
+            <ion-label>
+              <i class="fas fa-angle-double-left"></i>
+            </ion-label>
+          </button>
+        </ion-col>
 
-      <ion-col col-sm-4 col-md-4 col-lg-4 col-xl-4>
-        <ion-item>
-          <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList('PAGE_NO')" interface="popover">
-            <ion-option value="10" selected="true">10</ion-option>
-            <ion-option value="20">20</ion-option>
-            <ion-option value="50">50</ion-option>
-          </ion-select>
-        </ion-item>
-      </ion-col>
+        <ion-col col-6>
+          <button ion-button color="light" (click)="fetchList('PREVIOUS')">
+            <ion-label>
+              <i class="fas fa-angle-left"></i>
+            </ion-label>
+          </button>
+        </ion-col>
 
-      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>
-        <button ion-button color="light" (click)="fetchList('NEXT')">
-          <ion-label><i class="fas fa-angle-right"></i></ion-label>
-        </button>
-      </ion-col>
+      </ion-row>
+    </ion-col>
 
-      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>
-        <button ion-button color="light" (click)="fetchList('LAST')">
-          <ion-label><i class="fas fa-angle-double-right"></i></ion-label>
-        </button>
-      </ion-col>
+    <ion-col col-4 col-md-4>
+      <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList('PAGE_NO')" interface="popover">
+        <ion-option value="10" selected="true">10</ion-option>
+        <ion-option value="20">20</ion-option>
+        <ion-option value="50">50</ion-option>
+      </ion-select>
+    </ion-col>
 
-    </ion-row>
-  </ion-grid>
+    <ion-col col-4 col-md-4>
+      <ion-row>
+
+        <ion-col col-6>
+          <button ion-button color="light" (click)="fetchList('NEXT')">
+            <ion-label>
+              <i class="fas fa-angle-right"></i>
+            </ion-label>
+          </button>
+        </ion-col>
+
+        <ion-col col-6>
+          <button ion-button color="light" (click)="fetchList('LAST')">
+            <ion-label>
+              <i class="fas fa-angle-double-right"></i>
+            </ion-label>
+          </button>
+        </ion-col>
+
+      </ion-row>
+
+
+    </ion-col>
+
+  </ion-row>
+
 
 </ion-footer>

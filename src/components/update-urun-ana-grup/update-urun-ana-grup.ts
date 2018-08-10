@@ -13,6 +13,7 @@ import { HizmetService } from "../../providers/hizmet-service/hizmet-service";
 import { Pageable } from "../../entities/Pageable";
 import { BransProvider } from "../../providers/brans/brans";
 import { Brans } from "../../entities/Brans";
+import { ThemeProvider } from '../../providers/theme/theme';
 
 /**
  * @author mali.sahin
@@ -30,6 +31,7 @@ export class UpdateUrunAnaGrupComponent {
   hizmet: Hizmet;
   bransListesi: Brans[] = [];
   selectedBrans: Brans = new Brans();
+  backGroundImage: string;
 
   constructor(private util: UtilProvider,
     private logger: LoggerProvider,
@@ -40,9 +42,11 @@ export class UpdateUrunAnaGrupComponent {
     private navParams: NavParams,
     private hizmetService: HizmetService,
     private hizmetProvider: HizmetProvider,
-    private urunAnaGrupDao: UrunAnaGrupDao) {
+    private urunAnaGrupDao: UrunAnaGrupDao,
+    private themeProvider: ThemeProvider) {
     this.logger.dir(this.navParams.data);
     this.hizmet = this.navParams.get("hizmet");
+    this.backGroundImage = this.themeProvider.getBackgroundImage();
     this.init();
   }
 

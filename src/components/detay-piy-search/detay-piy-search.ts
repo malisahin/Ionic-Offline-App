@@ -9,6 +9,7 @@ import { Hizmet } from "../../entities/hizmet/hizmet";
 import { UrunMalzemeProvider } from "../../providers/urun-malzeme/urun-malzeme";
 import { UrunMalzeme } from "../../entities/urun-malzeme";
 import { Constants } from "../../entities/Constants";
+import { ThemeProvider } from "../../providers/theme/theme";
 
 class SearchItem {
   key: string = "";
@@ -35,6 +36,7 @@ export class DetayPiySearchComponent {
   hizmet: Hizmet;
   dataType: string;
   filter: IslemArizaIscilik;
+  backGroundImage: string;
 
   constructor(
     public viewCtrl: ViewController,
@@ -42,7 +44,8 @@ export class DetayPiySearchComponent {
     private util: UtilProvider,
     private hizmetService: HizmetService,
     private urunMalzemeProvider: UrunMalzemeProvider,
-    private islemArizaIscilikDao: IslemArizaIscilikDao
+    private islemArizaIscilikDao: IslemArizaIscilikDao,
+    private themeProvider: ThemeProvider
   ) {
     this.text = "Hello World";
     this.pageable = new Pageable();
@@ -50,6 +53,7 @@ export class DetayPiySearchComponent {
     this.dataType = this.data.dataType;
     this.hizmet = this.hizmetService.getHizmet();
     this.filter = this.data.filter;
+    this.backGroundImage = this.themeProvider.getBackgroundImage();
   }
 
   closeModal() {

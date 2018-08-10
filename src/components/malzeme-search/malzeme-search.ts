@@ -6,6 +6,7 @@ import { UrunMalzemeProvider } from "../../providers/urun-malzeme/urun-malzeme";
 import { UtilProvider } from "../../providers/util/util";
 import { Constants } from "../../entities/Constants";
 import { LoggerProvider } from "../../providers/logger/logger";
+import { ThemeProvider } from '../../providers/theme/theme';
 
 
 @Component({
@@ -23,13 +24,16 @@ export class MalzemeSearchComponent {
   searchText: string = "";
   malzeme: UrunMalzeme;
   searchType: string;
+  backGroundImage: string;
 
   constructor(public viewCtrl: ViewController, params: NavParams,
     private malzemeProvider: UrunMalzemeProvider,
     private logger: LoggerProvider,
-    private util: UtilProvider) {
+    private util: UtilProvider,
+    private themeProvider: ThemeProvider) {
     this.pageable = new Pageable();
     this.data = params.get('data');
+    this.backGroundImage = this.themeProvider.getBackgroundImage();
 
     this.malzeme = new UrunMalzeme();
     this.searchType = Constants.SEARCH_TYPE.LIKE;

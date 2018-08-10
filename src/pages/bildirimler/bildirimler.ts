@@ -2,15 +2,16 @@
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, NavParams, ModalController} from 'ionic-angular';
-import {MesajlarProvider} from '../../providers/mesajlar/mesajlar';
-import {Mesaj} from "../../entities/mesajlar";
-import {MesajDetailComponent} from "../../components/mesaj-detail/mesaj-detail";
-import {Pageable} from "../../entities/Pageable";
-import {HeaderComponent} from "../../components/header/header";
-import {Constants} from "../../entities/Constants";
-import {UtilProvider} from "../../providers/util/util";
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { MesajlarProvider } from '../../providers/mesajlar/mesajlar';
+import { Mesaj } from "../../entities/mesajlar";
+import { MesajDetailComponent } from "../../components/mesaj-detail/mesaj-detail";
+import { Pageable } from "../../entities/Pageable";
+import { HeaderComponent } from "../../components/header/header";
+import { Constants } from "../../entities/Constants";
+import { UtilProvider } from "../../providers/util/util";
+import { ThemeProvider } from '../../providers/theme/theme';
 
 @IonicPage()
 @Component({
@@ -24,14 +25,17 @@ export class BildirimlerPage {
   pageable: Pageable;
   mesajTip: string;
   mesajBaslik: string;
+  backGroundImage: string;
   @ViewChild("header") header: HeaderComponent;
 
   constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              private mesajProvider: MesajlarProvider,
-              private util: UtilProvider,
-              private modalController: ModalController) {
+    public navParams: NavParams,
+    private mesajProvider: MesajlarProvider,
+    private util: UtilProvider,
+    private modalController: ModalController,
+    private themeProvider: ThemeProvider) {
     this.mesajTip = this.navParams.data.type;
+    this.backGroundImage = this.themeProvider.getBackgroundImage();
     this.pageable = new Pageable();
     this.fetchList(this.searchTip);
 
@@ -66,8 +70,8 @@ export class BildirimlerPage {
   }
 
   public mesajDetayinaGit(event, id) {
-    let data = {id: id};
-    let detailComponent = this.modalController.create(MesajDetailComponent, data);
+    let data = { id: id };
+    let detailComponent = this.modalController.create(MesajDetailComponent, data, { cssClass: this.util.getSelectedTheme() });
     detailComponent.present();
   }
 

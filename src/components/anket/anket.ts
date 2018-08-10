@@ -8,6 +8,7 @@ import { LoggerProvider } from "../../providers/logger/logger";
 import { Hizmet } from "../../entities/hizmet/hizmet";
 import { HizmetService } from "../../providers/hizmet-service/hizmet-service";
 import { User } from '../../entities/user';
+import { ThemeProvider } from '../../providers/theme/theme';
 
 export class QA {
   soru: AnketSoru;
@@ -29,14 +30,17 @@ export class AnketComponent {
   hizmet: Hizmet;
   user: User = new User();
   isHizmetDisabled: Boolean;
+  backGroundImage: string;
   constructor(private params: NavParams,
     private viewCtrl: ViewController,
     private util: UtilProvider,
     private hizmetService: HizmetService,
-    private logger: LoggerProvider) {
+    private logger: LoggerProvider,
+    private themeProvider: ThemeProvider) {
 
     this.data = params.get('data');
     this.hizmet = this.data.hizmet;
+     this.backGroundImage = this.themeProvider.getBackgroundImage();
     this.anket = this.data.hizmet.anket;
     this.qAList = [];
 

@@ -8,7 +8,7 @@
 </ion-header>
 
 
-<ion-content class="content blue-theme">
+<ion-content class="content blue-theme" [ngStyle]="{ 'background-image': 'url(' + backGroundImage + ')' }">
   <ion-row>
     <ion-col col-2 col-md-2>
       <button ion-button (ionClick)="goback()">

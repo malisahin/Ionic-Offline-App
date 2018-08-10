@@ -1,11 +1,12 @@
-import {Component} from '@angular/core';
-import {UrunIscilik} from '../../entities/urun-iscilik';
-import {Pageable} from '../../entities/Pageable';
-import {UrunIscilikDao} from '../../providers/urun-iscilik-dao/urun-iscilik-dao';
-import {ViewController, NavParams} from 'ionic-angular';
-import {UtilProvider} from '../../providers/util/util';
-import {Constants} from '../../entities/Constants';
-import {UrunIscilikProvider} from "../../providers/urun-iscilik/urun-iscilik";
+import { Component } from '@angular/core';
+import { UrunIscilik } from '../../entities/urun-iscilik';
+import { Pageable } from '../../entities/Pageable';
+import { UrunIscilikDao } from '../../providers/urun-iscilik-dao/urun-iscilik-dao';
+import { ViewController, NavParams } from 'ionic-angular';
+import { UtilProvider } from '../../providers/util/util';
+import { Constants } from '../../entities/Constants';
+import { UrunIscilikProvider } from "../../providers/urun-iscilik/urun-iscilik";
+import { ThemeProvider } from '../../providers/theme/theme';
 
 
 @Component({
@@ -17,25 +18,28 @@ export class UrunIscilikSearchComponent {
   text: string;
   data: any;
   list: { key: "", value: "" }[] = [];
-  selectedItem: { key: "", value: "" } = {key: "", value: ""};
+  selectedItem: { key: "", value: "" } = { key: "", value: "" };
   returnObject: any;
   pageable: Pageable;
   searchText: string = "";
+  backGroundImage: string;
 
   urunIscilik: UrunIscilik;
 
   constructor(public viewCtrl: ViewController, params: NavParams,
-              private util: UtilProvider,
-              private urunIscilikDao: UrunIscilikDao,
-              private urunIscilikProvider: UrunIscilikProvider) {
+    private util: UtilProvider,
+    private urunIscilikDao: UrunIscilikDao,
+    private urunIscilikProvider: UrunIscilikProvider,
+    private themeProvider: ThemeProvider) {
     this.pageable = new Pageable();
     this.data = params.get('data');
+    this.backGroundImage = this.themeProvider.getBackgroundImage();
     this.ionViewDidLoad();
     this.urunIscilik = new UrunIscilik();
   }
 
   closeModal() {
-    this.ionChange({key: '', value: ''});
+    this.viewCtrl.dismiss();
   }
 
   ionViewDidLoad() {
@@ -73,13 +77,13 @@ export class UrunIscilikSearchComponent {
 
   fillItemByType(item: any) {
     if (this.data.type == Constants.DATA_TYPE.URUN_ANA_GRUP) {
-      this.list.push({key: item.mamAnaGrp, value: item.ad});
+      this.list.push({ key: item.mamAnaGrp, value: item.ad });
     }
     if (this.data.type == Constants.DATA_TYPE.URUN) {
-      this.list.push({key: item.mamAdi, value: item.mamKod});
+      this.list.push({ key: item.mamAdi, value: item.mamKod });
     }
     if (this.data.type == Constants.DATA_TYPE.URUN_ISCILIK) {
-      this.list.push({key: item.iscAdi, value: item.iscKod});
+      this.list.push({ key: item.iscAdi, value: item.iscKod });
     }
   }
 

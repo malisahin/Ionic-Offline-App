@@ -2,7 +2,7 @@
   <ion-navbar>
     <ion-row class="modal-title">
       <ion-col col-11 col-md-11>
-        <ion-title>Ürün Arama</ion-title>
+        <ion-title>Malzeme Arama</ion-title>
       </ion-col>
       <ion-col col-1 col-md-1>
         <ion-icon name="close" (click)="closeModal()" class="pull-right close-icon"></ion-icon>
@@ -12,7 +12,7 @@
 
 </ion-header>
 
-<ion-content class="content">
+<ion-content class="content" [ngStyle]="{ 'background-image': 'url(' + backGroundImage + ')' }">
 
   <ion-searchbar placeholder="Ara" [(ngModel)]="searchText" (ionInput)="fetchList()"></ion-searchbar>
 
@@ -23,38 +23,62 @@
     </ion-item>
   </ion-list>
 
-
 </ion-content>
 
 
+
 <ion-footer>
-
-
   <ion-row>
-    <ion-col col-4 col-md-2>
-      <button ion-button color="light" (click)="fetchList('FIRST')">
-        <ion-label><i class="fas fa-angle-double-left"></i></ion-label>
-      </button>
-      <button ion-button color="light" (click)="fetchList('PREVIOUS')">
-        <ion-label><i class="fas fa-angle-left"></i></ion-label>
-      </button>
+
+    <ion-col col-4 col-md-4>
+      <ion-row>
+        <ion-col col-6>
+          <button ion-button color="light" (click)="fetchList('FIRST')">
+            <ion-label>
+              <i class="fas fa-angle-double-left"></i>
+            </ion-label>
+          </button>
+        </ion-col>
+
+        <ion-col col-6>
+          <button ion-button color="light" (click)="fetchList('PREVIOUS')">
+            <ion-label>
+              <i class="fas fa-angle-left"></i>
+            </ion-label>
+          </button>
+        </ion-col>
+
+      </ion-row>
     </ion-col>
-    <ion-col col-4 col-md-8>
+
+    <ion-col col-4 col-md-4>
       <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList('PAGE_NO')" interface="popover">
         <ion-option value="10" selected="true">10</ion-option>
         <ion-option value="20">20</ion-option>
         <ion-option value="50">50</ion-option>
       </ion-select>
     </ion-col>
-    <ion-col col-4 col-md-2>
-      <button ion-button color="light" (click)="fetchList('NEXT')">
-        <ion-label><i class="fas fa-angle-right"></i></ion-label>
-      </button>
-      <button ion-button color="light" (click)="fetchList('LAST')">
-        <ion-label><i class="fas fa-angle-double-right"></i></ion-label>
-      </button>
-    </ion-col>
 
+    <ion-col col-4 col-md-4>
+      <ion-row>
+
+        <ion-col col-6>
+          <button ion-button color="light" (click)="fetchList('NEXT')">
+            <ion-label>
+              <i class="fas fa-angle-right"></i>
+            </ion-label>
+          </button>
+        </ion-col>
+
+        <ion-col col-6>
+          <button ion-button color="light" (click)="fetchList('LAST')">
+            <ion-label>
+              <i class="fas fa-angle-double-right"></i>
+            </ion-label>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-col>
   </ion-row>
 
 </ion-footer>

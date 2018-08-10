@@ -1,50 +1,56 @@
 <ion-header>
-  <ion-navbar no-border-bottom>
+  <ion-navbar>
+    <ion-row class="modal-title">
+      <ion-col col-11 col-md-11>
+        <ion-title>Ürün Ana Grup Değiştir</ion-title>
+      </ion-col>
+      <ion-col col-1 col-md-1>
+        <ion-icon name="close" (click)="iptal()" class="pull-right close-icon"></ion-icon>
+      </ion-col>
+    </ion-row>
   </ion-navbar>
 
 </ion-header>
 
-<ion-content>
-  <!-- Generated template for the HizmetBilgileriComponent component -->
-  <ion-list inset>
-    <ion-item>
-      <ion-label>Ürün Ana Grup</ion-label>
-
+<ion-content [ngStyle]="{ 'background-image': 'url(' + backGroundImage + ')' }">
+  <ion-row>
+    <ion-col col-4>
+      <ion-label>
+        <strong>Ürün Ana Grup:</strong>
+      </ion-label>
+    </ion-col>
+    <ion-col col-8>
       <ion-select [(ngModel)]="selectedBrans.mamAnaGrp" interface="popover" (ionChange)="onChangeMamAnaGrp()">
         <ion-option *ngFor="let brans of bransListesi" [value]="brans.mamAnaGrp">
           {{brans.exp}}
         </ion-option>
       </ion-select>
+    </ion-col>
+  </ion-row>
 
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Başvuru Nedeni</ion-label>
+  <ion-row>
+    <ion-col col-4>
+      <ion-label>
+        <strong>Başvuru Nedeni:</strong>
+      </ion-label>
+    </ion-col>
+    <ion-col col-8>
       <ion-select [(ngModel)]="basvuruNedeni.neden" interface="popover">
         <ion-option *ngFor="let neden of basvuruNedeniList" [value]="neden.neden">
           {{neden.neden}} - {{neden.ad }}
         </ion-option>
       </ion-select>
-    </ion-item>
+    </ion-col>
+  </ion-row>
 
-
-    <ion-item>
-      <ion-row>
-        <ion-col col-12 col-sm>
-          <button ion-button round full (click)="kaydet();" color="secondary">
-            Kaydet
-          </button>
-        </ion-col>
-        <ion-col col-12 col-sm>
-          <button ion-button round full (click)="iptal();" color="secondary">
-            Iptal
-          </button>
-        </ion-col>
-      </ion-row>
-    </ion-item>
-
-  </ion-list>
-
+  <ion-row>
+    <ion-col col-12>
+      <button ion-button round full (click)="kaydet();">
+        <span class="icon-right">
+          <i class="fas fa-save"></i>
+        </span>Kaydet </button>
+    </ion-col>
+  </ion-row>
 </ion-content>
 
 <ion-footer>

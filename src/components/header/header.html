@@ -1,44 +1,40 @@
 <ion-grid>
-  <ion-row style=" display: inline-block;">
+  <ion-row>
 
     <ion-col col-8 col-sm-8 col-lg-8 col-md-8 col-xl-8>
-      <div float-left class="header-bar">
-        <ion-buttons>
-          <button ion-button item-left icon-only (click)="sayfayaGit('CagrilarPage',{})">
-            <ion-icon name="ios-call"></ion-icon>
-            <div class="bar-announcements">{{cagriSayisi}}</div>
-          </button>
+      <ion-buttons>
+        <button ion-button item-left icon-only (click)="sayfayaGit('CagrilarPage',{})">
+          <ion-icon name="ios-call"></ion-icon>
+          <div class="bar-announcements">{{cagriSayisi}}</div>
+        </button>
 
-          <button ion-button icon-only (click)="sayfayaGit('BildirimlerPage',{type:'WARN'})">
-            <ion-icon name="volume-up"></ion-icon>
-            <div class="bar-announcements">{{duyuruSayisi}}</div>
-          </button>
+        <button ion-button icon-only (click)="sayfayaGit('BildirimlerPage',{type:'WARN'})">
+          <ion-icon name="volume-up"></ion-icon>
+          <div class="bar-announcements">{{duyuruSayisi}}</div>
+        </button>
 
-          <button ion-button icon-only (click)="sayfayaGit('BildirimlerPage',{type:'URGENT'})">
-            <ion-icon name="notifications"></ion-icon>
-            <div class="bar-announcements">{{uyariSayisi}}</div>
-          </button>
+        <button ion-button icon-only (click)="sayfayaGit('BildirimlerPage',{type:'URGENT'})">
+          <ion-icon name="notifications"></ion-icon>
+          <div class="bar-announcements">{{uyariSayisi}}</div>
+        </button>
 
-          <button ion-button icon-only (click)="sayfayaGit('GuncellemePage',{})">
-            <ion-icon name="md-refresh"></ion-icon>
-            <div class="bar-announcements">{{guncellemeSayisi}}</div>
-          </button>
-        </ion-buttons>
-      </div>
+        <button ion-button icon-only (click)="sayfayaGit('GuncellemePage',{})">
+          <ion-icon name="md-refresh"></ion-icon>
+          <div class="bar-announcements">{{guncellemeSayisi}}</div>
+        </button>
+      </ion-buttons>
     </ion-col>
 
     <ion-col col-4 col-sm-4 col-lg-4 col-md-4 col-xl-4>
-      <div float-right class="header-bar">
-        <ion-buttons>
-          <button ion-button icon-only (click)="sayfayaGit('Anasayfa',{})">
-            <ion-icon name="home"></ion-icon>
-          </button>
+      <ion-buttons style="float: right;">
+        <button ion-button icon-only (click)="sayfayaGit('Anasayfa',{})">
+          <ion-icon name="home"></ion-icon>
+        </button>
 
-          <button ion-button icon-only (click)="closeApplicationConfirm()">
-            <ion-icon name="exit"></ion-icon>
-          </button>
-        </ion-buttons>
-      </div>
+        <button ion-button icon-only (click)="closeApplicationConfirm()">
+          <ion-icon name="exit"></ion-icon>
+        </button>
+      </ion-buttons>
     </ion-col>
 
   </ion-row>

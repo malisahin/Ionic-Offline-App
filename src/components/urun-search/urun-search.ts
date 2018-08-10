@@ -1,10 +1,11 @@
-import {Component} from '@angular/core';
-import {Pageable} from '../../entities/Pageable';
-import {Constants} from '../../entities/Constants';
-import {UtilProvider} from '../../providers/util/util';
-import {UrunDao} from '../../providers/urun-dao/urun-dao';
-import {ViewController, NavParams} from 'ionic-angular';
-import {Urun} from '../../entities/urun';
+import { Component } from '@angular/core';
+import { Pageable } from '../../entities/Pageable';
+import { Constants } from '../../entities/Constants';
+import { UtilProvider } from '../../providers/util/util';
+import { UrunDao } from '../../providers/urun-dao/urun-dao';
+import { ViewController, NavParams } from 'ionic-angular';
+import { Urun } from '../../entities/urun';
+import { ThemeProvider } from '../../providers/theme/theme';
 
 
 @Component({
@@ -16,17 +17,20 @@ export class UrunSearchComponent {
   text: string;
   data: any;
   list: { key: "", value: "", data: {} }[] = [];
-  selectedItem: { key: "", value: "" } = {key: "", value: ""};
+  selectedItem: { key: "", value: "" } = { key: "", value: "" };
   returnObject: any;
   pageable: Pageable;
   searchText: string = "";
   urun: Urun;
   searchType: string;
+  backGroundImage: string;
 
   constructor(public viewCtrl: ViewController, params: NavParams,
-              private urunDao: UrunDao,
-              private util: UtilProvider) {
+    private urunDao: UrunDao,
+    private util: UtilProvider,
+    private themeProvider: ThemeProvider) {
     this.pageable = new Pageable();
+    this.backGroundImage = this.themeProvider.getBackgroundImage();
     this.data = params.get('data');
     this.urun = new Urun();
     this.searchType = Constants.SEARCH_TYPE.LIKE;
@@ -34,7 +38,7 @@ export class UrunSearchComponent {
   }
 
   closeModal() {
-    this.ionChange({key: '', value: ''});
+    this.ionChange({ key: '', value: '' });
   }
 
   ionViewDidLoad() {
@@ -83,7 +87,7 @@ export class UrunSearchComponent {
 
   fillItemByType(item: any) {
 
-    this.list.push({key: item.mamAdi, value: item.mamKod, data: item});
+    this.list.push({ key: item.mamAdi, value: item.mamKod, data: item });
 
   }
 

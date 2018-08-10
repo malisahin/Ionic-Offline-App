@@ -3,66 +3,33 @@
 
   <ion-row>
     <ion-col class="logo">
-      <ion-icon name="contact"></ion-icon>
+      <ion-icon name="construct"></ion-icon>
     </ion-col>
   </ion-row>
   <div class="login-box">
     <form (ngSubmit)="login()" #registerForm="ngForm">
 
       <ion-row>
-        <ion-col>
-
-          <ion-list>
-
-            <ion-item>
-              <ion-input type="text" placeholder="Kullanıcı Adı" name="email" [(ngModel)]="userCode" required></ion-input>
-            </ion-item>
-
-            <ion-item>
-              <ion-input [type]="passwordType" placeholder="Şifre" name="password" [(ngModel)]="password" required></ion-input>
-              <!--<ion-icon item-right [name]="passwordIcon" class="password-icon passIcon" (click)='hideShowPassword()'></ion-icon>-->
-              <ion-icon name="calendar"></ion-icon>
-            </ion-item>
-
-          </ion-list>
+        <ion-col col-12>
+          <ion-input type="text" placeholder="Kullanıcı Adı" name="email" [(ngModel)]="userCode" required></ion-input>
         </ion-col>
-      </ion-row>
-
-      <ion-row>
-        <ion-col class="signup-col">
+        <ion-col col-12>
+          <ion-input [type]="passwordType" placeholder="Şifre" name="password" [(ngModel)]="password" required></ion-input>
+          <!--<ion-icon item-right [name]="passwordIcon" class="password-icon passIcon" (click)='hideShowPassword()'></ion-icon>-->
+        </ion-col>
+        <ion-col col-12>
           <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Login</button>
         </ion-col>
+        <ion-col col-6>
+          <ion-checkbox [(ngModel)]="rememberMe" name="rememberMe" id="rememberMe" (ionChange)="onChangeRememberMe()"></ion-checkbox>
+          <ion-label>Beni Hatırla</ion-label>
+        </ion-col>
+        <ion-col col-6>
+          <ion-checkbox [(ngModel)]="showPassword" name="showPassword" id="showPassword" (ionChange)='hideShowPassword()'></ion-checkbox>
+          <ion-label>Şifreyi Göster</ion-label>
+        </ion-col>
       </ion-row>
-
-
     </form>
-    <ion-row style="text-align: left">
-      <ion-col>
-        <ion-row>
-          <ion-col>
-            <ion-checkbox [(ngModel)]="rememberMe" name="rememberMe" id="rememberMe" (ionChange)="onChangeRememberMe()"></ion-checkbox>
-          </ion-col>
-
-          <ion-col>
-            <ion-label>Beni Hatırla</ion-label>
-          </ion-col>
-        </ion-row>
-      </ion-col>
-
-      <ion-col>
-        <ion-row>
-
-          <ion-col>
-            <ion-label>Şifreyi Göster</ion-label>
-          </ion-col>
-
-          <ion-col>
-            <ion-checkbox [(ngModel)]="showPassword" name="showPassword" id="showPassword" (ionChange)='hideShowPassword()'></ion-checkbox>
-          </ion-col>
-
-        </ion-row>
-      </ion-col>
-    </ion-row>
 
   </div>
 </ion-content>

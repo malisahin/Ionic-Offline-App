@@ -15,6 +15,7 @@ import { Pageable } from "../../entities/Pageable";
 import { HeaderComponent } from "../../components/header/header";
 import { Constants } from "../../entities/Constants";
 import { UtilPlugin } from "../../providers/util-plugin/util-plugin";
+import { ThemeProvider } from "../../providers/theme/theme";
 
 @IonicPage()
 @Component({
@@ -28,6 +29,7 @@ export class CagrilarPage {
   pageable: Pageable;
   searchType: string = "BEGINNING";
   searchParams: string[] = [];
+  backGroundImage: string;
   orderBy: string = Constants.ORDER_BY.RANDEVU_TAR_DESCENDES;
 
   @ViewChild("header") header: HeaderComponent;
@@ -39,8 +41,10 @@ export class CagrilarPage {
     private cagriProvider: HizmetProvider,
     private hizmetService: HizmetService,
     private plugins: UtilPlugin,
-    private util: UtilProvider
+    private util: UtilProvider,
+    private themeProvider: ThemeProvider
   ) {
+    this.backGroundImage = this.themeProvider.getBackgroundImage();
     this.pageable = new Pageable();
     this.getListLength();
   }

@@ -2,19 +2,19 @@
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
-import {UtilProvider} from "../../providers/util/util";
-import {Constants} from "../../entities/Constants";
-import {BaseDao} from "../../providers/base-dao/base-dao";
-import {FiyatDao} from "../../providers/fiyat-dao/fiyat-dao";
-import {HizmetDao} from "../../providers/hizmet-dao/hizmet-dao";
-import {CagrilarPage} from "../cagrilar/cagrilar";
-import {GuncellemePage} from "../guncelleme/guncelleme";
-import {TasksProvider} from "../../providers/tasks/tasks";
-import {BehaviorSubject} from "rxjs";
-import {ThemeProvider} from "../../providers/theme/theme";
-import {LoggerProvider} from "../../providers/logger/logger";
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { UtilProvider } from "../../providers/util/util";
+import { Constants } from "../../entities/Constants";
+import { BaseDao } from "../../providers/base-dao/base-dao";
+import { FiyatDao } from "../../providers/fiyat-dao/fiyat-dao";
+import { HizmetDao } from "../../providers/hizmet-dao/hizmet-dao";
+import { CagrilarPage } from "../cagrilar/cagrilar";
+import { GuncellemePage } from "../guncelleme/guncelleme";
+import { TasksProvider } from "../../providers/tasks/tasks";
+import { BehaviorSubject } from "rxjs";
+import { ThemeProvider } from "../../providers/theme/theme";
+import { LoggerProvider } from "../../providers/logger/logger";
 
 @IonicPage()
 @Component({
@@ -25,7 +25,7 @@ import {LoggerProvider} from "../../providers/logger/logger";
 export class AyarlarPage {
 
   activePage: string = "silme";
-
+  backGroundImage: string;
   deletedVersion: string = (-1).toString();
   syncTime: number;
   DEFAULT_SYNC_TIME: number = 2;
@@ -34,14 +34,15 @@ export class AyarlarPage {
   messageDuration: number;
 
   constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              private  util: UtilProvider,
-              private  baseDao: BaseDao,
-              private tasks: TasksProvider,
-              private  fiyatDao: FiyatDao,
-              private  hizmetDao: HizmetDao,
-              private themeProvider: ThemeProvider,
-              private logger: LoggerProvider) {
+    public navParams: NavParams,
+    private util: UtilProvider,
+    private baseDao: BaseDao,
+    private tasks: TasksProvider,
+    private fiyatDao: FiyatDao,
+    private hizmetDao: HizmetDao,
+    private themeProvider: ThemeProvider,
+    private logger: LoggerProvider) {
+    this.backGroundImage = this.themeProvider.getBackgroundImage();
     this.onChangeSyncTime('TS');
     this.selectedTheme = this.themeProvider.getSelectedTheme();
     this.onChangeTheme();
@@ -53,17 +54,17 @@ export class AyarlarPage {
   }
 
   async  deleteUrunler() {
-    await  this.baseDao.deleteAll(Constants.DATA_TYPE.URUN);
+    await this.baseDao.deleteAll(Constants.DATA_TYPE.URUN);
     this.util.info("Ürün Listesi Silindi");
   }
 
   async deleteUrunAnaGrup() {
-    await  this.baseDao.deleteAll(Constants.DATA_TYPE.URUN_ANA_GRUP);
+    await this.baseDao.deleteAll(Constants.DATA_TYPE.URUN_ANA_GRUP);
     this.util.info("Ürün Ana Grup Listesi Silindi");
   }
 
   async deleteUrunIscilik() {
-    await  this.baseDao.deleteAll(Constants.DATA_TYPE.URUN_ISCILIK);
+    await this.baseDao.deleteAll(Constants.DATA_TYPE.URUN_ISCILIK);
     this.util.info("Ürün Ana Grup Listesi Silindi");
   }
 
@@ -73,7 +74,7 @@ export class AyarlarPage {
   }
 
   async deleteIslemArizaIscilik() {
-    await  this.baseDao.deleteAll(Constants.DATA_TYPE.ISLEM_ARIZA_ISCILIK);
+    await this.baseDao.deleteAll(Constants.DATA_TYPE.ISLEM_ARIZA_ISCILIK);
     this.util.info("Işlem Arıza İşçilik Listesi Silindi");
   }
 
@@ -88,23 +89,23 @@ export class AyarlarPage {
   }
 
   async deleteSehirList() {
-    await  this.baseDao.deleteAll(Constants.DATA_TYPE.SEHIR_TNM);
+    await this.baseDao.deleteAll(Constants.DATA_TYPE.SEHIR_TNM);
     this.util.info("Şehir Listesi Silindi");
   }
 
   async deleteIlceList() {
-    await  this.baseDao.deleteAll(Constants.DATA_TYPE.ILCE_TNM);
+    await this.baseDao.deleteAll(Constants.DATA_TYPE.ILCE_TNM);
     this.util.info("Ilçe Listesi Silindi");
   }
 
   async deleteMahalleList() {
-    await  this.baseDao.deleteAll(Constants.DATA_TYPE.MAHALLE_TNM);
+    await this.baseDao.deleteAll(Constants.DATA_TYPE.MAHALLE_TNM);
     this.util.info("Mahalle Listesi Silindi");
   }
 
   async  deleteAllServices() {
 
-    await  this.hizmetDao.deleteList();
+    await this.hizmetDao.deleteList();
     this.util.info("Çağrı Listesi Silindi");
     setTimeout(() => {
       this.navCtrl.push(CagrilarPage)

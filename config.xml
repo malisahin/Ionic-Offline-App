@@ -115,5 +115,5 @@
     <plugin name="cordova-plugin-calendar" spec="^5.1.2" />
     <plugin name="phonegap-plugin-barcodescanner" spec="^8.0.0" />
     <plugin name="call-number" spec="^1.0.1" />
-    <plugin name="cordova-sqlite-storage" spec="git+https://github.com/litehelpers/Cordova-sqlite-storage.git" />
+    <plugin name="cordova-sqlite-storage" spec="^2.3.3" />
 </widget>

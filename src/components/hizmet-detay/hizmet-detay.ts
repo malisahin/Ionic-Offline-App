@@ -12,6 +12,7 @@ import { Hizmet } from '../../entities/hizmet/hizmet';
 import { IslemArizaIscilikDao } from "../../providers/islem-ariza-iscilik-dao/islem-ariza-iscilik-dao";
 import { IslemArizaIscilik } from "../../entities/islem-ariza-iscilik";
 import { ProcessResults } from "../../entities/ProcessResults";
+import { ThemeProvider } from '../../providers/theme/theme';
 
 
 @Component({
@@ -37,6 +38,7 @@ export class HizmetDetayComponent {
   canModalCloseable: boolean = true;
   satirNo: number;
   islemTipiDegistirmeSayisi: number = 0;
+  backGroundImage: string;
 
   constructor(private viewCtrl: ViewController,
     private params: NavParams,
@@ -45,9 +47,11 @@ export class HizmetDetayComponent {
     private logger: LoggerProvider,
     private fiyatDao: FiyatDao,
     private islemArizaIscilikDao: IslemArizaIscilikDao,
-    private hizmetService: HizmetService) {
+    private hizmetService: HizmetService,
+    private themeProvider: ThemeProvider) {
 
     this.hizmet = this.hizmetService.getHizmet();
+    this.backGroundImage = this.themeProvider.getBackgroundImage();
     this.hizmetDetay = new DetayKayit();
     this.data = params.get('data');
     this.init();
@@ -235,7 +239,8 @@ export class HizmetDetayComponent {
         dataType: tip,
         filter: this.hizmetDetay
       }
-    });
+    }, { cssClass: this.util.getSelectedTheme() });
+
     piyModal.onDidDismiss(res => {
       this.logger.dir(res);
 

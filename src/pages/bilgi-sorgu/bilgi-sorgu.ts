@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { ThemeProvider } from '../../providers/theme/theme';
 
 
 
@@ -11,10 +12,12 @@ import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 })
 export class BilgiSorguPage {
   activePage: string = "garantiSorguSegment";
+  backGroundImage: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private formBuilder: FormBuilder) {
-
+    private formBuilder: FormBuilder,
+    private themeProvider: ThemeProvider) {
+    this.backGroundImage = this.themeProvider.getBackgroundImage();
   }
 
   ionViewDidLoad() {
