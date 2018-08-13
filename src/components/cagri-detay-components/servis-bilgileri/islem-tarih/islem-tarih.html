@@ -6,7 +6,7 @@
       </ion-label>
     </ion-col>
     <ion-col col-8>
-      <ion-label>{{sonIslem.basTar}}</ion-label>
+      <ion-label>{{sonIslem.basTar | FormatDate}}</ion-label>
     </ion-col>
   </ion-row>
 
@@ -17,7 +17,7 @@
       </ion-label>
     </ion-col>
     <ion-col col-8>
-      <ion-label>{{sonIslem.bitTar}}</ion-label>
+      <ion-label>{{sonIslem.bitTar | FormatDate}}</ion-label>
     </ion-col>
   </ion-row>
 
@@ -37,14 +37,16 @@
     </ion-col>
   </ion-row>
 
-  <ion-row class="row-border" *ngIf="sonIslem.basTar  != null && sonIslem.bitTar == null && sonIslem.beklemeNeden =='SERVIS'">
+  <ion-row class="row-border"
+           *ngIf="sonIslem.basTar  != null && sonIslem.bitTar == null && sonIslem.beklemeNeden =='SERVIS'">
     <ion-col col-4>
       <ion-label>
         <strong>Bekleme Kaynağı:</strong>
       </ion-label>
     </ion-col>
     <ion-col col-8>
-      <ion-select [(ngModel)]="sonIslem.bekleKaynak" interface="popover" (ionChange)="checkStatus()" [disabled]=isHizmetDisabled()>
+      <ion-select [(ngModel)]="sonIslem.bekleKaynak" interface="popover" (ionChange)="checkStatus()"
+                  [disabled]=isHizmetDisabled()>
         <ion-option value="" selected="true"></ion-option>
         <ion-option value="NEDEN1">Yedek parça bekleniyor.</ion-option>
 
@@ -52,28 +54,32 @@
     </ion-col>
   </ion-row>
 
-  <ion-row class="row-border" *ngIf="sonIslem.basTar  != null && sonIslem.bitTar == null && sonIslem.beklemeNeden =='MUSTERI'">
+  <ion-row class="row-border"
+           *ngIf="sonIslem.basTar  != null && sonIslem.bitTar == null && sonIslem.beklemeNeden =='MUSTERI'">
     <ion-col col-4>
       <ion-label>
         <strong>Bekleme Kaynağı:</strong>
       </ion-label>
     </ion-col>
     <ion-col col-8>
-      <ion-select [(ngModel)]="sonIslem.bekleKaynak" interface="popover" (ionChange)="checkStatus()" [disabled]=isHizmetDisabled()>
+      <ion-select [(ngModel)]="sonIslem.bekleKaynak" interface="popover" (ionChange)="checkStatus()"
+                  [disabled]=isHizmetDisabled()>
         <ion-option value="" selected="true"></ion-option>
         <ion-option value="NEDEN1">Müşteri Uygun Değil</ion-option>
       </ion-select>
     </ion-col>
   </ion-row>
 
-  <ion-row class="row-border" *ngIf="sonIslem.basTar  != null && sonIslem.bitTar == null && sonIslem.beklemeNeden == 'BAYI'">
+  <ion-row class="row-border"
+           *ngIf="sonIslem.basTar  != null && sonIslem.bitTar == null && sonIslem.beklemeNeden == 'BAYI'">
     <ion-col col-4>
       <ion-label>
         <strong>Bekleme Kaynağı:</strong>
       </ion-label>
     </ion-col>
     <ion-col col-8>
-      <ion-select [(ngModel)]="sonIslem.bekleKaynak" interface="popover" (ionChange)="checkStatus()" [disabled]=isHizmetDisabled()>
+      <ion-select [(ngModel)]="sonIslem.bekleKaynak" interface="popover" (ionChange)="checkStatus()"
+                  [disabled]=isHizmetDisabled()>
         <ion-option value="" selected="true"></ion-option>
         <ion-option value="NEDEN1">Tesisat Kaynaklı</ion-option>
       </ion-select>
@@ -85,21 +91,24 @@
       <button ion-button primary round full (click)="islemBaslat()" [disabled]=isHizmetDisabled()>
         <span class="icon-right">
           <i class="fas fa-play"></i>
-        </span> İşlem Başlat </button>
+        </span> İşlem Başlat
+      </button>
     </ion-col>
 
     <ion-col col-12 *ngIf="buttonStatus == 'BEKLE'">
       <button ion-button primary round full (click)="islemBeklet()" [disabled]=isHizmetDisabled()>
         <span class="icon-right">
           <i class="fas fa-play"></i>
-        </span> Bekleme Başlat </button>
+        </span> Bekleme Başlat
+      </button>
     </ion-col>
 
     <ion-col col-12 *ngIf="buttonStatus == 'BITIR'">
       <button ion-button primary round full (click)="islemBitir()" [disabled]=isHizmetDisabled()>
         <span class="icon-right">
           <i class="fas fa-times"></i>
-        </span> Bitir </button>
+        </span> Bitir
+      </button>
     </ion-col>
   </ion-row>
 </ion-card>

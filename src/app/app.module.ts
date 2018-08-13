@@ -94,15 +94,16 @@ import { TableTotalElementsProvider } from '../providers/table-total-elements/ta
 import 'intl';
 import 'intl/locale-data/jsonp/en';
 import {SQLite} from "@ionic-native/sqlite";
+import {PipesModule} from "../pipes/pipes.module";
 
 @NgModule({
   declarations: [
     MyApp,
-    ListComponent,
-    SafeHtmlPipe
+    ListComponent
   ],
   imports: [
     BrowserModule,
+    PipesModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
     SharedModule,

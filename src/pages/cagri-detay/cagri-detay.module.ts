@@ -12,6 +12,7 @@ import { SharedModule } from '../shared-module/shared-module.module';
 import { HizmetDetayComponent } from "../../components/hizmet-detay/hizmet-detay";
 import { DetayPiySearchComponent } from '../../components/detay-piy-search/detay-piy-search';
 import {UpdateUrunAnaGrupComponent} from "../../components/update-urun-ana-grup/update-urun-ana-grup";
+import {PipesModule} from "../../pipes/pipes.module";
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import {UpdateUrunAnaGrupComponent} from "../../components/update-urun-ana-grup/
     UpdateUrunAnaGrupComponent
   ],
   imports: [
-    IonicPageModule.forChild(CagriDetayPage), SharedModule
+    IonicPageModule.forChild(CagriDetayPage), SharedModule, PipesModule
   ],
 })
 export class CagriDetayPageModule { }

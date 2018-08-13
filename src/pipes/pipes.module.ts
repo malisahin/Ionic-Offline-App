@@ -1,8 +1,17 @@
-import { NgModule } from '@angular/core';
-import { SafeHtmlPipe } from './safe-html/safe-html';
+import {NgModule} from '@angular/core';
+import {SafeHtmlPipe} from './safe-html/safe-html';
+import {DateFormatPipe} from './date-format/date-format';
+
 @NgModule({
-	declarations: [SafeHtmlPipe],
-	imports: [],
-	exports: [SafeHtmlPipe]
+  declarations: [
+    SafeHtmlPipe,
+    DateFormatPipe
+  ],
+  imports: [],
+  exports: [
+    SafeHtmlPipe,
+    DateFormatPipe
+  ]
 })
-export class PipesModule {}
+export class PipesModule {
+}
