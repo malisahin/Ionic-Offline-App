@@ -84,4 +84,39 @@ export class HizmetService {
     return hizmet.durum == "KAPALI" || hizmet.durum == "IPTAL";
   }
 
+  sunucuyaKayitIcinHazirla(hizmet: Hizmet) {
+
+    debugger;
+    let sunucuyaGidecekHizmet = this.util.assign(hizmet);
+    let DATE_TIME_FORMAT: string = "dd.MM.yyyy hh:mm:ss.s";
+    let DATE_TIME_FORMAT_WITHOUT_SPLIT_SECOND: string = "dd.MM.yyyy hh:mm:ss";
+    let DATE_FORMAT: string = "yyyy-MM-dd";
+
+    if (this.util.isNotEmpty(sunucuyaGidecekHizmet.islemList)) {
+      sunucuyaGidecekHizmet.islemList.forEach(islem => {
+
+        if (this.util.isNotEmpty(islem.basTar)) {
+          islem.basTar = this.util.dateFormatRegex(new Date(islem.basTar), DATE_TIME_FORMAT_WITHOUT_SPLIT_SECOND)
+        }
+
+        if (this.util.isNotEmpty(islem.bitTar)) {
+          islem.bitTar = this.util.dateFormatRegex(new Date(islem.bitTar), DATE_TIME_FORMAT_WITHOUT_SPLIT_SECOND)
+        }
+
+      })
+    }
+
+    sunucuyaGidecekHizmet.sattar = this.util.dateFormatRegex(new Date(sunucuyaGidecekHizmet.sattar), DATE_FORMAT);
+
+    sunucuyaGidecekHizmet.randevuTarihi = this.util.dateFormatRegex(new Date(sunucuyaGidecekHizmet.randevuTarihi), DATE_TIME_FORMAT);
+    sunucuyaGidecekHizmet.cagriTarihi = this.util.dateFormatRegex(new Date(sunucuyaGidecekHizmet.cagriTarihi), DATE_TIME_FORMAT);
+
+    sunucuyaGidecekHizmet.islemTarihi = this.util.dateFormatRegex(new Date(sunucuyaGidecekHizmet.islemTarihi), DATE_TIME_FORMAT_WITHOUT_SPLIT_SECOND);
+    sunucuyaGidecekHizmet.islemBitTarihi = this.util.dateFormatRegex(new Date(sunucuyaGidecekHizmet.islemBitTarihi), DATE_TIME_FORMAT_WITHOUT_SPLIT_SECOND);
+
+    delete sunucuyaGidecekHizmet.anket;
+
+    return sunucuyaGidecekHizmet;
+  }
+
 }

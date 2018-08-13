@@ -158,7 +158,6 @@ export class UtilProvider {
 
   newDate(dateString: any): number {
     //  return dateString;
-    debugger;
     if (this.isNotEmpty(dateString) && typeof  dateString == "number")
       return dateString;
 

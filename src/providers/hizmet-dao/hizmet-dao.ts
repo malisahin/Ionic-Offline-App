@@ -58,12 +58,12 @@ export class HizmetDao {
 
   filterToSaveHizmet(hizmet: Hizmet): any {
 
-    if (this.util.isNotEmpty(hizmet.randevuTarihi))
+    /*if (this.util.isNotEmpty(hizmet.randevuTarihi))
       hizmet.randevuTarihi = this.util.newDate(hizmet.randevuTarihi);
 
     if (this.util.isNotEmpty(hizmet.cagriTarihi))
       hizmet.cagriTarihi = this.util.newDate(hizmet.cagriTarihi);
-
+*/
     return hizmet;
   }
 

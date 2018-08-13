@@ -1,4 +1,3 @@
-import { MomentModule } from 'angular2-moment';
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, ErrorHandler, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { IonicApp, IonicModule, IonicErrorHandler, ToastController, NavController } from "ionic-angular";
@@ -87,7 +86,6 @@ import { UtilPlugin } from "../providers/util-plugin/util-plugin";
 import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 import { AnketService } from '../providers/anket-service/anket-service';
 import { AnketComponent } from "../components/anket/anket";
-import { SafeHtmlPipe } from "../pipes/safe-html/safe-html";
 import { SpinnerComponent } from "../components/spinner/spinner";
 import { TableTotalElementsProvider } from '../providers/table-total-elements/table-total-elements';
 
@@ -116,8 +114,7 @@ import {PipesModule} from "../pipes/pipes.module";
     BildirimlerPageModule,
     AnasayfaPageModule,
     LoginPageModule,
-    CagriAramaModalPageModule,
-    MomentModule
+    CagriAramaModalPageModule
 
   ],
   exports: [],

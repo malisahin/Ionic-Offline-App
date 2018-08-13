@@ -116,8 +116,12 @@ export class AnketService {
   }
 
   getAnketCevapList(hizmet: Hizmet): AnketCevap[] {
-    let list = hizmet.anket.anketCevaplar;
-    return list;
+    if(this.util.isNotEmpty(hizmet.anket) && this.util.isNotEmpty(hizmet.anket.anketCevaplar)) {
+      let list = hizmet.anket.anketCevaplar;
+      return list;
+    }
+
+    return [];
   }
 
 

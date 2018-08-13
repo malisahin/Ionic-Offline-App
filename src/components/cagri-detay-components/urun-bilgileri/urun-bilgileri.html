@@ -101,10 +101,10 @@
     </ion-label>
   </ion-col>
   <ion-col col-8 col-md-10>
-    <ion-datetime [(ngModel)]="hizmet.sattar" (ionChange)="faturaTarihiChange(Constants.NERDEN.HTML)" [disabled]="isHizmetDisabled()" displayFormat="DD/MM/YYYY"></ion-datetime>
+    <ion-datetime [(ngModel)]="hizmet.sattar" (ionChange)="faturaTarihiChange('HTML')" [disabled]="isHizmetDisabled()" displayFormat="DD/MM/YYYY"></ion-datetime>
   </ion-col>
 
-  <ion-col col-4 col-md-4> 
+  <ion-col col-4 col-md-4>
     <ion-label>
       <strong>Garanti:</strong>
     </ion-label>

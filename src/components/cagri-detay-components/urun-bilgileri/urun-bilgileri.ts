@@ -52,6 +52,7 @@ export class UrunBilgileriComponent {
     this.mesguliyet = this.util.isNotEmpty(this.hizmet.mesguliyet) && this.hizmet.mesguliyet == "VAR";
     this.mesguliyetChange(Constants.NERDEN.INIT);
     this.garantiChange(Constants.NERDEN.INIT);
+    this.faturaTarihiChange(Constants.NERDEN.INIT);
   }
 
   async urunListesiniGetir() {
@@ -239,8 +240,9 @@ export class UrunBilgileriComponent {
       this.saveHizmet();
   }
 
-  faturaTarihiChange() {
-    this.saveHizmet();
+  faturaTarihiChange(nerden: string) {
+    if (this.util.isNotEmpty(nerden) && nerden != Constants.NERDEN.INIT)
+      this.saveHizmet();
   }
 
   async saveHizmet() {
