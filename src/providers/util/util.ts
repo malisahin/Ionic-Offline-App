@@ -164,7 +164,7 @@ export class UtilProvider {
     let date;
     if (this.isEmpty(dateString)) {
       //return this.dateFormatRegex(new Date(), Constants.DATE_FORMAT);
-      return new Date().getTime();
+      return null;
     } else {
       dateString = dateString.substr(0, dateString.indexOf('.')).replace(/-/g, "/");
       //date = this.dateFormatRegex(dateString, Constants.DATE_FORMAT);

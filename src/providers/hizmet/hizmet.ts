@@ -178,15 +178,15 @@ export class HizmetProvider {
     item.ilceKod = obj.ilceKod;
     item.iletisimIstek = obj.iletisimIstek;
     item.isTel = obj.isTel;
-    item.islemBitTarihi = obj.islemBitTarihi;
+    item.islemBitTarihi = this.util.newDate(obj.islemBitTarihi);
 
     if (obj.islemList != null && obj.islemList.length > 0) {
       fromServer = Array.isArray(obj.islemList[0]);
 
-      item.islemList = fromServer ? obj.islemList[0] : obj.islemList;
+      item.islemList = this.fillIslemList(fromServer, obj); //fromServer ? obj.islemList[0] : obj.islemList;
     }
 
-    item.islemTarihi = obj.islemTarihi;
+    item.islemTarihi = this.util.newDate(obj.islemTarihi);
     item.kapatmaKodu = obj.kapatmaKodu;
     item.mahalle = obj.mahalle;
     item.mahalleKodu = obj.mahalleKodu;
@@ -203,7 +203,7 @@ export class HizmetProvider {
     item.musTip = obj.musTip;
     item.nobet = obj.nobet;
     item.odemeTipi = obj.odemeTipi;
-    item.randevuTarihi = obj.randevuTarihi;
+    item.randevuTarihi = this.util.newDate(obj.randevuTarihi);
     item.sattar = obj.sattar;
     item.sehir = obj.sehir;
     item.sehirKod = obj.sehirKod;
@@ -216,6 +216,20 @@ export class HizmetProvider {
     item.soyadi = obj.soyadi;
     item.crmNo = obj.crmNo;
     return item;
+  }
+
+  fillIslemList(fromServer: boolean, obj: any) {
+
+    let islemList = fromServer ? obj.islemList[0] : obj.islemList;
+
+    if (this.util.isNotEmpty(islemList)) {
+      islemList.forEach(item => {
+        item.basTar = this.util.newDate(item.basTar);
+        item.bitTar = this.util.newDate(item.bitTar);
+      })
+    }
+    return islemList;
+
   }
 
 

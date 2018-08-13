@@ -119,4 +119,14 @@ export class HizmetService {
     return sunucuyaGidecekHizmet;
   }
 
+
+  async hizmetiKapatVeKaydet(hizmet: Hizmet, res: any) {
+    debugger;
+    if (this.util.isNotEmpty(res) && this.util.isNotEmpty(res.message)) {
+      hizmet.durum = res.message.durum;
+      await this.saveAndFetchHizmet(hizmet);
+    }
+  }
+
+
 }

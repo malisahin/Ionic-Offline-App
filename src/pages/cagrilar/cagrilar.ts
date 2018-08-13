@@ -89,7 +89,6 @@ export class CagrilarPage {
   }
 
   async fetchList(tip) {
-    debugger;
     this.cagrilar = [];
     this.pageable.tip = tip;
     this.pageable = this.pageable.compute();

@@ -208,7 +208,8 @@ export class DetayBilgileriComponent {
       && res.description == "CLOSED";
 
     if (hizmetFormuKapatildiMi) {
-      await this.fillHizmet(res);
+      await this.hizmetService.hizmetiKapatVeKaydet(this.hizmet, res);
+
       this.navigate("CagrilarPage", "Çağrı Kayıt Edildi.")
     }
   }
@@ -468,7 +469,6 @@ export class DetayBilgileriComponent {
   }
 
   goToAnketPage() {
-
     let modal = this.modalCtrl.create(AnketComponent, {data: {hizmet: this.hizmet}}, {cssClass: this.util.getSelectedTheme()});
     modal.present();
   }
