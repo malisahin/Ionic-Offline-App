@@ -18,7 +18,7 @@
           <!--<ion-icon item-right [name]="passwordIcon" class="password-icon passIcon" (click)='hideShowPassword()'></ion-icon>-->
         </ion-col>
         <ion-col col-12>
-          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Login</button>
+          <button ion-button class="submit-btn" full type="submit" id="login-btn" [disabled]="!registerForm.form.valid">Login</button>
         </ion-col>
         <ion-col col-6>
           <ion-checkbox [(ngModel)]="rememberMe" name="rememberMe" id="rememberMe" (ionChange)="onChangeRememberMe()"></ion-checkbox>

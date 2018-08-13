@@ -37,8 +37,8 @@ export class LoginPage {
   passwordType: string = "password";
   passwordIcon: string = "eye-off";
   loading: Loading;
-  userCode: string = "";
-  password: string = "";
+  userCode: string = "ECAMERKEZ";
+  password: string = "EMAR6464";
   user: User;
   hasLoginPermission = false;
   backGroundImage: string;

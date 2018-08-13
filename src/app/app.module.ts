@@ -93,6 +93,7 @@ import { TableTotalElementsProvider } from '../providers/table-total-elements/ta
 
 import 'intl';
 import 'intl/locale-data/jsonp/en';
+import {SQLite} from "@ionic-native/sqlite";
 
 @NgModule({
   declarations: [
@@ -151,6 +152,7 @@ import 'intl/locale-data/jsonp/en';
     Network,
     StatusBar,
     SplashScreen,
+    SQLite,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     //{ provide: SQLite, useClass: SQLiteMock },
     AuthService,

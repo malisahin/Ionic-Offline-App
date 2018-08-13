@@ -52,7 +52,7 @@
       </ion-col>
       <ion-col col-11>
         <label>
-          {{cagri.randevuTarihi | date: 'dd-MM-yyyy HH:mm'}}
+          {{cagri.randevuTarihi}}
         </label>
       </ion-col>
     </ion-row>
@@ -76,6 +76,7 @@
         <label>{{cagri.mamAnaGrpAdi}} | {{cagri.hizmetTipiAdi}} | {{cagri.basvuruNedenAdi}}</label>
       </ion-col>
     </ion-row>
+
 
     <ion-row class="row-border">
       <ion-col col-1>
@@ -102,18 +103,19 @@
       </ion-col>
       <ion-col col-11>
         <span class="adres-box" *ngIf="cagri.semt != null && cagri.semt != ''">Semt: {{cagri.semt}}</span>
-        <span class="adres-box" *ngIf="cagri.mahalleAdi != null && cagri.mahalleAdi !=''">Mahalle: {{cagri.mahalleAdi}}</span>
+        <span class="adres-box"
+              *ngIf="cagri.mahalleAdi != null && cagri.mahalleAdi !=''">Mahalle: {{cagri.mahalleAdi}}</span>
         <span class="adres-box" *ngIf="cagri.cadde != null && cagri.cadde !=''">Cadde: {{cagri.cadde}} </span>
         <span class="adres-box" *ngIf="cagri.sokak != null && cagri.sokak !=''">Sokak: {{cagri.sokak}}</span>
         <span class="adres-box" *ngIf="cagri.aparman!= null && cagri.aparman !=''">Apartman: {{cagri.aparman}}</span>
         <span class="adres-box" *ngIf="cagri.apartmanNo!= null && cagri.apartmanNo !=''">{{cagri.apartmanNo}}</span>
         <span class="adres-box" *ngIf="cagri.blok != null && cagri.blok!=''">Blok: {{cagri.blok}}</span>
         <span class="adres-box" *ngIf="cagri.daireNo != null && cagri.daireNo!=''">Daire No: {{cagri.daireNo}}</span>
-        <span class="adres-box" *ngIf="cagri.ilceAdi != null && cagri.ilceAdi!=''">{{cagri.ilceAdi}} /{{cagri.sehir}}</span>
+        <span class="adres-box"
+              *ngIf="cagri.ilceAdi != null && cagri.ilceAdi!=''">{{cagri.ilceAdi}} /{{cagri.sehir}}</span>
       </ion-col>
     </ion-row>
   </ion-card>
-
 
 
 </ion-content>

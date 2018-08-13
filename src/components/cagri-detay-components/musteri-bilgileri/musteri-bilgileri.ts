@@ -61,15 +61,6 @@ export class MusteriBilgileriComponent {
 
   }
 
-  ionViewWillLeave() {
-    this.hizmetService.saveAndFetchHizmet(this.hizmet);
-  }
-
-  ionViewDidLeave() {
-    this.logger.log("ionViewDidLeave");
-    this.hizmetService.saveAndFetchHizmet(this.hizmet);
-  }
-
   async getSehirList() {
     this.sehirler = [];
     await this.adresDao.getSehirList().then(res => {
@@ -90,13 +81,11 @@ export class MusteriBilgileriComponent {
     if (this.util.isNotEmpty(this.hizmet.sehirKod)) {
       let res = await this.adresDao.getIlceList(this.hizmet.sehirKod);
       this.ilceler = [];
-      this.logger.table(res);
       for (let i = 0; i < res.rows.length; i++) {
         this.ilceler.push(res.rows.item(i));
       }
 
       this.setIlceValues();
-      this.onHizmetChange();
     }
   }
 
@@ -123,7 +112,6 @@ export class MusteriBilgileriComponent {
       for (let i = 0; i < res.rows.length; i++) {
         this.mahalleler.push(res.rows.item(i));
       }
-      this.onHizmetChange();
     });
   }
 
@@ -133,6 +121,7 @@ export class MusteriBilgileriComponent {
   }
 
   async onHizmetChange() {
+    this.logger.log("Musteri-Bilgileri- OnHizmetChange");
     this.hizmet = await this.hizmetService.saveAndFetchHizmet(this.hizmet);
   }
 

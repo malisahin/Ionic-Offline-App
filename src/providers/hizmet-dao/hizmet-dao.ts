@@ -8,6 +8,7 @@ import {Hizmet} from "../../entities/hizmet/hizmet";
 import {LoggerProvider} from "../logger/logger";
 import {Pageable} from "../../entities/Pageable";
 import {Constants} from "../../entities/Constants";
+import {UtilProvider} from "../util/util";
 
 @Injectable()
 export class HizmetDao {
@@ -19,7 +20,7 @@ export class HizmetDao {
 
   insertedRow: number = 0;
 
-  constructor(private baseDao: BaseDao, private  logger: LoggerProvider) {
+  constructor(private baseDao: BaseDao, private  logger: LoggerProvider, private  util: UtilProvider) {
 
   }
 
@@ -36,7 +37,9 @@ export class HizmetDao {
   }
 
   async insertOne(hizmet: Hizmet): Promise<any> {
+    hizmet = this.filterToSaveHizmet(hizmet);
     let hizmetObject: string = JSON.stringify(hizmet);
+    this.logger.warn("Randevu Tarihi => " + hizmet.randevuTarihi);
     let isHizmetExist = await this.isHizmetExist(hizmet.seqNo);
     if (!isHizmetExist) {
       let params = [hizmet.seqNo, hizmet.randevuTarihi, hizmet.hizmetTipiAdi, hizmet.mamAnaGrpAdi, hizmet.basvuruNedeni,
@@ -46,16 +49,33 @@ export class HizmetDao {
   }
 
   updateHizmet(hizmet: Hizmet) {
+    hizmet = this.filterToSaveHizmet(hizmet);
     let hizmetObject: string = JSON.stringify(hizmet);
     let params = [hizmet.seqNo, hizmet.randevuTarihi, hizmet.hizmetTipiAdi, hizmet.mamAnaGrpAdi, hizmet.basvuruNedeni,
       hizmet.durum, hizmet.adi, hizmet.soyadi, hizmet.firmaUnvani, hizmet.evTel, hizmet.isTel, hizmet.gsmNo, hizmetObject, hizmet.seqNo];
     return this.baseDao.execute(this.UPDATE_QUERY, params);
   }
 
+  filterToSaveHizmet(hizmet: Hizmet): any {
+
+    if (this.util.isNotEmpty(hizmet.randevuTarihi))
+      hizmet.randevuTarihi = this.util.newDate(hizmet.randevuTarihi);
+
+    if (this.util.isNotEmpty(hizmet.cagriTarihi))
+      hizmet.cagriTarihi = this.util.newDate(hizmet.cagriTarihi);
+
+    return hizmet;
+  }
+
   find(item: Hizmet, orderBy: string, pageable: Pageable): Promise<Hizmet[]> {
     let query = this.prepareSelectQuery(item);
     this.logger.info("Query ==> " + query + "/ ORDER BY ==> " + orderBy);
     return this.search(query, orderBy, pageable);
+  }
+
+  findOne(seqNo: string) {
+    let query = "SELECT * FROM OFF_HIZ_MST WHERE 1=1 AND seqNo='" + seqNo + "'";
+    return this.baseDao.execute(query, []);
   }
 
   search(query: string, orderBy: string, pageable: Pageable): Promise<any> {
@@ -81,7 +101,7 @@ export class HizmetDao {
       query += " AND seqNo= '" + item.seqNo + "' ";
 
     // TODO: Randevu Tarihi between date yapilacak sekilde duzenlenmeli
-    if (item.randevuTarihi != null && item.randevuTarihi != "")
+    if (this.util.isNotEmpty(item.randevuTarihi))
       query += " AND randevuTarihi='" + item.randevuTarihi + "'";
 
     if (item.hizmetTipiAdi != null && item.hizmetTipiAdi != "")
@@ -118,7 +138,7 @@ export class HizmetDao {
     return query;
   }
 
-  deleteList(): Promise < any > {
+  deleteList(): Promise<any> {
     localStorage.setItem(Constants.LENGTHS.HIZMET_LIST, String(0));
     return this.baseDao.execute(this.DELETE_QUERY, []);
   }

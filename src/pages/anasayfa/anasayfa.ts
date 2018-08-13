@@ -50,8 +50,8 @@ export class Anasayfa {
   }
 
   async loadMesajSayilari() {
-    this.duyuruSayisi = await this.mesajDao.loadDuyuruSayisi();
-    this.uyariSayisi = await this.mesajDao.loadUyariSayisi();
+   // this.duyuruSayisi = await this.mesajDao.loadDuyuruSayisi();
+    //this.uyariSayisi = await this.mesajDao.loadUyariSayisi();
   }
 
   async loadHizmetSayisi() {

@@ -6,13 +6,12 @@
 import {Component} from "@angular/core";
 import {Hizmet} from "../../../entities/hizmet/hizmet";
 import {HizmetService} from "../../../providers/hizmet-service/hizmet-service";
-import {Pageable} from "../../../entities/Pageable";
 import {UtilProvider} from "../../../providers/util/util";
 import {Constants} from "../../../entities/Constants";
 import {UrunAnaGrup} from "../../../entities/urunAnaGrup";
 import {UrunAnaGrpProvider} from "../../../providers/urun-ana-grp/urun-ana-grp";
-import {Logger} from "@ionic/app-scripts/dist/logger/logger";
 import {LoggerProvider} from "../../../providers/logger/logger";
+import * as moment from 'moment';
 
 
 @Component({
@@ -32,7 +31,6 @@ export class HizmetBilgileriComponent {
               private logger: LoggerProvider,
               private util: UtilProvider) {
 
-    this.text = 'Hello World';
     this.hizmet = this.hizmetService.getHizmet();
     this.getHizmet();
 
@@ -69,15 +67,30 @@ export class HizmetBilgileriComponent {
   }
 
   async findBasvuruNedeni() {
-    if (this.util.isNotEmpty(this.hizmet.basvuruNedeni)&& this.util.isEmpty(this.hizmet.basvuruNedenAdi)) {
+    if (this.util.isNotEmpty(this.hizmet.basvuruNedeni) && this.util.isEmpty(this.hizmet.basvuruNedenAdi)) {
       let filter = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.BASVURU_LISTE);
       filter.neden = this.hizmet.basvuruNedeni;
       filter.mamAnaGrp = this.hizmet.mamAnaGrp;
       let result = await this.urunAnaGrpProvider.findUrunAnaGrp(filter);
-      if(this.util.isNotEmpty(result)){
+      if (this.util.isNotEmpty(result)) {
         this.hizmet.basvuruNedenAdi = result.ad;
       }
     }
+  }
+
+  formatDate(date: any): Date {
+    /*  this.logger.info("Hizmet  Bilgileri => " + date);
+
+      if(typeof date == "string") {
+        date = date.replace(" ", "T");
+      }
+      let formattedDate = moment(date, "YYYY-MM-DD HH:mm:ss").toDate();
+      this.logger.info("Formatted Date => "+ formattedDate);
+      return formattedDate;*/
+
+
+    debugger;
+    return new Date(date);
   }
 
 

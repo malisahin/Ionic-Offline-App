@@ -71,9 +71,10 @@ export class HeaderComponent {
   }
 
   public updateHeader() {
-    this.loadGuncellemeSayisi();
+   /* this.loadGuncellemeSayisi();
     this.loadMesajSayilari();
     this.loadHizmetSayisi();
+    */
   }
 }
 

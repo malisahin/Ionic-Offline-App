@@ -28,7 +28,7 @@ export class Hizmet {
   bayiKod: string = "";
   blok: string = "";
   cadde: string = "";
-  cagriTarihi: string = "";
+  cagriTarihi: number;
   cmNo: string = "";
   cmTarihi: string = "";
   cozumKodu: string = "";
@@ -46,9 +46,9 @@ export class Hizmet {
   ilceKod: string = "";
   iletisimIstek: string = "";
   isTel: string = "";
-  islemBitTarihi: Date;
+  islemBitTarihi: number;
   islemList: IslemList[];
-  islemTarihi: Date;
+  islemTarihi: number;
   kapatmaKodu: string = "";
   mahalle: string = "";
   mahalleKodu: string = "";
@@ -65,7 +65,7 @@ export class Hizmet {
   musTip: string = "";
   nobet: string = "";
   odemeTipi: string = "";
-  randevuTarihi: string = "";
+  randevuTarihi: number;
   sattar: Date;
   sehir: string = "";
   sehirKod: string = "";

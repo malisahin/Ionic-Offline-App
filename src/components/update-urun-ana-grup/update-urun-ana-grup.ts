@@ -1,19 +1,19 @@
-import { Component } from '@angular/core';
-import { UrunAnaGrup } from "../../entities/urunAnaGrup";
-import { UrunAnaGrupSearchComponent } from "../urun-ana-grup-search/urun-ana-grup-search";
-import { UtilProvider } from "../../providers/util/util";
-import { LoggerProvider } from "../../providers/logger/logger";
-import { ModalController, ViewController, NavParams } from "ionic-angular";
-import { Constants } from "../../entities/Constants";
-import { UrunAnaGrupDao } from "../../providers/urun-ana-grup-dao/urun-ana-grup-dao";
-import { UrunAnaGrpProvider } from "../../providers/urun-ana-grp/urun-ana-grp";
-import { Hizmet } from "../../entities/hizmet/hizmet";
-import { HizmetProvider } from "../../providers/hizmet/hizmet";
-import { HizmetService } from "../../providers/hizmet-service/hizmet-service";
-import { Pageable } from "../../entities/Pageable";
-import { BransProvider } from "../../providers/brans/brans";
-import { Brans } from "../../entities/Brans";
-import { ThemeProvider } from '../../providers/theme/theme';
+import {Component} from '@angular/core';
+import {UrunAnaGrup} from "../../entities/urunAnaGrup";
+import {UrunAnaGrupSearchComponent} from "../urun-ana-grup-search/urun-ana-grup-search";
+import {UtilProvider} from "../../providers/util/util";
+import {LoggerProvider} from "../../providers/logger/logger";
+import {ModalController, ViewController, NavParams} from "ionic-angular";
+import {Constants} from "../../entities/Constants";
+import {UrunAnaGrupDao} from "../../providers/urun-ana-grup-dao/urun-ana-grup-dao";
+import {UrunAnaGrpProvider} from "../../providers/urun-ana-grp/urun-ana-grp";
+import {Hizmet} from "../../entities/hizmet/hizmet";
+import {HizmetProvider} from "../../providers/hizmet/hizmet";
+import {HizmetService} from "../../providers/hizmet-service/hizmet-service";
+import {Pageable} from "../../entities/Pageable";
+import {BransProvider} from "../../providers/brans/brans";
+import {Brans} from "../../entities/Brans";
+import {ThemeProvider} from '../../providers/theme/theme';
 
 /**
  * @author mali.sahin
@@ -34,16 +34,16 @@ export class UpdateUrunAnaGrupComponent {
   backGroundImage: string;
 
   constructor(private util: UtilProvider,
-    private logger: LoggerProvider,
-    private viewCtrl: ViewController,
-    private modalController: ModalController,
-    private bransProvider: BransProvider,
-    private urunAnaGrupProvider: UrunAnaGrpProvider,
-    private navParams: NavParams,
-    private hizmetService: HizmetService,
-    private hizmetProvider: HizmetProvider,
-    private urunAnaGrupDao: UrunAnaGrupDao,
-    private themeProvider: ThemeProvider) {
+              private logger: LoggerProvider,
+              private viewCtrl: ViewController,
+              private modalController: ModalController,
+              private bransProvider: BransProvider,
+              private urunAnaGrupProvider: UrunAnaGrpProvider,
+              private navParams: NavParams,
+              private hizmetService: HizmetService,
+              private hizmetProvider: HizmetProvider,
+              private urunAnaGrupDao: UrunAnaGrupDao,
+              private themeProvider: ThemeProvider) {
     this.logger.dir(this.navParams.data);
     this.hizmet = this.navParams.get("hizmet");
     this.backGroundImage = this.themeProvider.getBackgroundImage();
@@ -115,13 +115,11 @@ export class UpdateUrunAnaGrupComponent {
   }
 
   async getUpdatedHizmet() {
-    let searchData = new Hizmet();
-    searchData.seqNo = this.hizmet.seqNo;
-    let fetchedData = await this.hizmetService.fetchHizmet(searchData);
+    let fetchedData = await this.hizmetService.fetchHizmet(this.hizmet.seqNo);
     if (this.util.isNotEmpty(fetchedData) && this.util.isNotEmpty(fetchedData.res.rows) && fetchedData.res.rows.length > 0) {
       this.hizmet = JSON.parse(fetchedData.res.rows.item(0).data);
       this.logger.log(this.hizmet);
-      this.viewCtrl.dismiss({ hizmet: this.hizmet });
+      this.viewCtrl.dismiss({hizmet: this.hizmet});
     } else {
       this.util.error("Ürün Ana Grup Değiştirirken hata oluştu.")
     }
@@ -132,7 +130,7 @@ export class UpdateUrunAnaGrupComponent {
     this.viewCtrl.dismiss();
   }
 
-  async  getBransList() {
+  async getBransList() {
     if (this.util.isNotEmpty(this.hizmet.hizmetTipi)) {
       let filter = new Brans();
       filter.hizmetTipi = this.hizmet.hizmetTipi;

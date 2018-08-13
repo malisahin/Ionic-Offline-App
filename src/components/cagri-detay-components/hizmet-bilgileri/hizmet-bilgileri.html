@@ -5,7 +5,7 @@
     </ion-label>
   </ion-col>
   <ion-col col-8 col-md-10>
-    <ion-input [(ngModel)]="randevuTarihi" readonly></ion-input>
+    <ion-label>{{hizmet.randevuTarihi}}</ion-label>
   </ion-col>
 
   <ion-col col col-4 col-md-2>
@@ -14,7 +14,9 @@
     </ion-label>
   </ion-col>
   <ion-col col-8 col-md-10>
-    <ion-input [(ngModel)]="cagriTarihi" [disabled]="hizmet.durum != 'ACIK'" readonly></ion-input>
+    <ion-label>
+      {{hizmet.cagriTarihi}}
+    </ion-label>
   </ion-col>
 
   <ion-col col col-4 col-md-2>

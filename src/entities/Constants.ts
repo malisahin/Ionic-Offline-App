@@ -20,6 +20,11 @@ export class Constants {
 
   public static DEFAULT_MESSAGE_DURATION = "3";
 
+  public  static NERDEN = {
+    INIT: "INIT",
+    HTML: "HTML"
+  };
+
   public static CALLED_FROM = {
     TASKS: "TASKS",
     BILDIRIMLER_PAGE: "BILDIRIMLER_PAGE"
@@ -43,7 +48,7 @@ export class Constants {
 
   public static SELECTED_THEME = "SELECTED_THEME";
 
-  public static DATE_FORMAT = "dd.MM.yyyy hh:mm";
+  public static DATE_FORMAT = "yyyy-MM-dd hh:mm:ss";
 
   public static ACCESS_TOKEN = "ACCESS_TOKEN";
 

@@ -25,7 +25,6 @@ enum Durum {
 })
 export class IslemTarihComponent {
 
-  DATE_FORMAT: string = "dd.MM.yyyy hh:mm";
   hizmet: Hizmet = new Hizmet();
   isenabled: boolean = true;
   sonIslem: IslemList;
@@ -50,8 +49,7 @@ export class IslemTarihComponent {
   }
 
   islemBaslat() {
-    //this.sonIslem.basTar = this.util.dateFormatRegex(new Date(), this.DATE_FORMAT);
-    this.sonIslem.basTar = new Date();
+    this.sonIslem.basTar = new Date().getTime();
     this.hizmet.islemTarihi = this.sonIslem.basTar;
     this.checkStatus();
     this.setButtonStatus();
@@ -63,8 +61,7 @@ export class IslemTarihComponent {
     if (res.isErrorMessagesNotNull()) {
       this.util.pushErrorMessages(res);
     } else {
-      //this.sonIslem.bitTar = this.util.dateFormatRegex(this.util.addMinutes(new Date, 1), this.DATE_FORMAT);
-      this.sonIslem.bitTar = this.util.addMinutes(new Date, 1);
+      this.sonIslem.bitTar = this.util.addMinutes(new Date, 1).getTime();
 
       this.sonIslem.durum = Durum.BEKLE;
       this.checkStatus();
@@ -85,8 +82,7 @@ export class IslemTarihComponent {
   }
 
   islemBitir() {
-    //this.sonIslem.bitTar = this.util.dateFormatRegex(this.util.addMinutes(new Date, 1), this.DATE_FORMAT);
-    this.sonIslem.bitTar = this.util.addMinutes(new Date, 1);
+    this.sonIslem.bitTar = this.util.addMinutes(new Date, 1).getTime();
     this.sonIslem.durum = Durum.BITIR;
     this.hizmet.islemBitTarihi = this.sonIslem.bitTar;
     this.checkStatus();

@@ -1,13 +1,13 @@
-import { Constants } from "./../../entities/Constants";
-import { Injectable, forwardRef } from "@angular/core";
-import { ToastController, LoadingController, Loading, ModalController } from "ionic-angular";
+import {Constants} from "./../../entities/Constants";
+import {Injectable, forwardRef} from "@angular/core";
+import {ToastController, LoadingController, Loading, ModalController} from "ionic-angular";
 import moment from "moment";
-import { ProcessResults } from "../../entities/ProcessResults";
-import { Network } from "@ionic-native/network";
-import { LoggerProvider } from "../logger/logger";
-import { User } from "../../entities/user";
-import { DomSanitizer } from "@angular/platform-browser";
-import { SpinnerComponent } from "../../components/spinner/spinner";
+import {ProcessResults} from "../../entities/ProcessResults";
+import {Network} from "@ionic-native/network";
+import {LoggerProvider} from "../logger/logger";
+import {User} from "../../entities/user";
+import {DomSanitizer} from "@angular/platform-browser";
+import {SpinnerComponent} from "../../components/spinner/spinner";
 
 @Injectable()
 export class UtilProvider {
@@ -17,11 +17,11 @@ export class UtilProvider {
   isSpinnerRunning: boolean = false;
 
   constructor(private toast: ToastController,
-    private network: Network,
-    private modalCtrl: ModalController,
-    private logger: LoggerProvider,
-    private loadingController: LoadingController,
-    private sanitizer: DomSanitizer) {
+              private network: Network,
+              private modalCtrl: ModalController,
+              private logger: LoggerProvider,
+              private loadingController: LoadingController,
+              private sanitizer: DomSanitizer) {
     moment.locale("tr");
     this.init();
   }
@@ -67,8 +67,8 @@ export class UtilProvider {
   }
 
   prepareQuery(query: string,
-    whereQueries: string[],
-    searchType: string): string {
+               whereQueries: string[],
+               searchType: string): string {
     let AndOr = searchType == Constants.SEARCH_TYPE.EXACT ? " AND " : " OR ";
     if (whereQueries.length > 0) {
       query += " AND (";
@@ -128,7 +128,7 @@ export class UtilProvider {
     toast.present();
   }
 
-  dateFormat(dateString: Date, format: string): string {
+  dateFormat(dateString: any, format: string): string {
     return moment(dateString).format(format);
   }
 
@@ -153,6 +153,27 @@ export class UtilProvider {
         .toString()
         .slice(-v.length);
     });
+  }
+
+
+  newDate(dateString: any): number {
+    //  return dateString;
+    debugger;
+    if (this.isNotEmpty(dateString) && typeof  dateString == "number")
+      return dateString;
+
+    let date;
+    if (this.isEmpty(dateString)) {
+      //return this.dateFormatRegex(new Date(), Constants.DATE_FORMAT);
+      return new Date().getTime();
+    } else {
+      dateString = dateString.substr(0, dateString.indexOf('.')).replace(/-/g, "/");
+      //date = this.dateFormatRegex(dateString, Constants.DATE_FORMAT);
+      return new Date(dateString).getTime();
+
+    }
+
+
   }
 
   addMinutes(dateStr: Date, addition: number): Date {
@@ -275,7 +296,7 @@ export class UtilProvider {
      }
      */
     if (!this.isSpinnerRunning) {
-      this.spinner = this.modalCtrl.create(SpinnerComponent, {}, { enableBackdropDismiss: false });
+      this.spinner = this.modalCtrl.create(SpinnerComponent, {}, {enableBackdropDismiss: false});
       this.spinner.present();
     }
     this.isSpinnerRunning = true;
@@ -364,5 +385,15 @@ export class UtilProvider {
     if (this.isEmpty(item)) return null;
 
     return Object.assign({}, item);
+  }
+
+  assignList(list: any[]): any[] {
+    let newList: any [] = [];
+    list.forEach(item => {
+      newList.push(this.assign(item));
+    });
+
+    return newList;
+
   }
 }
