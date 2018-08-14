@@ -31,6 +31,7 @@ export class UrunBilgileriComponent {
   mesguliyet: boolean;
   garanti: boolean;
   seriNoSayisi: number = 1;
+  sattar: string;
 
   constructor(private modalController: ModalController,
               private hizmetService: HizmetService,
@@ -50,6 +51,7 @@ export class UrunBilgileriComponent {
   init() {
     this.garanti = this.util.isNotEmpty(this.hizmet.garanti) && this.hizmet.garanti == "VAR";
     this.mesguliyet = this.util.isNotEmpty(this.hizmet.mesguliyet) && this.hizmet.mesguliyet == "VAR";
+    this.sattar = this.util.dateFormatRegex(this.hizmet.sattar, "yyyy-MM-dd");
     this.mesguliyetChange(Constants.NERDEN.INIT);
     this.garantiChange(Constants.NERDEN.INIT);
     this.faturaTarihiChange(Constants.NERDEN.INIT);
@@ -241,6 +243,8 @@ export class UrunBilgileriComponent {
   }
 
   faturaTarihiChange(nerden: string) {
+    debugger;
+    this.hizmet.sattar = this.util.newDateTime(this.sattar);
     if (this.util.isNotEmpty(nerden) && nerden != Constants.NERDEN.INIT)
       this.saveHizmet();
   }

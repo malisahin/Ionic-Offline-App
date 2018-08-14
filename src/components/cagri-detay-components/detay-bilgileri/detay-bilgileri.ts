@@ -207,11 +207,12 @@ export class DetayBilgileriComponent {
       && res.responseCode == "SUCCESS"
       && res.description == "CLOSED";
 
-    if (hizmetFormuKapatildiMi) {
-      await this.hizmetService.hizmetiKapatVeKaydet(this.hizmet, res);
 
+    await this.hizmetService.hizmetDurumunuDegistir(this.hizmet, res);
+    if (hizmetFormuKapatildiMi) {
       this.navigate("CagrilarPage", "Çağrı Kayıt Edildi.")
     }
+
   }
 
   async siparisOlustur() {

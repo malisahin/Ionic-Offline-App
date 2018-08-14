@@ -86,13 +86,14 @@ export class HizmetService {
 
   sunucuyaKayitIcinHazirla(hizmet: Hizmet) {
 
-    debugger;
     let sunucuyaGidecekHizmet = this.util.assign(hizmet);
     let DATE_TIME_FORMAT: string = "dd.MM.yyyy hh:mm:ss.s";
     let DATE_TIME_FORMAT_WITHOUT_SPLIT_SECOND: string = "dd.MM.yyyy hh:mm:ss";
     let DATE_FORMAT: string = "yyyy-MM-dd";
 
     if (this.util.isNotEmpty(sunucuyaGidecekHizmet.islemList)) {
+      sunucuyaGidecekHizmet.islemList = this.util.assignList(sunucuyaGidecekHizmet.islemList);
+
       sunucuyaGidecekHizmet.islemList.forEach(islem => {
 
         if (this.util.isNotEmpty(islem.basTar)) {
@@ -120,7 +121,7 @@ export class HizmetService {
   }
 
 
-  async hizmetiKapatVeKaydet(hizmet: Hizmet, res: any) {
+  async hizmetDurumunuDegistir(hizmet: Hizmet, res: any) {
     debugger;
     if (this.util.isNotEmpty(res) && this.util.isNotEmpty(res.message)) {
       hizmet.durum = res.message.durum;

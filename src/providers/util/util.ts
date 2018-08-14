@@ -156,21 +156,25 @@ export class UtilProvider {
   }
 
 
-  newDate(dateString: any): number {
-    //  return dateString;
+  newDateTime(dateString: any): number {
+
     if (this.isNotEmpty(dateString) && typeof  dateString == "number")
       return dateString;
 
-    let date;
-    if (this.isEmpty(dateString)) {
-      //return this.dateFormatRegex(new Date(), Constants.DATE_FORMAT);
-      return null;
-    } else {
-      dateString = dateString.substr(0, dateString.indexOf('.')).replace(/-/g, "/");
-      //date = this.dateFormatRegex(dateString, Constants.DATE_FORMAT);
+    if (this.isNotEmpty(dateString)) {
+
+      let index = dateString.indexOf('.');
+
+      if (index > -1)
+        dateString = dateString.substr(0, index).replace(/-/g, "/");
+      else
+        dateString = dateString.replace(/-/g, "/");
+
       return new Date(dateString).getTime();
 
     }
+
+    return null;
 
 
   }

@@ -30,7 +30,7 @@ export class Hizmet {
   cadde: string = "";
   cagriTarihi: number;
   cmNo: string = "";
-  cmTarihi: string = "";
+  cmTarihi: number;
   cozumKodu: string = "";
   daireNo: string = "";
   detayDtoList: DetayKayit[];
@@ -66,7 +66,7 @@ export class Hizmet {
   nobet: string = "";
   odemeTipi: string = "";
   randevuTarihi: number;
-  sattar: Date;
+  sattar: number;
   sehir: string = "";
   sehirKod: string = "";
   semt: string = "";

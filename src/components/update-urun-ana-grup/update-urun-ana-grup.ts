@@ -115,9 +115,9 @@ export class UpdateUrunAnaGrupComponent {
   }
 
   async getUpdatedHizmet() {
-    let fetchedData = await this.hizmetService.fetchHizmet(this.hizmet.seqNo);
-    if (this.util.isNotEmpty(fetchedData) && this.util.isNotEmpty(fetchedData.res.rows) && fetchedData.res.rows.length > 0) {
-      this.hizmet = JSON.parse(fetchedData.res.rows.item(0).data);
+    let res = await this.hizmetService.fetchHizmet(this.hizmet.seqNo);
+    if(this.util.isNotEmptyRows(res)) {
+     this.hizmet = JSON.parse(res.rows.item(0).data);
       this.logger.log(this.hizmet);
       this.viewCtrl.dismiss({hizmet: this.hizmet});
     } else {

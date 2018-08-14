@@ -151,9 +151,9 @@ export class HizmetProvider {
     item.bayiKod = obj.bayiKod;
     item.blok = obj.blok;
     item.cadde = obj.cadde;
-    item.cagriTarihi = obj.cagriTarihi;
+    item.cagriTarihi = this.util.newDateTime(obj.cagriTarihi);
     item.cmNo = obj.cmNo;
-    item.cmTarihi = obj.cmTarihi;
+    item.cmTarihi = this.util.newDateTime(obj.cmTarihi);
     item.cozumKodu = obj.cozumKodu;
     item.daireNo = obj.daireNo;
 
@@ -178,7 +178,7 @@ export class HizmetProvider {
     item.ilceKod = obj.ilceKod;
     item.iletisimIstek = obj.iletisimIstek;
     item.isTel = obj.isTel;
-    item.islemBitTarihi = this.util.newDate(obj.islemBitTarihi);
+    item.islemBitTarihi = this.util.newDateTime(obj.islemBitTarihi);
 
     if (obj.islemList != null && obj.islemList.length > 0) {
       fromServer = Array.isArray(obj.islemList[0]);
@@ -186,7 +186,7 @@ export class HizmetProvider {
       item.islemList = this.fillIslemList(fromServer, obj); //fromServer ? obj.islemList[0] : obj.islemList;
     }
 
-    item.islemTarihi = this.util.newDate(obj.islemTarihi);
+    item.islemTarihi = this.util.newDateTime(obj.islemTarihi);
     item.kapatmaKodu = obj.kapatmaKodu;
     item.mahalle = obj.mahalle;
     item.mahalleKodu = obj.mahalleKodu;
@@ -203,8 +203,8 @@ export class HizmetProvider {
     item.musTip = obj.musTip;
     item.nobet = obj.nobet;
     item.odemeTipi = obj.odemeTipi;
-    item.randevuTarihi = this.util.newDate(obj.randevuTarihi);
-    item.sattar = obj.sattar;
+    item.randevuTarihi = this.util.newDateTime(obj.randevuTarihi);
+    item.sattar = this.util.newDateTime(obj.sattar);
     item.sehir = obj.sehir;
     item.sehirKod = obj.sehirKod;
     item.semt = obj.semt;
@@ -224,8 +224,8 @@ export class HizmetProvider {
 
     if (this.util.isNotEmpty(islemList)) {
       islemList.forEach(item => {
-        item.basTar = this.util.newDate(item.basTar);
-        item.bitTar = this.util.newDate(item.bitTar);
+        item.basTar = this.util.newDateTime(item.basTar);
+        item.bitTar = this.util.newDateTime(item.bitTar);
       })
     }
     return islemList;
