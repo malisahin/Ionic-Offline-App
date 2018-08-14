@@ -1,21 +1,21 @@
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {ApiProvider} from '../api/api';
-import {Mesaj} from '../../entities/mesajlar';
-import {BaseDao} from "../base-dao/base-dao";
-import {MesajlarDao} from '../mesajlar-dao/mesajlar-dao';
-import {TokenProvider} from '../token/token';
-import {UtilProvider} from '../util/util';
-import {Pageable} from "../../entities/Pageable";
-import {Constants} from "../../entities/Constants";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { ApiProvider } from '../api/api';
+import { Mesaj } from '../../entities/mesajlar';
+import { BaseDao } from "../base-dao/base-dao";
+import { MesajlarDao } from '../mesajlar-dao/mesajlar-dao';
+import { TokenProvider } from '../token/token';
+import { UtilProvider } from '../util/util';
+import { Pageable } from "../../entities/Pageable";
+import { Constants } from "../../entities/Constants";
 
 
 @Injectable()
 export class MesajlarProvider {
 
   constructor(public http: HttpClient, private api: ApiProvider, private mesajDao: MesajlarDao,
-              private tokenProvider: TokenProvider, private util: UtilProvider) {
-    console.log('Hello MesajlarProvider Provider');
+    private tokenProvider: TokenProvider, private util: UtilProvider) {
+
   }
 
   setAlertFirst() {
@@ -37,20 +37,20 @@ export class MesajlarProvider {
   }
 
   async getMesajlar(url, header): Promise<any> {
-    let res = await  this.http.get(url, {headers: header}).toPromise();
+    let res = await this.http.get(url, { headers: header }).toPromise();
     let mesaj = new Mesaj();
     let list = await mesaj.fillMesajlar(res);
+    let item = await this.mesajDao.insertList(list);
+    await this.mesajDao.loadMesajCounts();
     return new Promise((resolve, reject) => {
-      this.mesajDao.insertList(list).then(item => {
-        resolve(item);
-      });
+      resolve(item);
     })
   }
 
 
   async fetchList(mes: Mesaj, pageable: Pageable): Promise<any> {
     let mesajList: Mesaj[] = [];
-    let data = await  this.mesajDao.getList(mes, pageable);
+    let data = await this.mesajDao.getList(mes, pageable);
     data = data.res.rows;
     if (data.length > 0) {
       for (let i = 0; i < data.length; i++) {

@@ -93,6 +93,7 @@ import 'intl';
 import 'intl/locale-data/jsonp/en';
 import {SQLite} from "@ionic-native/sqlite";
 import {PipesModule} from "../pipes/pipes.module";
+import { BaseProvider } from '../providers/base/base';
 
 @NgModule({
   declarations: [
@@ -202,7 +203,8 @@ import {PipesModule} from "../pipes/pipes.module";
     UtilPlugin,
     BarcodeScanner,
     AnketService,
-    TableTotalElementsProvider
+    TableTotalElementsProvider,
+    BaseProvider
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

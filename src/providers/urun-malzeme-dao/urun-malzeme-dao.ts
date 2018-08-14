@@ -1,21 +1,21 @@
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {DatabaseProvider} from '../database/database';
-import {BaseDao} from '../base-dao/base-dao';
-import {UrunMalzeme} from '../../entities/urun-malzeme';
-import {UtilProvider} from "../util/util";
-import {Constants} from "../../entities/Constants";
-import {Pageable} from "../../entities/Pageable";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { DatabaseProvider } from '../database/database';
+import { BaseDao } from '../base-dao/base-dao';
+import { UrunMalzeme } from '../../entities/urun-malzeme';
+import { UtilProvider } from "../util/util";
+import { Constants } from "../../entities/Constants";
+import { Pageable } from "../../entities/Pageable";
 
 
 @Injectable()
 export class UrunMalzemeDao {
 
   constructor(public http: HttpClient,
-              private dbProvider: DatabaseProvider,
-              private util: UtilProvider,
-              private baseDao: BaseDao) {
-    console.log('Hello UrunMalzemeDaoProvider Provider');
+    private dbProvider: DatabaseProvider,
+    private util: UtilProvider,
+    private baseDao: BaseDao) {
+
   }
 
   insertOne(item: UrunMalzeme): Promise<any> {

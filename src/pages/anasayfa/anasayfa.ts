@@ -4,6 +4,9 @@ import { HeaderProvider } from "../../providers/header/header";
 import { MesajlarDao } from "../../providers/mesajlar-dao/mesajlar-dao";
 import { HizmetDao } from "../../providers/hizmet-dao/hizmet-dao";
 import { ThemeProvider } from "../../providers/theme/theme";
+import { Constants } from "../../entities/Constants";
+import { UtilProvider } from '../../providers/util/util';
+import { LoggerProvider } from '../../providers/logger/logger';
 
 /**
  * @author mali.sahin
@@ -27,7 +30,8 @@ export class Anasayfa {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private headerProvider: HeaderProvider,
-    private mesajDao: MesajlarDao,
+    private util: UtilProvider,
+    private logger: LoggerProvider,
     private hizmetDao: HizmetDao,
     private themeProvider: ThemeProvider) {
     this.backGroundImage = this.themeProvider.getBackgroundImage();
@@ -49,13 +53,33 @@ export class Anasayfa {
     this.guncellemeSayisi = this.headerProvider.loadGuncellemeSayisi();
   }
 
-  async loadMesajSayilari() {
-   // this.duyuruSayisi = await this.mesajDao.loadDuyuruSayisi();
-    //this.uyariSayisi = await this.mesajDao.loadUyariSayisi();
-  }
+  /*  async loadMesajSayilari() {
+      // this.duyuruSayisi = await this.mesajDao.loadDuyuruSayisi();
+      //this.uyariSayisi = await this.mesajDao.loadUyariSayisi();
+    }*/
 
   async loadHizmetSayisi() {
     this.cagriSayisi = await this.hizmetDao.findAcikHizmetSayisi();
   }
 
+  loadMesajSayilari() {
+    let duyuruSayisi = localStorage.getItem(Constants.COUNTS.DUYURULAR);
+
+    if (this.util.isEmpty(duyuruSayisi))
+      duyuruSayisi = "0";
+
+    this.duyuruSayisi = Number(duyuruSayisi);
+
+    this.logger.info("Duyuru Sayısı " + this.duyuruSayisi);
+
+
+    let uyariSayisi = localStorage.getItem(Constants.COUNTS.UYARILAR);
+
+    if (this.util.isEmpty(uyariSayisi))
+      uyariSayisi = "0";
+
+    this.uyariSayisi = Number(uyariSayisi);
+    this.logger.info("Uyarı Sayısı " + this.uyariSayisi);
+
+  }
 }

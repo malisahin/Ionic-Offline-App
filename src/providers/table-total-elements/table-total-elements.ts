@@ -18,7 +18,7 @@ export class TableTotalElementsProvider {
     private logger: LoggerProvider,
     private api: ApiProvider,
     private token: TokenProvider) {
-    console.log('Hello TableTotalElementsProvider Provider');
+
 
   }
 

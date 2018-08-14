@@ -47,7 +47,7 @@ export class DetayPiySearchComponent {
     private islemArizaIscilikDao: IslemArizaIscilikDao,
     private themeProvider: ThemeProvider
   ) {
-    this.text = "Hello World";
+
     this.pageable = new Pageable();
     this.data = params.get("data");
     this.dataType = this.data.dataType;

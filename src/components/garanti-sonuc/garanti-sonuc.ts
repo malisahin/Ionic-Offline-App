@@ -37,7 +37,6 @@ export class GarantiSonucComponent {
     private util: UtilProvider,
     private urunDao: UrunDao,
     private themeProvider: ThemeProvider) {
-    console.log('Hello GarantiSonucComponent Component');
     this.garanti = new GarantiSorgu();
     this.backGroundImage = this.themeProvider.getBackgroundImage();
     this.data = params.get('data');

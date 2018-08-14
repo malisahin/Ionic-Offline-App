@@ -1,22 +1,22 @@
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {DatabaseProvider} from '../database/database';
-import {Mahalle} from '../../entities/mahalle';
-import {BaseDao} from '../base-dao/base-dao';
-import {Sehir} from '../../entities/Sehir';
-import {Ilce} from '../../entities/Ilce';
-import {Constants} from "../../entities/Constants";
-import {UtilProvider} from "../util/util";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { DatabaseProvider } from '../database/database';
+import { Mahalle } from '../../entities/mahalle';
+import { BaseDao } from '../base-dao/base-dao';
+import { Sehir } from '../../entities/Sehir';
+import { Ilce } from '../../entities/Ilce';
+import { Constants } from "../../entities/Constants";
+import { UtilProvider } from "../util/util";
 
 
 @Injectable()
 export class AdresDao {
 
   constructor(public http: HttpClient,
-              private dbProvider: DatabaseProvider,
-              private  util: UtilProvider,
-              private baseDao: BaseDao) {
-    console.log('Hello AdresDaoProvider Provider');
+    private dbProvider: DatabaseProvider,
+    private util: UtilProvider,
+    private baseDao: BaseDao) {
+
   }
 
   insertSehirList(list: Sehir[]): Promise<any> {

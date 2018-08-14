@@ -11,7 +11,7 @@ export class UtilPlugin {
     private logger: LoggerProvider,
     private callNumber: CallNumber,
     private barcodeScanner: BarcodeScanner) {
-    console.log("Hello PluginProvider Provider");
+
   }
 
   callPhoneNumber(tel: any) {

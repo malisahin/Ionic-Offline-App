@@ -2,17 +2,19 @@
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular/navigation/nav-controller';
-import {MesajlarDao} from "../../providers/mesajlar-dao/mesajlar-dao";
-import {HizmetDao} from "../../providers/hizmet-dao/hizmet-dao";
-import {HeaderProvider} from "../../providers/header/header";
-import {Events} from "ionic-angular";
-import {CagrilarPage} from "../../pages/cagrilar/cagrilar";
-import {BildirimlerPage} from "../../pages/bildirimler/bildirimler";
-import {GuncellemePage} from "../../pages/guncelleme/guncelleme";
-import {Anasayfa} from "../../pages/anasayfa/anasayfa";
-import {LoggerProvider} from "../../providers/logger/logger";
+import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular/navigation/nav-controller';
+import { MesajlarDao } from "../../providers/mesajlar-dao/mesajlar-dao";
+import { HizmetDao } from "../../providers/hizmet-dao/hizmet-dao";
+import { HeaderProvider } from "../../providers/header/header";
+import { Events } from "ionic-angular";
+import { CagrilarPage } from "../../pages/cagrilar/cagrilar";
+import { BildirimlerPage } from "../../pages/bildirimler/bildirimler";
+import { GuncellemePage } from "../../pages/guncelleme/guncelleme";
+import { Anasayfa } from "../../pages/anasayfa/anasayfa";
+import { LoggerProvider } from "../../providers/logger/logger";
+import { Constants } from "../../entities/Constants";
+import { UtilProvider } from "../../providers/util/util";
 
 
 @Component({
@@ -33,16 +35,17 @@ export class HeaderComponent {
   guncellemePage: any;
   anaSayfa: any;
 
+
   constructor(private nav: NavController,
-              private  mesajDao: MesajlarDao,
-              private  hizmetDao: HizmetDao,
-              private  headerProvider: HeaderProvider, private logger: LoggerProvider) {
-    logger.warn("Gidilen sayfa " + String(this.index));
+    private mesajDao: MesajlarDao,
+    private util: UtilProvider,
+    private headerProvider: HeaderProvider,
+    private logger: LoggerProvider) {
+    //logger.warn("Gidilen sayfa " + String(this.index));
     this.updateHeader();
   }
 
   ionViewDidLoad() {
-    this.logger.warn("****************HEADER****************");
     this.cagrilarPage = CagrilarPage;
     this.bildirimlerPage = BildirimlerPage;
     this.guncellemePage = GuncellemePage;
@@ -61,20 +64,44 @@ export class HeaderComponent {
     this.guncellemeSayisi = this.headerProvider.loadGuncellemeSayisi();
   }
 
-  async loadMesajSayilari() {
-    this.duyuruSayisi = await  this.mesajDao.loadDuyuruSayisi();
-    this.uyariSayisi = await  this.mesajDao.loadUyariSayisi();
+  loadMesajSayilari() {
+    let duyuruSayisi = localStorage.getItem(Constants.COUNTS.DUYURULAR);
+
+    if (this.util.isEmpty(duyuruSayisi))
+      duyuruSayisi = "0";
+
+    this.duyuruSayisi = Number(duyuruSayisi);
+
+    this.logger.info("Duyuru Sayısı " + this.duyuruSayisi);
+
+
+    let uyariSayisi = localStorage.getItem(Constants.COUNTS.UYARILAR);
+
+    if (this.util.isEmpty(uyariSayisi))
+      uyariSayisi = "0";
+
+    this.uyariSayisi = Number(uyariSayisi);
+    this.logger.info("Uyarı Sayısı " + this.uyariSayisi);
+
   }
 
   async loadHizmetSayisi() {
-    this.cagriSayisi = await this.hizmetDao.findAcikHizmetSayisi();
+    //this.cagriSayisi = await this.hizmetDao.findAcikHizmetSayisi();
+    let cagriSayisi = localStorage.getItem(Constants.COUNTS.CAGRILAR);
+    if (this.util.isNotEmpty(cagriSayisi))
+      this.cagriSayisi = Number(cagriSayisi);
+    else
+      this.cagriSayisi = 0;
+
+    this.logger.info("Çağrı Sayısı " + String(this.cagriSayisi));
   }
 
   public updateHeader() {
-   /* this.loadGuncellemeSayisi();
+
+    this.loadGuncellemeSayisi();
     this.loadMesajSayilari();
     this.loadHizmetSayisi();
-    */
+
   }
 }
 

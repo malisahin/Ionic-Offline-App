@@ -1,4 +1,4 @@
-import { BildirimlerPage } from "../pages/bildirimler/bildirimler";
+import {BildirimlerPage} from "../pages/bildirimler/bildirimler";
 
 /**
  * @author malisahin
@@ -6,7 +6,15 @@ import { BildirimlerPage } from "../pages/bildirimler/bildirimler";
  */
 
 export class Constants {
-  constructor() { }
+  constructor() {
+  }
+
+  public static COUNTS = {
+    CAGRILAR: "CAGRILAR_COUNT",
+    GUNCELLEME: "GUNCELLEME_COUNT",
+    UYARILAR: "UYARILAR_COUNT",
+    DUYURULAR: "DUYURULAR_COUNT"
+  };
 
   public static REMEMBER_ME = "REMEMBER_ME";
 
@@ -20,7 +28,7 @@ export class Constants {
 
   public static DEFAULT_MESSAGE_DURATION = "3";
 
-  public  static NERDEN = {
+  public static NERDEN = {
     INIT: "INIT",
     HTML: "HTML"
   };
@@ -93,7 +101,7 @@ export class Constants {
     ISLEM_ARIZA_ISCILIK: "OFF_ISC_ISLARZGRP_TNM"
   };
 
-  public static SEARCH_TYPE = { LIKE: "LIKE", EXACT: "EXACT" };
+  public static SEARCH_TYPE = {LIKE: "LIKE", EXACT: "EXACT"};
 
   public static DATA_TYPE = {
     URUN: "URUN",
@@ -162,7 +170,6 @@ export class Constants {
     MAHALLE_TNM: "serMahalleTnm",
     SYNC_DAY: "SYNC_TABLES_TOTAL_ELEMENTS"
   };
-
 
 
   public static COLORS = {

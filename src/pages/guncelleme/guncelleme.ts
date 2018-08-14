@@ -348,8 +348,8 @@ export class GuncellemePage {
     let clientVersiyon = localStorage.getItem(Constants.VERSIYON.CLIENT[type]);
     let serverVersiyon = localStorage.getItem(Constants.VERSIYON.SERVER[type]);
     let gelenVeri = localStorage.getItem(Constants.GELEN_VERI[type]);
-    this.logger.info("Kayıtlı Miktar ==> " + type + " ==> " + localStorage.getItem(Constants.GELEN_VERI[type]));
-    this.logger.info("type ==> " + type + "; Constants.GELEN_VERI[type] ==> " + Constants.GELEN_VERI[type]);
+    this.logger.info({ mes: "Kayıtlı Miktar ==> " + type + " ==> " + localStorage.getItem(Constants.GELEN_VERI[type]), valid: false });
+    this.logger.info({ mes: "type ==> " + type + "; Constants.GELEN_VERI[type] ==> " + Constants.GELEN_VERI[type], valid: false });
 
     if (serverVersiyon == '-1' || clientVersiyon != serverVersiyon) {
       Constants.COLORS[type] = "notDownloaded";
@@ -399,6 +399,8 @@ export class GuncellemePage {
     if (this.counter == 0) {
       this.tasks.killTasks();
       this.util.loaderStart();
+
+      localStorage.setItem(Constants.INDIRILEN_VERI,"");
     }
     this.counter += 1;
   }

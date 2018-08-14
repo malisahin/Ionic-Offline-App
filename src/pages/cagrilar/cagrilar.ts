@@ -36,17 +36,15 @@ export class CagrilarPage {
 
   @ViewChild("header") header: HeaderComponent;
 
-  constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    private modalController: ModalController,
-    private cagriProvider: HizmetProvider,
-    private hizmetService: HizmetService,
-    private plugins: UtilPlugin,
-    private util: UtilProvider,
-    private themeProvider: ThemeProvider,
-    private logger: LoggerProvider
-  ) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private modalController: ModalController,
+              private cagriProvider: HizmetProvider,
+              private hizmetService: HizmetService,
+              private plugins: UtilPlugin,
+              private util: UtilProvider,
+              private themeProvider: ThemeProvider,
+              private logger: LoggerProvider) {
     this.backGroundImage = this.themeProvider.getBackgroundImage();
     this.pageable = new Pageable();
     this.getListLength();
@@ -101,14 +99,11 @@ export class CagrilarPage {
     } else {
       let hizmet = new Hizmet();
       hizmet.durum = "ACIK";
-      list = await this.hizmetService.fetchHizmetWithPage(
-        hizmet,
-        Constants.ORDER_BY.RANDEVU_TAR_DESCENDES,
-        this.pageable
-      );
+      list = await this.hizmetService.fetchHizmetWithPage(hizmet, Constants.ORDER_BY.RANDEVU_TAR_DESCENDES, this.pageable);
     }
     if (this.util.isNotEmpty(list.res.rows)) {
       this.pageable.listLength = list.listLength;
+      localStorage.setItem(Constants.COUNTS.CAGRILAR, String(list.listLength));
       for (let i = 0; i < list.res.rows.length; i++) {
         let data = JSON.parse(list.res.rows.item(i).data);
         this.cagrilar.push(data);

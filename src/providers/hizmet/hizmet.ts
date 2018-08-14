@@ -4,23 +4,23 @@
  */
 
 
-import {Injectable} from '@angular/core';
-import {HizmetDao} from '../hizmet-dao/hizmet-dao';
-import {Hizmet} from '../../entities/hizmet/hizmet';
-import {TokenProvider} from '../token/token';
-import {HttpClient} from '@angular/common/http';
-import {ApiProvider} from '../api/api';
-import {DetayKayit} from "../../entities/hizmet/DetayKayit";
-import {UtilProvider} from "../util/util";
-import {UrunAnaGrpProvider} from "../urun-ana-grp/urun-ana-grp";
-import {UrunAnaGrup} from "../../entities/urunAnaGrup";
-import {Constants} from "../../entities/Constants";
-import {LoggerProvider} from "../logger/logger";
-import {async} from "@angular/core/testing";
-import {Ilce} from "../../entities/Ilce";
-import {AdresDao} from "../adres-dao/adres-dao";
-import {Anket} from "../../entities/hizmet/Ankets/Anket";
-import {AnketService} from "../anket-service/anket-service";
+import { Injectable } from '@angular/core';
+import { HizmetDao } from '../hizmet-dao/hizmet-dao';
+import { Hizmet } from '../../entities/hizmet/hizmet';
+import { TokenProvider } from '../token/token';
+import { HttpClient } from '@angular/common/http';
+import { ApiProvider } from '../api/api';
+import { DetayKayit } from "../../entities/hizmet/DetayKayit";
+import { UtilProvider } from "../util/util";
+import { UrunAnaGrpProvider } from "../urun-ana-grp/urun-ana-grp";
+import { UrunAnaGrup } from "../../entities/urunAnaGrup";
+import { Constants } from "../../entities/Constants";
+import { LoggerProvider } from "../logger/logger";
+import { async } from "@angular/core/testing";
+import { Ilce } from "../../entities/Ilce";
+import { AdresDao } from "../adres-dao/adres-dao";
+import { Anket } from "../../entities/hizmet/Ankets/Anket";
+import { AnketService } from "../anket-service/anket-service";
 
 @Injectable()
 export class HizmetProvider {
@@ -28,15 +28,15 @@ export class HizmetProvider {
   getToken: Promise<any>;
 
   constructor(public http: HttpClient,
-              private api: ApiProvider,
-              private hizmetDao: HizmetDao,
-              private token: TokenProvider,
-              private urunAnaGrpProvider: UrunAnaGrpProvider,
-              private  logger: LoggerProvider,
-              private  adresDao: AdresDao,
-              private anketService: AnketService,
-              private util: UtilProvider) {
-    console.log('Hello CagriProvider Provider');
+    private api: ApiProvider,
+    private hizmetDao: HizmetDao,
+    private token: TokenProvider,
+    private urunAnaGrpProvider: UrunAnaGrpProvider,
+    private logger: LoggerProvider,
+    private adresDao: AdresDao,
+    private anketService: AnketService,
+    private util: UtilProvider) {
+
 
   }
 
@@ -59,7 +59,7 @@ export class HizmetProvider {
     let url = this.api.setCagriUrl(durum);
     let header = await this.token.callTokenAndGetHeader();
     if (this.util.isOnline()) {
-      return this.http.post(url, hizmet, {headers: header}).toPromise();
+      return this.http.post(url, hizmet, { headers: header }).toPromise();
     } else {
       this.util.ifOffline();
     }
@@ -70,7 +70,7 @@ export class HizmetProvider {
     let url = this.api.getCagriListUrl();
 
     try {
-      let res = await this.http.get(url, {headers: header},).toPromise();
+      let res = await this.http.get(url, { headers: header }, ).toPromise();
 
       return new Promise((resolve, reject) => {
         resolve(res);

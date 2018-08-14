@@ -1,20 +1,20 @@
-import {Injectable} from '@angular/core';
-import {UtilProvider} from "../util/util";
-import {Brans} from "../../entities/Brans";
-import {BaseDao} from "../base-dao/base-dao";
-import {LoggerProvider} from "../logger/logger";
-import {DatabaseProvider} from "../database/database";
-import {Constants} from "../../entities/Constants";
+import { Injectable } from '@angular/core';
+import { UtilProvider } from "../util/util";
+import { Brans } from "../../entities/Brans";
+import { BaseDao } from "../base-dao/base-dao";
+import { LoggerProvider } from "../logger/logger";
+import { DatabaseProvider } from "../database/database";
+import { Constants } from "../../entities/Constants";
 
 
 @Injectable()
 export class BransDao {
 
   constructor(public dbProvider: DatabaseProvider,
-              private util: UtilProvider,
-              private logger: LoggerProvider,
-              private baseDao: BaseDao) {
-    console.log('Hello BransDao Provider');
+    private util: UtilProvider,
+    private logger: LoggerProvider,
+    private baseDao: BaseDao) {
+
   }
 
   insertList(list: Brans[]): Promise<any> {

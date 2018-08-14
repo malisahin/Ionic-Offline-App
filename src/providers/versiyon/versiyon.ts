@@ -1,10 +1,10 @@
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {TokenProvider} from "../token/token";
-import {ApiProvider} from "../api/api";
-import {LoggerProvider} from "../logger/logger";
-import {UtilProvider} from "../util/util";
-import {Constants} from "../../entities/Constants";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { TokenProvider } from "../token/token";
+import { ApiProvider } from "../api/api";
+import { LoggerProvider } from "../logger/logger";
+import { UtilProvider } from "../util/util";
+import { Constants } from "../../entities/Constants";
 
 /*
  Generated class for the VersiyonProvider provider.
@@ -16,18 +16,18 @@ import {Constants} from "../../entities/Constants";
 export class VersiyonProvider {
 
   constructor(private http: HttpClient,
-              private  tokenProvider: TokenProvider,
-              private  api: ApiProvider,
-              private util: UtilProvider,
-              private logger: LoggerProvider) {
-    console.log('Hello VersiyonProvider Provider');
+    private tokenProvider: TokenProvider,
+    private api: ApiProvider,
+    private util: UtilProvider,
+    private logger: LoggerProvider) {
+
   }
 
   async getVersiyonFromServer(): Promise<any> {
     try {
       let header = await this.tokenProvider.callTokenAndGetHeader();
       let url = this.api.getVersiyonUrl();
-      let res = await  this.http.get(url, {headers: header}).toPromise();
+      let res = await this.http.get(url, { headers: header }).toPromise();
       this.logger.table(res);
       this.setNewVersions(res);
     }
@@ -52,7 +52,7 @@ export class VersiyonProvider {
   }
 
   getVersiyonClientAndServer(tip) {
-    let res = {client: "", server: ""};
+    let res = { client: "", server: "" };
     res.client = localStorage.getItem(Constants.VERSIYON.CLIENT[tip]);
     res.server = localStorage.getItem(Constants.VERSIYON.SERVER[tip]);
 

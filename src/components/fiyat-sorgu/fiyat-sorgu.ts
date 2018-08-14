@@ -35,7 +35,6 @@ export class FiyatSorguComponent {
     private util: UtilProvider,
     private fiyatDao: FiyatDao,
     private logger: LoggerProvider) {
-    console.log('Hello FiyatSorguComponent Component');
     this.data = {};
     this.urunAnaGrup = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
     this.urun = new Urun();

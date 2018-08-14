@@ -27,7 +27,6 @@ export class AdresProvider {
     private util: UtilProvider,
     private logger: LoggerProvider) {
 
-    console.log('Hello AdresProvider Provider');
   }
 
   async downloadSehirData(): Promise<any> {

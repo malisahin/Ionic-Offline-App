@@ -2,24 +2,24 @@
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {ApiProvider} from '../api/api';
-import {IslemArizaIscilik} from '../../entities/islem-ariza-iscilik';
-import {IslemArizaIscilikDao} from '../islem-ariza-iscilik-dao/islem-ariza-iscilik-dao';
-import {TokenProvider} from '../token/token';
-import {UtilProvider} from "../util/util";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { ApiProvider } from '../api/api';
+import { IslemArizaIscilik } from '../../entities/islem-ariza-iscilik';
+import { IslemArizaIscilikDao } from '../islem-ariza-iscilik-dao/islem-ariza-iscilik-dao';
+import { TokenProvider } from '../token/token';
+import { UtilProvider } from "../util/util";
 
 
 @Injectable()
 export class IslemArizaIscilikProvider {
 
   constructor(public http: HttpClient,
-              private tokenProvider: TokenProvider,
-              private api: ApiProvider,
-              private util: UtilProvider,
-              private islemArizaIscilikDao: IslemArizaIscilikDao) {
-    console.log('Hello IslemArizaIscilikProvider Provider');
+    private tokenProvider: TokenProvider,
+    private api: ApiProvider,
+    private util: UtilProvider,
+    private islemArizaIscilikDao: IslemArizaIscilikDao) {
+
   }
 
   async downloadIslemArizaIscilik(first: number): Promise<any> {
@@ -45,6 +45,6 @@ export class IslemArizaIscilikProvider {
     let url = this.api.islemArizaIscilikDownloadUrl(first);
 
 
-    return this.http.get(url, {headers: header}).toPromise();
+    return this.http.get(url, { headers: header }).toPromise();
   }
 }

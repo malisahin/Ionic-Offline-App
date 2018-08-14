@@ -18,8 +18,7 @@ export class ServisBilgileriComponent {
   hizmet: Hizmet = new Hizmet();
 
   constructor(private hizmetService: HizmetService) {
-    console.log('Hello ServisBilgileriComponent Component');
-    this.text = 'Hello World';
+
   }
 
 }

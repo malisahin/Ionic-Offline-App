@@ -3,15 +3,38 @@
  * @date 2018-04-14
  */
 
-import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { BaseProvider } from "../base/base";
 
 @Injectable()
-export class LoggerProvider {
-  constructor() { }
+export class LoggerProvider extends BaseProvider {
+
+  constructor() {
+    super();
+  }
+
+
+  private consoleLog(message, color) {
+    console.log("%c " + message, color);
+  }
 
   info(res) {
-    console.log("%c " + res, "color: #0096ff");
+
+
+
+    let mes = "";
+    let valid = true;
+    if (this.isNotEmpty(res.mes))
+      mes = res.mes;
+    else
+      mes = res;
+
+    if (this.isNotEmpty(res.valid))
+      valid = res.valid;
+
+    if (valid)
+      this.consoleLog(mes, "color: #0096ff");
+
   }
 
   success(res) {
@@ -19,6 +42,9 @@ export class LoggerProvider {
   }
 
   log(res) {
+
+    let mes = ""
+    let valid = true;
     console.log(res);
   }
 

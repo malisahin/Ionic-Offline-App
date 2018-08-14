@@ -2,17 +2,17 @@
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {ApiProvider} from '../api/api';
-import {Token} from '../../entities/token'
-import {Network} from '@ionic-native/network';
-import {LoggerProvider} from '../logger/logger';
-import {NavController, Platform} from 'ionic-angular';
-import {UtilProvider} from '../util/util';
-import {User} from "../../entities/user";
-import {HttpHeaders} from '@angular/common/http';
-import {Constants} from "../../entities/Constants";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { ApiProvider } from '../api/api';
+import { Token } from '../../entities/token'
+import { Network } from '@ionic-native/network';
+import { LoggerProvider } from '../logger/logger';
+import { NavController, Platform } from 'ionic-angular';
+import { UtilProvider } from '../util/util';
+import { User } from "../../entities/user";
+import { HttpHeaders } from '@angular/common/http';
+import { Constants } from "../../entities/Constants";
 
 @Injectable()
 export class TokenProvider {
@@ -24,12 +24,12 @@ export class TokenProvider {
   httpHeader: HttpHeaders;
 
   constructor(public http: HttpClient,
-              public api: ApiProvider,
-              private network: Network,
-              private platform: Platform,
-              private logger: LoggerProvider,
-              private util: UtilProvider) {
-    console.log('Hello TokenProvider Provider');
+    public api: ApiProvider,
+    private network: Network,
+    private platform: Platform,
+    private logger: LoggerProvider,
+    private util: UtilProvider) {
+
     this.results = "";
     this.user = new User();
 
@@ -85,7 +85,7 @@ export class TokenProvider {
 
   async callTokenAndGetHeader(): Promise<any> {
     this.util.isOnline();
-    await  this.getTokenInside();
+    await this.getTokenInside();
     return new Promise((response, reject) => {
       response(new HttpHeaders({
         'Content-Type': 'application/json',

@@ -1,22 +1,22 @@
-import {Injectable} from '@angular/core';
-import {DatabaseProvider} from '../database/database';
-import {IslemArizaIscilik} from '../../entities/islem-ariza-iscilik';
-import {UtilProvider} from '../util/util';
-import {LoggerProvider} from '../logger/logger';
-import {Pageable} from '../../entities/Pageable';
-import {BaseDao} from '../base-dao/base-dao';
-import {Constants} from '../../entities/Constants';
+import { Injectable } from '@angular/core';
+import { DatabaseProvider } from '../database/database';
+import { IslemArizaIscilik } from '../../entities/islem-ariza-iscilik';
+import { UtilProvider } from '../util/util';
+import { LoggerProvider } from '../logger/logger';
+import { Pageable } from '../../entities/Pageable';
+import { BaseDao } from '../base-dao/base-dao';
+import { Constants } from '../../entities/Constants';
 
 
 @Injectable()
 export class IslemArizaIscilikDao {
 
   constructor(public dbProvider: DatabaseProvider,
-              private util: UtilProvider,
-              private logger: LoggerProvider,
-              private baseDao: BaseDao) {
+    private util: UtilProvider,
+    private logger: LoggerProvider,
+    private baseDao: BaseDao) {
 
-    console.log('Hello IslemArizaIscilikDaoProvider Provider');
+
   }
 
   //tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_ISC_ISLARZGRP_TNM (mamAnaGrp, islemGrp, islemGrpAdi, arizaGrp, arizaGrpAdi, iscKod, durum, PRIMARY KEY (mamAnaGrp,islemGrp,arizaGrp, iscKod))', []);

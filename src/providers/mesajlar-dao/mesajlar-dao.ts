@@ -1,19 +1,19 @@
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {Mesaj} from '../../entities/mesajlar';
-import {DatabaseProvider} from '../database/database';
-import {UtilProvider} from "../util/util";
-import {BaseDao} from "../base-dao/base-dao";
-import {Pageable} from "../../entities/Pageable";
-import {Constants} from "../../entities/Constants";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Mesaj } from '../../entities/mesajlar';
+import { DatabaseProvider } from '../database/database';
+import { UtilProvider } from "../util/util";
+import { BaseDao } from "../base-dao/base-dao";
+import { Pageable } from "../../entities/Pageable";
+import { Constants } from "../../entities/Constants";
 
 
 @Injectable()
 export class MesajlarDao {
   constructor(public http: HttpClient,
-              private dbProvider: DatabaseProvider,
-              private  util: UtilProvider,
-              private  baseDao: BaseDao) {
+    private dbProvider: DatabaseProvider,
+    private util: UtilProvider,
+    private baseDao: BaseDao) {
 
   }
 
@@ -39,6 +39,14 @@ export class MesajlarDao {
         });
       });
     });
+  }
+
+  async loadMesajCounts() {
+    let duyuruSayisi = await this.loadDuyuruSayisi();
+    localStorage.setItem(Constants.COUNTS.DUYURULAR, String(duyuruSayisi));
+
+    let uyariSayisi = await this.loadUyariSayisi();
+    localStorage.setItem(Constants.COUNTS.UYARILAR, String(uyariSayisi));
   }
 
   loadDuyuruSayisi(): Promise<any> {

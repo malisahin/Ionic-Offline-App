@@ -15,8 +15,7 @@ export class ListComponent {
   pageSize: number;
 
   constructor() {
-    console.log('Hello ListComponent Component');
-    this.text = 'Hello World';
+
 
     this.list = [
       new ListItem('ItemName1', 'Code1'),

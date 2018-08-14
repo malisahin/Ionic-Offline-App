@@ -2,15 +2,15 @@
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
-import { ViewController } from "ionic-angular/navigation/view-controller";
-import { Hizmet } from "../../../entities/hizmet/hizmet";
-import { HizmetSearch } from "../../../entities/hizmet/HizmetSearch";
-import { UtilProvider } from "../../../providers/util/util";
-import { Constants } from "../../../entities/Constants";
-import { query } from "@angular/core/src/animation/dsl";
-import { ThemeProvider } from "../../../providers/theme/theme";
+import {Component} from "@angular/core";
+import {IonicPage, NavController, NavParams} from "ionic-angular";
+import {ViewController} from "ionic-angular/navigation/view-controller";
+import {Hizmet} from "../../../entities/hizmet/hizmet";
+import {HizmetSearch} from "../../../entities/hizmet/HizmetSearch";
+import {UtilProvider} from "../../../providers/util/util";
+import {Constants} from "../../../entities/Constants";
+import {query} from "@angular/core/src/animation/dsl";
+import {ThemeProvider} from "../../../providers/theme/theme";
 
 @IonicPage()
 @Component({
@@ -50,12 +50,16 @@ export class CagriAramaModalPage {
     let searchType = Constants.SEARCH_TYPE.LIKE;
 
     if (this.util.isNotEmpty(this.filter.randevuTarFirst)) {
-      this.query += " AND randevuTarihi > '" + this.util.dateFormatRegex(this.filter.randevuTarFirst, "yyyy-MM-dd") + " 00:00:00' ";
+      let tarihFirst = this.util.dateFormatRegex(this.filter.randevuTarFirst, "yyyy-MM-dd") + " 00:00:00";
+
+      this.query += " AND randevuTarihi > " + this.util.newDateTime(tarihFirst);
       this.searchParams.push(String(this.filter.randevuTarFirst));
     }
 
     if (this.util.isNotEmpty(this.filter.randevuTarLast)) {
-      this.query += " AND randevuTarihi < '" + this.util.dateFormatRegex(this.filter.randevuTarLast, "yyyy-MM-dd") + " 23:59:59' ";
+      let tarihLast = this.util.dateFormatRegex(this.filter.randevuTarLast, "yyyy-MM-dd") + " 23:59:59";
+
+      this.query += " AND randevuTarihi < " + this.util.newDateTime(tarihLast);
       this.searchParams.push(String(this.filter.randevuTarLast));
     }
 

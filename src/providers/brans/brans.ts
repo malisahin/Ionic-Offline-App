@@ -1,9 +1,9 @@
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {UtilProvider} from "../util/util";
-import {BransDao} from "../brans-dao/brans-dao";
-import {Brans} from "../../entities/Brans";
-import {LoggerProvider} from "../logger/logger";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { UtilProvider } from "../util/util";
+import { BransDao } from "../brans-dao/brans-dao";
+import { Brans } from "../../entities/Brans";
+import { LoggerProvider } from "../logger/logger";
 
 /**
  * @author mali.sahin
@@ -14,8 +14,8 @@ import {LoggerProvider} from "../logger/logger";
 @Injectable()
 export class BransProvider {
 
-  constructor(private  util: UtilProvider, private bransDao: BransDao, private  logger: LoggerProvider) {
-    console.log('Hello BransProvider Provider');
+  constructor(private util: UtilProvider, private bransDao: BransDao, private logger: LoggerProvider) {
+
   }
 
   insertList(bransData: any): Promise<any> {

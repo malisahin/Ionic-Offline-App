@@ -20,7 +20,7 @@ export class DateFormatPipe implements PipeTransform {
   transform(value: number, ...args) {
     if (this.util.isNotEmpty(value)) {
       let time = this.util.dateFormatRegex(new Date(value), "dd-MM-yyyy hh:mm");
-      console.log("Formatted Date => " + time);
+      //console.log("Formatted Date => " + time);
       return time;
     }
 

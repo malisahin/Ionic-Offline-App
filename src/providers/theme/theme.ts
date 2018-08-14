@@ -1,9 +1,9 @@
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {BehaviorSubject} from "rxjs";
-import {Constants} from "../../entities/Constants";
-import {UtilProvider} from "../util/util";
-import {User} from "../../entities/user";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from "rxjs";
+import { Constants } from "../../entities/Constants";
+import { UtilProvider } from "../util/util";
+import { User } from "../../entities/user";
 
 
 enum THEME {
@@ -17,8 +17,8 @@ export class ThemeProvider {
   theme: BehaviorSubject<string>;
   user: User = new User();
 
-  constructor(private  util: UtilProvider) {
-    console.log('Hello ThemeProvider Provider');
+  constructor(private util: UtilProvider) {
+
   }
 
   setTheme() {
@@ -63,7 +63,7 @@ export class ThemeProvider {
     //return "../../../resources/images/" + orgKod + "/login/login-background.jpg";
   }
 
-  getLoaderPath(): string{
+  getLoaderPath(): string {
     return "assets/imgs/loader.jpg";
   }
 }
