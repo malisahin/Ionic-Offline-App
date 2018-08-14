@@ -21,7 +21,6 @@ import { MalzemeSearchComponent } from "../malzeme-search/malzeme-search";
 })
 export class FiyatSorguComponent {
 
-  text: string;
   urunAnaGrup: UrunAnaGrup;
 
   urun: Urun;
@@ -48,9 +47,13 @@ export class FiyatSorguComponent {
     this.fiyat = new Fiyat();
     this.urun = new Urun();
     this.data.type = Constants.DATA_TYPE.URUN_ANA_GRUP;
-    let aramaModal = this.modalController.create(UrunAnaGrupSearchComponent, { data: this.data }, { cssClass: this.util.getSelectedTheme() });
+    let aramaModal = this.modalController.create(UrunAnaGrupSearchComponent,
+      { data: this.data },
+      { cssClass: this.util.getSelectedTheme(), enableBackdropDismiss: false });
+
     aramaModal.onDidDismiss(data => {
-      this.urunAnaGrup = data;
+      if (this.util.isNotEmpty(data))
+        this.urunAnaGrup = data;
     });
     aramaModal.present();
   }
@@ -59,17 +62,25 @@ export class FiyatSorguComponent {
     this.urunIscilik = new UrunIscilik();
     this.fiyat = new Fiyat();
     this.data.type = Constants.DATA_TYPE.URUN;
-    let aramaModal = this.modalController.create(UrunSearchComponent, { data: this.data }, { cssClass: this.util.getSelectedTheme() });
+    let aramaModal = this.modalController.create(UrunSearchComponent,
+      { data: this.data },
+      { cssClass: this.util.getSelectedTheme(), enableBackdropDismiss: false });
+
     aramaModal.onDidDismiss(data => {
-      this.urun = data;
+      if (this.util.isNotEmpty(data))
+        this.urun = data;
     });
     aramaModal.present();
   }
 
   public malzemeSorgula() {
-    let aramaModal = this.modalController.create(MalzemeSearchComponent, { data: this.malzeme }, { cssClass: this.util.getSelectedTheme() });
+    let aramaModal = this.modalController.create(MalzemeSearchComponent,
+      { data: this.malzeme },
+      { cssClass: this.util.getSelectedTheme(), enableBackdropDismiss: false });
+
     aramaModal.onDidDismiss(data => {
-      this.fillMalzemeSorguFilter(data);
+      if (this.util.isNotEmpty(data))
+        this.fillMalzemeSorguFilter(data);
     });
     aramaModal.present();
   }
@@ -94,9 +105,13 @@ export class FiyatSorguComponent {
     }
     this.data.type = Constants.DATA_TYPE.URUN_ISCILIK;
     this.data.mamKod = this.urun.mamKod;
-    let aramaModal = this.modalController.create(UrunIscilikSearchComponent, { data: this.data }, { cssClass: this.util.getSelectedTheme() });
+    let aramaModal = this.modalController.create(UrunIscilikSearchComponent,
+      { data: this.data },
+      { cssClass: this.util.getSelectedTheme(), enableBackdropDismiss: false });
+
     aramaModal.onDidDismiss(data => {
-      this.urunIscilik = data;
+      if (this.util.isNotEmpty(data))
+        this.urunIscilik = data;
     });
     aramaModal.present();
   }

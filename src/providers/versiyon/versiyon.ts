@@ -28,7 +28,7 @@ export class VersiyonProvider {
       let header = await this.tokenProvider.callTokenAndGetHeader();
       let url = this.api.getVersiyonUrl();
       let res = await this.http.get(url, { headers: header }).toPromise();
-      this.logger.table(res);
+      //this.logger.table(res);
       this.setNewVersions(res);
     }
     catch (e) {

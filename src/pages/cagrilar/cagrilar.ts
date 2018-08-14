@@ -2,22 +2,22 @@
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-import {Component, ViewChild} from "@angular/core";
-import {IonicPage, NavController, NavParams} from "ionic-angular";
-import {CagriDetayPage} from "../cagri-detay/cagri-detay";
-import {ModalController} from "ionic-angular/components/modal/modal-controller";
-import {CagriAramaModalPage} from "./cagri-arama-modal/cagri-arama-modal";
-import {HizmetProvider} from "../../providers/hizmet/hizmet";
-import {HizmetService} from "../../providers/hizmet-service/hizmet-service";
-import {Hizmet} from "../../entities/hizmet/hizmet";
-import {UtilProvider} from "../../providers/util/util";
-import {Pageable} from "../../entities/Pageable";
-import {HeaderComponent} from "../../components/header/header";
-import {Constants} from "../../entities/Constants";
-import {UtilPlugin} from "../../providers/util-plugin/util-plugin";
-import {ThemeProvider} from "../../providers/theme/theme";
+import { Component, ViewChild } from "@angular/core";
+import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { CagriDetayPage } from "../cagri-detay/cagri-detay";
+import { ModalController } from "ionic-angular/components/modal/modal-controller";
+import { CagriAramaModalPage } from "./cagri-arama-modal/cagri-arama-modal";
+import { HizmetProvider } from "../../providers/hizmet/hizmet";
+import { HizmetService } from "../../providers/hizmet-service/hizmet-service";
+import { Hizmet } from "../../entities/hizmet/hizmet";
+import { UtilProvider } from "../../providers/util/util";
+import { Pageable } from "../../entities/Pageable";
+import { HeaderComponent } from "../../components/header/header";
+import { Constants } from "../../entities/Constants";
+import { UtilPlugin } from "../../providers/util-plugin/util-plugin";
+import { ThemeProvider } from "../../providers/theme/theme";
 import *  as moment from 'moment';
-import {LoggerProvider} from "../../providers/logger/logger";
+import { LoggerProvider } from "../../providers/logger/logger";
 
 @IonicPage()
 @Component({
@@ -37,14 +37,14 @@ export class CagrilarPage {
   @ViewChild("header") header: HeaderComponent;
 
   constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              private modalController: ModalController,
-              private cagriProvider: HizmetProvider,
-              private hizmetService: HizmetService,
-              private plugins: UtilPlugin,
-              private util: UtilProvider,
-              private themeProvider: ThemeProvider,
-              private logger: LoggerProvider) {
+    public navParams: NavParams,
+    private modalController: ModalController,
+    private cagriProvider: HizmetProvider,
+    private hizmetService: HizmetService,
+    private plugins: UtilPlugin,
+    private util: UtilProvider,
+    private themeProvider: ThemeProvider,
+    private logger: LoggerProvider) {
     this.backGroundImage = this.themeProvider.getBackgroundImage();
     this.pageable = new Pageable();
     this.getListLength();
@@ -64,7 +64,7 @@ export class CagrilarPage {
 
   public cagriDetayinaGit(event, seqNo) {
     event.stopPropagation();
-    let params = {seqNo: seqNo};
+    let params = { seqNo: seqNo };
 
     this.navCtrl.push(CagriDetayPage, params);
   }
@@ -73,7 +73,7 @@ export class CagrilarPage {
     let aramaModal = this.modalController.create(
       CagriAramaModalPage,
       {},
-      {cssClass: this.util.getSelectedTheme()}
+      { cssClass: this.util.getSelectedTheme(), enableBackdropDismiss: false }
     );
     aramaModal.onDidDismiss(data => {
       if (this.util.isNotEmpty(data) && this.util.isNotEmpty(data.orderBy)) {

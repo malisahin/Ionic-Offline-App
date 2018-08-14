@@ -192,7 +192,7 @@ export class HizmetDetayComponent {
       let fiyatRes = await this.fiyatDao.findFiyat(fiyatSorguParam);
       if (fiyatRes.rows.length > 0) {
         let item = fiyatRes.rows.item(0);
-        this.logger.table(item);
+        //this.logger.table(item);
         this.hizmetDetay.birimFiyat = item.fiyat;
         this.hizmetDetay.garFiyat = item.gdfiyat;
         this.hizmetDetay.tutar = Number(this.hizmetDetay.miktar) * Number(this.hizmetDetay.birimFiyat);
@@ -239,7 +239,7 @@ export class HizmetDetayComponent {
         dataType: tip,
         filter: this.hizmetDetay
       }
-    }, { cssClass: this.util.getSelectedTheme() });
+    }, { cssClass: this.util.getSelectedTheme(), enableBackdropDismiss: false });
 
     piyModal.onDidDismiss(res => {
       this.logger.dir(res);

@@ -35,7 +35,6 @@ export class CagriDetayPage {
   }
 
   getHizmet() {
-    debugger;
     return this.hizmetService.fetchHizmet(this.hizmet.seqNo).then(res => {
       for (let i = 0; i < res.length; i++) {
         this.hizmet = JSON.parse(res.item(i).data);

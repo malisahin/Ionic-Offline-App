@@ -1,22 +1,22 @@
-import {Component} from "@angular/core";
-import {ModalController} from "ionic-angular";
-import {Hizmet} from "../../../entities/hizmet/hizmet";
-import {HizmetService} from "../../../providers/hizmet-service/hizmet-service";
-import {UrunSearchComponent} from "../../urun-search/urun-search";
-import {UtilProvider} from "../../../providers/util/util";
-import {Constants} from "../../../entities/Constants";
-import {LoggerProvider} from "../../../providers/logger/logger";
-import {UrunAnaGrupDao} from "../../../providers/urun-ana-grup-dao/urun-ana-grup-dao";
-import {UrunAnaGrup} from "../../../entities/urunAnaGrup";
-import {GarantiSorguProvider} from "../../../providers/garanti-sorgu/garanti-sorgu";
-import {GarantiSorgu} from "../../../entities/GarantiSorgu";
-import {SeriNoSorguProvider} from "../../../providers/seri-no-sorgu/seri-no-sorgu";
-import {UpdateUrunAnaGrupComponent} from "../../update-urun-ana-grup/update-urun-ana-grup";
-import {ProcessResults} from "../../../entities/ProcessResults";
-import {UrunProvider} from "../../../providers/urun/urun";
-import {Urun} from "../../../entities/urun";
-import {Pageable} from "../../../entities/Pageable";
-import {UtilPlugin} from "../../../providers/util-plugin/util-plugin";
+import { Component } from "@angular/core";
+import { ModalController } from "ionic-angular";
+import { Hizmet } from "../../../entities/hizmet/hizmet";
+import { HizmetService } from "../../../providers/hizmet-service/hizmet-service";
+import { UrunSearchComponent } from "../../urun-search/urun-search";
+import { UtilProvider } from "../../../providers/util/util";
+import { Constants } from "../../../entities/Constants";
+import { LoggerProvider } from "../../../providers/logger/logger";
+import { UrunAnaGrupDao } from "../../../providers/urun-ana-grup-dao/urun-ana-grup-dao";
+import { UrunAnaGrup } from "../../../entities/urunAnaGrup";
+import { GarantiSorguProvider } from "../../../providers/garanti-sorgu/garanti-sorgu";
+import { GarantiSorgu } from "../../../entities/GarantiSorgu";
+import { SeriNoSorguProvider } from "../../../providers/seri-no-sorgu/seri-no-sorgu";
+import { UpdateUrunAnaGrupComponent } from "../../update-urun-ana-grup/update-urun-ana-grup";
+import { ProcessResults } from "../../../entities/ProcessResults";
+import { UrunProvider } from "../../../providers/urun/urun";
+import { Urun } from "../../../entities/urun";
+import { Pageable } from "../../../entities/Pageable";
+import { UtilPlugin } from "../../../providers/util-plugin/util-plugin";
 
 @Component({
   selector: "urun-bilgileri",
@@ -34,14 +34,14 @@ export class UrunBilgileriComponent {
   sattar: string;
 
   constructor(private modalController: ModalController,
-              private hizmetService: HizmetService,
-              private logger: LoggerProvider,
-              private garantiSorguProvider: GarantiSorguProvider,
-              private util: UtilProvider,
-              private seriNoSorguProvider: SeriNoSorguProvider,
-              private urunProvider: UrunProvider,
-              private plugins: UtilPlugin,
-              private urunAnaGrpDao: UrunAnaGrupDao) {
+    private hizmetService: HizmetService,
+    private logger: LoggerProvider,
+    private garantiSorguProvider: GarantiSorguProvider,
+    private util: UtilProvider,
+    private seriNoSorguProvider: SeriNoSorguProvider,
+    private urunProvider: UrunProvider,
+    private plugins: UtilPlugin,
+    private urunAnaGrpDao: UrunAnaGrupDao) {
     this.hizmet = this.hizmetService.getHizmet();
     this.init();
     this.findUrunAnaGrp();
@@ -62,8 +62,8 @@ export class UrunBilgileriComponent {
     let searchType = Constants.SEARCH_TYPE.EXACT;
     let aramaModal = this.modalController.create(
       UrunSearchComponent,
-      {data: {mamAnagrp: mamAnagrp, searchType: searchType}},
-      {cssClass: this.util.getSelectedTheme()}
+      { data: { mamAnagrp: mamAnagrp, searchType: searchType } },
+      { cssClass: this.util.getSelectedTheme() }
     );
     aramaModal.onDidDismiss(data => {
       if (this.util.isNotEmpty(data)) {
@@ -86,13 +86,10 @@ export class UrunBilgileriComponent {
     let processResult = this.urunAnaGrupDegistirmeKontrol();
 
     if (processResult.isErrorMessagesNull()) {
-      let anaGrpUpdateModal = this.modalController.create(
-        UpdateUrunAnaGrupComponent,
-        {
-          hizmet: this.hizmet
-        },
-        {cssClass: this.util.getSelectedTheme()}
-      );
+      let anaGrpUpdateModal = this.modalController.create(UpdateUrunAnaGrupComponent,
+        { hizmet: this.hizmet },
+        { cssClass: this.util.getSelectedTheme(), enableBackdropDismiss: false });
+
       anaGrpUpdateModal.onDidDismiss(res => {
         if (this.util.isNotEmpty(res) && this.util.isNotEmpty(res.hizmet)) {
           this.hizmet = res.hizmet;
@@ -243,7 +240,6 @@ export class UrunBilgileriComponent {
   }
 
   faturaTarihiChange(nerden: string) {
-    debugger;
     this.hizmet.sattar = this.util.newDateTime(this.sattar);
     if (this.util.isNotEmpty(nerden) && nerden != Constants.NERDEN.INIT)
       this.saveHizmet();

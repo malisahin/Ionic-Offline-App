@@ -49,7 +49,8 @@ export class GarantiSorguComponent {
     this.data.type = Constants.DATA_TYPE.URUN_ANA_GRUP;
     let aramaModal = this.modalController.create(UrunAnaGrupSearchComponent, { data: this.data }, { cssClass: this.util.getSelectedTheme() });
     aramaModal.onDidDismiss(data => {
-      this.urunAnaGrup = data;
+      if (this.util.isNotEmpty(data))
+        this.urunAnaGrup = data;
     });
     aramaModal.present();
   }
@@ -57,9 +58,12 @@ export class GarantiSorguComponent {
   public urunSorgula() {
 
     this.data.type = Constants.DATA_TYPE.URUN;
-    let aramaModal = this.modalController.create(UrunSearchComponent, { data: this.data }, { cssClass: this.util.getSelectedTheme() });
+    let aramaModal = this.modalController.create(UrunSearchComponent,
+      { data: this.data },
+      { cssClass: this.util.getSelectedTheme(), enableBackdropDismiss: false });
     aramaModal.onDidDismiss(data => {
-      this.urun = data;
+      if (this.util.isNotEmpty(data))
+        this.urun = data;
     });
     aramaModal.present();
   }

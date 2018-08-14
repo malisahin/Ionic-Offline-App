@@ -3,13 +3,13 @@
  * @since 17.04.2018
  */
 
-import {Component} from '@angular/core';
-import {HizmetService} from '../../../../providers/hizmet-service/hizmet-service';
-import {Hizmet} from '../../../../entities/hizmet/hizmet';
-import {UtilProvider} from "../../../../providers/util/util";
-import {IslemList} from "../../../../entities/hizmet/islemList";
-import {ProcessResults} from "../../../../entities/ProcessResults";
-import {LoggerProvider} from "../../../../providers/logger/logger";
+import { Component } from '@angular/core';
+import { HizmetService } from '../../../../providers/hizmet-service/hizmet-service';
+import { Hizmet } from '../../../../entities/hizmet/hizmet';
+import { UtilProvider } from "../../../../providers/util/util";
+import { IslemList } from "../../../../entities/hizmet/islemList";
+import { ProcessResults } from "../../../../entities/ProcessResults";
+import { LoggerProvider } from "../../../../providers/logger/logger";
 
 
 enum Durum {
@@ -33,10 +33,9 @@ export class IslemTarihComponent {
   islemList: IslemList[] = [];
 
   constructor(private hizmetService: HizmetService,
-              private logger: LoggerProvider,
-              private  util: UtilProvider) {
+    private logger: LoggerProvider,
+    private util: UtilProvider) {
     this.hizmet = this.hizmetService.getHizmet();
-    this.logger.table(this.hizmet.islemList);
     this.formatIslemListDates();
     this.init();
   }
@@ -172,7 +171,7 @@ export class IslemTarihComponent {
        }
        });*/
       this.hizmet.islemList = this.islemList;
-      this.logger.table(this.hizmet.islemList);
+      //this.logger.table(this.hizmet.islemList);
       await this.hizmetService.saveHizmet();
       this.loadTarihce();
     }

@@ -3,14 +3,14 @@
  * @email [mehmetalisahinogullari@gmail.com]
  */
 
-import {Component} from "@angular/core";
-import {Hizmet} from "../../../entities/hizmet/hizmet";
-import {HizmetService} from "../../../providers/hizmet-service/hizmet-service";
-import {UtilProvider} from "../../../providers/util/util";
-import {Constants} from "../../../entities/Constants";
-import {UrunAnaGrup} from "../../../entities/urunAnaGrup";
-import {UrunAnaGrpProvider} from "../../../providers/urun-ana-grp/urun-ana-grp";
-import {LoggerProvider} from "../../../providers/logger/logger";
+import { Component } from "@angular/core";
+import { Hizmet } from "../../../entities/hizmet/hizmet";
+import { HizmetService } from "../../../providers/hizmet-service/hizmet-service";
+import { UtilProvider } from "../../../providers/util/util";
+import { Constants } from "../../../entities/Constants";
+import { UrunAnaGrup } from "../../../entities/urunAnaGrup";
+import { UrunAnaGrpProvider } from "../../../providers/urun-ana-grp/urun-ana-grp";
+import { LoggerProvider } from "../../../providers/logger/logger";
 import * as moment from 'moment';
 
 
@@ -27,9 +27,9 @@ export class HizmetBilgileriComponent {
   cagriTarihi: any;
 
   constructor(public hizmetService: HizmetService,
-              private urunAnaGrpProvider: UrunAnaGrpProvider,
-              private logger: LoggerProvider,
-              private util: UtilProvider) {
+    private urunAnaGrpProvider: UrunAnaGrpProvider,
+    private logger: LoggerProvider,
+    private util: UtilProvider) {
 
     this.hizmet = this.hizmetService.getHizmet();
     this.getHizmet();
@@ -57,7 +57,7 @@ export class HizmetBilgileriComponent {
     if (this.util.isEmpty(this.hizmet.mamAnaGrpAdi) && this.util.isNotEmpty(this.hizmet.mamAnaGrp)) {
       let filter = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
       filter.mamAnaGrp = this.hizmet.mamAnaGrp;
-      let result = await  this.urunAnaGrpProvider.findUrunAnaGrp(filter);
+      let result = await this.urunAnaGrpProvider.findUrunAnaGrp(filter);
       this.logger.dir(result);
       if (this.util.isNotEmpty(result)) {
         this.hizmet.mamAnaGrpAdi = result.ad;
@@ -89,7 +89,6 @@ export class HizmetBilgileriComponent {
       return formattedDate;*/
 
 
-    debugger;
     return new Date(date);
   }
 
