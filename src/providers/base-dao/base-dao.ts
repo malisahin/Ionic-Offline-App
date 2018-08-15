@@ -29,6 +29,8 @@ export class BaseDao {
       this.DB.transaction().then(db => {
         db.transaction(function (tx) {
           tx.executeSql(query, params, function (tx, res) {
+            //tx.close();
+            debugger;
             resolve(res);
           }, function (err, mes) {
             console.error("Error" + mes.message + " Code: " + mes.code);

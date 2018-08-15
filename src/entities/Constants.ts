@@ -9,6 +9,15 @@ export class Constants {
   constructor() {
   }
 
+
+  public static CACHE_KEYS = {
+    LOG: "LOG",
+    INFO: "INFO",
+    ERROR: "ERROR",
+    WARN: "WARN",
+    SUCCESS: "SUCCESS",
+    DIR: "DIR"
+  };
   public static COUNTS = {
     CAGRILAR: "CAGRILAR_COUNT",
     GUNCELLEME: "GUNCELLEME_COUNT",

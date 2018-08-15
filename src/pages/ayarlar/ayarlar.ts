@@ -15,6 +15,7 @@ import { TasksProvider } from "../../providers/tasks/tasks";
 import { BehaviorSubject } from "rxjs";
 import { ThemeProvider } from "../../providers/theme/theme";
 import { LoggerProvider } from "../../providers/logger/logger";
+import {LogPage} from "../log/log";
 
 @IonicPage()
 @Component({
@@ -178,6 +179,10 @@ export class AyarlarPage {
     }
 
 
+  }
+
+  showLogs(){
+    this.navCtrl.push(LogPage);
   }
 
 }

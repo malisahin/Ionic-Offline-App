@@ -94,6 +94,8 @@ import 'intl/locale-data/jsonp/en';
 import {SQLite} from "@ionic-native/sqlite";
 import {PipesModule} from "../pipes/pipes.module";
 import { BaseProvider } from '../providers/base/base';
+import { CacheModule } from "ionic-cache";
+import { CacheProvider } from '../providers/cache/cache';
 
 @NgModule({
   declarations: [
@@ -104,6 +106,7 @@ import { BaseProvider } from '../providers/base/base';
     BrowserModule,
     PipesModule,
     IonicModule.forRoot(MyApp),
+    CacheModule.forRoot(),
     HttpClientModule,
     SharedModule,
     CagrilarPageModule,
@@ -204,7 +207,8 @@ import { BaseProvider } from '../providers/base/base';
     BarcodeScanner,
     AnketService,
     TableTotalElementsProvider,
-    BaseProvider
+    BaseProvider,
+    CacheProvider
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

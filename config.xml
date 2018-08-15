@@ -20,6 +20,16 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <platform name="ios">
+        <preference default="This app needs camera access" name="CAMERA_USAGE_DESCRIPTION" />
+        <config-file parent="NSCameraUsageDescription" target="*-Info.plist">
+            <string>$CAMERA_USAGE_DESCRIPTION</string>
+        </config-file>
+    </platform>
+    <feature name="SQLitePlugin">
+        <param name="ios-package" value="SQLitePlugin" />
+        <param name="onload" value="true" />
+    </feature>
     <platform name="android">
         <allow-intent href="market:*" />
         <preference name="loadUrlTimeoutValue" value="700000" />

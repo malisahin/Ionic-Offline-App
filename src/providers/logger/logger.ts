@@ -3,13 +3,17 @@
  * @date 2018-04-14
  */
 
-import { Injectable } from "@angular/core";
-import { BaseProvider } from "../base/base";
+import {Injectable} from "@angular/core";
+import {BaseProvider} from "../base/base";
+import {CacheProvider} from "../cache/cache";
+import {Constants} from "../../entities/Constants";
 
 @Injectable()
 export class LoggerProvider extends BaseProvider {
 
-  constructor() {
+  isLogEnabled: boolean = true;
+
+  constructor(private  cacheService: CacheProvider) {
     super();
   }
 
@@ -18,8 +22,7 @@ export class LoggerProvider extends BaseProvider {
     console.log("%c " + message, color);
   }
 
-  info(res) {
-
+  async info(res) {
 
 
     let mes = "";
@@ -35,41 +38,62 @@ export class LoggerProvider extends BaseProvider {
     if (valid)
       this.consoleLog(mes, "color: #0096ff");
 
+    if (this.isLogEnabled)
+      await this.cacheService.saveLog(Constants.CACHE_KEYS.LOG, mes);
+
   }
 
-  success(res) {
+  async success(res) {
     console.log("%c " + res, "color: #00ff4b");
+
+    if (this.isLogEnabled)
+      await this.cacheService.saveLog(Constants.CACHE_KEYS.SUCCESS, res);
   }
 
-  log(res) {
+  async log(res) {
 
-    let mes = ""
+    let mes = "";
     let valid = true;
     console.log(res);
+
+    if (this.isLogEnabled)
+      await this.cacheService.saveLog(Constants.CACHE_KEYS.LOG, res);
   }
 
-  log2(mes, res) {
+  async log2(mes, res) {
     console.log(mes, res);
+
+    if (this.isLogEnabled)
+      await this.cacheService.saveLog(Constants.CACHE_KEYS.LOG, res);
   }
 
-  dir(res) {
+  async dir(res) {
     console.dir(res);
+
+    if (this.isLogEnabled)
+      await this.cacheService.saveLog(Constants.CACHE_KEYS.DIR, res);
   }
 
   dir2(mes, res) {
     console.dir(mes, res);
   }
 
-  error(res) {
+  async error(res) {
     console.error(res);
+
+    if (this.isLogEnabled)
+      await this.cacheService.saveLog(Constants.CACHE_KEYS.ERROR, res);
   }
 
   error2(mes, res) {
     console.error(mes, res);
   }
 
-  warn(res) {
+  async warn(res) {
     console.warn(res);
+
+    if (this.isLogEnabled)
+      await this.cacheService.saveLog(Constants.CACHE_KEYS.WARN, res);
   }
 
   table(res) {

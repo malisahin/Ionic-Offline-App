@@ -149,23 +149,15 @@
       </ion-select>
     </ion-col>
   </ion-row>
-  <!-- </div>
- -->
-  <!-- <div *ngSwitchCase="'versiyon'" class="versiyon">
-     <button ion-button primary round full>Ürünler</button>
 
-     <button ion-button primary round full>Ürün Ana Grupları</button>
-
-     <button ion-button primary round full>Ürün Işçilik</button>
-
-     <button ion-button primary round full>Ürün-Malzeme</button>
-
-     <button ion-button primary round full>Işlem-Arıza-Işçilik</button>
-
-     <button ion-button primary round full>Malzeme Fiyatları</button>
-
-     <button ion-button primary round full>Işçilik Fiyatları</button>
-   </div>-->
-  <!--
-    </div>-->
+  <ion-row>
+    <ion-col>
+      <button ion-button primary round full (click)="showLogs()">
+        <span item-left style="width: 95%">Log'ları Görüntüle</span>
+        <span item-right style="width: 5%">
+        <i class="fas fa-file-alt"></i>
+      </span>
+      </button>
+    </ion-col>
+  </ion-row>
 </ion-content>

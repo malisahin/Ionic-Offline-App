@@ -2,11 +2,17 @@ import {Injectable} from "@angular/core";
 import {Platform} from "ionic-angular/platform/platform";
 import {Constants} from "../../entities/Constants";
 import {UtilProvider} from "../util/util";
+import {SQLite, SQLiteObject} from "@ionic-native/sqlite";
+import {LoggerProvider} from "../logger/logger";
+
 declare let window: any;
 
 @Injectable()
 export class DatabaseProvider {
-  constructor(private platform: Platform, private util: UtilProvider) {
+  constructor(private platform: Platform,
+              private util: UtilProvider,
+              private logger: LoggerProvider,
+              private  sqlite: SQLite) {
     this.createDatabase();
     this.setDefaultVersions();
 
@@ -20,15 +26,35 @@ export class DatabaseProvider {
           this.setDefaultVersions();
           return this.createApplicationTables(tx);
         })
-        .catch(e => console.log(e));
+        .catch(e => this.util.error(e));
     });
   }
 
-  transaction(): Promise<any> {
-    return new Promise((resolve, reject) => {
-      let tx = window.openDatabase("sos", "1", "SOS DB", 1000000);
-      resolve(tx);
-    });
+  async transaction(): Promise<any> {
+    debugger;
+    let tx: SQLiteObject;
+    this.logger.info("Platform is " + this.platform);
+    if (this.platform.is("browser") || this.platform.is("core"))
+      return new Promise((resolve, reject) => {
+        let tx = window.openDatabase("SOS", "1", "SOS DB", 1000000);
+        resolve(tx);
+      });
+    else {
+      // window.sqlitePlugin.openDatabase({name: 'MyDatabase.db', location: 'default'});
+      await this.sqlite.create({name: "SOS.db", location: "default"})
+        .then((db: SQLiteObject) => tx = db)
+        .catch(e => console.log(e));
+
+      return new Promise<any>(res => res(tx));
+    }
+
+
+    /* let db = await window.sqlitePlugin.openDatabase("SOS", "1", "SOS DB", 1000000);
+     let tx = await db.transaction();
+     return new Promise<any>(((resolve, reject) => {
+       resolve(tx);
+     }));
+     */
 
 
   }
@@ -71,7 +97,6 @@ export class DatabaseProvider {
         tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_USER_DEF (user TEXT,userCode TEXT, pass TEXT,servis TEXT ,hatirla TEXT, ikKod TEXT, ikAd ,durum TEXT,userType TEXT,userName TEXT,orgKod Text,dilKod TEXT, pB TEXT, dilObjeDetaylari , PRIMARY KEY(user))');
 
         tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_BRANS_LIST (hizmetTipi TEXT, mamAnaGrp TEXT, exp TEXT, PRIMARY KEY(hizmetTipi, mamAnaGrp))');
-
 
 
       });
