@@ -1,12 +1,18 @@
 import {Injectable} from '@angular/core';
 import {AlertController, Platform} from "ionic-angular";
 import {Constants} from "../../entities/Constants";
+import {BaseProvider} from "../base/base";
+import {LoggerProvider} from "../logger/logger";
+
+declare let window: any;
 
 @Injectable()
-export class HeaderProvider {
+export class HeaderProvider extends BaseProvider {
 
   constructor(private alert: AlertController,
+              private logger: LoggerProvider,
               private platform: Platform) {
+    super();
   }
 
 
@@ -17,7 +23,17 @@ export class HeaderProvider {
       ,
       buttons: [{
         text: "Evet",
-        handler: () => this.platform.exitApp()
+        handler: () => {
+          this.platform.exitApp();
+
+          if (this.isNotEmpty(window.navigator)
+            && this.isNotEmpty(window.navigator.app))
+            window.navigator['app'].exitApp();
+          else
+            this.logger.warn("Navigator.app.exitApp() is not found.")
+
+
+        }
       }, {
         text: "Hayır",
         role: 'cancel'

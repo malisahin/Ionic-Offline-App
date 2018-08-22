@@ -46,6 +46,7 @@
     "cordova-plugin-badge": "^0.8.7",
     "cordova-plugin-calendar": "^5.1.2",
     "cordova-plugin-device": "^1.1.7",
+    "cordova-plugin-exitapp-ios": "0.0.2",
     "cordova-plugin-file": "^6.0.1",
     "cordova-plugin-ionic-webview": "^1.2.1",
     "cordova-plugin-local-notification": "^0.9.0-beta.2",
@@ -66,6 +67,7 @@
     "mx.ferreyra.callnumber": "0.0.2",
     "npm": "^6.3.0",
     "org.apache.cordova.sipkita": "./resources/printer-plugins/Cordova-Bluetooth-Printer-Plugin-master",
+    "org.frd49.cordova.exitapp": "git+https://github.com/FRD49/iOS-ExitApp.git",
     "phonegap-plugin-barcodescanner": "^8.0.0",
     "rxjs": "5.5.2",
     "sw-toolbox": "3.6.0",
@@ -111,7 +113,8 @@
       "cordova-plugin-calendar": {},
       "phonegap-plugin-barcodescanner": {},
       "call-number": {},
-      "cordova-sqlite-storage": {}
+      "cordova-sqlite-storage": {},
+      "org.frd49.cordova.exitapp": {}
     },
     "platforms": [
       "android",

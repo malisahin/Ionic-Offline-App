@@ -31,7 +31,6 @@ export class DatabaseProvider {
   }
 
   async transaction(): Promise<any> {
-    debugger;
     let tx: SQLiteObject;
     this.logger.info("Platform is " + this.platform);
     if (this.platform.is("browser") || this.platform.is("core"))
