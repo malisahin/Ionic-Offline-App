@@ -27,6 +27,8 @@ export class Constants {
 
   public static REMEMBER_ME = "REMEMBER_ME";
 
+  public static  CLICKED_REMEMBER_ME = "CLICKED_REMEMBER_ME";
+
   public static INDIRILEN_VERI = "INDIRILEN_VERI";
 
   public static USER_INFO = "USER_INFO";

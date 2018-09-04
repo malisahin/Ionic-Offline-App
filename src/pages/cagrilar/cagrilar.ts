@@ -137,8 +137,8 @@ export class CagrilarPage {
   }
 
   callPhoneNumber(event: any, tel: any) {
-    this.plugins.callPhoneNumber(tel);
     event.stopPropagation();
+    this.plugins.callPhoneNumber(tel);
   }
 
   formatDate(date: any): Date {

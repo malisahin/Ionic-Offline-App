@@ -84,15 +84,15 @@
       </ion-col>
       <ion-col col-11>
         <span class="text-color" *ngIf="cagri.gsmNo  != null && cagri.gsmNo != '' ">
-          <a href="#" (click)="callPhoneNumber($event,cagri.gsmNo)"> {{cagri.gsmNo}} /</a>
+          <a (click)="callPhoneNumber($event,cagri.gsmNo)"> {{cagri.gsmNo}} /</a>
         </span>
 
         <span class="text-color" *ngIf="cagri.evTel  != null && cagri.evTel != '' ">
-          <a href="#" (click)="callPhoneNumber($event,cagri.evTel)">{{cagri.evTel}} /</a>
+          <a (click)="callPhoneNumber($event,cagri.evTel)">{{cagri.evTel}} /</a>
         </span>
 
         <span class="text-color" *ngIf="cagri.isTel  != null && cagri.isTel != '' ">
-          <a href="#" (click)="callPhoneNumber($event,cagri.isTel)">{{cagri.isTel}}</a>
+          <a (click)="callPhoneNumber($event,cagri.isTel)">{{cagri.isTel}}</a>
         </span>
       </ion-col>
     </ion-row>
