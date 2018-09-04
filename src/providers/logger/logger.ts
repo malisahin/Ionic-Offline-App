@@ -24,7 +24,9 @@ export class LoggerProvider extends BaseProvider {
 
   async info(res) {
 
+    this.consoleLog(res, "color: #0096ff");
 
+    /*
     let mes = "";
     let valid = true;
     if (this.isNotEmpty(res.mes))
@@ -40,7 +42,7 @@ export class LoggerProvider extends BaseProvider {
 
     if (this.isLogEnabled)
       await this.cacheService.saveLog(Constants.CACHE_KEYS.LOG, mes);
-
+*/
   }
 
   async success(res) {

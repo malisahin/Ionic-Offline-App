@@ -43,7 +43,7 @@ export class HizmetProvider {
   async downloadCagriList(): Promise<any> {
     let header = await this.token.callTokenAndGetHeader();
     if (this.util.isOnline()) {
-      this.util.loaderStart();
+      this.util.loaderStart(false);
 
       let res = await this.fetchDataFromApi(header);
       if (this.util.isNotEmpty(res)) {
