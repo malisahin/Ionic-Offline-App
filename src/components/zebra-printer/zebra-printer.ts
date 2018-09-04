@@ -4,6 +4,7 @@ import {LoggerProvider} from '../../providers/logger/logger';
 import {NavParams} from 'ionic-angular';
 import {Platform} from 'ionic-angular';
 import {ViewController} from 'ionic-angular/navigation/view-controller';
+
 declare let window: any;
 
 @Component({
@@ -42,8 +43,9 @@ export class ZebraPrinterComponent {
   }
 
   iosSetPrinterList(list: any) {
+    this.logger.info("Ios Printer List" + list);
     if (this.util.isNotEmpty(list))
-      this.printerList = list.split(",");
+      this.printerList = list.split(",").filter(value => this.util.isNotEmpty(value));
   }
 
   fnSuccess() {
@@ -78,8 +80,10 @@ export class ZebraPrinterComponent {
   }
 
   iosList() {
-    if (this.util.isNotEmpty(window.plugins) && this.util.isNotEmpty(window.plugins.CordovaPrinter))
-      window.plugins.CordovaPrinter.getPrinters(this.fnSuccess.bind(this), this.fnError.bind(this));
+    if (this.util.isNotEmpty(window.plugins) && this.util.isNotEmpty(window.plugins.CordovaPrinter)) {
+      this.logger.info("Ios PrinterList");
+      window.plugins.CordovaPrinter.getPrinters(this.iosSetPrinterList.bind(this), this.fnError.bind(this));
+    }
     else {
       let errorMes = "Ios Zebra Printer plugini implemente edilmemiş. Sistem yetkilisine bildiriniz.";
       this.logger.error(errorMes);
