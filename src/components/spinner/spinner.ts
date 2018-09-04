@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import { EntityUtil, IndirilenVeri } from '../../entities/EntityUtil';
-import { Constants } from '../../entities/Constants';
+import {Component} from '@angular/core';
+import {EntityUtil, IndirilenVeri} from '../../entities/EntityUtil';
+import {Constants} from '../../entities/Constants';
+import {NavController, NavParams} from "ionic-angular";
+import {UtilProvider} from "../../providers/util/util";
 
 
 @Component({
@@ -13,15 +15,21 @@ export class SpinnerComponent {
   downloadPercentage: string;
   util: EntityUtil = new EntityUtil();
   intervalId: number;
+  showPercentage: boolean = false;
 
-  constructor() {
+  constructor(private navParams: NavParams) {
 
   }
 
 
   ionViewDidLoad() {
+    let showPercentage = this.navParams.get("showPercentage");
+    if (this.util.isNotEmpty(showPercentage))
+      this.showPercentage = showPercentage;
+
     this.start();
   }
+
 
   ionViewWillLeave() {
     console.info("Percentage Info is Killed");
@@ -60,7 +68,6 @@ export class SpinnerComponent {
     }
 
   }
-
 
 
 }

@@ -288,18 +288,11 @@ export class UtilProvider {
     this.pushInfoMessages(result);
   }
 
-  loaderStart() {
-    /*if (!this.isLoaderRunning) {
-     this.loader = this.loadingController.create({
-     spinner: "hide",
-     content: `<div style="background-image: url('assets/imgs/loader.svg')" class="ion-loader"></div>`
-     });
-     this.isLoaderRunning = true;
-     this.loader.present();
-     }
-     */
+  loaderStart(showPercentage: boolean) {
     if (!this.isSpinnerRunning) {
-      this.spinner = this.modalCtrl.create(SpinnerComponent, {}, {enableBackdropDismiss: false});
+      this.spinner = this.modalCtrl.create(SpinnerComponent,
+        {showPercentage: showPercentage},
+        {enableBackdropDismiss: false});
       this.spinner.present();
     }
     this.isSpinnerRunning = true;

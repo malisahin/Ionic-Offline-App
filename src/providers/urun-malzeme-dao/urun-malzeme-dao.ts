@@ -1,20 +1,20 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { DatabaseProvider } from '../database/database';
-import { BaseDao } from '../base-dao/base-dao';
-import { UrunMalzeme } from '../../entities/urun-malzeme';
-import { UtilProvider } from "../util/util";
-import { Constants } from "../../entities/Constants";
-import { Pageable } from "../../entities/Pageable";
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {DatabaseProvider} from '../database/database';
+import {BaseDao} from '../base-dao/base-dao';
+import {UrunMalzeme} from '../../entities/urun-malzeme';
+import {UtilProvider} from "../util/util";
+import {Constants} from "../../entities/Constants";
+import {Pageable} from "../../entities/Pageable";
 
 
 @Injectable()
 export class UrunMalzemeDao {
 
   constructor(public http: HttpClient,
-    private dbProvider: DatabaseProvider,
-    private util: UtilProvider,
-    private baseDao: BaseDao) {
+              private dbProvider: DatabaseProvider,
+              private util: UtilProvider,
+              private baseDao: BaseDao) {
 
   }
 
@@ -33,6 +33,10 @@ export class UrunMalzemeDao {
   insertList(list: UrunMalzeme[]) {
     let response: any;
     let insertedItems = 0;
+
+    if (list.length == 0)
+      return new Promise(res => res(0));
+
     return new Promise((resolve, reject) => {
       this.dbProvider.transaction().then(db => {
         db.transaction(function (tx) {

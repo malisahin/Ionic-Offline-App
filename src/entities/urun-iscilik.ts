@@ -1,5 +1,5 @@
-import { Constants } from "./Constants";
-import { EntityUtil } from "./EntityUtil";
+import {Constants} from "./Constants";
+import {EntityUtil} from "./EntityUtil";
 
 /**
  * @author malisahin
@@ -18,6 +18,7 @@ export class UrunIscilik extends EntityUtil {
   maxIscMiktar: string = '';
 
   fillUrunIscilik(res: any): Promise<any> {
+    debugger;
     let parsedList = [];
     let urunIscilikList = res.message[0].liste;
     let urunIscilikVersiyon = res.message[0].versiyon;

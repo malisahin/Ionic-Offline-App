@@ -28,6 +28,10 @@ export class FiyatDao {
   insertList(list: Fiyat[]) {
     let response: any;
     let insertedItems = 0;
+
+    if (list.length == 0)
+      return new Promise(res => res(0));
+
     return new Promise((resolve, reject) => {
       this.dbProvider.transaction().then(db => {
         db.transaction(function (tx) {

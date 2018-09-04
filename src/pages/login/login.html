@@ -1,5 +1,5 @@
 <ion-content class="content-background login-content" [ngStyle]="{ 'background-image': 'url(' + backGroundImage + ')' }"
-  padding>
+             padding>
 
   <ion-row>
     <ion-col class="logo">
@@ -14,18 +14,21 @@
           <ion-input type="text" placeholder="Kullanıcı Adı" name="email" [(ngModel)]="userCode" required></ion-input>
         </ion-col>
         <ion-col col-12>
-          <ion-input [type]="passwordType" placeholder="Şifre" name="password" [(ngModel)]="password" required></ion-input>
+          <ion-input [type]="passwordType" placeholder="Şifre" name="password" [(ngModel)]="password"
+                     required></ion-input>
           <!--<ion-icon item-right [name]="passwordIcon" class="password-icon passIcon" (click)='hideShowPassword()'></ion-icon>-->
         </ion-col>
         <ion-col col-12>
-          <button ion-button class="submit-btn" full type="submit" id="login-btn" [disabled]="!registerForm.form.valid">Login</button>
+          <button ion-button class="submit-btn" full type="submit" id="login-btn" [disabled]="!registerForm.form.valid">
+            Login
+          </button>
         </ion-col>
         <ion-col col-6>
-          <ion-checkbox [(ngModel)]="rememberMe" name="rememberMe" id="rememberMe" (ionChange)="onChangeRememberMe()"></ion-checkbox>
+          <ion-checkbox [(ngModel)]="rememberMe" name="rememberMe" (ionChange)="onChangeRememberMe()"></ion-checkbox>
           <ion-label>Beni Hatırla</ion-label>
         </ion-col>
         <ion-col col-6>
-          <ion-checkbox [(ngModel)]="showPassword" name="showPassword" id="showPassword" (ionChange)='hideShowPassword()'></ion-checkbox>
+          <ion-checkbox [(ngModel)]="showPassword" name="showPassword" (ionChange)='hideShowPassword()'></ion-checkbox>
           <ion-label>Şifreyi Göster</ion-label>
         </ion-col>
       </ion-row>

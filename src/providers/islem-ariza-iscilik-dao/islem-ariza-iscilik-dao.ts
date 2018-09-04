@@ -1,30 +1,30 @@
-import { Injectable } from '@angular/core';
-import { DatabaseProvider } from '../database/database';
-import { IslemArizaIscilik } from '../../entities/islem-ariza-iscilik';
-import { UtilProvider } from '../util/util';
-import { LoggerProvider } from '../logger/logger';
-import { Pageable } from '../../entities/Pageable';
-import { BaseDao } from '../base-dao/base-dao';
-import { Constants } from '../../entities/Constants';
+import {Injectable} from '@angular/core';
+import {DatabaseProvider} from '../database/database';
+import {IslemArizaIscilik} from '../../entities/islem-ariza-iscilik';
+import {UtilProvider} from '../util/util';
+import {LoggerProvider} from '../logger/logger';
+import {Pageable} from '../../entities/Pageable';
+import {BaseDao} from '../base-dao/base-dao';
+import {Constants} from '../../entities/Constants';
 
 
 @Injectable()
 export class IslemArizaIscilikDao {
 
   constructor(public dbProvider: DatabaseProvider,
-    private util: UtilProvider,
-    private logger: LoggerProvider,
-    private baseDao: BaseDao) {
-
+              private util: UtilProvider,
+              private logger: LoggerProvider,
+              private baseDao: BaseDao) {
 
   }
-
-  //tx.executeSql('CREATE TABLE IF NOT EXISTS OFF_ISC_ISLARZGRP_TNM (mamAnaGrp, islemGrp, islemGrpAdi, arizaGrp, arizaGrpAdi, iscKod, durum, PRIMARY KEY (mamAnaGrp,islemGrp,arizaGrp, iscKod))', []);
-
 
   insertList(list: IslemArizaIscilik[]) {
     let response: any;
     let insertedItems = 0;
+
+    if (list.length == 0)
+      return new Promise(res => res(0));
+
     return new Promise((resolve, reject) => {
       this.dbProvider.transaction().then(db => {
         db.transaction(function (tx) {

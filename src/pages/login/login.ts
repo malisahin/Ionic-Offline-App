@@ -3,7 +3,7 @@
  * @since 2018-02-12
  */
 
-import { Component } from "@angular/core";
+import {Component} from "@angular/core";
 import {
   NavController,
   AlertController,
@@ -11,17 +11,17 @@ import {
   Loading,
   IonicPage
 } from "ionic-angular";
-import { LoginProvider } from "../../providers/login/login";
-import { UserProvider } from "../../providers/user/user";
-import { UtilProvider } from "../../providers/util/util";
-import { LoggerProvider } from "../../providers/logger/logger";
-import { User } from "../../entities/user";
-import { Anasayfa } from "../anasayfa/anasayfa";
-import { ThemeProvider } from "../../providers/theme/theme";
-import { Constants } from "../../entities/Constants";
-import { UserDao } from "../../providers/user-dao/user-dao";
-import { DeeplinkPrinterProvider } from "../../providers/deeplink-printer/deeplink-printer";
-import { TableTotalElementsProvider } from "../../providers/table-total-elements/table-total-elements";
+import {LoginProvider} from "../../providers/login/login";
+import {UserProvider} from "../../providers/user/user";
+import {UtilProvider} from "../../providers/util/util";
+import {LoggerProvider} from "../../providers/logger/logger";
+import {User} from "../../entities/user";
+import {Anasayfa} from "../anasayfa/anasayfa";
+import {ThemeProvider} from "../../providers/theme/theme";
+import {Constants} from "../../entities/Constants";
+import {UserDao} from "../../providers/user-dao/user-dao";
+import {DeeplinkPrinterProvider} from "../../providers/deeplink-printer/deeplink-printer";
+import {TableTotalElementsProvider} from "../../providers/table-total-elements/table-total-elements";
 
 class UserInfo {
   userCode: string = "";
@@ -42,20 +42,20 @@ export class LoginPage {
   user: User;
   hasLoginPermission = false;
   backGroundImage: string;
-  rememberMe: boolean = true;
+  rememberMe: boolean;
   showPassword: boolean = false;
   spinner: any;
 
   constructor(private nav: NavController,
-    private util: UtilProvider,
-    private alertCtrl: AlertController,
-    private userProvider: UserProvider,
-    private loadingCtrl: LoadingController,
-    private logger: LoggerProvider,
-    private loginProvider: LoginProvider,
-    private deepLinkPrinter: DeeplinkPrinterProvider,
-    private totalElementsProvider: TableTotalElementsProvider,
-    private themeProvider: ThemeProvider) {
+              private util: UtilProvider,
+              private alertCtrl: AlertController,
+              private userProvider: UserProvider,
+              private loadingCtrl: LoadingController,
+              private logger: LoggerProvider,
+              private loginProvider: LoginProvider,
+              private deepLinkPrinter: DeeplinkPrinterProvider,
+              private totalElementsProvider: TableTotalElementsProvider,
+              private themeProvider: ThemeProvider) {
     this.themeProvider.setTheme();
     this.user = new User();
     this.backGroundImage = this.themeProvider.getBackgroundImage();
@@ -71,7 +71,7 @@ export class LoginPage {
   async login() {
     await this.saveUserInfo();
     this.hasLoginPermission = false;
-    this.util.loaderStart();
+    this.util.loaderStart(false);
     localStorage.setItem(this.user.keys.userCode, this.userCode);
     localStorage.setItem(this.user.keys.password, this.password);
 
@@ -155,18 +155,34 @@ export class LoginPage {
   loadSavedUserInfo() {
 
     let info = localStorage.getItem(Constants.USER_INFO);
+
     if (this.util.isNotEmpty(info)) {
       let userInfo: UserInfo = JSON.parse(info);
 
       this.userCode = userInfo.userCode;
       this.password = userInfo.password;
     }
+
+    this.loadIsRememberMeClicked();
   }
 
-  async  onChangeRememberMe() {
+  loadIsRememberMeClicked() {
+    let isRememberMeClicked = localStorage.getItem(Constants.CLICKED_REMEMBER_ME);
+
+    this.logger.info("Is Remember Clicked" + isRememberMeClicked);
+    if (this.util.isNotEmpty(isRememberMeClicked)) {
+      this.rememberMe = isRememberMeClicked == "true";
+    }
+  }
+
+  async onChangeRememberMe() {
     localStorage.setItem(Constants.REMEMBER_ME, String(this.rememberMe));
+    localStorage.setItem(Constants.CLICKED_REMEMBER_ME, String(this.rememberMe));
+
     await this.saveUserInfo();
     this.logger.info("Remember Me value is set as " + this.rememberMe);
+
+
   }
 
   async saveUserInfo(): Promise<any> {
@@ -188,7 +204,7 @@ export class LoginPage {
   }
 
   startLoader() {
-    this.util.loaderStart();
+    this.util.loaderStart(false);
   }
 
   endLoader() {

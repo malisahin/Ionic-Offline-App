@@ -3,29 +3,29 @@
  * @since 2018-04-14
  */
 
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { ApiProvider } from '../api/api';
-import { Constants } from '../../entities/Constants';
-import { AdresDao } from '../adres-dao/adres-dao';
-import { LoggerProvider } from '../logger/logger';
-import { Sehir } from "../../entities/Sehir";
-import { Ilce } from "../../entities/Ilce";
-import { Mahalle } from "../../entities/mahalle";
-import { TokenProvider } from "../token/token";
-import { UtilProvider } from "../util/util";
-import { EntityUtil } from '../../entities/EntityUtil';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {ApiProvider} from '../api/api';
+import {Constants} from '../../entities/Constants';
+import {AdresDao} from '../adres-dao/adres-dao';
+import {LoggerProvider} from '../logger/logger';
+import {Sehir} from "../../entities/Sehir";
+import {Ilce} from "../../entities/Ilce";
+import {Mahalle} from "../../entities/mahalle";
+import {TokenProvider} from "../token/token";
+import {UtilProvider} from "../util/util";
+import {EntityUtil} from '../../entities/EntityUtil';
 
 
 @Injectable()
 export class AdresProvider {
 
   constructor(public http: HttpClient,
-    private api: ApiProvider,
-    private token: TokenProvider,
-    private adresDao: AdresDao,
-    private util: UtilProvider,
-    private logger: LoggerProvider) {
+              private api: ApiProvider,
+              private token: TokenProvider,
+              private adresDao: AdresDao,
+              private util: UtilProvider,
+              private logger: LoggerProvider) {
 
   }
 
@@ -33,8 +33,8 @@ export class AdresProvider {
     let url = this.api.getSehirIlceUrl(Constants.DATA_TYPE.SEHIR_TNM);
     let header = await this.token.callTokenAndGetHeader();
     if (this.util.isOnline()) {
-      this.util.loaderStart();
-      let apiData = await this.http.get(url, { headers: header }).toPromise();
+      this.util.loaderStart(true);
+      let apiData = await this.http.get(url, {headers: header}).toPromise();
       let sehirList = this.fillSehirList(apiData);
       this.logger.dir(apiData);
       return this.adresDao.insertSehirList(sehirList);
@@ -48,8 +48,8 @@ export class AdresProvider {
     let url = this.api.getSehirIlceUrl(Constants.DATA_TYPE.ILCE_TNM);
     let header = await this.token.callTokenAndGetHeader();
     if (this.util.isOnline()) {
-      this.util.loaderStart();
-      let apiData = await this.http.get(url, { headers: header }).toPromise();
+      this.util.loaderStart(true);
+      let apiData = await this.http.get(url, {headers: header}).toPromise();
       let ilceList = this.fillIlceList(apiData);
       return this.adresDao.insertIlceList(ilceList);
     } else {
@@ -61,8 +61,8 @@ export class AdresProvider {
     let url = this.api.getMahalleTnmUrl(first);
     let header = await this.token.callTokenAndGetHeader();
     if (this.util.isOnline()) {
-      this.util.loaderStart();
-      let apiData = await this.http.get(url, { headers: header }).toPromise();
+      this.util.loaderStart(true);
+      let apiData = await this.http.get(url, {headers: header}).toPromise();
       let mahalleList = this.fillMahalleList(apiData);
       return this.adresDao.insertMahalleList(mahalleList);
     } else {

@@ -42,7 +42,7 @@ export class FiyatProvider {
     let header = await this.token.callTokenAndGetHeader();
 
     if (this.util.isOnline()) {
-      this.util.loaderStart();
+      this.util.loaderStart(false);
       return this.getFiyat(url, header, tip);
     } else {
       this.util.ifOffline();

@@ -398,7 +398,7 @@ export class GuncellemePage {
   onDownloadStart() {
     if (this.counter == 0) {
       this.tasks.killTasks();
-      this.util.loaderStart();
+      this.util.loaderStart(true);
 
       localStorage.setItem(Constants.INDIRILEN_VERI,"");
     }

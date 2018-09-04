@@ -54,4 +54,8 @@ export class UrunProvider {
   getList(urun: Urun, searchType: string, pageable: Pageable): Promise<any> {
     return this.urunDao.getList(urun, searchType, pageable.first, pageable.pageSize);
   }
+
+  getUrunAndUrunAnaGrup(urunKodu: string): Promise<any> {
+    return this.urunDao.getUrunAndUrunAnaGrup(urunKodu);
+  }
 }

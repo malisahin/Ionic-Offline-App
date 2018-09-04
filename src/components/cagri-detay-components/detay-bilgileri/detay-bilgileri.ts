@@ -166,7 +166,7 @@ export class DetayBilgileriComponent {
 
     kapatmaHizmet.durum = durum;
     this.verilerSunucuyaKayitEdildiMi = durum != DURUM.ACIK;
-    this.util.loaderStart();
+    this.util.loaderStart(false);
     let res = await this.hizmetProvider.updateCagri(kapatmaHizmet, "HAYIR");
     this.util.loaderEnd();
     this.logger.dir(res);
@@ -215,7 +215,7 @@ export class DetayBilgileriComponent {
   }
 
   async siparisOlustur() {
-    this.util.loaderStart();
+    this.util.loaderStart(false);
 
     let siparisHizmet = this.hizmetService.sunucuyaKayitIcinHazirla(this.hizmet);
     let res = await this.hizmetProvider.updateCagri(siparisHizmet, "EVET");
@@ -355,7 +355,7 @@ export class DetayBilgileriComponent {
   }
 
   async hizmetiSil() {
-    this.util.loaderStart();
+    this.util.loaderStart(false);
     await this.hizmetService.deleteHizmet(this.hizmet.seqNo);
     this.util.loaderEnd();
     this.navigate('CagrilarPage', "Çağrı Silindi");
@@ -387,7 +387,7 @@ export class DetayBilgileriComponent {
   }
 
   async hizmetIptal() {
-    this.util.loaderStart();
+    this.util.loaderStart(false);
 
     this.hizmet.durum = DURUM.IPTAL;
     let iptalHizmet = this.hizmetService.sunucuyaKayitIcinHazirla(this.hizmet);
