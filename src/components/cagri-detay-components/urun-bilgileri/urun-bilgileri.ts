@@ -1,22 +1,22 @@
-import { Component } from "@angular/core";
-import { ModalController } from "ionic-angular";
-import { Hizmet } from "../../../entities/hizmet/hizmet";
-import { HizmetService } from "../../../providers/hizmet-service/hizmet-service";
-import { UrunSearchComponent } from "../../urun-search/urun-search";
-import { UtilProvider } from "../../../providers/util/util";
-import { Constants } from "../../../entities/Constants";
-import { LoggerProvider } from "../../../providers/logger/logger";
-import { UrunAnaGrupDao } from "../../../providers/urun-ana-grup-dao/urun-ana-grup-dao";
-import { UrunAnaGrup } from "../../../entities/urunAnaGrup";
-import { GarantiSorguProvider } from "../../../providers/garanti-sorgu/garanti-sorgu";
-import { GarantiSorgu } from "../../../entities/GarantiSorgu";
-import { SeriNoSorguProvider } from "../../../providers/seri-no-sorgu/seri-no-sorgu";
-import { UpdateUrunAnaGrupComponent } from "../../update-urun-ana-grup/update-urun-ana-grup";
-import { ProcessResults } from "../../../entities/ProcessResults";
-import { UrunProvider } from "../../../providers/urun/urun";
-import { Urun } from "../../../entities/urun";
-import { Pageable } from "../../../entities/Pageable";
-import { UtilPlugin } from "../../../providers/util-plugin/util-plugin";
+import {Component} from "@angular/core";
+import {ModalController} from "ionic-angular";
+import {Hizmet} from "../../../entities/hizmet/hizmet";
+import {HizmetService} from "../../../providers/hizmet-service/hizmet-service";
+import {UrunSearchComponent} from "../../urun-search/urun-search";
+import {UtilProvider} from "../../../providers/util/util";
+import {Constants} from "../../../entities/Constants";
+import {LoggerProvider} from "../../../providers/logger/logger";
+import {UrunAnaGrupDao} from "../../../providers/urun-ana-grup-dao/urun-ana-grup-dao";
+import {UrunAnaGrup} from "../../../entities/urunAnaGrup";
+import {GarantiSorguProvider} from "../../../providers/garanti-sorgu/garanti-sorgu";
+import {GarantiSorgu} from "../../../entities/GarantiSorgu";
+import {SeriNoSorguProvider} from "../../../providers/seri-no-sorgu/seri-no-sorgu";
+import {UpdateUrunAnaGrupComponent} from "../../update-urun-ana-grup/update-urun-ana-grup";
+import {ProcessResults} from "../../../entities/ProcessResults";
+import {UrunProvider} from "../../../providers/urun/urun";
+import {Urun} from "../../../entities/urun";
+import {Pageable} from "../../../entities/Pageable";
+import {UtilPlugin} from "../../../providers/util-plugin/util-plugin";
 
 @Component({
   selector: "urun-bilgileri",
@@ -34,14 +34,14 @@ export class UrunBilgileriComponent {
   sattar: string;
 
   constructor(private modalController: ModalController,
-    private hizmetService: HizmetService,
-    private logger: LoggerProvider,
-    private garantiSorguProvider: GarantiSorguProvider,
-    private util: UtilProvider,
-    private seriNoSorguProvider: SeriNoSorguProvider,
-    private urunProvider: UrunProvider,
-    private plugins: UtilPlugin,
-    private urunAnaGrpDao: UrunAnaGrupDao) {
+              private hizmetService: HizmetService,
+              private logger: LoggerProvider,
+              private garantiSorguProvider: GarantiSorguProvider,
+              private util: UtilProvider,
+              private seriNoSorguProvider: SeriNoSorguProvider,
+              private urunProvider: UrunProvider,
+              private plugins: UtilPlugin,
+              private urunAnaGrpDao: UrunAnaGrupDao) {
     this.hizmet = this.hizmetService.getHizmet();
     this.init();
     this.findUrunAnaGrp();
@@ -62,8 +62,8 @@ export class UrunBilgileriComponent {
     let searchType = Constants.SEARCH_TYPE.EXACT;
     let aramaModal = this.modalController.create(
       UrunSearchComponent,
-      { data: { mamAnagrp: mamAnagrp, searchType: searchType } },
-      { cssClass: this.util.getSelectedTheme() }
+      {data: {mamAnagrp: mamAnagrp, searchType: searchType}},
+      {cssClass: this.util.getSelectedTheme()}
     );
     aramaModal.onDidDismiss(data => {
       if (this.util.isNotEmpty(data)) {
@@ -87,8 +87,8 @@ export class UrunBilgileriComponent {
 
     if (processResult.isErrorMessagesNull()) {
       let anaGrpUpdateModal = this.modalController.create(UpdateUrunAnaGrupComponent,
-        { hizmet: this.hizmet },
-        { cssClass: this.util.getSelectedTheme(), enableBackdropDismiss: false });
+        {hizmet: this.hizmet},
+        {cssClass: this.util.getSelectedTheme(), enableBackdropDismiss: false});
 
       anaGrpUpdateModal.onDidDismiss(res => {
         if (this.util.isNotEmpty(res) && this.util.isNotEmpty(res.hizmet)) {
@@ -148,6 +148,7 @@ export class UrunBilgileriComponent {
 
   garantiSorgula() {
     let sorguData = new GarantiSorgu();
+
     sorguData.mamKod = this.hizmet.mamKod;
     sorguData.dilKod = "T";
     sorguData.serKod = this.hizmet.serKod;
@@ -155,7 +156,36 @@ export class UrunBilgileriComponent {
     sorguData.mamSeriNo = this.hizmet.mamSeriNo;
     sorguData.islemTarihi = this.util.dateFormat(new Date(this.hizmet.islemTarihi), "YYYY-MM-DD");
     sorguData.orgKod = "ECA";
-    this.garantiSorguProvider.fetchDataFromApi(sorguData);
+
+    let processResults = this.garantiSorgulaValidation(sorguData);
+
+    if (processResults.isErrorMessagesNotNull())
+      this.util.pushAllMessages(processResults);
+    else
+      this.garantiSorguProvider.fetchDataFromApi(sorguData);
+  }
+
+  garantiSorgulaValidation(sorguData: GarantiSorgu): ProcessResults {
+    let processResults = new ProcessResults();
+
+    if (this.util.isEmpty(sorguData.mamKod)) {
+      processResults.addErrorMessage("Ürün kodu alanı boş olamaz.");
+    }
+
+    if (this.util.isEmpty(sorguData.mamSeriNo)) {
+      processResults.addErrorMessage("Seri no alanı boş olamaz.");
+    }
+
+    if (this.util.isEmpty(this.hizmet.sattar)) {
+      processResults.addErrorMessage("Fatura tarihi boş olamaz.");
+    }
+
+    if (this.util.isEmpty(this.hizmet.islemTarihi)) {
+      processResults.addErrorMessage("Işlem tarihi boş olamaz.");
+    }
+
+    return processResults;
+
   }
 
   async seriNoSorgula() {
@@ -186,42 +216,53 @@ export class UrunBilgileriComponent {
   async setSeriSorguResult(res) {
     if (this.util.isNotEmpty(res) && this.util.isNotEmpty(res.message)) {
       let item = res.message[0];
-
       if (item.mamAnagrp == this.hizmet.mamAnaGrp) {
         this.hizmet.mamKod = item.mamKod;
         this.hizmet.mamAdi = item.mamAdi;
         this.hizmet.mamSeriNo = item.mamSerino;
-        this.util.info(
-          "Ürün bilgileri seri No bilgisine bağlı olarak değiştirildi."
-        );
+
+        await this.findSeriMetodSayisi(item.mamKod);
+
+        this.util.info("Ürün bilgileri seri No bilgisine bağlı olarak değiştirildi.");
         this.saveHizmet();
+
       } else {
-        let anagrp = new UrunAnaGrup(
-          Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE
-        );
+        let anagrp = new UrunAnaGrup(Constants.URUN_ANA_GRUP_TYPE.ANA_GRUP_LISTE);
         anagrp.mamAnaGrp = item.mamAnagrp;
-        let urunAnaGrp = await this.urunAnaGrpDao.getList(
-          anagrp,
-          Constants.SEARCH_TYPE.EXACT
-        );
+        let urunAnaGrp = await this.urunAnaGrpDao.getList(anagrp, Constants.SEARCH_TYPE.EXACT);
+
         this.logger.warn(urunAnaGrp);
         let mes = "Sorguladığınız Seri No ";
 
         if (urunAnaGrp.rows.length > 0) {
           urunAnaGrp = urunAnaGrp.rows.item(0);
           mes += urunAnaGrp.ad;
+
         } else {
           mes += "başka bir";
         }
 
-        this.util.warn(
-          mes + " ana grubuna bağlıdır. Önce Ana Grubu Değiştiriniz."
-        );
+        this.util.warn(mes + " ana grubuna bağlıdır. Önce Ana Grubu Değiştiriniz.");
       }
+
     } else {
       this.util.error(
         "Bu Seri Numarasına bağlı ürün bulunamadı.Tekrar kontrol ediniz."
       );
+    }
+  }
+
+  async findSeriMetodSayisi(mamKod) {
+    let res = await this.urunProvider.getUrunAndUrunAnaGrup(mamKod);
+
+    if (this.util.isNotEmptyRows(res)) {
+      let seriMetod = res.rows.item(0).seriMetod;
+
+      if (this.util.isNotEmpty(seriMetod)) {
+        this.seriNoSayisi = Number(seriMetod);
+
+        this.hizmet.seriMetod = seriMetod;
+      }
     }
   }
 
