@@ -140,7 +140,8 @@
     </ion-label>
   </ion-col>
   <ion-col col-8 col-md-10>
-    <ion-input [(ngModel)]="hizmet.apartmanNo" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"></ion-input>
+    <ion-input [(ngModel)]="hizmet.apartmanNo" [disabled]="isHizmetDisabled()"
+               (ionChange)="onHizmetChange()"></ion-input>
   </ion-col>
 
   <ion-col col-4 col-md-2>
@@ -168,7 +169,8 @@
     </ion-label>
   </ion-col>
   <ion-col col-8 col-md-10>
-    <ion-textarea [(ngModel)]="hizmet.servisNotu" [disabled]="isHizmetDisabled()" (ionBlur)="onHizmetChange()"></ion-textarea>
+    <ion-textarea [(ngModel)]="hizmet.servisNotu" [disabled]="isHizmetDisabled()"
+                  (ionBlur)="onHizmetChange()" readonly></ion-textarea>
   </ion-col>
 
 
@@ -178,6 +180,7 @@
     </ion-label>
   </ion-col>
   <ion-col col-8 col-md-10>
-    <ion-textarea [(ngModel)]="hizmet.merkezNotu" [disabled]="isHizmetDisabled()" (ionBlur)="onHizmetChange()"></ion-textarea>
+    <ion-textarea [(ngModel)]="hizmet.merkezNotu" [disabled]="isHizmetDisabled()"
+                  (ionBlur)="onHizmetChange()" readonly></ion-textarea>
   </ion-col>
 </ion-row>
