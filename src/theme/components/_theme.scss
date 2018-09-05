@@ -146,6 +146,7 @@
         border-left-width:1px;
       }
 
+
       .segment-button:first-of-type, .segment-ios .segment-button:last-of-type {
         border-radius: 5px;
         margin-right: 10px;
@@ -164,6 +165,7 @@
   }
 
 }
+
 
 .header {
 
@@ -368,7 +370,7 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
     }
 
     span {
-      font-size: 18px;
+      font-size: 17px;
     }
   }
 }
@@ -392,6 +394,21 @@ mesaj-detail .content .row-border{
 
 
 .content {
+  .segment-ios
+  {
+    .segment-button{
+      border-radius: 5px;
+    }
+
+    .segment-button:not(:first-of-type){
+      border-left-width:1px;
+    }
+
+    .segment-button:first-of-type, .segment-button:last-of-type{
+            border-radius: 5px;
+            margin-right: 10px
+    }
+  }
 
   .logo{
     text-align: center;

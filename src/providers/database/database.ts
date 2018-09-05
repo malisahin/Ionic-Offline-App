@@ -1,18 +1,18 @@
-import {Injectable} from "@angular/core";
-import {Platform} from "ionic-angular/platform/platform";
-import {Constants} from "../../entities/Constants";
-import {UtilProvider} from "../util/util";
-import {SQLite, SQLiteObject} from "@ionic-native/sqlite";
-import {LoggerProvider} from "../logger/logger";
+import { Injectable } from "@angular/core";
+import { Platform } from "ionic-angular/platform/platform";
+import { Constants } from "../../entities/Constants";
+import { UtilProvider } from "../util/util";
+import { SQLite, SQLiteObject } from "@ionic-native/sqlite";
+import { LoggerProvider } from "../logger/logger";
 
 declare let window: any;
 
 @Injectable()
 export class DatabaseProvider {
   constructor(private platform: Platform,
-              private util: UtilProvider,
-              private logger: LoggerProvider,
-              private  sqlite: SQLite) {
+    private util: UtilProvider,
+    private logger: LoggerProvider,
+    private sqlite: SQLite) {
     this.createDatabase();
     this.setDefaultVersions();
 
@@ -32,15 +32,14 @@ export class DatabaseProvider {
 
   async transaction(): Promise<any> {
     let tx: SQLiteObject;
-    this.logger.info("Platform is " + this.platform);
-    if (this.platform.is("browser") || this.platform.is("core"))
+    if (this.platform.is("browser") || this.platform.is("core") || this.platform.is("mobileweb"))
       return new Promise((resolve, reject) => {
         let tx = window.openDatabase("SOS", "1", "SOS DB", 1000000);
         resolve(tx);
       });
     else {
       // window.sqlitePlugin.openDatabase({name: 'MyDatabase.db', location: 'default'});
-      await this.sqlite.create({name: "SOS.db", location: "default"})
+      await this.sqlite.create({ name: "SOS.db", location: "default" })
         .then((db: SQLiteObject) => tx = db)
         .catch(e => console.log(e));
 

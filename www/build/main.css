@@ -4733,7 +4733,7 @@ hizmet-bilgileri .item-inner.item-md.item-input.ng-valid.item-input-has-value:no
 }
 
 .home-content .icon-box span, .home-content .text-box span {
-  font-size: 18px;
+  font-size: 17px;
 }
 
 .content-background {
@@ -4747,6 +4747,19 @@ hizmet-bilgileri .item-inner.item-md.item-input.ng-valid.item-input-has-value:no
 
 mesaj-detail .content .row-border {
   padding: 0px;
+}
+
+.content .segment-ios .segment-button {
+  border-radius: 5px;
+}
+
+.content .segment-ios .segment-button:not(:first-of-type) {
+  border-left-width: 1px;
+}
+
+.content .segment-ios .segment-button:first-of-type, .content .segment-ios .segment-button:last-of-type {
+  border-radius: 5px;
+  margin-right: 10px;
 }
 
 .content .logo {
