@@ -28,8 +28,10 @@ export class ApiProvider {
 
   constructor() {
     this.pageSize = Constants.API_PAGE_SIZE;
-    this.ACTIVE_PROFIL = EProfiles.LOCAL_DEV;
-    this.activeProfil = this.profil.getActiveProfil(this.ACTIVE_PROFIL);
+
+    this.ACTIVE_PROFIL = EProfiles.BAYMAK;
+
+    this.activeProfil = this.profil.getActiveProfil();
     this.urlPrefixHizmet = this.activeProfil.domainUrl + '/sos-api/endpointrest/hizmet/';
     this.urlPrefixOffline = this.activeProfil.domainUrl + '/sos-api/endpointrest/offline/';
     this.urlPrefixKullanici = this.activeProfil.domainUrl + '/sos-api/endpointrest/kullanici/';

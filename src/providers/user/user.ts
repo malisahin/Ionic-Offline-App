@@ -3,14 +3,14 @@
  * @since 2018/04/25
  */
 
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {ApiProvider} from '../api/api';
-import {UserDao} from '../user-dao/user-dao';
-import {LoggerProvider} from '../logger/logger';
-import {UtilProvider} from '../util/util';
-import {User} from '../../entities/user';
-import {BransProvider} from "../brans/brans";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { ApiProvider } from '../api/api';
+import { UserDao } from '../user-dao/user-dao';
+import { LoggerProvider } from '../logger/logger';
+import { UtilProvider } from '../util/util';
+import { User } from '../../entities/user';
+import { BransProvider } from "../brans/brans";
 
 @Injectable()
 export class UserProvider {
@@ -18,18 +18,18 @@ export class UserProvider {
   user: User;
 
   constructor(public http: HttpClient,
-              private logger: LoggerProvider,
-              private util: UtilProvider,
-              private api: ApiProvider,
-              private bransProvider: BransProvider,
-              private userDao: UserDao) {
+    private logger: LoggerProvider,
+    private util: UtilProvider,
+    private api: ApiProvider,
+    private bransProvider: BransProvider,
+    private userDao: UserDao) {
     this.user = new User();
   }
 
   async getDataFromApi(): Promise<any> {
     let url = this.api.getKullaniciUrl();
     let header = await this.api.getHeader();
-    return this.http.get(url, {headers: header}).toPromise();
+    return this.http.get(url, { headers: header }).toPromise();
   }
 
   async getUser(userCode: string, password: string): Promise<User> {
@@ -38,13 +38,20 @@ export class UserProvider {
     this.user.userCode = userCode;
     if (this.util.isOnline()) {
       let userApi = await this.getDataFromApi();
-      userApi.message.password = password;
 
-      this.user = this.user.fillUser(userApi);
-      await this.bransProvider.insertList(this.user.ikBrans);
+      if (this.util.isNotEmpty(userApi) && this.util.isNotEmpty(userApi.message)) {
 
-      await this.userDao.insertOne(this.user);
-      return await this.getUserFromDB(this.user);
+        userApi.message.password = password;
+
+        this.user = this.user.fillUser(userApi);
+        await this.bransProvider.insertList(this.user.ikBrans);
+
+        await this.userDao.insertOne(this.user);
+        return await this.getUserFromDB(this.user);
+
+      } else {
+        this.util.error(userApi.description);
+      }
     } else {
       return await this.getUserFromDB(this.user);
     }

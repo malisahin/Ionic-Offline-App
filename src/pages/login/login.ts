@@ -3,7 +3,7 @@
  * @since 2018-02-12
  */
 
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
 import {
   NavController,
   AlertController,
@@ -11,17 +11,17 @@ import {
   Loading,
   IonicPage
 } from "ionic-angular";
-import {LoginProvider} from "../../providers/login/login";
-import {UserProvider} from "../../providers/user/user";
-import {UtilProvider} from "../../providers/util/util";
-import {LoggerProvider} from "../../providers/logger/logger";
-import {User} from "../../entities/user";
-import {Anasayfa} from "../anasayfa/anasayfa";
-import {ThemeProvider} from "../../providers/theme/theme";
-import {Constants} from "../../entities/Constants";
-import {UserDao} from "../../providers/user-dao/user-dao";
-import {DeeplinkPrinterProvider} from "../../providers/deeplink-printer/deeplink-printer";
-import {TableTotalElementsProvider} from "../../providers/table-total-elements/table-total-elements";
+import { LoginProvider } from "../../providers/login/login";
+import { UserProvider } from "../../providers/user/user";
+import { UtilProvider } from "../../providers/util/util";
+import { LoggerProvider } from "../../providers/logger/logger";
+import { User } from "../../entities/user";
+import { Anasayfa } from "../anasayfa/anasayfa";
+import { ThemeProvider } from "../../providers/theme/theme";
+import { Constants } from "../../entities/Constants";
+import { UserDao } from "../../providers/user-dao/user-dao";
+import { DeeplinkPrinterProvider } from "../../providers/deeplink-printer/deeplink-printer";
+import { TableTotalElementsProvider } from "../../providers/table-total-elements/table-total-elements";
 
 class UserInfo {
   userCode: string = "";
@@ -37,8 +37,8 @@ export class LoginPage {
   passwordType: string = "password";
   passwordIcon: string = "eye-off";
   loading: Loading;
-  userCode: string = "ECAMERKEZ";
-  password: string = "EMAR6464";
+  userCode: string = "";
+  password: string = "";
   user: User;
   hasLoginPermission = false;
   backGroundImage: string;
@@ -47,15 +47,15 @@ export class LoginPage {
   spinner: any;
 
   constructor(private nav: NavController,
-              private util: UtilProvider,
-              private alertCtrl: AlertController,
-              private userProvider: UserProvider,
-              private loadingCtrl: LoadingController,
-              private logger: LoggerProvider,
-              private loginProvider: LoginProvider,
-              private deepLinkPrinter: DeeplinkPrinterProvider,
-              private totalElementsProvider: TableTotalElementsProvider,
-              private themeProvider: ThemeProvider) {
+    private util: UtilProvider,
+    private alertCtrl: AlertController,
+    private userProvider: UserProvider,
+    private loadingCtrl: LoadingController,
+    private logger: LoggerProvider,
+    private loginProvider: LoginProvider,
+    private deepLinkPrinter: DeeplinkPrinterProvider,
+    private totalElementsProvider: TableTotalElementsProvider,
+    private themeProvider: ThemeProvider) {
     this.themeProvider.setTheme();
     this.user = new User();
     this.backGroundImage = this.themeProvider.getBackgroundImage();

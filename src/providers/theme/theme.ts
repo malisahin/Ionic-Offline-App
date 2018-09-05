@@ -4,6 +4,7 @@ import { BehaviorSubject } from "rxjs";
 import { Constants } from "../../entities/Constants";
 import { UtilProvider } from "../util/util";
 import { User } from "../../entities/user";
+import { Profil } from '../../entities/profil';
 
 
 enum THEME {
@@ -53,17 +54,17 @@ export class ThemeProvider {
     return selectedTheme;
   }
 
-
-  getBackgroundImage() {
-    let orgKod = this.user.getOrgKod();
-    if (this.util.isEmpty(orgKod)) {
-      orgKod = "ECA";
-    }
-    return "assets/images/login-background.jpg";
-    //return "../../../resources/images/" + orgKod + "/login/login-background.jpg";
+  getDefaultImageFolder(): string {
+    let profil = new Profil();
+    return "assets/images/" + profil.getActiveProfil().orgKod + "/";
   }
 
-  getLoaderPath(): string {
-    return "assets/imgs/loader.jpg";
+
+  getBackgroundImage() {
+    return this.getDefaultImageFolder() + "login-background.jpg";
+  }
+
+  getAnasayfaLogo() {
+    return this.getDefaultImageFolder() + "anasayfa-logo.jpg";
   }
 }

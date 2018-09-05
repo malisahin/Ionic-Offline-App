@@ -55,6 +55,20 @@ export class HizmetProvider {
     }
   }
 
+  async getMevcutCagriSeqNoList(): Promise<Number[]> {
+    let seqNoList: Number[] = [];
+    let query = " SELECT seqNo FROM OFF_HIZ_MST WHERE durum = 'ACIK' ";
+    let res = await this.hizmetDao.findWithQuery(query);
+
+    if (this.util.isNotEmptyRows(res)) {
+      for (let i = 0; i < res.rows.length; i++) {
+        seqNoList.push(res.rows.item(i).seqNo);
+      }
+    }
+
+    return seqNoList;
+  }
+
   async updateCagri(hizmet: Hizmet, durum: string): Promise<any> {
     let url = this.api.setCagriUrl(durum);
     let header = await this.token.callTokenAndGetHeader();
@@ -68,9 +82,13 @@ export class HizmetProvider {
 
   async fetchDataFromApi(header): Promise<any> {
     let url = this.api.getCagriListUrl();
-
+    let seqNoList = await this.getMevcutCagriSeqNoList();
     try {
-      let res = await this.http.get(url, { headers: header }, ).toPromise();
+      let res = await this.http.post(
+        url,
+        { seqNoListe: seqNoList },
+        { headers: header })
+        .toPromise();
 
       return new Promise((resolve, reject) => {
         resolve(res);
@@ -87,7 +105,7 @@ export class HizmetProvider {
 
   async insertComingData(res: any): Promise<any> {
     let hizmetList: Hizmet[];
-    hizmetList = this.seperateCagri(res);
+    hizmetList = await this.seperateCagri(res);
     localStorage.setItem(Constants.LENGTHS.HIZMET_LIST, String(hizmetList.length));
     hizmetList = await this.hizmetBosAlanlariDoldur(hizmetList);
     return this.hizmetDao.insertList(hizmetList);
@@ -96,26 +114,37 @@ export class HizmetProvider {
 
   async updateComingData(res: any): Promise<any> {
     let hizmetList: Hizmet[];
-    hizmetList = this.seperateCagri(res);
+    hizmetList = await this.seperateCagri(res);
     await hizmetList.forEach(item => {
       this.hizmetDao.updateHizmet(item);
     });
   }
 
 
-  seperateCagri(obj) {
+  async seperateCagri(obj) {
     let hizmetList: Hizmet[] = [];
     let list = [];
+    let silinmesiGerekenCagrilar = [];
+
+    if (this.util.isNotEmpty(obj.message) && this.util.isNotEmpty(obj.message.silinmesiGerekenCagrilar)) {
+      silinmesiGerekenCagrilar = obj.message.silinmesiGerekenCagrilar;
+      await this.silinmesiGerekenCagrilariSil(silinmesiGerekenCagrilar);
+    }
+
     if (this.util.isNotEmpty(obj.message) && this.util.isNotEmpty(obj.message.hizmetDtoList)) {
       list = obj.message.hizmetDtoList;
+
       for (let item of list) {
         let cgr = this.fillHizmet(item);
         hizmetList.push(cgr);
       }
-    } else {
-      this.util.info("Gelen Çağrı listesinde veri bulunmamaktadır.")
     }
+
     return hizmetList;
+  }
+
+  async silinmesiGerekenCagrilariSil(silinmesiGerekenCagrilar: any[]): Promise<any> {
+    return this.hizmetDao.deleteHizmetList(silinmesiGerekenCagrilar);
   }
 
   fillHizmet(obj): Hizmet {
