@@ -26,6 +26,7 @@ export class Anasayfa {
   uyariSayisi: number = 0;
   guncellemeSayisi: number = 10;
   backGroundImage: string;
+  logoPath: string = '/assets/images/eca-logo.jpg';
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -42,6 +43,7 @@ export class Anasayfa {
 
   private ionViewDidLoad() {
     console.log('ionViewDidLoad Anasayfa');
+    this.logoPath = this.themeProvider.getAnasayfaLogo();
   }
 
   sayfayaGit(page, param) {
