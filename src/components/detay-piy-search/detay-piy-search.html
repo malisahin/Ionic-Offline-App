@@ -14,6 +14,10 @@
 
 <ion-content class="content" [ngStyle]="{ 'background-image': 'url(' + backGroundImage + ')' }">
 
+  <ion-toolbar no-border-top>
+    <ion-searchbar placeholder="Ara" [(ngModel)]="searchText" (ionInput)="fetchList()"></ion-searchbar>
+  </ion-toolbar>
+
   <ion-list radio-group [(ngModel)]="selectedItem">
     <ion-item *ngFor="let item of list" class="row-border">
       <ion-label>{{item.key}} - {{item.value}}</ion-label>
