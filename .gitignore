@@ -152,3 +152,7 @@ www/build/vendor.js.map
 www/build/vendor.js
 www/build/polyfills.js
 www/build/main.js.map
+www/build/main.js.map
+www/build/vendor.js
+www/build/vendor.js.map
+www/build/main.js.map

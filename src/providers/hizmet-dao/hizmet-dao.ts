@@ -2,13 +2,13 @@
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-import {Injectable} from "@angular/core";
-import {BaseDao} from "../base-dao/base-dao";
-import {Hizmet} from "../../entities/hizmet/hizmet";
-import {LoggerProvider} from "../logger/logger";
-import {Pageable} from "../../entities/Pageable";
-import {Constants} from "../../entities/Constants";
-import {UtilProvider} from "../util/util";
+import { Injectable } from "@angular/core";
+import { BaseDao } from "../base-dao/base-dao";
+import { Hizmet } from "../../entities/hizmet/hizmet";
+import { LoggerProvider } from "../logger/logger";
+import { Pageable } from "../../entities/Pageable";
+import { Constants } from "../../entities/Constants";
+import { UtilProvider } from "../util/util";
 
 @Injectable()
 export class HizmetDao {
@@ -20,7 +20,7 @@ export class HizmetDao {
 
   insertedRow: number = 0;
 
-  constructor(private baseDao: BaseDao, private  logger: LoggerProvider, private  util: UtilProvider) {
+  constructor(private baseDao: BaseDao, private logger: LoggerProvider, private util: UtilProvider) {
 
   }
 
@@ -43,7 +43,7 @@ export class HizmetDao {
     let isHizmetExist = await this.isHizmetExist(hizmet.seqNo);
     if (!isHizmetExist) {
       let params = [hizmet.seqNo, hizmet.randevuTarihi, hizmet.hizmetTipiAdi, hizmet.mamAnaGrpAdi, hizmet.basvuruNedeni,
-        hizmet.durum, hizmet.adi, hizmet.soyadi, hizmet.firmaUnvani, hizmet.evTel, hizmet.isTel, hizmet.gsmNo, hizmetObject];
+      hizmet.durum, hizmet.adi, hizmet.soyadi, hizmet.firmaUnvani, hizmet.evTel, hizmet.isTel, hizmet.gsmNo, hizmetObject];
       return this.baseDao.execute(this.INSERT_QUERY, params);
     }
   }
@@ -52,7 +52,7 @@ export class HizmetDao {
     hizmet = this.filterToSaveHizmet(hizmet);
     let hizmetObject: string = JSON.stringify(hizmet);
     let params = [hizmet.seqNo, hizmet.randevuTarihi, hizmet.hizmetTipiAdi, hizmet.mamAnaGrpAdi, hizmet.basvuruNedeni,
-      hizmet.durum, hizmet.adi, hizmet.soyadi, hizmet.firmaUnvani, hizmet.evTel, hizmet.isTel, hizmet.gsmNo, hizmetObject, hizmet.seqNo];
+    hizmet.durum, hizmet.adi, hizmet.soyadi, hizmet.firmaUnvani, hizmet.evTel, hizmet.isTel, hizmet.gsmNo, hizmetObject, hizmet.seqNo];
     return this.baseDao.execute(this.UPDATE_QUERY, params);
   }
 
@@ -82,7 +82,7 @@ export class HizmetDao {
     return this.baseDao.getList(query, orderBy, "", "EXACT", pageable.first, pageable.pageSize, true);
   }
 
-  findWithQuery(query: string): Promise<Hizmet[]> {
+  findWithQuery(query: string): Promise<any> {
     return this.baseDao.execute(query, []);
   }
 
@@ -145,6 +145,15 @@ export class HizmetDao {
 
   deleteHizmet(seqNo: string): Promise<any> {
     let query = this.DELETE_QUERY + " WHERE seqNo='" + seqNo + "'";
+    return this.baseDao.execute(query, []);
+  }
+
+  deleteHizmetList(list: any[]) {
+    let seqNoList: string[] = [];
+    list.forEach(item => seqNoList.push("'" + String(item) + "'"));
+    let seqNoListStr: string = seqNoList.join(",");
+
+    let query = this.DELETE_QUERY + " WHERE seqNo in (" + seqNoListStr + ")";
     return this.baseDao.execute(query, []);
   }
 

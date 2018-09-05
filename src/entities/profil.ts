@@ -2,8 +2,8 @@
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-import {Domain} from "./domain";
-import {EProfiles} from "./enums/eProfil";
+import { Domain } from "./domain";
+import { EProfiles } from "./enums/eProfil";
 
 
 export class Profil {
@@ -15,11 +15,11 @@ export class Profil {
     else if (ACTIVE_PROFIL == EProfiles.LOCAL_TEST) {
       return this.getlocalTest();
     }
-    else if (ACTIVE_PROFIL == EProfiles.CUSTOMER1) {
-      return this.getCustomer1();
+    else if (ACTIVE_PROFIL == EProfiles.BAYMAK) {
+      return this.getBaymakDomain();
     }
-    else if (ACTIVE_PROFIL == EProfiles.LOCAL_DEV) {
-      return this.getCustomer2();
+    else if (ACTIVE_PROFIL == EProfiles.ECA) {
+      return this.getEcaDomain();
     }
     else if (ACTIVE_PROFIL == EProfiles.LOCAL_DEV) {
       return this.getCustomer3();
@@ -31,7 +31,7 @@ export class Profil {
     domain.orgKod = "SAHIN";
     domain.kod = 'SECRET';
     domain.name = 'Development';
-    domain.domainUrl = "http://sos.ecaservis.com.tr:7003";
+    domain.domainUrl = "http://10.10.10.151:7001";
     domain.securityUrl = "http://sos.ecaservis.com.tr:7003";
     domain.webappurl = "http://sos.ecaservis.com.tr";
     return domain;
@@ -42,12 +42,13 @@ export class Profil {
     domain.orgKod = "SAHIN";
     domain.kod = 'SECRET';
     domain.name = 'Development';
-    domain.domainUrl = "";
-    domain.securityUrl = "";
+    domain.domainUrl = "http://sos.ecaservis.com.tr:7003";
+    domain.securityUrl = "http://sos.ecaservis.com.tr:7003";
+    domain.webappurl = "http://sos.ecaservis.com.tr";
     return domain;
   }
 
-  private getCustomer1() {
+  private getBaymakDomain() {
     let domain = new Domain();
     domain.orgKod = "BAY";
     domain.kod = 'SECRET';
@@ -58,13 +59,14 @@ export class Profil {
     return domain;
   }
 
-  private getCustomer2() {
+  private getEcaDomain() {
     let domain = new Domain();
-    domain.orgKod = "SAHIN";
+    domain.orgKod = "ECA";
     domain.kod = 'SECRET';
     domain.name = 'Development';
-    domain.domainUrl = "";
-    domain.securityUrl = "";
+    domain.domainUrl = "http://sos.ecaservis.com.tr:7003";
+    domain.securityUrl = "http://sos.ecaservis.com.tr:7003";
+    domain.webappurl = "http://sos.ecaservis.com.tr";
     return domain;
   }
 

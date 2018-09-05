@@ -28,7 +28,9 @@ export class ApiProvider {
 
   constructor() {
     this.pageSize = Constants.API_PAGE_SIZE;
-    this.ACTIVE_PROFIL = EProfiles.LOCAL_DEV;
+
+    this.ACTIVE_PROFIL = EProfiles.ECA;
+
     this.activeProfil = this.profil.getActiveProfil(this.ACTIVE_PROFIL);
     this.urlPrefixHizmet = this.activeProfil.domainUrl + '/sos-api/endpointrest/hizmet/';
     this.urlPrefixOffline = this.activeProfil.domainUrl + '/sos-api/endpointrest/offline/';
