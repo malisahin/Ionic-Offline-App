@@ -13,7 +13,7 @@ import { Domain } from "../../entities/domain";
 
 @Injectable()
 export class ApiProvider {
-  profil: Profil = new Profil();
+
   ACTIVE_PROFIL: EProfiles;
   urlPrefixHizmet: string;
   urlPrefixOffline: string;
@@ -31,7 +31,7 @@ export class ApiProvider {
 
     this.ACTIVE_PROFIL = EProfiles.BAYMAK;
 
-    this.activeProfil = this.profil.getActiveProfil();
+    this.activeProfil = Profil.getActiveProfil();
     this.urlPrefixHizmet = this.activeProfil.domainUrl + '/sos-api/endpointrest/hizmet/';
     this.urlPrefixOffline = this.activeProfil.domainUrl + '/sos-api/endpointrest/offline/';
     this.urlPrefixKullanici = this.activeProfil.domainUrl + '/sos-api/endpointrest/kullanici/';

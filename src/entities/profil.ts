@@ -3,16 +3,17 @@
  * @email mehmetalisahinogullari@gmail.com
  */
 import { Domain } from "./domain";
+import {Constants} from "./Constants";
 
 export class Profil {
 
-  public getActiveProfil() {
-    return this.getEcaTestDomain();
+  public static getActiveProfil() {
+    return Profil.getEcaTestDomain();
   }
 
-  private getlocalDev(): Domain {
+  private static getlocalDev(): Domain {
     let domain = new Domain();
-    domain.orgKod = "SOS";
+    domain.orgKod = Constants.ORG_KODS.SOS;
     domain.kod = 'SECRET';
     domain.name = 'Development';
     domain.domainUrl = "http://10.10.10.151:7001";
@@ -21,9 +22,9 @@ export class Profil {
     return domain;
   }
 
-  private getlocalTest() {
+  private static getlocalTest() {
     let domain = new Domain();
-    domain.orgKod = "SOS";
+    domain.orgKod = Constants.ORG_KODS.SOS;
     domain.kod = 'SECRET';
     domain.name = 'Development';
     domain.domainUrl = "http://10.10.10.26:7005";
@@ -32,9 +33,9 @@ export class Profil {
     return domain;
   }
 
-  private getBaymakTestVPNDomain() {
+  private static getBaymakTestVPNDomain() {
     let domain = new Domain();
-    domain.orgKod = "BAY";
+    domain.orgKod = Constants.ORG_KODS.BAY;
     domain.kod = 'SECRET';
     domain.name = 'Development';
     domain.domainUrl = "http://172.24.1.10:7005";
@@ -43,9 +44,9 @@ export class Profil {
     return domain;
   }
 
-  private getBaymakTestDomain() {
+  private static getBaymakTestDomain() {
     let domain = new Domain();
-    domain.orgKod = "BAY";
+    domain.orgKod = Constants.ORG_KODS.BAY;
     domain.kod = 'SECRET';
     domain.name = 'Development';
     domain.domainUrl = "http://sos.baymak.com.tr:7008";
@@ -54,9 +55,9 @@ export class Profil {
     return domain;
   }
 
-  private getBaymakProdDomain() {
+  private static getBaymakProdDomain() {
     let domain = new Domain();
-    domain.orgKod = "BAY";
+    domain.orgKod = Constants.ORG_KODS.BAY;
     domain.kod = 'SECRET';
     domain.name = 'Development';
     domain.domainUrl = "http://sos.baymak.com.tr:7006";
@@ -65,9 +66,9 @@ export class Profil {
     return domain;
   }
 
-  private getEcaTestDomain() {
+  private static getEcaTestDomain() {
     let domain = new Domain();
-    domain.orgKod = "ECA";
+    domain.orgKod = Constants.ORG_KODS.BAY;
     domain.kod = 'SECRET';
     domain.name = 'Development';
     domain.domainUrl = "http://sos.ecaservis.com.tr:7003";
@@ -77,9 +78,9 @@ export class Profil {
   }
 
 
-  private getEcaProdDomain() {
+  private static getEcaProdDomain() {
     let domain = new Domain();
-    domain.orgKod = "ECA";
+    domain.orgKod = Constants.ORG_KODS.ECA;
     domain.kod = 'SECRET';
     domain.name = 'Development';
     domain.domainUrl = "http://sos.ecaservis.com.tr:7009";
@@ -88,7 +89,7 @@ export class Profil {
     return domain;
   }
 
-  private getCustomer3() {
+  private static getCustomer3() {
     let domain = new Domain();
     domain.orgKod = "SAHIN";
     domain.kod = 'SECRET';

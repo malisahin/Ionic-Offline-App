@@ -8,12 +8,14 @@ import { ZebraPrinterComponent } from "../../components/zebra-printer/zebra-prin
 import { DetayKayit } from "../../entities/hizmet/DetayKayit";
 import { Constants } from "../../entities/Constants";
 import { Anket } from "../../entities/hizmet/Ankets/Anket";
+import {Profil} from "../../entities/profil";
 
 @Injectable()
 export class PrinterService {
   hizmet: Hizmet;
   seperator = "..............................................";
   user: User;
+  profil: Profil= new Profil();
 
   constructor(public http: HttpClient,
     private modalCtrl: ModalController,
@@ -34,10 +36,12 @@ export class PrinterService {
   }
 
   getPrintText() {
-    if (this.user.getOrgKod() == "ECA") {
+    if (Profil.getActiveProfil().orgKod == Constants.ORG_KODS.ECA) {
       return this.prepareDataEmar();
-    } else if (this.user.getOrgKod() == "BAY") {
+
+    } else if (Profil.getActiveProfil().orgKod == Constants.ORG_KODS.BAY) {
       return this.prepareDataBaymak();
+
     }
   }
 
@@ -328,6 +332,222 @@ export class PrinterService {
   }
 
   prepareDataBaymak() {
-    return "";
+    let data = "";
+    let toplamTutar = 0;
+    let kdv = 0;
+    data += "! U1 SETLP 5 0 24";
+    data += "\n! U1 SETBOLD 2";
+    data += "\n      " + this.util.getSystemLabel("MOBIL_PRINT_HEADER1_LABEL") + "";
+    data += "\n! U1 SETBOLD 0";
+
+    data += "\n! U1 SETBOLD 2";
+    data += "\n\r    " + this.util.getSystemLabel("YETKILI_SERVIS_HIZMET_FISI_LABEL") + "";
+    data += "\n! U1 SETBOLD 0";
+    data += "\n! U1 SETLP 7 0 24";
+
+    data += "\n! U1 SETBOLD 2";
+    data += "\n\r BASVURU BILGILERI ";
+    data += "\n! U1 SETBOLD 0";
+    data += "\n\r  Hizmet Tipi         : " + this.util.translateTurkishCharacters(this.hizmet.hizmetTipiAdi);
+    data += "\n\r  Mamul Ana Grubu     : " + this.util.translateTurkishCharacters(this.hizmet.mamAnaGrpAdi);
+    data += "\n\r  Basvuru Nedeni      : " + this.util.translateTurkishCharacters(this.hizmet.basvuruNedenAdi);
+
+    data += "\n! U1 SETBOLD 2";
+    data += "\n\r  Hizmet Formu No     : " + this.hizmet.seqNo;
+    data += "\n! U1 SETBOLD 0";
+
+    data += "\n\r  Cagri No            : " + this.util.emptyIfNull(this.hizmet.cmNo);
+    data += "\n\r" + this.seperator;
+
+    data += "\n! U1 SETBOLD 2";
+    data += "\n\r SERVIS BILGILERI ";
+    data += "\n! U1 SETBOLD 0";
+    data += "\n\r  Servis Kodu / Adi   : " + this.hizmet.serKod + "-" + this.util.translateTurkishCharacters(this.user.getServisUnvani());
+    data += "\n\r  Teknisyen           : " + this.hizmet.ikKod + "-" + this.util.translateTurkishCharacters(this.user.getIkAd());
+
+    data += "\n\r  Randevu Tarihi      : " + this.util.dateFormatRegex(this.hizmet.randevuTarihi, "dd-MM-yyyy hh:mm");
+    data += "\n\r  Islem Bit. Tarihi   : " + this.util.dateFormatRegex(this.hizmet.islemBitTarihi, "dd-MM-yyyy hh:mm");
+    data += "\n\r" + this.seperator;
+
+    data += "\n! U1 SETBOLD 2";
+    data += "\n\r MUSTERI BILGILERI ";
+    data += "\n! U1 SETBOLD 0";
+    data += "\n\r  MRK MUSTERI NO      : " + this.hizmet.crmNo;
+    data += "\n\r  Musteri Adi Soyadi  : " + this.util.translateTurkishCharacters(this.hizmet.adi) + " " +
+      this.util.translateTurkishCharacters(this.hizmet.soyadi) +
+      this.util.translateTurkishCharacters(this.hizmet.firmaUnvani);
+
+    data += "\n\r  Musteri Adresi      : " + this.util.translateTurkishCharacters(this.prepareAdres());
+    data += "\n\r  Il/Ilce             : " + this.util.translateTurkishCharacters(this.hizmet.sehir) + "/"
+      + this.util.translateTurkishCharacters(this.hizmet.ilceAdi);
+
+    data += "\n\r  Musteri Telefonu    : " + this.util.emptyIfNull(this.hizmet.evTel);
+    data += "\n\r  Cep Telefonu        : " + this.util.emptyIfNull(this.hizmet.gsmNo);
+    data += "\n\r" + this.seperator;
+
+    data += "\n! U1 SETBOLD 2";
+    data += "\n\r URUN BILGILERI ";
+    data += "\n! U1 SETBOLD 0";
+    data += "\n\r  Urun Kodu           : " + this.hizmet.mamKod;
+    data += "\n\r  Urun Adi            : " + this.util.translateTurkishCharacters(this.hizmet.mamAdi);
+    data += "\n\r  Seri                : " + this.hizmet.mamSeriNo;
+    if (this.hizmet.seriMetod == "2")
+      data += "\n\r  Seri 2              : " + this.hizmet.mamSeriNo2;
+    data += "\n\r" + this.seperator;
+
+
+
+    data += '\n! U1 SETBOLD 2';
+    data += '\n\r TEKNIK DEGERLER';
+    data += '\n! U1 SETBOLD 0';
+    // Anket Cevapları
+    data += '\n\r' + this.util.translateTurkishCharacters(this.prepareAnketData());
+    data += '\n\r' + this.seperator;
+
+
+    data += "\n! U1 SETBOLD 2";
+    data += "\n\r GARANTI DURUMU ";
+    data += "\n! U1 SETBOLD 0";
+    data += "\n\r  Islem                : " + (this.hizmet.garanti == "VAR" ? "Garanti Dahili" : "Garanti Disi");
+    data += "\n\r" + this.seperator;
+
+    data += "\n! U1 SETBOLD 2";
+    data += "\n\r VERILEN HIZMETLER ";
+    data += "\n! U1 SETBOLD 0";
+    data += "\n! U1 SETBOLD 2";
+    data += "\n\r  Adi                    Miktar          " + (this.hizmet.garanti == "VAR" ? "" : "Tutar");
+    data += "\n! U1 SETBOLD 0";
+
+    let iscilik = "";
+    let parca = "";
+    let yol = "";
+    let diger = "";
+
+    if (this.util.isNotEmpty(this.hizmet.detayDtoList))
+      for (let k = 0; this.hizmet.detayDtoList.length > k; k++) {
+        let item: DetayKayit = this.hizmet.detayDtoList[k];
+        toplamTutar = toplamTutar + item.tutar;
+
+        kdv = kdv + (item.tutar / 100) * item.kdvOran;
+
+        let detaySatir = "\n\r " + item.mlzIscKod + "-" + this.util.translateTurkishCharacters(item.aciklama.substring(0, 20)) +
+          "   " + item.miktar + "-" + item.olcuBrm + "    " + (this.hizmet.garanti != "VAR" ? item.tutar : "");
+
+        let isIscilik: boolean = item.mlzIsc == Constants.DETAY_TIPI.ISCILIK && item.mlzIscKod != "999977" && item.mlzIscKod != "999988";
+
+        if (isIscilik) {
+          iscilik += detaySatir;
+        }
+
+        if (item.mlzIsc == Constants.DETAY_TIPI.MALZEME) {
+          parca += detaySatir;
+        }
+
+        if (
+          item.mlzIsc == Constants.DETAY_TIPI.YOL &&
+          item.mlzIscKod == "999988"
+        ) {
+          yol += detaySatir;
+        }
+
+        if (
+          item.mlzIsc == Constants.DETAY_TIPI.DIGER &&
+          item.mlzIscKod == "999977"
+        ) {
+          diger += detaySatir;
+        }
+      }
+
+    if (iscilik != "") {
+      data += "\n! U1 SETBOLD 2";
+      data += "\n\r Iscilikler ";
+      data += "\n! U1 SETBOLD 0";
+      data += iscilik;
+    }
+
+    if (parca != "") {
+      data += "\n! U1 SETBOLD 2";
+      data += "\n\r Parcalar ";
+      data += "\n! U1 SETBOLD 0";
+      data += parca;
+    }
+
+    if (yol != "") {
+      data += "\n! U1 SETBOLD 2";
+      data += "\n\r Yol ";
+      data += "\n! U1 SETBOLD 0";
+      data += yol;
+    }
+
+    if (diger != "") {
+      data += "\n! U1 SETBOLD 2";
+      data += "\n\r Diger ";
+      data += "\n! U1 SETBOLD 0";
+      data += diger;
+    }
+
+    data += "\n\r" + this.seperator;
+
+    if (this.hizmet.garanti == "VAR") {
+      data += "\n! U1 SETBOLD 2";
+      data += "\n\r Toplam Hizmet Tutari  :   Garanti Dahili Islem ";
+      data += "\n! U1 SETBOLD 0";
+    } else {
+      data += "\n! U1 SETBOLD 2";
+      //data += '\n\r Toplam Hizmet Tutari  :   ' + (toplamTutar).toFixed(2);
+      data += "\n! U1 SETBOLD 0";
+    }
+    if (this.hizmet.garanti == "VAR") {
+      data += "\n! U1 SETBOLD 2";
+      data += "\n\r KDV                   :   Garanti Dahili Islem ";
+      data += "\n! U1 SETBOLD 0";
+    } else {
+      data += "\n! U1 SETBOLD 2";
+      //data += '\n\r KDV                   :   ' + (kdv).toFixed(2);
+      data += "\n! U1 SETBOLD 0";
+    }
+
+    if (this.hizmet.garanti == "VAR") {
+      data += "\n! U1 SETBOLD 2";
+      data += "\n\r Genel Toplam          :   Garanti Dahili Islem ";
+      data += "\n! U1 SETBOLD 0";
+    } else {
+      data += "\n! U1 SETBOLD 2";
+      //  data += '\n\r Genel Toplam          :   ' + (kdv + toplamTutar).toFixed(2);
+      data += "\n! U1 SETBOLD 0";
+    }
+
+    data += "\n\r" + this.seperator;
+    data += "\n! U1 SETBOLD 2";
+    data += "\n\r Aciklama ";
+    data += "\n! U1 SETBOLD 0";
+    data +=
+      "\n\r " + this.util.translateTurkishCharacters(this.hizmet.aciklama);
+
+    data += "\n\r" + this.seperator;
+    data += "\n! U1 SETBOLD 2";
+    data += "\n\r TEKNISYEN ADI/IMZA           MUSTERI ADI/IMZA ";
+    data += "\n! U1 SETBOLD 0";
+    data += "\n\r " + this.util.translateTurkishCharacters(this.user.getIkAd());
+
+    data += "\n\r\n\r\n! U1 SETBOLD 2";
+    data +=
+      "\n\r " +
+      this.util.translateTurkishCharacters(
+        this.util.getSystemLabel("MOBIL_PRINT_FOOTER1_LABEL")
+      );
+    data += "\n! U1 SETBOLD 0";
+
+    data += "\n\r\n\r\n! U1 SETBOLD 2";
+    data +=
+      "\n\r " +
+      this.util.translateTurkishCharacters(
+        this.util.getSystemLabel("MOBIL_PRINT_FOOTER2_LABEL")
+      ) +
+      "\n\r ";
+    data += "\n! U1 SETBOLD 0";
+
+    return data;
   }
+
 }

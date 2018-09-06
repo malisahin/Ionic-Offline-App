@@ -9,6 +9,12 @@ export class Constants {
   constructor() {
   }
 
+  public static ORG_KODS = {
+    ECA: "ECA",
+    BAY: "BAY",
+    SOS: "SOS",
+    DAI: "DAI"
+  };
 
   public static CACHE_KEYS = {
     LOG: "LOG",
