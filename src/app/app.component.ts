@@ -40,7 +40,7 @@ export class MyApp {
 
     this.enableProductionMode();
     this.initializeApp();
-    this.selectedTheme = this.themeProvider.setTheme();
+    this.selectedTheme = this.themeProvider.getSelectedTheme();
     this.logger.warn("SELECTED DEFAULT THEME" + this.selectedTheme);
   }
 

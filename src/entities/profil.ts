@@ -11,6 +11,10 @@ export class Profil {
     return Profil.getEcaTestDomain();
   }
 
+  public static getOrgKod(){
+    return Profil.getActiveProfil().orgKod;
+  }
+
   private static getlocalDev(): Domain {
     let domain = new Domain();
     domain.orgKod = Constants.ORG_KODS.SOS;

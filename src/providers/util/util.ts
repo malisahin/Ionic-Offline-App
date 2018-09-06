@@ -8,6 +8,7 @@ import { LoggerProvider } from "../logger/logger";
 import { User } from "../../entities/user";
 import { DomSanitizer } from "@angular/platform-browser";
 import { SpinnerComponent } from "../../components/spinner/spinner";
+import {ThemeProvider} from "../theme/theme";
 
 @Injectable()
 export class UtilProvider {
@@ -20,8 +21,7 @@ export class UtilProvider {
     private network: Network,
     private modalCtrl: ModalController,
     private logger: LoggerProvider,
-    private loadingController: LoadingController,
-    private sanitizer: DomSanitizer) {
+    private themeProvider: ThemeProvider) {
     moment.locale("tr");
     this.init();
   }
@@ -336,12 +336,7 @@ export class UtilProvider {
   }
 
   getSelectedTheme() {
-    let theme = localStorage.getItem(Constants.SELECTED_THEME);
-    if (this.isEmpty) {
-      theme = "blue-theme";
-    }
-
-    return theme;
+    return this.themeProvider.getSelectedTheme();
   }
 
   getConnectionStatus() {
@@ -356,26 +351,6 @@ export class UtilProvider {
     }
   }
 
-  loaderContent(): any {
-    let content = `
-          <svg version="1.1" id="L2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-            viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-            <circle fill="none" stroke="#a52a2a" stroke-width="4" stroke-miterlimit="10" cx="50" cy="50" r="48" />
-            <line fill="none" stroke-linecap="round" stroke="#a52a2a" stroke-width="4" stroke-miterlimit="10" x1="50" y1="50" x2="85" y2="50.5">
-              <animateTransform attributeName="transform" dur="2s" type="rotate" from="0 50 50" to="360 50 50" repeatCount="indefinite"
-              />
-            </line>
-            <line fill="none" stroke-linecap="round" stroke="#a52a2a" stroke-width="4" stroke-miterlimit="10" x1="50" y1="50" x2="49.5"
-              y2="74">
-              <animateTransform attributeName="transform" dur="15s" type="rotate" from="0 50 50" to="360 50 50" repeatCount="indefinite"
-              />
-            </line>
-          </svg>
-    `;
-
-    // return this.sanitizer.bypassSecurityTrustHtml(content);
-    return content;
-  }
 
   assign(item: any): any {
     if (this.isEmpty(item)) return null;

@@ -1,10 +1,11 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from "rxjs";
-import { Constants } from "../../entities/Constants";
-import { UtilProvider } from "../util/util";
-import { User } from "../../entities/user";
-import { Profil } from '../../entities/profil';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject} from "rxjs";
+import {Constants} from "../../entities/Constants";
+import {UtilProvider} from "../util/util";
+import {User} from "../../entities/user";
+import {Profil} from '../../entities/profil';
+import {BaseProvider} from "../base/base";
 
 
 enum THEME {
@@ -13,18 +14,18 @@ enum THEME {
 }
 
 @Injectable()
-export class ThemeProvider {
+export class ThemeProvider extends BaseProvider {
 
   theme: BehaviorSubject<string>;
   user: User = new User();
 
-  constructor(private util: UtilProvider) {
-
+  constructor() {
+    super();
   }
 
   setTheme() {
     let permanentTheme: string = localStorage.getItem(Constants.SELECTED_THEME);
-    if (this.util.isEmpty(permanentTheme)) {
+    if (this.isEmpty(permanentTheme)) {
       permanentTheme = THEME.BLUE;
       this.theme = new BehaviorSubject(permanentTheme);
       localStorage.setItem(Constants.SELECTED_THEME, permanentTheme);
@@ -42,22 +43,31 @@ export class ThemeProvider {
   }
 
   getSelectedTheme(): string {
-    let permanentTheme: string = localStorage.getItem(Constants.SELECTED_THEME);
-    let selectedTheme = "";
-    if (this.util.isEmpty(permanentTheme) || permanentTheme == THEME.BLUE) {
-      selectedTheme = 'BLUE';
 
-    } else if (permanentTheme == THEME.GREEN) {
-      selectedTheme = 'GREEN';
+    let selectedTheme = "";
+    switch (Profil.getOrgKod()) {
+      case Constants.ORG_KODS.SOS:
+        selectedTheme = THEME.BLUE;
+        break;
+
+      case  Constants.ORG_KODS.BAY:
+        selectedTheme = THEME.GREEN;
+        break;
+
+      case Constants.ORG_KODS.ECA:
+        selectedTheme = THEME.BLUE;
+        break;
+
+      default:
+        selectedTheme = THEME.BLUE;
+
     }
 
-    selectedTheme = 'GREEN';
     return selectedTheme;
   }
 
   getDefaultImageFolder(): string {
-    let profil = new Profil();
-    return "assets/images/" + profil.getActiveProfil().orgKod + "/";
+    return "assets/images/" + Profil.getActiveProfil().orgKod + "/";
   }
 
 
