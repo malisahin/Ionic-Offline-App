@@ -1,18 +1,18 @@
-import { Component } from '@angular/core';
-import { DetayKayit } from "../../entities/hizmet/DetayKayit";
-import { ViewController, NavParams, ModalController } from "ionic-angular";
-import { UtilProvider } from '../../providers/util/util';
-import { LoggerProvider } from '../../providers/logger/logger';
-import { Constants } from '../../entities/Constants';
-import { DetayPiySearchComponent } from '../detay-piy-search/detay-piy-search';
-import { FiyatDao } from '../../providers/fiyat-dao/fiyat-dao';
-import { Fiyat } from '../../entities/fiyat';
-import { HizmetService } from '../../providers/hizmet-service/hizmet-service';
-import { Hizmet } from '../../entities/hizmet/hizmet';
-import { IslemArizaIscilikDao } from "../../providers/islem-ariza-iscilik-dao/islem-ariza-iscilik-dao";
-import { IslemArizaIscilik } from "../../entities/islem-ariza-iscilik";
-import { ProcessResults } from "../../entities/ProcessResults";
-import { ThemeProvider } from '../../providers/theme/theme';
+import {Component} from '@angular/core';
+import {DetayKayit} from "../../entities/hizmet/DetayKayit";
+import {ViewController, NavParams, ModalController} from "ionic-angular";
+import {UtilProvider} from '../../providers/util/util';
+import {LoggerProvider} from '../../providers/logger/logger';
+import {Constants} from '../../entities/Constants';
+import {DetayPiySearchComponent} from '../detay-piy-search/detay-piy-search';
+import {FiyatDao} from '../../providers/fiyat-dao/fiyat-dao';
+import {Fiyat} from '../../entities/fiyat';
+import {HizmetService} from '../../providers/hizmet-service/hizmet-service';
+import {Hizmet} from '../../entities/hizmet/hizmet';
+import {IslemArizaIscilikDao} from "../../providers/islem-ariza-iscilik-dao/islem-ariza-iscilik-dao";
+import {IslemArizaIscilik} from "../../entities/islem-ariza-iscilik";
+import {ProcessResults} from "../../entities/ProcessResults";
+import {ThemeProvider} from '../../providers/theme/theme';
 
 
 @Component({
@@ -41,14 +41,14 @@ export class HizmetDetayComponent {
   backGroundImage: string;
 
   constructor(private viewCtrl: ViewController,
-    private params: NavParams,
-    private modalController: ModalController,
-    private util: UtilProvider,
-    private logger: LoggerProvider,
-    private fiyatDao: FiyatDao,
-    private islemArizaIscilikDao: IslemArizaIscilikDao,
-    private hizmetService: HizmetService,
-    private themeProvider: ThemeProvider) {
+              private params: NavParams,
+              private modalController: ModalController,
+              private util: UtilProvider,
+              private logger: LoggerProvider,
+              private fiyatDao: FiyatDao,
+              private islemArizaIscilikDao: IslemArizaIscilikDao,
+              private hizmetService: HizmetService,
+              private themeProvider: ThemeProvider) {
 
     this.hizmet = this.hizmetService.getHizmet();
     this.backGroundImage = this.themeProvider.getBackgroundImage();
@@ -115,7 +115,7 @@ export class HizmetDetayComponent {
 
   async yeniDetayKaydet() {
     await this.fiyatBul();
-    if (this.util.isNotEmpty(this.hizmetDetay.tutar)) {
+    if (this.util.isNotEmpty(this.hizmetDetay.tutar) && this.hizmetDetay.tutar > 0) {
 
       if (this.util.isEmpty(this.hizmet.detayDtoList))
         this.hizmet.detayDtoList = [];
@@ -190,6 +190,7 @@ export class HizmetDetayComponent {
     if (this.hizmetDetay.mlzIsc != "DGR") {
       let fiyatSorguParam = this.fiyatSorguParametreHazirla();
       let fiyatRes = await this.fiyatDao.findFiyat(fiyatSorguParam);
+      debugger;
       if (fiyatRes.rows.length > 0) {
         let item = fiyatRes.rows.item(0);
         //this.logger.table(item);
@@ -239,7 +240,7 @@ export class HizmetDetayComponent {
         dataType: tip,
         filter: this.hizmetDetay
       }
-    }, { cssClass: this.util.getSelectedTheme(), enableBackdropDismiss: false });
+    }, {cssClass: this.util.getSelectedTheme(), enableBackdropDismiss: false});
 
     piyModal.onDidDismiss(res => {
       this.logger.dir(res);

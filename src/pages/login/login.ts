@@ -56,10 +56,11 @@ export class LoginPage {
     private deepLinkPrinter: DeeplinkPrinterProvider,
     private totalElementsProvider: TableTotalElementsProvider,
     private themeProvider: ThemeProvider) {
+
     this.themeProvider.setTheme();
     this.user = new User();
     this.backGroundImage = this.themeProvider.getBackgroundImage();
-    this.spinner = this.util.loaderContent();
+
   }
 
 
