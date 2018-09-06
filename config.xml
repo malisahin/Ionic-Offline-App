@@ -25,6 +25,9 @@
         <config-file parent="NSCameraUsageDescription" target="*-Info.plist">
             <string>$CAMERA_USAGE_DESCRIPTION</string>
         </config-file>
+        <config-file parent="NSCalendarsUsageDescription" target="*-Info.plist">
+            <string>Uygulama içerisinde takvim kullanılmaktadır.</string>
+        </config-file>
     </platform>
     <feature name="SQLitePlugin">
         <param name="ios-package" value="SQLitePlugin" />
