@@ -48,9 +48,10 @@ export class ThemeProvider {
       selectedTheme = 'BLUE';
 
     } else if (permanentTheme == THEME.GREEN) {
-      selectedTheme = 'GREEN'
+      selectedTheme = 'GREEN';
     }
 
+    selectedTheme = 'GREEN';
     return selectedTheme;
   }
 

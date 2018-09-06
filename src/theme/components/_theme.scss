@@ -11,6 +11,7 @@
 
     .label-ios {
       padding: 10px 0 0 10px;
+      margin: 11px 8px 11px 0;
     }
 
     musteri-bilgileri{
@@ -72,9 +73,6 @@
     
     }
 
-    .detay .button-ios{
-      padding-bottom: 12px;
-    }
 
     .button-ios{
       margin: 0px;
@@ -153,7 +151,7 @@
       }
     }
     .button-ios {
-      height: 35px;
+      height: 40px;
       margin-bottom: 15px;
 
     }
@@ -196,10 +194,6 @@
 
   .toolbar-background-ios {
     bottom:-1px;
-  }
-
-  .button-ios-light {
-    float: left;
   }
 
   .item-ios {
@@ -379,9 +373,18 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
 
 //*------- START:CONTENT -----*//
 
+.modal-wrapper{
+  left: 0!important;
+  top: 0!important;
+  position: absolute;
+  width: 100%!important;
+  height: 100%!important;
+}
+
 .content-background {
   /*background-image: url("../../assets/eca/login/login-background.jpg");*/
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .garanti-sorgu .row-border{
@@ -394,6 +397,13 @@ mesaj-detail .content .row-border{
 
 
 .content {
+
+  .card-box{
+    .label-ios{
+      margin-left: 8px;
+    }
+  }
+
   .segment-ios
   {
     .segment-button{
@@ -553,7 +563,9 @@ mesaj-detail .content .row-border{
 
 //*------- START:LOGIN-CONTENT -----*//
 .login-content {
-
+  .label-ios{
+    margin: 2px 0px 0px 27px;
+  }
   .submit-btn {
     border-radius: 25px;
   }
@@ -622,9 +634,6 @@ mesaj-detail .content .row-border{
     margin-left: 35%;
   }
 
-  .select-ios{
-    margin-top: 5px;
-  }
 }
 
 //*------- END:FOOTER-CONTENT -----*//

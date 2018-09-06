@@ -1,30 +1,392 @@
 
 @import "common";
+$color-darkBlue: #00684e;
+$color-blue:  rgba(0, 104, 78, 0.56);;
+$color-lightBlue: #00684e;
+$color-white: #ffffff;
+$color-red:rgba(204, 0, 0, 0.80);
+$color-green: #41a85f;
+$color-gray: #f1f1f1;
+$color-button:#00684e;
+$color-input:rgba(0, 104, 78, 0.56);
+$color-border-input:#00684e;
+$color-label:#001e33;
+$color-item:rgba(0, 104, 78, 0);
+$color-row-border:#297361;
+$color-downloaded:#009a74;
 
-.green-theme{
 
-       .login-content {
 
-        .submit-btn {
-            background: #34b652;
-           }
+.green-theme {
 
-           input{
-            border: 1px solid #34b652;
-            color:#fff;
-           }
+  //*------- START:HEADER -----*//
+  .header {
 
-           input::placeholder{
-            color:#fff;
-        }
-
-        .password-icon{
-            color:#fff;
-        }
-
-        .logo ion-icon{
-            color:#fff;
-        }
+    button.disable-hover.bar-button.bar-button-ios.bar-button-default.bar-button-default-ios {
+      color: $color-white;
     }
 
+    .toolbar-background-md, .toolbar-background-ios {
+      border-color: $color-button;
+      background: $color-button;
+    }
+
+    .modal-title .toolbar-title-ios, .modal-title .close-icon, .modal-title .toolbar-title-md {
+      color: $color-white;
+    }
+
+    .header-title {
+      .toolbar-title.toolbar-title-md {
+        color: $color-red;
+      }
+
+      .toolbar-title-ios {
+        color: $color-darkBlue;
+
+      }
+    }
+
+    .tabs-ios-primary .tabbar, .tabs-md-primary .tabbar {
+      border-color: $color-darkBlue;
+      background-color: $color-darkBlue;
+    }
+
+    .toolbar-title-md, .toolbar-title-ios {
+      color: $color-darkBlue;
+
+    }
+
+    .header-title .toolbar-title-ios {
+      color: $color-darkBlue;
+    }
+
+  }
+
+  .ion-page {
+    .header-title .toolbar-title-ios {
+      color: $color-darkBlue;
+    }
+  }
+
+  .header-bar {
+    .bar-button-default-md, .bar-button-default-ios {
+      color: $color-white;
+    }
+
+  }
+
+  //*------- END:HEADER -----*//
+
+  //*------- START:LOGIN-CONTENT -----*//
+  .login-content {
+
+    .submit-btn {
+      background: $color-blue;
+    }
+
+    .button-ios-secondary, .button-md-secondary, .button-md-secondary:hover:not(.disable-hover) {
+      background: $color-button;
+    }
+
+    input {
+      border: 1px solid $color-white;
+      color: $color-white;
+      background: $color-input;
+    }
+
+    input::placeholder {
+      color: $color-white;
+    }
+
+    .password-icon {
+      color: $color-white;
+    }
+
+    .logo ion-icon {
+      color: $color-white;
+    }
+
+    .toolbar-background {
+      background: $color-white;
+    }
+
+    .text-input {
+      border: 1px solid $color-border-input;
+      background:$color-input;
+      color:$color-white;
+    }
+
+    .label-ios{
+      color: $color-label;
+    }
+  }
+  //*------- END:LOGIN-CONTENT -----*//
+
+  //*------- START:CONTENT -----*//
+
+  .content {
+
+    .border-right{
+      border-right: 1px solid $color-row-border;
+    }
+
+    .datetime-ios{
+      background: $color-input;
+      border:1px solid $color-border-input;
+      color:$color-white;
+    }
+
+    .radio-ios{
+
+      .radio-icon{
+        border-color: $color-white;
+      }
+    } 
+
+    .label-ios{
+      color:$color-white;
+    }
+
+    .item-ios{
+      background:$color-blue;
+      color:$color-white;
+    }
+
+    .select-icon {
+      .select-icon-inner{
+        color:$color-white;
+      }
+    }
+  
+    .toggle-ios.toggle-checked .toggle-icon{
+      background: $color-button;
+    }
+
+    musteri-bilgileri{
+      .button-ios{
+        background: $color-input;
+        border: 1px solid $color-border-input;
+        color:$color-white;
+      }
+    }
+
+    .segment-button{
+      border: 1px solid $color-white;
+      color:$color-white;
+    }
+
+    .label-ios-primary{
+      color:$color-white;
+    }
+
+    .text-color a, .adres-box{
+      color:$color-white;
+    }
+
+    .row-border{
+      border-bottom: 1px solid $color-row-border;
+    }
+
+    .card-ios{
+      background-color:$color-blue;
+
+      p{
+        color:$color-white;
+      }
+    }
+    .toolbar-background-ios {
+      background: inherit;
+    }
+
+    .button-ios {
+      background-color:$color-button;
+    }
+
+    .text-input-ios {
+      border: 1px solid $color-border-input;
+      background: $color-input;
+      color:$color-white;
+    }
+
+    .searchbar-ios .searchbar-input, .searchbar-md .searchbar-input {
+      border: 1px solid $color-lightBlue;
+      background: $color-input;
+      color:$color-white;
+    }
+
+    .button-md-downloaded, .button-ios-downloaded {
+      color: $color-white;
+      background-color: $color-downloaded;
+      border:1px solid $color-border-input;
+    }
+
+    .button-md-notDownloaded {
+      background-color: $color-blue;
+    }
+
+    .text-input-ios, .text-input {
+      border: 1px solid $color-border-input;
+      background: $color-input;
+      color:$color-white;
+    }
+
+    .toolbar-title-md, .toolbar-title-ios {
+      color: $color-darkBlue;
+
+    }
+
+    .searchbar-ios .searchbar-input {
+      border: 1px solid $color-blue;
+      background: $color-input;
+      color:$color-white;
+    }
+
+    .select-md {
+      border: 1px solid $color-lightBlue;
+    }
+
+    .item-select .label-md {
+      color: $color-blue;
+    }
+
+    textarea.text-input {
+      border: 1px solid $color-border-input;
+    }
+
+    .select-ios {
+      border: 1px solid $color-border-input;
+      background: $color-input;
+      color:$color-white;
+    }
+
+    .segment-ios .segment-button.segment-activated {
+      box-shadow: 5px 2px 15px 0px $color-blue;
+      background-color: $color-button;
+    }
+
+    .gray-box {
+      background: $color-gray;
+    }
+
+    .button-ios-secondary, .button-md-secondary, .button-md-secondary:hover:not(.disable-hover) {
+      background: $color-button;
+    }
+
+    .card-box {
+      background: $color-blue;
+      border: 1px solid $color-lightBlue;
+
+      i {
+        color: $color-white;
+      }
+      label{
+        color:$color-white;
+      }
+    }
+
+    .item-input .label-md, .item-datetime .label-md {
+      color: $color-blue;
+    }
+
+    .main-tabs {
+      .toolbar-background-md {
+        background: $color-white;
+      }
+
+      .segment-md .segment-button {
+        border: 1px solid $color-white;
+        color:$color-white;
+        opacity: 1;
+      }
+
+    }
+  }
+  //*------- END:CONTENT -----*//
+
+  //*------- START:HOME-CONTENT -----*//
+  .home-content {
+
+    .item-ios{
+      background-color: $color-item;
+    }
+
+    .icon-ios {
+      color: $color-white;
+    }
+
+    .label {
+      color: $color-white;
+    }
+  }
+  //*------- END:HOME-CONTENT -----*//
+
+  .announcements, .bar-announcements {
+    background: $color-red;
+    color: $color-white;
+  }
+
+  .segment-button.activated, .segment-button.segment-activated {
+    border-color: $color-blue;
+    background: $color-button;
+    color: $color-white;
+  }
+
+  .searchbox .searchbar-md .searchbar-input {
+    border-radius: 65px;
+    border: 1px solid $color-blue;
+    background: $color-input;
+    color:$color-white;
+  }
+
+}
+
+//*------- START:FOOTER -----*//
+.footer {
+
+  background:$color-button;
+  
+  .toolbar-background-ios {
+    background-color: $color-button;
+  }
+
+  .item-ios, .item-md {
+    background-color: $color-button;
+    color: $color-white;
+  }
+
+  .label {
+    color: $color-white;
+  }
+
+  .button-ios-light, .button-md-light {
+    color: $color-white;
+    background-color: $color-button;
+  }
+
+  .select-md, .select-ios {
+    color: $color-white;
+  }
+
+  .select-ios .select-text, .select-md .select-text {
+    min-width: 27px;
+    font-size: 18px;
+  }
+}
+
+//*------- END:FOOTER -----*//
+
+.msj-info {
+  background: blue;
+}
+
+.msg-success {
+  background: green;
+}
+
+.msj-warn {
+  background: orange;
+}
+
+.msj-error {
+  background: red;
 }

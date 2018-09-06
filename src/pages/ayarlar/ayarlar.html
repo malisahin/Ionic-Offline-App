@@ -138,7 +138,7 @@
     <ion-col col-6 col-md-3>
       <ion-label>Uyarı Süresi(Saniye):</ion-label>
     </ion-col>
-    <ion-col col-6 col-md-6>
+    <ion-col col-6 col-md-9>
       <ion-select [(ngModel)]="messageDuration" interface="popover" (ionChange)="onChangeMessageDuration('HTML')">
         <ion-option value="2">2</ion-option>
         <ion-option value="3">3</ion-option>
@@ -155,8 +155,8 @@
       <button ion-button primary round full (click)="showLogs()">
         <span item-left style="width: 95%">Log'ları Görüntüle</span>
         <span item-right style="width: 5%">
-        <i class="fas fa-file-alt"></i>
-      </span>
+          <i class="fas fa-file-alt"></i>
+        </span>
       </button>
     </ion-col>
   </ion-row>

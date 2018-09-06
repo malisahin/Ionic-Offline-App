@@ -26,32 +26,32 @@
 
 <ion-footer>
   <ion-row>
-    <ion-col col-4 col-md-2>
-      <button ion-button color="light" (click)="fetchList('FIRST')">
+    <ion-col col-4 col-md-4>
+      <button ion-button color="light" class="pull-left" (click)="fetchList('FIRST')">
         <ion-label>
           <i class="fas fa-angle-double-left"></i>
         </ion-label>
       </button>
-      <button ion-button color="light" (click)="fetchList('PREVIOUS')">
+      <button ion-button color="light" class="pull-left" (click)="fetchList('PREVIOUS')">
         <ion-label>
           <i class="fas fa-angle-left"></i>
         </ion-label>
       </button>
     </ion-col>
-    <ion-col col-4 col-md-8>
+    <ion-col col-4 col-md-4>
       <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList('PAGE_NO')" interface="popover">
         <ion-option value="10" selected="true">10</ion-option>
         <ion-option value="20">20</ion-option>
         <ion-option value="50">50</ion-option>
       </ion-select>
     </ion-col>
-    <ion-col col-4 col-md-2>
-      <button ion-button color="light" (click)="fetchList('NEXT')">
+    <ion-col col-4 col-md-4>
+      <button ion-button color="light" class="pull-right" (click)="fetchList('NEXT')">
         <ion-label>
           <i class="fas fa-angle-right"></i>
         </ion-label>
       </button>
-      <button ion-button color="light" (click)="fetchList('LAST')">
+      <button ion-button color="light" class="pull-right" (click)="fetchList('LAST')">
         <ion-label>
           <i class="fas fa-angle-double-right"></i>
         </ion-label>

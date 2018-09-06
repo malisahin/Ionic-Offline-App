@@ -1,8 +1,8 @@
-import {Component} from '@angular/core';
-import {EntityUtil, IndirilenVeri} from '../../entities/EntityUtil';
-import {Constants} from '../../entities/Constants';
-import {NavController, NavParams} from "ionic-angular";
-import {UtilProvider} from "../../providers/util/util";
+import { Component } from '@angular/core';
+import { EntityUtil, IndirilenVeri } from '../../entities/EntityUtil';
+import { Constants } from '../../entities/Constants';
+import { NavController, NavParams } from "ionic-angular";
+import { UtilProvider } from "../../providers/util/util";
 
 
 @Component({

@@ -8,14 +8,15 @@
       Tarihçe Bilgisi
     </ion-segment-button>
   </ion-segment>
+</ion-toolbar>
 
 
-  <div [ngSwitch]="activePage">
-    <div *ngSwitchCase="'servis'">
-      <islem-tarih></islem-tarih>
-    </div>
-
-    <div *ngSwitchCase="'tarihce'">
-      <servis-islem-tarihce></servis-islem-tarihce>
-    </div>
+<div [ngSwitch]="activePage">
+  <div *ngSwitchCase="'servis'">
+    <islem-tarih></islem-tarih>
   </div>
+
+  <div *ngSwitchCase="'tarihce'">
+    <servis-islem-tarihce></servis-islem-tarihce>
+  </div>
+</div>
