@@ -39,7 +39,31 @@
     </ion-col>
   </ion-row>
 
-  <ion-row *ngFor="let detay of detayList" class="row-border">
+  <ion-list>
+    <ion-item-sliding *ngFor="let detay of detayList" #item>
+      <ion-item>
+        <ion-label>{{detay.mlzIsc}}</ion-label>
+        <ion-label>{{detay.mlzIscKod}} - {{detay.aciklama}}</ion-label>
+        <ion-label>{{detay.miktar}}</ion-label>
+        <ion-label>{{detay.tutar}}</ion-label>
+      </ion-item>
+
+      <ion-item-options class="green" side="right">
+        <button ion-button icon-only (click)="updateHizmetDetay(detay)"
+                [disabled]="isHizmetDisabled()" style="background-color:#f89406; width: 10%">
+          <i class="fas fa-edit" style="margin-right:0"></i>
+        </button>
+
+        <button ion-button icon-only (click)="deleteHizmetDetay(detay)"
+                [disabled]="isHizmetDisabled()" style="background-color:#bd362f; width: 10%">
+          <i class="fas fa-trash-alt" style="margin-right:0"></i>
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+
+  <!--ion-row *ngFor="let detay of detayList" class="row-border">
     <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>
       <ion-label>{{detay.mlzIsc}}</ion-label>
     </ion-col>
@@ -60,21 +84,23 @@
       <ion-row>
 
         <ion-col col-6>
-          <button ion-button icon-only (click)="updateHizmetDetay(detay)" table-button style="width: 100%" [disabled]="isHizmetDisabled()"
-            color="colorinfo">
+          <button ion-button icon-only (click)="updateHizmetDetay(detay)" table-button style="width: 100%"
+                  [disabled]="isHizmetDisabled()"
+                  color="colorinfo">
             <i class="fas fa-edit" style="margin-right:0"></i>
           </button>
         </ion-col>
 
         <ion-col col-6>
-          <button ion-button icon-only (click)="deleteHizmetDetay(detay)" table-button style="width: 100%" color="colorerror" [disabled]="isHizmetDisabled()">
+          <button ion-button icon-only (click)="deleteHizmetDetay(detay)" table-button style="width: 100%"
+                  color="colorerror" [disabled]="isHizmetDisabled()">
             <i class="fas fa-trash-alt" style="margin-right:0"></i>
           </button>
         </ion-col>
 
       </ion-row>
     </ion-col>
-  </ion-row>
+  </ion-row-->
 
   <ion-row>
 
@@ -163,7 +189,8 @@
       </ion-col>
 
       <ion-col col-8 col-md-10>
-        <ion-textarea [(ngModel)]="hizmet.aciklama" [disabled]="isHizmetDisabled()" (ionBlur)="onHizmetChange()"></ion-textarea>
+        <ion-textarea [(ngModel)]="hizmet.aciklama" [disabled]="isHizmetDisabled()"
+                      (ionBlur)="onHizmetChange()"></ion-textarea>
       </ion-col>
 
       <ion-col col-4 col-md-2>
@@ -173,7 +200,8 @@
       </ion-col>
 
       <ion-col col-8 col-md-10>
-        <ion-select [(ngModel)]="hizmet.kapatmaKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()" interface="popover">
+        <ion-select [(ngModel)]="hizmet.kapatmaKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"
+                    interface="popover">
           <ion-option value="NORMAL">Normal Kapatma</ion-option>
           <ion-option value="MESGULIYET">Meşguliyet Kapatma</ion-option>
         </ion-select>
@@ -187,7 +215,8 @@
       </ion-col>
 
       <ion-col col-8 col-md-10>
-        <ion-select [(ngModel)]="hizmet.odemeTipi" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()" interface="popover">
+        <ion-select [(ngModel)]="hizmet.odemeTipi" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"
+                    interface="popover">
           <ion-option value="NAKIT">Nakit</ion-option>
           <ion-option value="KREDIKARTI">Kredi Kartı</ion-option>
         </ion-select>
@@ -200,7 +229,8 @@
       </ion-col>
 
       <ion-col col-8 col-md-10>
-        <ion-select [(ngModel)]="hizmet.cozumKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()" interface="popover">
+        <ion-select [(ngModel)]="hizmet.cozumKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()"
+                    interface="popover">
           <ion-option *ngFor="let cozum of cozumKoduList" [value]="cozum.kod">{{cozum.ad}}</ion-option>
         </ion-select>
       </ion-col>
@@ -213,11 +243,13 @@
 
       <ion-col col-6 col-md-4>
 
-        <ion-label color="primary" class="radio-btn pull-left" style="text-align: end;position: relative;">{{iletisimIstek == true ? 'EVET' : 'HAYIR'}}
+        <ion-label color="primary" class="radio-btn pull-left" style="text-align: end;position: relative;">
+          {{iletisimIstek == true ? 'EVET' : 'HAYIR'}}
 
         </ion-label>
-        <ion-toggle (ionChange)="iletisimIstekChange()" class="toggle-btn pull-left" style="text-align: end;" [disabled]="isHizmetDisabled()"
-          [(ngModel)]="iletisimIstek"></ion-toggle>
+        <ion-toggle (ionChange)="iletisimIstekChange()" class="toggle-btn pull-left" style="text-align: end;"
+                    [disabled]="isHizmetDisabled()"
+                    [(ngModel)]="iletisimIstek"></ion-toggle>
       </ion-col>
 
     </ion-row>
