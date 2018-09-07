@@ -36,7 +36,6 @@
     "bootstrap": "^3.3.7",
     "call-number": "^1.0.1",
     "com.silverchip.cordovaprinter": "./resources/printer-plugins/ios-zebra-printer",
-    "cordova-android": "6.4.0",
     "cordova-bluetooth-printer-plugin-master": "file:resources/printer-plugins/Cordova-Bluetooth-Printer-Plugin-master",
     "cordova-browser": "^5.0.4",
     "cordova-custom-config": "^5.0.2",
@@ -117,7 +116,6 @@
       "org.frd49.cordova.exitapp": {}
     },
     "platforms": [
-      "android",
       "browser",
       "ios"
     ]
