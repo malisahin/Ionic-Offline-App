@@ -3902,6 +3902,10 @@ ion-icon::before {
   width: 20%;
 }
 
+.green-theme .spinner {
+  background: rgba(52, 140, 76, 0.77);
+}
+
 .green-theme .header button.disable-hover.bar-button.bar-button-ios.bar-button-default.bar-button-default-ios {
   color: #ffffff;
 }
@@ -4145,6 +4149,7 @@ ion-icon::before {
 .green-theme .content .card-box1 {
   background: rgba(1, 75, 38, 0.75);
   border: 1px solid #2b8145;
+  color: #ffffff;
 }
 
 .green-theme .content .card-box {
@@ -4203,25 +4208,29 @@ ion-icon::before {
   color: #ffffff;
 }
 
-.footer {
+.green-theme .footer {
   background: #014b26;
   border-top: 1px solid #086b3a;
 }
 
-.footer .toolbar-background-ios {
+.green-theme .footer .item-ios {
+  background: #014b26;
+}
+
+.green-theme .footer .toolbar-background-ios {
   background-color: #2b8145;
 }
 
-.footer .label {
+.green-theme .footer .label {
   color: #ffffff;
 }
 
-.footer .button-ios-light, .footer .button-md-light {
+.green-theme .footer .button-ios-light, .green-theme .footer .button-md-light {
   color: #ffffff;
-  background-color: #2b8145;
+  background-color: inherit;
 }
 
-.footer .select-md, .footer .select-ios {
+.green-theme .footer .select-md, .green-theme .footer .select-ios {
   color: #ffffff;
 }
 
@@ -4280,6 +4289,10 @@ ion-icon::before {
 .pagination-detail {
   display: table-cell;
   width: 20%;
+}
+
+.blue-theme .spinner {
+  background: rgba(25, 88, 132, 0.83);
 }
 
 .blue-theme .header button.disable-hover.bar-button.bar-button-ios.bar-button-default.bar-button-default-ios {
@@ -4436,6 +4449,7 @@ ion-icon::before {
 
 .blue-theme .content .card-ios {
   background-color: rgba(0, 82, 121, 0.56);
+  color: #ffffff;
 }
 
 .blue-theme .content .card-ios p {
@@ -4576,25 +4590,30 @@ ion-icon::before {
   color: #ffffff;
 }
 
-.footer .toolbar-background-ios {
+.blue-theme .footer {
+  background: #195884;
+  border-top: 1px solid #4497ad;
+}
+
+.blue-theme .footer .toolbar-background-ios {
   background-color: #195884;
 }
 
-.footer .item-ios, .footer .item-md {
+.blue-theme .footer .item-ios, .blue-theme .footer .item-md {
   background-color: inherit;
   color: #ffffff;
 }
 
-.footer .label {
+.blue-theme .footer .label {
   color: #ffffff;
 }
 
-.footer .button-ios-light, .footer .button-md-light {
+.blue-theme .footer .button-ios-light, .blue-theme .footer .button-md-light {
   color: #ffffff;
   background-color: inherit;
 }
 
-.footer .select-md, .footer .select-ios {
+.blue-theme .footer .select-md, .blue-theme .footer .select-ios {
   color: #ffffff;
 }
 
@@ -4989,7 +5008,6 @@ hizmet-bilgileri .item-inner.item-md.item-input.ng-valid.item-input-has-value:no
   margin-right: 20px;
   font-size: 25px;
   font-weight: bold;
-  width: 200px;
 }
 
 .header .tabbar {
@@ -5191,7 +5209,10 @@ mesaj-detail .content .row-border {
 }
 
 .content .card-box1 {
-  padding: 10px;
+  padding: 5px;
+  margin: 0px;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .content .card-box {

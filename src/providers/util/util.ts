@@ -8,7 +8,7 @@ import { LoggerProvider } from "../logger/logger";
 import { User } from "../../entities/user";
 import { DomSanitizer } from "@angular/platform-browser";
 import { SpinnerComponent } from "../../components/spinner/spinner";
-import {ThemeProvider} from "../theme/theme";
+import { ThemeProvider } from "../theme/theme";
 
 @Injectable()
 export class UtilProvider {
@@ -292,7 +292,7 @@ export class UtilProvider {
     if (!this.isSpinnerRunning) {
       this.spinner = this.modalCtrl.create(SpinnerComponent,
         { showPercentage: showPercentage },
-        { enableBackdropDismiss: false });
+        { enableBackdropDismiss: false, cssClass: this.getSelectedTheme() });
       this.spinner.present();
     }
     this.isSpinnerRunning = true;

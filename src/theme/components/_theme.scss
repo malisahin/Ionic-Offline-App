@@ -316,7 +316,6 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
     margin-right: 20px;
     font-size: 25px;
     font-weight: bold;
-    width:200px;
   }
 
   .tabbar {
@@ -540,7 +539,10 @@ mesaj-detail .content .row-border{
   }
 
 .card-box1{
-  padding: 10px;
+  padding: 5px;
+  margin: 0px;
+  width: 100%;
+  margin-bottom: 10px
 }
 
   .card-box {

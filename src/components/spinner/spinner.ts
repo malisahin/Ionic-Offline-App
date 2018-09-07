@@ -23,6 +23,7 @@ export class SpinnerComponent {
 
 
   ionViewDidLoad() {
+
     let showPercentage = this.navParams.get("showPercentage");
     if (this.util.isNotEmpty(showPercentage))
       this.showPercentage = showPercentage;

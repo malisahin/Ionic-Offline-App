@@ -1,8 +1,8 @@
 
 @import "common";
-$color-darkBlue: #00684e;
-$color-blue: rgba(52, 140, 76, 0.77);
-$color-lightBlue: #00684e;
+$color-dark: #00684e;
+$color-main: rgba(52, 140, 76, 0.77);
+$color-light: #00684e;
 $color-white: #ffffff;
 $color-red:rgba(204, 0, 0, 0.80);
 $color-green: #41a85f;
@@ -20,6 +20,10 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
 
 
 .green-theme {
+
+  .spinner {
+    background:$color-main;
+  }
 
   //*------- START:HEADER -----*//
   .header {
@@ -43,30 +47,30 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
       }
 
       .toolbar-title-ios {
-        color: $color-darkBlue;
+        color: $color-dark;
 
       }
     }
 
     .tabs-ios-primary .tabbar, .tabs-md-primary .tabbar {
-      border-color: $color-darkBlue;
-      background-color: $color-darkBlue;
+      border-color: $color-dark;
+      background-color: $color-dark;
     }
 
     .toolbar-title-md, .toolbar-title-ios {
-      color: $color-darkBlue;
+      color: $color-dark;
 
     }
 
     .header-title .toolbar-title-ios {
-      color: $color-darkBlue;
+      color: $color-dark;
     }
 
   }
 
   .ion-page {
     .header-title .toolbar-title-ios {
-      color: $color-darkBlue;
+      color: $color-dark;
     }
   }
 
@@ -83,7 +87,7 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
   .login-content {
 
     .submit-btn {
-      background: $color-blue;
+      background: $color-main;
     }
 
     .button-ios-secondary, .button-md-secondary, .button-md-secondary:hover:not(.disable-hover) {
@@ -157,7 +161,7 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
     }
 
     .item-ios{
-      background:$color-blue;
+      background:$color-main;
       color:$color-white;
     }
 
@@ -197,7 +201,7 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
     }
 
     .card-ios{
-      background-color:$color-blue;
+      background-color:$color-main;
       box-shadow: 4px 4px $color-header;
 
       p{
@@ -219,7 +223,7 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
     }
 
     .searchbar-ios .searchbar-input, .searchbar-md .searchbar-input {
-      border: 1px solid $color-lightBlue;
+      border: 1px solid $color-light;
       background: $color-input;
       color:$color-white;
     }
@@ -231,7 +235,7 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
     }
 
     .button-md-notDownloaded {
-      background-color: $color-blue;
+      background-color: $color-main;
     }
 
     .text-input-ios, .text-input {
@@ -246,17 +250,17 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
     }
 
     .searchbar-ios .searchbar-input {
-      border: 1px solid $color-blue;
+      border: 1px solid $color-main;
       background: $color-input;
       color:$color-white;
     }
 
     .select-md {
-      border: 1px solid $color-lightBlue;
+      border: 1px solid $color-light;
     }
 
     .item-select .label-md {
-      color: $color-blue;
+      color: $color-main;
     }
 
     textarea.text-input {
@@ -270,7 +274,7 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
     }
 
     .segment-ios .segment-button.segment-activated {
-      box-shadow: 5px 2px 15px 0px $color-blue;
+      box-shadow: 5px 2px 15px 0px $color-main;
       background-color: $color-button;
     }
 
@@ -285,11 +289,12 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
     .card-box1 {
         background: $color-card-box-dark;
         border:1px solid $color-button;
+        color:$color-white;
     }
 
     .card-box {
-      background: $color-blue;
-      border: 1px solid $color-lightBlue;
+      background: $color-main;
+      border: 1px solid $color-light;
 
       i {
         color: $color-white;
@@ -300,7 +305,7 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
     }
 
     .item-input .label-md, .item-datetime .label-md {
-      color: $color-blue;
+      color: $color-main;
     }
 
     .main-tabs {
@@ -341,21 +346,23 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
   }
 
   .segment-button.activated, .segment-button.segment-activated {
-    border-color: $color-blue;
+    border-color: $color-main;
     background: $color-button;
     color: $color-white;
   }
 
   .searchbox .searchbar-md .searchbar-input {
-    border: 1px solid $color-blue;
+    border: 1px solid $color-main;
     background: $color-input;
     color:$color-white;
   }
 
-}
-
+  
 //*------- START:FOOTER -----*//
 .footer {
+  .item-ios{
+    background: $color-header;
+  }
 
   background:$color-header;
   border-top:1px solid $color-row-border;
@@ -371,7 +378,7 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
 
   .button-ios-light, .button-md-light {
     color: $color-white;
-    background-color: $color-button;
+    background-color:inherit;
   }
 
   .select-md, .select-ios {
@@ -381,6 +388,8 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
 }
 
 //*------- END:FOOTER -----*//
+}
+
 
 .msj-info {
   background: blue;
