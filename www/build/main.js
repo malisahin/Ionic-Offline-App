@@ -1,4 +1,4 @@
-webpackJsonp([3],{
+webpackJsonp([2],{
 
 /***/ 101:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -155,7 +155,7 @@ var Anasayfa = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HeaderComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_controller__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_mesajlar_dao_mesajlar_dao__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_mesajlar_dao_mesajlar_dao__ = __webpack_require__(180);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_hizmet_dao_hizmet_dao__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_header_header__ = __webpack_require__(158);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_cagrilar_cagrilar__ = __webpack_require__(66);
@@ -556,7 +556,7 @@ var AdresDao = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_mesajlar_mesajlar__ = __webpack_require__(114);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_mesajlar__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_mesaj_detail_mesaj_detail__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_mesaj_detail_mesaj_detail__ = __webpack_require__(185);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_Pageable__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_header_header__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_Constants__ = __webpack_require__(6);
@@ -727,7 +727,7 @@ var BildirimlerPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_mesajlar__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mesajlar_dao_mesajlar_dao__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mesajlar_dao_mesajlar_dao__ = __webpack_require__(180);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__token_token__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_Constants__ = __webpack_require__(6);
@@ -1351,7 +1351,7 @@ var IslemArizaIscilikDao = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logger_logger__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mesajlar_mesajlar__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__versiyon_versiyon__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__versiyon_versiyon__ = __webpack_require__(192);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_Constants__ = __webpack_require__(6);
 /**
  * @author mali.sahin
@@ -1870,129 +1870,7 @@ var HeaderProvider = (function (_super) {
 
 /***/ }),
 
-/***/ 159:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export CacheItem */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CacheProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_cache__ = __webpack_require__(285);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__base_base__ = __webpack_require__(76);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [0, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-
-
-
-/**
- * @author mali.sahin
- * @since 15-08-2018
- */
-var CacheItem = (function () {
-    function CacheItem(type) {
-        this.type = type;
-        this.cacheType = type;
-    }
-    return CacheItem;
-}());
-
-var CacheProvider = (function (_super) {
-    __extends(CacheProvider, _super);
-    function CacheProvider(cacheService) {
-        var _this = _super.call(this) || this;
-        _this.cacheService = cacheService;
-        _this.defaultTTL = 60 * 60;
-        cacheService.setDefaultTTL(_this.defaultTTL);
-        return _this;
-    }
-    CacheProvider.prototype.init = function () {
-    };
-    CacheProvider.prototype.saveItem = function (key, value, group) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.cacheService.saveItem(key, value, group, this.defaultTTL)];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    CacheProvider.prototype.saveLog = function (data, type) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                return [2 /*return*/];
-            });
-        });
-    };
-    CacheProvider.prototype.getLog = function () {
-        return this.cacheService.getRawItems();
-    };
-    CacheProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_cache__["b" /* CacheService */]])
-    ], CacheProvider);
-    return CacheProvider;
-}(__WEBPACK_IMPORTED_MODULE_2__base_base__["a" /* BaseProvider */]));
-
-//# sourceMappingURL=cache.js.map
-
-/***/ }),
-
-/***/ 164:
+/***/ 163:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2067,17 +1945,125 @@ var SpinnerComponent = (function () {
 
 /***/ }),
 
+/***/ 179:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Profil; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__domain__ = __webpack_require__(892);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Constants__ = __webpack_require__(6);
+/**
+ * @author malisahin
+ * @email mehmetalisahinogullari@gmail.com
+ */
+
+
+var Profil = (function () {
+    function Profil() {
+    }
+    Profil.getActiveProfil = function () {
+        return Profil.getEcaTestDomain();
+    };
+    Profil.getOrgKod = function () {
+        return Profil.getActiveProfil().orgKod;
+    };
+    Profil.getlocalDev = function () {
+        var domain = new __WEBPACK_IMPORTED_MODULE_0__domain__["a" /* Domain */]();
+        domain.orgKod = __WEBPACK_IMPORTED_MODULE_1__Constants__["a" /* Constants */].ORG_KODS.SOS;
+        domain.kod = 'SECRET';
+        domain.name = 'Development';
+        domain.domainUrl = "http://10.10.10.151:7001";
+        domain.securityUrl = "http://sos.ecaservis.com.tr:7003";
+        domain.webappurl = "http://sos.ecaservis.com.tr";
+        return domain;
+    };
+    Profil.getlocalTest = function () {
+        var domain = new __WEBPACK_IMPORTED_MODULE_0__domain__["a" /* Domain */]();
+        domain.orgKod = __WEBPACK_IMPORTED_MODULE_1__Constants__["a" /* Constants */].ORG_KODS.SOS;
+        domain.kod = 'SECRET';
+        domain.name = 'Development';
+        domain.domainUrl = "http://10.10.10.26:7005";
+        domain.securityUrl = "http://10.10.10.26:7005";
+        domain.webappurl = "http://10.10.10.26:7005";
+        return domain;
+    };
+    Profil.getBaymakTestVPNDomain = function () {
+        var domain = new __WEBPACK_IMPORTED_MODULE_0__domain__["a" /* Domain */]();
+        domain.orgKod = __WEBPACK_IMPORTED_MODULE_1__Constants__["a" /* Constants */].ORG_KODS.BAY;
+        domain.kod = 'SECRET';
+        domain.name = 'Development';
+        domain.domainUrl = "http://172.24.1.10:7005";
+        domain.securityUrl = "http://172.24.1.10:7005";
+        domain.webappurl = "http://172.24.1.10:7005";
+        return domain;
+    };
+    Profil.getBaymakTestDomain = function () {
+        var domain = new __WEBPACK_IMPORTED_MODULE_0__domain__["a" /* Domain */]();
+        domain.orgKod = __WEBPACK_IMPORTED_MODULE_1__Constants__["a" /* Constants */].ORG_KODS.BAY;
+        domain.kod = 'SECRET';
+        domain.name = 'Development';
+        domain.domainUrl = "http://sos.baymak.com.tr:7008";
+        domain.securityUrl = "http://sos.baymak.com.tr:7008";
+        domain.webappurl = "http://sos.baymak.com.tr:7008";
+        return domain;
+    };
+    Profil.getBaymakProdDomain = function () {
+        var domain = new __WEBPACK_IMPORTED_MODULE_0__domain__["a" /* Domain */]();
+        domain.orgKod = __WEBPACK_IMPORTED_MODULE_1__Constants__["a" /* Constants */].ORG_KODS.BAY;
+        domain.kod = 'SECRET';
+        domain.name = 'Development';
+        domain.domainUrl = "http://sos.baymak.com.tr:7006";
+        domain.securityUrl = "http://sos.baymak.com.tr:7006";
+        domain.webappurl = "http://sos.baymak.com.tr:7005";
+        return domain;
+    };
+    Profil.getEcaTestDomain = function () {
+        var domain = new __WEBPACK_IMPORTED_MODULE_0__domain__["a" /* Domain */]();
+        domain.orgKod = __WEBPACK_IMPORTED_MODULE_1__Constants__["a" /* Constants */].ORG_KODS.ECA;
+        domain.kod = 'SECRET';
+        domain.name = 'Development';
+        domain.domainUrl = "http://sos.ecaservis.com.tr:7003";
+        domain.securityUrl = "http://sos.ecaservis.com.tr:7003";
+        domain.webappurl = "http://sos.ecaservis.com.tr";
+        return domain;
+    };
+    Profil.getEcaProdDomain = function () {
+        var domain = new __WEBPACK_IMPORTED_MODULE_0__domain__["a" /* Domain */]();
+        domain.orgKod = __WEBPACK_IMPORTED_MODULE_1__Constants__["a" /* Constants */].ORG_KODS.ECA;
+        domain.kod = 'SECRET';
+        domain.name = 'Development';
+        domain.domainUrl = "http://sos.ecaservis.com.tr:7009";
+        domain.securityUrl = "http://sos.ecaservis.com.tr:7009";
+        domain.webappurl = "http://sos.ecaservis.com.tr:7009";
+        return domain;
+    };
+    Profil.getCustomer3 = function () {
+        var domain = new __WEBPACK_IMPORTED_MODULE_0__domain__["a" /* Domain */]();
+        domain.orgKod = "SAHIN";
+        domain.kod = 'SECRET';
+        domain.name = 'Development';
+        domain.domainUrl = "";
+        domain.securityUrl = "";
+        return domain;
+    };
+    return Profil;
+}());
+
+//# sourceMappingURL=profil.js.map
+
+/***/ }),
+
 /***/ 18:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ThemeProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs__ = __webpack_require__(617);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs__ = __webpack_require__(616);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_Constants__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_user__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_profil__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_profil__ = __webpack_require__(179);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__base_base__ = __webpack_require__(76);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -2171,114 +2157,6 @@ var ThemeProvider = (function (_super) {
 /***/ }),
 
 /***/ 180:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Profil; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__domain__ = __webpack_require__(893);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Constants__ = __webpack_require__(6);
-/**
- * @author malisahin
- * @email mehmetalisahinogullari@gmail.com
- */
-
-
-var Profil = (function () {
-    function Profil() {
-    }
-    Profil.getActiveProfil = function () {
-        return Profil.getEcaTestDomain();
-    };
-    Profil.getOrgKod = function () {
-        return Profil.getActiveProfil().orgKod;
-    };
-    Profil.getlocalDev = function () {
-        var domain = new __WEBPACK_IMPORTED_MODULE_0__domain__["a" /* Domain */]();
-        domain.orgKod = __WEBPACK_IMPORTED_MODULE_1__Constants__["a" /* Constants */].ORG_KODS.SOS;
-        domain.kod = 'SECRET';
-        domain.name = 'Development';
-        domain.domainUrl = "http://10.10.10.151:7001";
-        domain.securityUrl = "http://sos.ecaservis.com.tr:7003";
-        domain.webappurl = "http://sos.ecaservis.com.tr";
-        return domain;
-    };
-    Profil.getlocalTest = function () {
-        var domain = new __WEBPACK_IMPORTED_MODULE_0__domain__["a" /* Domain */]();
-        domain.orgKod = __WEBPACK_IMPORTED_MODULE_1__Constants__["a" /* Constants */].ORG_KODS.SOS;
-        domain.kod = 'SECRET';
-        domain.name = 'Development';
-        domain.domainUrl = "http://10.10.10.26:7005";
-        domain.securityUrl = "http://10.10.10.26:7005";
-        domain.webappurl = "http://10.10.10.26:7005";
-        return domain;
-    };
-    Profil.getBaymakTestVPNDomain = function () {
-        var domain = new __WEBPACK_IMPORTED_MODULE_0__domain__["a" /* Domain */]();
-        domain.orgKod = __WEBPACK_IMPORTED_MODULE_1__Constants__["a" /* Constants */].ORG_KODS.BAY;
-        domain.kod = 'SECRET';
-        domain.name = 'Development';
-        domain.domainUrl = "http://172.24.1.10:7005";
-        domain.securityUrl = "http://172.24.1.10:7005";
-        domain.webappurl = "http://172.24.1.10:7005";
-        return domain;
-    };
-    Profil.getBaymakTestDomain = function () {
-        var domain = new __WEBPACK_IMPORTED_MODULE_0__domain__["a" /* Domain */]();
-        domain.orgKod = __WEBPACK_IMPORTED_MODULE_1__Constants__["a" /* Constants */].ORG_KODS.BAY;
-        domain.kod = 'SECRET';
-        domain.name = 'Development';
-        domain.domainUrl = "http://sos.baymak.com.tr:7008";
-        domain.securityUrl = "http://sos.baymak.com.tr:7008";
-        domain.webappurl = "http://sos.baymak.com.tr:7008";
-        return domain;
-    };
-    Profil.getBaymakProdDomain = function () {
-        var domain = new __WEBPACK_IMPORTED_MODULE_0__domain__["a" /* Domain */]();
-        domain.orgKod = __WEBPACK_IMPORTED_MODULE_1__Constants__["a" /* Constants */].ORG_KODS.BAY;
-        domain.kod = 'SECRET';
-        domain.name = 'Development';
-        domain.domainUrl = "http://sos.baymak.com.tr:7006";
-        domain.securityUrl = "http://sos.baymak.com.tr:7006";
-        domain.webappurl = "http://sos.baymak.com.tr:7005";
-        return domain;
-    };
-    Profil.getEcaTestDomain = function () {
-        var domain = new __WEBPACK_IMPORTED_MODULE_0__domain__["a" /* Domain */]();
-        domain.orgKod = __WEBPACK_IMPORTED_MODULE_1__Constants__["a" /* Constants */].ORG_KODS.BAY;
-        domain.kod = 'SECRET';
-        domain.name = 'Development';
-        domain.domainUrl = "http://sos.ecaservis.com.tr:7003";
-        domain.securityUrl = "http://sos.ecaservis.com.tr:7003";
-        domain.webappurl = "http://sos.ecaservis.com.tr";
-        return domain;
-    };
-    Profil.getEcaProdDomain = function () {
-        var domain = new __WEBPACK_IMPORTED_MODULE_0__domain__["a" /* Domain */]();
-        domain.orgKod = __WEBPACK_IMPORTED_MODULE_1__Constants__["a" /* Constants */].ORG_KODS.ECA;
-        domain.kod = 'SECRET';
-        domain.name = 'Development';
-        domain.domainUrl = "http://sos.ecaservis.com.tr:7009";
-        domain.securityUrl = "http://sos.ecaservis.com.tr:7009";
-        domain.webappurl = "http://sos.ecaservis.com.tr:7009";
-        return domain;
-    };
-    Profil.getCustomer3 = function () {
-        var domain = new __WEBPACK_IMPORTED_MODULE_0__domain__["a" /* Domain */]();
-        domain.orgKod = "SAHIN";
-        domain.kod = 'SECRET';
-        domain.name = 'Development';
-        domain.domainUrl = "";
-        domain.securityUrl = "";
-        return domain;
-    };
-    return Profil;
-}());
-
-//# sourceMappingURL=profil.js.map
-
-/***/ }),
-
-/***/ 181:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2448,7 +2326,7 @@ var MesajlarDao = (function () {
 
 /***/ }),
 
-/***/ 182:
+/***/ 181:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2563,7 +2441,7 @@ var CagriDetayPage = (function () {
 
 /***/ }),
 
-/***/ 183:
+/***/ 182:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2572,9 +2450,9 @@ var CagriDetayPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logger_logger__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_hizmet_Ankets_Anket__ = __webpack_require__(898);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_hizmet_Ankets_AnketSoru__ = __webpack_require__(899);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_hizmet_Ankets_AnketMst__ = __webpack_require__(900);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_hizmet_Ankets_Anket__ = __webpack_require__(897);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_hizmet_Ankets_AnketSoru__ = __webpack_require__(898);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_hizmet_Ankets_AnketMst__ = __webpack_require__(899);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__api_api__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__token_token__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__entities_Constants__ = __webpack_require__(6);
@@ -2741,14 +2619,14 @@ var AnketService = (function () {
 
 /***/ }),
 
-/***/ 185:
+/***/ 184:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CagriAramaModalPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_view_controller__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_hizmet_HizmetSearch__ = __webpack_require__(901);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_hizmet_HizmetSearch__ = __webpack_require__(900);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_Constants__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_theme_theme__ = __webpack_require__(18);
@@ -2856,7 +2734,7 @@ var CagriAramaModalPage = (function () {
 
 /***/ }),
 
-/***/ 186:
+/***/ 185:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2962,7 +2840,7 @@ var MesajDetailComponent = (function () {
 
 /***/ }),
 
-/***/ 187:
+/***/ 186:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3103,7 +2981,7 @@ var UrunProvider = (function () {
 
 /***/ }),
 
-/***/ 188:
+/***/ 187:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3113,9 +2991,9 @@ var UrunProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(452);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_urun_iscilik__ = __webpack_require__(189);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_urun_iscilik__ = __webpack_require__(188);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__urun_iscilik_dao_urun_iscilik_dao__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__urun_iscilik_dao_urun_iscilik_dao__ = __webpack_require__(189);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__token_token__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__util_util__ = __webpack_require__(5);
 /**
@@ -3242,7 +3120,7 @@ var UrunIscilikProvider = (function () {
 
 /***/ }),
 
-/***/ 189:
+/***/ 188:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3306,7 +3184,7 @@ var UrunIscilik = (function (_super) {
 
 /***/ }),
 
-/***/ 190:
+/***/ 189:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3399,7 +3277,7 @@ var UrunIscilikDao = (function () {
 
 /***/ }),
 
-/***/ 191:
+/***/ 190:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3407,7 +3285,7 @@ var UrunIscilikDao = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_fiyat__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_fiyat__ = __webpack_require__(191);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__fiyat_dao_fiyat_dao__ = __webpack_require__(88);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__token_token__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_Constants__ = __webpack_require__(6);
@@ -3580,7 +3458,7 @@ var FiyatProvider = (function () {
 
 /***/ }),
 
-/***/ 192:
+/***/ 191:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3649,7 +3527,7 @@ var Fiyat = (function (_super) {
 
 /***/ }),
 
-/***/ 193:
+/***/ 192:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3787,7 +3665,7 @@ var VersiyonProvider = (function () {
 
 /***/ }),
 
-/***/ 194:
+/***/ 193:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3813,7 +3691,7 @@ var GarantiSorgu = (function () {
 
 /***/ }),
 
-/***/ 195:
+/***/ 194:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3821,7 +3699,7 @@ var GarantiSorgu = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_garanti_sonuc_garanti_sonuc__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_garanti_sonuc_garanti_sonuc__ = __webpack_require__(195);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__token_token__ = __webpack_require__(27);
@@ -3939,14 +3817,14 @@ var GarantiSorguProvider = (function () {
 
 /***/ }),
 
-/***/ 196:
+/***/ 195:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GarantiSonucComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_GarantiSorgu__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_GarantiSorgu__ = __webpack_require__(193);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_urun_dao_urun_dao__ = __webpack_require__(115);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_theme_theme__ = __webpack_require__(18);
@@ -4053,19 +3931,19 @@ var GarantiSonucComponent = (function () {
 
 /***/ }),
 
-/***/ 197:
+/***/ 196:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UrunIscilikSearchComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_urun_iscilik__ = __webpack_require__(189);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_urun_iscilik__ = __webpack_require__(188);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_Pageable__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_urun_iscilik_dao_urun_iscilik_dao__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_urun_iscilik_dao_urun_iscilik_dao__ = __webpack_require__(189);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_urun_iscilik_urun_iscilik__ = __webpack_require__(188);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_urun_iscilik_urun_iscilik__ = __webpack_require__(187);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_theme_theme__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4171,7 +4049,7 @@ var UrunIscilikSearchComponent = (function () {
 
 /***/ }),
 
-/***/ 198:
+/***/ 197:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4329,7 +4207,7 @@ var MalzemeSearchComponent = (function () {
 
 /***/ }),
 
-/***/ 199:
+/***/ 198:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4337,7 +4215,7 @@ var MalzemeSearchComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnketComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_hizmet_Ankets_AnketCevap__ = __webpack_require__(905);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_hizmet_Ankets_AnketCevap__ = __webpack_require__(904);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_logger_logger__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_hizmet_service_hizmet_service__ = __webpack_require__(30);
@@ -4492,7 +4370,7 @@ var AnketComponent = (function () {
 
 /***/ }),
 
-/***/ 200:
+/***/ 199:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4541,7 +4419,7 @@ var BilgiSorguPage = (function () {
 
 /***/ }),
 
-/***/ 201:
+/***/ 200:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4556,7 +4434,7 @@ var BilgiSorguPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_urun_ana_grp_urun_ana_grp__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_hizmet_hizmet__ = __webpack_require__(83);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_hizmet_service_hizmet_service__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_brans_brans__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_brans_brans__ = __webpack_require__(201);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__entities_Brans__ = __webpack_require__(523);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_theme_theme__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -4810,7 +4688,7 @@ var UpdateUrunAnaGrupComponent = (function () {
 
 /***/ }),
 
-/***/ 202:
+/***/ 201:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4927,7 +4805,7 @@ var BransProvider = (function () {
 
 /***/ }),
 
-/***/ 203:
+/***/ 202:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4938,9 +4816,9 @@ var BransProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_logger_logger__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__detay_piy_search_detay_piy_search__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__detay_piy_search_detay_piy_search__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_fiyat_dao_fiyat_dao__ = __webpack_require__(88);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__entities_fiyat__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__entities_fiyat__ = __webpack_require__(191);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_hizmet_service_hizmet_service__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_islem_ariza_iscilik_dao_islem_ariza_iscilik_dao__ = __webpack_require__(118);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__entities_islem_ariza_iscilik__ = __webpack_require__(513);
@@ -5346,7 +5224,7 @@ var HizmetDetayComponent = (function () {
 
 /***/ }),
 
-/***/ 204:
+/***/ 203:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5610,14 +5488,14 @@ var DetayPiySearchComponent = (function () {
 
 /***/ }),
 
-/***/ 205:
+/***/ 204:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PipesModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__safe_html_safe_html__ = __webpack_require__(914);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__date_format_date_format__ = __webpack_require__(915);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__safe_html_safe_html__ = __webpack_require__(913);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__date_format_date_format__ = __webpack_require__(914);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5650,7 +5528,7 @@ var PipesModule = (function () {
 
 /***/ }),
 
-/***/ 206:
+/***/ 205:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5693,7 +5571,7 @@ var KutuphanePage = (function () {
 
 /***/ }),
 
-/***/ 207:
+/***/ 206:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5708,7 +5586,7 @@ var KutuphanePage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__anasayfa_anasayfa__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_theme_theme__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__entities_Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_deeplink_printer_deeplink_printer__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_deeplink_printer_deeplink_printer__ = __webpack_require__(207);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_table_total_elements_table_total_elements__ = __webpack_require__(536);
 /**
  * @author malisahin
@@ -5992,7 +5870,7 @@ var LoginPage = (function () {
 
 /***/ }),
 
-/***/ 208:
+/***/ 207:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6177,9 +6055,9 @@ var DeeplinkPrinterProvider = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApiProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_profil__ = __webpack_require__(180);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_enums_eProfil__ = __webpack_require__(895);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_Tablo__ = __webpack_require__(896);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_profil__ = __webpack_require__(179);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_enums_eProfil__ = __webpack_require__(894);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_Tablo__ = __webpack_require__(895);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_Constants__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_user__ = __webpack_require__(48);
@@ -6325,7 +6203,7 @@ var ApiProvider = (function () {
 
 /***/ }),
 
-/***/ 240:
+/***/ 239:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -6338,7 +6216,7 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 240;
+webpackEmptyAsyncContext.id = 239;
 
 /***/ }),
 
@@ -6350,8 +6228,8 @@ webpackEmptyAsyncContext.id = 240;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_token__ = __webpack_require__(897);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_network__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_token__ = __webpack_require__(896);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_network__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__logger_logger__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__util_util__ = __webpack_require__(5);
@@ -6520,12 +6398,12 @@ var TokenProvider = (function () {
 
 /***/ }),
 
-/***/ 283:
+/***/ 282:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/anasayfa/anasayfa.module": [
-		284
+		283
 	],
 	"../pages/ayarlar/ayarlar.module": [
 		516
@@ -6572,12 +6450,12 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 283;
+webpackAsyncContext.id = 282;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 284:
+/***/ 283:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6616,6 +6494,128 @@ var AnasayfaPageModule = (function () {
 }());
 
 //# sourceMappingURL=anasayfa.module.js.map
+
+/***/ }),
+
+/***/ 284:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export CacheItem */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CacheProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_cache__ = __webpack_require__(285);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__base_base__ = __webpack_require__(76);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+/**
+ * @author mali.sahin
+ * @since 15-08-2018
+ */
+var CacheItem = (function () {
+    function CacheItem(type) {
+        this.type = type;
+        this.cacheType = type;
+    }
+    return CacheItem;
+}());
+
+var CacheProvider = (function (_super) {
+    __extends(CacheProvider, _super);
+    function CacheProvider(cacheService) {
+        var _this = _super.call(this) || this;
+        _this.cacheService = cacheService;
+        _this.defaultTTL = 60 * 60;
+        cacheService.setDefaultTTL(_this.defaultTTL);
+        return _this;
+    }
+    CacheProvider.prototype.init = function () {
+    };
+    CacheProvider.prototype.saveItem = function (key, value, group) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.cacheService.saveItem(key, value, group, this.defaultTTL)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    CacheProvider.prototype.saveLog = function (data, type) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/];
+            });
+        });
+    };
+    CacheProvider.prototype.getLog = function () {
+        return this.cacheService.getRawItems();
+    };
+    CacheProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_cache__["b" /* CacheService */]])
+    ], CacheProvider);
+    return CacheProvider;
+}(__WEBPACK_IMPORTED_MODULE_2__base_base__["a" /* BaseProvider */]));
+
+//# sourceMappingURL=cache.js.map
 
 /***/ }),
 
@@ -7250,18 +7250,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SharedModule", function() { return SharedModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_module__ = __webpack_require__(894);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_module__ = __webpack_require__(893);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_header_header__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_garanti_sorgu_garanti_sorgu__ = __webpack_require__(515);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_garanti_sonuc_garanti_sonuc__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_fiyat_sorgu_fiyat_sorgu__ = __webpack_require__(904);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_garanti_sonuc_garanti_sonuc__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_fiyat_sorgu_fiyat_sorgu__ = __webpack_require__(903);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_urun_ana_grup_search_urun_ana_grup_search__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_urun_search_urun_search__ = __webpack_require__(89);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_urun_iscilik_search_urun_iscilik_search__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_urun_iscilik_search_urun_iscilik_search__ = __webpack_require__(196);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_zebra_printer_zebra_printer__ = __webpack_require__(121);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_malzeme_search_malzeme_search__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_anket_anket__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_spinner_spinner__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_malzeme_search_malzeme_search__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_anket_anket__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_spinner_spinner__ = __webpack_require__(163);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7652,9 +7652,9 @@ var UrunAnaGrupListe = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_network__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_network__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__logger_logger__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_spinner_spinner__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_spinner_spinner__ = __webpack_require__(163);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__theme_theme__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8324,9 +8324,9 @@ var IslemArizaIscilik = (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_Constants__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__adres_dao_adres_dao__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__logger_logger__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_Sehir__ = __webpack_require__(902);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_Sehir__ = __webpack_require__(901);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_Ilce__ = __webpack_require__(508);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__entities_mahalle__ = __webpack_require__(903);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__entities_mahalle__ = __webpack_require__(902);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__token_token__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__entities_EntityUtil__ = __webpack_require__(55);
@@ -8551,8 +8551,8 @@ var AdresProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__urun_ana_grup_search_urun_ana_grup_search__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__urun_search_urun_search__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_common_http__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__entities_GarantiSorgu__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_garanti_sorgu_garanti_sorgu__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__entities_GarantiSorgu__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_garanti_sorgu_garanti_sorgu__ = __webpack_require__(194);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__entities_user__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_util_plugin_util_plugin__ = __webpack_require__(85);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -8771,8 +8771,6 @@ var AyarlarPageModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_tasks_tasks__ = __webpack_require__(119);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_theme_theme__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_logger_logger__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__log_log__ = __webpack_require__(577);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__log_log___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__log_log__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8821,7 +8819,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-
 
 
 
@@ -9068,14 +9065,15 @@ var AyarlarPage = (function () {
         }
     };
     AyarlarPage.prototype.onChangeTheme = function () {
-        if (this.util.isEmpty(this.selectedTheme)) {
-            this.logger.log("Tema seçilmemiş default set edilir.");
-            this.themeProvider.setTheme();
-        }
-        else {
-            this.logger.log("Tema değiştirildi. Yeni tema" + this.selectedTheme);
-            this.themeProvider.changeTheme(this.selectedTheme);
-        }
+        /* if (this.util.isEmpty(this.selectedTheme)) {
+           this.logger.log("Tema seçilmemiş default set edilir.");
+           this.themeProvider.setTheme();
+         } else {
+           this.logger.log("Tema değiştirildi. Yeni tema" + this.selectedTheme);
+           this.themeProvider.changeTheme(this.selectedTheme);
+         }
+     
+         */
     };
     AyarlarPage.prototype.onChangeMessageDuration = function (nerden) {
         if (this.util.isEmpty(this.messageDuration)) {
@@ -9094,7 +9092,7 @@ var AyarlarPage = (function () {
         }
     };
     AyarlarPage.prototype.showLogs = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_12__log_log__["LogPage"]);
+        //this.navCtrl.push(LogPage);
     };
     AyarlarPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -9127,7 +9125,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bildirimler__ = __webpack_require__(113);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_module_shared_module_module__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_mesaj_detail_mesaj_detail__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_mesaj_detail_mesaj_detail__ = __webpack_require__(185);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9168,7 +9166,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BilgiSorguPageModule", function() { return BilgiSorguPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bilgi_sorgu__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bilgi_sorgu__ = __webpack_require__(199);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_module_shared_module_module__ = __webpack_require__(42);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9209,19 +9207,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CagriDetayPageModule", function() { return CagriDetayPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cagri_detay__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_cagri_detay_Components_hizmet_bilgileri_hizmet_bilgileri__ = __webpack_require__(906);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_cagri_detay_Components_musteri_bilgileri_musteri_bilgileri__ = __webpack_require__(907);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_cagri_detay_components_servis_bilgileri_servis_bilgileri__ = __webpack_require__(908);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_cagri_detay_Components_urun_bilgileri_urun_bilgileri__ = __webpack_require__(909);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_cagri_detay_components_detay_bilgileri_detay_bilgileri__ = __webpack_require__(910);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_cagri_detay_components_servis_bilgileri_islem_tarih_islem_tarih__ = __webpack_require__(911);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_cagri_detay_components_servis_bilgileri_servis_islem_tarihce_servis_islem_tarihce__ = __webpack_require__(913);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cagri_detay__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_cagri_detay_Components_hizmet_bilgileri_hizmet_bilgileri__ = __webpack_require__(905);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_cagri_detay_Components_musteri_bilgileri_musteri_bilgileri__ = __webpack_require__(906);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_cagri_detay_components_servis_bilgileri_servis_bilgileri__ = __webpack_require__(907);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_cagri_detay_Components_urun_bilgileri_urun_bilgileri__ = __webpack_require__(908);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_cagri_detay_components_detay_bilgileri_detay_bilgileri__ = __webpack_require__(909);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_cagri_detay_components_servis_bilgileri_islem_tarih_islem_tarih__ = __webpack_require__(910);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_cagri_detay_components_servis_bilgileri_servis_islem_tarihce_servis_islem_tarihce__ = __webpack_require__(912);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__shared_module_shared_module_module__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_hizmet_detay_hizmet_detay__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_detay_piy_search_detay_piy_search__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_update_urun_ana_grup_update_urun_ana_grup__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pipes_pipes_module__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_hizmet_detay_hizmet_detay__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_detay_piy_search_detay_piy_search__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_update_urun_ana_grup_update_urun_ana_grup__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pipes_pipes_module__ = __webpack_require__(204);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9510,7 +9508,7 @@ var Brans = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_zebra_printer_zebra_printer__ = __webpack_require__(121);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__entities_profil__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__entities_profil__ = __webpack_require__(179);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9978,7 +9976,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CagriAramaModalPageModule", function() { return CagriAramaModalPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cagri_arama_modal__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cagri_arama_modal__ = __webpack_require__(184);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10018,7 +10016,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cagrilar__ = __webpack_require__(66);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_module_shared_module_module__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes_pipes_module__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes_pipes_module__ = __webpack_require__(204);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10184,7 +10182,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KutuphanePageModule", function() { return KutuphanePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__kutuphane__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__kutuphane__ = __webpack_require__(205);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10222,7 +10220,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(206);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10335,7 +10333,7 @@ var LoginProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logger_logger__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_user__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__brans_brans__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__brans_brans__ = __webpack_require__(201);
 /**
  * @author mali.sahin
  * @since 2018/04/25
@@ -10706,7 +10704,7 @@ var TableTotalElementsProvider = (function () {
 /* unused harmony export IndirilenVeri */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EntityUtil; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Constants__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__BaseEntity__ = __webpack_require__(616);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__BaseEntity__ = __webpack_require__(615);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -10764,19 +10762,12 @@ var EntityUtil = (function (_super) {
 /***/ }),
 
 /***/ 577:
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed: Error: ENOENT: no such file or directory, open 'D:\\DEVELOPMENT\\GIT\\Teknisyen Mobile\\Ionic-Offline-App-v3\\Ionic-Offline-App\\src\\pages\\log\\log.ts'");
-
-/***/ }),
-
-/***/ 578:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(579);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(583);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(578);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(582);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 
 
@@ -10787,7 +10778,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 583:
+/***/ 582:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10795,49 +10786,49 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(933);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(932);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(575);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_splash_screen__ = __webpack_require__(576);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_service_auth_service__ = __webpack_require__(934);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_service_auth_service__ = __webpack_require__(933);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_bildirimler_bildirimler__ = __webpack_require__(113);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_cagrilar_cagrilar__ = __webpack_require__(66);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_guncelleme_guncelleme__ = __webpack_require__(86);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_kampanyalar_kampanyalar__ = __webpack_require__(529);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_kutuphane_kutuphane__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_cagri_detay_cagri_detay__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_login_login__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_kutuphane_kutuphane__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_cagri_detay_cagri_detay__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_login_login__ = __webpack_require__(206);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_login_login__ = __webpack_require__(532);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_token_token__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_api_api__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_database_database__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_urun_urun__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_urun_urun__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_urun_ana_grp_urun_ana_grp__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_urun_iscilik_urun_iscilik__ = __webpack_require__(188);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_urun_iscilik_urun_iscilik__ = __webpack_require__(187);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_urun_malzeme_urun_malzeme__ = __webpack_require__(116);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__providers_islem_ariza_iscilik_islem_ariza_iscilik__ = __webpack_require__(512);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_fiyat_fiyat__ = __webpack_require__(191);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_cagrilar_cagri_arama_modal_cagri_arama_modal__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_fiyat_fiyat__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_cagrilar_cagri_arama_modal_cagri_arama_modal__ = __webpack_require__(184);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_hizmet_hizmet__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_list_list__ = __webpack_require__(935);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_list_list__ = __webpack_require__(934);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__providers_hizmet_dao_hizmet_dao__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__providers_base_dao_base_dao__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__providers_fiyat_dao_fiyat_dao__ = __webpack_require__(88);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__providers_hizmet_service_hizmet_service__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__providers_versiyon_versiyon__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__providers_versiyon_versiyon__ = __webpack_require__(192);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__angular_common_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__providers_mesajlar_mesajlar__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__pages_bilgi_sorgu_bilgi_sorgu__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__pages_bilgi_sorgu_bilgi_sorgu__ = __webpack_require__(199);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__providers_urun_ana_grup_dao_urun_ana_grup_dao__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__providers_urun_dao_urun_dao__ = __webpack_require__(115);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__providers_urun_malzeme_dao_urun_malzeme_dao__ = __webpack_require__(511);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__providers_islem_ariza_iscilik_dao_islem_ariza_iscilik_dao__ = __webpack_require__(118);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__providers_util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__ionic_native_toast__ = __webpack_require__(937);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__providers_urun_iscilik_dao_urun_iscilik_dao__ = __webpack_require__(190);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__providers_mesajlar_dao_mesajlar_dao__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__ionic_native_toast__ = __webpack_require__(936);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__providers_urun_iscilik_dao_urun_iscilik_dao__ = __webpack_require__(189);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__providers_mesajlar_dao_mesajlar_dao__ = __webpack_require__(180);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_urun_ana_grup_search_urun_ana_grup_search__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_urun_search_urun_search__ = __webpack_require__(89);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__providers_garanti_sorgu_garanti_sorgu__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__providers_garanti_sorgu_garanti_sorgu__ = __webpack_require__(194);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__pages_shared_module_shared_module_module__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_cagrilar_cagrilar_module__ = __webpack_require__(526);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__pages_guncelleme_guncelleme_module__ = __webpack_require__(527);
@@ -10849,48 +10840,48 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__providers_adres_adres__ = __webpack_require__(514);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__providers_adres_dao_adres_dao__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__providers_logger_logger__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__components_garanti_sonuc_garanti_sonuc__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__components_garanti_sonuc_garanti_sonuc__ = __webpack_require__(195);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__components_garanti_sorgu_garanti_sorgu__ = __webpack_require__(515);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__components_hizmet_detay_hizmet_detay__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__components_detay_piy_search_detay_piy_search__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__components_hizmet_detay_hizmet_detay__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__components_detay_piy_search_detay_piy_search__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__providers_user_user__ = __webpack_require__(533);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__providers_user_dao_user_dao__ = __webpack_require__(534);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__ionic_native_network__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__ionic_native_network__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__pages_anasayfa_anasayfa__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__pages_anasayfa_anasayfa_module__ = __webpack_require__(284);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__components_mesaj_detail_mesaj_detail__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__pages_anasayfa_anasayfa_module__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__components_mesaj_detail_mesaj_detail__ = __webpack_require__(185);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__providers_header_header__ = __webpack_require__(158);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__providers_printer_service_printer_service__ = __webpack_require__(524);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__components_zebra_printer_zebra_printer__ = __webpack_require__(121);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__providers_seri_no_sorgu_seri_no_sorgu__ = __webpack_require__(521);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__components_update_urun_ana_grup_update_urun_ana_grup__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__components_urun_iscilik_search_urun_iscilik_search__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__components_update_urun_ana_grup_update_urun_ana_grup__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__components_urun_iscilik_search_urun_iscilik_search__ = __webpack_require__(196);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__providers_tasks_tasks__ = __webpack_require__(119);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__providers_theme_theme__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__ionic_native_deeplinks__ = __webpack_require__(535);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__providers_deeplink_printer_deeplink_printer__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__providers_deeplink_printer_deeplink_printer__ = __webpack_require__(207);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__pages_login_login_module__ = __webpack_require__(531);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_78__pages_cagrilar_cagri_arama_modal_cagri_arama_modal_module__ = __webpack_require__(525);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_79__components_malzeme_search_malzeme_search__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_80__providers_brans_brans__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_79__components_malzeme_search_malzeme_search__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_80__providers_brans_brans__ = __webpack_require__(201);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_81__providers_brans_dao_brans_dao__ = __webpack_require__(522);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_82__ionic_native_call_number__ = __webpack_require__(509);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_83__ionic_native_calendar__ = __webpack_require__(938);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_83__ionic_native_calendar__ = __webpack_require__(937);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_84__providers_util_plugin_util_plugin__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_85__ionic_native_barcode_scanner__ = __webpack_require__(510);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_86__providers_anket_service_anket_service__ = __webpack_require__(183);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_87__components_anket_anket__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_88__components_spinner_spinner__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_86__providers_anket_service_anket_service__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_87__components_anket_anket__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_88__components_spinner_spinner__ = __webpack_require__(163);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_89__providers_table_total_elements_table_total_elements__ = __webpack_require__(536);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_90_intl__ = __webpack_require__(939);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_90_intl__ = __webpack_require__(938);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_90_intl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_90_intl__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_91_intl_locale_data_jsonp_en__ = __webpack_require__(942);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_91_intl_locale_data_jsonp_en__ = __webpack_require__(941);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_91_intl_locale_data_jsonp_en___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_91_intl_locale_data_jsonp_en__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_92__ionic_native_sqlite__ = __webpack_require__(506);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_93__pipes_pipes_module__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_93__pipes_pipes_module__ = __webpack_require__(204);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_94__providers_base_base__ = __webpack_require__(76);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_95_ionic_cache__ = __webpack_require__(285);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_96__providers_cache_cache__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_96__providers_cache_cache__ = __webpack_require__(284);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -11021,7 +11012,6 @@ var AppModule = (function () {
                         { loadChildren: '../pages/guncelleme/guncelleme.module#GuncellemePageModule', name: 'GuncellemePage', segment: 'guncelleme', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/kampanyalar/kampanyalar.module#KampanyalarPageModule', name: 'KampanyalarPage', segment: 'kampanyalar', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/kutuphane/kutuphane.module#KutuphanePageModule', name: 'KutuphanePage', segment: 'kutuphane', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/log/log.module#LogPageModule', name: 'LogPage', segment: 'log', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/shared-module/shared-module.module#SharedModule', name: 'SharedModulePage', segment: 'shared-module', priority: 'low', defaultHistory: [] }
                     ]
@@ -11343,7 +11333,7 @@ var Constants = (function () {
 
 /***/ }),
 
-/***/ 612:
+/***/ 611:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -11608,11 +11598,11 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 612;
+webpackContext.id = 611;
 
 /***/ }),
 
-/***/ 616:
+/***/ 615:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12034,9 +12024,9 @@ var HizmetDao = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CagrilarPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cagri_detay_cagri_detay__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular_components_modal_modal_controller__ = __webpack_require__(184);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__cagri_arama_modal_cagri_arama_modal__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cagri_detay_cagri_detay__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular_components_modal_modal_controller__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__cagri_arama_modal_cagri_arama_modal__ = __webpack_require__(184);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_hizmet_hizmet__ = __webpack_require__(83);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_hizmet_service_hizmet_service__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_hizmet_hizmet__ = __webpack_require__(32);
@@ -12325,7 +12315,7 @@ var BaseProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__logger_logger__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__entities_Ilce__ = __webpack_require__(508);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__adres_dao_adres_dao__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__anket_service_anket_service__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__anket_service_anket_service__ = __webpack_require__(182);
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
@@ -13124,18 +13114,18 @@ var UtilPlugin = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GuncellemePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_urun_urun__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_urun_urun__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_urun_ana_grp_urun_ana_grp__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_urun_iscilik_urun_iscilik__ = __webpack_require__(188);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_urun_iscilik_urun_iscilik__ = __webpack_require__(187);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_urun_malzeme_urun_malzeme__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_fiyat_fiyat__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_fiyat_fiyat__ = __webpack_require__(190);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_islem_ariza_iscilik_islem_ariza_iscilik__ = __webpack_require__(512);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__entities_Constants__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_adres_adres__ = __webpack_require__(514);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_logger_logger__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_header_header__ = __webpack_require__(110);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_versiyon_versiyon__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_versiyon_versiyon__ = __webpack_require__(192);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_tasks_tasks__ = __webpack_require__(119);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__entities_EntityUtil__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_theme_theme__ = __webpack_require__(18);
@@ -14010,7 +14000,7 @@ var UrunSearchComponent = (function () {
 
 /***/ }),
 
-/***/ 893:
+/***/ 892:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14029,7 +14019,7 @@ var Domain = (function () {
 
 /***/ }),
 
-/***/ 894:
+/***/ 893:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14068,7 +14058,7 @@ var SharedModulePage = (function () {
 
 /***/ }),
 
-/***/ 895:
+/***/ 894:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14085,7 +14075,7 @@ var EProfiles;
 
 /***/ }),
 
-/***/ 896:
+/***/ 895:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14148,7 +14138,7 @@ var Tablo = (function () {
 
 /***/ }),
 
-/***/ 897:
+/***/ 896:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14176,7 +14166,7 @@ var Token = (function () {
 
 /***/ }),
 
-/***/ 898:
+/***/ 897:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14195,7 +14185,7 @@ var Anket = (function () {
 
 /***/ }),
 
-/***/ 899:
+/***/ 898:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14221,6 +14211,33 @@ var SerSoruTnm = (function () {
 
 /***/ }),
 
+/***/ 899:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnketMst; });
+/**
+ * @author mali.sahin
+ * @since  03-Aug-18.
+ */
+var AnketMst = (function () {
+    function AnketMst() {
+        this.durum = "";
+        this.hedefGrp = "";
+        this.hedefKod = "";
+        this.orgKod = "";
+        this.refKod = "";
+        this.refNo = "";
+        this.sorumlu = "";
+        this.anketAdi = "";
+    }
+    return AnketMst;
+}());
+
+//# sourceMappingURL=AnketMst.js.map
+
+/***/ }),
+
 /***/ 9:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -14228,7 +14245,7 @@ var SerSoruTnm = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoggerProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__base_base__ = __webpack_require__(76);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cache_cache__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cache_cache__ = __webpack_require__(284);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entities_Constants__ = __webpack_require__(6);
 /**
  * @author malisahin
@@ -14434,33 +14451,6 @@ var LoggerProvider = (function (_super) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnketMst; });
-/**
- * @author mali.sahin
- * @since  03-Aug-18.
- */
-var AnketMst = (function () {
-    function AnketMst() {
-        this.durum = "";
-        this.hedefGrp = "";
-        this.hedefKod = "";
-        this.orgKod = "";
-        this.refKod = "";
-        this.refNo = "";
-        this.sorumlu = "";
-        this.anketAdi = "";
-    }
-    return AnketMst;
-}());
-
-//# sourceMappingURL=AnketMst.js.map
-
-/***/ }),
-
-/***/ 901:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HizmetSearch; });
 /**
  * @author mehmets
@@ -14482,7 +14472,7 @@ var HizmetSearch = (function () {
 
 /***/ }),
 
-/***/ 902:
+/***/ 901:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14499,7 +14489,7 @@ var Sehir = (function () {
 
 /***/ }),
 
-/***/ 903:
+/***/ 902:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14518,7 +14508,7 @@ var Mahalle = (function () {
 
 /***/ }),
 
-/***/ 904:
+/***/ 903:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14530,14 +14520,14 @@ var Mahalle = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_urun_malzeme__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_util_util__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_urun_iscilik__ = __webpack_require__(189);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_urun_iscilik__ = __webpack_require__(188);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__urun_ana_grup_search_urun_ana_grup_search__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__urun_search_urun_search__ = __webpack_require__(89);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__urun_iscilik_search_urun_iscilik_search__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__urun_iscilik_search_urun_iscilik_search__ = __webpack_require__(196);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_logger_logger__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_fiyat_dao_fiyat_dao__ = __webpack_require__(88);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__entities_fiyat__ = __webpack_require__(192);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__malzeme_search_malzeme_search__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__entities_fiyat__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__malzeme_search_malzeme_search__ = __webpack_require__(197);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -14740,7 +14730,7 @@ var FiyatSorguComponent = (function () {
 
 /***/ }),
 
-/***/ 905:
+/***/ 904:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14759,7 +14749,7 @@ var AnketCevap = (function () {
 
 /***/ }),
 
-/***/ 906:
+/***/ 905:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14947,7 +14937,7 @@ var HizmetBilgileriComponent = (function () {
 
 /***/ }),
 
-/***/ 907:
+/***/ 906:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15194,7 +15184,7 @@ var MusteriBilgileriComponent = (function () {
 
 /***/ }),
 
-/***/ 908:
+/***/ 907:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15237,7 +15227,7 @@ var ServisBilgileriComponent = (function () {
 
 /***/ }),
 
-/***/ 909:
+/***/ 908:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15252,12 +15242,12 @@ var ServisBilgileriComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_logger_logger__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_urun_ana_grup_dao_urun_ana_grup_dao__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__entities_urunAnaGrup__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_garanti_sorgu_garanti_sorgu__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__entities_GarantiSorgu__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_garanti_sorgu_garanti_sorgu__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__entities_GarantiSorgu__ = __webpack_require__(193);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_seri_no_sorgu_seri_no_sorgu__ = __webpack_require__(521);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__update_urun_ana_grup_update_urun_ana_grup__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__update_urun_ana_grup_update_urun_ana_grup__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__entities_ProcessResults__ = __webpack_require__(122);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_urun_urun__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_urun_urun__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__entities_urun__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__entities_Pageable__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_util_plugin_util_plugin__ = __webpack_require__(85);
@@ -15683,7 +15673,7 @@ var UrunBilgileriComponent = (function () {
 
 /***/ }),
 
-/***/ 910:
+/***/ 909:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15697,13 +15687,13 @@ var UrunBilgileriComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_urun_ana_grup_dao_urun_ana_grup_dao__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__entities_Constants__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__hizmet_detay_hizmet_detay__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__hizmet_detay_hizmet_detay__ = __webpack_require__(202);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_printer_service_printer_service__ = __webpack_require__(524);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_hizmet_hizmet__ = __webpack_require__(83);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__entities_ProcessResults__ = __webpack_require__(122);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_fiyat_fiyat__ = __webpack_require__(191);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__anket_anket__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_anket_service_anket_service__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_fiyat_fiyat__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__anket_anket__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_anket_service_anket_service__ = __webpack_require__(182);
 /**
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
@@ -16308,7 +16298,7 @@ var DetayBilgileriComponent = (function () {
     };
     DetayBilgileriComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'detay-bilgileri',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-components\detay-bilgileri\detay-bilgileri.html"*/'<ion-grid class="detay">\n\n  <ion-row>\n\n    <ion-col col-5 col-md-5 col-sm>\n\n      <button ion-button primary round full (click)="hizmetDetayaGit()" [disabled]="isHizmetDisabled()">\n\n        <span class="icon-right">\n\n          <i class="fas fa-plus"></i>\n\n        </span>\n\n        Yeni\n\n      </button>\n\n    </ion-col>\n\n\n\n    <ion-col col-7 col-sm>\n\n      <button ion-button primary round full [disabled]="isHizmetDisabled()" (click)="siparisOlustur()">\n\n        <span class="icon-right">\n\n          <ion-icon class="mr-icon" name="basket"></ion-icon>\n\n        </span>\n\n        Sipariş Oluştur\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>\n\n\n\n<ion-grid *ngIf="detayList != null && detayList.length > 0" class="card-box1">\n\n  <ion-row style="font-weight: bold" class="row-border">\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n\n      <ion-label>İşlem Tipi</ion-label>\n\n    </ion-col>\n\n    <ion-col col-md-4 col-lg-4 col-xl-4 col-sm-4>\n\n      <ion-label>İşlem Kodu</ion-label>\n\n    </ion-col>\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n\n      <ion-label>Miktar</ion-label>\n\n    </ion-col>\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n\n      <ion-label>Tutar</ion-label>\n\n    </ion-col>\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n\n\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row *ngFor="let detay of detayList" class="row-border">\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n\n      <ion-label>{{detay.mlzIsc}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-md-4 col-lg-4 col-xl-4 col-sm-4 style="overflow: overlay; white-space: nowrap;">\n\n      <ion-label>{{detay.mlzIscKod}} - {{detay.aciklama}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n\n      <ion-label>{{detay.miktar}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n\n      <ion-label>{{detay.tutar}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n\n      <ion-row>\n\n\n\n        <ion-col col-6>\n\n          <button ion-button icon-only (click)="updateHizmetDetay(detay)" table-button style="width: 100%" [disabled]="isHizmetDisabled()"\n\n            color="colorinfo">\n\n            <i class="fas fa-edit" style="margin-right:0"></i>\n\n          </button>\n\n        </ion-col>\n\n\n\n        <ion-col col-6>\n\n          <button ion-button icon-only (click)="deleteHizmetDetay(detay)" table-button style="width: 100%" color="colorerror" [disabled]="isHizmetDisabled()">\n\n            <i class="fas fa-trash-alt" style="margin-right:0"></i>\n\n          </button>\n\n        </ion-col>\n\n\n\n      </ion-row>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row>\n\n\n\n    <ion-col col-md-8 col-lg-8 col-xl-8 col-sm-8>\n\n      <ion-label>KDV\'li Toplam Tutar</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n\n      <ion-label>{{toplamTutar}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n\n    </ion-col>\n\n\n\n  </ion-row>\n\n</ion-grid>\n\n\n\n<ion-list>\n\n\n\n  <ion-row>\n\n    <ion-col col-12 col-sm class="detay">\n\n      <button ion-button primary round full (click)="toggleDetails()">\n\n        <span class="icon-right">\n\n          <ion-icon name="arrow-down" class="mr-icon"></ion-icon>\n\n        </span>\n\n        Kapatma İşlemleri\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <div id="divKapatmaIslemleri" class="card-box1" *ngIf="showDetails == -1">\n\n    <ion-grid>\n\n      <ion-row>\n\n\n\n        <ion-col col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2>\n\n          <button ion-button round (click)="kapat(\'ACIK\')" [disabled]="isHizmetDisabled()" full>\n\n            <span class="icon-right">\n\n              <i class="fas fa-times"></i>\n\n            </span>\n\n            Kapat\n\n          </button>\n\n        </ion-col>\n\n\n\n        <ion-col col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2>\n\n          <button ion-button round [disabled]="isHizmetDisabled()" (click)="hizmetIptalKontrol()" full>\n\n            <span class="icon-right">\n\n              <i class="fas fa-ban"></i>\n\n            </span>İptal\n\n          </button>\n\n        </ion-col>\n\n\n\n        <ion-col col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2>\n\n          <button ion-button round (click)="yazdir()" full>\n\n            <span class="icon-right">\n\n              <i class="fas fa-print"></i>\n\n            </span>Yazdır\n\n          </button>\n\n        </ion-col>\n\n\n\n        <ion-col col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2>\n\n          <button ion-button round [disabled]="isHizmetDisabled()" (click)="hizmetSilKontrol()" full>\n\n            <span class="icon-right">\n\n              <i class="fas fa-trash-alt"></i>\n\n            </span>\n\n            Sil\n\n          </button>\n\n        </ion-col>\n\n\n\n        <ion-col col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 *ngIf="isAnketExist">\n\n          <button ion-button round (click)="goToAnketPage()" full>\n\n            <span class="icon-right">\n\n              <i class="fas fa-clipboard-list"></i>\n\n            </span> Anket\n\n          </button>\n\n        </ion-col>\n\n\n\n      </ion-row>\n\n\n\n    </ion-grid>\n\n\n\n    <ion-row>\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label>\n\n          <strong>Açıklama:</strong>\n\n        </ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-textarea [(ngModel)]="hizmet.aciklama" [disabled]="isHizmetDisabled()" (ionBlur)="onHizmetChange()"></ion-textarea>\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label>\n\n          <strong>Kapatma Şekli:</strong>\n\n        </ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-select [(ngModel)]="hizmet.kapatmaKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()" interface="popover">\n\n          <ion-option value="NORMAL">Normal Kapatma</ion-option>\n\n          <ion-option value="MESGULIYET">Meşguliyet Kapatma</ion-option>\n\n        </ion-select>\n\n\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label>\n\n          <strong>Ödeme Tipi:</strong>\n\n        </ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-select [(ngModel)]="hizmet.odemeTipi" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()" interface="popover">\n\n          <ion-option value="NAKIT">Nakit</ion-option>\n\n          <ion-option value="KREDIKARTI">Kredi Kartı</ion-option>\n\n        </ion-select>\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label>\n\n          <strong>Çözüm Kodu:</strong>\n\n        </ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-select [(ngModel)]="hizmet.cozumKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()" interface="popover">\n\n          <ion-option *ngFor="let cozum of cozumKoduList" [value]="cozum.kod">{{cozum.ad}}</ion-option>\n\n        </ion-select>\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label>\n\n          <strong>İletişim İstek:</strong>\n\n        </ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-6 col-md-4>\n\n\n\n        <ion-label color="primary" class="radio-btn pull-left" style="text-align: end;position: relative;">{{iletisimIstek == true ? \'EVET\' : \'HAYIR\'}}\n\n\n\n        </ion-label>\n\n        <ion-toggle (ionChange)="iletisimIstekChange()" class="toggle-btn pull-left" style="text-align: end;" [disabled]="isHizmetDisabled()"\n\n          [(ngModel)]="iletisimIstek"></ion-toggle>\n\n      </ion-col>\n\n\n\n    </ion-row>\n\n  </div>\n\n</ion-list>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-components\detay-bilgileri\detay-bilgileri.html"*/
+            selector: 'detay-bilgileri',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-components\detay-bilgileri\detay-bilgileri.html"*/'<ion-grid class="detay">\n\n  <ion-row>\n\n    <ion-col col-5 col-md-5 col-sm>\n\n      <button ion-button primary round full (click)="hizmetDetayaGit()" [disabled]="isHizmetDisabled()">\n\n        <span class="icon-right">\n\n          <i class="fas fa-plus"></i>\n\n        </span>\n\n        Yeni\n\n      </button>\n\n    </ion-col>\n\n\n\n    <ion-col col-7 col-sm>\n\n      <button ion-button primary round full [disabled]="isHizmetDisabled()" (click)="siparisOlustur()">\n\n        <span class="icon-right">\n\n          <ion-icon class="mr-icon" name="basket"></ion-icon>\n\n        </span>\n\n        Sipariş Oluştur\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>\n\n\n\n<ion-grid *ngIf="detayList != null && detayList.length > 0" class="card-box1">\n\n  <!--ion-row style="font-weight: bold" class="row-border">\n\n    <ion-item>\n\n      <ion-label>İşlem Tipi</ion-label>\n\n      <ion-label>İşlem Kodu</ion-label>\n\n      <ion-label>Miktar</ion-label>\n\n      <ion-label>Tutar</ion-label>\n\n    </ion-item>\n\n\n\n  </ion-row-->\n\n\n\n  <ion-list>\n\n\n\n    <ion-item>\n\n      <ion-label>İşlem Tipi</ion-label>\n\n      <ion-label>İşlem Kodu</ion-label>\n\n      <ion-label>Miktar</ion-label>\n\n      <ion-label>Tutar</ion-label>\n\n    </ion-item>\n\n\n\n    <ion-item-sliding *ngFor="let detay of detayList" #item>\n\n      <ion-item>\n\n\n\n        <ion-label>{{detay.mlzIsc}}</ion-label>\n\n        <ion-label>\n\n          {{detay.mlzIscKod}} - {{detay.aciklama}}\n\n        </ion-label>\n\n\n\n        <ion-label>{{detay.miktar}}</ion-label>\n\n        <ion-label>{{detay.tutar}}</ion-label>\n\n\n\n      </ion-item>\n\n\n\n      <ion-item-options class="green" side="right">\n\n        <button ion-button icon-only (click)="updateHizmetDetay(detay)" [disabled]="isHizmetDisabled()" style="background-color:#f89406; width: 10%">\n\n          <i class="fas fa-edit" style="margin-right:0"></i>\n\n        </button>\n\n\n\n        <button ion-button icon-only (click)="deleteHizmetDetay(detay)" [disabled]="isHizmetDisabled()" style="background-color:#bd362f; width: 10%">\n\n          <i class="fas fa-trash-alt" style="margin-right:0"></i>\n\n        </button>\n\n      </ion-item-options>\n\n\n\n    </ion-item-sliding>\n\n  </ion-list>\n\n\n\n  <!--ion-row *ngFor="let detay of detayList" class="row-border">\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n\n      <ion-label>{{detay.mlzIsc}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-md-4 col-lg-4 col-xl-4 col-sm-4 style="overflow: overlay; white-space: nowrap;">\n\n      <ion-label>{{detay.mlzIscKod}} - {{detay.aciklama}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n\n      <ion-label>{{detay.miktar}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n\n      <ion-label>{{detay.tutar}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2>\n\n      <ion-row>\n\n\n\n        <ion-col col-6>\n\n          <button ion-button icon-only (click)="updateHizmetDetay(detay)" table-button style="width: 100%"\n\n                  [disabled]="isHizmetDisabled()"\n\n                  color="colorinfo">\n\n            <i class="fas fa-edit" style="margin-right:0"></i>\n\n          </button>\n\n        </ion-col>\n\n\n\n        <ion-col col-6>\n\n          <button ion-button icon-only (click)="deleteHizmetDetay(detay)" table-button style="width: 100%"\n\n                  color="colorerror" [disabled]="isHizmetDisabled()">\n\n            <i class="fas fa-trash-alt" style="margin-right:0"></i>\n\n          </button>\n\n        </ion-col>\n\n\n\n      </ion-row>\n\n    </ion-col>\n\n  </ion-row-->\n\n\n\n  <ion-row>\n\n\n\n    <ion-col col-md-8 col-lg-8 col-xl-8 col-sm-8>\n\n      <ion-label>KDV\'li Toplam Tutar</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n\n      <ion-label>{{toplamTutar}}</ion-label>\n\n    </ion-col>\n\n\n\n    <ion-col col-md-2 col-lg-2 col-xl-2 col-sm-2 style="text-align: right">\n\n    </ion-col>\n\n\n\n  </ion-row>\n\n</ion-grid>\n\n\n\n<ion-list>\n\n\n\n  <ion-row>\n\n    <ion-col col-12 col-sm class="detay">\n\n      <button ion-button primary round full (click)="toggleDetails()">\n\n        <span class="icon-right">\n\n          <ion-icon name="arrow-down" class="mr-icon"></ion-icon>\n\n        </span>\n\n        Kapatma İşlemleri\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <div id="divKapatmaIslemleri" class="card-box1" *ngIf="showDetails == -1">\n\n    <ion-grid>\n\n      <ion-row>\n\n\n\n        <ion-col col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2>\n\n          <button ion-button round (click)="kapat(\'ACIK\')" [disabled]="isHizmetDisabled()" full>\n\n            <span class="icon-right">\n\n              <i class="fas fa-times"></i>\n\n            </span>\n\n            Kapat\n\n          </button>\n\n        </ion-col>\n\n\n\n        <ion-col col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2>\n\n          <button ion-button round [disabled]="isHizmetDisabled()" (click)="hizmetIptalKontrol()" full>\n\n            <span class="icon-right">\n\n              <i class="fas fa-ban"></i>\n\n            </span>İptal\n\n          </button>\n\n        </ion-col>\n\n\n\n        <ion-col col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2>\n\n          <button ion-button round (click)="yazdir()" full>\n\n            <span class="icon-right">\n\n              <i class="fas fa-print"></i>\n\n            </span>Yazdır\n\n          </button>\n\n        </ion-col>\n\n\n\n        <ion-col col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2>\n\n          <button ion-button round [disabled]="isHizmetDisabled()" (click)="hizmetSilKontrol()" full>\n\n            <span class="icon-right">\n\n              <i class="fas fa-trash-alt"></i>\n\n            </span>\n\n            Sil\n\n          </button>\n\n        </ion-col>\n\n\n\n        <ion-col col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 *ngIf="isAnketExist">\n\n          <button ion-button round (click)="goToAnketPage()" full>\n\n            <span class="icon-right">\n\n              <i class="fas fa-clipboard-list"></i>\n\n            </span> Anket\n\n          </button>\n\n        </ion-col>\n\n\n\n      </ion-row>\n\n\n\n    </ion-grid>\n\n\n\n    <ion-row>\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label>\n\n          <strong>Açıklama:</strong>\n\n        </ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-textarea [(ngModel)]="hizmet.aciklama" [disabled]="isHizmetDisabled()" (ionBlur)="onHizmetChange()"></ion-textarea>\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label>\n\n          <strong>Kapatma Şekli:</strong>\n\n        </ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-select [(ngModel)]="hizmet.kapatmaKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()" interface="popover">\n\n          <ion-option value="NORMAL">Normal Kapatma</ion-option>\n\n          <ion-option value="MESGULIYET">Meşguliyet Kapatma</ion-option>\n\n        </ion-select>\n\n\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label>\n\n          <strong>Ödeme Tipi:</strong>\n\n        </ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-select [(ngModel)]="hizmet.odemeTipi" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()" interface="popover">\n\n          <ion-option value="NAKIT">Nakit</ion-option>\n\n          <ion-option value="KREDIKARTI">Kredi Kartı</ion-option>\n\n        </ion-select>\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label>\n\n          <strong>Çözüm Kodu:</strong>\n\n        </ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-8 col-md-10>\n\n        <ion-select [(ngModel)]="hizmet.cozumKodu" [disabled]="isHizmetDisabled()" (ionChange)="onHizmetChange()" interface="popover">\n\n          <ion-option *ngFor="let cozum of cozumKoduList" [value]="cozum.kod">{{cozum.ad}}</ion-option>\n\n        </ion-select>\n\n      </ion-col>\n\n\n\n      <ion-col col-4 col-md-2>\n\n        <ion-label>\n\n          <strong>İletişim İstek:</strong>\n\n        </ion-label>\n\n      </ion-col>\n\n\n\n      <ion-col col-6 col-md-4>\n\n\n\n        <ion-label color="primary" class="radio-btn pull-left" style="text-align: end;position: relative;">\n\n          {{iletisimIstek == true ? \'EVET\' : \'HAYIR\'}}\n\n\n\n        </ion-label>\n\n        <ion-toggle (ionChange)="iletisimIstekChange()" class="toggle-btn pull-left" style="text-align: end;" [disabled]="isHizmetDisabled()"\n\n          [(ngModel)]="iletisimIstek"></ion-toggle>\n\n      </ion-col>\n\n\n\n    </ion-row>\n\n  </div>\n\n</ion-list>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-components\detay-bilgileri\detay-bilgileri.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_hizmet_service_hizmet_service__["a" /* HizmetService */],
             __WEBPACK_IMPORTED_MODULE_6__providers_urun_ana_grup_dao_urun_ana_grup_dao__["a" /* UrunAnaGrupDao */],
@@ -16329,7 +16319,7 @@ var DetayBilgileriComponent = (function () {
 
 /***/ }),
 
-/***/ 911:
+/***/ 910:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16338,7 +16328,7 @@ var DetayBilgileriComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_hizmet_service_hizmet_service__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_hizmet_hizmet__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_util__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_hizmet_islemList__ = __webpack_require__(912);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__entities_hizmet_islemList__ = __webpack_require__(911);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__entities_ProcessResults__ = __webpack_require__(122);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_logger_logger__ = __webpack_require__(9);
 /**
@@ -16580,7 +16570,7 @@ var IslemTarihComponent = (function () {
     };
     IslemTarihComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'islem-tarih',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-components\servis-bilgileri\islem-tarih\islem-tarih.html"*/'<ion-card class="card-one">\n\n  <ion-row class="row-border">\n\n    <ion-col col-4>\n\n      <ion-label>\n\n        <strong>İşlem Başlangıç Tarihi:</strong>\n\n      </ion-label>\n\n    </ion-col>\n\n    <ion-col col-8>\n\n      <ion-label>{{sonIslem.basTar | FormatDate}}</ion-label>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row class="row-border">\n\n    <ion-col col-4>\n\n      <ion-label>\n\n        <strong>İşlem Bitiş Tarihi:</strong>\n\n      </ion-label>\n\n    </ion-col>\n\n    <ion-col col-8>\n\n      <ion-label>{{sonIslem.bitTar | FormatDate}}</ion-label>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row class="row-border" *ngIf="sonIslem.basTar != null && sonIslem.bitTar == null">\n\n    <ion-col col-4>\n\n      <ion-label>\n\n        <strong>Bekleme Nedeni:</strong>\n\n      </ion-label>\n\n    </ion-col>\n\n    <ion-col col-8>\n\n      <ion-select [(ngModel)]="sonIslem.beklemeNeden" interface="popover" (ionChange)="checkStatus()">\n\n        <ion-option value="" selected="true"></ion-option>\n\n        <ion-option value="SERVIS">Servis</ion-option>\n\n        <ion-option value="MUSTERI">Müşteri</ion-option>\n\n        <ion-option value="BAYI">Bayi</ion-option>\n\n      </ion-select>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row class="row-border"\n\n           *ngIf="sonIslem.basTar  != null && sonIslem.bitTar == null && sonIslem.beklemeNeden ==\'SERVIS\'">\n\n    <ion-col col-4>\n\n      <ion-label>\n\n        <strong>Bekleme Kaynağı:</strong>\n\n      </ion-label>\n\n    </ion-col>\n\n    <ion-col col-8>\n\n      <ion-select [(ngModel)]="sonIslem.bekleKaynak" interface="popover" (ionChange)="checkStatus()"\n\n                  [disabled]=isHizmetDisabled()>\n\n        <ion-option value="" selected="true"></ion-option>\n\n        <ion-option value="NEDEN1">Yedek parça bekleniyor.</ion-option>\n\n\n\n      </ion-select>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row class="row-border"\n\n           *ngIf="sonIslem.basTar  != null && sonIslem.bitTar == null && sonIslem.beklemeNeden ==\'MUSTERI\'">\n\n    <ion-col col-4>\n\n      <ion-label>\n\n        <strong>Bekleme Kaynağı:</strong>\n\n      </ion-label>\n\n    </ion-col>\n\n    <ion-col col-8>\n\n      <ion-select [(ngModel)]="sonIslem.bekleKaynak" interface="popover" (ionChange)="checkStatus()"\n\n                  [disabled]=isHizmetDisabled()>\n\n        <ion-option value="" selected="true"></ion-option>\n\n        <ion-option value="NEDEN1">Müşteri Uygun Değil</ion-option>\n\n      </ion-select>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row class="row-border"\n\n           *ngIf="sonIslem.basTar  != null && sonIslem.bitTar == null && sonIslem.beklemeNeden == \'BAYI\'">\n\n    <ion-col col-4>\n\n      <ion-label>\n\n        <strong>Bekleme Kaynağı:</strong>\n\n      </ion-label>\n\n    </ion-col>\n\n    <ion-col col-8>\n\n      <ion-select [(ngModel)]="sonIslem.bekleKaynak" interface="popover" (ionChange)="checkStatus()"\n\n                  [disabled]=isHizmetDisabled()>\n\n        <ion-option value="" selected="true"></ion-option>\n\n        <ion-option value="NEDEN1">Tesisat Kaynaklı</ion-option>\n\n      </ion-select>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row>\n\n    <ion-col col-12 *ngIf="buttonStatus == \'BASLA\'">\n\n      <button ion-button primary round full (click)="islemBaslat()" [disabled]=isHizmetDisabled()>\n\n        <span class="icon-right">\n\n          <i class="fas fa-play"></i>\n\n        </span> İşlem Başlat\n\n      </button>\n\n    </ion-col>\n\n\n\n    <ion-col col-12 *ngIf="buttonStatus == \'BEKLE\'">\n\n      <button ion-button primary round full (click)="islemBeklet()" [disabled]=isHizmetDisabled()>\n\n        <span class="icon-right">\n\n          <i class="fas fa-play"></i>\n\n        </span> Bekleme Başlat\n\n      </button>\n\n    </ion-col>\n\n\n\n    <ion-col col-12 *ngIf="buttonStatus == \'BITIR\'">\n\n      <button ion-button primary round full (click)="islemBitir()" [disabled]=isHizmetDisabled()>\n\n        <span class="icon-right">\n\n          <i class="fas fa-times"></i>\n\n        </span> Bitir\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-card>\n\n'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-components\servis-bilgileri\islem-tarih\islem-tarih.html"*/
+            selector: 'islem-tarih',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-components\servis-bilgileri\islem-tarih\islem-tarih.html"*/'<ion-card class="card-box1">\n\n  <ion-row class="row-border">\n\n    <ion-col col-4 class="border-right">\n\n      <ion-label>\n\n        <strong>İşlem Başlangıç Tarihi:</strong>\n\n      </ion-label>\n\n    </ion-col>\n\n    <ion-col col-8>\n\n      <ion-label>{{sonIslem.basTar | FormatDate}}</ion-label>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row class="row-border">\n\n    <ion-col col-4 class="border-right">\n\n      <ion-label>\n\n        <strong>İşlem Bitiş Tarihi:</strong>\n\n      </ion-label>\n\n    </ion-col>\n\n    <ion-col col-8>\n\n      <ion-label>{{sonIslem.bitTar | FormatDate}}</ion-label>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row class="row-border" *ngIf="sonIslem.basTar != null && sonIslem.bitTar == null">\n\n    <ion-col col-4 class="border-right">\n\n      <ion-label>\n\n        <strong>Bekleme Nedeni:</strong>\n\n      </ion-label>\n\n    </ion-col>\n\n    <ion-col col-8>\n\n      <ion-select [(ngModel)]="sonIslem.beklemeNeden" interface="popover" (ionChange)="checkStatus()">\n\n        <ion-option value="" selected="true"></ion-option>\n\n        <ion-option value="SERVIS">Servis</ion-option>\n\n        <ion-option value="MUSTERI">Müşteri</ion-option>\n\n        <ion-option value="BAYI">Bayi</ion-option>\n\n      </ion-select>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row class="row-border" *ngIf="sonIslem.basTar  != null && sonIslem.bitTar == null && sonIslem.beklemeNeden ==\'SERVIS\'">\n\n    <ion-col col-4 class="border-right">\n\n      <ion-label>\n\n        <strong>Bekleme Kaynağı:</strong>\n\n      </ion-label>\n\n    </ion-col>\n\n    <ion-col col-8>\n\n      <ion-select [(ngModel)]="sonIslem.bekleKaynak" interface="popover" (ionChange)="checkStatus()" [disabled]=isHizmetDisabled()>\n\n        <ion-option value="" selected="true"></ion-option>\n\n        <ion-option value="NEDEN1">Yedek parça bekleniyor.</ion-option>\n\n\n\n      </ion-select>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row class="row-border" *ngIf="sonIslem.basTar  != null && sonIslem.bitTar == null && sonIslem.beklemeNeden ==\'MUSTERI\'">\n\n    <ion-col col-4>\n\n      <ion-label>\n\n        <strong>Bekleme Kaynağı:</strong>\n\n      </ion-label>\n\n    </ion-col>\n\n    <ion-col col-8>\n\n      <ion-select [(ngModel)]="sonIslem.bekleKaynak" interface="popover" (ionChange)="checkStatus()" [disabled]=isHizmetDisabled()>\n\n        <ion-option value="" selected="true"></ion-option>\n\n        <ion-option value="NEDEN1">Müşteri Uygun Değil</ion-option>\n\n      </ion-select>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row class="row-border" *ngIf="sonIslem.basTar  != null && sonIslem.bitTar == null && sonIslem.beklemeNeden == \'BAYI\'">\n\n    <ion-col col-4>\n\n      <ion-label>\n\n        <strong>Bekleme Kaynağı:</strong>\n\n      </ion-label>\n\n    </ion-col>\n\n    <ion-col col-8>\n\n      <ion-select [(ngModel)]="sonIslem.bekleKaynak" interface="popover" (ionChange)="checkStatus()" [disabled]=isHizmetDisabled()>\n\n        <ion-option value="" selected="true"></ion-option>\n\n        <ion-option value="NEDEN1">Tesisat Kaynaklı</ion-option>\n\n      </ion-select>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row>\n\n    <ion-col col-12 *ngIf="buttonStatus == \'BASLA\'">\n\n      <button ion-button primary round full (click)="islemBaslat()" [disabled]=isHizmetDisabled()>\n\n        <span class="icon-right">\n\n          <i class="fas fa-play"></i>\n\n        </span> İşlem Başlat\n\n      </button>\n\n    </ion-col>\n\n\n\n    <ion-col col-12 *ngIf="buttonStatus == \'BEKLE\'">\n\n      <button ion-button primary round full (click)="islemBeklet()" [disabled]=isHizmetDisabled()>\n\n        <span class="icon-right">\n\n          <i class="fas fa-play"></i>\n\n        </span> Bekleme Başlat\n\n      </button>\n\n    </ion-col>\n\n\n\n    <ion-col col-12 *ngIf="buttonStatus == \'BITIR\'">\n\n      <button ion-button primary round full (click)="islemBitir()" [disabled]=isHizmetDisabled()>\n\n        <span class="icon-right">\n\n          <i class="fas fa-times"></i>\n\n        </span> Bitir\n\n      </button>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-card>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-components\servis-bilgileri\islem-tarih\islem-tarih.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_hizmet_service_hizmet_service__["a" /* HizmetService */],
             __WEBPACK_IMPORTED_MODULE_6__providers_logger_logger__["a" /* LoggerProvider */],
@@ -16593,7 +16583,7 @@ var IslemTarihComponent = (function () {
 
 /***/ }),
 
-/***/ 912:
+/***/ 911:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16615,7 +16605,7 @@ var IslemList = (function () {
 
 /***/ }),
 
-/***/ 913:
+/***/ 912:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16712,7 +16702,7 @@ var ServisIslemTarihceComponent = (function () {
     };
     ServisIslemTarihceComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'servis-islem-tarihce',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-components\servis-bilgileri\servis-islem-tarihce\servis-islem-tarihce.html"*/'<ion-card class="card-box">\n\n  <ion-row>\n\n    <ion-col col-12 class="row-border">\n\n      <ion-label>\n\n        <strong>Sıra No:</strong>\n\n      </ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 class="row-border">\n\n      <ion-label>\n\n        <strong>Durum:</strong>\n\n      </ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 class="row-border">\n\n      <ion-label>\n\n        <strong>İşlem Tarihi:</strong>\n\n      </ion-label>\n\n    </ion-col>\n\n    <ion-col col-12>\n\n      <ion-label>\n\n        <strong>İşlem Bitiş Tarihi:</strong>\n\n      </ion-label>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row *ngFor="let tarihce of tarihceList">\n\n    <ion-col col-12 class="row-border">\n\n      <ion-label>{{tarihce.islSira}}</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 class="row-border">\n\n      <ion-label>{{tarihce.durum}}</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 class="row-border">\n\n      <ion-label>{{tarihce.basTar | FormatDate}}</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12>\n\n      <ion-label>{{tarihce.bitTar | FormatDate}}</ion-label>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-card>'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-components\servis-bilgileri\servis-islem-tarihce\servis-islem-tarihce.html"*/
+            selector: 'servis-islem-tarihce',template:/*ion-inline-start:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-components\servis-bilgileri\servis-islem-tarihce\servis-islem-tarihce.html"*/'<ion-card class="card-box1" *ngFor="let tarihce of tarihceList">\n\n  <ion-row>\n\n    <ion-col col-6 class="row-border border-right">\n\n      <strong>Sıra No: </strong>\n\n    </ion-col>\n\n    <ion-col col-6 class="row-border">\n\n      {{tarihce.islSira}}\n\n    </ion-col>\n\n\n\n    <ion-col col-6 class="row-border border-right">\n\n      <strong>Durum: </strong>\n\n    </ion-col>\n\n    <ion-col col-6 class="row-border">\n\n      {{tarihce.durum}}\n\n    </ion-col>\n\n\n\n    <ion-col col-6 class="row-border border-right">\n\n      <strong>İşlem Tarihi: </strong>\n\n    </ion-col>\n\n    <ion-col col-6 class="row-border">\n\n      {{tarihce.basTar | FormatDate}}\n\n    </ion-col>\n\n\n\n    <ion-col col-6 class="border-right">\n\n      <strong>İşlem Bitiş Tarihi: </strong>\n\n    </ion-col>\n\n    <ion-col col-6>\n\n      {{tarihce.bitTar | FormatDate}}\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-card>\n\n\n\n<!--<ion-row *ngFor="let tarihce of tarihceList">\n\n    <ion-col col-12 class="row-border">\n\n      <ion-label>{{tarihce.islSira}}</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 class="row-border">\n\n      <ion-label>{{tarihce.durum}}</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12 class="row-border">\n\n      <ion-label>{{tarihce.basTar | FormatDate}}</ion-label>\n\n    </ion-col>\n\n    <ion-col col-12>\n\n      <ion-label>{{tarihce.bitTar | FormatDate}}</ion-label>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-card>-->'/*ion-inline-end:"D:\DEVELOPMENT\GIT\Teknisyen Mobile\Ionic-Offline-App-v3\Ionic-Offline-App\src\components\cagri-detay-components\servis-bilgileri\servis-islem-tarihce\servis-islem-tarihce.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_hizmet_service_hizmet_service__["a" /* HizmetService */],
             __WEBPACK_IMPORTED_MODULE_3__providers_util_util__["a" /* UtilProvider */]])
@@ -16724,7 +16714,7 @@ var ServisIslemTarihceComponent = (function () {
 
 /***/ }),
 
-/***/ 914:
+/***/ 913:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16763,7 +16753,7 @@ var SafeHtmlPipe = (function () {
 
 /***/ }),
 
-/***/ 915:
+/***/ 914:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16817,7 +16807,7 @@ var DateFormatPipe = (function () {
 
 /***/ }),
 
-/***/ 933:
+/***/ 932:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16829,14 +16819,14 @@ var DateFormatPipe = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_cagrilar_cagrilar__ = __webpack_require__(66);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_bildirimler_bildirimler__ = __webpack_require__(113);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_guncelleme_guncelleme__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_kutuphane_kutuphane__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_kutuphane_kutuphane__ = __webpack_require__(205);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_ayarlar_ayarlar__ = __webpack_require__(517);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_login_login__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_login_login__ = __webpack_require__(206);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_database_database__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_bilgi_sorgu_bilgi_sorgu__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_bilgi_sorgu_bilgi_sorgu__ = __webpack_require__(199);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_theme_theme__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_logger_logger__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_deeplink_printer_deeplink_printer__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_deeplink_printer_deeplink_printer__ = __webpack_require__(207);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -16931,7 +16921,7 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 934:
+/***/ 933:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17006,13 +16996,13 @@ var AuthService = (function () {
 
 /***/ }),
 
-/***/ 935:
+/***/ 934:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_ListItem__ = __webpack_require__(936);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__entities_ListItem__ = __webpack_require__(935);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -17049,7 +17039,7 @@ var ListComponent = (function () {
 
 /***/ }),
 
-/***/ 936:
+/***/ 935:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17066,12 +17056,12 @@ var ListItem = (function () {
 
 /***/ }),
 
-/***/ 941:
+/***/ 940:
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ })
 
-},[578]);
+},[577]);
 //# sourceMappingURL=main.js.map

@@ -27,7 +27,7 @@ $color-downloaded:#188aaf;
   //*------- START:HEADER -----*//
   .header {
 
-    button.disable-hover.bar-button.bar-button-ios.bar-button-default.bar-button-default-ios {
+    button.disable-hover.bar-button.bar-button-ios.bar-button-default.bar-button-default-ios, .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
       color: $color-white;
     }
 
@@ -131,9 +131,13 @@ $color-downloaded:#188aaf;
 
   .content {
 
+    .segment-button.activated, .segment-button.segment-activated{
+      box-shadow: 5px 2px 15px 0px $color-dark;
+    }
+
     .chip-ios{
 
-      label{
+      label, .label-md{
           color:$color-white;
       }
     }
@@ -148,18 +152,16 @@ $color-downloaded:#188aaf;
       color:$color-white;
     }
 
-    .radio-ios{
 
-      .radio-icon{
-        border-color: $color-white;
-      }
+    .radio-ios .radio-icon, .radio-md .radio-icon{
+      border-color: $color-white;
     } 
 
-    .label-ios{
+    .label-ios, .label-md{
       color:$color-white;
     }
 
-    .item-ios{
+    .item-ios, .item-md{
       background:$color-main;
       color:$color-white;
     }
@@ -170,15 +172,20 @@ $color-downloaded:#188aaf;
       }
     }
   
-    .toggle-ios.toggle-checked .toggle-icon{
+    .toggle-ios.toggle-checked .toggle-icon, .toggle-md.toggle-checked .toggle-icon{
       background: $color-button;
     }
 
+    .toggle-md.toggle-checked .toggle-inner{
+      background-color: $color-white;
+    }
+
     musteri-bilgileri{
-      .button-ios{
+      .button-ios, .button-md{
         background: $color-input;
         border: 1px solid $color-border-input;
         color:$color-white;
+        box-shadow: inherit;
       }
     }
 
@@ -199,7 +206,7 @@ $color-downloaded:#188aaf;
       border-bottom: 1px solid $color-row-border;
     }
 
-    .card-ios{
+    .card-ios, .card-md{
       background-color:$color-main;
       color:$color-white;
 
@@ -207,11 +214,11 @@ $color-downloaded:#188aaf;
         color:$color-white;
       }
     }
-    .toolbar-background-ios {
+    .toolbar-background-ios, .toolbar-background-md {
       background: inherit;
     }
 
-    .button-ios {
+    .button-ios, .button-md {
       background-color:$color-button;
     }
 
@@ -248,7 +255,7 @@ $color-downloaded:#188aaf;
 
     }
 
-    .searchbar-ios .searchbar-input {
+    .searchbar-ios .searchbar-input, .searchbar-md .searchbar-input {
       border: 1px solid $color-main;
       background: $color-input;
       color:$color-white;
@@ -266,24 +273,31 @@ $color-downloaded:#188aaf;
       border: 1px solid $color-border-input;
     }
 
-    .select-ios {
+    .select-ios, .select-md {
       border: 1px solid $color-border-input;
       background: $color-input;
       color:$color-white;
     }
 
-    .segment-ios .segment-button.segment-activated {
+    .segment-ios .segment-button.segment-activated,  .segment-md .segment-button.segment-activated {
       box-shadow: 5px 2px 15px 0px $color-main;
       background-color: $color-button;
+      border: 1px solid $color-button;
     }
 
     .gray-box {
       background: $color-gray;
     }
 
-    .button-ios-secondary, .button-md-secondary, .button-md-secondary:hover:not(.disable-hover) {
+    .button-ios-secondary, .button-md-secondary, .button-md-secondary:hover:not(.disable-hover), .button-md:hover:not(.disable-hover) {
       background: $color-button;
     }
+
+    .card-box1 {
+      background: $color-main;
+      border: 1px solid $color-light;
+      color:$color-white;
+  }
 
     .card-box {
       background: $color-main;
@@ -302,9 +316,6 @@ $color-downloaded:#188aaf;
     }
 
     .main-tabs {
-      .toolbar-background-md {
-        background: $color-white;
-      }
 
       .segment-md .segment-button {
         border: 1px solid $color-white;
@@ -319,7 +330,7 @@ $color-downloaded:#188aaf;
   //*------- START:HOME-CONTENT -----*//
   .home-content {
 
-    .item-ios{
+    .item-ios, .item-md{
       background-color: $color-item;
     }
 
@@ -357,7 +368,7 @@ $color-downloaded:#188aaf;
   background:$color-button;
   border-top:1px solid $color-row-border;
 
-  .toolbar-background-ios {
+  .toolbar-background-ios, .toolbar-background-md {
     background-color: $color-button;
   }
 
@@ -366,7 +377,7 @@ $color-downloaded:#188aaf;
     color: $color-white;
   }
 
-  .label {
+  .label, .label-md {
     color: $color-white;
   }
 

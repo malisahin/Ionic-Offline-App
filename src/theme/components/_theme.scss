@@ -12,11 +12,12 @@
     }
   }
   .content {
-.logo{
-  img{
-    max-width: 70%;
-  }
-}
+
+    .logo{
+        img{
+          max-width: 70%;
+           }
+         }
     .label-ios {
       padding: 10px 0 0 10px;
       margin: 11px 8px 11px 0;
@@ -60,7 +61,7 @@
 
     }
 
-    .searchbar-ios{
+    .searchbar-ios, .searchbar-md{
       background: inherit;
       .searchbar-input{
         height: 35px;
@@ -68,7 +69,7 @@
 
     }
 
-    .select-ios {
+    .select-ios, .select-md {
       border-radius: 25px;
       padding: 8px;
       padding-left: 15px;
@@ -172,6 +173,10 @@
 
 }
 
+
+.popover-ios .popover-content{
+  width: 265px!important;
+}
 
 .header {
 
@@ -304,7 +309,7 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
 //*------- START:HEADER -----*//
 .header {
 
-  button.disable-hover.bar-button.bar-button-ios.bar-button-default.bar-button-default-ios {
+  button.disable-hover.bar-button.bar-button-ios.bar-button-default.bar-button-default-ios, .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default  {
     border-radius: 100%;
     font-size: 15px;
     width:50px;
@@ -350,7 +355,7 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
     padding: 5px;
   }
 
-  .card-ios {
+  .card-ios, .card-md {
     margin: 0px 0px 10px 0px;
     width: 100%;
   }
@@ -403,6 +408,9 @@ mesaj-detail .content .row-border{
   padding: 0px;
 }
 
+.toolbar-title-md{
+  text-align: center;
+}
 
 .content {
 
@@ -489,12 +497,13 @@ mesaj-detail .content .row-border{
     font-weight: 600;
   }
 
-  .searchbar-md,.searchbar-ios{
+  .searchbar-md, .searchbar-ios{
     margin-bottom: 20px;
   }
 
   .toolbar-title-md, .toolbar-title-ios {
      font-size: 18px;
+     text-align: center;
     font-weight: bold;
     font-family: 'Open Sans', sans-serif;
   }
@@ -507,7 +516,6 @@ mesaj-detail .content .row-border{
   }
 
   .item-md {
-    padding-left: 0px;
 
     .item-button {
       height: 35px;
@@ -570,14 +578,15 @@ mesaj-detail .content .row-border{
     padding: 10px;
   }
 
-  .text-input, .datatime-ios{
+  .text-input, .datatime-ios, .datetime-md{
     padding: 10px;
     padding-left: 20px;
     font-size: 15px;
   }
 
-  .datetime-ios{
+  .datetime-ios, .datetime-md{
     margin: 11px 8px 11px 0;
+    border-radius: 25px;
   }
 
 }
@@ -586,7 +595,29 @@ mesaj-detail .content .row-border{
 
 //*------- START:LOGIN-CONTENT -----*//
 .login-content {
-  .label-ios{
+
+  .checkbox-md .checkbox-checked .checkbox-inner {
+    left: 7px;
+    top: 4px;
+    position: absolute;
+    width: 4px;
+    height: 9px;
+    border-width: 1px;
+    border-top-width: 0;
+    border-left-width: 0;
+    border-style: solid;
+  }
+
+  .checkbox-md .checkbox-icon{
+    border-radius: 50%;
+    position: relative;
+    width: 21px;
+    height: 21px;
+    border-width: 1px;
+    border-style: solid;
+  }
+
+  .label-ios, .label-md{
     margin: 2px 0px 0px 27px;
   }
   .submit-btn {
@@ -605,7 +636,7 @@ mesaj-detail .content .row-border{
   .login-box {
     margin-top: 5%;
 
-    .checkbox-ios{
+    .checkbox-ios, .checkbox-md{
       float: left;
     }
   }

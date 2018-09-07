@@ -1,7 +1,6 @@
 .segment-button.activated, .segment-button.segment-activated{
     border-radius: 5px;
     margin-top: -8px;
-    box-shadow: 5px 2px 15px 0px #488aff;
 }
 
 .main-tabs {
@@ -14,13 +13,6 @@
         text-transform: inherit;
         font-size: 14px;
         height: 40px;
-    }
-
-    .toolbar-ios .segment-button{
-        height: 35px;
-        font-size: 16px;
-        line-height: 33px;
-        max-width: 100%;
     }
 
     .segment-button{

@@ -3,7 +3,7 @@
  * @email mehmetalisahinogullari@gmail.com
  */
 import { Domain } from "./domain";
-import {Constants} from "./Constants";
+import { Constants } from "./Constants";
 
 export class Profil {
 
@@ -11,7 +11,7 @@ export class Profil {
     return Profil.getEcaTestDomain();
   }
 
-  public static getOrgKod(){
+  public static getOrgKod() {
     return Profil.getActiveProfil().orgKod;
   }
 
@@ -72,7 +72,7 @@ export class Profil {
 
   private static getEcaTestDomain() {
     let domain = new Domain();
-    domain.orgKod = Constants.ORG_KODS.ECA;
+    domain.orgKod = Constants.ORG_KODS.BAY;
     domain.kod = 'SECRET';
     domain.name = 'Development';
     domain.domainUrl = "http://sos.ecaservis.com.tr:7003";

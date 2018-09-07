@@ -28,7 +28,7 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
   //*------- START:HEADER -----*//
   .header {
 
-    button.disable-hover.bar-button.bar-button-ios.bar-button-default.bar-button-default-ios {
+    button.disable-hover.bar-button.bar-button-ios.bar-button-default.bar-button-default-ios, .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
       color: $color-white;
     }
 
@@ -62,14 +62,14 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
 
     }
 
-    .header-title .toolbar-title-ios {
+    .header-title .toolbar-title-ios, .header-title .toolbar-title-md  {
       color: $color-dark;
     }
 
   }
 
   .ion-page {
-    .header-title .toolbar-title-ios {
+    .header-title .toolbar-title-ios, .header-title .toolbar-title-md {
       color: $color-dark;
     }
   }
@@ -85,6 +85,10 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
 
   //*------- START:LOGIN-CONTENT -----*//
   .login-content {
+
+    .checkbox-md .checkbox-checked,  .checkbox-ios .checkbox-checked{
+      background: $color-button;
+    }
 
     .submit-btn {
       background: $color-main;
@@ -132,6 +136,10 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
 
   .content {
 
+    .segment-button.activated, .segment-button.segment-activated{
+      box-shadow: 5px 2px 15px 0px $color-dark;
+    }
+
     .chip-ios{
     
         label{
@@ -143,24 +151,21 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
       border-right: 1px solid $color-row-border;
     }
 
-    .datetime-ios{
+    .datetime-ios, .datetime-md{
       background: $color-input;
       border:1px solid $color-border-input;
       color:$color-white;
     }
 
-    .radio-ios{
+    .radio-ios .radio-icon, .radio-md .radio-icon{
+      border-color: $color-white;
+    }
 
-      .radio-icon{
-        border-color: $color-white;
-      }
-    } 
-
-    .label-ios{
+    .label-ios,  .label-md{
       color:$color-white;
     }
 
-    .item-ios{
+    .item-ios,  .item-md{
       background:$color-main;
       color:$color-white;
     }
@@ -171,12 +176,16 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
       }
     }
   
-    .toggle-ios.toggle-checked .toggle-icon{
+    .toggle-ios.toggle-checked .toggle-icon, .toggle-md.toggle-checked .toggle-icon{
       background: $color-button;
     }
 
+    .toggle-md.toggle-checked .toggle-inner{
+      background-color: $color-white;
+    }
+
     musteri-bilgileri{
-      .button-ios{
+      .button-ios,  .button-md{
         background: $color-input;
         border: 1px solid $color-border-input;
         color:$color-white;
@@ -188,7 +197,7 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
       color:$color-white;
     }
 
-    .label-ios-primary{
+    .label-ios-primary, .label-md-primary{
       color:$color-white;
     }
 
@@ -200,7 +209,7 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
       border-bottom: 1px solid $color-row-border;
     }
 
-    .card-ios{
+    .card-ios, .card-md{
       background-color:$color-main;
       box-shadow: 4px 4px $color-header;
 
@@ -208,15 +217,15 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
         color:$color-white;
       }
     }
-    .toolbar-background-ios {
+    .toolbar-background-ios, .toolbar-background-md {
       background: inherit;
     }
 
-    .button-ios {
+    .button-ios, .button-md, .button-md:hover:not(.disable-hover) {
       background-color:$color-button;
     }
 
-    .text-input-ios {
+    .text-input-ios, .text-input-md {
       border: 1px solid $color-border-input;
       background: $color-input;
       color:$color-white;
@@ -238,7 +247,7 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
       background-color: $color-main;
     }
 
-    .text-input-ios, .text-input {
+    .text-input-ios, .text-input-md, .text-input {
       border: 1px solid $color-border-input;
       background: $color-input;
       color:$color-white;
@@ -249,7 +258,7 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
 
     }
 
-    .searchbar-ios .searchbar-input {
+    .searchbar-ios .searchbar-input, .searchbar-md .searchbar-input {
       border: 1px solid $color-main;
       background: $color-input;
       color:$color-white;
@@ -267,15 +276,16 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
       border: 1px solid $color-border-input;
     }
 
-    .select-ios {
+    .select-ios, .select-md {
       border: 1px solid $color-border-input;
       background: $color-input;
       color:$color-white;
     }
 
-    .segment-ios .segment-button.segment-activated {
+    .segment-ios .segment-button.segment-activated,  .segment-md .segment-button.segment-activated {
       box-shadow: 5px 2px 15px 0px $color-main;
       background-color: $color-button;
+      border: 1px solid inherit;
     }
 
     .gray-box {
@@ -309,10 +319,7 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
     }
 
     .main-tabs {
-      .toolbar-background-md {
-        background: $color-white;
-      }
-
+      
       .segment-md .segment-button {
         border: 1px solid $color-white;
         color:$color-white;
@@ -326,15 +333,15 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
   //*------- START:HOME-CONTENT -----*//
   .home-content {
 
-    .item-ios{
+    .item-ios, .item-md{
       background-color: $color-item;
     }
 
-    .icon-ios {
+    .icon-ios, .icon-md {
       color: $color-white;
     }
 
-    .label {
+    .label, .label-md {
       color: $color-white;
     }
   }
@@ -360,19 +367,19 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
   
 //*------- START:FOOTER -----*//
 .footer {
-  .item-ios{
+  .item-ios, .item-md{
     background: $color-header;
   }
 
   background:$color-header;
   border-top:1px solid $color-row-border;
   
-  .toolbar-background-ios {
+  .toolbar-background-ios,  .toolbar-background-md {
     background-color: $color-button;
   }
 
 
-  .label {
+  .label, .label-md {
     color: $color-white;
   }
 
