@@ -1,11 +1,11 @@
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {BehaviorSubject} from "rxjs";
-import {Constants} from "../../entities/Constants";
-import {UtilProvider} from "../util/util";
-import {User} from "../../entities/user";
-import {Profil} from '../../entities/profil';
-import {BaseProvider} from "../base/base";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from "rxjs";
+import { Constants } from "../../entities/Constants";
+import { UtilProvider } from "../util/util";
+import { User } from "../../entities/user";
+import { Profil } from '../../entities/profil';
+import { BaseProvider } from "../base/base";
 
 
 enum THEME {
@@ -50,7 +50,7 @@ export class ThemeProvider extends BaseProvider {
         selectedTheme = THEME.BLUE;
         break;
 
-      case  Constants.ORG_KODS.BAY:
+      case Constants.ORG_KODS.BAY:
         selectedTheme = THEME.GREEN;
         break;
 
@@ -76,6 +76,6 @@ export class ThemeProvider extends BaseProvider {
   }
 
   getAnasayfaLogo() {
-    return this.getDefaultImageFolder() + "anasayfa-logo.jpg";
+    return this.getDefaultImageFolder() + "anasayfa-logo.png";
   }
 }

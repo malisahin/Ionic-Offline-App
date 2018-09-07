@@ -3902,37 +3902,343 @@ ion-icon::before {
   width: 20%;
 }
 
+.green-theme .header button.disable-hover.bar-button.bar-button-ios.bar-button-default.bar-button-default-ios {
+  color: #ffffff;
+}
+
+.green-theme .header .toolbar-background-md, .green-theme .header .toolbar-background-ios {
+  border-color: #2b8145;
+  background: #014b26;
+}
+
+.green-theme .header .modal-title .toolbar-title-ios, .green-theme .header .modal-title .close-icon, .green-theme .header .modal-title .toolbar-title-md {
+  color: #ffffff;
+}
+
+.green-theme .header .header-title .toolbar-title.toolbar-title-md {
+  color: rgba(204, 0, 0, 0.8);
+}
+
+.green-theme .header .header-title .toolbar-title-ios {
+  color: #00684e;
+}
+
+.green-theme .header .tabs-ios-primary .tabbar, .green-theme .header .tabs-md-primary .tabbar {
+  border-color: #00684e;
+  background-color: #00684e;
+}
+
+.green-theme .header .toolbar-title-md, .green-theme .header .toolbar-title-ios {
+  color: #00684e;
+}
+
+.green-theme .header .header-title .toolbar-title-ios {
+  color: #00684e;
+}
+
+.green-theme .ion-page .header-title .toolbar-title-ios {
+  color: #00684e;
+}
+
+.green-theme .header-bar .bar-button-default-md, .green-theme .header-bar .bar-button-default-ios {
+  color: #ffffff;
+}
+
 .green-theme .login-content .submit-btn {
-  background: #34b652;
+  background: rgba(52, 140, 76, 0.77);
+}
+
+.green-theme .login-content .button-ios-secondary, .green-theme .login-content .button-md-secondary, .green-theme .login-content .button-md-secondary:hover:not(.disable-hover) {
+  background: #2b8145;
 }
 
 .green-theme .login-content input {
-  border: 1px solid #34b652;
-  color: #fff;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  background: rgba(112, 183, 134, 0.58);
 }
 
 .green-theme .login-content input::-webkit-input-placeholder {
-  color: #fff;
+  color: #ffffff;
 }
 
 .green-theme .login-content input:-ms-input-placeholder {
-  color: #fff;
+  color: #ffffff;
 }
 
 .green-theme .login-content input::-ms-input-placeholder {
-  color: #fff;
+  color: #ffffff;
 }
 
 .green-theme .login-content input::placeholder {
-  color: #fff;
+  color: #ffffff;
 }
 
 .green-theme .login-content .password-icon {
-  color: #fff;
+  color: #ffffff;
 }
 
 .green-theme .login-content .logo ion-icon {
-  color: #fff;
+  color: #ffffff;
+}
+
+.green-theme .login-content .toolbar-background {
+  background: #ffffff;
+}
+
+.green-theme .login-content .text-input {
+  border: 1px solid #00684e;
+  background: rgba(112, 183, 134, 0.58);
+  color: #ffffff;
+}
+
+.green-theme .login-content .label-ios {
+  color: #001e33;
+}
+
+.green-theme .content .chip-ios label {
+  color: #ffffff;
+}
+
+.green-theme .content .border-right {
+  border-right: 1px solid #086b3a;
+}
+
+.green-theme .content .datetime-ios {
+  background: rgba(112, 183, 134, 0.58);
+  border: 1px solid #00684e;
+  color: #ffffff;
+}
+
+.green-theme .content .radio-ios .radio-icon {
+  border-color: #ffffff;
+}
+
+.green-theme .content .label-ios {
+  color: #ffffff;
+}
+
+.green-theme .content .item-ios {
+  background: rgba(52, 140, 76, 0.77);
+  color: #ffffff;
+}
+
+.green-theme .content .select-icon .select-icon-inner {
+  color: #ffffff;
+}
+
+.green-theme .content .toggle-ios.toggle-checked .toggle-icon {
+  background: #2b8145;
+}
+
+.green-theme .content musteri-bilgileri .button-ios {
+  background: rgba(112, 183, 134, 0.58);
+  border: 1px solid #00684e;
+  color: #ffffff;
+}
+
+.green-theme .content .segment-button {
+  border: 1px solid #ffffff;
+  color: #ffffff;
+}
+
+.green-theme .content .label-ios-primary {
+  color: #ffffff;
+}
+
+.green-theme .content .text-color a, .green-theme .content .adres-box {
+  color: #ffffff;
+}
+
+.green-theme .content .row-border {
+  border-bottom: 1px solid #086b3a;
+}
+
+.green-theme .content .card-ios {
+  background-color: rgba(52, 140, 76, 0.77);
+  -webkit-box-shadow: 4px 4px #014b26;
+  box-shadow: 4px 4px #014b26;
+}
+
+.green-theme .content .card-ios p {
+  color: #ffffff;
+}
+
+.green-theme .content .toolbar-background-ios {
+  background: inherit;
+}
+
+.green-theme .content .button-ios {
+  background-color: #2b8145;
+}
+
+.green-theme .content .text-input-ios {
+  border: 1px solid #00684e;
+  background: rgba(112, 183, 134, 0.58);
+  color: #ffffff;
+}
+
+.green-theme .content .searchbar-ios .searchbar-input, .green-theme .content .searchbar-md .searchbar-input {
+  border: 1px solid #00684e;
+  background: rgba(112, 183, 134, 0.58);
+  color: #ffffff;
+}
+
+.green-theme .content .button-md-downloaded, .green-theme .content .button-ios-downloaded {
+  color: #ffffff;
+  background-color: #24af4e;
+  border: 1px solid #00684e;
+}
+
+.green-theme .content .button-md-notDownloaded {
+  background-color: rgba(52, 140, 76, 0.77);
+}
+
+.green-theme .content .text-input-ios, .green-theme .content .text-input {
+  border: 1px solid #00684e;
+  background: rgba(112, 183, 134, 0.58);
+  color: #ffffff;
+}
+
+.green-theme .content .toolbar-title-md, .green-theme .content .toolbar-title-ios {
+  color: #ffffff;
+}
+
+.green-theme .content .searchbar-ios .searchbar-input {
+  border: 1px solid rgba(52, 140, 76, 0.77);
+  background: rgba(112, 183, 134, 0.58);
+  color: #ffffff;
+}
+
+.green-theme .content .select-md {
+  border: 1px solid #00684e;
+}
+
+.green-theme .content .item-select .label-md {
+  color: rgba(52, 140, 76, 0.77);
+}
+
+.green-theme .content textarea.text-input {
+  border: 1px solid #00684e;
+}
+
+.green-theme .content .select-ios {
+  border: 1px solid #00684e;
+  background: rgba(112, 183, 134, 0.58);
+  color: #ffffff;
+}
+
+.green-theme .content .segment-ios .segment-button.segment-activated {
+  -webkit-box-shadow: 5px 2px 15px 0px rgba(52, 140, 76, 0.77);
+  box-shadow: 5px 2px 15px 0px rgba(52, 140, 76, 0.77);
+  background-color: #2b8145;
+}
+
+.green-theme .content .gray-box {
+  background: #f1f1f1;
+}
+
+.green-theme .content .button-ios-secondary, .green-theme .content .button-md-secondary, .green-theme .content .button-md-secondary:hover:not(.disable-hover) {
+  background: #2b8145;
+}
+
+.green-theme .content .card-box1 {
+  background: rgba(1, 75, 38, 0.75);
+  border: 1px solid #2b8145;
+}
+
+.green-theme .content .card-box {
+  background: rgba(52, 140, 76, 0.77);
+  border: 1px solid #00684e;
+}
+
+.green-theme .content .card-box i {
+  color: #ffffff;
+}
+
+.green-theme .content .card-box label {
+  color: #ffffff;
+}
+
+.green-theme .content .item-input .label-md, .green-theme .content .item-datetime .label-md {
+  color: rgba(52, 140, 76, 0.77);
+}
+
+.green-theme .content .main-tabs .toolbar-background-md {
+  background: #ffffff;
+}
+
+.green-theme .content .main-tabs .segment-md .segment-button {
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  opacity: 1;
+}
+
+.green-theme .home-content .item-ios {
+  background-color: rgba(0, 104, 78, 0);
+}
+
+.green-theme .home-content .icon-ios {
+  color: #ffffff;
+}
+
+.green-theme .home-content .label {
+  color: #ffffff;
+}
+
+.green-theme .announcements, .green-theme .bar-announcements {
+  background: rgba(204, 0, 0, 0.8);
+  color: #ffffff;
+}
+
+.green-theme .segment-button.activated, .green-theme .segment-button.segment-activated {
+  border-color: rgba(52, 140, 76, 0.77);
+  background: #2b8145;
+  color: #ffffff;
+}
+
+.green-theme .searchbox .searchbar-md .searchbar-input {
+  border: 1px solid rgba(52, 140, 76, 0.77);
+  background: rgba(112, 183, 134, 0.58);
+  color: #ffffff;
+}
+
+.footer {
+  background: #014b26;
+  border-top: 1px solid #086b3a;
+}
+
+.footer .toolbar-background-ios {
+  background-color: #2b8145;
+}
+
+.footer .label {
+  color: #ffffff;
+}
+
+.footer .button-ios-light, .footer .button-md-light {
+  color: #ffffff;
+  background-color: #2b8145;
+}
+
+.footer .select-md, .footer .select-ios {
+  color: #ffffff;
+}
+
+.msj-info {
+  background: blue;
+}
+
+.msg-success {
+  background: green;
+}
+
+.msj-warn {
+  background: orange;
+}
+
+.msj-error {
+  background: red;
 }
 
 .toast-info .toast-container {
@@ -4029,7 +4335,7 @@ ion-icon::before {
 .blue-theme .login-content input {
   border: 1px solid #ffffff;
   color: #ffffff;
-  background: rgba(47, 138, 182, 0.4);
+  background: rgba(47, 138, 182, 0.65);
 }
 
 .blue-theme .login-content input::-webkit-input-placeholder {
@@ -4062,7 +4368,7 @@ ion-icon::before {
 
 .blue-theme .login-content .text-input {
   border: 1px solid #327caf;
-  background: rgba(47, 138, 182, 0.4);
+  background: rgba(47, 138, 182, 0.65);
   color: #ffffff;
 }
 
@@ -4070,12 +4376,16 @@ ion-icon::before {
   color: #001e33;
 }
 
+.blue-theme .content .chip-ios label {
+  color: #ffffff;
+}
+
 .blue-theme .content .border-right {
   border-right: 1px solid #4497ad;
 }
 
 .blue-theme .content .datetime-ios {
-  background: rgba(47, 138, 182, 0.4);
+  background: rgba(47, 138, 182, 0.65);
   border: 1px solid #327caf;
   color: #ffffff;
 }
@@ -4102,7 +4412,7 @@ ion-icon::before {
 }
 
 .blue-theme .content musteri-bilgileri .button-ios {
-  background: rgba(47, 138, 182, 0.4);
+  background: rgba(47, 138, 182, 0.65);
   border: 1px solid #327caf;
   color: #ffffff;
 }
@@ -4142,13 +4452,13 @@ ion-icon::before {
 
 .blue-theme .content .text-input-ios {
   border: 1px solid #327caf;
-  background: rgba(47, 138, 182, 0.4);
+  background: rgba(47, 138, 182, 0.65);
   color: #ffffff;
 }
 
 .blue-theme .content .searchbar-ios .searchbar-input, .blue-theme .content .searchbar-md .searchbar-input {
   border: 1px solid #9cc0da;
-  background: rgba(47, 138, 182, 0.4);
+  background: rgba(47, 138, 182, 0.65);
   color: #ffffff;
 }
 
@@ -4164,7 +4474,7 @@ ion-icon::before {
 
 .blue-theme .content .text-input-ios, .blue-theme .content .text-input {
   border: 1px solid #327caf;
-  background: rgba(47, 138, 182, 0.4);
+  background: rgba(47, 138, 182, 0.65);
   color: #ffffff;
 }
 
@@ -4174,7 +4484,7 @@ ion-icon::before {
 
 .blue-theme .content .searchbar-ios .searchbar-input {
   border: 1px solid rgba(0, 82, 121, 0.56);
-  background: rgba(47, 138, 182, 0.4);
+  background: rgba(47, 138, 182, 0.65);
   color: #ffffff;
 }
 
@@ -4192,7 +4502,7 @@ ion-icon::before {
 
 .blue-theme .content .select-ios {
   border: 1px solid #327caf;
-  background: rgba(47, 138, 182, 0.4);
+  background: rgba(47, 138, 182, 0.65);
   color: #ffffff;
 }
 
@@ -4261,14 +4571,9 @@ ion-icon::before {
 }
 
 .blue-theme .searchbox .searchbar-md .searchbar-input {
-  border-radius: 65px;
   border: 1px solid rgba(0, 82, 121, 0.56);
-  background: rgba(47, 138, 182, 0.4);
+  background: rgba(47, 138, 182, 0.65);
   color: #ffffff;
-}
-
-.footer {
-  background: #195884;
 }
 
 .footer .toolbar-background-ios {
@@ -4276,7 +4581,7 @@ ion-icon::before {
 }
 
 .footer .item-ios, .footer .item-md {
-  background-color: #195884;
+  background-color: inherit;
   color: #ffffff;
 }
 
@@ -4286,16 +4591,11 @@ ion-icon::before {
 
 .footer .button-ios-light, .footer .button-md-light {
   color: #ffffff;
-  background-color: #195884;
+  background-color: inherit;
 }
 
 .footer .select-md, .footer .select-ios {
   color: #ffffff;
-}
-
-.footer .select-ios .select-text, .footer .select-md .select-text {
-  min-width: 27px;
-  font-size: 18px;
 }
 
 .msj-info {
@@ -4381,6 +4681,7 @@ ion-icon::before {
   padding-left: 15px;
   text-align: left;
   font-size: 14px;
+  width: 100%;
 }
 
 .content textarea.text-input {
@@ -4390,6 +4691,11 @@ ion-icon::before {
 
 .home-content .label, .footer .label {
   font-size: 16px;
+}
+
+.content .label-ios {
+  margin: 20px 8px 11px 0;
+  white-space: inherit;
 }
 
 .content .label-md {
@@ -4424,7 +4730,7 @@ ion-icon::before {
 
 .content .select {
   border-radius: 25px;
-  padding: 8px;
+  padding: 10px;
   padding-left: 15px;
   text-align: left;
   font-size: 14px;
@@ -4437,11 +4743,18 @@ ion-icon::before {
 }
 
 @media only screen and (max-width: 500px) {
+  .announcements {
+    top: 5px;
+  }
   .login-box .label-ios {
     padding-top: 0px !important;
   }
+  .content .logo img {
+    max-width: 70%;
+  }
   .content .label-ios {
     padding: 10px 0 0 10px;
+    margin: 11px 8px 11px 0;
   }
   .content musteri-bilgileri .button-inner {
     text-decoration: underline;
@@ -4485,9 +4798,6 @@ ion-icon::before {
     max-width: 100%;
     margin-top: 10px;
     width: 100%;
-  }
-  .content .detay .button-ios {
-    padding-bottom: 12px;
   }
   .content .button-ios {
     margin: 0px;
@@ -4543,7 +4853,7 @@ ion-icon::before {
     margin-right: 10px;
   }
   .content .button-ios {
-    height: 35px;
+    height: 40px;
     margin-bottom: 15px;
   }
   .header-bar .bar-announcements {
@@ -4579,10 +4889,6 @@ ion-icon::before {
   bottom: -1px;
 }
 
-.footer .button-ios-light {
-  float: left;
-}
-
 .footer .item-ios {
   width: 53%;
   float: left;
@@ -4590,7 +4896,7 @@ ion-icon::before {
 }
 
 .footer ion-select {
-  max-width: 60%;
+  max-width: 70%;
 }
 
 .footer .select-ios {
@@ -4604,7 +4910,7 @@ ion-icon::before {
 .announcements {
   border-radius: 100%;
   font-size: 12px;
-  top: 5px;
+  top: -5px;
   position: absolute;
   z-index: 999;
   width: 30px;
@@ -4683,6 +4989,7 @@ hizmet-bilgileri .item-inner.item-md.item-input.ng-valid.item-input-has-value:no
   margin-right: 20px;
   font-size: 25px;
   font-weight: bold;
+  width: 200px;
 }
 
 .header .tabbar {
@@ -4736,9 +5043,18 @@ hizmet-bilgileri .item-inner.item-md.item-input.ng-valid.item-input-has-value:no
   font-size: 17px;
 }
 
+.modal-wrapper {
+  left: 0 !important;
+  top: 0 !important;
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+}
+
 .content-background {
   /*background-image: url("../../assets/eca/login/login-background.jpg");*/
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .garanti-sorgu .row-border {
@@ -4747,6 +5063,19 @@ hizmet-bilgileri .item-inner.item-md.item-input.ng-valid.item-input-has-value:no
 
 mesaj-detail .content .row-border {
   padding: 0px;
+}
+
+.content .chip-ios {
+  width: 50%;
+}
+
+.content .chip-ios label {
+  padding-top: 8px;
+  padding-left: 15px;
+}
+
+.content .card-box .label-ios {
+  margin-left: 8px;
 }
 
 .content .segment-ios .segment-button {
@@ -4861,6 +5190,10 @@ mesaj-detail .content .row-border {
   padding: 16px;
 }
 
+.content .card-box1 {
+  padding: 10px;
+}
+
 .content .card-box {
   padding: 5px;
   margin: 0px;
@@ -4894,6 +5227,10 @@ mesaj-detail .content .row-border {
 
 .content .datetime-ios {
   margin: 11px 8px 11px 0;
+}
+
+.login-content .label-ios {
+  margin: 2px 0px 0px 27px;
 }
 
 .login-content .submit-btn {
@@ -4956,8 +5293,13 @@ mesaj-detail .content .row-border {
   margin-left: 35%;
 }
 
-.footer .select-ios {
-  margin-top: 5px;
+.footer .select-ios .select-text, .footer .select-md .select-text {
+  min-width: 27px;
+  font-size: 18px;
+}
+
+.searchbox .searchbar-md .searchbar-input {
+  border-radius: 65px;
 }
 
 ion-action-sheet {

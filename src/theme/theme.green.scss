@@ -1,19 +1,21 @@
 
 @import "common";
 $color-darkBlue: #00684e;
-$color-blue:  rgba(0, 104, 78, 0.56);;
+$color-blue: rgba(52, 140, 76, 0.77);
 $color-lightBlue: #00684e;
 $color-white: #ffffff;
 $color-red:rgba(204, 0, 0, 0.80);
 $color-green: #41a85f;
 $color-gray: #f1f1f1;
-$color-button:#00684e;
-$color-input:rgba(0, 104, 78, 0.56);
+$color-button:#2b8145;
+$color-input:rgba(112, 183, 134, 0.58);
 $color-border-input:#00684e;
 $color-label:#001e33;
 $color-item:rgba(0, 104, 78, 0);
-$color-row-border:#297361;
-$color-downloaded:#009a74;
+$color-row-border:#086b3a;
+$color-downloaded:#24af4e;
+$color-header:#014b26;
+$color-card-box-dark:rgba(1, 75, 38, 0.75);
 
 
 
@@ -28,7 +30,7 @@ $color-downloaded:#009a74;
 
     .toolbar-background-md, .toolbar-background-ios {
       border-color: $color-button;
-      background: $color-button;
+      background: $color-header;
     }
 
     .modal-title .toolbar-title-ios, .modal-title .close-icon, .modal-title .toolbar-title-md {
@@ -126,6 +128,13 @@ $color-downloaded:#009a74;
 
   .content {
 
+    .chip-ios{
+    
+        label{
+            color:$color-white;
+        }
+    }
+
     .border-right{
       border-right: 1px solid $color-row-border;
     }
@@ -189,6 +198,7 @@ $color-downloaded:#009a74;
 
     .card-ios{
       background-color:$color-blue;
+      box-shadow: 4px 4px $color-header;
 
       p{
         color:$color-white;
@@ -231,7 +241,7 @@ $color-downloaded:#009a74;
     }
 
     .toolbar-title-md, .toolbar-title-ios {
-      color: $color-darkBlue;
+      color: $color-white;
 
     }
 
@@ -270,6 +280,11 @@ $color-downloaded:#009a74;
 
     .button-ios-secondary, .button-md-secondary, .button-md-secondary:hover:not(.disable-hover) {
       background: $color-button;
+    }
+
+    .card-box1 {
+        background: $color-card-box-dark;
+        border:1px solid $color-button;
     }
 
     .card-box {
@@ -332,7 +347,6 @@ $color-downloaded:#009a74;
   }
 
   .searchbox .searchbar-md .searchbar-input {
-    border-radius: 65px;
     border: 1px solid $color-blue;
     background: $color-input;
     color:$color-white;
@@ -343,16 +357,13 @@ $color-downloaded:#009a74;
 //*------- START:FOOTER -----*//
 .footer {
 
-  background:$color-button;
+  background:$color-header;
+  border-top:1px solid $color-row-border;
   
   .toolbar-background-ios {
     background-color: $color-button;
   }
 
-  .item-ios, .item-md {
-    background-color: $color-button;
-    color: $color-white;
-  }
 
   .label {
     color: $color-white;
@@ -367,10 +378,6 @@ $color-downloaded:#009a74;
     color: $color-white;
   }
 
-  .select-ios .select-text, .select-md .select-text {
-    min-width: 27px;
-    font-size: 18px;
-  }
 }
 
 //*------- END:FOOTER -----*//

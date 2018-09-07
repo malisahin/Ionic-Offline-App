@@ -126,6 +126,13 @@ $color-downloaded:#188aaf;
 
   .content {
 
+    .chip-ios{
+
+      label{
+          color:$color-white;
+      }
+    }
+
     .border-right{
       border-right: 1px solid $color-row-border;
     }
@@ -332,7 +339,6 @@ $color-downloaded:#188aaf;
   }
 
   .searchbox .searchbar-md .searchbar-input {
-    border-radius: 65px;
     border: 1px solid $color-blue;
     background: $color-input;
     color:$color-white;
@@ -343,14 +349,13 @@ $color-downloaded:#188aaf;
 //*------- START:FOOTER -----*//
 .footer {
 
-  background:$color-button;
-  
+
   .toolbar-background-ios {
     background-color: $color-button;
   }
 
   .item-ios, .item-md {
-    background-color: $color-button;
+    background-color:inherit;
     color: $color-white;
   }
 
@@ -360,17 +365,13 @@ $color-downloaded:#188aaf;
 
   .button-ios-light, .button-md-light {
     color: $color-white;
-    background-color: $color-button;
+    background-color: inherit;
   }
 
   .select-md, .select-ios {
     color: $color-white;
   }
 
-  .select-ios .select-text, .select-md .select-text {
-    min-width: 27px;
-    font-size: 18px;
-  }
 }
 
 //*------- END:FOOTER -----*//

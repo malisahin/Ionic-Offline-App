@@ -1,5 +1,9 @@
 //*--------------------- START:IOS CSS ---------------------*//
 @media only screen and (max-width: 500px) {
+  .announcements {
+    top: 5px;
+  }
+
 
   .login-box{
 
@@ -8,7 +12,11 @@
     }
   }
   .content {
-
+.logo{
+  img{
+    max-width: 70%;
+  }
+}
     .label-ios {
       padding: 10px 0 0 10px;
       margin: 11px 8px 11px 0;
@@ -203,7 +211,7 @@
   }
 
   ion-select {
-    max-width: 60%;
+    max-width: 70%;
   }
 
   .select-ios {
@@ -220,7 +228,7 @@
 .announcements {
   border-radius: 100%;
   font-size: 12px;
-  top: 5px;
+  top: -5px;
   position: absolute;
   z-index: 999;
   width: 30px;
@@ -308,6 +316,7 @@ hizmet-bilgileri, musteri-bilgileri, urun-bilgileri, servis-bilgileri, detay-bil
     margin-right: 20px;
     font-size: 25px;
     font-weight: bold;
+    width:200px;
   }
 
   .tabbar {
@@ -397,6 +406,15 @@ mesaj-detail .content .row-border{
 
 
 .content {
+
+  .chip-ios{
+    width:50%;
+
+    label{
+    padding-top: 8px;
+    padding-left: 15px;
+    }
+  }
 
   .card-box{
     .label-ios{
@@ -521,6 +539,9 @@ mesaj-detail .content .row-border{
     padding: 16px;
   }
 
+.card-box1{
+  padding: 10px;
+}
 
   .card-box {
     padding: 5px;
@@ -629,11 +650,21 @@ mesaj-detail .content .row-border{
 
 //*------- START:FOOTER-CONTENT -----*//
 .footer{
+
   .select-md{
     max-width: 25%;
     margin-left: 35%;
   }
 
+  .select-ios .select-text, .select-md .select-text {
+    min-width: 27px;
+    font-size: 18px;
+  }
+
 }
 
 //*------- END:FOOTER-CONTENT -----*//
+
+.searchbox .searchbar-md .searchbar-input {
+  border-radius: 65px;
+}
