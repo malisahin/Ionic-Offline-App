@@ -32,7 +32,7 @@ export class DatabaseProvider {
 
   async transaction(): Promise<any> {
     let tx: SQLiteObject;
-    if (this.platform.is("browser") || this.platform.is("core") || this.platform.is("mobileweb"))
+    if (this.platform.is("browser") || this.platform.is("core"))
       return new Promise((resolve, reject) => {
         let tx = window.openDatabase("SOS", "1", "SOS DB", 1000000);
         resolve(tx);

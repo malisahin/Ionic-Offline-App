@@ -15,7 +15,7 @@ import { TasksProvider } from "../../providers/tasks/tasks";
 import { BehaviorSubject } from "rxjs";
 import { ThemeProvider } from "../../providers/theme/theme";
 import { LoggerProvider } from "../../providers/logger/logger";
-import {LogPage} from "../log/log";
+
 
 @IonicPage()
 @Component({
@@ -150,13 +150,15 @@ export class AyarlarPage {
 
 
   onChangeTheme() {
-    if (this.util.isEmpty(this.selectedTheme)) {
+   /* if (this.util.isEmpty(this.selectedTheme)) {
       this.logger.log("Tema seçilmemiş default set edilir.");
       this.themeProvider.setTheme();
     } else {
       this.logger.log("Tema değiştirildi. Yeni tema" + this.selectedTheme);
       this.themeProvider.changeTheme(this.selectedTheme);
     }
+
+    */
   }
 
   onChangeMessageDuration(nerden: string) {
@@ -182,7 +184,7 @@ export class AyarlarPage {
   }
 
   showLogs(){
-    this.navCtrl.push(LogPage);
+    //this.navCtrl.push(LogPage);
   }
 
 }

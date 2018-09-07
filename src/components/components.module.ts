@@ -8,13 +8,10 @@ import { AnketComponent } from './anket/anket';
 
 @NgModule({
   declarations: [
-    MalzemeSearchComponent,
-    AnketComponent
+
   ],
   imports: [],
   exports: [
-    MalzemeSearchComponent,
-    AnketComponent
   ]
 })
 export class ComponentsModule {
