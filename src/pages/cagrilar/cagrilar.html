@@ -103,14 +103,16 @@
       </ion-col>
       <ion-col col-11>
         <span class="adres-box" *ngIf="cagri.semt != null && cagri.semt != ''">Semt: {{cagri.semt}}</span>
-        <span class="adres-box" *ngIf="cagri.mahalleAdi != null && cagri.mahalleAdi !=''">Mahalle: {{cagri.mahalleAdi}}</span>
+        <span class="adres-box"
+              *ngIf="cagri.mahalleAdi != null && cagri.mahalleAdi !=''">Mahalle: {{cagri.mahalleAdi}}</span>
         <span class="adres-box" *ngIf="cagri.cadde != null && cagri.cadde !=''">Cadde: {{cagri.cadde}} </span>
         <span class="adres-box" *ngIf="cagri.sokak != null && cagri.sokak !=''">Sokak: {{cagri.sokak}}</span>
         <span class="adres-box" *ngIf="cagri.aparman!= null && cagri.aparman !=''">Apartman: {{cagri.aparman}}</span>
         <span class="adres-box" *ngIf="cagri.apartmanNo!= null && cagri.apartmanNo !=''">{{cagri.apartmanNo}}</span>
         <span class="adres-box" *ngIf="cagri.blok != null && cagri.blok!=''">Blok: {{cagri.blok}}</span>
         <span class="adres-box" *ngIf="cagri.daireNo != null && cagri.daireNo!=''">Daire No: {{cagri.daireNo}}</span>
-        <span class="adres-box" *ngIf="cagri.ilceAdi != null && cagri.ilceAdi!=''">{{cagri.ilceAdi}} /{{cagri.sehir}}</span>
+        <span class="adres-box"
+              *ngIf="cagri.ilceAdi != null && cagri.ilceAdi!=''">{{cagri.ilceAdi}} /{{cagri.sehir}}</span>
       </ion-col>
     </ion-row>
   </ion-card>
@@ -122,16 +124,24 @@
 <ion-footer>
   <ion-row>
     <ion-col col-4 col-md-4>
-      <button ion-button color="light" class="pull-left" (click)="fetchList('FIRST')">
-        <ion-label>
-          <i class="fas fa-angle-double-left"></i>
-        </ion-label>
-      </button>
-      <button ion-button color="light" class="pull-left" (click)="fetchList('PREVIOUS')">
-        <ion-label>
-          <i class="fas fa-angle-left"></i>
-        </ion-label>
-      </button>
+      <ion-row>
+
+        <ion-col col-6 col-md-6 col-lg-6 col-xl-6>
+          <button ion-button color="light" class="pull-left" (click)="fetchList('FIRST')">
+            <ion-label>
+              <i class="fas fa-angle-double-left"></i>
+            </ion-label>
+          </button>
+        </ion-col>
+
+        <ion-col col-6 col-md-6 col-lg-6 col-xl-6>
+          <button ion-button color="light" class="pull-left" (click)="fetchList('PREVIOUS')">
+            <ion-label>
+              <i class="fas fa-angle-left"></i>
+            </ion-label>
+          </button>
+        </ion-col>
+      </ion-row>
     </ion-col>
     <ion-col col-4 col-md-4>
       <ion-select [(ngModel)]="pageable.pageSize" (ionChange)="fetchList('PAGE_NO')" interface="popover">
@@ -141,16 +151,23 @@
       </ion-select>
     </ion-col>
     <ion-col col-4 col-md-4>
-      <button ion-button color="light" class="pull-right" (click)="fetchList('NEXT')">
-        <ion-label>
-          <i class="fas fa-angle-right"></i>
-        </ion-label>
-      </button>
-      <button ion-button color="light" class="pull-right" (click)="fetchList('LAST')">
-        <ion-label>
-          <i class="fas fa-angle-double-right"></i>
-        </ion-label>
-      </button>
+      <ion-row>
+        <ion-col col-6 col-md-6 col-lg-6 col-xl-6>
+          <button ion-button color="light" class="pull-right" (click)="fetchList('NEXT')">
+            <ion-label>
+              <i class="fas fa-angle-right"></i>
+            </ion-label>
+          </button>
+        </ion-col>
+
+        <ion-col col-6 col-md-6 col-lg-6 col-xl-6>
+          <button ion-button color="light" class="pull-right" (click)="fetchList('LAST')">
+            <ion-label>
+              <i class="fas fa-angle-double-right"></i>
+            </ion-label>
+          </button>
+        </ion-col>
+      </ion-row>
     </ion-col>
 
   </ion-row>

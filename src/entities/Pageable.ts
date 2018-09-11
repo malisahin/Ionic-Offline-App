@@ -10,7 +10,7 @@ export class Pageable {
 
   tip: string;
   first: number = 0;
-  pageSize: number = 20;
+  pageSize: number = 10;
   listLength: number = -1;
   pageNo: number;
   isFirstPage: boolean = false;

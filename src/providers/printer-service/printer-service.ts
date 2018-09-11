@@ -1,13 +1,13 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { User } from "../../entities/user";
-import { ModalController } from "ionic-angular";
-import { Hizmet } from "../../entities/hizmet/hizmet";
-import { UtilProvider } from "../util/util";
-import { ZebraPrinterComponent } from "../../components/zebra-printer/zebra-printer";
-import { DetayKayit } from "../../entities/hizmet/DetayKayit";
-import { Constants } from "../../entities/Constants";
-import { Anket } from "../../entities/hizmet/Ankets/Anket";
+import {HttpClient} from "@angular/common/http";
+import {Injectable} from "@angular/core";
+import {User} from "../../entities/user";
+import {ModalController} from "ionic-angular";
+import {Hizmet} from "../../entities/hizmet/hizmet";
+import {UtilProvider} from "../util/util";
+import {ZebraPrinterComponent} from "../../components/zebra-printer/zebra-printer";
+import {DetayKayit} from "../../entities/hizmet/DetayKayit";
+import {Constants} from "../../entities/Constants";
+import {Anket} from "../../entities/hizmet/Ankets/Anket";
 import {Profil} from "../../entities/profil";
 
 @Injectable()
@@ -15,11 +15,11 @@ export class PrinterService {
   hizmet: Hizmet;
   seperator = "..............................................";
   user: User;
-  profil: Profil= new Profil();
+  profil: Profil = new Profil();
 
   constructor(public http: HttpClient,
-    private modalCtrl: ModalController,
-    private util: UtilProvider) {
+              private modalCtrl: ModalController,
+              private util: UtilProvider) {
     this.hizmet = new Hizmet();
     this.user = new User();
     this.init();
@@ -31,7 +31,9 @@ export class PrinterService {
   showPrinterList(hizmet: Hizmet) {
     this.hizmet = hizmet;
     let text = this.getPrintText();
-    let modal = this.modalCtrl.create(ZebraPrinterComponent, { text: text });
+    let modal = this.modalCtrl.create(ZebraPrinterComponent,
+      {text: text},
+      {cssClass: this.util.getSelectedTheme()});
     modal.present();
   }
 
@@ -160,7 +162,6 @@ export class PrinterService {
     if (this.hizmet.seriMetod == "2")
       data += "\n\r  Seri 2              : " + this.hizmet.mamSeriNo2;
     data += "\n\r" + this.seperator;
-
 
 
     data += '\n! U1 SETBOLD 2';
@@ -394,7 +395,6 @@ export class PrinterService {
     if (this.hizmet.seriMetod == "2")
       data += "\n\r  Seri 2              : " + this.hizmet.mamSeriNo2;
     data += "\n\r" + this.seperator;
-
 
 
     data += '\n! U1 SETBOLD 2';

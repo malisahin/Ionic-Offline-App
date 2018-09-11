@@ -81,9 +81,8 @@ export class DetayBilgileriComponent {
       this.detayList.forEach(item => {
         if (this.util.isNotEmpty(item.tutar))
           this.toplamTutar += Number(item.tutar);
-
-        this.toplamTutar = Number((this.toplamTutar * 1.18).toFixed(2));
-      })
+      });
+      this.toplamTutar = Number((this.toplamTutar * 1.18).toFixed(2));
     }
   }
 

@@ -3,6 +3,8 @@ import {AlertController, Platform} from "ionic-angular";
 import {Constants} from "../../entities/Constants";
 import {BaseProvider} from "../base/base";
 import {LoggerProvider} from "../logger/logger";
+import {ApiProvider} from "../api/api";
+import {UtilProvider} from "../util/util";
 
 declare let window: any;
 
@@ -11,6 +13,7 @@ export class HeaderProvider extends BaseProvider {
 
   constructor(private alert: AlertController,
               private logger: LoggerProvider,
+              private util: UtilProvider,
               private platform: Platform) {
     super();
   }
@@ -53,7 +56,12 @@ export class HeaderProvider extends BaseProvider {
       let serverVersiyon = localStorage.getItem(Constants.VERSIYON.SERVER[item]);
       let clientVersiyon = localStorage.getItem(Constants.VERSIYON.CLIENT[item]);
 
-      if ((serverVersiyon == clientVersiyon) && serverVersiyon != "-1") {
+      if (this.util.isNotEmpty(serverVersiyon)) {
+        if ((serverVersiyon == clientVersiyon)) {
+          guncellemeSayisi -= 1;
+        }
+
+      } else if ((serverVersiyon == clientVersiyon) && serverVersiyon != "-1") {
         guncellemeSayisi -= 1;
       }
     }

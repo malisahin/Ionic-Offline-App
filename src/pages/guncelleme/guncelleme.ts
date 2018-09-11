@@ -4,23 +4,23 @@
  */
 
 
-import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-import { UrunProvider } from '../../providers/urun/urun';
-import { UrunAnaGrpProvider } from '../../providers/urun-ana-grp/urun-ana-grp';
-import { UrunIscilikProvider } from '../../providers/urun-iscilik/urun-iscilik';
-import { UrunMalzemeProvider } from '../../providers/urun-malzeme/urun-malzeme';
-import { FiyatProvider } from '../../providers/fiyat/fiyat';
-import { IslemArizaIscilikProvider } from '../../providers/islem-ariza-iscilik/islem-ariza-iscilik';
-import { Constants } from '../../entities/Constants';
-import { AdresProvider } from '../../providers/adres/adres';
-import { LoggerProvider } from '../../providers/logger/logger';
-import { UtilProvider } from '../../providers/util/util';
-import { HeaderComponent } from "../../components/header/header";
-import { VersiyonProvider } from "../../providers/versiyon/versiyon";
-import { TasksProvider } from "../../providers/tasks/tasks";
-import { EntityUtil } from '../../entities/EntityUtil';
-import { ThemeProvider } from '../../providers/theme/theme';
+import {Component, ViewChild} from '@angular/core';
+import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
+import {UrunProvider} from '../../providers/urun/urun';
+import {UrunAnaGrpProvider} from '../../providers/urun-ana-grp/urun-ana-grp';
+import {UrunIscilikProvider} from '../../providers/urun-iscilik/urun-iscilik';
+import {UrunMalzemeProvider} from '../../providers/urun-malzeme/urun-malzeme';
+import {FiyatProvider} from '../../providers/fiyat/fiyat';
+import {IslemArizaIscilikProvider} from '../../providers/islem-ariza-iscilik/islem-ariza-iscilik';
+import {Constants} from '../../entities/Constants';
+import {AdresProvider} from '../../providers/adres/adres';
+import {LoggerProvider} from '../../providers/logger/logger';
+import {UtilProvider} from '../../providers/util/util';
+import {HeaderComponent} from "../../components/header/header";
+import {VersiyonProvider} from "../../providers/versiyon/versiyon";
+import {TasksProvider} from "../../providers/tasks/tasks";
+import {EntityUtil} from '../../entities/EntityUtil';
+import {ThemeProvider} from '../../providers/theme/theme';
 
 
 @IonicPage()
@@ -55,19 +55,19 @@ export class GuncellemePage {
   @ViewChild("header") header: HeaderComponent;
 
   constructor(public navCtrl: NavController,
-    public navParams: NavParams,
-    private urunProvider: UrunProvider,
-    private urunAnaGrpProvider: UrunAnaGrpProvider,
-    private urunIscilikProvider: UrunIscilikProvider,
-    private urunMalzemeProvider: UrunMalzemeProvider,
-    private islemArizaIscilikProvider: IslemArizaIscilikProvider,
-    private fiyatProvider: FiyatProvider,
-    private adresProvider: AdresProvider,
-    private logger: LoggerProvider,
-    private versiyonProvider: VersiyonProvider,
-    private tasks: TasksProvider,
-    private util: UtilProvider,
-    private themeProvider: ThemeProvider) {
+              public navParams: NavParams,
+              private urunProvider: UrunProvider,
+              private urunAnaGrpProvider: UrunAnaGrpProvider,
+              private urunIscilikProvider: UrunIscilikProvider,
+              private urunMalzemeProvider: UrunMalzemeProvider,
+              private islemArizaIscilikProvider: IslemArizaIscilikProvider,
+              private fiyatProvider: FiyatProvider,
+              private adresProvider: AdresProvider,
+              private logger: LoggerProvider,
+              private versiyonProvider: VersiyonProvider,
+              private tasks: TasksProvider,
+              private util: UtilProvider,
+              private themeProvider: ThemeProvider) {
 
     this.colors = Constants.COLORS;
     this.icons = Constants.ICONS;
@@ -348,15 +348,29 @@ export class GuncellemePage {
     let clientVersiyon = localStorage.getItem(Constants.VERSIYON.CLIENT[type]);
     let serverVersiyon = localStorage.getItem(Constants.VERSIYON.SERVER[type]);
     let gelenVeri = localStorage.getItem(Constants.GELEN_VERI[type]);
-    this.logger.info({ mes: "Kayıtlı Miktar ==> " + type + " ==> " + localStorage.getItem(Constants.GELEN_VERI[type]), valid: false });
-    this.logger.info({ mes: "type ==> " + type + "; Constants.GELEN_VERI[type] ==> " + Constants.GELEN_VERI[type], valid: false });
+    this.logger.info({
+      mes: "Kayıtlı Miktar ==> " + type + " ==> " + localStorage.getItem(Constants.GELEN_VERI[type]),
+      valid: false
+    });
+    this.logger.info({
+      mes: "type ==> " + type + "; Constants.GELEN_VERI[type] ==> " + Constants.GELEN_VERI[type],
+      valid: false
+    });
 
-    if (serverVersiyon == '-1' || clientVersiyon != serverVersiyon) {
-      Constants.COLORS[type] = "notDownloaded";
-      Constants.ICONS[type] = "download";
-    } else {
+
+    if (this.util.isNotEmpty(serverVersiyon)) {
+      if ((serverVersiyon == clientVersiyon)) {
+        Constants.COLORS[type] = "downloaded";
+        Constants.ICONS[type] = "done-all";
+      }
+
+    } else if ((serverVersiyon == clientVersiyon) && serverVersiyon != "-1") {
+
       Constants.COLORS[type] = "downloaded";
       Constants.ICONS[type] = "done-all";
+    } else {
+      Constants.COLORS[type] = "notDownloaded";
+      Constants.ICONS[type] = "download";
     }
   }
 
@@ -400,7 +414,7 @@ export class GuncellemePage {
       this.tasks.killTasks();
       this.util.loaderStart(true);
 
-      localStorage.setItem(Constants.INDIRILEN_VERI,"");
+      localStorage.setItem(Constants.INDIRILEN_VERI, "");
     }
     this.counter += 1;
   }

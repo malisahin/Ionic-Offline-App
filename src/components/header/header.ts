@@ -66,23 +66,6 @@ export class HeaderComponent {
   }
 
   async loadMesajSayilari() {
-    /*  let duyuruSayisi = localStorage.getItem(Constants.COUNTS.DUYURULAR);
-
-      if (this.util.isEmpty(duyuruSayisi))
-        duyuruSayisi = "0";
-
-      this.duyuruSayisi = Number(duyuruSayisi);
-
-
-
-      let uyariSayisi = localStorage.getItem(Constants.COUNTS.UYARILAR);
-
-      if (this.util.isEmpty(uyariSayisi))
-        uyariSayisi = "0";
-
-      this.uyariSayisi = Number(uyariSayisi);
-      this.logger.info("Uyarı Sayısı " + this.uyariSayisi);
-      */
 
     this.duyuruSayisi = await this.mesajDao.loadDuyuruSayisi();
     this.logger.info("Duyuru Sayısı " + this.duyuruSayisi);

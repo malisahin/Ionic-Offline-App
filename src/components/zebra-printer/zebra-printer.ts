@@ -53,7 +53,7 @@ export class ZebraPrinterComponent {
   }
 
   fnError() {
-    this.util.error("Çıktı alınırken hata oluştu.");
+    this.util.error("Çıktı alınırken hata oluştu.Yazıcının bağlı olduğundan emin olunuz.");
   }
 
   androidList() {

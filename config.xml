@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.emar.teknisyen.offline" version="2.0.21" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.emar.teknisyen.offline" version="2.0.33" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Teknisyen Offline</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="mehmetalisahinogullari@gmail.com" href="http://ionicframework.com/">Mehmet Ali Şahinogulları</author>
@@ -21,12 +21,13 @@
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <platform name="ios">
+        <preference default="This app needs Calendar access to reach date of services" name="CALENDAR_USAGE_DESCRIPTION" overwrite="true" />
+        <config-file parent="NSCalendarsUsageDescription" target="*-Info.plist">
+            <string>$CALENDAR_USAGE_DESCRIPTION</string>
+        </config-file>
         <preference default="This app needs camera access" name="CAMERA_USAGE_DESCRIPTION" />
         <config-file parent="NSCameraUsageDescription" target="*-Info.plist">
             <string>$CAMERA_USAGE_DESCRIPTION</string>
-        </config-file>
-        <config-file parent="NSCalendarsUsageDescription" target="*-Info.plist">
-            <string>Uygulama içerisinde takvim kullanılmaktadır.</string>
         </config-file>
     </platform>
     <feature name="SQLitePlugin">
@@ -93,6 +94,7 @@
     <allow-navigation href="http://172.27.163.65:8000" />
     <allow-navigation href="http://10.10.10.189:8100" />
     <engine name="browser" spec="^5.0.4" />
+    <engine name="android" spec="6.3.0" />
     <engine name="ios" spec="4.5.5" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
