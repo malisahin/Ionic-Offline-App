@@ -1,12 +1,17 @@
 <ion-header>
-  <button ion-button round (click)="closeModal()">Iptal</button>
-  <ion-navbar no-border-bottom>
-    <ion-title>Yazdırmak için seçiniz.</ion-title>
+  <ion-navbar>
+    <ion-row class="modal-title">
+      <ion-col col-10 col-md-10>
+        <ion-title>Yazdırmak için seçiniz.</ion-title>
+      </ion-col>
+      <ion-col col-2 col-md-2>
+        <ion-icon name="close" (click)="closeModal()" class="pull-right close-icon"></ion-icon>
+      </ion-col>
+    </ion-row>
   </ion-navbar>
 
 </ion-header>
-
-<ion-content>
+<ion-content class="content" [ngStyle]="{ 'background-image': 'url(' + backGroundImage + ')' }">
   <!-- Generated template for the ListComponent component -->
   <div>
     <ion-list>

@@ -1,9 +1,10 @@
-import {Component} from '@angular/core';
-import {UtilProvider} from '../../providers/util/util';
-import {LoggerProvider} from '../../providers/logger/logger';
-import {NavParams} from 'ionic-angular';
-import {Platform} from 'ionic-angular';
-import {ViewController} from 'ionic-angular/navigation/view-controller';
+import { Component } from '@angular/core';
+import { UtilProvider } from '../../providers/util/util';
+import { LoggerProvider } from '../../providers/logger/logger';
+import { NavParams } from 'ionic-angular';
+import { Platform } from 'ionic-angular';
+import { ViewController } from 'ionic-angular/navigation/view-controller';
+import { ThemeProvider } from '../../providers/theme/theme';
 
 declare let window: any;
 
@@ -16,14 +17,17 @@ export class ZebraPrinterComponent {
   text: string;
   selectedPrinter: string;
   printerList: string[] = [];
+  backGroundImage: string;
 
 
   constructor(private util: UtilProvider,
-              private platform: Platform, private viewCtrl: ViewController,
-              private logger: LoggerProvider,
-              private navParams: NavParams) {
+    private platform: Platform, private viewCtrl: ViewController,
+    private logger: LoggerProvider,
+    private themeProvider: ThemeProvider,
+    private navParams: NavParams) {
 
     this.text = navParams.get("text");
+    this.backGroundImage = this.themeProvider.getBackgroundImage();
     this.logger.log(this.text);
     this.init();
   }

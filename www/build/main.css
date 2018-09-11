@@ -4004,12 +4004,25 @@ ion-icon::before {
   color: #001e33;
 }
 
+.green-theme .content .detay-list-sliding {
+  border-bottom: 1px solid #086b3a;
+  background: rgba(0, 104, 78, 0);
+}
+
+.green-theme .content .detay-list-item {
+  background-color: #2b8145;
+}
+
+.green-theme .content .item-ios.detail-list-header, .green-theme .content .item-md.detail-list-header {
+  background: #2b8145;
+}
+
 .green-theme .content .segment-button.activated, .green-theme .content .segment-button.segment-activated {
   -webkit-box-shadow: 5px 2px 15px 0px #00684e;
   box-shadow: 5px 2px 15px 0px #00684e;
 }
 
-.green-theme .content .chip-ios label {
+.green-theme .content .chip-ios label, .green-theme .content .chip-md label {
   color: #ffffff;
 }
 
@@ -4395,8 +4408,21 @@ ion-icon::before {
   color: #ffffff;
 }
 
-.blue-theme .login-content .label-ios {
+.blue-theme .login-content .label-ios, .blue-theme .login-content .label-md {
   color: #001e33;
+}
+
+.blue-theme .content .detay-list-sliding {
+  border-bottom: 1px solid #4497ad;
+  background: rgba(47, 138, 182, 0);
+}
+
+.blue-theme .content .detay-list-item {
+  background-color: #195884;
+}
+
+.blue-theme .content .item-ios.detail-list-header, .blue-theme .content .item-md.detail-list-header {
+  background: #195884;
 }
 
 .blue-theme .content .segment-button.activated, .blue-theme .content .segment-button.segment-activated {
@@ -4404,7 +4430,7 @@ ion-icon::before {
   box-shadow: 5px 2px 15px 0px #004154;
 }
 
-.blue-theme .content .chip-ios label, .blue-theme .content .chip-ios .label-md {
+.blue-theme .content .chip-ios label, .blue-theme .content .chip-ios .label-md, .blue-theme .content .chip-md label, .blue-theme .content .chip-md .label-md {
   color: #ffffff;
 }
 
@@ -4908,7 +4934,7 @@ ion-icon::before {
 }
 
 .header .toolbar-ios ion-title {
-  padding: 0;
+  padding: 45px;
 }
 
 .header .toolbar-background {
@@ -5106,11 +5132,43 @@ mesaj-detail .content .row-border {
   text-align: center;
 }
 
-.content .chip-ios {
+.content .detay-list-sliding .item-ios, .content .detay-list-sliding .item-md {
+  padding-left: 0;
+  padding-right: 0;
+  font-size: 13px;
+}
+
+.content .item-md.detail-list-header, .content .item-ios.detail-list-header {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.content .item-ios.detail-list-header .item-ios, .content .item-ios.detail-list-header .item-md, .content .item-md.detail-list-header .item-ios, .content .item-md.detail-list-header .item-md {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.content .detail-item-list {
+  margin-bottom: 0;
+}
+
+.content ion-item-sliding.active-slide .item, .content ion-item-sliding.active-slide .item.activated {
+  position: static;
+}
+
+.content .detay-list-sliding .label-md, .content .detail-list-header .label-md, .content .detay-list-sliding .label-ios, .content .detail-list-header .label-ios {
+  margin-top: 5px;
+}
+
+.content .detail-item .item-ios, .content .detail-item .item-md {
+  background: inherit;
+}
+
+.content .chip-ios, .content .chip-md {
   width: 50%;
 }
 
-.content .chip-ios label {
+.content .chip-ios label, .content .chip-md label {
   padding-top: 8px;
   padding-left: 15px;
 }
