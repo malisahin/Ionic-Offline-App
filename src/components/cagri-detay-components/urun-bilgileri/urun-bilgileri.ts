@@ -17,6 +17,7 @@ import {UrunProvider} from "../../../providers/urun/urun";
 import {Urun} from "../../../entities/urun";
 import {Pageable} from "../../../entities/Pageable";
 import {UtilPlugin} from "../../../providers/util-plugin/util-plugin";
+import {Profil} from "../../../entities/profil";
 
 @Component({
   selector: "urun-bilgileri",
@@ -155,7 +156,7 @@ export class UrunBilgileriComponent {
     sorguData.satisTarihi = this.util.dateFormat(new Date(this.hizmet.sattar), "YYYY-MM-DD");
     sorguData.mamSeriNo = this.hizmet.mamSeriNo;
     sorguData.islemTarihi = this.util.dateFormat(new Date(this.hizmet.islemTarihi), "YYYY-MM-DD");
-    sorguData.orgKod = "ECA";
+    sorguData.orgKod = Profil.getOrgKod();
 
     let processResults = this.garantiSorgulaValidation(sorguData);
 

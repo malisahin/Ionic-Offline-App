@@ -12,6 +12,7 @@ import { GarantiSorgu } from '../../entities/GarantiSorgu';
 import { GarantiSorguProvider } from '../../providers/garanti-sorgu/garanti-sorgu';
 import { User } from '../../entities/user';
 import { UtilPlugin } from "../../providers/util-plugin/util-plugin";
+import {Profil} from "../../entities/profil";
 
 
 @Component({
@@ -82,10 +83,10 @@ export class GarantiSorguComponent {
     let user = new User();
     sorguData.mamKod = this.urun.mamKod;
     sorguData.satisTarihi = this.faturaTarihi.toString();
-    sorguData.orgKod = "ECA";  //user.getOrgKod();
+    sorguData.orgKod = Profil.getOrgKod();  //user.getOrgKod();
     sorguData.mamSeriNo = this.barkodNo;
     sorguData.islemTarihi = this.faturaTarihi.toString(); // new Date().toString();
-    sorguData.serKod = "ECA_TEST"; //user.getSerKod();
+    sorguData.serKod = user.getSerKod(); //user.getSerKod();
     sorguData.dilKod = "T"; //user.getDilKod();
     this.garantiSorguProvider.fetchDataFromApi(sorguData);
   }
