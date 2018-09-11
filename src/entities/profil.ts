@@ -72,7 +72,7 @@ export class Profil {
 
   private static getEcaTestDomain() {
     let domain = new Domain();
-    domain.orgKod = Constants.ORG_KODS.BAY;
+    domain.orgKod = Constants.ORG_KODS.ECA;
     domain.kod = 'SECRET';
     domain.name = 'Development';
     domain.domainUrl = "http://sos.ecaservis.com.tr:7003";

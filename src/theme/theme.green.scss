@@ -136,12 +136,27 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
 
   .content {
 
+    .detay-list-sliding{
+      border-bottom: 1px solid $color-row-border;
+      background: $color-item;
+
+    }
+
+    .detay-list-item{
+      background-color: $color-button;
+    }
+
+    .item-ios.detail-list-header, .item-md.detail-list-header{
+      background: $color-button;
+    }
+
+
     .segment-button.activated, .segment-button.segment-activated{
       box-shadow: 5px 2px 15px 0px $color-dark;
     }
 
     .chip-ios{
-    
+
         label{
             color:$color-white;
         }
@@ -175,7 +190,7 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
         color:$color-white;
       }
     }
-  
+
     .toggle-ios.toggle-checked .toggle-icon, .toggle-md.toggle-checked .toggle-icon{
       background: $color-button;
     }
@@ -319,7 +334,7 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
     }
 
     .main-tabs {
-      
+
       .segment-md .segment-button {
         border: 1px solid $color-white;
         color:$color-white;
@@ -364,7 +379,7 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
     color:$color-white;
   }
 
-  
+
 //*------- START:FOOTER -----*//
 .footer {
   .item-ios, .item-md{
@@ -373,7 +388,7 @@ $color-card-box-dark:rgba(1, 75, 38, 0.75);
 
   background:$color-header;
   border-top:1px solid $color-row-border;
-  
+
   .toolbar-background-ios,  .toolbar-background-md {
     background-color: $color-button;
   }

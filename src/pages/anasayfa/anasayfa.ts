@@ -26,7 +26,7 @@ export class Anasayfa {
   uyariSayisi: number = 0;
   guncellemeSayisi: number = 10;
   backGroundImage: string;
-  logoPath: string = '/assets/images/eca-logo.png';
+  logoPath: string = '';
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,

@@ -20,6 +20,7 @@ $color-downloaded:#188aaf;
 .blue-theme {
 
 
+
   .spinner {
     background:rgba(25, 88, 132, 0.83);
   }
@@ -121,7 +122,7 @@ $color-downloaded:#188aaf;
       color:$color-white;
     }
 
-    .label-ios{
+    .label-ios, .label-md{
       color: $color-label;
     }
   }
@@ -130,6 +131,20 @@ $color-downloaded:#188aaf;
   //*------- START:CONTENT -----*//
 
   .content {
+
+    .detay-list-sliding{
+      border-bottom: 1px solid $color-row-border;
+      background: $color-item;
+
+    }
+
+    .detay-list-item{
+      background-color: $color-button;
+    }
+
+    .item-ios.detail-list-header, .item-md.detail-list-header{
+      background: $color-button;
+    }
 
     .segment-button.activated, .segment-button.segment-activated{
       box-shadow: 5px 2px 15px 0px $color-dark;
@@ -155,7 +170,7 @@ $color-downloaded:#188aaf;
 
     .radio-ios .radio-icon, .radio-md .radio-icon{
       border-color: $color-white;
-    } 
+    }
 
     .label-ios, .label-md{
       color:$color-white;
@@ -171,7 +186,7 @@ $color-downloaded:#188aaf;
         color:$color-white;
       }
     }
-  
+
     .toggle-ios.toggle-checked .toggle-icon, .toggle-md.toggle-checked .toggle-icon{
       background: $color-button;
     }
@@ -361,7 +376,7 @@ $color-downloaded:#188aaf;
     color:$color-white;
   }
 
-  
+
 //*------- START:FOOTER -----*//
 .footer {
 

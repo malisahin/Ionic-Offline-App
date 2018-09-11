@@ -79,7 +79,7 @@
       margin-top: 10px;
       width: 100%;
 
-    
+
     }
 
 
@@ -189,7 +189,7 @@
   }
 
   .toolbar-ios ion-title {
-    padding: 0;
+    padding: 45px;
   }
 
   .toolbar-background{
@@ -413,6 +413,44 @@ mesaj-detail .content .row-border{
 }
 
 .content {
+
+  .detay-list-sliding{
+
+    .item-ios,.item-md{
+      padding-left: 0;
+      padding-right: 0;
+      font-size: 13px;
+    }
+  }
+
+  .item-md.detail-list-header,.item-ios.detail-list-header{
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .item-ios.detail-list-header, .item-md.detail-list-header{
+    .item-ios, .item-md{
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .detail-item-list{
+    margin-bottom: 0;
+  }
+
+
+  ion-item-sliding.active-slide .item, ion-item-sliding.active-slide .item.activated{
+    position: static;
+  }
+
+  .detay-list-sliding .label-md, .detail-list-header .label-md, .detay-list-sliding .label-ios, .detail-list-header .label-ios{
+    margin-top: 5px;
+  }
+
+  .detail-item .item-ios, .detail-item .item-md{
+    background: inherit;
+  }
 
   .chip-ios{
     width:50%;
