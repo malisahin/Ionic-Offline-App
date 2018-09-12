@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-navbar>
+    <ion-row class="modal-title">
+      <ion-col col-10 col-md-10>
+        <ion-title>Sorgu Sonucu</ion-title>
+      </ion-col>
+      <ion-col col-2 col-md-2>
+        <ion-icon name="close" (click)="closeModal()" class="pull-right close-icon"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="content" [ngStyle]="{ 'background-image': 'url(' + backGroundImage + ')' }">
+
+  <ion-card class="card-box1">
+
+    <ion-row style="font-weight: bold" class="row-border">
+      <ion-col *ngIf="tip == 'URUN'" col-4 col-md-4 col-lg-4 col-xl-4 col-sm-4>
+        <ion-label>Ürün</ion-label>
+      </ion-col>
+      <ion-col *ngIf="tip == 'URUN'" col-8 col-md-8 col-lg-8 col-xl-8 col-sm-8 style=" white-space: normal;">
+        <ion-label>{{urun.mamKod}} - {{urun.mamAdi}}</ion-label>
+      </ion-col>
+
+      <ion-col *ngIf="tip == 'MLZ'" col-4 col-md-4 col-lg-4 col-xl-4 col-sm-4>
+        <ion-label>Malzeme</ion-label>
+      </ion-col>
+      <ion-col *ngIf="tip == 'MLZ'" col-8 col-md-8 col-lg-8 col-xl-8 col-sm-8 style=" white-space: normal;">
+        <ion-label>{{malzeme.mlzKod}} - {{malzeme.mlzAdi}}</ion-label>
+      </ion-col>
+
+    </ion-row>
+  </ion-card>
+
+
+  <ion-grid class="card-box1">
+    <!-- Tip Ürün ise Malzeme Listesi Görüntülenir. Ürün Bilgisi ise yukarıda yazılır.-->
+    <!-- Tip Malzeme ise Ürün Listesi Görüntülenir. Malzeme Bilgisi ise yukarıda yazılır.-->
+    <ion-row style="font-weight: bold" class="row-border">
+
+      <ion-col *ngIf="tip == 'MLZ'" col-8 col-md-8 col-lg-8 col-xl-8 col-sm-8 style=" white-space: normal;">
+        <ion-label style=" white-space: normal;">Ürün Adı</ion-label>
+      </ion-col>
+
+      <ion-col *ngIf="tip == 'URUN'" col-8 col-md-8 col-lg-8 col-xl-8 col-sm-8 style=" white-space: normal;">
+        <ion-label style=" white-space: normal;">Malzeme Adı</ion-label>
+      </ion-col>
+
+      <ion-col col-4 col-md-4 col-lg-4 col-xl-4 col-sm-4>
+        <ion-label style=" white-space: normal;">KDV'li Fiyat(Garanti Harici)</ion-label>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row *ngFor="let item of sonucList" class="row-border">
+      <ion-col *ngIf="tip == 'MLZ'" col-8 col-md-8 col-lg-8 col-xl-8 col-sm-8 style=" white-space: normal;">
+        <ion-label style=" white-space: normal;">{{item.mamKod}} - {{item.mamAdi}}</ion-label>
+      </ion-col>
+
+      <ion-col *ngIf="tip == 'URUN'" col-8 col-md-8 col-lg-8 col-xl-8 col-sm-8 style=" white-space: normal;">
+        <ion-label style=" white-space: normal;">{{item.mlzKod}} - {{item.mlzAdi}}</ion-label>
+      </ion-col>
+
+      <ion-col col-4 col-md-4 col-lg-4 col-xl-4 col-sm-4>
+        <ion-label>{{item.fiyat}}</ion-label>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+<ion-footer>
+</ion-footer>

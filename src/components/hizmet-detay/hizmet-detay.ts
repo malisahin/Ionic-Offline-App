@@ -190,7 +190,6 @@ export class HizmetDetayComponent {
     if (this.hizmetDetay.mlzIsc != "DGR") {
       let fiyatSorguParam = this.fiyatSorguParametreHazirla();
       let fiyatRes = await this.fiyatDao.findFiyat(fiyatSorguParam);
-      debugger;
       if (fiyatRes.rows.length > 0) {
         let item = fiyatRes.rows.item(0);
         //this.logger.table(item);

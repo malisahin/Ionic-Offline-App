@@ -18,7 +18,6 @@ export class UrunIscilik extends EntityUtil {
   maxIscMiktar: string = '';
 
   fillUrunIscilik(res: any): Promise<any> {
-    debugger;
     let parsedList = [];
     let urunIscilikList = res.message[0].liste;
     let urunIscilikVersiyon = res.message[0].versiyon;

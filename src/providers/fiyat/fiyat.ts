@@ -3,27 +3,27 @@
  * @email mehmetalisahinogullari@gmail.com
  */
 
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { ApiProvider } from '../api/api';
-import { Fiyat } from '../../entities/fiyat';
-import { FiyatDao } from '../fiyat-dao/fiyat-dao';
-import { TokenProvider } from "../token/token";
-import { Constants } from "../../entities/Constants";
-import { UtilProvider } from "../util/util";
-import { DetayKayit } from "../../entities/hizmet/DetayKayit";
-import { LoggerProvider } from "../logger/logger";
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {ApiProvider} from '../api/api';
+import {Fiyat} from '../../entities/fiyat';
+import {FiyatDao} from '../fiyat-dao/fiyat-dao';
+import {TokenProvider} from "../token/token";
+import {Constants} from "../../entities/Constants";
+import {UtilProvider} from "../util/util";
+import {DetayKayit} from "../../entities/hizmet/DetayKayit";
+import {LoggerProvider} from "../logger/logger";
 
 
 @Injectable()
 export class FiyatProvider {
 
   constructor(public http: HttpClient,
-    private api: ApiProvider,
-    private util: UtilProvider,
-    private fiyatDao: FiyatDao,
-    private logger: LoggerProvider,
-    private token: TokenProvider) {
+              private api: ApiProvider,
+              private util: UtilProvider,
+              private fiyatDao: FiyatDao,
+              private logger: LoggerProvider,
+              private token: TokenProvider) {
 
   }
 
@@ -51,7 +51,7 @@ export class FiyatProvider {
 
   async getFiyat(url, header, tip): Promise<any> {
 
-    let data = await this.http.get(url, { headers: header }).toPromise();
+    let data = await this.http.get(url, {headers: header}).toPromise();
     let fiyatlar = new Fiyat();
     let list = await fiyatlar.fillFiyat(data, tip);
     let item: any;
@@ -85,6 +85,18 @@ export class FiyatProvider {
         return null;
       }
     }
+  }
+
+  async getUrunMalzemeIscilikFiyatList(mamKod: string): Promise<any> {
+    return this.fiyatDao.getUrunMalzemeIscilikFiyatList(mamKod);
+  }
+
+  async getUrunMalzemeFiyatList(mamKod: string): Promise<any> {
+    return this.fiyatDao.getUrunMalzemeFiyatList(mamKod);
+  }
+
+  async getMalzemeIliskiliMalzemeUrunFiyatList(mlzKod: string): Promise<any> {
+    return this.fiyatDao.getMalzemeIliskiliMalzemeUrunFiyatList(mlzKod);
   }
 
 

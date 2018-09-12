@@ -8,6 +8,7 @@ import {Fiyat} from '../../entities/fiyat';
 import {DatabaseProvider} from '../database/database';
 import {UtilProvider} from '../util/util';
 import {Constants} from '../../entities/Constants';
+import {UrunMalzemeIscilikFiyat} from "../../entities/UrunMalzemeIscilikFiyat";
 
 @Injectable()
 export class FiyatDao {
@@ -99,4 +100,113 @@ export class FiyatDao {
     return this.baseDao.execute(query, []);
 
   }
+
+  async getUrunMalzemeIscilikFiyatList(mamKod: string): Promise<any> {
+    let fiyatList: UrunMalzemeIscilikFiyat[] = [];
+    let urunMalzemeFiyat: UrunMalzemeIscilikFiyat[] = await  this.getUrunMalzemeFiyatList(mamKod);
+    //let iscilikFiyat: UrunMalzemeIscilikFiyat[] = await  this.getUrunIscilikFiyatList(mamKod);
+    //fiyatList = urunMalzemeFiyat.concat(iscilikFiyat);
+
+    return new Promise<any>(resolve => resolve(urunMalzemeFiyat));
+  }
+
+  async getUrunMalzemeFiyatList(mamKod: string): Promise<any> {
+    let list: UrunMalzemeIscilikFiyat[] = [];
+    let query = await this.getUrunMalzemeIliskiliFiyatSorguQuery(mamKod);
+    let res = await this.baseDao.execute(query, []);
+    if (this.util.isNotEmptyRows(res)) {
+      for (let i = 0; i < res.rows.length; i++) {
+        list.push(res.rows.item(i));
+      }
+    }
+
+    return new Promise<any>(resolve => resolve(list));
+  }
+
+  async getUrunIscilikFiyatList(mamKod: string): Promise<any> {
+    let list: UrunMalzemeIscilikFiyat[] = [];
+    let query = await this.getUrunIscilikFiyatSorguQuery(mamKod);
+    let res = await this.baseDao.execute(query, []);
+    if (this.util.isNotEmptyRows(res)) {
+      for (let i = 0; i < res.rows.length; i++) {
+        list.push(res.rows.item(i));
+      }
+    }
+
+    return new Promise<any>(resolve => resolve(list));
+  }
+
+  private getUrunMalzemeIliskiliFiyatSorguQuery(mamKod: string): string {
+    return " SELECT mamTnm.mamAnaGrp mamAnaGrp," +
+      "    mamTnm.mamKod mamKod," +
+      "    mamTnm.mamAdi," +
+      "    fiyat.iscMlz," +
+      "    fiyat.fiyat," +
+      "    fiyat.gdfiyat as gdFiyat," +
+      "    mlzTnm.mlzKod," +
+      "    mlzTnm.mlzAdi" +
+      " FROM " +
+      "  OFF_FIYAT fiyat,   " +
+      "  OFF_MAM_MLZ_TNM mlzTnm,  " +
+      "  OFF_MAM_TNM mamTnm  " +
+      " WHERE 1=1   " +
+      "  AND fiyat.iscMlzKod = mlzTnm.mlzKod  " +
+      "  AND fiyat.mamKod = 'MLZ'   " +
+      "  AND mamTnm.mamKod = mlzTnm.mamKod  " +
+      " AND mamTnm.mamKod = '" + mamKod + "'";
+  }
+
+  getUrunIscilikFiyatSorguQuery(mamKod: string): string {
+    return "SELECT mamTnm.mamAnaGrp," +
+      "   mamTnm.mamKod," +
+      "   mamTnm.mamAdi," +
+      "   fiyat.iscMlz," +
+      "   fiyat.fiyat, " +
+      "   fiyat.gdfiyat as gdFiyat, " +
+      "   iscTnm.iscKod, " +
+      "   iscTnm.iscAdi " +
+      " FROM " +
+      "  OFF_FIYAT fiyat, " +
+      "  OFF_MAM_ISC_TNM iscTnm," +
+      "  OFF_MAM_TNM mamTnm" +
+      " WHERE 1=1 " +
+      "  AND fiyat.iscMlzKod = iscTnm.iscKod" +
+      "  AND fiyat.mamKod = iscTnm.mamKod" +
+      "  AND mamTnm.mamKod = iscTnm.mamKod" +
+      "  AND mamTnm.mamKod = '" + mamKod + "'";
+  }
+
+
+  async getMalzemeIliskiliMalzemeUrunFiyatList(mlzKod: string): Promise<any> {
+    let fiyatList: UrunMalzemeIscilikFiyat[] = [];
+    let query = this.getMalzemeUrunIliskiliFiyatSorguQuery(mlzKod);
+    let res = await this.baseDao.execute(query, []);
+    if (this.util.isNotEmptyRows(res)) {
+      for (let i = 0; i < res.rows.length; i++) {
+        fiyatList.push(res.rows.item(i));
+      }
+    }
+    return new Promise<any>(resolve => resolve(fiyatList));
+  }
+
+  getMalzemeUrunIliskiliFiyatSorguQuery(mlzKod: string) {
+    return " SELECT mamTnm.mamAnaGrp mamAnaGrp," +
+      "    mamTnm.mamKod mamKod, " +
+      "    mamTnm.mamAdi," +
+      "    fiyat.iscMlz," +
+      "    fiyat.fiyat, " +
+      "    fiyat.gdfiyat as gdFiyat, " +
+      "    mlzTnm.mlzKod, " +
+      "    mlzTnm.mlzAdi" +
+      " FROM " +
+      "  OFF_FIYAT fiyat, " +
+      "  OFF_MAM_MLZ_TNM mlzTnm," +
+      "  OFF_MAM_TNM mamTnm" +
+      " WHERE 1=1 " +
+      "  AND fiyat.iscMlzKod = mlzTnm.mlzKod" +
+      "  AND fiyat.mamKod = 'MLZ' " +
+      "  AND mamTnm.mamKod = mlzTnm.mamKod" +
+      "  AND mlzTnm.mlzKod = '" + mlzKod + "'";
+  }
+
 }

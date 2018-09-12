@@ -12,6 +12,8 @@ import { ZebraPrinterComponent } from "../../components/zebra-printer/zebra-prin
 import { MalzemeSearchComponent } from "../../components/malzeme-search/malzeme-search";
 import { AnketComponent } from "../../components/anket/anket";
 import { SpinnerComponent } from "../../components/spinner/spinner";
+import {UrunMalzemeIliskisiComponent} from "../../components/urun-malzeme-iliskisi/urun-malzeme-iliskisi";
+import {UrunMalzemeIliskisiSorguSonucComponent} from "../../components/urun-malzeme-iliskisi-sorgu-sonuc/urun-malzeme-iliskisi-sorgu-sonuc";
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { SpinnerComponent } from "../../components/spinner/spinner";
     ZebraPrinterComponent,
     MalzemeSearchComponent,
     AnketComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    UrunMalzemeIliskisiComponent,
+    UrunMalzemeIliskisiSorguSonucComponent
   ],
   imports: [
     IonicPageModule.forChild(HeaderComponent),
@@ -43,7 +47,9 @@ import { SpinnerComponent } from "../../components/spinner/spinner";
     ZebraPrinterComponent,
     MalzemeSearchComponent,
     AnketComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    UrunMalzemeIliskisiComponent,
+    UrunMalzemeIliskisiSorguSonucComponent
 
   ]
 })

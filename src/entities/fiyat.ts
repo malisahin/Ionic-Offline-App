@@ -15,6 +15,7 @@ export class Fiyat extends EntityUtil {
   gdFiyat: number = null;
   versiyon: string = null;
 
+
   fillFiyat(res, tip): Promise<any> {
     let parsedList = [];
     let fiyatList = res.message[0].liste;

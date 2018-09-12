@@ -2,17 +2,12 @@
  * @author malisahin
  * @email mehmetalisahinogullari@gmail.com
  */
-import { NgModule } from '@angular/core';
-import { MalzemeSearchComponent } from './malzeme-search/malzeme-search';
-import { AnketComponent } from './anket/anket';
+import {NgModule} from '@angular/core';
 
 @NgModule({
-  declarations: [
-
-  ],
+  declarations: [],
   imports: [],
-  exports: [
-  ]
+  exports: []
 })
 export class ComponentsModule {
 }

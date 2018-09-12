@@ -96,6 +96,8 @@ import {PipesModule} from "../pipes/pipes.module";
 import { BaseProvider } from '../providers/base/base';
 import { CacheModule } from "ionic-cache";
 import { CacheProvider } from '../providers/cache/cache';
+import {UrunMalzemeIliskisiComponent} from "../components/urun-malzeme-iliskisi/urun-malzeme-iliskisi";
+import {UrunMalzemeIliskisiSorguSonucComponent} from "../components/urun-malzeme-iliskisi-sorgu-sonuc/urun-malzeme-iliskisi-sorgu-sonuc";
 
 @NgModule({
   declarations: [
@@ -148,7 +150,9 @@ import { CacheProvider } from '../providers/cache/cache';
     UrunIscilikSearchComponent,
     MalzemeSearchComponent,
     AnketComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    UrunMalzemeIliskisiComponent,
+    UrunMalzemeIliskisiSorguSonucComponent
   ],
   providers: [
     Network,

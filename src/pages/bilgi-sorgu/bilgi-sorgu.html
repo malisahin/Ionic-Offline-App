@@ -21,6 +21,10 @@
         Fiyat Sorgu
       </ion-segment-button>
 
+      <ion-segment-button value="urunMalzemeSegment" class="seg-button">
+        Ürün Malzeme
+      </ion-segment-button>
+
     </ion-segment>
   </ion-toolbar>
 
@@ -32,6 +36,10 @@
 
     <div *ngSwitchCase="'fiyatSorguSegment'">
       <fiyat-sorgu></fiyat-sorgu>
+    </div>
+
+    <div *ngSwitchCase="'urunMalzemeSegment'">
+      <urun-malzeme-iliskisi></urun-malzeme-iliskisi>
     </div>
 
   </div>

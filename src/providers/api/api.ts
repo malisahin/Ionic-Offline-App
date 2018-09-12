@@ -60,7 +60,7 @@ export class ApiProvider {
   }
 
   downloadUrunUrl(first: number) {
-    let versiyon = localStorage.getItem(Constants.VERSIYON.CLIENT.ISCILIK_FIYAT);
+    let versiyon = localStorage.getItem(Constants.VERSIYON.CLIENT.URUN);
     versiyon = versiyon == null ? "-1" : versiyon;
     return this.urlPrefixOffline + versiyon + '/' + first + '/' + this.pageSize + '/urunler';
   }
